@@ -13,8 +13,8 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $admin = new User;
-        $admin->fname = 'Admin';
-        $admin->lname = 'Admin';
+        $admin->firstName = 'Admin';
+        $admin->lastName = 'Admin';
         $admin->email = 'admin@gmail.com';
        
          $admin->role = '0';
