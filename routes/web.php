@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
+
+
 Auth::routes();
 Route::get('/', 'FrontendController@index')->name('front.index');
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');

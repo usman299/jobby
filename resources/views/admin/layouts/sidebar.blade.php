@@ -9,10 +9,10 @@
 							<i class="flaticon-381-networking"></i>
 							<span class="nav-text"><!-- Dashboard --> Tableau de bord</span>
 						</a>
-                        
+
                     </li>
-                    
-                    
+
+
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-controls-3"></i>
 							<span class="nav-text"><!-- Category -->Catégorie</span>
@@ -20,7 +20,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('category.index')}}"><!-- Category -->Catégorie</a></li>
                             <li><a href="{{route('subcategory.index')}}"><!-- Sub Category --> Sous-catégorie</a></li>
-                            
+
                         </ul>
                     </li>
 
@@ -31,8 +31,8 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('applicant.index')}}"><!-- applicant -->Applicant</a></li>
                             <li><a href="{{route('jobber.index')}}"><!--  jobber --> Jobber</a></li>
-                            
-                    
+
+
                 </ul>
 
                 <li><a href="{{route('skils.index')}}" class="ai-icon" aria-expanded="false">
@@ -40,8 +40,14 @@
                             <span class="nav-text">Compétences</span>
                         </a>
                     </li>
+                    <li><a href="{{route('skils.index')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-notepad"></i>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">  Paramètre d'app</span>
+                        </a>
+                    </li>
                    <!--  <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            
+
                             <i class="flaticon-381-settings-2"></i>
                             <span class="nav-text">Forms</span>
                         </a>
