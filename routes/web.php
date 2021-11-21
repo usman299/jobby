@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/', 'FrontendController@index')->name('front.index');
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Admin\UsersController@logout')->name('logout');
 
 
 // START ROUTES CATEGORY
@@ -70,6 +71,11 @@ Route::get('/skils/edit/{id}', 'Admin\SkilsController@edit')->name('skils.edit')
 Route::post('/skils/update/{id}', 'Admin\SkilsController@update')->name('skils.update');
  Route::get('/fetch/subcategory/{id}', 'Admin\SkilsController@fetchSubcategory');
 
+
+//  APP SETTING
+Route::get('/setting/create', 'Admin\AppSettingController@create')->name('setting.create');
+Route::post('/setting/store', 'Admin\AppSettingController@store')->name('setting.store');
+//  END APP SETTING
 
 //SKILS
 

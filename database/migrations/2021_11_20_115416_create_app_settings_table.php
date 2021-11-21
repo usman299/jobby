@@ -15,6 +15,14 @@ class CreateAppSettingsTable extends Migration
     {
         Schema::create('app_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('mainScreen')->nullable();
+            $table->string('appLogo')->nullable();
+            $table->string('jooberIntroScreen1')->nullable();
+            $table->string('jooberIntroScreen2')->nullable();
+            $table->string('jooberIntroScreen3')->nullable();
+            $table->string('applicantIntroScreen1')->nullable();
+            $table->string('applicantIntroScreen2')->nullable();
+            $table->string('applicantIntroScreen3')->nullable();
             $table->timestamps();
         });
     }

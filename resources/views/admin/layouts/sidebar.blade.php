@@ -40,7 +40,7 @@
                             <span class="nav-text">Compétences</span>
                         </a>
                     </li>
-                    <li><a href="{{route('skils.index')}}" class="ai-icon" aria-expanded="false">
+                    <li><a href="{{route('setting.create')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-notepad"></i>
                             <!-- APP SETTING -->
                             <span class="nav-text">  Paramètre d'app</span>
