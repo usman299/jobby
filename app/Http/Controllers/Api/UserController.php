@@ -15,7 +15,7 @@ public $successStatus = 200;
      * @return \Illuminate\Http\Response
      */
     public function login(){
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+        if(Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])){
             $user = Auth::user();
             $success['id'] =  $user->id;
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
