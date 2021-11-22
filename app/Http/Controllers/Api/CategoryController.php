@@ -14,9 +14,7 @@ class CategoryController extends Controller
 {
     public function geCategory()
     {
-        $categories = Category::all();
-        $data = CategoryCollection::collection($categories);
-        return response()->json(CategoryCollection::collection($data));
+        
         
         $category = Category::all();
         if($category->isEmpty()){

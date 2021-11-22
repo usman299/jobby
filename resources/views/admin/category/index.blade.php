@@ -45,7 +45,8 @@
                                                 
                                                 <td>{{$row->id}}</td>
                                                 <td>{{$row->title}}</td>
-                                                <td>{{$row->backColor}}</td>
+                                                <td> <input type="color" value="{{$row->backColor}}" disabled></td>
+                                                 
                                                 <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1" 
                                 data-title="{{$row->title}}"><img class="rounded-circle" width="50" src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
 

@@ -54,4 +54,8 @@ Route::post('/contract', 'Api\ContractController@contractPostStore')->name('cont
 
 //END CONTRACT
 
+// START APPSETTING
+Route::get('app/settings', 'Api\AppSettingController@getAppSetting')->name('app.settings');
+// END START APPSETTING
+
 });
