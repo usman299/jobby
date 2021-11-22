@@ -14,14 +14,21 @@ class CategoryController extends Controller
 {
     public function geCategory()
     {
+        $categories = Category::all();
+        $data = CategoryCollection::collection($categories);
+        return response()->json(CategoryCollection::collection($data));
+        
         $category = Category::all();
         if($category->isEmpty()){
-            return response()->json(['error' => 'Category not Found', 'success' => false], 404);
+           
+            $success['message'] = 'Category not Found';
+            $success['success'] = false;
+            return response()->json( $success, 404);
 
         }
         else{
              $data =   CategoryCollection::collection($category);
-            return response()->json(['data' => $data ,'success' => true],200);
+            return response()->json($data,200);
            
         }
        
@@ -33,13 +40,16 @@ class CategoryController extends Controller
     {
        $subcategory = SubCategory::where('category_id','=',$category_id)->get();
         if($subcategory->isEmpty()){
-            return response()->json(['error' => 'SubCategory not Found', 'success' => false], 404);
+            
+            $success['message'] = 'SubCategory not Found';
+            $success['success'] = false;
+            return response()->json( $success, 404);
 
         }
         else{
             
             $data =   SubCategoryCollection::collection($subcategory);
-            return response()->json(['data' => $data ,'success' => true],200);
+            return response()->json($data,200);
             
         }
     }

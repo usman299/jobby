@@ -18,7 +18,8 @@ class CategoryCollection extends JsonResource
          return [
             'id' => $this->id,
             'title'=> $this->title,
-            'image'=> $this->img,
+            'icon'=> $this->img,
+            'backGroudColor'=> $this->backColor,
             
         ];
     }

@@ -42,6 +42,12 @@ class CategoryController extends Controller
        $category = new Category();
 
        $category->title = $request->title;
+       if($category->backColor != '#ffffff'){
+       $category->backColor = $request->backColor;}
+       else{
+        toastr()->info('White Color Select');
+        return back();
+       }
 
        if ($request->hasfile('img')) {
 

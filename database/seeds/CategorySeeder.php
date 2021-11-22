@@ -14,6 +14,7 @@ class CategorySeeder extends Seeder
     {
         $category = new Category;
         $category->title = 'Category1';
+        $category->backColor = '#ff0000';
         $category->img = 'admin/avatar.jpg';
         $category->save();
     }
