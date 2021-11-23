@@ -13,13 +13,16 @@ class SkilsController extends Controller
 {
     public function CategoryRelatedSkils($category_id,$subcategory_id)
     {
+        
         $skils = Skils::where('category_id', '=', $category_id)->where('subcategory_id','=',$subcategory_id)->get();
 
         if ($skils->isEmpty()) {
-            return response()->json(['error' => 'Skils  not Found', 'success' => false], 404);
+            $success['message'] = 'Skils  not Found';
+            $success['success'] = false;
+            return response()->json( $success, 404);
         } else {
                 $data = CategoryRelatedSkilsCollection::collection($skils);
-            return response()->json(['data' => $data ,'success' => true],200);
+            return response()->json($data,200);
             
         }
     }

@@ -18,6 +18,8 @@ class CategoryRelatedSkilsCollection extends JsonResource
          return [
             'id' => $this->id,
             'title'=> $this->title,
+            'category_id'=> $this->category_id,
+            'subcategory_id'=> $this->subcategory_id,
             
         ];
     }
