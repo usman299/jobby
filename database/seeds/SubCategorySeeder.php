@@ -14,7 +14,8 @@ class SubCategorySeeder extends Seeder
         $subCategory = new SubCategory;
         $subCategory->title = 'SubCategory';
         $subCategory->category_id = 1;
-        
+        $subCategory->backColor = '#ff0000';
+        $subCategory->img = 'admin/avatar.jpg';
         $subCategory->save();
     }
 }

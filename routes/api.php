@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
+// START APPSETTING
+Route::get('app/settings', 'Api\AppSettingController@getAppSetting')->name('app.settings');
+// END START APPSETTING
 
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'Api\UserController@details');
@@ -54,8 +57,6 @@ Route::post('/contract', 'Api\ContractController@contractPostStore')->name('cont
 
 //END CONTRACT
 
-// START APPSETTING
-Route::get('app/settings', 'Api\AppSettingController@getAppSetting')->name('app.settings');
-// END START APPSETTING
+
 
 });

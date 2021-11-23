@@ -34,7 +34,7 @@
                                                 <th><!-- id -->identifiant</th>
                                                 <th><!-- category -->Catégorie</th>
                                                 <th><!-- title -->Titre</th>
-                                                
+                                                <th>Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -48,7 +48,13 @@
                                                
                                                <td>{{$category->title }}</td>
                                                 <td>{{$row->title}}</td>
+                                                <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1" 
+                                data-title="{{$row->title}}"><img class="rounded-circle" width="50" src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
+
+
+                                                
                                                 <td>
+                                                <td> <input type="color" value="{{$row->backColor}}" disabled></td>
 													<div class="d-flex">
 														<!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->
 														

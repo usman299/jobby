@@ -47,7 +47,20 @@ class SubCategoryController extends Controller
 
        $subcategory->title = $request->title;
        $subcategory->category_id = $request->category_id;
+       if($subcategory->backColor != '#ffffff'){
+        $subcategory->backColor = $request->backColor;}
+        else{
+         toastr()->info('White Color Select');
+         return back();
+        }
+       if ($request->hasfile('img')) {
 
+        $image1 = $request->file('img');
+        $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
+        $destinationPath = 'admin/images/subcategory/';
+        $image1->move($destinationPath, $name);
+        $category->img = 'admin/images/subcategory/' . $name;
+    }
        
 
        if($subcategory->save()){
