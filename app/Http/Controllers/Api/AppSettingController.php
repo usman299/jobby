@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\AppSetting\AppSettingResource;
+use App\Http\Resources\AppSetting\SliderGaleryCollection;
 use App\AppSetting;
+use App\SliderGalery;
 
 class AppSettingController extends Controller
 {
@@ -23,6 +25,26 @@ class AppSettingController extends Controller
         }
         else{
              $data =   AppSettingResource::collection($appSetting);
+            return response()->json($data,200);
+           
+        }
+       
+    }
+
+    public function sliderGalery($role)
+    {
+       
+        
+        $appSliderGalery = SliderGalery::where('userRole','=',$role)->get();
+        if($appSliderGalery->isEmpty()){
+           
+            $success['message'] = 'appSliderGalery  not Found';
+            $success['success'] = false;
+            return response()->json( $success, 404);
+
+        }
+        else{
+             $data =   SliderGaleryCollection::collection($appSliderGalery);
             return response()->json($data,200);
            
         }

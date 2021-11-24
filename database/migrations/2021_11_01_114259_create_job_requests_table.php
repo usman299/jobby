@@ -17,7 +17,8 @@ class CreateJobRequestsTable extends Migration
             $table->id();
             $table->string('applicant_id')->nullable();
             $table->string('category_id')->nullable();
-            $table->string('subcategory_id')->nullable();   
+            $table->string('subcategory_id')->nullable(); 
+            $table->string('skils')->nullable();   
             $table->longtext('title')->nullable();
             $table->string('estimate_time')->nullable();
             $table->string('max_price')->nullable();

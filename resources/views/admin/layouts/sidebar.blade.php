@@ -46,6 +46,12 @@
                             <span class="nav-text">  Paramètre d'app</span>
                         </a>
                     </li>
+                    <li><a href="{{route('slider.create')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-notepad"></i>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">  Glissière</span>
+                        </a>
+                    </li>
                    <!--  <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 
                             <i class="flaticon-381-settings-2"></i>

@@ -37,7 +37,15 @@ Route::get('/skils/{category_id}/{subcategory_id}', 'Api\SkilsController@Categor
 Route::post('/job/request', 'Api\JobRequestController@jobRequestStore');
 Route::get('/all/active/job', 'Api\JobRequestController@activeJobRequestGet');
 Route::get('/all/close/job', 'Api\JobRequestController@closeJobRequestGet');
+Route::get('/edit/job/request/{id}', 'Api\JobRequestController@editJobRequestGet');
+Route::post('/job/request/update/{id}', 'Api\JobRequestController@jobRequestUpdate');
+Route::get('/delete/job/request/{id}', 'Api\JobRequestController@deleteJobRequestGet');
+Route::get('/status/job/request/{id}/{status}', 'Api\JobRequestController@updateStatusJobRequest');
 // ENDJOBREQUEST
+
+//Slider get
+Route::get('/slider/galery/{role}', 'Api\AppSettingController@sliderGalery');
+//End Slider get
 
 
 // END ROUTES CATEGORY

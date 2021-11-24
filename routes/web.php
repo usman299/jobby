@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/', 'FrontendController@index')->name('front.index');
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/logout', 'Admin\UsersController@logout')->name('logout');
+
 
 
 // START ROUTES CATEGORY
@@ -76,6 +76,12 @@ Route::post('/skils/update/{id}', 'Admin\SkilsController@update')->name('skils.u
 Route::get('/setting/create', 'Admin\AppSettingController@create')->name('setting.create');
 Route::post('/setting/store', 'Admin\AppSettingController@store')->name('setting.store');
 //  END APP SETTING
+
+//Slider Create
+Route::get('/slider/create', 'Admin\AppSettingController@sliderCreate')->name('slider.create');
+Route::post('/slider/store', 'Admin\AppSettingController@sliderStore')->name('slider.store');
+
+//END SLIDER Create
 
 //SKILS
 

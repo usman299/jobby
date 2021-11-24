@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\AppSetting;
+use App\SliderGalery;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -622,5 +623,26 @@ if($request->hasfile('applicantIntroScreen2')==false){
     public function destroy($id)
     {
         //
+    }
+    public function sliderCreate()
+    {
+        return view('admin.slider.create');
+    }
+    public function sliderStore(Request $request)
+    {     
+       $slider = new SliderGalery();
+
+       $slider->userRole = $request->userRole;
+        if ($request->hasfile('img')) {
+
+            $image1 = $request->file('img');
+            $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'admin/images/';
+            $image1->move($destinationPath, $name);
+            $slider->img = 'admin/images/' . $name;
+        }
+        $slider->save();
+        toastr()->success('Added Slider Galery ');
+          return back();
     }
 }

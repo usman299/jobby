@@ -8,7 +8,8 @@ class JobRequest extends Model
 {
 
 	protected $fillable = [
-        'applicant_id', 'category_id','subcategory_id','title','estimate_time','max_price','min_price','description','file','status',
+        'applicant_id', 'category_id','skils','subcategory_id','title','estimate_time','max_price',
+        'min_price','description','file','status',
     ];
 
 }
