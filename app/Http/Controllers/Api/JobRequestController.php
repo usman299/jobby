@@ -69,10 +69,12 @@ class JobRequestController extends Controller
                       }
                   else{
 
-                       
+                         $success['success'] = true;
+                        
                           $data =   JobRequestActiveCollection::collection($jobRequest);
+                          $success['data'] = $data;
 
-                           return response()->json($data,200);
+                           return response()->json($success ,200);
                        }
                    }
             
