@@ -26,7 +26,7 @@ class JobRequestController extends Controller
                      
                    $input = $request->all(); 
                    $input['applicant_id']= Auth::guard('api')->user()->id;
-                   $input['skils'] = implode(',', $request->skils);
+                   
                    if ($request->hasfile('file')) {
 
                     $image1 = $request->file('file');
