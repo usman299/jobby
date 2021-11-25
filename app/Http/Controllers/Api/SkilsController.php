@@ -19,7 +19,7 @@ class SkilsController extends Controller
         if ($skils->isEmpty()) {
             $success['message'] = 'Skils  not Found';
             $success['success'] = false;
-            return response()->json( $success, 404);
+            return response()->json( $success, 200);
         } else {
                 $data = CategoryRelatedSkilsCollection::collection($skils);
             return response()->json($data,200);

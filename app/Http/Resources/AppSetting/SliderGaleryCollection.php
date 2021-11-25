@@ -15,7 +15,7 @@ class SliderGaleryCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'role' => $this->userRole,
+            
             'sliderImage'=> $this->img,
             
             

@@ -27,7 +27,7 @@ public $successStatus = 200;
         else{
             $success['message'] = 'SOme thing Wrong';
             $success['success'] = false;
-            return response()->json( $success, 401);
+            return response()->json( $success, 200);
         }
     }
 /**
@@ -55,7 +55,7 @@ public $successStatus = 200;
                     if($email != null){
                         $success['message'] = 'Your Email Exit Already';
                         $success['success'] = false;
-                        return response()->json( $success, 401);
+                        return response()->json( $success, 200);
                     }
                     else{
                     $user = User::create($input);

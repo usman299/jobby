@@ -65,7 +65,7 @@ class JobRequestController extends Controller
                  if($jobRequest->isEmpty()){
                     $success['message'] = 'jobRequest  not Found';
                     $success['success'] = false;
-                    return response()->json( $success, 404);
+                    return response()->json( $success, 200);
                       }
                   else{
 
@@ -94,7 +94,7 @@ public function closeJobRequestGet()
                  if($jobRequest->isEmpty()){
                     $success['message'] = 'Close jobRequest   not Found';
                     $success['success'] = false;
-                    return response()->json( $success, 404);
+                    return response()->json( $success, 200);
                       }
                   else{
             
@@ -121,7 +121,7 @@ public function closeJobRequestGet()
                  if($jobRequest->isEmpty()){
                     $success['message'] = ' jobRequest   not Found';
                     $success['success'] = false;
-                    return response()->json( $success, 404);
+                    return response()->json( $success, 200);
                       }
                   else{
             
@@ -188,7 +188,7 @@ public function closeJobRequestGet()
                 if(!$jobRequest){
                    $success['message'] = ' jobRequest   not Found';
                    $success['success'] = false;
-                   return response()->json( $success, 404);
+                   return response()->json( $success, 200);
                      }
                  else{
                          $jobRequest->delete();
@@ -205,7 +205,7 @@ public function closeJobRequestGet()
                    return response()->json( $success, 401);
                      }
   }
-  public function updateStatusJobRequest($id,$status) 
+  public function updateStatusJobRequest($id) 
   {      
       
        if (Auth::guard('api')->check()) {
@@ -216,23 +216,28 @@ public function closeJobRequestGet()
                if(!$jobRequest){
                   $success['message'] = ' jobRequest   not Found';
                   $success['success'] = false;
-                  return response()->json( $success, 404);
+                  return response()->json( $success, 200);
                     }
                 else{  
-                    if($status==$jobRequest->status){
-                        $success['message'] = ' jobRequest Status Same';
-                        $success['success'] = false;
-                        return response()->json( $success, 404); 
-                    }
-                    
-                        $jobRequest->status= $status;
+                   
+                    if($jobRequest->status==1){
+                        $jobRequest->status= 0;
                         $jobRequest->update();
-                        $data['message']='Job Status Update';
+                        $data['message']='Job Request Close';
                         $data['status']=true;
 
                          return response()->json($data,200);
                      }
-                 }
+                     else{
+                        $jobRequest->status= 1;
+                        $jobRequest->update();
+                        $data['message']='Job Request Active';
+                        $data['status']=true;
+
+                         return response()->json($data,200);
+
+                     }
+                 }}
           
                  else {
                   $success['message'] = 'User not authorized';

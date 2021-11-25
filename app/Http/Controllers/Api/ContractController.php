@@ -44,7 +44,7 @@ class ContractController extends Controller
             }
   
          else {
-            return response()->json(['error' => 'User not authorized', 'success' => false], 401);
+            return response()->json(['error' => 'User not authorized', 'success' => false], 200);
               }
    }
 

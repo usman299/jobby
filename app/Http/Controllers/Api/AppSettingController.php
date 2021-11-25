@@ -20,7 +20,7 @@ class AppSettingController extends Controller
            
             $success['message'] = 'AppSetting  Screens not Found';
             $success['success'] = false;
-            return response()->json( $success, 404);
+            return response()->json( $success, 200);
 
         }
         else{
@@ -40,7 +40,7 @@ class AppSettingController extends Controller
            
             $success['message'] = 'appSliderGalery  not Found';
             $success['success'] = false;
-            return response()->json( $success, 404);
+            return response()->json( $success, 200);
 
         }
         else{

@@ -21,7 +21,7 @@ class CategoryController extends Controller
            
             $success['message'] = 'Category not Found';
             $success['success'] = false;
-            return response()->json( $success, 404);
+            return response()->json( $success, 200);
 
         }
         else{
@@ -41,7 +41,7 @@ class CategoryController extends Controller
             
             $success['message'] = 'SubCategory not Found';
             $success['success'] = false;
-            return response()->json( $success, 404);
+            return response()->json( $success, 200);
 
         }
         else{
