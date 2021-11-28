@@ -26,6 +26,7 @@ class JobRequestController extends Controller
                      
                    $input = $request->all(); 
                    $input['applicant_id']= Auth::guard('api')->user()->id;
+                   $input['skils']= implode(',', $request->skils);
                    
                    if ($request->hasfile('file')) {
 
@@ -54,14 +55,14 @@ class JobRequestController extends Controller
               }
    }
 
-   public function activeJobRequestGet() 
+   public function allJobRequestGet() 
     {      
     	
          if (Auth::guard('api')->check()) {
 	            
                      
                  $applicant_id = Auth::guard('api')->user()->id;
-                 $jobRequest = JobRequest::where('applicant_id','=',$applicant_id)->where('status','=','1')->get();
+                 $jobRequest = JobRequest::where('applicant_id','=',$applicant_id)->get();
                  if($jobRequest->isEmpty()){
                     $success['message'] = 'jobRequest  not Found';
                     $success['success'] = false;

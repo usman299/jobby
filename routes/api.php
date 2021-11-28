@@ -35,7 +35,7 @@ Route::get('/skils/{category_id}/{subcategory_id}', 'Api\SkilsController@Categor
 
 // JOBREQUEST
 Route::post('/job/request', 'Api\JobRequestController@jobRequestStore');
-Route::get('/all/active/job', 'Api\JobRequestController@activeJobRequestGet');
+Route::get('/all/jobRequest', 'Api\JobRequestController@allJobRequestGet');
 Route::get('/all/close/job', 'Api\JobRequestController@closeJobRequestGet');
 Route::get('/edit/job/request/{id}', 'Api\JobRequestController@editJobRequestGet');
 Route::post('/job/request/update/{id}', 'Api\JobRequestController@jobRequestUpdate');

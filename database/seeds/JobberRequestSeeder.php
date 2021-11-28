@@ -12,17 +12,198 @@ class JobberRequestSeeder extends Seeder
      */
     public function run()
     {  
-        $jobRequest = new JobRequest;
-        $jobRequest->applicant_id = 2;
-        $jobRequest->category_id = 1;
-        $jobRequest->subcategory_id = 1;
-        $jobRequest->skils = 'Skils';
-        $jobRequest->title = 'JobRequestTitle';
-        $jobRequest->estimate_time = '4h';
-        $jobRequest->max_price = 50;
-        $jobRequest->min_price = 60;
-        $jobRequest->description = 'JobRequestTitlefilefile';
-        $jobRequest->file = 'admin/avatar.jpg';
-        $jobRequest->save();
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "1",
+            'subcategory_id' => "1",
+            'skils' => implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "1",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "2",
+            'subcategory_id' => "1",
+            'skils' => implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "2",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "3",
+            'subcategory_id' => "1",
+            'skils' =>  implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "3",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "4",
+            'subcategory_id' => "1",
+            'skils' => implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "4",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "5",
+            'subcategory_id' => "1",
+            'skils' =>  implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "5",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "6",
+            'subcategory_id' => "1",
+            'skils' =>  implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "6",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "7",
+            'subcategory_id' => "1",
+            'skils' =>  implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "7",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "8",
+            'subcategory_id' => "1",
+            'skils' =>  implode(',', ['Compétences1','Compétences2']),
+            'title' => "Demande d'emploi 1",
+            'estimate_time' => "4h",
+            'max_price' => 70,
+            'min_price' => 60,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        JobRequest::create([
+            'applicant_id' => "2",
+            'category_id' => "8",
+            'subcategory_id' => "2",
+            'skils' => implode(',', ['Compétences1','Compétences2','Compétences3']),
+            'title' => "Demande d'emploi 2",
+            'estimate_time' => "3h",
+            'max_price' => 90,
+            'min_price' => 100,
+            'description' => "Lorem ipsum dolor sit amet, consectetur maksu rez do eiusmod tempor magna aliqua",
+            'file' => "admin/avatar.jpg",
+        ]);
+        
     }
 }

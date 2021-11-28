@@ -12,11 +12,127 @@ class SkilsSeeder extends Seeder
      */
     public function run()
     {
-        $skils = new Skils;
-        $skils->category_id = '1';
-        $skils->subcategory_id = '1';
-        $skils->title = 'Skils1';
-        $skils->save();
+        Skils::create([
+            'category_id' => "1",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "1",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "1",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        Skils::create([
+            'category_id' => "2",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "2",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "2",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        Skils::create([
+            'category_id' => "3",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "3",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "3",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        Skils::create([
+            'category_id' => "4",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "4",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "4",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        Skils::create([
+            'category_id' => "5",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "5",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "5",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        Skils::create([
+            'category_id' => "6",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "6",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "6",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        Skils::create([
+            'category_id' => "7",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "7",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "7",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        Skils::create([
+            'category_id' => "8",
+            'subcategory_id' => "1",
+            'title' => "Compétences1",
+        ]);
+        Skils::create([
+            'category_id' => "8",
+            'subcategory_id' => "2",
+            'title' => "Compétences2",
+        ]);
+        Skils::create([
+            'category_id' => "8",
+            'subcategory_id' => "3",
+            'title' => "Compétences3",
+        ]);
+        
         
     }
 }

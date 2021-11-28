@@ -124,4 +124,6 @@ class SkilsController extends Controller
 
        }
     }
+
+    
 }

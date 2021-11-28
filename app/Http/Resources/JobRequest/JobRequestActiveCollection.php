@@ -18,7 +18,7 @@ class JobRequestActiveCollection extends JsonResource
             'id' => $this->id,
             'title'=> $this->title,
             'category_id'=> $this->category_id,
-            'skils'=> $this->skils,
+            'skils'=> explode(',', $this->skils),
             'subcategory_id'=> $this->subcategory_id,
             'estimate_time'=> $this->estimate_time,
             'max_price'=> $this->max_price,
