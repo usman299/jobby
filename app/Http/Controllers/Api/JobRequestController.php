@@ -62,8 +62,9 @@ class JobRequestController extends Controller
 	            
                      
                  $applicant_id = Auth::guard('api')->user()->id;
-                 $jobRequest = JobRequest::where('applicant_id','=',$applicant_id)->get();
-                 if($jobRequest->isEmpty()){
+                 $jobRequestActive = JobRequest::where('applicant_id','=',$applicant_id)->where('status','=',1)->get();
+                 $jobRequestClose = JobRequest::where('applicant_id','=',$applicant_id)->where('status','=',0)->get();
+                 if($jobRequestActive->isEmpty() && $jobRequestClose->isEmpty() ){
                     $success['message'] = 'jobRequest  not Found';
                     $success['success'] = false;
                     return response()->json( $success, 200);
@@ -72,8 +73,10 @@ class JobRequestController extends Controller
 
                          $success['success'] = true;
                         
-                          $data =   JobRequestActiveCollection::collection($jobRequest);
-                          $success['data'] = $data;
+                          $data1 =   JobRequestActiveCollection::collection($jobRequestActive);
+                          $data2 =   JobRequestActiveCollection::collection($jobRequestClose);
+                          $success['jobRequestActive'] = $data1;
+                          $success['jobRequestClose'] = $data2;
 
                            return response()->json($success ,200);
                        }
