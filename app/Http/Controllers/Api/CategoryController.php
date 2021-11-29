@@ -26,7 +26,9 @@ class CategoryController extends Controller
         }
         else{
              $data =   CategoryCollection::collection($category);
-            return response()->json($data,200);
+             $success['success'] = true;
+             $success['data'] = $data;
+            return response()->json($success,200);
            
         }
        
@@ -47,8 +49,9 @@ class CategoryController extends Controller
         else{
             
             $data =   SubCategoryCollection::collection($subcategory);
-            return response()->json($data,200);
-            
+            $success['success'] = true;
+             $success['data'] = $data;
+            return response()->json($success,200);
         }
     }
 }

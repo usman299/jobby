@@ -22,7 +22,9 @@ class SkilsController extends Controller
             return response()->json( $success, 200);
         } else {
                 $data = CategoryRelatedSkilsCollection::collection($skils);
-            return response()->json($data,200);
+                $success['success'] = true;
+                $success['data'] = $data;
+               return response()->json($success,200);
             
         }
     }

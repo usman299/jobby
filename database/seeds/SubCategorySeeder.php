@@ -30,7 +30,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Electricienne",
                 'category_id' => "1",
                 'backColor' => "#FFAF33",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/003-electrician.png",
                 
                 ]);
@@ -38,7 +38,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Peintre",
                 'category_id' => "1",
                 'backColor' => "#FF3933",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/004-painter.png",
                 
                 ]);
@@ -46,7 +46,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Se réconcilier",
                 'category_id' => "1",
                 'backColor' => "#FF3361 ",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/006-makeup.png",
                 
                 ]);
@@ -54,7 +54,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Méditation",
                 'category_id' => "1",
                 'backColor' => "#FFAF33",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/005-meditation.png",
                 
                 ]);
@@ -80,7 +80,7 @@ class SubCategorySeeder extends Seeder
                         'title' => "Electricienne",
                         'category_id' => "2",
                         'backColor' => "#FFAF33",
-                        'category_id' => "1",
+                        
                         'img' => "admin/icons/003-electrician.png",
                         
                         ]);
@@ -88,7 +88,7 @@ class SubCategorySeeder extends Seeder
                         'title' => "Peintre",
                         'category_id' => "2",
                         'backColor' => "#FF3933",
-                        'category_id' => "1",
+                        
                         'img' => "admin/icons/004-painter.png",
                         
                         ]);
@@ -96,7 +96,7 @@ class SubCategorySeeder extends Seeder
         'title' => "Se réconcilier",
         'category_id' => "2",
         'backColor' => "#FF3361 ",
-        'category_id' => "1",
+        
         'img' => "admin/icons/006-makeup.png",
         
         ]);
@@ -104,7 +104,7 @@ class SubCategorySeeder extends Seeder
         'title' => "Méditation",
         'category_id' => "2",
         'backColor' => "#FFAF33",
-        'category_id' => "1",
+        
         'img' => "admin/icons/005-meditation.png",
         
         ]);
@@ -128,7 +128,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Electricienne",
                 'category_id' => "3",
                 'backColor' => "#FFAF33",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/003-electrician.png",
                 
                 ]);
@@ -136,7 +136,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Peintre",
                 'category_id' => "3",
                 'backColor' => "#FF3933",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/004-painter.png",
                 
                 ]);
@@ -144,7 +144,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Se réconcilier",
                 'category_id' => "3",
                 'backColor' => "#FF3361 ",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/006-makeup.png",
                 
                 ]);
@@ -152,7 +152,7 @@ class SubCategorySeeder extends Seeder
                 'title' => "Méditation",
                 'category_id' => "3",
                 'backColor' => "#FFAF33",
-                'category_id' => "1",
+                
                 'img' => "admin/icons/005-meditation.png",
                 
                 ]);
@@ -176,7 +176,7 @@ class SubCategorySeeder extends Seeder
                         'title' => "Electricienne",
                         'category_id' => "4",
                         'backColor' => "#FFAF33",
-                        'category_id' => "1",
+                        
                         'img' => "admin/icons/003-electrician.png",
                         
                         ]);
@@ -184,7 +184,7 @@ class SubCategorySeeder extends Seeder
                         'title' => "Peintre",
                         'category_id' => "4",
                         'backColor' => "#FF3933",
-                        'category_id' => "1",
+                        
                         'img' => "admin/icons/004-painter.png",
                         
                         ]);
@@ -192,7 +192,7 @@ class SubCategorySeeder extends Seeder
                         'title' => "Se réconcilier",
                         'category_id' => "4",
                         'backColor' => "#FF3361 ",
-                        'category_id' => "1",
+                        
                         'img' => "admin/icons/006-makeup.png",
                         
                         ]);
@@ -200,7 +200,7 @@ class SubCategorySeeder extends Seeder
                         'title' => "Méditation",
                         'category_id' => "4",
                         'backColor' => "#FFAF33",
-                        'category_id' => "1",
+                        
                         'img' => "admin/icons/005-meditation.png",
                         
                         ]);
@@ -223,7 +223,7 @@ class SubCategorySeeder extends Seeder
                                 'title' => "Electricienne",
                                 'category_id' => "5",
                                 'backColor' => "#FFAF33",
-                                'category_id' => "1",
+                                
                                 'img' => "admin/icons/003-electrician.png",
                                 
                                 ]);
@@ -246,7 +246,7 @@ class SubCategorySeeder extends Seeder
                             'title' => "Electricienne",
                             'category_id' => "6",
                             'backColor' => "#FFAF33",
-                            'category_id' => "1",
+                            
                             'img' => "admin/icons/003-electrician.png",
                             
                             ]);
@@ -269,7 +269,7 @@ class SubCategorySeeder extends Seeder
                             'title' => "Electricienne",
                             'category_id' => "7",
                             'backColor' => "#FFAF33",
-                            'category_id' => "1",
+                           
                             'img' => "admin/icons/003-electrician.png",
                             
                             ]);
@@ -292,7 +292,7 @@ class SubCategorySeeder extends Seeder
                         'title' => "Electricienne",
                         'category_id' => "8",
                         'backColor' => "#FFAF33",
-                        'category_id' => "1",
+                        
                         'img' => "admin/icons/003-electrician.png",
                         
                         ]);

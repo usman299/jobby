@@ -105,7 +105,9 @@ public function closeJobRequestGet()
                   else{
             
                           $data =   JobRequestActiveCollection::collection($jobRequest);
-                           return response()->json($data,200);
+                          $success['success'] = true;
+                          $success['data'] = $data;
+                         return response()->json($success,200);
                        }
                    }
             
@@ -132,61 +134,9 @@ public function closeJobRequestGet()
                   else{
             
                           $data =   EditJobRequestResource::collection($jobRequest);
-                           return response()->json($data,200);
-                       }
-                   }
-            
-                   else {
-                    $success['message'] = 'User not authorized';
-                    $success['success'] = false;
-                    return response()->json( $success, 401);
-                      }
-   }
-
-   public function jobRequestUpdate(Request $request,$id) 
-    {      
-    	
-             
-    	  
-         if (Auth::guard('api')->check()) {
-                
-            // $jobRequest = JobRequest::where('id','=',$id)->first();
-                     
-                   $input = $request->all(); 
-                   $input['applicant_id']= Auth::guard('api')->user()->id;
-                   if($request->skils!=null){
-                   $input['skils'] = implode(',', $request->skils);}
-                   if ($request->hasfile('file')) {
-
-                    $image1 = $request->file('file');
-                    $name = time() . 'file' . '.' . $image1->getClientOriginalExtension();
-                    $destinationPath = 'applicant/file/';
-                    $image1->move($destinationPath, $name);
-                    $input['file'] = 'applicant/file/' . $name;
-                }
-        
-
-                   $jobRequest = JobRequest::where('id','=',$id)->update($input);
-                   $success['message'] = 'Job UpdateS Successfully!';
-                   $success['success'] = true;
-                    
-
-                    
-                return response()->json($success, $this->successStatus); 
-            }
-  
-         else {
-            $success['message'] = 'User not authorized';
-            $success['success'] = false;
-            return response()->json( $success, 401);
-            
-              }
-   }
-
-   public function deleteJobRequestGet($id) 
-   {      
-       
-        if (Auth::guard('api')->check()) {
+                          $success['success'] = true;
+                          $success['data'] = $data;
+                         return response()->json($success,200);}
                
            
                 $applicant_id = Auth::guard('api')->user()->id;
@@ -199,18 +149,19 @@ public function closeJobRequestGet()
                  else{
                          $jobRequest->delete();
                          $data['message']='Job Request Deleted';
-                         $data['status']=true;
+                         $data['success']=true;
 
                           return response()->json($data,200);
                       }
-                  }
+                    }
            
-                  else {
+                  else{
                    $success['message'] = 'User not authorized';
                    $success['success'] = false;
                    return response()->json( $success, 401);
                      }
   }
+
   public function updateStatusJobRequest($id) 
   {      
       
@@ -230,15 +181,15 @@ public function closeJobRequestGet()
                         $jobRequest->status= 0;
                         $jobRequest->update();
                         $data['message']='Job Request Close';
-                        $data['status']=true;
-
+                        $data['success']=true;
+  
                          return response()->json($data,200);
                      }
                      else{
                         $jobRequest->status= 1;
                         $jobRequest->update();
                         $data['message']='Job Request Active';
-                        $data['status']=true;
+                        $data['success']=true;
 
                          return response()->json($data,200);
 

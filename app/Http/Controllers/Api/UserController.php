@@ -21,6 +21,7 @@ public $successStatus = 200;
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
             $success['success'] = true;
 
+            
             return response()->json($success, $this->successStatus);
 
         }

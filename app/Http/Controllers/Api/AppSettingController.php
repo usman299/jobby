@@ -25,7 +25,9 @@ class AppSettingController extends Controller
         }
         else{
              $data =   AppSettingResource::collection($appSetting);
-            return response()->json($data,200);
+             $success['success'] = true;
+             $success['data'] = $data;
+            return response()->json($success,200);
            
         }
        
@@ -40,12 +42,15 @@ class AppSettingController extends Controller
            
             $success['message'] = 'appSliderGalery  not Found';
             $success['success'] = false;
+            
             return response()->json( $success, 200);
 
         }
         else{
              $data =   SliderGaleryCollection::collection($appSliderGalery);
-            return response()->json($data,200);
+             $success['success'] = true;
+             $success['data'] = $data;
+            return response()->json($success,200);
            
         }
        
