@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Validator;
 use App\Proposal;
+use App\User;
 use App\JobRequest;
 use Illuminate\Support\Facades\Auth; 
 use App\Http\Resources\Proposal\ProposalPostCollection;
@@ -67,6 +68,7 @@ class ProposalController extends Controller
                  $activeProposol = Proposal::where('jobber_id','=',$jobber_id)->where('status','=',1)->get();
                  $acceptProposol = Proposal::where('jobber_id','=',$jobber_id)->where('status','=',2)->get();
                  $rejectProposol = Proposal::where('jobber_id','=',$jobber_id)->where('status','=',0)->get();
+
                  if($activeProposol->isEmpty() && $acceptProposol->isEmpty() && $rejectProposol->isEmpty()  ){
                     $success['message'] = 'Proposol  not Found';
                     $success['success'] = false;
@@ -77,9 +79,11 @@ class ProposalController extends Controller
                           $data1 =   GetActiveProposalCollection::collection($activeProposol);
                           $data2 =   GetActiveProposalCollection::collection($acceptProposol);
                           $data3 =   GetActiveProposalCollection::collection($rejectProposol);
+                         
                           $success['activeProposol'] = $data1;
                           $success['acceptProposol'] = $data2;
                           $success['rejectProposol'] = $data3;
+                        
                           $success['success'] = true;
                           
                            return response()->json($success,200);
@@ -137,7 +141,7 @@ class ProposalController extends Controller
    }
 
 
-   public function updateStatusPrposelRequest($id) 
+   public function acceptStatusPrposelRequest($id) 
   {      
 
       
@@ -147,39 +151,27 @@ class ProposalController extends Controller
                $jobber_id = Auth::guard('api')->user()->id;
                $proposalRequest = Proposal::where('id','=',$id)->first();
                if(!$proposalRequest){
-                  $success['message'] = ' Proposel Request   not Found';
+                  $success['message'] = ' Proposel Request  not Found';
                   $success['success'] = false;
                   return response()->json( $success, 200);
                     }
                 else{  
-                   
-                    if($proposalRequest->status==1 || $proposalRequest->status!=0 ){
-                        $proposalRequest->status= 0;
-                        $proposalRequest->update();
-                        $data['message']='Proposel Request Reject';
-                        $data['success']=true;
-  
-                         return response()->json($data,200);
-                     }
-                     else if($proposalRequest->status==1 || $proposalRequest->status==0){
+                       if($proposalRequest->status == 1 || $proposalRequest->status ==0){
                         $proposalRequest->status= 2;
                         $proposalRequest->update();
                         $data['message']='Proposel Request Accept';
                         $data['success']=true;
-
+  
                          return response()->json($data,200);
-
+                       }
+                       else{
+                        $success['message'] = ' Proposel Request  Status Same';
+                        $success['success'] = false;
+                        return response()->json( $success, 200);
+                       }
                      }
-                     else {
-                        $proposalRequest->status= 1;
-                        $proposalRequest->update();
-                        $data['message']='Proposel Request Active';
-                        $data['success']=true;
-
-                         return response()->json($data,200);
-
-                     }
-                 }}
+                   
+                 }
           
                  else {
                   $success['message'] = 'User not authorized';
@@ -187,6 +179,45 @@ class ProposalController extends Controller
                   return response()->json( $success, 401);
                     }
  }
+
+ public function rejectStatusPrposelRequest($id) 
+ {      
+
+     
+      if (Auth::guard('api')->check()) {
+             
+         
+              $jobber_id = Auth::guard('api')->user()->id;
+              $proposalRequest = Proposal::where('id','=',$id)->first();
+              if(!$proposalRequest){
+                 $success['message'] = ' Proposel Request  not Found';
+                 $success['success'] = false;
+                 return response()->json( $success, 200);
+                   }
+               else{  
+                      if($proposalRequest->status == 1 || $proposalRequest->status ==2){
+                       $proposalRequest->status= 0;
+                       $proposalRequest->update();
+                       $data['message']='Proposel Request Reject';
+                       $data['success']=true;
+ 
+                        return response()->json($data,200);
+                      }
+                      else{
+                       $success['message'] = ' Proposel Request  Status Same';
+                       $success['success'] = false;
+                       return response()->json( $success, 200);
+                      }
+                    }
+                  
+                }
+         
+                else {
+                 $success['message'] = 'User not authorized';
+                 $success['success'] = false;
+                 return response()->json( $success, 401);
+                   }
+}
 
 
  public function applicantPropsalRequestGet() 

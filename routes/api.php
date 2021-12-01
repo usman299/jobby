@@ -59,18 +59,27 @@ Route::post('/send/proposel/{jobRequest_id}', 'Api\ProposalController@proposalPo
 Route::get('/all/proposalRequest', 'Api\ProposalController@allProposalRequest');
 Route::get('/accept/proposal', 'Api\ProposalController@allAcceptProposal');
 Route::get('/reject/proposal', 'Api\ProposalController@allRejectProposal');
-Route::get('/status/proposal/request/{id}', 'Api\ProposalController@updateStatusPrposelRequest');
+
 
 //Applicant
 Route::get('/applicant/get/proposalRequest', 'Api\ProposalController@applicantPropsalRequestGet');
+Route::get('/accept/proposal/request/{id}', 'Api\ProposalController@acceptStatusPrposelRequest');
+Route::get('/reject/proposal/request/{id}', 'Api\ProposalController@rejectStatusPrposelRequest');
 
 //END PROPOSOL
 
 // CONTRACT
 
-Route::post('/contract', 'Api\ContractController@contractPostStore');
+Route::post('/contract/store/{id}', 'Api\ContractController@contractPostStore');
+Route::get('/contract/applicant', 'Api\ContractController@activeContractapplicantGet');
+Route::get('/contract/jobber', 'Api\ContractController@activeContractJobberGet');
 
 //END CONTRACT
+
+
+//Reviews
+Route::post('/reviews/store/{contract_id}', 'Api\ReviewController@reviewsStore');
+//END Reviews
 
 
 

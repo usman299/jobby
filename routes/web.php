@@ -83,11 +83,6 @@ Route::post('/slider/store', 'Admin\AppSettingController@sliderStore')->name('sl
 
 //END SLIDER Create
 
-//SKILS
-
-
-
-//END SKILS
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Proposal;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\User;
 
 class GetActiveProposalCollection extends JsonResource
 {
@@ -13,7 +14,8 @@ class GetActiveProposalCollection extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
+    {     $user = User::where('id','=',$this->jobber_id)->first();
+
          return [
             'id' => $this->id,
             'jobber_id'=> $this->jobber_id,
@@ -22,7 +24,9 @@ class GetActiveProposalCollection extends JsonResource
             'description'=> $this->description,
             'time_limit'=> $this->time_limit,
             'price'=> $this->price,
-            
+            'jobberImage'=> $user->image,
+            'jobberFirstName'=>   $user->firstName,
+            'jobberLastName'=>   $user->lastName,
         ];
 
         

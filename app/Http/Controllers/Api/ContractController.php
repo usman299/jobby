@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contract;
+use App\Proposal;
 use App\Http\Resources\Contract\GetActiveContractCollection;
 use App\Http\Resources\Contract\GetCancelContractCollection;
 use App\Http\Resources\Contract\GetCompleteContractCollection;
@@ -13,13 +14,11 @@ use Validator;
 class ContractController extends Controller
 {
     public $successStatus = 200;
-   public function contractPostStore(Request $request) 
+   public function contractPostStore(Request $request, $id) 
     {      
     	  
     	$validator = Validator::make($request->all(), [ 
-            'proposal_id' => 'required',
-            'jober_id' => 'required', 
-            'applicant_id' => 'required', 
+            
             's_time'  => 'required',
             'e_time' => 'required',
             'price' => 'required', 
@@ -32,43 +31,112 @@ class ContractController extends Controller
     	  
          if (Auth::guard('api')->check()) {
 	            
-                     
+                   
                    $input = $request->all(); 
+                   $proposalRequest = Proposal::where('id','=',$id)->where('status','=',2)->first();
+                   if($proposalRequest){
+                   $input['applicant_id']= Auth::guard('api')->user()->id;
+                   $input['proposal_id']= $proposalRequest->jobber_id;
+                   $input['jober_id']= $proposalRequest->jobber_id;
                    $proposal = Contract::create($input);
                    $success['message'] = 'Contract Add Successfully!';
                    $success['success'] = true;
-                    
+                   return response()->json($success, $this->successStatus); 
+                   }
+                   else{
+                    $success['message'] = 'First Accept Proposel then generate Contract';
+                    $success['success'] = false;
+                    return response()->json( $success, 200);
 
-                    
-                return response()->json(['success'=>$success], $this->successStatus); 
+                   }
+                   
+                
             }
   
          else {
-            return response()->json(['error' => 'User not authorized', 'success' => false], 200);
+                 $success['message'] = 'User not authorized';
+                  $success['success'] = false;
+                  return response()->json( $success, 401);
               }
    }
 
 
 // CONTRACT GET BY APPLICANT_ID IN 
-public function activeContractapplicantGet($applicant_id) 
+public function activeContractapplicantGet() 
     {      
     	
          if (Auth::guard('api')->check()) {
 	            
                      
                  $applicant_id = Auth::guard('api')->user()->id;
-                 $jobRequest = Contract::where('applicant_id','=',$applicant_id)->where('status','=','active')->get();
-                 if($jobRequest->isEmpty()){
-                     return response()->json(['error' => 'jobRequest  not Found', 'success' => false], 404); }
+                 $jobRequestContractActive = Contract::where('applicant_id','=',$applicant_id)->where('status','=',1)->get();
+                 $jobRequestContractComplete = Contract::where('applicant_id','=',$applicant_id)->where('status','=',2)->get();
+                 $jobRequestContractReject = Contract::where('applicant_id','=',$applicant_id)->where('status','=',0)->get();
+                 if($jobRequestContractActive->isEmpty() && $jobRequestContractComplete->isEmpty() && $jobRequestContractReject->isEmpty()){
+                    $success['message'] = 'jobRequestContract  not Found';
+                    $success['success'] = false;
+                    return response()->json( $success, 200);
+                    }
                   else{
             
-                          $data =   JobRequestActiveCollection::collection($jobRequest);
-                           return response()->json(['data' => $data ,'success' => true],200);
+                          $data1 =   GetActiveContractCollection::collection($jobRequestContractActive);
+                          $data2 =   GetActiveContractCollection::collection($jobRequestContractComplete);
+                          $data3 =   GetActiveContractCollection::collection($jobRequestContractReject);
+
+                          $success['jobRequestContractActive'] = $data1;
+                          $success['jobRequestContractComplete'] = $data2;
+                          $success['jobRequestContractReject'] = $data3;
+                          $success['success'] = true;
+                          
+                           return response()->json($success,200);
+                           
+                          
                        }
                    }
             
                    else {
-                        return response()->json(['error' => 'User not authorized', 'success' => false], 401);
+                    $success['message'] = 'User not authorized';
+                    $success['success'] = false;
+                    return response()->json( $success, 401);
+                      }
+   }
+
+   public function activeContractJobberGet() 
+    {      
+    	
+         if (Auth::guard('api')->check()) {
+	            
+                     
+                 $jobber_id = Auth::guard('api')->user()->id;
+                 $jobRequestContractActive = Contract::where('jober_id','=',$jobber_id)->where('status','=',1)->get();
+                 $jobRequestContractComplete = Contract::where('jober_id','=',$jobber_id)->where('status','=',2)->get();
+                 $jobRequestContractReject = Contract::where('jober_id','=',$jobber_id)->where('status','=',0)->get();
+                 if($jobRequestContractActive->isEmpty() && $jobRequestContractComplete->isEmpty() && $jobRequestContractReject->isEmpty()){
+                    $success['message'] = 'jobRequestContract  not Found';
+                    $success['success'] = false;
+                    return response()->json( $success, 200);
+                    }
+                  else{
+            
+                          $data1 =   GetActiveContractCollection::collection($jobRequestContractActive);
+                          $data2 =   GetActiveContractCollection::collection($jobRequestContractComplete);
+                          $data3 =   GetActiveContractCollection::collection($jobRequestContractReject);
+
+                          $success['jobRequestContractActive'] = $data1;
+                          $success['jobRequestContractComplete'] = $data2;
+                          $success['jobRequestContractReject'] = $data3;
+                          $success['success'] = true;
+                          
+                           return response()->json($success,200);
+                           
+                          
+                       }
+                   }
+            
+                   else {
+                    $success['message'] = 'User not authorized';
+                    $success['success'] = false;
+                    return response()->json( $success, 401);
                       }
    }
 }

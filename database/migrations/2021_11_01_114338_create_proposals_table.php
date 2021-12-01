@@ -17,7 +17,7 @@ class CreateProposalsTable extends Migration
             $table->id();
             $table->integer('jobRequest_id')->nullable();
             $table->integer('jobber_id')->nullable();
-            $table->integer('status')->default(1);;   //Active=1,Accept=2,reject=0
+            $table->integer('status')->default(1);   //Active=1,Accept=2,reject=0
             $table->longtext('description')->nullable();
             $table->string('time_limit')->nullable();
             $table->string('price')->nullable();

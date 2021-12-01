@@ -21,7 +21,7 @@ class CreateContractsTable extends Migration
             $table->string('s_time')->nullable();
             $table->string('e_time')->nullable();
             $table->string('price')->nullable();
-            $table->integer('status')->nullable();   //Active=1,complete=2,cancel=0
+            $table->integer('status')->default(1);   //Active=1,complete=2,cancel=0
             $table->string('review_id_applicant')->nullable();
             $table->string('jobber_id_applicant')->nullable();
             $table->timestamps();
