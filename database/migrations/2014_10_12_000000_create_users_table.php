@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('country')->nullable();
             $table->string('postalCode')->nullable();
-            $table->string('image')->default('admin/avatar.jpg');
+            $table->string('image')->default('admin/dp.jpeg');
             $table->integer('category_id')->nullable();
             $table->integer('subcategory_id')->nullable();
             
