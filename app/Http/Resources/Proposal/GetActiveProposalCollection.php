@@ -16,8 +16,8 @@ class GetActiveProposalCollection extends JsonResource
     {
          return [
             'id' => $this->id,
-            'jober_id'=> $this->jober_id,
-            'job_req_id'=> $this->job_req_id,
+            'jobber_id'=> $this->jobber_id,
+            'jobRequestId'=> $this->jobRequest_id,
             'status'=> $this->status,
             'description'=> $this->description,
             'time_limit'=> $this->time_limit,

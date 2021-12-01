@@ -55,10 +55,14 @@ Route::get('/slider/galery/{role}', 'Api\AppSettingController@sliderGalery');
 
 
 //PROPOSOL
-Route::post('/proposal', 'Api\ProposalController@proposalPostStore');
-Route::get('/active/proposal', 'Api\ProposalController@allActiveProposal');
+Route::post('/send/proposel/{jobRequest_id}', 'Api\ProposalController@proposalPostStore');
+Route::get('/all/proposalRequest', 'Api\ProposalController@allProposalRequest');
 Route::get('/accept/proposal', 'Api\ProposalController@allAcceptProposal');
 Route::get('/reject/proposal', 'Api\ProposalController@allRejectProposal');
+Route::get('/status/proposal/request/{id}', 'Api\ProposalController@updateStatusPrposelRequest');
+
+//Applicant
+Route::get('/applicant/get/proposalRequest', 'Api\ProposalController@applicantPropsalRequestGet');
 
 //END PROPOSOL
 
