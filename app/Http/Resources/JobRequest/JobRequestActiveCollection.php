@@ -3,6 +3,7 @@
 namespace App\Http\Resources\JobRequest;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\User;
 
 class JobRequestActiveCollection extends JsonResource
 {
@@ -13,7 +14,7 @@ class JobRequestActiveCollection extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {
+    {   
         return [
             'id' => $this->id,
             'title'=> $this->title,
@@ -26,6 +27,7 @@ class JobRequestActiveCollection extends JsonResource
             'description'=> $this->description,
             'file'=> $this->file,
             'status'=> $this->status,
+            
             
         ];
     }
