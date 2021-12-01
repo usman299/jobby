@@ -15,9 +15,9 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('sender_id')->nullable();
-            $table->string('reciver_id')->nullable();
-            $table->string('contract_id')->nullable();  
+            $table->integer('sender_id')->nullable();
+            $table->integer('reciver_id')->nullable();
+            $table->integer('contract_id')->nullable();  
             $table->longtext('message')->nullable();
             $table->integer('star')->nullable();
             $table->timestamps();

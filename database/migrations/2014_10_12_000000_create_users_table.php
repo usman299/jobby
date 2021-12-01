@@ -25,9 +25,10 @@ class CreateUsersTable extends Migration
             $table->string('country')->nullable();
             $table->string('postalCode')->nullable();
             $table->string('image')->default('admin/avatar.jpg');
-            $table->string('category_id')->nullable();
-            $table->string('subcategory_id')->nullable();
-            $table->string('skils_id')->nullable();
+            $table->integer('category_id')->nullable();
+            $table->integer('subcategory_id')->nullable();
+            
+            $table->string('skils')->nullable();
             
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

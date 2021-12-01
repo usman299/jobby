@@ -41,6 +41,9 @@ Route::get('/edit/job/request/{id}', 'Api\JobRequestController@editJobRequestGet
 Route::post('/job/request/update/{id}', 'Api\JobRequestController@jobRequestUpdate');
 Route::get('/delete/job/request/{id}', 'Api\JobRequestController@deleteJobRequestGet');
 Route::get('/status/job/request/{id}', 'Api\JobRequestController@updateStatusJobRequest');
+
+//jobber
+Route::get('/jober/get/jobRequest', 'Api\JobRequestController@jobberJobRequestGet');
 // ENDJOBREQUEST
 
 //Slider get

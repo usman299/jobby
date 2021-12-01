@@ -136,9 +136,66 @@ public function closeJobRequestGet()
                           $data =   EditJobRequestResource::collection($jobRequest);
                           $success['success'] = true;
                           $success['data'] = $data;
-                         return response()->json($success,200);}
-               
-           
+                         return response()->json($success,200);
+                        
+                        }
+                    }
+    }
+
+     public function jobRequestUpdate(Request $request,$id) 
+    {      
+    	  
+         if (Auth::guard('api')->check()) {
+                
+                 $applicant_id = Auth::guard('api')->user()->id;
+                 $jobRequest = JobRequest::where('id','=',$id)->first();
+                 if(!$jobRequest){
+                    $success['message'] = ' jobRequest   not Found';
+                    $success['success'] = false;
+                    return response()->json( $success, 200);
+                      }
+                  else{
+                  
+                   
+                   
+                   $jobRequest->category_id = $request->category_id;
+                   $jobRequest->subcategory_id = $request->subcategory_id;
+                   $jobRequest->title = $request->title;
+                   $jobRequest->estimate_time= $request->estimate_time;
+                   $jobRequest->max_price= $request->max_price;
+                   $jobRequest->min_price= $request->min_price;
+                   $jobRequest->description= $request->description;
+                   
+                   if ($request->hasfile('file')) {
+
+                    $image1 = $request->file('file');
+                    $name = time() . 'file' . '.' . $image1->getClientOriginalExtension();
+                    $destinationPath = 'applicant/file/';
+                    $image1->move($destinationPath, $name);
+                    $jobRequest->file = 'applicant/file/' . $name;
+                }
+        
+                   
+                   
+                   $success['message'] = 'Job Update Successfully!';
+                   $success['success'] = true;
+                    
+
+                    
+                return response()->json($jobRequest, $this->successStatus); 
+            }
+            }
+  
+         else {
+            $success['message'] = 'User not authorized';
+            $success['success'] = false;
+            return response()->json( $success, 401);
+            
+              }
+   }
+    public function deleteJobRequestGet($id) 
+    {
+        if (Auth::guard('api')->check()) {
                 $applicant_id = Auth::guard('api')->user()->id;
                 $jobRequest = JobRequest::where('applicant_id','=',$applicant_id)->where('id','=',$id)->first();
                 if(!$jobRequest){
@@ -153,7 +210,7 @@ public function closeJobRequestGet()
 
                           return response()->json($data,200);
                       }
-                    }
+                }
            
                   else{
                    $success['message'] = 'User not authorized';
@@ -203,6 +260,40 @@ public function closeJobRequestGet()
                     }
  }
 
+
+ public function jobberJobRequestGet() 
+    {      
+    	
+         if (Auth::guard('api')->check()) {
+	            
+                     
+                 $applicant_id = Auth::guard('api')->user()->id;
+                 $jobRequestActive = JobRequest::where('status','=',1)->get();
+                 
+                 if($jobRequestActive->isEmpty()  ){
+                    $success['message'] = 'jobRequest  not Found';
+                    $success['success'] = false;
+                    return response()->json( $success, 200);
+                      }
+                  else{
+
+                         $success['success'] = true;
+                        
+                        $data =   JobRequestActiveCollection::collection($jobRequestActive);
+                        $success['jobberJobRequestGet'] = $data;
+
+
+                           return response()->json($success ,200);
+                       }
+                   }
+            
+                   else {
+                    $success['message'] = 'User not authorized';
+                    $success['success'] = false;
+                    return response()->json( $success, 401);
+                        
+                      }
+   }
 
 
 }

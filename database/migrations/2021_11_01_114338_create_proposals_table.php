@@ -15,9 +15,9 @@ class CreateProposalsTable extends Migration
     {
         Schema::create('proposals', function (Blueprint $table) {
             $table->id();
-            $table->string('job_req_id')->nullable();
-            $table->string('jober_id')->nullable();
-            $table->string('status')->nullable();   //Active=1,Accept=2,reject=0
+            $table->integer('job_req_id')->nullable();
+            $table->integer('jober_id')->nullable();
+            $table->integer('status')->nullable();   //Active=1,Accept=2,reject=0
             $table->longtext('description')->nullable();
             $table->string('time_limit')->nullable();
             $table->string('price')->nullable();
