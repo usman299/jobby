@@ -16,10 +16,11 @@
                   <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"><!-- SUbCategory -->Sous-catégorie</h4>
+                                <h4 class="card-title"><!-- Skils -->Glissière</h4>
                                 <div class="float-lg-right">
 
-                <a href="{{route('subcategory.create')}}" class="btn btn-primary">Ajouter un nouveau</a>
+   <a href="{{route('slider.create')}}" class="btn btn-primary">Ajouter un nouveau</a>
+                    
 
                                  </div>
                             </div>
@@ -30,36 +31,38 @@
                                             <tr>
                                                 
                                                 <th><!-- id -->identifiant</th>
-                                                <th><!-- category -->Catégorie</th>
-                                                <th><!-- title -->Titre</th>
-                                                <th>Image</th>
+                                                <th><!-- category -->Rôle</th>
+                                                 <th><!-- subcategory -->Image</th>
+                                                
+                                                
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                             @foreach($subcategory as $row)
+                                             @foreach($slider as $row)
                                             <tr>
                                                 
-                                                <td>{{$row->id}}</td>
-                                                
-                                               <?php $category =  \App\Category::where('id','=',$row->category_id)->first();?>
-                                               
-                                               <td>{{$category->title }}</td>
-                                                <td>{{$row->title}}</td>
+                                                <td>{{$row->id ?? ''}}</td>
+                                                @if($row->userRole==2)
+                                                 <td><span class="badge light badge-success">Applicant</span></td>
+                                                 @else
+                                                 <td><span class="badge light badge-warning">Jobber</span></td>
+                                                 @endif
+
                                                 <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1" 
                                 data-title="{{$row->title}}"><img class="rounded-circle" width="50" src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
 
 
-                                                
-                                                
-                                                <td> <input type="color" value="{{$row->backColor}}" disabled></td>
                                                 <td>
 													<div class="d-flex">
 														<!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->
-														
-                                                        <a href="{{route('subcategory.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">
+														<a href="{{route('slider.edit', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp"  title="Edit">
+                                                   <i class="fa fa-pencil"></i>
+                                                </a>
+                                                        <a href="{{route('slider.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">
                                                    <i class="fa fa-trash"></i>
                                                 </a>
+                                                
 													</div>												
 												</td>												
                                             </tr>

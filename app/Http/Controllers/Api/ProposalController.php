@@ -228,6 +228,7 @@ class ProposalController extends Controller
                      
                  
                  $proposelRequestActive = Proposal::where('status','=',1)->get();
+                 $proposelRequestActive = Proposal::where('status','=',1)->get();
                  
                  if($proposelRequestActive->isEmpty()  ){
                     $success['message'] = 'Proposel Request  not Found';

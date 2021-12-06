@@ -30,8 +30,8 @@
 									</div>
 									<div class="profile-details">
 										<div class="profile-name px-3 pt-2">
-											<h4 class="text-primary mb-0">{{$applicant->fname}}   {{$applicant->lname}}</h4>
-											@if($applicant->role ==1)
+											<h4 class="text-primary mb-0">{{$applicant->firstName}}   {{$applicant->lastName}}</h4>
+											@if($applicant->role ==2)
 											<p>Applicant</p>
 											@else
 											<p>Jobber</p>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Reviews;
-use App\Http\Resources\Contract\GetActiveContractCollection;
+use App\Http\Resources\Reviews\ReviewCollection;
 use Illuminate\Support\Facades\Auth; 
 use Validator;
 use App\Contract;
@@ -54,6 +54,39 @@ class ReviewController extends Controller
              return response()->json( $success, 401);
                }
     }
-    
- 
+
+ public function allJobberReview() 
+    {      
+    	
+         if (Auth::guard('api')->check()) {
+	            
+                     
+                 $jobber_id = Auth::guard('api')->user()->id;
+                 $jobberReviews = Reviews::where('reciver_id','=',$jobber_id)->get();
+                 
+
+                 if($jobberReviews->isEmpty()){
+                    $success['message'] = 'Review   not Found';
+                    $success['success'] = false;
+                    return response()->json( $success, 200);
+                 }
+                  else{
+            
+                          $data =   ReviewCollection::collection($jobberReviews);
+                         
+                         
+                          $success['jobberReviews'] = $data;
+                          $success['success'] = true;
+                          
+                           return response()->json($success,200);
+                       }
+                   }
+            
+                   else {
+                    $success['message'] = 'User not authorized';
+                    $success['success'] = false;
+                    return response()->json( $success, 401);
+                       
+                      }
+   }
 }

@@ -80,6 +80,10 @@ Route::post('/setting/store', 'Admin\AppSettingController@store')->name('setting
 //Slider Create
 Route::get('/slider/create', 'Admin\AppSettingController@sliderCreate')->name('slider.create');
 Route::post('/slider/store', 'Admin\AppSettingController@sliderStore')->name('slider.store');
+Route::get('/slider/index', 'Admin\AppSettingController@sliderIndex')->name('slider.index');
+Route::get('/slider/edit/{id}', 'Admin\AppSettingController@sliderEdit')->name('slider.edit');
+Route::get('/slider/delete/{id}', 'Admin\AppSettingController@sliderDelete')->name('slider.delete');
+Route::post('/slider/update/{id}', 'Admin\AppSettingController@sliderUpdate')->name('slider.update');
 
 //END SLIDER Create
 

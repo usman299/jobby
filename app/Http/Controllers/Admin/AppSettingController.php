@@ -122,8 +122,13 @@ class AppSettingController extends Controller
        else{
 
            $appSetting = AppSetting::find(1);
-if($request->hasfile('mainScreen')==false){
-           
+           if ($request->hasfile('mainScreen')) {
+            $image1 = $request->file('mainScreen');
+            $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'image/';
+            $image1->move($destinationPath, $name);
+            $appSetting->mainScreen = 'image/' . $name;
+        }
         if ($request->hasfile('appLogo')) {
             $image1 = $request->file('appLogo');
             $name = time() . 'appLogo' . '.' . $image1->getClientOriginalExtension();
@@ -174,405 +179,16 @@ if($request->hasfile('mainScreen')==false){
             $appSetting->applicantIntroScreen3 = 'image/' . $name;
         }
 
-    } 
-
-    //SCREEN END
-
-    if($request->hasfile('appLogo')==false){
-           
-        if ($request->hasfile('mainScreen')) {
-            $image1 = $request->file('mainScreen');
-            $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->mainScreen = 'image/' . $name;
-        }
-        if ($request->hasfile('jooberIntroScreen1')) {
-            $image1 = $request->file('jooberIntroScreen1');
-            $name = time() . 'jooberIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->jooberIntroScreen1 = 'image/' . $name;
-        }
-        if ($request->hasfile('jooberIntroScreen2')) {
-            $image1 = $request->file('jooberIntroScreen2');
-            $name = time() . 'jooberIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->jooberIntroScreen2 = 'image/' . $name;
-        }
-        if ($request->hasfile('jooberIntroScreen3')) {
-            $image1 = $request->file('jooberIntroScreen3');
-            $name = time() . 'jooberIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->jooberIntroScreen3 = 'image/' . $name;
-        }
-        if ($request->hasfile('applicantIntroScreen1')) {
-            $image1 = $request->file('applicantIntroScreen1');
-            $name = time() . 'applicantIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->applicantIntroScreen1 = 'image/' . $name;
-        }
-        if ($request->hasfile('applicantIntroScreen2')) {
-            $image1 = $request->file('applicantIntroScreen2');
-            $name = time() . 'applicantIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->applicantIntroScreen2 = 'image/' . $name;
-        }
-        if ($request->hasfile('applicantIntroScreen3')) {
-            $image1 = $request->file('applicantIntroScreen3');
-            $name = time() . 'applicantIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->applicantIntroScreen3 = 'image/' . $name;
-        }
-
-    } 
-
-    //APPLOGO END
-
-    if($request->hasfile('jooberIntroScreen1')==false){
-           
-        if ($request->hasfile('mainScreen')) {
-            $image1 = $request->file('mainScreen');
-            $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->mainScreen = 'image/' . $name;
-        }
-        if ($request->hasfile('appLogo')) {
-            $image1 = $request->file('appLogo');
-            $name = time() . 'appLogo' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->appLogo = 'image/' . $name;
-        }
-        if ($request->hasfile('jooberIntroScreen2')) {
-            $image1 = $request->file('jooberIntroScreen2');
-            $name = time() . 'jooberIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->jooberIntroScreen2 = 'image/' . $name;
-        }
-        if ($request->hasfile('jooberIntroScreen3')) {
-            $image1 = $request->file('jooberIntroScreen3');
-            $name = time() . 'jooberIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->jooberIntroScreen3 = 'image/' . $name;
-        }
-        if ($request->hasfile('applicantIntroScreen1')) {
-            $image1 = $request->file('applicantIntroScreen1');
-            $name = time() . 'applicantIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->applicantIntroScreen1 = 'image/' . $name;
-        }
-        if ($request->hasfile('applicantIntroScreen2')) {
-            $image1 = $request->file('applicantIntroScreen2');
-            $name = time() . 'applicantIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->applicantIntroScreen2 = 'image/' . $name;
-        }
-        if ($request->hasfile('applicantIntroScreen3')) {
-            $image1 = $request->file('applicantIntroScreen3');
-            $name = time() . 'applicantIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'image/';
-            $image1->move($destinationPath, $name);
-            $appSetting->applicantIntroScreen3 = 'image/' . $name;
-        }
-
-    } 
-  //END JOBBERINTRO1 SCREEN END
-
-  if($request->hasfile('jooberIntroScreen2')==false){
-           
-    if ($request->hasfile('mainScreen')) {
-        $image1 = $request->file('mainScreen');
-        $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->mainScreen = 'image/' . $name;
-    }
-    if ($request->hasfile('appLogo')) {
-        $image1 = $request->file('appLogo');
-        $name = time() . 'appLogo' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->appLogo = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen1')) {
-        $image1 = $request->file('jooberIntroScreen1');
-        $name = time() . 'jooberIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen3')) {
-        $image1 = $request->file('jooberIntroScreen3');
-        $name = time() . 'jooberIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen3 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen1')) {
-        $image1 = $request->file('applicantIntroScreen1');
-        $name = time() . 'applicantIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen2')) {
-        $image1 = $request->file('applicantIntroScreen2');
-        $name = time() . 'applicantIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen2 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen3')) {
-        $image1 = $request->file('applicantIntroScreen3');
-        $name = time() . 'applicantIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen3 = 'image/' . $name;
-    }
-
-} 
-
-//END JOBBERINTRO2 SCREEN END
-
-if($request->hasfile('jooberIntroScreen3')==false){
-           
-    if ($request->hasfile('mainScreen')) {
-        $image1 = $request->file('mainScreen');
-        $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->mainScreen = 'image/' . $name;
-    }
-    if ($request->hasfile('appLogo')) {
-        $image1 = $request->file('appLogo');
-        $name = time() . 'appLogo' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->appLogo = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen1')) {
-        $image1 = $request->file('jooberIntroScreen1');
-        $name = time() . 'jooberIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen2')) {
-        $image1 = $request->file('jooberIntroScreen2');
-        $name = time() . 'jooberIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen2 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen1')) {
-        $image1 = $request->file('applicantIntroScreen1');
-        $name = time() . 'applicantIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen2')) {
-        $image1 = $request->file('applicantIntroScreen2');
-        $name = time() . 'applicantIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen2 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen3')) {
-        $image1 = $request->file('applicantIntroScreen3');
-        $name = time() . 'applicantIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen3 = 'image/' . $name;
-    }
-
-} 
-
-//END JOBBERINTRO3 SCREEN END
-
-if($request->hasfile('applicantIntroScreen1')==false){
-           
-    if ($request->hasfile('mainScreen')) {
-        $image1 = $request->file('mainScreen');
-        $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->mainScreen = 'image/' . $name;
-    }
-    if ($request->hasfile('appLogo')) {
-        $image1 = $request->file('appLogo');
-        $name = time() . 'appLogo' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->appLogo = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen1')) {
-        $image1 = $request->file('jooberIntroScreen1');
-        $name = time() . 'jooberIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen2')) {
-        $image1 = $request->file('jooberIntroScreen2');
-        $name = time() . 'jooberIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen2 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen3')) {
-        $image1 = $request->file('jooberIntroScreen3');
-        $name = time() . 'jooberIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen3 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen2')) {
-        $image1 = $request->file('applicantIntroScreen2');
-        $name = time() . 'applicantIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen2 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen3')) {
-        $image1 = $request->file('applicantIntroScreen3');
-        $name = time() . 'applicantIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen3 = 'image/' . $name;
-    }
-
-} 
-
-//END APPLICANTINTRO1 SCREEN END
-
-if($request->hasfile('applicantIntroScreen2')==false){
-           
-    if ($request->hasfile('mainScreen')) {
-        $image1 = $request->file('mainScreen');
-        $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->mainScreen = 'image/' . $name;
-    }
-    if ($request->hasfile('appLogo')) {
-        $image1 = $request->file('appLogo');
-        $name = time() . 'appLogo' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->appLogo = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen1')) {
-        $image1 = $request->file('jooberIntroScreen1');
-        $name = time() . 'jooberIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen2')) {
-        $image1 = $request->file('jooberIntroScreen2');
-        $name = time() . 'jooberIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen2 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen3')) {
-        $image1 = $request->file('jooberIntroScreen3');
-        $name = time() . 'jooberIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen3 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen1')) {
-        $image1 = $request->file('applicantIntroScreen1');
-        $name = time() . 'applicantIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen3')) {
-        $image1 = $request->file('applicantIntroScreen3');
-        $name = time() . 'applicantIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen3 = 'image/' . $name;
-    }
-
-} 
-
-
-//END APPLICANTINTRO2 SCREEN END
-
-if($request->hasfile('applicantIntroScreen2')==false){
-           
-    if ($request->hasfile('mainScreen')) {
-        $image1 = $request->file('mainScreen');
-        $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->mainScreen = 'image/' . $name;
-    }
-    if ($request->hasfile('appLogo')) {
-        $image1 = $request->file('appLogo');
-        $name = time() . 'appLogo' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->appLogo = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen1')) {
-        $image1 = $request->file('jooberIntroScreen1');
-        $name = time() . 'jooberIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen2')) {
-        $image1 = $request->file('jooberIntroScreen2');
-        $name = time() . 'jooberIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen2 = 'image/' . $name;
-    }
-    if ($request->hasfile('jooberIntroScreen3')) {
-        $image1 = $request->file('jooberIntroScreen3');
-        $name = time() . 'jooberIntroScreen3' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->jooberIntroScreen3 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen1')) {
-        $image1 = $request->file('applicantIntroScreen1');
-        $name = time() . 'applicantIntroScreen1' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen1 = 'image/' . $name;
-    }
-    if ($request->hasfile('applicantIntroScreen2')) {
-        $image1 = $request->file('applicantIntroScreen2');
-        $name = time() . 'applicantIntroScreen2' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'image/';
-        $image1->move($destinationPath, $name);
-        $appSetting->applicantIntroScreen2 = 'image/' . $name;
-    }
-
-} 
-
-        $appSetting->save();
+        $appSetting->update();
         toastr()->success('Update Setting ');
-        return back();
+          return back();
 
-        }
+
+
+
+
+           
+     }
 
         
         
@@ -643,6 +259,43 @@ if($request->hasfile('applicantIntroScreen2')==false){
         }
         $slider->save();
         toastr()->success('Added Slider Galery ');
-          return back();
+        $slider = SliderGalery::all();
+        return view('admin.slider.index',compact('slider'));
+    }
+
+    public function sliderIndex()
+    {
+        $slider = SliderGalery::all();
+        return view('admin.slider.index',compact('slider'));
+    }
+    public function sliderEdit($id)
+    {
+        $slider = SliderGalery::where('id','=',$id)->first();
+        return view('admin.slider.edit',compact('slider'));
+    }
+    public function sliderUpdate($id,Request $request)
+    {
+        $slider = SliderGalery::where('id','=',$id)->first();
+        
+        $slider->userRole = $request->userRole;
+        if ($request->hasfile('img')) {
+
+            $image1 = $request->file('img');
+            $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'admin/images/';
+            $image1->move($destinationPath, $name);
+            $slider->img = 'admin/images/' . $name;
+        }
+        $slider->Update();
+        toastr()->success('Update Slider Galery ');
+        $slider = SliderGalery::all();
+        return view('admin.slider.index',compact('slider'));
+    }
+    public function sliderDelete($id)
+    {
+        $slider = SliderGalery::where('id','=',$id)->first();
+        $slider->delete();
+         toastr()->error('Your Data Delted');
+         return back();
     }
 }

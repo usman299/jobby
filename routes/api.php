@@ -26,6 +26,8 @@ Route::get('app/settings', 'Api\AppSettingController@getAppSetting');
 
 Route::group(['middleware' => 'auth:api'], function(){
 Route::post('details', 'Api\UserController@details');
+Route::post('update', 'Api\UserController@update');
+Route::get('/get/profile', 'Api\UserController@getProfile');
 
 // START ROUTES CATEGORY
 
@@ -79,6 +81,7 @@ Route::get('/contract/jobber', 'Api\ContractController@activeContractJobberGet')
 
 //Reviews
 Route::post('/reviews/store/{contract_id}', 'Api\ReviewController@reviewsStore');
+Route::get('/all/jobber/reviews', 'Api\ReviewController@allJobberReview');
 //END Reviews
 
 

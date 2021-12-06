@@ -3,6 +3,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Resources\Users\UserCollection;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 class UserController extends Controller
@@ -71,7 +72,7 @@ public $successStatus = 200;
 
 
 
-                return response()->json($success, $this->successStatus);}
+                return response()->json($success, $this->successStatus); }
     }
 /**
      * details api
@@ -80,8 +81,45 @@ public $successStatus = 200;
      */
     public function details()
     {
+        $user = Auth::guard('api')->user()->id();
+        
+        $data =   UserCollection::collection($user);              
+        $success['data'] = $data;
+        $success['success'] = true;
+        
+    return response()->json($success,$this->successStatus);
+        
+    }
+    public function getProfile()
+    {
+        $user = Auth::guard('api')->user();
+        
+        
+        $data =   UserCollection::collection($user);            
+        $success['data'] = $data;
+        $success['success'] = true;
+        return response()->json($success,$this->successStatus);
+    }
+    public function update(Request $request)
+    {
         $user = Auth::user();
-        return response()->json(['success' => $user], $this-> successStatus);
+
+        $user->firstName = $request->firstName;
+        $user->lastName = $request->lastName;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->country = $request->country;
+        $user->image = $request->image;
+        $user->postalCode = $request->postalCode;
+        $user->category_id = $request->category_id;
+        $user->subcategory_id = $request->subcategory_id;
+        $user->update();
+        
+        $success['message'] = 'Your Data Updated';
+        $success['success'] = true;
+
+        return response()->json($success, $this->successStatus);
+       
     }
 }
 

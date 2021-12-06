@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
         ]);
         User::create([
             'firstName' => "Applicant",
-            'lastName' => "",
+            'lastName' => "Apllicant",
             'email' => "applicant@gmail.com",
             'role' => '2',
             'password' => bcrypt('password'),
@@ -30,7 +30,7 @@ class AdminSeeder extends Seeder
         ]);
         User::create([
             'firstName' => "Jobber",
-            'lastName' => "",
+            'lastName' => "Jobber",
             'email' => "jobber@gmail.com",
             'role' => '1',
             'password' => bcrypt('password'),

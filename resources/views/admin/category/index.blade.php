@@ -20,9 +20,7 @@
                                 <h4 class="card-title"><!-- Category -->Catégorie</h4>
                                 <div class="float-lg-right">
 
-                <a href="{{route('category.create')}}" class="btn btn-secondary btn-block rounded-0" >
-                    <i class="fa fa-plus">  </i> <!-- New Category -->Nouvelle Catégorie
-                </a>
+                <a href="{{route('category.create')}}" class="btn btn-primary">Ajouter un nouveau</a>
 
                                  </div>
                             </div>

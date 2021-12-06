@@ -30,8 +30,8 @@
                                             <tr>
                                                 
                                                 <th><!-- id -->Identifiant</th>
-                                                <th><!-- first Name -->Prénom</th>
-                                                 <th><!-- last Name -->Nom de famille</th>
+                                                <th><!-- Name -->Nom</th>
+                                                 
                                                 <th><!-- email -->E-mail</th>
                                                 <th><!-- role -->Rôle</th>
                                                 <th>Statut</th>
@@ -43,13 +43,14 @@
                                             <tr>
                                                 
                                                 <td>{{$row->id}}</td>
-                                                <td>{{$row->fname }}</td>
-                                                <td>{{$row->lname }}</td>
+                                                <td>{{$row->firstName }} {{$row->lastName }}</td>
+                                                
                                                  <td>{{$row->email}}</td>
                                                @if($row->role==1)
                                                   <td><span class="badge light badge-primary">Jobber</span></td>
                                                  @else
-                                                 <td><span class="badge light badge-success">Applicant</span></td>
+                                                 
+                                                 
                                                  @endif
 
                                                  @if($row->status==1)
@@ -68,6 +69,9 @@
                                                     @else
                                                         <a href="{{route('user.status', ['status'=> '0', 'id' => $row->id])}}" class="btn btn-danger shadow btn-xs sharp" style="background-color: red;" title="Deactivate"> <i class="fa fa-user-times"></i></a>
                                                     @endif
+                                                    <a href="{{route('jobber.profile', ['id' => $row->id])}}" id="edit" 
+                                                            class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" >
+                                                        <i class="fa fa-eye"></i>
                                                     
                                                         <a href="{{route('user.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">
                                                    <i class="fa fa-trash"></i>

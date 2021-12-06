@@ -30,8 +30,8 @@
                                             <tr>
                                                 
                                                 <th><!-- id -->Identifiant</th>
-                                                <th><!-- first Name -->Prénom</th>
-                                                 <th><!-- last Name -->Nom de famille</th>
+                                                <th><!--  Name -->Nom</th>
+                                                 
                                                 <th><!-- email -->E-mail</th>
                                                 <th><!-- role -->Rôle</th>
                                                 <th><!-- role -->Statut</th>
@@ -44,8 +44,7 @@
                                             <tr>
                                                 
                                                 <td>{{$row->id}}</td>
-                                                <td>{{$row->fname }}</td>
-                                                <td>{{$row->lname }}</td>
+                                                <td>{{$row->firstName }} {{$row->lastName }}</td>
                                                  <td>{{$row->email}}</td>
                                                  @if($row->role==2)
                                                   <td><span class="badge light badge-primary ">Jobber</span></td>
