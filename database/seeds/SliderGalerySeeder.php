@@ -11,38 +11,46 @@ class SliderGalerySeeder extends Seeder
      */
     public function run()
     {
-    
+
 
         SliderGalery::create([
             'userRole' => "2",
+            'countory_id'=> "1",
             'img' => "admin/slider/S2.jpg",
         ]);
         SliderGalery::create([
         'userRole' => "2",
+            'countory_id'=> "1",
         'img' => "admin/slider/S3.jpg",
         ]);
         SliderGalery::create([
             'userRole' => "2",
+            'countory_id'=> "1",
             'img' => "admin/slider/S4.jpg",
         ]);
         SliderGalery::create([
         'userRole' => "2",
+            'countory_id'=> "1",
         'img' => "admin/slider/S1.jpg",
         ]);
         SliderGalery::create([
             'userRole' => "1",
+            'countory_id'=> "1",
             'img' => "admin/slider/S2.jpg",
         ]);
         SliderGalery::create([
         'userRole' => "1",
+            'countory_id'=> "1",
         'img' => "admin/slider/S3.jpg",
         ]);
         SliderGalery::create([
             'userRole' => "1",
+            'countory_id'=> "1",
             'img' => "admin/slider/S4.jpg",
         ]);
         SliderGalery::create([
         'userRole' => "1",
+            'countory_id'=> "1",
         'img' => "admin/slider/S1.jpg",
         ]);
     }

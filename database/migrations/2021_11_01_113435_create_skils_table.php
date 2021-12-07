@@ -16,12 +16,13 @@ class CreateSkilsTable extends Migration
         Schema::create('skils', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id');
-            $table->foreign('category_id')->references('id')->on('categories'); 
-            
+            $table->string('countory_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories');
+
 
              $table->foreignId('subcategory_id');
-            $table->foreign('subcategory_id')->references('id')->on('sub_categories'); 
-            
+            $table->foreign('subcategory_id')->references('id')->on('sub_categories');
+
             $table->string('title')->nullable();
             $table->timestamps();
         });

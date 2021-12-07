@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'FrontendController@index')->name('front.index');
 Route::get('/app', 'FrontendController@app')->name('front.app');
+Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
+Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -85,9 +87,19 @@ Route::post('/slider/store', 'Admin\AppSettingController@sliderStore')->name('sl
 Route::get('/slider/index', 'Admin\AppSettingController@sliderIndex')->name('slider.index');
 Route::get('/slider/edit/{id}', 'Admin\AppSettingController@sliderEdit')->name('slider.edit');
 Route::get('/slider/delete/{id}', 'Admin\AppSettingController@sliderDelete')->name('slider.delete');
-Route::post('/slider/update/{id}', 'Admin\AppSettingController@sliderUpdate')->name('slider.update');
+Route::post('/slider/update/{id}', 'Admin\AppSettingController@countoryCreate')->name('slider.update');
 
 //END SLIDER Create
+
+//Coutnroy Add
+Route::get('/countory/create', 'Admin\AppSettingController@countoryCreate')->name('countory.create');
+Route::post('/countory/store', 'Admin\AppSettingController@countoryStore')->name('countory.store');
+Route::get('/countory/index', 'Admin\AppSettingController@countoryIndex')->name('countory.index');
+Route::get('/countory/delete/{id}', 'Admin\AppSettingController@countoryDelete')->name('countory.delete');
+Route::get('/countory/edit/{id}', 'Admin\AppSettingController@countoryEdit')->name('countory.edit');
+Route::post('/countory/update/{id}', 'Admin\AppSettingController@countoryUpdate')->name('countory.update');
+
+//Countory End
 
 
 

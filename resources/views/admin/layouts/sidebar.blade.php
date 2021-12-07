@@ -11,7 +11,11 @@
 						</a>
 
                     </li>
-
+                    <li><a href="{{route('countory.index')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-notepad"></i>
+                            <span class="nav-text">Pays</span>
+                        </a>
+                    </li>
 
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-381-controls-3"></i>
@@ -29,8 +33,8 @@
                             <span class="nav-text"><!-- Users --> Utilisateurs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route('applicant.index')}}"><!-- applicant -->Applicant</a></li>
-                            <li><a href="{{route('jobber.index')}}"><!--  jobber --> Jobber</a></li>
+                            <li><a href="{{route('applicant.index')}}"><!-- applicant -->Jobber</a></li>
+                            <li><a href="{{route('jobber.index')}}"><!--  jobber --> Applicant</a></li>
 
 
                 </ul>

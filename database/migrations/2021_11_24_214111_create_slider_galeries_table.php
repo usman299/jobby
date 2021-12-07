@@ -16,6 +16,7 @@ class CreateSliderGaleriesTable extends Migration
         Schema::create('slider_galeries', function (Blueprint $table) {
             $table->id();
             $table->string('userRole')->nullable();
+            $table->string('countory_id')->nullable();
             $table->string('img')->nullable();
             $table->timestamps();
         });

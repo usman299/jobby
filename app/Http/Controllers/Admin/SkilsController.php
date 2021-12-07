@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Countory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Skils;
@@ -29,12 +30,13 @@ class SkilsController extends Controller
     public function create()
     {
         $category = Category::all();
-        return view('admin.skils.create',compact('category'));
-        
+        $countory = Countory::all();
+        return view('admin.skils.create',compact('category','countory'));
+
     }
 
     public function fetchSubcategory($id){
-  
+
          $subcategory = SubCategory::where('category_id','=',$id)->get();
 
          return response()->json($subcategory);
@@ -51,6 +53,7 @@ class SkilsController extends Controller
         $skils = new Skils();
         $skils->title = $request->title;
         $skils->category_id = $request->category_id;
+        $skils->countory_id = $request->countory_id;
         $skils->subcategory_id = $request->subcategory_id;
         if($skils->save()){
             toastr()->success('Data has been saved successfully!');
@@ -110,7 +113,7 @@ class SkilsController extends Controller
     public function destroy($id)
     {
        $skils = Skils::where('id',$id)->first();
-       
+
        if($skils->delete()){
          toastr()->error('Data has been Remove!');
         $skils = Skils::all();
@@ -125,5 +128,5 @@ class SkilsController extends Controller
        }
     }
 
-    
+
 }

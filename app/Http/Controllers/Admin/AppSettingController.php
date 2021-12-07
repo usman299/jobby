@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\AppSetting;
 use App\SliderGalery;
+use App\Countory;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class AppSettingController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -39,14 +40,14 @@ class AppSettingController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
+
+
         $chek = AppSetting::get();
         if($chek->isEmpty()) {
             $validator = Validator::make($request->all(), [
-                'mainScreen' => 'mimes:jpeg,jpg,png|required', 
-                'appLogo' => 'mimes:jpeg,jpg,png|required', 
-                'jobberIntroScreen1' => 'mimes:jpeg,jpg,png|required', 
+                'mainScreen' => 'mimes:jpeg,jpg,png|required',
+                'appLogo' => 'mimes:jpeg,jpg,png|required',
+                'jobberIntroScreen1' => 'mimes:jpeg,jpg,png|required',
                 'jobberIntroScreen2'  => 'mimes:jpeg,jpg,png|required',
                 'jobberIntroScreen3' => 'mimes:jpeg,jpg,png|required',
                 'applicantIntroScreen1' => 'mimes:jpeg,jpg,png|required',
@@ -54,7 +55,7 @@ class AppSettingController extends Controller
                 'applicantIntroScreen3' => 'mimes:jpeg,jpg,png|required',
             ]);
             $appSetting = new AppSetting();
-  
+
             if ($request->hasfile('mainScreen')) {
             $image1 = $request->file('mainScreen');
             $name = time() . 'mainScreen' . '.' . $image1->getClientOriginalExtension();
@@ -187,12 +188,12 @@ class AppSettingController extends Controller
 
 
 
-           
+
      }
 
-        
-        
-        
+
+
+
     }
 
 
@@ -245,7 +246,7 @@ class AppSettingController extends Controller
         return view('admin.slider.create');
     }
     public function sliderStore(Request $request)
-    {     
+    {
        $slider = new SliderGalery();
 
        $slider->userRole = $request->userRole;
@@ -276,7 +277,7 @@ class AppSettingController extends Controller
     public function sliderUpdate($id,Request $request)
     {
         $slider = SliderGalery::where('id','=',$id)->first();
-        
+
         $slider->userRole = $request->userRole;
         if ($request->hasfile('img')) {
 
@@ -297,5 +298,61 @@ class AppSettingController extends Controller
         $slider->delete();
          toastr()->error('Your Data Delted');
          return back();
+    }
+    public function countoryCreate()
+    {
+
+        return view('admin.countory.create');
+    }
+    public function countoryStore(Request $request)
+    {  $countory= new Countory();
+       $countory->name = $request->name;
+       if($countory->save()){
+           $countory = Countory::all();
+           toastr()->success(' Your Data Save ');
+           return view('admin.countory.index',compact('countory'));
+       }
+       else{
+           toastr()->info('Your Data Not Save');
+           return back();
+       }
+
+
+
+    }
+    public function countoryIndex()
+    {
+        $countory = Countory::all();
+        return view('admin.countory.index',compact('countory'));
+    }
+    public function countoryDelete($id)
+    {
+        $countory = Countory::where('id','=',$id)->first();
+        $countory->delete();
+        toastr()->error('Your Data Delted');
+        return back();
+    }
+    public function countoryEdit($id)
+    {
+        $countory = Countory::where('id','=',$id)->first();
+
+        return view('admin.countory.edit',compact('countory'));
+
+    }
+    public function countoryUpdate(Request $request,$id)
+    {  $countory = Countory::where('id','=',$id)->first();
+        $countory->name = $request->name;
+        if($countory->update()){
+            $countory = Countory::all();
+            toastr()->success('Update Your Data ');
+            return view('admin.countory.index',compact('countory'));
+        }
+        else{
+            toastr()->info('Your Data Not Update');
+            return back();
+        }
+
+
+
     }
 }

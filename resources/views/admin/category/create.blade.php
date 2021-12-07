@@ -25,6 +25,19 @@
                                     <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
                                              @csrf
                                         <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label"><!-- category -->Pays <strong style="color: red;font-size: 20px;"> *</strong></label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control form-control-lg default-select select2" name="countory_id">
+                                                    <option>Choisir une Pays</option>
+                                                    @foreach($countory as $row)
+
+                                                        <option value="{{$row->id}}">{{$row->name}}</option>
+
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><!-- Title -->Titre <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" name="title" placeholder="Entrez le titre" required>
@@ -41,12 +54,12 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><!-- bacgorung color -->Couleur <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
-                                            
+
                                                 <input type="color" value="#ff0000" class="form-control" name="backColor"  required>
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                         <div class="form-group row">
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary"><!-- Sign in -->Nous Faire Parvenir</button>

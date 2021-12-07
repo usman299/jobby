@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Countory;
 use App\Http\Controllers\Controller;
 
 use App\SubCategory;
@@ -15,7 +16,7 @@ class SubCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
 
 
  public function index()
@@ -32,7 +33,8 @@ class SubCategoryController extends Controller
     public function create()
     {
         $category = Category::all();
-        return view('admin.subcategory.create',compact('category'));
+        $countory = Countory::all();
+        return view('admin.subcategory.create',compact('category','countory'));
     }
 
     /**
@@ -46,6 +48,7 @@ class SubCategoryController extends Controller
         $subcategory = new SubCategory();
 
        $subcategory->title = $request->title;
+        $subcategory->countory_id = $request->countory_id;
        $subcategory->category_id = $request->category_id;
        if($subcategory->backColor != '#ffffff'){
         $subcategory->backColor = $request->backColor;}
@@ -61,7 +64,7 @@ class SubCategoryController extends Controller
         $image1->move($destinationPath, $name);
         $category->img = 'admin/images/subcategory/' . $name;
     }
-       
+
 
        if($subcategory->save()){
 

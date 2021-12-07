@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Category;
+use App\Countory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
+
       public function index()
     {
          $category = Category::all();
@@ -28,7 +29,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-      return view('admin.category.create');
+        $countory = Countory::all();
+      return view('admin.category.create',compact('countory'));
     }
 
     /**
@@ -42,6 +44,7 @@ class CategoryController extends Controller
        $category = new Category();
 
        $category->title = $request->title;
+        $category->countory_id = $request->countory_id;
        if($category->backColor != '#ffffff'){
        $category->backColor = $request->backColor;}
        else{

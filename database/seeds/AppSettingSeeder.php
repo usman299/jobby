@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\AppSetting;
+use App\Countory;
 class AppSettingSeeder extends Seeder
 {
     /**
@@ -21,5 +22,27 @@ class AppSettingSeeder extends Seeder
         $appSetting->applicantIntroScreen2 = 'admin/onBoarding/applicant/pic2.jpg';
         $appSetting->applicantIntroScreen3 = 'admin/onBoarding/applicant/pic3.jpg';
         $appSetting->save();
+
+
+        Countory::create([
+            'name' => "Guadeloupe",
+
+        ]);
+        Countory::create([
+            'name' => "Martinique",
+
+        ]);
+        Countory::create([
+            'name' => "Guyane",
+
+        ]);
+        Countory::create([
+            'name' => "La Reunion",
+
+        ]);
+        Countory::create([
+            'name' => "IIe de France",
+
+        ]);
     }
 }

@@ -36,17 +36,30 @@
                                 <div class="basic-form">
                                     <form method="POST" action="{{ route('slider.update',['id'=>$slider->id]) }}" enctype="multipart/form-data">
                                              @csrf
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label"><!-- category -->Pays <strong style="color: red;font-size: 20px;"> *</strong></label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control form-control-lg default-select select2" name="countory_id">
+                                                    <option>Choisir une Pays</option>
+                                                    @foreach($countory as $row)
+
+                                                        <option value="{{$row->id}}" {{ $slider->countory_id == $row->countory_id ? 'selected' : '' }}>{{$row->name}}</option>
+
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
                                              <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><!-- User -->Utilisateur <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
                                                 <select class="form-control form-control-lg default-select select2" name="userRole">
                                             	<option>Choisir une Utilisateur</option>
-                                            	
-                                                
+
+
                                                 <option value="1" {{ $slider->userRole == '1' ? 'selected' : '' }}>Jobber</option>
                                                 <option value="2" {{ $slider->userRole == '2' ? 'selected' : '' }}>Applicant</option>
-                                               
-                                               
+
+
                                             </select>
                                             </div>
                                         </div>
@@ -58,12 +71,12 @@
                         </label>
                                             </div>
                                             <div class="col-sm-4">
-                      
+
                                         <img id="output_image1" src="{{asset($slider->img)}}" />
-                    
+
                                         </div></div>
-                                        
-                                        
+
+
                                         <div class="form-group row">
                                             <div class="col-sm-10">
                                                 <button type="submit" class="btn btn-primary"><!-- Sign in -->Nous Faire Parvenir</button>
@@ -77,7 +90,7 @@
                 </div>
             </div>
             <script>
-function preview_image1(event) 
+function preview_image1(event)
 {
  var reader = new FileReader();
  reader.onload = function()

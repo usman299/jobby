@@ -19,7 +19,7 @@
                                 <h4 class="card-title"><!-- Applicant User -->Demandeur Utilisateur</h4>
                                 <div class="float-lg-right">
 
-               
+
 
                                  </div>
                             </div>
@@ -28,10 +28,10 @@
                                     <table id="example3" class="display min-w850">
                                         <thead>
                                             <tr>
-                                                
+
                                                 <th><!-- id -->Identifiant</th>
                                                 <th><!-- Name -->Nom</th>
-                                                 
+
                                                 <th><!-- email -->E-mail</th>
                                                 <th><!-- role -->Rôle</th>
                                                 <th>Statut</th>
@@ -41,16 +41,16 @@
                                         <tbody>
                                              @foreach($applicant as $row)
                                             <tr>
-                                                
+
                                                 <td>{{$row->id}}</td>
                                                 <td>{{$row->firstName }} {{$row->lastName }}</td>
-                                                
+
                                                  <td>{{$row->email}}</td>
                                                @if($row->role==1)
                                                   <td><span class="badge light badge-primary">Jobber</span></td>
                                                  @else
-                                                 
-                                                 
+                                                    <td><span class="badge light badge-success">Applicant</span></td>
+
                                                  @endif
 
                                                  @if($row->status==1)
@@ -58,9 +58,9 @@
                                                  @else
                                                  <td><span class="badge light badge-warning">Deactivate</span></td>
                                                  @endif
-                                               
-                                               
-                                               
+
+
+
                                                 <td>
 													<div class="d-flex">
 														<!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->
@@ -69,19 +69,19 @@
                                                     @else
                                                         <a href="{{route('user.status', ['status'=> '0', 'id' => $row->id])}}" class="btn btn-danger shadow btn-xs sharp" style="background-color: red;" title="Deactivate"> <i class="fa fa-user-times"></i></a>
                                                     @endif
-                                                    <a href="{{route('jobber.profile', ['id' => $row->id])}}" id="edit" 
+                                                    <a href="{{route('jobber.profile', ['id' => $row->id])}}" id="edit"
                                                             class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" >
                                                         <i class="fa fa-eye"></i>
-                                                    
+
                                                         <a href="{{route('user.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">
                                                    <i class="fa fa-trash"></i>
                                                 </a>
-													</div>												
-												</td>												
+													</div>
+												</td>
                                             </tr>
 
                                             @endforeach
-                                           
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -90,7 +90,7 @@
                     </div>
 
 
- 
+
 
      @jquery
     @toastr_js
