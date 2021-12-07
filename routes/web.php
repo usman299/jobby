@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/', 'FrontendController@index')->name('front.index');
+Route::get('/app', 'FrontendController@app')->name('front.app');
+Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::get('/home', 'HomeController@index')->name('home');
 
