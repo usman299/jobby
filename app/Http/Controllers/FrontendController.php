@@ -17,7 +17,7 @@ class FrontendController extends Controller
     public function app(){
         $title = 'Accueil';
         $user = Auth::user();
-        $sliderGalery = SliderGalery::where('userRole','=',$user->role)->get();
+        $sliderGalery = SliderGalery::where('userRole','=',$user->role)->where('countory_id', '=',$user->country)->get();
         $category = Category::take(9)->orderBy('id', 'DESC')->get();
         return view('front.index',compact('sliderGalery','category', 'title'));
     }
