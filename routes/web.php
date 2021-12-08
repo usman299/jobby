@@ -14,14 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-
-
-
-
+Route::get('/', function (){
+    $check =  preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+    if($check){
+        return redirect()->route('front.intro');
+    }else{
+        return  view('auth.login');
+    }
+});
 
 Auth::routes();
-Route::get('/', 'FrontendController@index')->name('front.index');
+//Route::get('/', 'FrontendController@index')->name('front.index');
 Route::get('/intro', 'FrontendController@intro')->name('front.intro');
 Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
 Route::get('/intro/applicant', 'FrontendController@introapplicant')->name('intro.applicant');
