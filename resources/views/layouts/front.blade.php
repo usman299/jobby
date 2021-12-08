@@ -41,6 +41,11 @@
 
     <!-- manifest meta -->
     <link rel="manifest" href="{{asset('_manifest.json')}}" />
+    <style>
+        .rounded-pill{
+            display: inline-block !important; text-align: center;
+        }
+    </style>
 </head>
 
 

@@ -157,11 +157,13 @@
 
                     <div class="item em_item_product item_list">
                         <div class="title_product">
-
+                            <a href="">
                             <h4 class="item_price" style="margin-bottom: 5px">Need Laravel Developer</h4>
                             <h3>Mens 100% Cotton Solid Color Panda Print Thin Casual T-Shirt</h3>
-                            <span class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">6</span>                            <p class="item_price">$23.00</p>
-
+                            <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">Category Name</span>
+                            <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">SUb Category Name</span>
+                            <p class="item_price">$23.00</p>
+                            </a>
                             <button type="button" class="btn btn_addCart item-active">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M12.75 8.32727C12.75 7.91306 12.4142 7.57727 12 7.57727C11.5858 7.57727 11.25 7.91306 11.25 8.32727V11.2405H8.33333C7.91911 11.2405 7.58333 11.5763 7.58333 11.9905C7.58333 12.4047 7.91911 12.7405 8.33333 12.7405H11.25V15.6536C11.25 16.0678 11.5858 16.4036 12 16.4036C12.4142 16.4036 12.75 16.0678 12.75 15.6536V12.7405H15.6667C16.0809 12.7405 16.4167 12.4047 16.4167 11.9905C16.4167 11.5763 16.0809 11.2405 15.6667 11.2405H12.75V8.32727Z" fill="#200E32"></path>
