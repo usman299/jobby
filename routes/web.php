@@ -22,14 +22,35 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/', 'FrontendController@index')->name('front.index');
+Route::get('/intro', 'FrontendController@intro')->name('front.intro');
+Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
+Route::get('/intro/applicant', 'FrontendController@introapplicant')->name('intro.applicant');
+Route::get('/splash', 'FrontendController@splash')->name('front.splash');
+
+Route::get('/front/login/{id}', 'FrontendController@login')->name('front.login');
+Route::get('/front/register/{id}', 'FrontendController@register')->name('front.register');
+
+
+//App Routes
+Route::group(['middleware' => ['auth', 'web', 'app']], function() {
+
+
 Route::get('/app', 'FrontendController@app')->name('front.app');
 Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
-Route::get('/splash', 'FrontendController@splash')->name('front.splash');
+
+Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
+Route::get('/applicant/single/service', 'Front\ApplicantController@singleService')->name('applicant.singleService');
+
+
+});
+
+
+//Admin routes
+Route::group(['middleware' => ['auth', 'web', 'role']], function() {
+
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::get('/home', 'HomeController@index')->name('home');
-
-
 
 // START ROUTES CATEGORY
 
@@ -102,7 +123,7 @@ Route::post('/countory/update/{id}', 'Admin\AppSettingController@countoryUpdate'
 //Countory End
 
 
-
+});
 
 
 

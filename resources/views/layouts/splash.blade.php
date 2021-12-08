@@ -41,29 +41,23 @@
 
     <!-- manifest meta -->
     <link rel="manifest" href="{{asset('_manifest.json')}}" />
+    <style>
+        .npPage_introDefault .npButtons_networks {
+             padding-top: 0px !important;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .npPage_introDefault .swiper__text .swiper-slide .content_text {
+            padding: 0 0px !important;
+        }
+    </style>
 </head>
 
 
 <body class="h-100 d-flex align-items-center text-center">
 
-<!-- Start em_loading -->
-<section class="em_loading" id="loaderPage">
-    <div class="spinner_flash"></div>
-</section>
-<!-- End. em_loading -->
+@yield('content')
 
-<div class="spalsh__screen mx-auto">
-    <div class="logo">
-        <img src="{{asset('assets/img/logo_splash.svg')}}" width="117" height="47" alt="">
-    </div>
-
-    <div class="env-pb d-flex justify-content-center">
-        <p class="absolute bottom-0 mb-0 size-11 color-text padding-b-30">
-            Copyright © Ikae Digital 2021
-        </p>
-    </div>
-
-</div>
 
 <!-- jquery -->
 <script src="{{asset('assets/js/jquery-3.6.0.js')}}"></script>
@@ -82,8 +76,7 @@
 <script src="{{asset('assets/js/vendor/short-and-sweet.min.js')}}"></script>
 <!-- jquery knob -->
 <script src="{{asset('assets/js/vendor/jquery.knob.min.js')}}"></script>
-<!-- splash -->
-<script src="{{asset('assets/js/splash.js')}}"></script>
+
 <!-- main.js -->
 <script src="{{asset('assets/js/main.js')}}" defer></script>
 <!-- PWA app service registration and works js -->

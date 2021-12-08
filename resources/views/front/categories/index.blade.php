@@ -17,35 +17,7 @@
             background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
         }
     </style>
-    <div id="content">
-        <!-- Start main_haeder -->
-        <header class="main_haeder header-sticky multi_item">
-            <div class="em_menu_sidebar">
-                <button type="button" class="btn btn_menuSidebar item-show" data-toggle="modal"
-                        data-target="#mdllSidebarMenu-background">
-                    <i class="ri-menu-fill"></i>
-                </button>
-            </div>
-            <div class="em_brand">
-                <a href="index.html">
-                    <img src="assets/img/logo-b.svg" alt="">
-                </a>
-            </div>
-            <div class="em_side_right">
-                <button class="btn rounded-circle share-button bg-transparent margin-r-10" data-toggle="modal"
-                        data-target="#mdllButtons_share">
-                    <i class="ri-share-forward-box-line"></i>
-                </button>
-                <button type="button" class="btn btn_meunSearch" id="saerch-On-header">
-                    <i class="ri-search-2-line"></i>
-                </button>
-            </div>
-        </header>
-        <!-- End.main_haeder -->
-
         <main class="emPage__public">
-
-
 
             <!-- Start block_page_Comp -->
             <section class="em_swiper_products emCategories__jobs  padding-t-30 padding-b-30">
@@ -81,6 +53,4 @@
             <!-- End. block_page_Comp -->
 
         </main>
-
-    </div>
 @endsection

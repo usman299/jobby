@@ -6,6 +6,6 @@
 */
 
 function pageRedirect() {
-    window.location.replace("/app");
+    window.location.replace("/intro");
 }
 setTimeout("pageRedirect()", 1500);
