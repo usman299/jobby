@@ -173,7 +173,7 @@
                                 @endif
                             </button>
 
-                            <a href="">
+                            <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
                             <h4 class="item_price" style="margin-bottom: 10px">{{$job->title}}</h4>
                             <h3>{{Str::limit($job->description, 50) ?? ''}}</h3>
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /

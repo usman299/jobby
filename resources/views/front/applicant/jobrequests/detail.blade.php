@@ -132,9 +132,7 @@
         </section>
     @endif
     <br>
-@endsection
-@section('model')
-    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="propsal" tabindex="-1"
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade show" id="propsal" tabindex="-1"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -175,5 +173,4 @@
             </div>
         </div>
     </div>
-
 @endsection
