@@ -340,7 +340,7 @@
                         </div>
                     </div>
                 </div>
-                @if(Auth::user()->role==2)
+
                 <div class="modal-body">
                     <ul class="nav flex-column">
                         <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
@@ -368,7 +368,7 @@
                                 </div>
                             </a>
                         </li>
-                        @endif
+
                         @if(Auth::user()->role==1)
                         <div class="modal-body">
                             <ul class="nav flex-column">

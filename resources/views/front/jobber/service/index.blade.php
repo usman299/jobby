@@ -1,5 +1,12 @@
 @extends('layouts.front')
 @section('content')
+    <style>
+        #output_image{
+            border-style: ridge;
+            width: 150px;
+            height: 120px;
+        }
+    </style>
     <!-- Start input_SaerchDefault -->
     <section class="padding-t-70 change_colorSearch">
         <div class="input_SaerchDefault">
@@ -92,9 +99,12 @@
 
                                         <span class="color-text"><strong>{{$row->price}}€</strong></span>
                                     </div>
+                                    
                                     <div class="amount_co size-14 weight-600 color-secondary">
                                         <span class="label_default margin-t-10 margin-r-10">Active</span>
+
                                         <span class="icon">
+
                                             <button type="button" class="btn bg-info m-0 color-white  d-flex align-items-center rounded-10  justify-content-center" data-toggle="modal1" data-target="#modelcontent-form" style="float: right">
 
                                              <svg id="Iconly_Two-tone_Edit" data-name="Iconly/Two-tone/Edit"
@@ -117,7 +127,9 @@
                                                 </g>
                                             </svg>
 
+
                                    </button>
+
                                         </span>
 
                                     </div>
@@ -171,10 +183,18 @@
                                                required="">
                                         <label for="price" class="margin-t-20" style="font-size: 15px;"><strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
                                     </div>
-                                    <div class="form-group input-lined">
-                                        <input type="file" id="img" class="form-control" name="img" required="">
-                                        <label for="pass" class="margin-t-20" style="font-size: 15px;"> <strong>Image</strong> <strong style="color: red;">*</strong></label>
+                                    <div class="form-group input-lined ">
+                                        <label class="form-group input-lined @error('img') is-invalid @enderror margin-t-30" >
+                                            <i class="fa fa-image"></i> <!-- Add Your Image --> <strong style="font-size: 18px;">Ajoutez Votre Image(850x650)</strong><input type="file" style="display: none;"name="img" value="{{ old('img') }}" required autocomplete="img" accept="image/png, image/gif, image/jpeg" id="imgInp" onchange="preview_image(event)">
+                                        </label>
                                     </div>
+                                    <div class="form-group input-lined ">
+                                        <img id="output_image" src="{{ asset('assets/img/0ffd6s54.jpg')  }}" />
+                                    </div>
+
+{{--                                        <label for="pass" class="margin-t-20" style="font-size: 15px;"> <strong>Image</strong> <strong style="color: red;">*</strong></label>--}}
+
+
                                     <div class="form-group input-lined">
                                         <textarea class="form-control" name="description" rows="4" id="description" placeholder="Entrez la  Description"></textarea>
                                         <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>La Description</strong> <strong style="color: red;">*</strong></label>
@@ -275,5 +295,18 @@
             <div class="bounce3"></div>
         </div>
     </div>
+    <script>
+        function preview_image(event)
+        {
+            var reader = new FileReader();
+            reader.onload = function()
+            {
+                var output = document.getElementById('output_image');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+    </script>
     <!-- End. spinner_loading -->
 @endsection

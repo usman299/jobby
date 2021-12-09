@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\JobRequest;
 use App\Proposal;
+use App\User;
 use App\SubCategory;
 use App\JobberServicesOffers;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class ApplicantController extends Controller
 {
    public function services(){
        $title = 'Services populaires';
-       $services =JobberServicesOffers::latest()->where('status','=',1)->where('country','=',Auth::user()->id)->get();
+       $services =JobberServicesOffers::latest()->where('status','=',1)->where('country_id','=',Auth::user()->country)->get();
        return view('front.applicant.services.services', compact('title','services'));
    }
    public function singleService($id){

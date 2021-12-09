@@ -16,7 +16,7 @@ class CreateJobberServicesOffersTable extends Migration
         Schema::create('jobber_services_offers', function (Blueprint $table) {
             $table->id();
             $table->longText('title')->nullable();
-            $table->longText('country_id')->nullable();
+            $table->string('country_id')->nullable();
             $table->longText('duration')->nullable();
             $table->string('price')->nullable();
             $table->longText('description')->nullable();
