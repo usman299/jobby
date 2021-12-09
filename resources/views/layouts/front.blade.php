@@ -73,7 +73,7 @@
                 </button>
             </div>
             <div class="title_page">
-                <span class="page_name">{{$title}}</span>
+                <span class="page_name">{{$title??'Messenger'}}</span>
             </div>
             <div class="em_side_right">
                 <button type="button" class="btn btn_menuSidebar item-show" data-toggle="modal"

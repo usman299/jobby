@@ -21,7 +21,7 @@ class FrontendController extends Controller
         $title = 'Accueil';
         $user = Auth::user();
         $sliderGalery = SliderGalery::where('userRole','=',$user->role)->where('countory_id', '=',$user->country)->get();
-        $services =JobberServicesOffers::where('status','=',1)->take(4)->orderBy('id', 'DESC')->get();
+        $services =JobberServicesOffers::where('status','=',1)->where('country','=',Auth::user()->id)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::take(9)->orderBy('id', 'DESC')->get();
         $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('status', '=', 1)->get();
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services'));

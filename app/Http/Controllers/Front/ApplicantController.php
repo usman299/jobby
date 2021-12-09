@@ -14,7 +14,7 @@ class ApplicantController extends Controller
 {
    public function services(){
        $title = 'Services populaires';
-       $services =JobberServicesOffers::where('status','=',1)->get();
+       $services =JobberServicesOffers::latest()->where('status','=',1)->where('country','=',Auth::user()->id)->get();
        return view('front.applicant.services.services', compact('title','services'));
    }
    public function singleService($id){
