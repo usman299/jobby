@@ -29,6 +29,13 @@ class CreateUsersTable extends Migration
             $table->integer('subcategory_id')->nullable();
 
             $table->string('skils')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('rate_per_hour')->nullable();
+            $table->integer('is_company')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('siret')->nullable();
+            $table->longText('description')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -125,6 +125,7 @@
     </section>
 
     <br>
+    <br>
 @endsection
 @section('model')
     <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="acceptpropsal" tabindex="-1"
