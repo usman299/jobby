@@ -42,6 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function countory()
+    {
+        return $this->belongsTo(Countory::class, 'country');
+    }
+
     public function servicesOffers()
     {
         return $this->hasMany(JobberServicesOffers::class);

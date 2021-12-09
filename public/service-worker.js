@@ -2,7 +2,7 @@
 // Template Author: Orino Studio
 
 /*=========================================================================
-** You can find, detailed, and working examples of 
+** You can find, detailed, and working examples of
 ** service worker usage on https://github.com/mozilla/serviceworker-cookbook
 ===========================================================================*/
 
@@ -11,8 +11,8 @@ var CACHE_NAME = 'cache-version-1.2';
 
 // Files required to make this app work offline
 var REQUIRED_FILES = [
-    'index.html',
-    '/',
+    '/intro',
+    '/intro',
     'assets/css/bootstrap.min.css',
     'assets/css/icons.css',
     'assets/css/main.css',

@@ -37,8 +37,10 @@ Route::get('/front/register/{id}', 'FrontendController@register')->name('front.r
 //App Routes
 Route::group(['middleware' => ['auth', 'web', 'app']], function() {
 
+Route::post('/fetchsubcategory', 'Front\ApplicantController@fetchsubcategory')->name('fetchsubcategory');
 
 Route::get('/app', 'FrontendController@app')->name('front.app');
+Route::get('/app/settings', 'FrontendController@settings')->name('app.settings');
 Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
@@ -51,6 +53,17 @@ Route::post('/jobber/services/store', 'Front\JobberController@storeServices')->n
 Route::get('/jobber/services/edit/{id}', 'Front\JobberController@editServices')->name('jobber.services.edit');
 Route::post('/jobber/services/update/{id}', 'Front\JobberController@updateServices')->name('jobber.services.update');
 Route::get('/services/status/update/{id}/{status}', 'Front\JobberController@updateStatusServices')->name('services.status.update');
+
+Route::post('/jobrequest/submit', 'Front\ApplicantController@jobrequestSubmit')->name('jobrequest.submit');
+Route::get('/applicant/jobrequests', 'Front\ApplicantController@jobrequests')->name('applicant.jobrequests');
+Route::get('/applicant/jobrequests/detail/{id}', 'Front\ApplicantController@jobrequestsDetail')->name('applicant.jobrequest.detail');
+Route::get('/applicant/jobrequests/status/{id}', 'Front\ApplicantController@jobrequestsStatus')->name('applicant.jobrequest.status');
+Route::get('/applicant/proposals', 'Front\ApplicantController@proposals')->name('applicant.proposals');
+Route::get('/applicant/proposal/detail/{id}', 'Front\ApplicantController@proposalDetails')->name('applicant.proposal.detail');
+Route::post('/proposal/accept/{id}', 'Front\ApplicantController@proposalAccept')->name('proposal.accept');
+
+Route::post('/proposal/submit', 'Front\JobberController@proposalSubmit')->name('proposal.submit');
+Route::get('/jobber/proposals', 'Front\JobberController@proposals')->name('jobber.proposals');
 
 
 });

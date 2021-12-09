@@ -21,7 +21,7 @@
         <main class="emPage__public">
 
             <!-- Start banner_swiper -->
-            <section class="banner_swiper padding-t-70 bg-white">
+            <section class="banner_swiper padding-t-50 bg-white">
                 <div class="title_welcome">
 
                 </div>
@@ -53,7 +53,7 @@
                         <a href="{{route('front.categories')}}"><!--View all-->Voir tout</a>
                     </div>
                 </div>
-                <div class="em_bodyCarousel padding-t-20  bg-white">
+                <div class="em_bodyCarousel   bg-white">
                     <div class="container">
 
                         <div class="row">
@@ -160,26 +160,37 @@
                 <!-- Start Standard layout -->
                 <div class="em_masonry__layout bg-snow em_list_layout widthFull">
 
+                    @foreach($jobrequests as $job)
                     <div class="item em_item_product item_list">
                         <div class="title_product">
-                            <a href="">
-                            <h4 class="item_price" style="margin-bottom: 5px">Need Laravel Developer</h4>
-                            <h3>Mens 100% Cotton Solid Color Panda Print Thin Casual T-Shirt</h3>
-                            <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">Category Name</span>
-                            <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">SUb Category Name</span>
-                            <p class="item_price">$23.00</p>
-                            </a>
-                            <button type="button" class="btn btn_addCart item-active">
+                            <button style=" position: absolute !important;right: 20px;top: 15px; width: 30px; height: 30px; " type="button" class="btn rounded-8 btn_addCart item-active -active">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M12.75 8.32727C12.75 7.91306 12.4142 7.57727 12 7.57727C11.5858 7.57727 11.25 7.91306 11.25 8.32727V11.2405H8.33333C7.91911 11.2405 7.58333 11.5763 7.58333 11.9905C7.58333 12.4047 7.91911 12.7405 8.33333 12.7405H11.25V15.6536C11.25 16.0678 11.5858 16.4036 12 16.4036C12.4142 16.4036 12.75 16.0678 12.75 15.6536V12.7405H15.6667C16.0809 12.7405 16.4167 12.4047 16.4167 11.9905C16.4167 11.5763 16.0809 11.2405 15.6667 11.2405H12.75V8.32727Z" fill="#200E32"></path>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6857 2H7.31429C4.04762 2 2 4.31208 2 7.58516V16.4148C2 19.6879 4.0381 22 7.31429 22H16.6857C19.9619 22 22 19.6879 22 16.4148V7.58516C22 4.31208 19.9619 2 16.6857 2Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg>
-                                <div class="icon_active"></div>
-                                <span class="txt_added">Added!</span>
+                                @if($job->isApplied())
+                                <span class="icon_active"></span>
+                                <span class="txt_added">Appliquée</span>
+                                @endif
                             </button>
+
+                            <a href="">
+                            <h4 class="item_price" style="margin-bottom: 10px">{{$job->title}}</h4>
+                            <h3>{{$job->description}}</h3>
+                                <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
+                                <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
+                                <p class="item_price">{{$job->max_price}} € - {{$job->min_price}} €</p>
+                            </a>
+                            <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
+                                <button type="button" class="btn btn_addCart item-active">
+                                    <div class="itemRating">
+                                        <span style="min-width: 80px;" class="number">Vue</span>
+                                    </div>
+                                </button></a>
                         </div>
 
                     </div>
+                    @endforeach
 
                 </div>
                 <!-- End. Standard layout -->

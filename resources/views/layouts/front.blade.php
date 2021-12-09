@@ -38,12 +38,17 @@
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
     <!-- normalize.css v8.0.1 -->
     <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
     <!-- manifest meta -->
     <link rel="manifest" href="{{asset('_manifest.json')}}" />
     <style>
         .rounded-pill{
             display: inline-block !important; text-align: center;
+        }
+        .em_list_layout.widthFull .item_list .em_head .image_product {
+            height: 80px;
         }
     </style>
 </head>
@@ -62,17 +67,18 @@
         <!-- Start main_haeder -->
         <header class="main_haeder header-sticky multi_item {{  request()->is('applicant/single/*') ? 'header-white':'' }}">
             <div class="em_menu_sidebar">
-                <button type="button" class="btn btn_menuSidebar item-show" data-toggle="modal"
-                        data-target="#mdllSidebarMenu-background">
-                    <i class="ri-menu-fill"></i>
+                <button onclick="history.back()" type="button" class="btn btn_meunSearch" id="saerch-On-header">
+                   <div class="icon">
+                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"/></svg>                   </div>
                 </button>
             </div>
             <div class="title_page">
                 <span class="page_name">{{$title}}</span>
             </div>
             <div class="em_side_right">
-                <button type="button" class="btn btn_meunSearch" id="saerch-On-header">
-                    <i class="ri-search-2-line"></i>
+                <button type="button" class="btn btn_menuSidebar item-show" data-toggle="modal"
+                        data-target="#mdllSidebarMenu-background">
+                    <i class="ri-menu-fill"></i>
                 </button>
             </div>
         </header>
@@ -88,7 +94,7 @@
         <div class="em_body_navigation -active-links">
             <div class="item_link">
                 @if($user->role == 2)
-                <a href="#" class="btn btn_navLink">
+                <a href="{{route('applicant.jobrequests')}}" class="btn btn_navLink">
                     <div class="icon_current">
                         <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document"
                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -116,7 +122,7 @@
                 </a>
                 @else
                     <div class="item_link">
-                        <a href="#" class="btn btn_navLink">
+                        <a href="{{route('jobber.proposals')}}" class="btn btn_navLink">
                             <div class="icon_current">
                                 <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document"
                                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -147,7 +153,7 @@
             </div>
             <div class="item_link">
                 @if($user->role == 2)
-                <a href="#" class="btn btn_navLink">
+                <a href="{{route('applicant.proposals')}}" class="btn btn_navLink">
                     <div class="icon_current">
                         <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle"
                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -173,7 +179,7 @@
                         </svg>
                     </div>
 
-                    <div class="txt__tile">Contrats</div>
+                    <div class="txt__tile">Propositions</div>
                 </a>
                 @else
                     <a href="#" class="btn btn_navLink">
@@ -262,7 +268,7 @@
                 </a>
             </div>
             <div class="item_link">
-                <a href="#" class="btn btn_navLink">
+                <a href="{{route('app.settings')}}" class="btn btn_navLink">
                     <div class="icon_current">
                         <svg id="Iconly_Curved_Setting" data-name="Iconly/Curved/Setting"
                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -547,6 +553,9 @@
         </div>
     </div>
 
+    <?php
+    $categories = \App\Category::all();
+    ?>
     <!-- Modal Form -->
     <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllForm" tabindex="-1"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -562,54 +571,57 @@
                         </button>
                     </div>
                 </div>
-                <div class="modal-body env-pb">
-                    <form action="">
-                        <div class="form-group input-lined">
-                            <input type="text" id="username" class="form-control" placeholder="Titre" required="">
-                            <label for="username">Titre</label>
-                        </div>
-                        <div class="form-group input-lined">
-                            <select name="" class="form-control" id="">
-                                <option value="">heafer 1</option>
-                                <option value="">heafer 1</option>
-                                <option value="">heafer 1</option>
-                                <option value="">heafer 1</option>
-                            </select>
-                            <label for="email">Category</label>
-                        </div>
-                        <div class="form-group input-lined">
-                            <select name="" class="form-control" id="">
-                                <option value="">heafer 1</option>
-                                <option value="">heafer 1</option>
-                                <option value="">heafer 1</option>
-                                <option value="">heafer 1</option>
-                            </select>
-                            <label for="email">Sub Category</label>
-                        </div>
-                        <div class="form-group input-lined">
-                            <input type="text"  class="form-control" required="">
-                            <label for="mobile">Budget</label>
-                        </div>
-                        <div class="form-group input-lined">
-                            <input type="text"  class="form-control" required="">
-                            <label for="mobile">Estimate Time</label>
-                        </div>
-                        <div class="form-group input-lined">
-                            <textarea class="form-control" rows="2" id="address"></textarea>
-                            <label for="address">Details</label>
-                        </div>
+                <form action="{{route('jobrequest.submit')}}" method="POST">
+                    @csrf
+                    <div class="modal-body env-pb">
+                            <div class="form-group input-lined">
+                                <input type="text" name="title" class="form-control" placeholder="Titre" required="">
+                                <label for="username">Titre</label>
+                            </div>
+                            <div class="form-group input-lined">
+                                <select onchange="categorychange(this)" name="category_id" class="form-control" required="">
+                                    <option value="">Choisir une catégorie</option>
+                                    @foreach($categories as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                    @endforeach
+                                </select>
+                                <label for="email">Catégorie</label>
+                            </div>
+                            <div class="form-group input-lined">
+                                <select name="subcategory_id" class="form-control maincategory" required="">
 
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <a href="#"
-                       class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
-                       Post
-                    </a>
-                </div>
+                                </select>
+                                <label for="email">Sous-catégorie</label>
+                            </div>
+                            <div class="form-group input-lined">
+                                <input type="number" name="min_price"  class="form-control" required="">
+                                <label for="mobile">Minimum Budget</label>
+                            </div>
+                            <div class="form-group input-lined">
+                                <input type="number" name="max_price" class="form-control" required="">
+                                <label for="mobile">Maximum Budget</label>
+                            </div>
+                            <div class="form-group input-lined">
+                                <input type="text" name="estimate_time"  class="form-control" required="">
+                                <label for="mobile">Temps estimé</label>
+                            </div>
+                            <div class="form-group input-lined">
+                                <textarea class="form-control" rows="2" name="description"></textarea>
+                                <label for="address">Details</label>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit"
+                           class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
+                            Poster
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
+    @yield('model')
 </div>
 
 <!-- jquery -->
@@ -634,7 +646,51 @@
 <script src="{{asset('assets/js/main.js')}}" defer></script>
 <!-- PWA app service registration and works js -->
 <script src="{{asset('assets/js/pwa-services.js')}}"></script>
+<script>
+    function categorychange(elem){
+        $('.maincategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
+        event.preventDefault();
+        let id = elem.value;
+        let _token   = $('meta[name="csrf-token"]').attr('content');
 
+        $.ajax({
+            url: "{{route('fetchsubcategory')}}",
+            type:"POST",
+            data:{
+                id:id,
+                _token: _token
+            },
+            success:function(response){
+                $.each(response, function(i, item) {
+                    $('.maincategory').append('<option value="'+item.id+'">'+item.title+'</option>');
+                });
+            },
+        });
+    }
+
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    @if(Session::has('messege'))
+    var type="{{Session::get('alert-type','info')}}"
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
+</script>
+@yield('script')
 </body>
 
 </html>

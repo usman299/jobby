@@ -15,11 +15,12 @@ class CreateJobRequestsTable extends Migration
     {
         Schema::create('job_requests', function (Blueprint $table) {
             $table->id();
-            $table->string('applicant_id')->nullable();
-            $table->string('category_id')->nullable();
-            $table->string('subcategory_id')->nullable(); 
-            $table->string('skils')->nullable();   
-            $table->longtext('title')->nullable();
+            $table->integer('applicant_id');
+            $table->integer('category_id');
+            $table->integer('subcategory_id');
+            $table->integer('country_id');
+            $table->string('skils')->nullable();
+            $table->longtext('title');
             $table->string('estimate_time')->nullable();
             $table->string('max_price')->nullable();
             $table->string('min_price')->nullable();

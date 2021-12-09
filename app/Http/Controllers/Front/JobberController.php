@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\SubCategory;
-use App\JobberServicesOffers;
-use Illuminate\Support\Facades\Session;
+use App\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -95,5 +94,35 @@ class JobberController extends Controller
         }
 
 
+    }
+    public function proposalSubmit(Request $request){
+        $check = Proposal::where('jobber_id', '=', Auth::user()->id)->where('jobRequest_id', '=', $request->id)->first();
+        if ($check){
+            $notification = array(
+                'messege' => 'Already Applied',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }else{
+            $proposal = new Proposal();
+            $proposal->jobRequest_id = $request->id;
+            $proposal->price = $request->price;
+            $proposal->time_limit = $request->time_limit;
+            $proposal->description = $request->description;
+            $proposal->jobber_id = Auth::user()->id;
+            $proposal->save();
+            $notification = array(
+                'messege' => 'Sauvegarde réussie!',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
+    }
+    public function proposals(){
+        $title = 'Propositions';
+        $user = Auth::user();
+        $activeProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 1)->get();
+        $acceptProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 2)->get();
+        return view('front.jobber.proposals.proposals', compact('title', 'acceptProposals', 'activeProposals'));
     }
 }

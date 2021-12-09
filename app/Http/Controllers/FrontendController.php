@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\AppSetting;
+use App\Countory;
+use App\JobRequest;
 use Illuminate\Http\Request;
 use App\SliderGalery;
 use App\Category;
@@ -21,6 +23,8 @@ class FrontendController extends Controller
         $sliderGalery = SliderGalery::where('userRole','=',$user->role)->where('countory_id', '=',$user->country)->get();
         $services =JobberServicesOffers::where('status','=',1)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::take(9)->orderBy('id', 'DESC')->get();
+        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('status', '=', 1)->get();
+        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests'));
         return view('front.index',compact('sliderGalery','category', 'title','services'));
     }
     public function allCategories(){
@@ -54,5 +58,11 @@ class FrontendController extends Controller
     }
     public function register($id){
         return view('front.auth.register', compact('id'));
+    }
+    public function settings(){
+        $title = 'Paramètres';
+        $user = Auth::user();
+        $countries = Countory::all();
+        return view('front.settings', compact('user','title', 'countries'));
     }
 }
