@@ -3,7 +3,7 @@
 @include('Chatify::layouts.headLinks')
 <div class="messenger">
     {{-- ----------------------Users/Groups lists side---------------------- --}}
-    <div class="messenger-listView">
+    <div class="messenger-listView" style="margin-top: 50px">
         {{-- Header and search bar --}}
         <div class="m-header">
             <nav>
@@ -19,9 +19,7 @@
             {{-- Tabs --}}
             <div class="messenger-listView-tabs">
                 <a href="#" @if($type == 'user') class="active-tab" @endif data-view="users">
-                    <span class="far fa-user"></span> People</a>
-                <a href="#" @if($type == 'group') class="active-tab" @endif data-view="groups">
-                    <span class="fas fa-users"></span> Groups</a>
+                    <span class="far fa-user"></span> Personnes</a>
             </div>
         </div>
         {{-- tabs and lists --}}
@@ -32,7 +30,7 @@
 
                {{-- Favorites --}}
                <div class="favorites-section">
-                <p class="messenger-title">Favorites</p>
+                <p class="messenger-title">Favoris</p>
                 <div class="messenger-favorites app-scroll-thin"></div>
                </div>
 
@@ -55,9 +53,9 @@
              {{-- ---------------- [ Search Tab ] ---------------- --}}
            <div class="messenger-tab search-tab app-scroll"app-scroll" data-view="search">
                 {{-- items --}}
-                <p class="messenger-title">Search</p>
+                <p class="messenger-title">Chercher</p>
                 <div class="search-records">
-                    <p class="message-hint center-el"><span>Type to search..</span></p>
+                    <p class="message-hint center-el"><span>Tapez pour rechercher..</span></p>
                 </div>
              </div>
         </div>
@@ -78,21 +76,21 @@
                 {{-- header buttons --}}
                 <nav class="m-header-right">
                     <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
-                    <a href="/"><i class="fas fa-home"></i></a>
+                    <a href="{{route('chatify')}}"><i class="fas fa-home"></i></a>
                     <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
             </nav>
         </div>
         {{-- Internet connection --}}
         <div class="internet-connection">
-            <span class="ic-connected">Connected</span>
-            <span class="ic-connecting">Connecting...</span>
-            <span class="ic-noInternet">No internet access</span>
+            <span class="ic-connected">Connecté</span>
+            <span class="ic-connecting">De liaison...</span>
+            <span class="ic-noInternet">Pas d'accès Internet</span>
         </div>
         {{-- Messaging area --}}
         <div class="m-body messages-container app-scroll">
             <div class="messages">
-                <p class="message-hint center-el"><span>Please select a chat to start messaging</span></p>
+                <p class="message-hint center-el"><span>Veuillez sélectionner un chat pour commencer la messagerie</span></p>
             </div>
             {{-- Typing indicator --}}
             <div class="typing-indicator">

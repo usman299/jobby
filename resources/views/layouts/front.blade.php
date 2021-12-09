@@ -242,7 +242,7 @@
                 @endif
             </div>
             <div class="item_link">
-                <a href="#" class="btn btn_navLink">
+                <a href="{{route('chatify')}}" class="btn btn_navLink">
                     <div class="icon_current">
                         <svg id="Iconly_Two-tone_Chat" data-name="Iconly/Two-tone/Chat" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <g id="Chat" transform="translate(2 2)">
@@ -263,7 +263,7 @@
                         </svg>
 
                     </div>
-                    <div class="items_basket_circle">2</div>
+{{--                    <div class="items_basket_circle">2</div>--}}
                     <div class="txt__tile">Discuter</div>
                 </a>
             </div>

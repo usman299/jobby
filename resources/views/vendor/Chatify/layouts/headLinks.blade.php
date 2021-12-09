@@ -21,6 +21,23 @@
 <link href="{{ asset('css/chatify/style.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/chatify/'.$dark_mode.'.mode.css') }}" rel="stylesheet" />
 <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-
+<style>
+    .messenger-sendCard {
+        display: none;
+        position: absolute;
+        bottom: 50px;
+        left: 0px;
+        width: 100%;
+    }
+    .m-header-messaging {
+        background: rgb(255, 255, 255);
+        box-shadow: rgb(0 0 0 / 6%) 0px 5px 6px;
+        margin-top: 50px;
+    }
+    .messages {
+        padding: 5px 0px;
+        margin-bottom: 100px;
+    }
+</style>
 {{-- Messenger Color Style--}}
 @include('Chatify::layouts.messengerColor')
