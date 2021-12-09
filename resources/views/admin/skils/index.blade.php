@@ -28,19 +28,19 @@
                                     <table id="example3" class="display min-w850">
                                         <thead>
                                             <tr>
-                                                
+
                                                 <th><!-- id -->identifiant</th>
                                                 <th><!-- category -->Catégorie</th>
                                                  <th><!-- subcategory -->Sous-catégorie</th>
                                                 <th><!-- title -->Titre</th>
-                                                
+
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                              @foreach($skils as $row)
                                             <tr>
-                                                
+
                                                 <td>{{$row->id}}</td>
                                                <td>{{$row->category->title }}</td>
 
@@ -49,19 +49,19 @@
                                                 <td>
 													<div class="d-flex">
 														<!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->
-														<a href="{{route('skils.edit', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp"  title="Edit">
+														<a href="{{route('jobber.services.edit', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp"  title="Edit">
                                                    <i class="fa fa-pencil"></i>
                                                 </a>
                                                         <a href="{{route('skils.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">
                                                    <i class="fa fa-trash"></i>
                                                 </a>
-                                                
-													</div>												
-												</td>												
+
+													</div>
+												</td>
                                             </tr>
 
                                             @endforeach
-                                           
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -70,7 +70,7 @@
                     </div>
 
 
- 
+
 
      @jquery
     @toastr_js

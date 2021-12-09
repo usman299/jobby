@@ -13,8 +13,13 @@ class JobberController extends Controller
 {
     public function allServices(){
         $title = 'Services';
-        $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->get();
+        $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
         return view('front.jobber.service.index',compact( 'title','services'));
+    }
+    public function singleServices($id){
+        $title = 'Service';
+        $services =JobberServicesOffers::where('status','=',1)->where('id','=',$id)->first();
+        return view('front.jobber.service.edit', compact('title','services'));
     }
     public function storeServices(Request $request){
 
@@ -37,26 +42,30 @@ class JobberController extends Controller
 
         if($services->save()){
              $title = 'Services';
-             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->get();
+             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
              Session::flash('message', "Your Offers Save");
              return view('front.jobber.service.index',compact( 'title','services'));
          }
          else{
              $title = 'Services';
-             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->get();
+             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
              Session::flash('error', "Your Offers Not Save");
              return view('front.jobber.service.index',compact( 'title','services'));
          }
 
 
     }
-    public function updateStatusServices($id,$status){
-        $services =  JobberServicesOffers::where('id','=',$id)->first();
-        $services->status = $status;
-        $services->update();
-        return back();
+    public function updateStatusServices($id){
+        $servicess =  JobberServicesOffers::where('id','=',$id)->first();
+        $servicess->status = 2;
+        $servicess->update();
+        $title = 'Services';
+        $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
+        Session::flash('error', "Your Offers Remove");
+        return view('front.jobber.service.index',compact( 'title','services'));
     }
     public function editServices($id){
+
         $title = 'Services';
         $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->get();
         $servicesEdit =  JobberServicesOffers::where('id','=',$id)->first();
@@ -64,7 +73,7 @@ class JobberController extends Controller
     }
     public function updateServices(Request $request,$id){
 
-        $services =  JobberServicesOffers::where('id','=',$id)->first();
+        $services =  JobberServicesOffers::where('id','=',$id)->where('status','=',1)->first();
         $services->jobber_id = Auth::user()->id;
         $services->country_id = Auth::user()->country;
         $services->title = $request->title;
@@ -83,13 +92,13 @@ class JobberController extends Controller
 
         if($services->update()){
             $title = 'Services';
-            $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->get();
+            $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
             Session::flash('message', "Your Offers Update");
             return view('front.jobber.service.index',compact( 'title','services'));
         }
         else{
             $title = 'Services';
-            $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->get();
+            $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
             Session::flash('error', "Your Offers Not Update");
             return view('front.jobber.service.index',compact( 'title','services'));
         }

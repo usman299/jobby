@@ -69,9 +69,9 @@
                                                       stroke-miterlimit="10" stroke-width="1.2" />
                                             </g>
                                         </svg>
-                                        <?php $user = \App\User::where('id','=',$row->jobber_id)->first(); ?>
 
-                                        <span>{{$user->firstName ?? ''}} {{$user->lastName ?? ''}}</span>
+
+                                        <span>{{$row->user->firstName ?? ''}} {{$row->user->lastName ?? ''}}</span>
                                     </div>
                                     <div class="amount_co size-14 weight-600 color-secondary">
                                         <span class="color-text">{{$row->price ?? ''}}€</span>

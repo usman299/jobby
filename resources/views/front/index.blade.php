@@ -132,9 +132,8 @@
                                                           stroke-miterlimit="10" stroke-width="1.2" />
                                                 </g>
                                             </svg>
-                                            <?php $user = \App\User::where('id','=',$row->jobber_id)->first(); ?>
 
-                                            <span>{{$user->firstName ?? ''}} {{$user->lastName ?? ''}}</span>
+                                            <span>{{$row->user->firstName ?? ''}} {{$row->user->lastName ?? ''}}</span>
                                         </div>
 
                                     </div>
@@ -176,7 +175,7 @@
 
                             <a href="">
                             <h4 class="item_price" style="margin-bottom: 10px">{{$job->title}}</h4>
-                            <h3>{{$job->description}}</h3>
+                            <h3>{{Str::limit($job->description, 50) ?? ''}}</h3>
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
                                 <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
                                 <p class="item_price">{{$job->max_price}} € - {{$job->min_price}} €</p>

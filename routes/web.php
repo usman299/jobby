@@ -49,10 +49,11 @@ Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleSe
 
 //Services Add
 Route::get('/jobber/services', 'Front\JobberController@allServices')->name('jobber.services');
+Route::get('/jobber/single/services/{id}', 'Front\JobberController@singleServices')->name('jobber.single.services');
 Route::post('/jobber/services/store', 'Front\JobberController@storeServices')->name('jobber.services.store');
 Route::get('/jobber/services/edit/{id}', 'Front\JobberController@editServices')->name('jobber.services.edit');
 Route::post('/jobber/services/update/{id}', 'Front\JobberController@updateServices')->name('jobber.services.update');
-Route::get('/services/status/update/{id}/{status}', 'Front\JobberController@updateStatusServices')->name('services.status.update');
+Route::get('/services/status/update/{id}', 'Front\JobberController@updateStatusServices')->name('services.status.update');
 
 Route::post('/jobrequest/submit', 'Front\ApplicantController@jobrequestSubmit')->name('jobrequest.submit');
 Route::get('/applicant/jobrequests', 'Front\ApplicantController@jobrequests')->name('applicant.jobrequests');
