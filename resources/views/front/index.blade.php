@@ -96,24 +96,26 @@
                 </div>
                 <div class="em_bodyCarousel padding-t-20">
                     <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($services as $row)
                         <!-- item -->
                         <div class="item">
                             <div class="em_itemCourse_grid">
-                                <a href="{{route('applicant.singleService')}}" class="card">
+                                <a href="{{route('applicant.singleService',['id'=>$row->id])}}" class="card">
                                     <div class="cover_card">
-                                        <img src="assets/img/0687.jpg" class="card-img-top" alt="img">
+                                        <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                     </div>
                                     <div class="card-body">
                                         <div class="head_card">
-                                            <span>- 5 h 30 min</span>
-                                            <span>45 lectures</span>
+                                            <span> {{$row->duration ?? ''}}</span>
+
                                         </div>
                                         <h5 class="card-title">
-                                            UI & Web Design using Adobe Illustrator CC
+                                            {{$row->title ?? ''}}
                                         </h5>
                                         <p class="card-text">
-                                            Build professional web & appdesigns using Adobe Illustrator CC
+                                            {{$row->description ?? ''}}
                                         </p>
+
                                         <div class="card_user">
                                             <svg id="Iconly_Two-tone_Profile" data-name="Iconly/Two-tone/Profile"
                                                  xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -130,7 +132,9 @@
                                                           stroke-miterlimit="10" stroke-width="1.2" />
                                                 </g>
                                             </svg>
-                                            <span>Oscar White</span>
+                                            <?php $user = \App\User::where('id','=',$row->jobber_id)->first(); ?>
+
+                                            <span>{{$user->firstName ?? ''}} {{$user->lastName ?? ''}}</span>
                                         </div>
 
                                     </div>
@@ -138,6 +142,7 @@
                             </div>
                         </div>
                         <!-- item -->
+                            @endforeach
                     </div>
                 </div>
             </section>

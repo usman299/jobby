@@ -43,7 +43,14 @@ Route::get('/categories', 'FrontendController@allCategories')->name('front.categ
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
-Route::get('/applicant/single/service', 'Front\ApplicantController@singleService')->name('applicant.singleService');
+Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleService')->name('applicant.singleService');
+
+//Services Add
+Route::get('/jobber/services', 'Front\JobberController@allServices')->name('jobber.services');
+Route::post('/jobber/services/store', 'Front\JobberController@storeServices')->name('jobber.services.store');
+Route::get('/jobber/services/edit/{id}', 'Front\JobberController@editServices')->name('jobber.services.edit');
+Route::post('/jobber/services/update/{id}', 'Front\JobberController@updateServices')->name('jobber.services.update');
+Route::get('/services/status/update/{id}/{status}', 'Front\JobberController@updateStatusServices')->name('services.status.update');
 
 
 });

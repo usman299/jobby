@@ -4,7 +4,7 @@
     <section class="embanner_SubCategories">
         <div class="em_head">
             <div class="cover_course">
-                <img src="{{asset('assets/img/0687.jpg')}}" alt="">
+                <img src="{{ asset($services->img ?? ' ')  }}" alt="">
 
             </div>
         </div>
@@ -31,17 +31,20 @@
                         </g>
                     </svg>
                 </div>
-                <span>Lisa Peters</span>
+                </svg>
+                <?php $user = \App\User::where('id','=',$services->jobber_id)->first(); ?>
+
+                <span>{{$user->firstName ?? ''}} {{$user->lastName ?? ''}}</span>
+
             </div>
             <div class="size-18 weight-600 color-primary">
-                <span class="color-text">$</span> 90.99
+                <span class="color-text">{{$services->price ?? ''}}€</span>
             </div>
         </div>
         <div class="em__body">
             <div class="title_course">
-                <h1>The Complete Web Developer in 2021: Zero to Mastery</h1>
-                <p>Learn to code and become a Web Developer in 2021 with HTML, CSS, Javascript, React, Node.js,
-                    Machine Learning & more!</p>
+                <h1>{{$services->title ?? ''}}</h1>
+                <p>{{$services->description ?? ''}}</p>
             </div>
         </div>
         <div class="em__requirements">

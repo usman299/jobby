@@ -6,6 +6,7 @@ use App\AppSetting;
 use Illuminate\Http\Request;
 use App\SliderGalery;
 use App\Category;
+use App\JobberServicesOffers;
 use App\SubCategory;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +19,9 @@ class FrontendController extends Controller
         $title = 'Accueil';
         $user = Auth::user();
         $sliderGalery = SliderGalery::where('userRole','=',$user->role)->where('countory_id', '=',$user->country)->get();
+        $services =JobberServicesOffers::where('status','=',1)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::take(9)->orderBy('id', 'DESC')->get();
-        return view('front.index',compact('sliderGalery','category', 'title'));
+        return view('front.index',compact('sliderGalery','category', 'title','services'));
     }
     public function allCategories(){
         $title = 'Catégories';

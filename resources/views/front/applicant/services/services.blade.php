@@ -20,29 +20,7 @@
                             </g>
                         </svg>
                     </div>
-                    <div class="side_voice">
-                        <button type="button" class="btn btn_voice">
-                            <svg id="Iconly_Two-tone_Voice" data-name="Iconly/Two-tone/Voice"
-                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <g id="Voice" transform="translate(4 2)">
-                                    <path id="Stroke_1" data-name="Stroke 1" d="M0,0A7.4,7.4,0,1,0,14.808,0"
-                                          transform="translate(0.714 8.932)" fill="none" stroke="#200e32"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="1.5" opacity="0.4"></path>
-                                    <path id="Stroke_3" data-name="Stroke 3" d="M.476,2.81V0"
-                                          transform="translate(7.642 16.336)" fill="none" stroke="#200e32"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="1.5" opacity="0.4"></path>
-                                    <path id="Stroke_5" data-name="Stroke 5"
-                                          d="M3.912,11.87H3.66A3.66,3.66,0,0,1,0,8.21V3.66A3.661,3.661,0,0,1,3.66,0h.252a3.661,3.661,0,0,1,3.66,3.66V8.21A3.66,3.66,0,0,1,3.912,11.87Z"
-                                          transform="translate(4.332 0.714)" fill="none" stroke="#200e32"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="1.5"></path>
-                                </g>
-                            </svg>
 
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -53,25 +31,26 @@
     <section class="emCoureses__grid course__list">
         <div class="em_bodyCarousel padding-t-20">
             <!-- em_itemCourse_grid -->
+            @foreach($services as $row)
             <div class="em_itemCourse_grid list">
-                <a href="{{route('applicant.singleService')}}" class="card">
+                <a href="{{route('applicant.singleService',['id'=>$row->id])}}" class="card">
                     <div class="row no-gutters">
                         <div class="col-4">
                             <div class="cover_card">
-                                <img src="{{asset('assets/img/0ffd6s54.jpg')}}" class="card-img-top" alt="img">
+                                <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                             </div>
                         </div>
                         <div class="col-8 my-auto">
                             <div class="card-body">
                                 <div class="head_card">
-                                    <span>- 5 h 30 min</span>
-                                    <span>45 lectures</span>
+                                    <span>- {{$row->duration ?? ''}}</span>
+
                                 </div>
                                 <h5 class="card-title">
-                                    UI & Web Design using Adobe Illustrator CC
+                                    {{$row->title ?? ''}}
                                 </h5>
                                 <p class="card-text">
-                                    Build professional web & appdesigns using Adobe Illustrator CC
+                                    {{$row->description ?? ''}}
                                 </p>
                                 <div class="card_footer">
                                     <div class="card_user">
@@ -90,10 +69,12 @@
                                                       stroke-miterlimit="10" stroke-width="1.2" />
                                             </g>
                                         </svg>
-                                        <span>Lisa Peters</span>
+                                        <?php $user = \App\User::where('id','=',$row->jobber_id)->first(); ?>
+
+                                        <span>{{$user->firstName ?? ''}} {{$user->lastName ?? ''}}</span>
                                     </div>
                                     <div class="amount_co size-14 weight-600 color-secondary">
-                                        <span class="color-text">$</span> 45.99
+                                        <span class="color-text">{{$row->price ?? ''}}€</span>
                                     </div>
                                 </div>
 
@@ -102,6 +83,7 @@
                     </div>
                 </a>
             </div>
+        @endforeach
             <!-- em_itemCourse_grid -->
         </div>
     </section>

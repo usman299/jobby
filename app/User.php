@@ -17,12 +17,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstName','lastName','role','phone','address','country','image','status', 'email', 
+        'firstName','lastName','role','phone','address','country','image','status', 'email',
         'password','postalCode','category_id','subcategory_id','skils_id'
-        
+
     ];
 
-    
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -41,5 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function servicesOffers()
+    {
+        return $this->hasMany(JobberServicesOffers::class);
+    }
 }
 

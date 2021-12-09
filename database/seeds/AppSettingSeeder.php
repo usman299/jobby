@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\AppSetting;
 use App\Countory;
+use App\JobberServicesOffers;
 class AppSettingSeeder extends Seeder
 {
     /**
@@ -42,6 +43,17 @@ class AppSettingSeeder extends Seeder
         ]);
         Countory::create([
             'name' => "IIe de France",
+
+        ]);
+        JobberServicesOffers::create([
+            'title' => "UI & Web Design using Adobe Illustrator CC",
+            'img'=>"assets/img/0ffd6s54.jpg",
+            'duration'=>"5 h 30 min",
+            'description' => "Build professional web & appdesigns using Adobe Illustrator CC",
+            'jobber_id'=> 2,
+            'price'=>45,
+            'countory_id'=>1,
+
 
         ]);
     }
