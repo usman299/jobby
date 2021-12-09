@@ -70,7 +70,7 @@
             <!-- em_itemCourse_grid -->
             @foreach($services as $row)
             <div class="em_itemCourse_grid list padding-t-10">
-                <a href="{{route('applicant.singleService',['id'=>$row->id])}}" class="card">
+                <a href="{{route('jobber.single.services',['id'=>$row->id])}}" class="card">
 
                     <div class="row no-gutters">
 
@@ -99,36 +99,13 @@
 
                                         <span class="color-text"><strong>{{$row->price}}€</strong></span>
                                     </div>
-                                    
+
                                     <div class="amount_co size-14 weight-600 color-secondary">
                                         <span class="label_default margin-t-10 margin-r-10">Active</span>
 
                                         <span class="icon">
 
-                                            <button type="button" class="btn bg-info m-0 color-white  d-flex align-items-center rounded-10  justify-content-center" data-toggle="modal1" data-target="#modelcontent-form" style="float: right">
 
-                                             <svg id="Iconly_Two-tone_Edit" data-name="Iconly/Two-tone/Edit"
-                                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                  viewBox="0 0 24 24">
-                                                <g id="Edit" transform="translate(3.5 3.5)">
-                                                    <path id="Stroke_1" data-name="Stroke 1" d="M0,.5H6.377"
-                                                          transform="translate(10.2 15.898)" fill="none" stroke="#200e32"
-                                                          stroke-linecap="round" stroke-linejoin="round"
-                                                          stroke-miterlimit="10" stroke-width="1.5" opacity="0.4" />
-                                                    <path id="Stroke_3" data-name="Stroke 3"
-                                                          d="M8.6.706A1.947,1.947,0,0,1,11.473.553l1.39,1.09A1.946,1.946,0,0,1,13.4,4.464L5.11,15.039a1.481,1.481,0,0,1-1.15.568l-3.2.041L.039,12.533a1.486,1.486,0,0,1,.277-1.252Z"
-                                                          transform="translate(0.75 0.75)" fill="none" stroke="#200e32"
-                                                          stroke-linecap="round" stroke-linejoin="round"
-                                                          stroke-miterlimit="10" stroke-width="1.5" />
-                                                    <path id="Stroke_5" data-name="Stroke 5" d="M0,0,4.794,3.758"
-                                                          transform="translate(7.803 3.436)" fill="none" stroke="#200e32"
-                                                          stroke-linecap="round" stroke-linejoin="round"
-                                                          stroke-miterlimit="10" stroke-width="1.5" opacity="0.4" />
-                                                </g>
-                                            </svg>
-
-
-                                   </button>
 
                                         </span>
 

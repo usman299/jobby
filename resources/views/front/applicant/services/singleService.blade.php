@@ -31,10 +31,9 @@
                         </g>
                     </svg>
                 </div>
-                </svg>
-                <?php $user = \App\User::where('id','=',$services->jobber_id)->first(); ?>
 
-                <span>{{$user->firstName ?? ''}} {{$user->lastName ?? ''}}</span>
+
+                <span>{{$services->user->firstName }} {{$services->user->lastName }}</span>
 
             </div>
             <div class="size-18 weight-600 color-primary">

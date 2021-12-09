@@ -47,9 +47,6 @@ class User extends Authenticatable
         return $this->belongsTo(Countory::class, 'country');
     }
 
-    public function servicesOffers()
-    {
-        return $this->hasMany(JobberServicesOffers::class);
-    }
+
 }
 
