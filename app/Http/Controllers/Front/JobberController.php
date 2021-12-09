@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\JobberServicesOffers;
 use App\SubCategory;
 use App\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Session;
 class JobberController extends Controller
 {
     public function allServices(){

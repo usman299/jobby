@@ -113,7 +113,7 @@
                                             {{$row->title ?? ''}}
                                         </h5>
                                         <p class="card-text">
-                                            {{$row->description ?? ''}}
+                                            {{Str::limit($row->description, 50) ?? ''}}
                                         </p>
 
                                         <div class="card_user">

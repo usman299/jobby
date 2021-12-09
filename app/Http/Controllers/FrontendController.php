@@ -24,8 +24,7 @@ class FrontendController extends Controller
         $services =JobberServicesOffers::where('status','=',1)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::take(9)->orderBy('id', 'DESC')->get();
         $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('status', '=', 1)->get();
-        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests'));
-        return view('front.index',compact('sliderGalery','category', 'title','services'));
+        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services'));
     }
     public function allCategories(){
         $title = 'Catégories';

@@ -18,7 +18,7 @@
                         <div class="item em_item_product item_list">
 
                             <div class="title_product">
-                                <a href="">
+                                <a href="#">
                                     <h4 class="item_price" style="margin-bottom: 5px">{{$proposal->jobrequest->title}}</h4>
                                 <h3>{{$proposal->description}}</h3>Mon offre
                                 <p class="item_price">{{$proposal->price}} €</p>
@@ -37,7 +37,23 @@
             <div class="tab-pane fade" id="pills-ex2" role="tabpanel" aria-labelledby="pills-ex2-tab">
                 <div class="em_masonry__layout bg-snow em_list_layout widthFull">
                     <!-- item -->
+                    @foreach($acceptProposals as $proposal)
+                        <div class="item em_item_product item_list">
 
+                            <div class="title_product">
+                                <a href="#">
+                                    <h4 class="item_price" style="margin-bottom: 5px">{{$proposal->jobrequest->title}}</h4>
+                                    <h3>{{$proposal->description}}</h3>Mon offre
+                                    <p class="item_price">{{$proposal->price}} €</p>
+                                </a>
+                                <button type="button" class="btn btn_addCart item-active">
+                                    <div class="itemRating">
+                                        <span style="min-width: 80px;" class="number">{{$proposal->created_at->diffForHumans()}}</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                @endforeach
                 <!-- item -->
                 </div>
             </div>

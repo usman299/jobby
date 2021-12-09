@@ -50,9 +50,9 @@ class AppSettingSeeder extends Seeder
             'img'=>"assets/img/0ffd6s54.jpg",
             'duration'=>"5 h 30 min",
             'description' => "Build professional web & appdesigns using Adobe Illustrator CC",
-            'jobber_id'=> 2,
+            'jobber_id'=> 3,
             'price'=>45,
-            'countory_id'=>1,
+            'country_id'=>1,
 
 
         ]);
