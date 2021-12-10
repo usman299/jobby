@@ -121,6 +121,19 @@
                data-target="#acceptpropsal" class="btn justify-content-center bg-green rounded-10 btn__default ml-3">
                 <span class="color-white">J'accepte</span>
             </button>
+
+        </div>
+        <div class="bg-white padding-20 d-flex emBlock__border">
+
+            <button  data-toggle="modal"
+                     data-target="" class="btn justify-content-center bg-info rounded-10 btn__default">
+                <a href=""><span class="color-white">Message</span> </a>
+            </button>
+
+
+            <button data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn justify-content-center bg-danger rounded-10 btn__default ml-3">
+                <span class="color-white">Contract</span>
+            </button>
         </div>
     </section>
 
@@ -221,4 +234,73 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Form Modal -->
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllContent-form"
+         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable height-full">
+            <div class="modal-content rounded-0">
+                <div class="modal-header padding-l-20 padding-r-20 justify-content-center">
+                    <div class="itemProduct_sm">
+                        <h1 class="size-18 weight-600 color-secondary m-0">Créer un Contrat</h1>
+                    </div>
+                    <div class="absolute right-0 padding-r-20">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="tio-clear"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="padding-t-60">
+                        <div class="em__signTypeOne">
+
+                            <div class="em__body px-0">
+                                <form method="POST" action="{{ route('applicant.proposals.contract',['id'=>$proposal->id]) }}" enctype="multipart/form-data">
+                                    @csrf
+                                    {{--                                    <div class="form-group input-lined">--}}
+
+                                    {{--                                        <select class="form-control custom-select margin-t-20" name="type" >--}}
+                                    {{--                                            <option >Choisissez-en un</option>--}}
+                                    {{--                                            <option value="1">Type de Proposition</option>--}}
+                                    {{--                                            <option value="2">Type de Service</option>--}}
+
+                                    {{--                                        </select>--}}
+                                    {{--                                        <label for="title"  style="font-size: 15px;"><strong>Type de Contrat</strong> <strong style="color: red;">*</strong></label>--}}
+                                    {{--                                    </div>--}}
+                                    <div class="form-group input-lined">
+                                        <input type="text" class="form-control"  id="price" name="price" placeholder=" Entrez la Prix"
+                                               required="">
+                                        <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
+                                    </div>
+                                    <div class="form-group input-lined">
+                                        <input type="text" id="price" name="e_time"  class="form-control" placeholder=" Entrez la  Heure de fin"
+                                               required="">
+                                        <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Heure de fin</strong> <strong style="color: red;">*</strong> </label>
+                                    </div>
+                                    <div class="form-group input-lined">
+                                        <textarea class="form-control"  name="description" rows="4" id="description" placeholder="Entrez la  Description"></textarea>
+                                        <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>La Description</strong> <strong style="color: red;">*</strong></label>
+                                    </div>
+
+                                    <div class="form-group input-lined margin-t-20">
+                                        <button type="submit" class="btn w-100 bg-primary  m-0 color-white h-55 d-flex align-items-center rounded-10 justify-content-center ">
+                                            Soumettre
+                                        </button>
+                                    </div>
+
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- End. em_swiper_products1 -->
 @endsection

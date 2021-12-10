@@ -21,7 +21,7 @@
         <main class="emPage__public">
 
             <!-- Start banner_swiper -->
-            <section class="banner_swiper padding-t-50 bg-white">
+            <section class="banner_swiper padding-t-30 bg-white">
                 <div class="title_welcome">
 
                 </div>
@@ -43,7 +43,7 @@
             <!-- End. banner_swiper -->
             @if(Auth::user()->role == 2)
             <!-- Start block_page_Comp -->
-            <section class="em_swiper_products emCategories__jobs  padding-t-30 padding-b-30">
+            <section class="em_swiper_products emCategories__jobs  padding-t-30 padding-b-30 ">
                 <div class="em_title_swiper">
                     <div class="txt">
                         <h2>Catégories</h2>

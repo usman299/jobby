@@ -46,6 +46,21 @@ Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('
 
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
 Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleService')->name('applicant.singleService');
+// applicant Contract
+    Route::Post('/applicant/services/contract/{id}', 'Front\ApplicantController@servicesContract')->name('applicant.services.contract');
+    Route::Post('/applicant/proposals/contract/{id}', 'Front\ApplicantController@proposalsContract')->name('applicant.proposals.contract');
+// End applicant Contract
+
+    // Jobber Contract
+    Route::get('/jobber/contract', 'Front\JobberController@getJobberContract')->name('jobber.contract');
+    Route::get('/jobber/contract/details/{id}', 'Front\JobberController@detialsJobberContract')->name('jobber.contract.details');
+    Route::get('/contract/status/{id}', 'Front\JobberController@contractStatus')->name('contract.status');
+    //End Jobber Conract
+    // Applicant Contract
+    Route::get('/applicant/contract', 'Front\ApplicantController@getApplicantContract')->name('applicant.contract');
+    Route::get('/applicant/contract/details/{id}', 'Front\ApplicantController@detialsApplicantContract')->name('applicant.contract.details');
+
+    // End Applicant Contract
 
 //Services Add
 Route::get('/jobber/services', 'Front\JobberController@allServices')->name('jobber.services');

@@ -182,7 +182,7 @@
                     <div class="txt__tile">Propositions</div>
                 </a>
                 @else
-                    <a href="#" class="btn btn_navLink">
+                    <a href="{{route('jobber.contract')}}" class="btn btn_navLink">
                         <div class="icon_current">
                             <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle"
                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -347,22 +347,7 @@
                             <a class="nav-link" href="{{route('front.app')}}">
                                 <div class="">
                                     <div class="icon_current">
-                                        <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
-                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                             viewBox="0 0 20 20">
-                                            <g id="Discovery" transform="translate(2.292 2.292)">
-                                                <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"
-                                                      transform="translate(0 0)" fill="none" stroke="#9498ac"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                                <path id="Stroke_3" data-name="Stroke 3"
-                                                      d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"
-                                                      transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                            </g>
-                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1zM6 19h12V9.157l-6-5.454-6 5.454V19zm2-4h8v2H8v-2z" fill="rgba(167,161,161,1)"/></svg>
                                     </div>
                                     <span class="title_link">Découvrir</span>
                                 </div>
@@ -372,7 +357,7 @@
                         @if(Auth::user()->role==1)
                         <div class="modal-body">
                             <ul class="nav flex-column">
-                                <li class="nav-item ">
+                                <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
                                     <a class="nav-link" href="{{route('jobber.services')}}">
                                         <div class="">
                                             <div class="icon_current">
@@ -398,6 +383,35 @@
                                     </a>
                                 </li>
                                 @endif
+                                @if(Auth::user()->role==2)
+                                    <div class="modal-body">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
+                                                <a class="nav-link" href="{{route('applicant.contract')}}">
+                                                    <div class="">
+                                                        <div class="icon_current">
+                                                            <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
+                                                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                                 viewBox="0 0 20 20">
+                                                                <g id="Discovery" transform="translate(2.292 2.292)">
+                                                                    <path id="Stroke_1" data-name="Stroke 1"
+                                                                          d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"
+                                                                          transform="translate(0 0)" fill="none" stroke="#9498ac"
+                                                                          stroke-linecap="round" stroke-linejoin="round"
+                                                                          stroke-miterlimit="10" stroke-width="1.5" />
+                                                                    <path id="Stroke_3" data-name="Stroke 3"
+                                                                          d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"
+                                                                          transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"
+                                                                          stroke-linecap="round" stroke-linejoin="round"
+                                                                          stroke-miterlimit="10" stroke-width="1.5" />
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                        <span class="title_link">Contract</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            @endif
                         <label class="title__label">autre</label>
                         <li class="nav-item">
                             <a class="nav-link" href="#">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Contract;
 use App\Http\Controllers\Controller;
 use App\JobRequest;
 use App\Proposal;
@@ -90,4 +91,97 @@ class ApplicantController extends Controller
         );
         return redirect()->route('applicant.proposals')->with($notification);
     }
+    public function servicesContract(Request $request, $id){
+        $applicant_id = Auth::user()->id;
+
+            $check = Contract::where('applicant_id', '=', Auth::user()->id)->where('service_id', '=', $id)->first();
+
+        if ($check){
+            $notification = array(
+                'messege' => 'Already Applied',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        else {
+
+                $service = JobberServicesOffers::find($id);
+                if ($service != null) {
+                    $contract = new Contract();
+                    $contract->service_id = $id;
+                    $contract->applicant_id = $applicant_id;
+                    $contract->jober_id = $service->jobber_id;
+                    $contract->e_time = $request->e_time;
+                    $contract->price = $request->price;
+                    $contract->description = $request->description;
+                    $contract->save();
+                    $notification = array(
+                        'messege' => 'Contract  Generate Successfulyy',
+                        'alert-type' => 'success'
+                    );
+                    return redirect()->back()->with($notification);
+                } else {
+                    $notification = array(
+                        'messege' => 'Service Not Found',
+                        'alert-type' => 'error'
+                    );
+                    return redirect()->back()->with($notification);
+                }
+            }
+        }
+
+    public function proposalsContract(Request $request, $id){
+        $applicant_id = Auth::user()->id;
+
+        $check = Contract::where('applicant_id', '=', Auth::user()->id)->where('proposal_id', '=', $id)->first();
+
+        if ($check){
+            $notification = array(
+                'messege' => 'Already Applied',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+        else {
+
+            $service = JobberServicesOffers::find($id);
+            if ($service != null) {
+                $contract = new Contract();
+                $contract->proposal_id = $id;
+                $contract->applicant_id = $applicant_id;
+                $contract->jober_id = $service->jobber_id;
+                $contract->e_time = $request->e_time;
+                $contract->price = $request->price;
+                $contract->description = $request->description;
+                $contract->save();
+                $notification = array(
+                    'messege' => 'Contract  Generate Successfulyy',
+                    'alert-type' => 'success'
+                );
+                return redirect()->back()->with($notification);
+            } else {
+                $notification = array(
+                    'messege' => 'Proposal Not Found',
+                    'alert-type' => 'error'
+                );
+                return redirect()->back()->with($notification);
+            }
+        }
+    }
+
+    public function getApplicantContract(){
+        $title = 'Contract';
+        $user = Auth::user();
+        $activeContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 1)->get();
+        $acceptContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 2)->get();
+        return view('front.applicant.contract.index', compact('title', 'activeContract', 'acceptContract'));
+    }
+
+    public function detialsApplicantContract($id){
+        $title = 'Contract';
+        $contract = Contract::find($id);
+        return view('front.applicant.contract.detials', compact('title', 'contract'));
+    }
+
+
 }

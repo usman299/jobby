@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Contract;
 use App\Http\Controllers\Controller;
 use App\JobberServicesOffers;
 use App\SubCategory;
@@ -134,5 +135,32 @@ class JobberController extends Controller
         $activeProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 1)->get();
         $acceptProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 2)->get();
         return view('front.jobber.proposals.proposals', compact('title', 'acceptProposals', 'activeProposals'));
+    }
+    public function getJobberContract(){
+        $title = 'Contract';
+        $user = Auth::user();
+        $activeContract = Contract::latest()->where('jober_id', '=', $user->id)->where('status', '=', 1)->get();
+        $acceptContract = Contract::latest()->where('jober_id', '=', $user->id)->where('status', '=', 2)->get();
+        return view('front.jobber.contract.index', compact('title', 'activeContract', 'acceptContract'));
+    }
+    public function detialsJobberContract($id){
+        $title = 'Contract';
+        $contract = Contract::find($id);
+        return view('front.jobber.contract.detials', compact('title', 'contract'));
+    }
+    public function contractStatus($id){
+
+        $contract = Contract::find($id);
+
+        $contract->status = 2;
+        if($contract->update()){
+            $notification = array(
+                'messege' => 'Accept This Booking',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
+
+
     }
 }
