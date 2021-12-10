@@ -31,6 +31,7 @@
     <section class="emCoureses__grid course__list">
         <div class="em_bodyCarousel padding-t-20">
             <!-- em_itemCourse_grid -->
+            @if(!$subCategory->isEmpty())
             @foreach($services as $row)
             <div class="em_itemCourse_grid list">
                 <a href="{{route('applicant.singleService',['id'=>$row->id])}}" class="card">
@@ -84,6 +85,9 @@
                 </a>
             </div>
         @endforeach
+            @else
+                <p style="text-align: center;" class="margin-t-40; " ><strong>Services non disponibles</strong></p>
+        @endif
             <!-- em_itemCourse_grid -->
         </div>
     </section>

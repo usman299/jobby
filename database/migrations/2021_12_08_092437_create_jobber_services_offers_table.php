@@ -17,6 +17,9 @@ class CreateJobberServicesOffersTable extends Migration
             $table->id();
             $table->longText('title')->nullable();
             $table->string('country_id')->nullable();
+            $table->integer('category_id')->nullable();
+            $table->integer('subcategory_id')->nullable();
+            $table->string('skils')->nullable();
             $table->longText('duration')->nullable();
             $table->string('price')->nullable();
             $table->longText('description')->nullable();

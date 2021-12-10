@@ -53,6 +53,8 @@ class AppSettingSeeder extends Seeder
             'jobber_id'=> 3,
             'price'=>45,
             'country_id'=>1,
+            'category_id'=>1,
+            'subcategory_id'=>1,
 
 
         ]);

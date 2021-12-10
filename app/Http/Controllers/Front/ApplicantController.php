@@ -15,10 +15,19 @@ use Illuminate\Support\Facades\Auth;
 class ApplicantController extends Controller
 {
    public function services(){
+
        $title = 'Services populaires';
        $services =JobberServicesOffers::latest()->where('status','=',1)->where('country_id','=',Auth::user()->country)->get();
+
        return view('front.applicant.services.services', compact('title','services'));
    }
+    public function service($id){
+
+        $title = 'Services populaires';
+        $services =JobberServicesOffers::latest()->where('status','=',1)->where('country_id','=',Auth::user()->country)->where('subcategory_id','=',$id)->get();
+
+        return view('front.applicant.services.index', compact('title','services'));
+    }
    public function singleService($id){
        $title = 'Service';
        $services =JobberServicesOffers::where('status','=',1)->where('id','=',$id)->first();

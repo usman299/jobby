@@ -147,6 +147,21 @@
                                 <form method="POST" action="{{ route('jobber.services.store') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group input-lined">
+                                        <select onchange="categorychange(this)" name="category_id" class="form-control" required="">
+                                            <option value="">Choisir une catégorie</option>
+                                            @foreach($categories as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                            @endforeach
+                                        </select>
+                                        <label for="duration" class="margin-t-20" style="font-size: 15px;"> <strong>Catégorie</strong> <strong style="color: red;">*</strong> </label>
+                                    </div>
+                                    <div class="form-group input-lined">
+                                        <select name="subcategory_id" class="form-control maincategory" required="">
+
+                                        </select>
+                                        <label for="duration" class="margin-t-20" style="font-size: 15px;"> <strong>Sous-catégorie</strong> <strong style="color: red;">*</strong> </label>
+                                    </div>
+                                    <div class="form-group input-lined">
                                         <input type="text" id="title" name="title" class="form-control" placeholder=" Entrez la Titre" required="">
                                         <label for="title"  style="font-size: 15px;"><strong>Titre</strong> <strong style="color: red;">*</strong></label>
                                     </div>
@@ -219,6 +234,7 @@
                             <div class="em__body px-0">
                                 <form method="POST" action="{{ route('jobber.services.store') }}" enctype="multipart/form-data">
                                     @csrf
+
                                     <div class="form-group input-lined">
                                         <input type="text" id="title" name="title" class="form-control" placeholder=" Entrez la Titre" required="">
                                         <label for="title"  style="font-size: 15px;"><strong>Titre</strong> <strong style="color: red;">*</strong></label>

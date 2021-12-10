@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Category;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\JobberServicesOffers;
@@ -15,12 +16,14 @@ class JobberController extends Controller
     public function allServices(){
         $title = 'Services';
         $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
-        return view('front.jobber.service.index',compact( 'title','services'));
+        $categories = Category::all();
+        return view('front.jobber.service.index',compact( 'title','services','categories'));
     }
     public function singleServices($id){
         $title = 'Service';
         $services =JobberServicesOffers::where('status','=',1)->where('id','=',$id)->first();
-        return view('front.jobber.service.edit', compact('title','services'));
+        $categories = Category::all();
+        return view('front.jobber.service.edit', compact('title','services','categories'));
     }
     public function storeServices(Request $request){
 
@@ -30,6 +33,9 @@ class JobberController extends Controller
          $services->title = $request->title;
          $services->duration = $request->duration;
          $services->price = $request->price;
+         $services->category_id = $request->category_id;
+         $services->subcategory_id = $request->subcategory_id;
+         $services->skils = $request->skils;
          $services->description = $request->description;
 
         if ($request->hasfile('img')) {
@@ -45,13 +51,15 @@ class JobberController extends Controller
              $title = 'Services';
              $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
              Session::flash('message', "Your Offers Save");
-             return view('front.jobber.service.index',compact( 'title','services'));
+            $categories = Category::all();
+             return view('front.jobber.service.index',compact( 'title','services','categories'));
          }
          else{
              $title = 'Services';
+             $categories = Category::all();
              $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
              Session::flash('error', "Your Offers Not Save");
-             return view('front.jobber.service.index',compact( 'title','services'));
+             return view('front.jobber.service.index',compact( 'title','services','categories'));
          }
 
 
@@ -61,16 +69,18 @@ class JobberController extends Controller
         $servicess->status = 2;
         $servicess->update();
         $title = 'Services';
+        $categories = Category::all();
         $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
         Session::flash('error', "Your Offers Remove");
-        return view('front.jobber.service.index',compact( 'title','services'));
+        return view('front.jobber.service.index',compact( 'title','services','categories'));
     }
     public function editServices($id){
 
         $title = 'Services';
         $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->get();
         $servicesEdit =  JobberServicesOffers::where('id','=',$id)->first();
-        return view('front.jobber.service.index',compact( 'title','services','servicesEdit'));
+        $categories = Category::all();
+        return view('front.jobber.service.index',compact( 'title','services','servicesEdit','categories'));
     }
     public function updateServices(Request $request,$id){
 
@@ -80,6 +90,14 @@ class JobberController extends Controller
         $services->title = $request->title;
         $services->duration = $request->duration;
         $services->price = $request->price;
+        $services->category_id = $request->category_id;
+        if($request->subcategory_id==null) {
+            $services->subcategory_id = $services->subcategory_id;
+        }
+        else{
+            $services->subcategory_id = $request->subcategory_id;
+        }
+        $services->skils = $request->skils;
         $services->description = $request->description;
 
         if ($request->hasfile('img')) {
@@ -95,13 +113,15 @@ class JobberController extends Controller
             $title = 'Services';
             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
             Session::flash('message', "Your Offers Update");
-            return view('front.jobber.service.index',compact( 'title','services'));
+            $categories = Category::all();
+            return view('front.jobber.service.index',compact( 'title','services','categories'));
         }
         else{
             $title = 'Services';
+            $categories = Category::all();
             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
             Session::flash('error', "Your Offers Not Update");
-            return view('front.jobber.service.index',compact( 'title','services'));
+            return view('front.jobber.service.index',compact( 'title','services','categories'));
         }
 
 

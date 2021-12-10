@@ -39,7 +39,7 @@
                 <div class="emContent_listJobs padding-20">
                @if(!$subCategory->isEmpty())
                     @foreach($subCategory as $row)
-                    <a href="{{route('applicant.services')}}" class="em__itemList_jobs">
+                    <a href="{{route('applicant.service',['id'=>$row->id])}}" class="em__itemList_jobs">
                         <div class="media align-items-center">
                             <div class="img_logo">
                                 <img src="{{ asset($row->img ?? ' ')  }}" alt="">

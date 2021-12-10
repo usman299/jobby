@@ -45,6 +45,7 @@ Route::get('/categories', 'FrontendController@allCategories')->name('front.categ
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
+Route::get('/applicant/service/{id}', 'Front\ApplicantController@service')->name('applicant.service');
 Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleService')->name('applicant.singleService');
 // applicant Contract
     Route::Post('/applicant/services/contract/{id}', 'Front\ApplicantController@servicesContract')->name('applicant.services.contract');

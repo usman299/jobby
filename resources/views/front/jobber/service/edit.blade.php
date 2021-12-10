@@ -59,15 +59,15 @@
             </div>
         </div>
 
-        <div class="em__certification margin-20">
-            <div class="box">
-                <div class="title">
-                    <h3>Certification</h3>
-                    <p>After finishing this course you'll get a graduation diploma. Be sure to watch all the
-                        chapters all the way.</p>
-                </div>
-            </div>
-        </div>
+{{--        <div class="em__certification margin-20">--}}
+{{--            <div class="box">--}}
+{{--                <div class="title">--}}
+{{--                    <h3>Certification</h3>--}}
+{{--                    <p>After finishing this course you'll get a graduation diploma. Be sure to watch all the--}}
+{{--                        chapters all the way.</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </section>
 
 
@@ -95,6 +95,21 @@
                                 <div class="em__body px-0">
                                     <form method="POST" action="{{ route('jobber.services.update',['id'=>$services->id]) }}" enctype="multipart/form-data">
                                         @csrf
+                                        <div class="form-group input-lined">
+                                            <select onchange="categorychange(this)" name="category_id" class="form-control" required="">
+                                                <option value="">Choisir une catégorie</option>
+                                                @foreach($categories as $cat)
+                                                    <option value="{{$cat->id}}" {{ $cat->id == $services->category_id ? 'selected' : '' }}>{{$cat->title}}</option>
+                                                @endforeach
+                                            </select>
+                                            <label for="duration" class="margin-t-20" style="font-size: 15px;"> <strong>Catégorie</strong> <strong style="color: red;">*</strong> </label>
+                                        </div>
+                                        <div class="form-group input-lined">
+                                            <select name="subcategory_id" class="form-control maincategory" >
+
+                                            </select>
+                                            <label for="duration" class="margin-t-20" style="font-size: 15px;"> <strong>Sous-catégorie</strong> <strong style="color: red;">*</strong> </label>
+                                        </div>
                                         <div class="form-group input-lined">
                                             <input type="text" id="title" name="title" value="{{$services->title}}" class="form-control" placeholder=" Entrez la Titre" required="">
                                             <label for="title"  style="font-size: 15px;"><strong>Titre</strong> <strong style="color: red;">*</strong></label>
