@@ -17,6 +17,7 @@ class AdminSeeder extends Seeder
             'lastName' => "",
             'email' => "admin@gmail.com",
             'role' => '0',
+            'avatar' => '0',
             'password' => bcrypt('password'),
 
         ]);
@@ -26,6 +27,7 @@ class AdminSeeder extends Seeder
             'email' => "applicant@gmail.com",
             'role' => '2',
             'country' => '1',
+            'avatar' => '0',
             'password' => bcrypt('password'),
 
         ]);
@@ -35,6 +37,7 @@ class AdminSeeder extends Seeder
             'email' => "jobber@gmail.com",
             'role' => '1',
             'country' => '1',
+            'avatar' => '0',
             'password' => bcrypt('password'),
 
         ]);
