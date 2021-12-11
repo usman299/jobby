@@ -21,7 +21,7 @@ class FrontendController extends Controller
         if($check){
            /* Cookie::queue('name', "bilawal", 35791394);
             $value = $request->cookie('name');*/
-                return redirect()->route('front.app');
+                return redirect()->route('front.intro');
         }else{
             return  view('auth.login');
         }

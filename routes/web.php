@@ -18,7 +18,7 @@ use Illuminate\Http\Response;
 
 Auth::routes();
 Route::get('/', 'FrontendController@index');
-Route::get('/intro', 'FrontendController@intro')->name('front.intro');
+Route::get('/intro', 'FrontendController@intro')->name('front.intro')->middleware('guest');
 Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
 Route::get('/intro/applicant', 'FrontendController@introapplicant')->name('intro.applicant');
 Route::get('/splash', 'FrontendController@splash')->name('front.splash');
