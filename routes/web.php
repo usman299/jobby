@@ -15,10 +15,6 @@ use Illuminate\Http\Response;
 */
 
 
-Route::get('/', function (Request $request){
-
-
-});
 
 Auth::routes();
 Route::get('/', 'FrontendController@index');

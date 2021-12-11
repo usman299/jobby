@@ -36,7 +36,7 @@ class FrontendController extends Controller
         $sliderGalery = SliderGalery::where('userRole','=',$user->role)->where('countory_id', '=',$user->country)->get();
         $services =JobberServicesOffers::where('status','=',1)->where('country_id','=',$user->country)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::take(9)->orderBy('id', 'DESC')->get();
-        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('status', '=', 1)->get();
+        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('category_id', '=', $user->category_id)->where('status', '=', 1) ->paginate(10);
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services'));
     }
     public function allCategories(){

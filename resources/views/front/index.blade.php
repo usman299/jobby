@@ -159,6 +159,7 @@
                 <!-- Start Standard layout -->
                 <div class="em_masonry__layout bg-snow em_list_layout widthFull">
 
+                    @if($jobrequests->count())
                     @foreach($jobrequests as $job)
                     <div class="item em_item_product item_list">
                         <div class="title_product">
@@ -187,17 +188,21 @@
                                     </div>
                                 </button></a>
                         </div>
-
                     </div>
                     @endforeach
+                    @else
+                        <div class="item em_item_product item_list">
+                        <p >Il semble qu'il n'y ait aucune demande d'emploi par candidat dans votre pays qui corresponde à votre spécialisation. Ou allez à la section profil pour mettre à jour votre profil avec vos spécialisations</p>
+                        </div>
+                    @endif
+
+                        {{ $jobrequests->links() }}
 
                 </div>
                 <!-- End. Standard layout -->
 
             </section>
                 @endif
-            <br>
-            <br>
             <br>
         </main>
 
