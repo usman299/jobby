@@ -19,7 +19,7 @@ class FrontendController extends Controller
     public function index(Request $request){
         $check =  preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
         if($check){
-            Cookie::queue('name', "bilawal", 525960);
+            Cookie::queue('name', "bilawal", 35791394);
             $value = $request->cookie('name');
             if ($value == 'bilawal'){
                 return redirect()->route('front.app');
