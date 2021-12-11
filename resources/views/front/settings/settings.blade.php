@@ -8,7 +8,7 @@
         <div class="em__pkLink emBlock__border bg-white border-t-0">
             <ul class="nav__list mb-0">
                 <li>
-                    <a href="#" class="item-link">
+                    <a href="{{route('settings.profile')}}" class="item-link">
                         <div class="group">
                             <div class="icon bg-primary">
                                 <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile"
@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="item-link">
+                    <a href="{{route('password.change')}}" class="item-link">
                         <div class="group">
                             <div class="icon bg-turquoise">
                                 <svg id="Iconly_Curved_Lock" data-name="Iconly/Curved/Lock"
@@ -108,7 +108,7 @@
                     </button>
                 </li>
                 <li>
-                    <a href="#" class="item-link">
+                    <a href="{{route('app.notifications')}}" class="item-link">
                         <div class="group">
                             <div class="icon bg-orange">
                                 <svg id="Iconly_Curved_Activity" data-name="Iconly/Curved/Activity"
@@ -152,7 +152,7 @@
         <div class="em__pkLink emBlock__border bg-white margin-b-10 border-t-0">
             <ul class="nav__list mb-0">
                 <li>
-                    <a href="#" class="btn item-link">
+                    <a href="{{route('app.support')}}" class="btn item-link">
                         <div class="group">
                             <div class="icon bg-yellow">
                                 <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message"
@@ -181,7 +181,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="item-link">
+                    <a href="{{route('app.about')}}" class="item-link">
                         <div class="group">
                             <div class="icon bg-red">
                                 <svg id="Iconly_Curved_Info_Square" data-name="Iconly/Curved/Info Square"
@@ -213,6 +213,27 @@
                         </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('app.contact')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-blue">
+                                <svg id="Iconly_Curved_Paper" data-name="Iconly/Curved/Paper" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Paper" transform="translate(2.889 2.177)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M4.275.5H0" transform="translate(4.161 9.554)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_2" data-name="Stroke 2" d="M2.657.5H0" transform="translate(4.16 6.378)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M13.07,4.394,8.582.119A14.408,14.408,0,0,0,6.642,0C1.663,0,0,1.837,0,7.323s1.663,7.323,6.642,7.323,6.65-1.829,6.65-7.323A16.661,16.661,0,0,0,13.07,4.394Z" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_5" data-name="Stroke 5" d="M0,0V2.107A2.662,2.662,0,0,0,2.663,4.769H5" transform="translate(8.142 0.065)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Avoir une question?</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
 
             </ul>
         </div>
@@ -224,7 +245,7 @@
         class="emSimple_main_footer margin-t-10 border-t border-t-solid border-snow bg-white d-flex justify-content-center text-center padding-20">
         <div class="padding-t-10 padding-b-10">
             <a href="{{route('front.app')}}" class="brand_sm margin-b-20 d-block">
-                <img src="{{asset('main/logo.jpg')}}" alt="">
+                <img style="height: 35px" src="{{asset('main/logo.jpg')}}" alt="">
             </a>
             <h3 class="size-13 weight-400 color-secondary margin-b-10">
                 Copyright © Ikae Digital. Tous les droits sont réservés.
@@ -260,9 +281,6 @@
     <br>
     <br>
     <!-- End. emSimple_main_footer -->
-@endsection
-@section('model')
-    <!-- Modal Content -->
     <div class="modal transition-bottom screenFull defaultModal modal__language fade" id="mdllLanguage"
          tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
@@ -282,11 +300,11 @@
                     <div class="emPage__language em__signTypeOne pb-0">
                         <div class="itemSingle">
                             @foreach($countries as $countr)
-                            <div class="item {{$countr->id == $user->country ? 'selected' : ''}}">
-                                <div class="txt">
-                                    <h2>{{$countr->name}}</h2>
+                                <div class="item {{$countr->id == $user->country ? 'selected' : ''}}">
+                                    <div class="txt">
+                                        <h2>{{$countr->name}}</h2>
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
                         </div>
 
@@ -304,5 +322,5 @@
             </div>
         </div>
     </div>
-
 @endsection
+

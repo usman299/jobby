@@ -11,11 +11,24 @@ use App\Category;
 use App\JobberServicesOffers;
 use App\SubCategory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cookie;
 
 class FrontendController extends Controller
 {
-    public function index(){
-        return view('auth.login');
+    public function index(Request $request){
+        $check =  preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+        if($check){
+            Cookie::queue('name', "bilawal", 525960);
+            $value = $request->cookie('name');
+            if ($value == 'bilawal'){
+                return redirect()->route('front.app');
+            }else{
+                return redirect()->route('front.intro');
+            }
+        }else{
+            return  view('auth.login');
+        }
     }
     public function app(){
         $title = 'Accueil';
@@ -57,11 +70,5 @@ class FrontendController extends Controller
     }
     public function register($id){
         return view('front.auth.register', compact('id'));
-    }
-    public function settings(){
-        $title = 'Paramètres';
-        $user = Auth::user();
-        $countries = Countory::all();
-        return view('front.settings', compact('user','title', 'countries'));
     }
 }

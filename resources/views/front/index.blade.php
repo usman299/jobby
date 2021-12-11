@@ -2,7 +2,7 @@
 @section('content')
     <style>
         .emCategorie_itemJobs {
-            padding: 10px 20px 14px 20px;
+            padding: 10px 20px 5px 20px;
         }
         .emCategorie_itemJobs .icon {
 
@@ -21,7 +21,7 @@
         <main class="emPage__public">
 
             <!-- Start banner_swiper -->
-            <section class="banner_swiper padding-t-30 bg-white">
+            <section class="banner_swiper padding-t-40 bg-white">
                 <div class="title_welcome">
 
                 </div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="em_bodyCarousel   bg-white">
-                    <div class="container">
+                    <div class="container" style="padding-right: 30px; padding-left: 30px">
 
                         <div class="row">
                             @foreach($category as $row)

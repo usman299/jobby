@@ -127,7 +127,7 @@
 
             <button  data-toggle="modal"
                      data-target="" class="btn justify-content-center bg-info rounded-10 btn__default">
-                <a href=""><span class="color-white">Message</span> </a>
+                <a href="{{url('/chatify/'.$proposal->jobber->id)}}"><span class="color-white">Message</span> </a>
             </button>
 
 
@@ -139,8 +139,7 @@
 
     <br>
     <br>
-@endsection
-@section('model')
+
     <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="acceptpropsal" tabindex="-1"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -301,6 +300,4 @@
         </div>
     </div>
 
-
-    <!-- End. em_swiper_products1 -->
 @endsection

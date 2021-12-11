@@ -67,10 +67,10 @@
         <!-- Start main_haeder -->
         <header class="main_haeder header-sticky multi_item {{  request()->is('applicant/single/*') ? 'header-white':'' }}">
             <div class="em_menu_sidebar">
-                <button onclick="history.back()" type="button" class="btn btn_meunSearch" id="saerch-On-header">
-                   <div class="icon">
-                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z"/></svg>                   </div>
-                </button>
+                <a class="rounded-circle d-flex align-items-center text-decoration-none" onclick="history.back()">
+                    <i class="tio-chevron_left size-24 color-text"></i>
+                    <span class="color-text size-14">Arrière</span>
+                </a>
             </div>
             <div class="title_page">
                 <span class="page_name">{{$title??'Messenger'}}</span>
@@ -323,13 +323,13 @@
                         <div class="media">
                             <a href="#">
                                 <!-- You can use an image -->
-                                 <img class="_imgUser" src="{{asset('main/avatar.png')}}" alt="">
+                                 <img class="_imgUser" src="{{asset($user->image)}}" alt="">
 
                             </a>
                             <div class="media-body">
                                 <div class="txt">
-                                    <h3>{{Auth::user()->firstName}} {{Auth::user()->lastName}}</h3>
-                                    <p>{{Auth::user()->email}}</p>
+                                    <h3>{{$user->firstName}} {{$user->lastName}}</h3>
+                                    <p>{{$user->email}}</p>
                                     <a  href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" class="btn btn_logOut">Déconnecter</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -571,73 +571,84 @@
     $categories = \App\Category::all();
     ?>
     <!-- Modal Form -->
-    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllForm" tabindex="-1"
-         aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
-                    <div class="itemProduct_sm">
-                        <h1 class="size-18 weight-600 color-secondary m-0">Publier une demande d'emploi</h1>
-                    </div>
-                    <div class="absolute right-0 padding-r-20">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <i class="tio-clear"></i>
-                        </button>
-                    </div>
-                </div>
-                <form action="{{route('jobrequest.submit')}}" method="POST">
-                    @csrf
-                    <div class="modal-body env-pb">
-                            <div class="form-group input-lined">
-                                <input type="text" name="title" class="form-control" placeholder="Titre" required="">
-                                <label for="username">Titre</label>
-                            </div>
-                            <div class="form-group input-lined">
-                                <select onchange="categorychange(this)" name="category_id" class="form-control" required="">
-                                    <option value="">Choisir une catégorie</option>
-                                    @foreach($categories as $cat)
-                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
-                                    @endforeach
-                                </select>
-                                <label for="email">Catégorie</label>
-                            </div>
-                            <div class="form-group input-lined">
-                                <select name="subcategory_id" class="form-control maincategory" required="">
 
-                                </select>
-                                <label for="email">Sous-catégorie</label>
-                            </div>
-                            <div class="form-group input-lined">
-                                <input type="number" name="min_price"  class="form-control" required="">
-                                <label for="mobile">Minimum Budget</label>
-                            </div>
-                            <div class="form-group input-lined">
-                                <input type="number" name="max_price" class="form-control" required="">
-                                <label for="mobile">Maximum Budget</label>
-                            </div>
-                            <div class="form-group input-lined">
-                                <input type="text" name="estimate_time"  class="form-control" required="">
-                                <label for="mobile">Temps estimé</label>
-                            </div>
-                            <div class="form-group input-lined">
-                                <textarea class="form-control" rows="2" name="description"></textarea>
-                                <label for="address">Details</label>
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit"
-                           class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
-                            Poster
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     @yield('model')
 </div>
+        <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllForm"
+             tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable height-full">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header padding-l-20 padding-r-20 justify-content-center">
+                        <div class="itemProduct_sm">
+                            <h1 class="size-18 weight-600 color-secondary m-0">Publier une demande d'emploi</h1>
+                        </div>
+                        <div class="absolute right-0 padding-r-20">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="tio-clear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="padding-t-60">
+                            <div class="em__signTypeOne">
 
+                                <div class="em__body px-0">
+                                    <form action="{{route('jobrequest.submit')}}" method="POST">
+                                        @csrf
+                                        <div class="">
+                                            <div class="form-group input-lined">
+                                                <input type="text" name="title" class="form-control" placeholder="Titre" required="">
+                                                <label for="username">Titre</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <select onchange="categorychange(this)" name="category_id" class="form-control" required="">
+                                                    <option value="">Choisir une catégorie</option>
+                                                    @foreach($categories as $cat)
+                                                        <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <label for="email">Catégorie</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <select name="subcategory_id" class="form-control maincategory" required="">
+
+                                                </select>
+                                                <label for="email">Sous-catégorie</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <input type="number" name="min_price"  class="form-control" required="">
+                                                <label for="mobile">Minimum Budget</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <input type="number" name="max_price" class="form-control" required="">
+                                                <label for="mobile">Maximum Budget</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <input type="text" name="estimate_time"  class="form-control" required="">
+                                                <label for="mobile">Temps estimé</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <textarea class="form-control" rows="2" name="description"></textarea>
+                                                <label for="address">Details</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit"
+                                                    class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
+                                                Poster
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 <!-- jquery -->
 <script src="{{asset('assets/js/jquery-3.6.0.js')}}"></script>
 <!-- popper.min.js 1.16.1 -->

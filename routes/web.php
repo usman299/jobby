@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,17 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function (){
-    $check =  preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
-    if($check){
-        return redirect()->route('front.intro');
-    }else{
-        return  view('auth.login');
-    }
+Route::get('/', function (Request $request){
+
+
 });
 
 Auth::routes();
-//Route::get('/', 'FrontendController@index')->name('front.index');
+Route::get('/', 'FrontendController@index');
 Route::get('/intro', 'FrontendController@intro')->name('front.intro');
 Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
 Route::get('/intro/applicant', 'FrontendController@introapplicant')->name('intro.applicant');
@@ -40,9 +37,18 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function() {
 Route::post('/fetchsubcategory', 'Front\ApplicantController@fetchsubcategory')->name('fetchsubcategory');
 
 Route::get('/app', 'FrontendController@app')->name('front.app');
-Route::get('/app/settings', 'FrontendController@settings')->name('app.settings');
 Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
+
+Route::get('/app/settings', 'Front\SettingsController@settings')->name('app.settings');
+Route::get('/app/settings/profile', 'Front\SettingsController@profile')->name('settings.profile');
+Route::get('/app/about', 'Front\SettingsController@about')->name('app.about');
+Route::get('/app/notifications', 'Front\SettingsController@notifications')->name('app.notifications');
+Route::get('/app/support', 'Front\SettingsController@support')->name('app.support');
+Route::get('/app/contact', 'Front\SettingsController@contact')->name('app.contact');
+Route::get('/app/password/change', 'Front\SettingsController@passwordChange')->name('password.change');
+Route::post('/profile/update', 'Front\SettingsController@profileUpdate')->name('profile.update');
+Route::post('/password/update', 'Front\SettingsController@passwordUpdate')->name('password.update');
 
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
 Route::get('/applicant/service/{id}', 'Front\ApplicantController@service')->name('applicant.service');

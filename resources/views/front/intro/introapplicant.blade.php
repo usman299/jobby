@@ -2,11 +2,6 @@
 <!-- End. em_loading -->
 @section('content')
 
-    <!-- Start em_loading -->
-    <section class="em_loading" id="loaderPage">
-        <div class="spinner_flash"></div>
-    </section>
-    <!-- End. em_loading -->
 
     <div id="wrapper">
         <div id="content">
