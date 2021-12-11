@@ -63,6 +63,7 @@ Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleSe
     // Applicant Contract
     Route::get('/applicant/contract', 'Front\ApplicantController@getApplicantContract')->name('applicant.contract');
     Route::get('/applicant/contract/details/{id}', 'Front\ApplicantController@detialsApplicantContract')->name('applicant.contract.details');
+    Route::get('/applicant/contract/status/{id}/{status}', 'Front\ApplicantController@applicantContractDetailsStatus')->name('applicant.contract.status');
 
     // End Applicant Contract
 
@@ -151,7 +152,7 @@ Route::post('/slider/store', 'Admin\AppSettingController@sliderStore')->name('sl
 Route::get('/slider/index', 'Admin\AppSettingController@sliderIndex')->name('slider.index');
 Route::get('/slider/edit/{id}', 'Admin\AppSettingController@sliderEdit')->name('slider.edit');
 Route::get('/slider/delete/{id}', 'Admin\AppSettingController@sliderDelete')->name('slider.delete');
-Route::post('/slider/update/{id}', 'Admin\AppSettingController@countoryCreate')->name('slider.update');
+Route::post('/slider/update/{id}', 'Admin\AppSettingController@sliderUpdate')->name('slider.update');
 
 //END SLIDER Create
 

@@ -1,5 +1,7 @@
 @extends('layouts.front')
 @section('content')
+
+
     <section class="emPage__detailsBlog">
         <div class="emPage___profile accordion bg-white" id="accordionExample">
             <div class="emBody__navLink with__border">
@@ -22,14 +24,14 @@
                                     @if($contract->proposal_id=== null)
                                         <div class="media-body">
                                             <div class="txt">
-                                                <h3>{{$contract->service->title}}</h3>
+                                                <h3>Détails du Service</h3>
                                             </div>
                                         </div>
                                     @else
                                         <div class="media-body">
                                             <div class="txt">
 
-                                                <h3>{{$contract->proposal->jobrequest->title ?? ''}}</h3>
+                                                <h3>Détails de la Proposition</h3>
 
 
                                             </div>
@@ -45,8 +47,11 @@
                             @if($contract->proposal_id===null)
                                 <div class="card-body">
                                     <p class="mb-0 size-15 color-text">
+                                        <strong>{{$contract->service->title}}</strong>
+                                    </p><br>
+                                    <p class="mb-0 size-15 color-text">
                                         {{$contract->service->description}}
-                                    </p>
+
                                     <hr>
                                     <p class="mb-0 size-15 color-text">
                                         <b>Prix: </b> {{$contract->service->price}} €
@@ -54,6 +59,9 @@
                                 </div>
                             @else
                                 <div class="card-body">
+                                    <p class="mb-0 size-15 color-text">
+                                        <strong>{{$contract->proposal->jobrequest->title ?? ''}}</strong><br>
+                                    </p>
                                     <p class="mb-0 size-15 color-text">
                                         {{$contract->proposal->description ?? ''}}
                                     </p>
@@ -69,9 +77,33 @@
             </div>
         </div>
         <div class="emheader_cover">
+
+            @if($contract->status==1)
+            <div class="embody__content" style="padding: 0;">
+
+                <h4 style="text-align: center; margin-top: 10px;">Temps restant</h4>
+                <h1 class="head_art" id="demotime" style="color: green; text-align: center;"></h1>
+
+            </div>
+            @elseif($contract->status==3)
+
+                <div class="embody__content" style="padding: 0;">
+                    <h4 style="text-align: center; margin-top: 10px;">Contrat Complet</h4>
+                    <h1 class="head_art"   style="color: green; text-align: center;">0jrs  0h  00m  0s  </h1>
+
+                </div>
+            @else
+                <div class="embody__content" style="padding: 0;">
+                    <h4 style="text-align: center; margin-top: 10px;">Annuler le contrat</h4>
+                    <h1 class="head_art" style="color: red; text-align: center;">0jrs  0h  00m  0s  </h1>
+
+                </div>
+            @endif
             <div class="title">
                 <div class="item__auther emBlock__border">
+
                     <div class="item_person">
+
                         <?php $jobber = \App\User::where('id','=',$contract->jober_id)->first(); ?>
                         <img src="{{asset($jobber->image)}}" alt="">
                         <h2>{{$jobber->firstName}} {{$jobber->lastName}}</h2>
@@ -94,7 +126,7 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
-                        <h2>Prix de l'offre</h2>
+                        <h2>Prix </h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">
@@ -118,6 +150,28 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
+                        <h2>Status</h2>
+                    </div>
+                    <div class="sideRight">
+                        <div class="time">
+                            @if($contract->status==1)
+                            <span style="color: green"><strong>Active</strong></span>
+                            @elseif($contract->status==2)
+                                <span style="color: green" ><!--Deliver--><strong>Livrer</strong></span>
+                            @elseif($contract->status==3)
+                                <span style="color: green"><!--Complete--><strong>Achevée</strong></span>
+                            @elseif($contract->status==4)
+                                <span style="color: blue"><!--waiting--><strong>En attendant</strong></span>
+                            @else
+                                <span style="color: red;"><!--cancel--><strong>Annuler</strong></span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <div class="item__auther emBlock__border">
+                    <div class="item_person">
                         <h2>Région</h2>
                     </div>
                     <div class="sideRight">
@@ -134,6 +188,30 @@
                 {{$contract->description}}
             </p>
         </div>
+        <div class=" margin-t-20 padding-20 d-flex emBlock__border">
+            <a href="{{url('/chatify/'.$contract->jober_id)}}" class="btn bg-blue rounded-10 btn__default">
+                <span class="color-white">Discuter</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
+            </a>
+            <a href="" class="btn bg-red rounded-10 btn__default ml-3" data-toggle="modal" data-target="#mdllJobDetails" >
+                <span class="color-white">Annuler</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
+            </a>
+        </div>
+        <div class="  margin-b-20  padding-20 d-flex emBlock__border">
+            <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>3])}}" class="btn bg-green rounded-0 btn__default full-width"   >
+                <span class="color-white "   >Achevée</span>
+                <div class="icon rounded-0">
+                    <i class="tio-chevron_right"></i>
+                </div>
+            </a>
+        </div>
+
+
 
         {{--        <div class="bg-white padding-20 d-flex emBlock__border">--}}
         {{--            <button  data-toggle="modal"--}}
@@ -150,4 +228,76 @@
 
     <br>
     <br>
+
+    <!-- Modal mdllJobDetails -->
+    <div class="modal transition-bottom screenFull defaultModal mdllJobs_details fade" id="mdllJobDetails"
+         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header padding-l-20 padding-r-50">
+
+                    <div class="absolute right-0 padding-r-20">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="tio-clear"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="emPage__detailsJobs">
+
+                        <div class="em_body padding-t-40">
+                            <div class="content">
+                                <p>
+                                    <strong>Es-tu sûr que ce contrat s'annule</strong>
+                                </p>
+                                <div class="  margin-b-20  padding-20 d-flex emBlock__border">
+                                    <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>4])}}" class="btn bg-red rounded-0 btn__default full-width"   style="float: right" >
+                                        <span class="color-white "   >Confirmer</span>
+                                        <div class="icon rounded-0">
+                                            <i class="tio-chevron_right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Set the date we're counting down to
+        // ->format('M d, Y H:m')
+        var countDownDate = new Date("{{$contract->e_time ?? ''}}").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demotime").innerHTML = days + "jrs  " + hours + "h  "
+                + minutes + "m  " + seconds + "s  ";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demotime").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 @endsection

@@ -568,7 +568,7 @@ $user = Auth::user();
                                                 <label for="mobile">Maximum Budget</label>
                                             </div>
                                             <div class="form-group input-lined">
-                                                <input type="text" name="estimate_time"  class="form-control" required="">
+                                                <input type="date" name="estimate_time"  class="form-control" required="">
                                                 <label for="mobile">Temps estimé</label>
                                             </div>
                                             <div class="form-group input-lined">

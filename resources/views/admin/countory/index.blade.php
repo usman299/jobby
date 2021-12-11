@@ -45,7 +45,7 @@
                                         <td>
                                             <div class="d-flex">
                                                 <!-- <a href="" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->
-                                                <a href="{{route('countory.delete',['id'=>$row->id])}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+{{--                                                <a href="{{route('countory.delete',['id'=>$row->id])}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>--}}
                                                 <a href="{{route('countory.edit', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp"  title="Edit"><i class="fa fa-pencil"></i></a>
                                             </div>
                                         </td>

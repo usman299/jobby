@@ -112,8 +112,7 @@
         </div>
 
         <div class="bg-white padding-20 d-flex emBlock__border">
-            <button  data-toggle="modal"
-                     data-target="#mdllJobDetails" class="btn justify-content-center bg-primary rounded-10 btn__default">
+            <button  data-toggle="modal" data-target="#mdllJobDetails" class="btn justify-content-center bg-primary rounded-10 btn__default">
                 <span class="color-white">Profil du travailleur</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
@@ -429,23 +428,14 @@
                             <div class="em__body px-0">
                                 <form method="POST" action="{{ route('applicant.proposals.contract',['id'=>$proposal->id]) }}" enctype="multipart/form-data">
                                     @csrf
-                                    {{--                                    <div class="form-group input-lined">--}}
 
-                                    {{--                                        <select class="form-control custom-select margin-t-20" name="type" >--}}
-                                    {{--                                            <option >Choisissez-en un</option>--}}
-                                    {{--                                            <option value="1">Type de Proposition</option>--}}
-                                    {{--                                            <option value="2">Type de Service</option>--}}
-
-                                    {{--                                        </select>--}}
-                                    {{--                                        <label for="title"  style="font-size: 15px;"><strong>Type de Contrat</strong> <strong style="color: red;">*</strong></label>--}}
-                                    {{--                                    </div>--}}
                                     <div class="form-group input-lined">
                                         <input type="text" class="form-control"  id="price" name="price" placeholder=" Entrez la Prix"
                                                required="">
                                         <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
                                     </div>
                                     <div class="form-group input-lined">
-                                        <input type="text" id="price" name="e_time"  class="form-control" placeholder=" Entrez la  Heure de fin"
+                                        <input type="date" id="price" name="e_time"  class="form-control" placeholder=" Entrez la  Heure de fin"
                                                required="">
                                         <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Heure de fin</strong> <strong style="color: red;">*</strong> </label>
                                     </div>

@@ -55,7 +55,9 @@
         <div class="em__body">
             <div class="title_course">
                 <h1>{{$services->title ?? ''}}</h1>
-                <p>{{$services->description ?? ''}}</p>
+                <p class="card-text">
+                    {{$services->description ?? ''}}
+                </p>
             </div>
         </div>
 

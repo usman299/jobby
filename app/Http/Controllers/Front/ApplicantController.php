@@ -121,7 +121,8 @@ class ApplicantController extends Controller
                     $contract->applicant_id = $applicant_id;
                     $contract->jober_id = $service->jobber_id;
                     $contract->e_time = $request->e_time;
-                    $contract->price = $request->price;
+                    $service = JobberServicesOffers::find($id);
+                    $contract->price = $service->price;
                     $contract->description = $request->description;
                     $contract->save();
                     $notification = array(
@@ -182,14 +183,77 @@ class ApplicantController extends Controller
         $title = 'Contract';
         $user = Auth::user();
         $activeContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 1)->get();
-        $acceptContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 2)->get();
-        return view('front.applicant.contract.index', compact('title', 'activeContract', 'acceptContract'));
+        $completeContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 3)->get();
+        $cancelContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 5)->get();
+        return view('front.applicant.contract.index', compact('title', 'activeContract', 'completeContract','cancelContract'));
     }
 
     public function detialsApplicantContract($id){
         $title = 'Contract';
         $contract = Contract::find($id);
         return view('front.applicant.contract.detials', compact('title', 'contract'));
+    }
+    public function applicantContractDetailsStatus($id,$status){
+
+        $contract = Contract::find($id);
+        if($contract->status!=$status) {
+            if ($status==2) {
+                $contract->status = $status;
+                $contract->update();
+                $notification = array(
+                    'messege' => 'Contract  Deliver Successfuly',
+                    'alert-type' => 'success'
+                );
+                return redirect()->back()->with($notification);
+            }
+            elseif ($status==3){
+
+                if($contract->status==5) {
+                    $notification = array(
+                        'messege' => 'Your already Contract Cancel',
+                        'alert-type' => 'error'
+                    );
+                    return redirect()->back()->with($notification);
+                }
+                else{
+                    $contract->status = $status;
+                    $contract->update();
+                    $notification = array(
+                        'messege' => 'Contract  Complete Successfuly',
+                        'alert-type' => 'success'
+                    );
+                    return redirect()->back()->with($notification);
+
+                }
+            }
+            elseif ($status==4){
+                $contract->status = $status;
+                $contract->update();
+                $notification = array(
+                    'messege' => 'Wating Admin Response',
+                    'alert-type' => 'info'
+                );
+                return redirect()->back()->with($notification);
+            }
+            else{
+                $contract->status = $status;
+                $contract->update();
+                $notification = array(
+                    'messege' => 'Wating Admin Response',
+                    'alert-type' => 'error'
+                );
+                return redirect()->back()->with($notification);
+
+            }
+        }
+        else{
+            $notification = array(
+                'messege' => 'Contract  Status Already Change',
+                'alert-type' => 'info'
+            );
+            return redirect()->back()->with($notification);
+
+        }
     }
 
     public function jobberServices($id){

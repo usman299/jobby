@@ -28,44 +28,44 @@
                                     <table id="example3" class="display min-w850">
                                         <thead>
                                             <tr>
-                                                
+
                                                 <th><!-- id -->identifiant</th>
                                                 <th><!-- category -->Catégorie</th>
                                                 <th><!-- title -->Titre</th>
                                                 <th>Image</th>
-                                                <th>Action</th>
+{{--                                                <th>Action</th>--}}
                                             </tr>
                                         </thead>
                                         <tbody>
                                              @foreach($subcategory as $row)
                                             <tr>
-                                                
+
                                                 <td>{{$row->id}}</td>
-                                                
+
                                                <?php $category =  \App\Category::where('id','=',$row->category_id)->first();?>
-                                               
+
                                                <td>{{$category->title }}</td>
                                                 <td>{{$row->title}}</td>
-                                                <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1" 
+                                                <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1"
                                 data-title="{{$row->title}}"><img class="rounded-circle" width="50" src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
 
 
-                                                
-                                                
+
+
                                                 <td> <input type="color" value="{{$row->backColor}}" disabled></td>
-                                                <td>
-													<div class="d-flex">
-														<!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->
-														
-                                                        <a href="{{route('subcategory.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">
-                                                   <i class="fa fa-trash"></i>
-                                                </a>
-													</div>												
-												</td>												
+{{--                                                <td>--}}
+{{--													<div class="d-flex">--}}
+{{--														<!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->--}}
+{{--														--}}
+{{--                                                        <a href="{{route('subcategory.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">--}}
+{{--                                                   <i class="fa fa-trash"></i>--}}
+{{--                                                </a>--}}
+{{--													</div>												--}}
+{{--												</td>												--}}
                                             </tr>
 
                                             @endforeach
-                                           
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -74,7 +74,7 @@
                     </div>
 
 
- 
+
 
      @jquery
     @toastr_js

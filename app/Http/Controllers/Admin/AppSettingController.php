@@ -242,8 +242,8 @@ class AppSettingController extends Controller
         //
     }
     public function sliderCreate()
-    {
-        return view('admin.slider.create');
+    {   $countory  = Countory::all();
+        return view('admin.slider.create',compact('countory'));
     }
     public function sliderStore(Request $request)
     {
@@ -272,7 +272,8 @@ class AppSettingController extends Controller
     public function sliderEdit($id)
     {
         $slider = SliderGalery::where('id','=',$id)->first();
-        return view('admin.slider.edit',compact('slider'));
+        $countory  = Countory::all();
+        return view('admin.slider.edit',compact('slider','countory'));
     }
     public function sliderUpdate($id,Request $request)
     {

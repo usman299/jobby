@@ -19,16 +19,19 @@
                                         </svg>
 
                                     </div>
-                                    @if($contract->proposal_id===null)
-                                    <div class="media-body">
-                                        <div class="txt">
-                                            <h3>{{$contract->service->title}}</h3>
+                                    @if($contract->proposal_id=== null)
+                                        <div class="media-body">
+                                            <div class="txt">
+                                                <h3>Détails du Service</h3>
+                                            </div>
                                         </div>
-                                    </div>
                                     @else
                                         <div class="media-body">
                                             <div class="txt">
-                                                <h3>{{$contract->proposal->jobrequest->title}}</h3>
+
+                                                <h3>Détails de la Proposition</h3>
+
+
                                             </div>
                                         </div>
                                     @endif
@@ -38,9 +41,13 @@
                                 </div>
                             </div>
                         </div>
+
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
                             @if($contract->proposal_id=== null)
                             <div class="card-body">
+                                <p class="mb-0 size-15 color-text">
+                                    <strong>{{$contract->service->title}}</strong>
+                                </p><br>
                                 <p class="mb-0 size-15 color-text">
                                     {{$contract->service->description}}
                                 </p>
@@ -51,6 +58,9 @@
                             </div>
                             @else
                                 <div class="card-body">
+                                    <p class="mb-0 size-15 color-text">
+                                        <strong>{{$contract->proposal->jobrequest->title}}</strong>
+                                    </p><br>
                                     <p class="mb-0 size-15 color-text">
                                         {{$contract->proposal->description}}
                                     </p>
@@ -66,6 +76,28 @@
             </div>
         </div>
         <div class="emheader_cover">
+
+            @if($contract->status==1)
+                <div class="embody__content" style="padding: 0;">
+
+                    <h4 style="text-align: center; margin-top: 10px;">Temps restant</h4>
+                    <h1 class="head_art" id="demotime" style="color: green; text-align: center;"></h1>
+
+                </div>
+            @elseif($contract->status==3)
+
+                <div class="embody__content" style="padding: 0;">
+                    <h4 style="text-align: center; margin-top: 10px;">Contrat Complet</h4>
+                    <h1 class="head_art"   style="color: green; text-align: center;">0jrs  0h  00m  0s  </h1>
+
+                </div>
+            @else
+                <div class="embody__content" style="padding: 0;">
+                    <h4 style="text-align: center; margin-top: 10px;">Annuler le contrat</h4>
+                    <h1 class="head_art" style="color: red; text-align: center;">0jrs  0h  00m  0s  </h1>
+
+                </div>
+            @endif
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
@@ -114,6 +146,28 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
+                        <h2>Status</h2>
+                    </div>
+                    <div class="sideRight">
+                        <div class="time">
+                            @if($contract->status==1)
+                                <span style="color: green"><strong>Active</strong></span>
+                            @elseif($contract->status==2)
+                                <span style="color: green" ><!--Deliver--><strong>Livrer</strong></span>
+                            @elseif($contract->status==3)
+                                <span style="color: green"><!--Complete--><strong>Achevée</strong></span>
+                            @elseif($contract->status==4)
+                                <span style="color: blue"><!--waiting--><strong>En attendant</strong></span>
+                            @else
+                                <span style="color: red;"><!--cancel--><strong>Annuler</strong></span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <div class="item__auther emBlock__border">
+                    <div class="item_person">
                         <h2>Région</h2>
                     </div>
                     <div class="sideRight">
@@ -130,19 +184,20 @@
                 {{$contract->description}}
             </p>
         </div>
-        @if($contract->status==1)
-        <div class="bg-white padding-20 d-flex emBlock__border">
-            <a href="{{route('contract.status', ['id' => $contract->id])}}" class="btn justify-content-center bg-green rounded-pill btn__default full-width">
-                <span class="color-white margin-t-10">J'accepte</span>
+        <div class=" margin-t-20 padding-20 d-flex emBlock__border">
+            <a href="{{url('/chatify/'.$contract->applicant_id)}}" class="btn bg-blue rounded-10 btn__default">
+                <span class="color-white">Discuter</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
+            </a>
+            <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>2])}}" class="btn bg-green rounded-10 btn__default ml-3"  >
+                <span class="color-white">Livrer</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
             </a>
         </div>
-        @else
-        <div class="bg-white padding-20 d-flex emBlock__border">
-            <a href="#" class="btn justify-content-center bg-red rounded-pill btn__default full-width">
-                <span class="color-white margin-t-10">Accepté</span>
-            </a>
-        </div>
-        @endif
 {{--        <div class="bg-white padding-20 d-flex emBlock__border">--}}
 {{--            <button  data-toggle="modal"--}}
 {{--                     data-target="#mdllJobDetails" class="btn justify-content-center bg-primary rounded-10 btn__default">--}}
@@ -158,4 +213,35 @@
 
     <br>
     <br>
+    <script>
+        // Set the date we're counting down to
+        // ->format('M d, Y H:m')
+        var countDownDate = new Date("{{$contract->e_time ?? ''}}").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demotime").innerHTML = days + "jrs  " + hours + "h  "
+                + minutes + "m  " + seconds + "s  ";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demotime").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 @endsection

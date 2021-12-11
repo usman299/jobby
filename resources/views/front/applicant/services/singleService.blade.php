@@ -53,169 +53,177 @@
     <section class=" components_page padding-b-30">
 
         <!-- Start title -->
-        <div class=" margin-t-20 margin-b-20 padding-20 d-flex emBlock__border">
-            <a href="{{route('chatify')}}" class="btn bg-blue rounded-10 btn__default">
+        <div class=" margin-t-20 padding-20 d-flex emBlock__border">
+            <a href="{{url('/chatify/'.$services->jobber_id)}}" class="btn bg-blue rounded-10 btn__default">
                 <span class="color-white">Discuter</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
-            <a href="" class="btn bg-green rounded-10 btn__default ml-3" data-toggle="modal" data-target="#mdllContent-form" style="float: right">
-                <span class="color-white">Réservation</span>
+            <a href="" class="btn bg-primary rounded-10 btn__default ml-3" data-toggle="modal" data-target="#mdllJobDetails">
+                <span class="color-white">Worker profile</span>
                 <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
+            </a>
+        </div>
+        <div class="   padding-20 d-flex emBlock__border">
+            <a href="" class="btn bg-green rounded-0 btn__default full-width"  data-toggle="modal" data-target="#mdllContent-form" style="float: right" >
+                <span class="color-white "   >Réservation</span>
+                <div class="icon rounded-0">
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
         </div>
         <!-- End. title -->
 
-        <div class="pt_simpleDetails m-0 py-2 rounded-0 emBlock__border">
-            <div class="em_bodyinner">
-                <div class="embkRateCustomer">
-                    <div class="emBoxRating">
-                        <div class="row">
-                            <div class="col-4">
-                                <div class="item_rate">
-                                    <span class="noRate">4.0</span>
-                                    <div class="">
-                                        <p class="rateCutome">1.6k Commentaires</p>
-                                        <div class="emPatternRate">
-                                            <span class="ico _rated"></span>
-                                            <span class="ico _rated"></span>
-                                            <span class="ico _rated"></span>
-                                            <span class="ico _rated"></span>
-                                            <span class="ico"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="progress__rate">
-                                    <div class="">
-                                        <div class="item">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
-                                                </div>
-                                            </div>
-                                            <span class="txt">5</span>
-                                            <span class="circle"></span>
-                                        </div>
-                                        <div class="item">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-                                                </div>
-                                            </div>
-                                            <span class="txt">4</span>
-                                            <span class="circle"></span>
-                                        </div>
-                                        <div class="item">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 8%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
-                                                </div>
-                                            </div>
-                                            <span class="txt">3</span>
-                                            <span class="circle"></span>
-                                        </div>
-                                        <div class="item">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
-                                                </div>
-                                            </div>
-                                            <span class="txt">2</span>
-                                            <span class="circle"></span>
-                                        </div>
-                                        <div class="item">
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width:15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
-                                                </div>
-                                            </div>
-                                            <span class="txt">1</span>
-                                            <span class="circle"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--        <div class="pt_simpleDetails m-0 py-2 rounded-0 emBlock__border">--}}
+{{--            <div class="em_bodyinner">--}}
+{{--                <div class="embkRateCustomer">--}}
+{{--                    <div class="emBoxRating">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col-4">--}}
+{{--                                <div class="item_rate">--}}
+{{--                                    <span class="noRate">4.0</span>--}}
+{{--                                    <div class="">--}}
+{{--                                        <p class="rateCutome">1.6k Commentaires</p>--}}
+{{--                                        <div class="emPatternRate">--}}
+{{--                                            <span class="ico _rated"></span>--}}
+{{--                                            <span class="ico _rated"></span>--}}
+{{--                                            <span class="ico _rated"></span>--}}
+{{--                                            <span class="ico _rated"></span>--}}
+{{--                                            <span class="ico"></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-8">--}}
+{{--                                <div class="progress__rate">--}}
+{{--                                    <div class="">--}}
+{{--                                        <div class="item">--}}
+{{--                                            <div class="progress">--}}
+{{--                                                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <span class="txt">5</span>--}}
+{{--                                            <span class="circle"></span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="item">--}}
+{{--                                            <div class="progress">--}}
+{{--                                                <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <span class="txt">4</span>--}}
+{{--                                            <span class="circle"></span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="item">--}}
+{{--                                            <div class="progress">--}}
+{{--                                                <div class="progress-bar" role="progressbar" style="width: 8%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <span class="txt">3</span>--}}
+{{--                                            <span class="circle"></span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="item">--}}
+{{--                                            <div class="progress">--}}
+{{--                                                <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <span class="txt">2</span>--}}
+{{--                                            <span class="circle"></span>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="item">--}}
+{{--                                            <div class="progress">--}}
+{{--                                                <div class="progress-bar" role="progressbar" style="width:15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <span class="txt">1</span>--}}
+{{--                                            <span class="circle"></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                    </div>
-                </div>
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="emCommentCusomers">
-                    <div class="title"></div>
-                    <!-- item -->
-                    <div class="itemUser">
-                        <div class="media">
-                            <img class="x_img" src="{{asset('assets/img/persons/064.jpg')}}" alt="">
-                            <div class="media-body">
-                                <div class="txt_details">
-                                    <h4 class="username">Richard Crump <time>Today</time></h4>
-                                    <div class="emPatternRate">
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico"></span>
-                                        <span class="ico"></span>
-                                    </div>
-                                    <p class="txtComment">
-                                        Lacus sed turpis tincidunt id aliquet risus feugiat in. Cursus eget nunc
-                                        scelerisque viverra mauris in aliquam.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- item -->
-                    <div class="itemUser">
-                        <div class="media">
-                            <img class="x_img" src="{{asset('assets/img/persons/0654.jpg')}}" alt="">
-                            <div class="media-body">
-                                <div class="txt_details">
-                                    <h4 class="username">Pedro Foster <time>2 days ago</time></h4>
-                                    <div class="emPatternRate">
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico"></span>
-                                    </div>
-                                    <p class="txtComment">
-                                        Cursus eget nunc scelerisque viverra mauris in aliquam.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="itemUser">
-                        <div class="media">
-                            <div class="no_img bg-purple">
-                                <span>L</span>
-                            </div>
-                            <div class="media-body">
-                                <div class="txt_details">
-                                    <h4 class="username">Leona Barker <time>6 days ago</time></h4>
-                                    <div class="emPatternRate">
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico _rated"></span>
-                                        <span class="ico"></span>
-                                    </div>
-                                    <p class="txtComment">
-                                        Sit amet purus gravida quis. Elementum nisi quis eleifend quam
-                                        adipiscing
-                                        vitae.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="page-product-reviews.html" class="btn all_reviews margin-t-20">See all reviews</a>
-                </div>
-            </div>
+{{--                <div class="emCommentCusomers">--}}
+{{--                    <div class="title"></div>--}}
+{{--                    <!-- item -->--}}
+{{--                    <div class="itemUser">--}}
+{{--                        <div class="media">--}}
+{{--                            <img class="x_img" src="{{asset('assets/img/persons/064.jpg')}}" alt="">--}}
+{{--                            <div class="media-body">--}}
+{{--                                <div class="txt_details">--}}
+{{--                                    <h4 class="username">Richard Crump <time>Today</time></h4>--}}
+{{--                                    <div class="emPatternRate">--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico"></span>--}}
+{{--                                        <span class="ico"></span>--}}
+{{--                                    </div>--}}
+{{--                                    <p class="txtComment">--}}
+{{--                                        Lacus sed turpis tincidunt id aliquet risus feugiat in. Cursus eget nunc--}}
+{{--                                        scelerisque viverra mauris in aliquam.--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- item -->--}}
+{{--                    <div class="itemUser">--}}
+{{--                        <div class="media">--}}
+{{--                            <img class="x_img" src="{{asset('assets/img/persons/0654.jpg')}}" alt="">--}}
+{{--                            <div class="media-body">--}}
+{{--                                <div class="txt_details">--}}
+{{--                                    <h4 class="username">Pedro Foster <time>2 days ago</time></h4>--}}
+{{--                                    <div class="emPatternRate">--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico"></span>--}}
+{{--                                    </div>--}}
+{{--                                    <p class="txtComment">--}}
+{{--                                        Cursus eget nunc scelerisque viverra mauris in aliquam.--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="itemUser">--}}
+{{--                        <div class="media">--}}
+{{--                            <div class="no_img bg-purple">--}}
+{{--                                <span>L</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="media-body">--}}
+{{--                                <div class="txt_details">--}}
+{{--                                    <h4 class="username">Leona Barker <time>6 days ago</time></h4>--}}
+{{--                                    <div class="emPatternRate">--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico _rated"></span>--}}
+{{--                                        <span class="ico"></span>--}}
+{{--                                    </div>--}}
+{{--                                    <p class="txtComment">--}}
+{{--                                        Sit amet purus gravida quis. Elementum nisi quis eleifend quam--}}
+{{--                                        adipiscing--}}
+{{--                                        vitae.--}}
+{{--                                    </p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <a href="page-product-reviews.html" class="btn all_reviews margin-t-20">See all reviews</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
-        </div>
-        <br>
-        <br>
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <br>--}}
 
     </section>
 
@@ -241,23 +249,8 @@
                             <div class="em__body px-0">
                                 <form method="POST" action="{{ route('applicant.services.contract',['id'=>$services->id]) }}" enctype="multipart/form-data">
                                     @csrf
-{{--                                    <div class="form-group input-lined">--}}
-
-{{--                                        <select class="form-control custom-select margin-t-20" name="type" >--}}
-{{--                                            <option >Choisissez-en un</option>--}}
-{{--                                            <option value="1">Type de Proposition</option>--}}
-{{--                                            <option value="2">Type de Service</option>--}}
-
-{{--                                        </select>--}}
-{{--                                        <label for="title"  style="font-size: 15px;"><strong>Type de Contrat</strong> <strong style="color: red;">*</strong></label>--}}
-{{--                                    </div>--}}
-                                    <div class="form-group input-lined">
-                                        <input type="text" class="form-control"  id="price" name="price" placeholder=" Entrez la Prix"
-                                               required="">
-                                        <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
-                                    </div>
-                                    <div class="form-group input-lined">
-                                        <input type="text" id="price" name="e_time"  class="form-control" placeholder=" Entrez la  Heure de fin"
+                               <div class="form-group input-lined">
+                                        <input type="date" id="e_time" name="e_time"  class="form-control" placeholder=" Entrez la  Heure de fin"
                                                required="">
                                         <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Heure de fin</strong> <strong style="color: red;">*</strong> </label>
                                     </div>
@@ -286,5 +279,230 @@
 
 
     <!-- End. em_swiper_products1 -->
+    <!-- Modal mdllJobDetails -->
+
+    <div class="modal transition-bottom screenFull defaultModal mdllJobs_details fade" id="mdllJobDetails"
+         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header padding-l-20 padding-r-50">
+                    <div class="media align-items-center">
+                        <div class="img_brand">
+
+                                <img src="{{asset($services->user->image)}}" alt="">
+                            </div>
+                            <div class="media-body">
+                                <div class="txt_info">
+                                    <span>Membre depuis: {{$services->user->created_at->format('Y')}}</span>
+                                    <h2>{{$services->user->firstName}} {{$services->user->lastName}}</h2>
+                                    <p>{{$services->user->countory->name}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute right-0 padding-r-20">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="tio-clear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="emPage__detailsJobs">
+
+                            <div class="details__job">
+                                <div class="item">
+                                    <span>Travailler comme</span>
+                                    <p>{{$services->user->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
+                                </div>
+                                <div class="item">
+                                    <span>Tarif à l'heure</span>
+                                    <p class="weight-600">{{$services->user->rate_per_hour??'0'}}€</p>
+                                </div>
+                                <div class="item">
+                                    <span>Genre</span>
+                                    <p class="weight-600">{{$services->user->gender??'non'}}</p>
+                                </div>
+                            </div>
+                            <div class="details__job">
+                                @if($services->user->company_name)
+                                    <div class="item">
+                                        <span>Nom de la compagnie</span>
+                                        <p>{{$services->user->company_name}}</p>
+                                    </div>
+                                @endif
+                                <div class="item">
+                                    <span>Travaux terminés</span>
+                                    <p>0</p>
+                                </div>
+                            </div>
+
+                            <div class="em_body padding-t-40">
+                                <div class="content">
+                                    <p>
+                                        {{$services->user->description}}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="pt_simpleDetails m-0 py-2 rounded-0 emBlock__border">
+                                <div class="em_bodyinner">
+                                    <div class="embkRateCustomer">
+                                        <div class="emBoxRating">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="item_rate">
+                                                        <span class="noRate">4.0</span>
+                                                        <div class="">
+                                                            <p class="rateCutome">1.6k Commentaires</p>
+                                                            <div class="emPatternRate">
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="progress__rate">
+                                                        <div class="">
+                                                            <div class="item">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                                                    </div>
+                                                                </div>
+                                                                <span class="txt">5</span>
+                                                                <span class="circle"></span>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                                                                    </div>
+                                                                </div>
+                                                                <span class="txt">4</span>
+                                                                <span class="circle"></span>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" style="width: 8%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
+                                                                    </div>
+                                                                </div>
+                                                                <span class="txt">3</span>
+                                                                <span class="circle"></span>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+                                                                    </div>
+                                                                </div>
+                                                                <span class="txt">2</span>
+                                                                <span class="circle"></span>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar" style="width:15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                                                    </div>
+                                                                </div>
+                                                                <span class="txt">1</span>
+                                                                <span class="circle"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="emCommentCusomers">
+                                        <div class="title"></div>
+                                        <!-- item -->
+                                        <div class="itemUser">
+                                            <div class="media">
+                                                <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/064.jpg" alt="">
+                                                <div class="media-body">
+                                                    <div class="txt_details">
+                                                        <h4 class="username">Richard Crump <time>Today</time></h4>
+                                                        <div class="emPatternRate">
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico"></span>
+                                                            <span class="ico"></span>
+                                                        </div>
+                                                        <p class="txtComment">
+                                                            Lacus sed turpis tincidunt id aliquet risus feugiat in. Cursus eget nunc
+                                                            scelerisque viverra mauris in aliquam.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- item -->
+                                        <div class="itemUser">
+                                            <div class="media">
+                                                <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/0654.jpg" alt="">
+                                                <div class="media-body">
+                                                    <div class="txt_details">
+                                                        <h4 class="username">Pedro Foster <time>2 days ago</time></h4>
+                                                        <div class="emPatternRate">
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico"></span>
+                                                        </div>
+                                                        <p class="txtComment">
+                                                            Cursus eget nunc scelerisque viverra mauris in aliquam.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="itemUser">
+                                            <div class="media">
+                                                <div class="no_img bg-purple">
+                                                    <span>L</span>
+                                                </div>
+                                                <div class="media-body">
+                                                    <div class="txt_details">
+                                                        <h4 class="username">Leona Barker <time>6 days ago</time></h4>
+                                                        <div class="emPatternRate">
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico"></span>
+                                                        </div>
+                                                        <p class="txtComment">
+                                                            Sit amet purus gravida quis. Elementum nisi quis eleifend quam
+                                                            adipiscing
+                                                            vitae.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="page-product-reviews.html" class="btn all_reviews margin-t-20">See all reviews</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="padding-20 d-flex emBlock__border">
+                                <a href="{{route('applicant.jobber.services', ['id' => $services->user->id])}}" class="btn bg-green rounded-10 btn__default ml-3 full-width" style="float: right">
+                                    <span class="color-white">Services offerts</span>
+                                    <div class="icon rounded-10">
+                                        <i class="tio-chevron_right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 @endsection
