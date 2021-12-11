@@ -81,7 +81,11 @@
 <script src="{{asset('assets/js/main.js')}}" defer></script>
 <!-- PWA app service registration and works js -->
 <script src="{{asset('assets/js/pwa-services.js')}}"></script>
-
+<script>
+    $(".loginformsubmit").submit(function(){
+        $(this).find(':input[type=submit]').prop('disabled', true);
+    });
+</script>
 </body>
 
 </html>

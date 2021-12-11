@@ -421,7 +421,7 @@ $user = Auth::user();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
+                            <a class="nav-link logoutbutton" href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 <div class="">
                                     <div class="icon_current">
@@ -657,6 +657,11 @@ $user = Auth::user();
             break;
     }
     @endif
+</script>
+<script>
+    $(".logoutbutton").click(function(){
+        $(this).html('Loging Out...');
+    })
 </script>
 @yield('script')
 </body>

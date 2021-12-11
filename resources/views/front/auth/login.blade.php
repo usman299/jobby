@@ -28,7 +28,7 @@
                         <h1>S'identifier</h1>
                     </div>
                 </div>
-                <form method="POST" action="{{ route('login') }}" >
+                <form method="POST" class="loginformsubmit" action="{{ route('login') }}" >
                     @csrf
                 <div class="em__body">
                         <div class="form-group with_icon" style="text-align: left!important;">
