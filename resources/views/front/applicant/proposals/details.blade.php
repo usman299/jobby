@@ -115,11 +115,17 @@
             <button  data-toggle="modal"
                      data-target="#mdllJobDetails" class="btn justify-content-center bg-primary rounded-10 btn__default">
                 <span class="color-white">Profil du travailleur</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
             </button>
 
             <button data-toggle="modal"
                data-target="#acceptpropsal" class="btn justify-content-center bg-green rounded-10 btn__default ml-3">
                 <span class="color-white">J'accepte</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
             </button>
 
         </div>
@@ -128,11 +134,17 @@
             <button  data-toggle="modal"
                      data-target="" class="btn justify-content-center bg-info rounded-10 btn__default">
                 <a href="{{url('/chatify/'.$proposal->jobber->id)}}"><span class="color-white">Message</span> </a>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
             </button>
 
 
             <button data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn justify-content-center bg-danger rounded-10 btn__default ml-3">
                 <span class="color-white">Contract</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
             </button>
         </div>
     </section>
@@ -201,32 +213,192 @@
 
                         <div class="details__job">
                             <div class="item">
-                                <span>Available</span>
-                                <p>Full-time</p>
+                                <span>Travailler comme</span>
+                                <p>{{$proposal->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
                             </div>
                             <div class="item">
-                                <span>Per Hour</span>
-                                <p class="weight-600">$ 1500.00</p>
+                                <span>Tarif à l'heure</span>
+                                <p class="weight-600">{{$proposal->jobber->rate_per_hour??'0'}}€</p>
                             </div>
                             <div class="item">
-                                <span>Company</span>
-                                <p>Clevertech</p>
+                                <span>Genre</span>
+                                <p class="weight-600">{{$proposal->jobber->gender??'non'}}</p>
                             </div>
+                        </div>
+                        <div class="details__job">
+                            @if($proposal->jobber->company_name)
+                            <div class="item">
+                                <span>Nom de la compagnie</span>
+                                <p>{{$proposal->jobber->company_name}}</p>
+                            </div>
+                             @endif
+                                <div class="item">
+                                    <span>Travaux terminés</span>
+                                    <p>0</p>
+                                </div>
                         </div>
 
                         <div class="em_body padding-t-40">
                             <div class="content">
                                 <p>
-                                    Interested? Please email us at <a href="mailto:jobs@example.org"
-                                                                      target="_blank">jobs@example.org</a> with the
-                                    subject line “Zotero UI Designer”,
-                                    let us know why you’re interested in working with us and why you think you’d
-                                    be
-                                    a good
-                                    fit
-                                    for this role, and include a link to your portfolio.
+                                   {{$proposal->jobber->description}}
                                 </p>
                             </div>
+                        </div>
+
+                        <div class="pt_simpleDetails m-0 py-2 rounded-0 emBlock__border">
+                            <div class="em_bodyinner">
+                                <div class="embkRateCustomer">
+                                    <div class="emBoxRating">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="item_rate">
+                                                    <span class="noRate">4.0</span>
+                                                    <div class="">
+                                                        <p class="rateCutome">1.6k Commentaires</p>
+                                                        <div class="emPatternRate">
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico _rated"></span>
+                                                            <span class="ico"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="progress__rate">
+                                                    <div class="">
+                                                        <div class="item">
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                            <span class="txt">5</span>
+                                                            <span class="circle"></span>
+                                                        </div>
+                                                        <div class="item">
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                            <span class="txt">4</span>
+                                                            <span class="circle"></span>
+                                                        </div>
+                                                        <div class="item">
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" style="width: 8%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                            <span class="txt">3</span>
+                                                            <span class="circle"></span>
+                                                        </div>
+                                                        <div class="item">
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                            <span class="txt">2</span>
+                                                            <span class="circle"></span>
+                                                        </div>
+                                                        <div class="item">
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" style="width:15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                                                </div>
+                                                            </div>
+                                                            <span class="txt">1</span>
+                                                            <span class="circle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="emCommentCusomers">
+                                    <div class="title"></div>
+                                    <!-- item -->
+                                    <div class="itemUser">
+                                        <div class="media">
+                                            <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/064.jpg" alt="">
+                                            <div class="media-body">
+                                                <div class="txt_details">
+                                                    <h4 class="username">Richard Crump <time>Today</time></h4>
+                                                    <div class="emPatternRate">
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico"></span>
+                                                        <span class="ico"></span>
+                                                    </div>
+                                                    <p class="txtComment">
+                                                        Lacus sed turpis tincidunt id aliquet risus feugiat in. Cursus eget nunc
+                                                        scelerisque viverra mauris in aliquam.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- item -->
+                                    <div class="itemUser">
+                                        <div class="media">
+                                            <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/0654.jpg" alt="">
+                                            <div class="media-body">
+                                                <div class="txt_details">
+                                                    <h4 class="username">Pedro Foster <time>2 days ago</time></h4>
+                                                    <div class="emPatternRate">
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico"></span>
+                                                    </div>
+                                                    <p class="txtComment">
+                                                        Cursus eget nunc scelerisque viverra mauris in aliquam.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="itemUser">
+                                        <div class="media">
+                                            <div class="no_img bg-purple">
+                                                <span>L</span>
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="txt_details">
+                                                    <h4 class="username">Leona Barker <time>6 days ago</time></h4>
+                                                    <div class="emPatternRate">
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico"></span>
+                                                    </div>
+                                                    <p class="txtComment">
+                                                        Sit amet purus gravida quis. Elementum nisi quis eleifend quam
+                                                        adipiscing
+                                                        vitae.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="page-product-reviews.html" class="btn all_reviews margin-t-20">See all reviews</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="padding-20 d-flex emBlock__border">
+                            <a href="{{route('applicant.jobber.services', ['id' => $proposal->jobber->id])}}" class="btn bg-green rounded-10 btn__default ml-3 full-width" style="float: right">
+                                <span class="color-white">Services offerts</span>
+                                <div class="icon rounded-10">
+                                    <i class="tio-chevron_right"></i>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

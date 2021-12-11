@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-
+<?php
+$user = Auth::user();
+?>
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -86,9 +88,6 @@
 
         @yield('content')
     </div>
-    <?php
-    $user = Auth::user();
-    ?>
 <!-- Start em_main_footer -->
     <footer class="em_main_footer ouline_footer with__text">
         <div class="em_body_navigation -active-links">
@@ -329,12 +328,7 @@
                             <div class="media-body">
                                 <div class="txt">
                                     <h3>{{$user->firstName}} {{$user->lastName}}</h3>
-                                    <p>{{$user->email}}</p>
-                                    <a  href="{{route('logout')}}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="btn btn_logOut">Déconnecter</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                    <p>{{$user->email}} <br> {{$user->countory->name}}</p>
                                 </div>
                             </div>
                         </div>
@@ -347,155 +341,109 @@
                             <a class="nav-link" href="{{route('front.app')}}">
                                 <div class="">
                                     <div class="icon_current">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1zM6 19h12V9.157l-6-5.454-6 5.454V19zm2-4h8v2H8v-2z" fill="rgba(167,161,161,1)"/></svg>
-                                    </div>
-                                    <span class="title_link">Découvrir</span>
-                                </div>
-                            </a>
-                        </li>
-
-                        @if(Auth::user()->role==1)
-                        <div class="modal-body">
-                            <ul class="nav flex-column">
-                                <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
-                                    <a class="nav-link" href="{{route('jobber.services')}}">
-                                        <div class="">
-                                            <div class="icon_current">
-                                                <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
-                                                     xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                     viewBox="0 0 20 20">
-                                                    <g id="Discovery" transform="translate(2.292 2.292)">
-                                                        <path id="Stroke_1" data-name="Stroke 1"
-                                                              d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"
-                                                              transform="translate(0 0)" fill="none" stroke="#9498ac"
-                                                              stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-miterlimit="10" stroke-width="1.5" />
-                                                        <path id="Stroke_3" data-name="Stroke 3"
-                                                              d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"
-                                                              transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"
-                                                              stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-miterlimit="10" stroke-width="1.5" />
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <span class="title_link">Service</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                @endif
-                                @if(Auth::user()->role==2)
-                                    <div class="modal-body">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
-                                                <a class="nav-link" href="{{route('applicant.contract')}}">
-                                                    <div class="">
-                                                        <div class="icon_current">
-                                                            <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
-                                                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                                 viewBox="0 0 20 20">
-                                                                <g id="Discovery" transform="translate(2.292 2.292)">
-                                                                    <path id="Stroke_1" data-name="Stroke 1"
-                                                                          d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"
-                                                                          transform="translate(0 0)" fill="none" stroke="#9498ac"
-                                                                          stroke-linecap="round" stroke-linejoin="round"
-                                                                          stroke-miterlimit="10" stroke-width="1.5" />
-                                                                    <path id="Stroke_3" data-name="Stroke 3"
-                                                                          d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"
-                                                                          transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"
-                                                                          stroke-linecap="round" stroke-linejoin="round"
-                                                                          stroke-miterlimit="10" stroke-width="1.5" />
-                                                                </g>
-                                                            </svg>
-                                                        </div>
-                                                        <span class="title_link">Contract</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            @endif
-                        <label class="title__label">autre</label>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <div class="">
-                                    <div class="icon_current">
-                                        <svg id="Iconly_Curved_Setting" data-name="Iconly/Curved/Setting"
-                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                             viewBox="0 0 20 20">
-                                            <g id="Setting" transform="translate(2.917 2.083)">
-                                                <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M2.083,0A2.083,2.083,0,1,1,0,2.083,2.083,2.083,0,0,1,2.083,0Z"
-                                                      transform="translate(5 5.833)" fill="none" stroke="#9498ac"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                                <path id="Stroke_3" data-name="Stroke 3"
-                                                      d="M13.89,3.959h0a2.053,2.053,0,0,0-2.816-.76A1.286,1.286,0,0,1,9.145,2.077,2.07,2.07,0,0,0,7.083,0h0A2.07,2.07,0,0,0,5.021,2.077,1.286,1.286,0,0,1,3.093,3.2a2.054,2.054,0,0,0-2.817.76A2.085,2.085,0,0,0,1.031,6.8a1.3,1.3,0,0,1,0,2.243,2.085,2.085,0,0,0-.755,2.837,2.054,2.054,0,0,0,2.816.761h0a1.285,1.285,0,0,1,1.928,1.121h0a2.07,2.07,0,0,0,2.062,2.077h0a2.07,2.07,0,0,0,2.062-2.077h0a1.286,1.286,0,0,1,1.929-1.121,2.054,2.054,0,0,0,2.816-.761,2.085,2.085,0,0,0-.754-2.837h0a1.3,1.3,0,0,1,0-2.243A2.085,2.085,0,0,0,13.89,3.959Z"
-                                                      transform="translate(0)" fill="none" stroke="#9498ac"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
+                                        <svg id="Iconly_Curved_Home" data-name="Iconly/Curved/Home" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                            <g id="Home" transform="translate(2 1.667)">
+                                                <path id="Stroke_1" data-name="Stroke 1" d="M0,.5H4.846" transform="translate(5.566 11.28)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_2" data-name="Stroke 2" d="M0,9.761C0,5.068.512,5.4,3.266,2.842,4.471,1.872,6.346,0,7.965,0S11.5,1.862,12.712,2.842c2.754,2.554,3.265,2.227,3.265,6.919,0,6.906-1.633,6.906-7.988,6.906S0,16.667,0,9.761Z" transform="translate(0)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
                                             </g>
                                         </svg>
                                     </div>
-                                    <span class="title_link">Paramètres</span>
-                                </div>
-                                <div class="em_pulp">
-                                    <span class="doted_item"></span>
+                                    <span class="title_link">Accueil</span>
                                 </div>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
+                        @if($user->role == 1)
+                        <li class="nav-item {{  request()->is('jobber/services') ? '-active-links':'' }}">
+                            <a class="nav-link" href="{{route('jobber.services')}}">
                                 <div class="">
                                     <div class="icon_current">
-                                        <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message"
+                                        <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
                                              xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                              viewBox="0 0 20 20">
-                                            <g id="Message" transform="translate(2.043 2.377)">
+                                            <g id="Discovery" transform="translate(2.292 2.292)">
                                                 <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M9.292,0S6.617,3.211,4.661,3.211,0,0,0,0"
-                                                      transform="translate(3.285 5.139)" fill="none" stroke="#9498ac"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                                <path id="Stroke_3" data-name="Stroke 3"
-                                                      d="M0,7.6C0,1.9,1.984,0,7.937,0s7.937,1.9,7.937,7.6-1.984,7.6-7.937,7.6S0,13.295,0,7.6Z"
+                                                      d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"
                                                       transform="translate(0 0)" fill="none" stroke="#9498ac"
                                                       stroke-linecap="round" stroke-linejoin="round"
                                                       stroke-miterlimit="10" stroke-width="1.5" />
+                                                <path id="Stroke_3" data-name="Stroke 3"
+                                                      d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"
+                                                      transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5" />
                                             </g>
                                         </svg>
                                     </div>
-                                    <span class="title_link">Soutien</span>
+                                    <span class="title_link">Service</span>
                                 </div>
+                            </a>
+                        </li>
+                        @else
+                        <li class="nav-item {{  request()->is('applicant/contract') ? '-active-links':'' }}">
+                            <a class="nav-link" href="{{route('applicant.contract')}}">
+                                <div class="">
+                                    <div class="icon_current">
+                                        <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
+                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                             viewBox="0 0 20 20">
+                                            <g id="Discovery" transform="translate(2.292 2.292)">
+                                                <path id="Stroke_1" data-name="Stroke 1"
+                                                      d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"
+                                                      transform="translate(0 0)" fill="none" stroke="#9498ac"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5" />
+                                                <path id="Stroke_3" data-name="Stroke 3"
+                                                      d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"
+                                                      transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <span class="title_link">Contract</span>
+                                </div>
+                            </a>
+                        </li>
+                        @endif
+                        <li class="nav-item {{  request()->is('app/notifications') ? '-active-links':'' }}">
+                            <a class="nav-link" href="{{route('app.notifications')}}">
+                                <div class="">
+                                    <div class="icon_current">
+                                        <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                            <g id="Document" transform="translate(3.008 2.292)">
+                                                <path id="Stroke_1" data-name="Stroke 1" d="M6.017.5H0" transform="translate(3.971 10.289)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_2" data-name="Stroke 2" d="M6.017.5H0" transform="translate(3.971 7.155)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_3" data-name="Stroke 3" d="M2.3.5H0" transform="translate(3.972 4.023)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_4" data-name="Stroke 4" d="M0,7.708c0,5.781,1.748,7.708,6.992,7.708s6.992-1.927,6.992-7.708S12.238,0,6.992,0,0,1.927,0,7.708Z" transform="translate(0)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+
+                                    <span class="title_link">Notifications</span>
+                                </div>
+                                <span class="bg-red rounded-7 px-1 color-white min-w-25 px-1 h-28 d-flex align-items-center justify-content-center">3</span>
 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page-about.html">
+                            <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                 <div class="">
                                     <div class="icon_current">
-                                        <svg id="Iconly_Curved_Info_Square" data-name="Iconly/Curved/Info Square"
-                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                             viewBox="0 0 20 20">
-                                            <g id="Info_Square" data-name="Info Square"
-                                               transform="translate(2.292 2.292)">
-                                                <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M0,7.708C0,1.927,1.927,0,7.708,0s7.708,1.927,7.708,7.708-1.927,7.708-7.708,7.708S0,13.489,0,7.708Z"
-                                                      transform="translate(15.417 15.417) rotate(180)" fill="none"
-                                                      stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                                <path id="Stroke_3" data-name="Stroke 3" d="M0,0V3.246"
-                                                      transform="translate(7.708 10.954) rotate(180)" fill="none"
-                                                      stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                                <path id="Stroke_15" data-name="Stroke 15" d="M0,0H.007"
-                                                      transform="translate(7.712 4.792) rotate(180)" fill="none"
-                                                      stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
+                                        <svg id="Iconly_Curved_Info_Square" data-name="Iconly/Curved/Info Square" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                            <g id="Info_Square" data-name="Info Square" transform="translate(2.292 2.292)">
+                                                <path id="Stroke_1" data-name="Stroke 1" d="M0,7.708C0,1.927,1.927,0,7.708,0s7.708,1.927,7.708,7.708-1.927,7.708-7.708,7.708S0,13.489,0,7.708Z" transform="translate(15.417 15.417) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_3" data-name="Stroke 3" d="M0,0V3.246" transform="translate(7.708 10.954) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_15" data-name="Stroke 15" d="M0,0H.007" transform="translate(7.712 4.792) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
                                             </g>
                                         </svg>
                                     </div>
-                                    <span class="title_link">Sur</span>
+                                    <span class="title_link">Déconnecter</span>
                                 </div>
-
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>

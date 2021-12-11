@@ -142,7 +142,7 @@
                 <div class="form-group">
                     <label>Description</label>
                     <div class="input_group">
-                        <textarea name="description" class="form-control" id="" cols="30" rows="5">{{$user->description}}</textarea>
+                        <textarea name="description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5">{{$user->description}}</textarea>
                     </div>
                 </div>
                 <hr>
@@ -159,7 +159,7 @@
                     <div class="form-group">
                         <label>Sous-catégorie spécialisée</label>
                         <select name="subcategory_id" class="form-control custom-select maincategory">
-                            <option value="{{$user->subcategory->id}}">{{$user->subcategory->title}}</option>
+                            <option value="{{$user->subcategory->id??''}}">{{$user->subcategory->title??''}}</option>
                         </select>
                     </div>
                     <div class="form-group">

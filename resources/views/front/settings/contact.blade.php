@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="embk__form">
-            <form action="" class="padding-t-40">
+            <form action="#" class="padding-t-40">
                 <div class="form-group input-lined lined__iconed">
                     <div class="input_group">
                         <input type="text" class="form-control" id="username" placeholder="Enter full name" required="">
@@ -23,7 +23,7 @@
                             </svg>
                         </div>
                     </div>
-                    <label for="username">Full name</label>
+                        <label for="username">Nom complet</label>
                 </div>
                 <div class="form-group input-lined lined__iconed">
                     <div class="input_group">
@@ -37,26 +37,26 @@
                             </svg>
                         </div>
                     </div>
-                    <label for="email">Email Address</label>
+                    <label for="email">Adresse e-mail</label>
                 </div>
                 <div class="form-group input-lined lined__iconed">
                     <select class="form-control custom-select">
-                        <option value="0">Please Select</option>
-                        <option>Sales</option>
-                        <option>Products</option>
-                        <option>References</option>
-                        <option>Payments</option>
+                        <option value="0">Veuillez sélectionner</option>
+                        <option>Ventes</option>
+                        <option>Des produits</option>
+                        <option>Les références</option>
+                        <option>Paiements</option>
                     </select>
-                    <label>Select Subject</label>
+                    <label>Sélectionnez le sujet</label>
                 </div>
                 <div class="form-group input-lined">
-                    <textarea class="form-control" rows="2" id="Message" placeholder="type something here..."></textarea>
+                    <textarea class="form-control" rows="2" id="Message" placeholder="tapez quelque chose ici..."></textarea>
                     <label for="Message">Message</label>
                 </div>
 
-                <div class="text-center padding-t-40">
-                    <a href="page-verification-email.html" class="btn bg-primary rounded-pill btn__default">
-                        <span class="color-white">Say Hello!</span>
+                <div class="text-center">
+                    <a href="#" class="btn justify-content-center bg-blue rounded-pill btn__default full-width">
+                        <span class="color-white">Dis bonjour!</span>
                     </a>
                 </div>
 

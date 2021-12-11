@@ -51,6 +51,7 @@ Route::post('/profile/update', 'Front\SettingsController@profileUpdate')->name('
 Route::post('/password/update', 'Front\SettingsController@passwordUpdate')->name('password.update');
 
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
+Route::get('/applicant/jobber/services/{id}', 'Front\ApplicantController@jobberServices')->name('applicant.jobber.services');
 Route::get('/applicant/service/{id}', 'Front\ApplicantController@service')->name('applicant.service');
 Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleService')->name('applicant.singleService');
 // applicant Contract

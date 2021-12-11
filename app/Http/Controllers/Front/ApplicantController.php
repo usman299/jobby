@@ -192,5 +192,11 @@ class ApplicantController extends Controller
         return view('front.applicant.contract.detials', compact('title', 'contract'));
     }
 
+    public function jobberServices($id){
 
+        $title = 'Services offerts';
+        $services =JobberServicesOffers::latest()->where('status','=',1)->where('jobber_id','=',$id)->get();
+
+        return view('front.applicant.services.services', compact('title','services'));
+    }
 }
