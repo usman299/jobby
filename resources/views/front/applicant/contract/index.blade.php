@@ -76,7 +76,7 @@
                                     <img src="{{asset($jobber->image)}}" alt="">
                                 </a>
                             </div>
-                            <div class="title_product">
+                            <div class="title_product ">
                                 <a href="{{route('applicant.contract.details', ['id' => $contract->id])}}">
                                     <h4 class="item_price" style="margin-bottom: 5px">{{$jobber->firstName}} {{$jobber->lastName}}</h4>
                                     <h3>{{$contract->description}}</h3> {{$contract->e_time}}
