@@ -435,8 +435,7 @@
                                         <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
                                     </div>
                                     <div class="form-group input-lined">
-                                        <input type="date" id="price" name="e_time"  class="form-control" placeholder=" Entrez la  Heure de fin"
-                                               required="">
+                                        <input type="date" id="price" name="e_time"  class="form-control"  required="">
                                         <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Heure de fin</strong> <strong style="color: red;">*</strong> </label>
                                     </div>
                                     <div class="form-group input-lined">
