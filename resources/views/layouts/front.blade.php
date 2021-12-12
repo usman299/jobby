@@ -52,6 +52,9 @@ $user = Auth::user();
         .em_list_layout.widthFull .item_list .em_head .image_product {
             height: 80px;
         }
+        .em_list_layout.widthFull .item_list .title_product .itemRating {
+             margin-bottom: 0px !important;
+        }
     </style>
 </head>
 

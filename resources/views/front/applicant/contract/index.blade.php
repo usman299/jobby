@@ -126,7 +126,7 @@
                                     <h3>{{$contract->description}}</h3> Heure de fin ({{$contract->e_time}})
                                     <p class="item_price">{{$contract->price}} €</p>
                                     <button type="button" class="btn btn_addCart item-active">
-                                        <div class="itemRating ">
+                                        <div class="itemRating margin-t-40 ">
                                             @if($contract->status==1)
                                                 <span style="min-width: 80px; color: white; background-color: green; " class="number">Active</span>
                                             @elseif($contract->status==2)
