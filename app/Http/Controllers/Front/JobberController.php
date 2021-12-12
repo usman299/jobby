@@ -159,7 +159,7 @@ class JobberController extends Controller
     public function getJobberContract(){
         $title = 'Contract';
         $user = Auth::user();
-        $activeContract = Contract::latest()->where('jober_id', '=', $user->id)->where('status', '=', 1)->get();
+        $activeContract = Contract::latest()->where('jober_id', '=', $user->id)->get();
         $completeContract = Contract::latest()->where('jober_id', '=', $user->id)->where('status', '=', 3)->get();
         $cancelContract = Contract::latest()->where('jober_id', '=', $user->id)->where('status', '=', 3)->get();
         return view('front.jobber.contract.index', compact('title', 'activeContract', 'completeContract','cancelContract'));

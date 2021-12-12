@@ -182,7 +182,7 @@ class ApplicantController extends Controller
     public function getApplicantContract(){
         $title = 'Contract';
         $user = Auth::user();
-        $activeContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 1)->get();
+        $activeContract = Contract::latest()->where('applicant_id', '=', $user->id)->get();
         $completeContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 3)->get();
         $cancelContract = Contract::latest()->where('applicant_id', '=', $user->id)->where('status', '=', 5)->get();
         return view('front.applicant.contract.index', compact('title', 'activeContract', 'completeContract','cancelContract'));
