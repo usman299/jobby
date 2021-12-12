@@ -189,13 +189,15 @@
             </p>
         </div>
         <div class=" margin-t-20 padding-20 d-flex emBlock__border">
+           
             <a href="{{url('/chatify/'.$contract->jober_id)}}" class="btn bg-blue rounded-10 btn__default">
                 <span class="color-white">Discuter</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
-            <a href="" class="btn bg-red rounded-10 btn__default ml-3" data-toggle="modal" data-target="#mdllJobDetails" >
+
+            <a href="" class="btn bg-red rounded-10 btn__default ml-3" data-toggle="modal" data-target="#mdllJobDetails"  >
                 <span class="color-white">Annuler</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
@@ -203,7 +205,7 @@
             </a>
         </div>
         <div class="  margin-b-20  padding-20 d-flex emBlock__border">
-            <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>3])}}" class="btn bg-green rounded-0 btn__default full-width"   >
+            <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>3])}}" class="btn bg-green rounded-0 btn__default full-width"  >
                 <span class="color-white "   >Achevée</span>
                 <div class="icon rounded-0">
                     <i class="tio-chevron_right"></i>

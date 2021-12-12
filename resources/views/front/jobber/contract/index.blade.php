@@ -19,6 +19,7 @@
                 <div class="em_masonry__layout bg-snow em_list_layout widthFull">
                     <!-- item -->
                     @foreach($activeContract as $contract)
+                        @if($contract->status==1 || $contract->status==2 ||$contract->status==4)
                         <div class="item em_item_product item_list">
                             <div class="em_head">
                                 <a href="#" class="image_product">
@@ -31,13 +32,29 @@
                                     <h3>{{$contract->description}}</h3>Offre ( {{$contract->created_at->diffForHumans()}})
                                     <p class="item_price">{{$contract->price}} €</p>
                                     <button type="button" class="btn btn_addCart item-active">
-                                        <div class="itemRating">
-                                            <span style="min-width: 80px;" class="number">Vue</span>
+                                        <div class="itemRating ">
+                                            @if($contract->status==1)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Active</span>
+                                            @elseif($contract->status==2)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Livrer</span>
+                                            @elseif($contract->status==3)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Achevée</span>
+                                            @elseif($contract->status==4)
+                                                <span style="min-width: 80px; color: white; background-color: red; " class="number">En attendant</span>
+                                            @else
+                                                <span style="min-width: 80px; color: white; background-color: red; " class="number">Annuler</span>
+                                            @endif
+                                            @if($contract->proposal_id=== null)
+                                                <span style="min-width: 80px;  color: white; background-color: #fa9905;" class="number">Services</span>
+                                            @else
+                                                <span style="min-width: 80px;  color: white; background-color: #fa9905;" class="number">proposition</span>
+                                            @endif
                                         </div>
                                     </button>
                                 </a>
                             </div>
                         </div>
+                        @endif
                 @endforeach
                 <!-- item -->
                 </div>
@@ -58,8 +75,23 @@
                                     <h3>{{$contract->description}}</h3>Offre ( {{$contract->created_at->diffForHumans()}})
                                     <p class="item_price">{{$contract->price}} €</p>
                                     <button type="button" class="btn btn_addCart item-active">
-                                        <div class="itemRating">
-                                            <span style="min-width: 80px;" class="number">Vue</span>
+                                        <div class="itemRating ">
+                                            @if($contract->status==1)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Active</span>
+                                            @elseif($contract->status==2)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Livrer</span>
+                                            @elseif($contract->status==3)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Achevée</span>
+                                            @elseif($contract->status==4)
+                                                <span style="min-width: 80px; color: white; background-color: red; " class="number">En attendant</span>
+                                            @else
+                                                <span style="min-width: 80px; color: white; background-color: red; " class="number">Annuler</span>
+                                            @endif
+                                            @if($contract->proposal_id=== null)
+                                                <span style="min-width: 80px;  color: white; background-color: #fa9905;" class="number">Services</span>
+                                            @else
+                                                <span style="min-width: 80px;  color: white; background-color: #fa9905;" class="number">proposition</span>
+                                            @endif
                                         </div>
                                     </button>
                                 </a>
@@ -85,8 +117,23 @@
                                     <h3>{{$contract->description}}</h3>Offre ( {{$contract->created_at->diffForHumans()}})
                                     <p class="item_price">{{$contract->price}} €</p>
                                     <button type="button" class="btn btn_addCart item-active">
-                                        <div class="itemRating">
-                                            <span style="min-width: 80px;" class="number">Vue</span>
+                                        <div class="itemRating ">
+                                            @if($contract->status==1)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Active</span>
+                                            @elseif($contract->status==2)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Livrer</span>
+                                            @elseif($contract->status==3)
+                                                <span style="min-width: 80px; color: white; background-color: green; " class="number">Achevée</span>
+                                            @elseif($contract->status==4)
+                                                <span style="min-width: 80px; color: white; background-color: red; " class="number">En attendant</span>
+                                            @else
+                                                <span style="min-width: 80px; color: white; background-color: red; " class="number">Annuler</span>
+                                            @endif
+                                            @if($contract->proposal_id=== null)
+                                                <span style="min-width: 80px;  color: white; background-color: #fa9905;" class="number">Services</span>
+                                            @else
+                                                <span style="min-width: 80px;  color: white; background-color: #fa9905;" class="number">proposition</span>
+                                            @endif
                                         </div>
                                     </button>
                                 </a>
