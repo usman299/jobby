@@ -26,6 +26,8 @@ class CreateJobRequestsTable extends Migration
             $table->string('min_price')->nullable();
             $table->longtext('description')->nullable();
             $table->string('file')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
             $table->string('status')->default(1);//Active=1,close=2,
             $table->timestamps();
         });

@@ -55,13 +55,46 @@ $user = Auth::user();
         .em_list_layout.widthFull .item_list .title_product .itemRating {
              margin-bottom: 0px !important;
         }
+        .dialog-background{
+            background: none repeat scroll 0 0 rgba(105, 166, 217, 0.5);
+            height: 100%;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        .dialog-loading-wrapper {
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+            border: 0 none;
+            height: 100px;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            position: fixed;
+            top: 50%;
+            width: 100px;
+            z-index: 9999999;
+        }
+        .dialog-loading-icon {
+            background-color: #FFFFFF !important;
+            border-radius: 13px;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            margin: 0;
+            padding: 1px;
+            text-align: center;
+            width: 100px;
+        }
     </style>
+    @yield('style')
 </head>
 
 
 <body class="bg-snow">
-
-
 <div id="wrapper">
     <div id="content">
         <!-- Start main_haeder -->
@@ -212,7 +245,7 @@ $user = Auth::user();
             <div class="item_link">
                 @if($user->role == 2)
                     <button type="button" data-toggle="modal"
-                            data-target="#mdllForm" class="btn btn_navLink">
+                            data-target="#mdllForm" class="btn btn_navLink showlatpop">
                         <a  class="btn btnCircle">
                             <i class="tio-add"></i>
                         </a>
@@ -566,6 +599,8 @@ $user = Auth::user();
                                                 <input type="number" name="min_price"  class="form-control" required="">
                                                 <label for="mobile">Minimum Budget</label>
                                             </div>
+                                            <input type="hidden" name="lat" class="lat">
+                                            <input type="hidden" name="long" class="long">
                                             <div class="form-group input-lined">
                                                 <input type="number" name="max_price" class="form-control" required="">
                                                 <label for="mobile">Maximum Budget</label>
@@ -595,6 +630,11 @@ $user = Auth::user();
 
             </div>
         </div>
+{{--<div class="dialog-background" style="display: none">--}}
+{{--    <div class="dialog-loading-wrapper">--}}
+{{--        <span class="dialog-loading-icon">Loading....</span>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!-- jquery -->
 <script src="{{asset('assets/js/jquery-3.6.0.js')}}"></script>
 <!-- popper.min.js 1.16.1 -->
@@ -663,8 +703,23 @@ $user = Auth::user();
 </script>
 <script>
     $(".logoutbutton").click(function(){
-        $(this).html('Loging Out...');
+        $(this).html('Déconnecter...');
     })
+    $(".showlatpop").click(function(){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    })
+    function showPosition(position) {
+        $(".lat").val(position.coords.latitude);
+        $(".long").val(position.coords.longitude);
+    }
+    // $("a").click(function() {
+    //     $(".dialog-background").show();
+    // });
+
 </script>
 @yield('script')
 </body>

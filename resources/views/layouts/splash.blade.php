@@ -50,6 +50,14 @@
         .npPage_introDefault .swiper__text .swiper-slide .content_text {
             padding: 0 0px !important;
         }
+        .hero-text{
+            text-align: center;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
     </style>
 </head>
 
@@ -84,6 +92,7 @@
 <script>
     $(".loginformsubmit").submit(function(){
         $(this).find(':input[type=submit]').prop('disabled', true);
+        $(this).find(':input[type=submit]').html("Chargement..");
     });
 </script>
 </body>

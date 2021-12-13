@@ -27,7 +27,7 @@
                         <h1>Créer un compte</h1>
                     </div>
                 </div>
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" class="loginformsubmit" action="{{ route('register') }}">
                     @csrf
                     <div class="em__body">
                             <div class="form-group with_icon" style="text-align: left!important;">

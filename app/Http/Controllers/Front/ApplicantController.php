@@ -48,6 +48,8 @@ class ApplicantController extends Controller
         $jobrequest->max_price = $request->max_price;
         $jobrequest->description = $request->description;
         $jobrequest->estimate_time = $request->estimate_time;
+        $jobrequest->lat = $request->lat;
+        $jobrequest->long = $request->long;
         $jobrequest->country_id = $user->country;
         $jobrequest->save();
         $notification = array(

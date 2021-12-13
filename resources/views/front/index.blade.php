@@ -1,5 +1,7 @@
 @extends('layouts.front')
-@section('content')
+@section('style')
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
     <style>
         .emCategorie_itemJobs {
             padding: 10px 20px 5px 20px;
@@ -14,12 +16,18 @@
         }
         .em_owl_swipe .em_item .em_cover_img::before {
 
-             background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
         }
+        #map { height: 220px; width: 100vw; }
+
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
 
+@endsection
+@section('content')
         <main class="emPage__public">
-
             <!-- Start banner_swiper -->
             <section class="banner_swiper padding-t-40 bg-white">
                 <div class="title_welcome">
@@ -149,6 +157,12 @@
                 @else
             <section class="components_page padding-b-30">
 
+                <div class="emTitle_co padding-20">
+                    <h2 class="size-16 weight-500 color-secondary mb-1">Trouver sur la carte</h2>
+                    <p class="size-12 color-text m-0">Trouvez des emplois actifs dans votre région</p>
+                </div>
+
+                <div id="map"></div>
                 <!-- Start title -->
                 <div class="emTitle_co padding-20">
                     <h2 class="size-16 weight-500 color-secondary mb-1">Dernières offres d'emploi</h2>
@@ -201,6 +215,7 @@
                 </div>
                 <!-- End. Standard layout -->
 
+
             </section>
                 @endif
             <br>
@@ -210,4 +225,62 @@
     <br>
 
 
+@endsection
+@section('script')
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <script>
+
+
+        var mymap = L.map('map', { gestureHandling: true,  dragging: true, tap: true }).setView([16.1922065, -61.272382499999], 10);
+
+        mymap.locate({setView: true, maxZoom: 16});
+        function locateUser() {
+            mymap.locate({setView : true,  maxZoom: 16})
+        }
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 200,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(mymap);
+
+        function onLocationError(e) {
+            alert(e.message);
+        }
+        mymap.on('locationerror', onLocationError);
+
+        function onLocationFound(e) {
+            var radius = e.accuracy;
+
+            // L.marker(e.latlng).addTo(mymap)
+            //     .bindPopup("Vous êtes à l'intérieur " + radius + " mètres de ce point");
+
+            // L.circle(e.latlng, radius).addTo(mymap);
+        }
+
+        mymap.on('locationfound', onLocationFound);
+
+       /* var latlng = L.latLng(33.650911, 73.013316);
+        var newMarker = new L.marker(latlng).addTo(mymap).on('click', function(e) {
+            console.log(e.latlng);
+        });*/
+
+        var locations = [
+            @foreach($jobrequests as $jobb)
+            ["{{$jobb->title}}", {{$jobb->lat}},{{$jobb->long}}, {{$jobb->id}}],
+            @endforeach
+        ];
+        console.log(locations);
+
+        for (var i = 0; i < locations.length; i++) {
+            var link = $('<a href="{{url('applicant/jobrequests/detail/')}}/'+locations[i][3]+'" class="speciallink">'+locations[i][0]+'</a>')[0];
+            marker = new L.marker([locations[i][1], locations[i][2]])
+                .bindPopup(link)
+                .addTo(mymap);
+        }
+
+    </script>
 @endsection

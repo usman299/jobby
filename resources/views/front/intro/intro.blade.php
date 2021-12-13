@@ -3,24 +3,12 @@
 @section('content')
 
     <div id="wrapper">
-        <div id="content">
-            <!-- Start main_haeder -->
+        <div id="content" style="background-image:url('{{asset($content->mainScreen)}}'); background-repeat: no-repeat; background-size: cover; position: relative;  height: 100vh; text-align: center; " >
 
-            <!-- End.main_haeder -->
 
             <!-- Start npPage_introDefault -->
-            <section class="npPage_introDefault">
+            <section class="npPage_introDefault hero-text">
 
-
-                <img src="{{$content->mainScreen}}" style="width: 100%" alt="">
-                <br>
-                <br>
-                <div class="content_text">
-                    <h2 class="txt_gradient">Faites un Misterjobby</h2>
-                    <p style="padding: 20px">
-                       Les meilleurs Stooters pour vos travaux et services de quotidien, en moins dune heure
-                    </p>
-                </div>
                 <div class="npButtons_networks env-pb margin-b-20">
                     <a href="{{route('intro.jobber')}}" class="btn rounded-pill border-snow" style="background: linear-gradient(to right, #febc31, #fe4d86);">
                         <span style="color: white" class="color-secondary">Publier une demander</span>
