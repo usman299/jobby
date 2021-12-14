@@ -112,7 +112,7 @@
         </div>
 
         <div class="bg-white padding-20 d-flex emBlock__border">
-            <button  data-toggle="modal" data-target="#mdllJobDetails" class="btn justify-content-center bg-primary rounded-10 btn__default">
+            <button  data-toggle="modal" data-target="#mdllJobDetails" class="btn bg-primary rounded-10 btn__default">
                 <span class="color-white">Profil du travailleur</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
@@ -120,7 +120,7 @@
             </button>
 
             <button data-toggle="modal"
-               data-target="#acceptpropsal" class="btn justify-content-center bg-green rounded-10 btn__default ml-3">
+               data-target="#acceptpropsal" class="btn bg-green rounded-10 btn__default ml-3">
                 <span class="color-white">J'accepte</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
@@ -131,7 +131,7 @@
         <div class="bg-white padding-20 d-flex emBlock__border">
 
             <button  data-toggle="modal"
-                     data-target="" class="btn justify-content-center bg-info rounded-10 btn__default">
+                     data-target="" class="btn bg-info rounded-10 btn__default">
                 <a href="{{url('/chatify/'.$proposal->jobber->id)}}"><span class="color-white">Message</span> </a>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
@@ -139,7 +139,7 @@
             </button>
 
 
-            <button data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn justify-content-center bg-danger rounded-10 btn__default ml-3">
+            <button data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
                 <span class="color-white">Contract</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
@@ -385,7 +385,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="page-product-reviews.html" class="btn all_reviews margin-t-20">See all reviews</a>
+                                    <a href="" class="btn all_reviews margin-t-20">See all reviews</a>
                                 </div>
                             </div>
 

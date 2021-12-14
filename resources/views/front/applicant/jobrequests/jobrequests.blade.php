@@ -26,7 +26,7 @@
                                 <h3>{{$job->description}}</h3>
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
                                 <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
-                                <p class="item_price">{{$job->max_price}} € - {{$job->min_price}} €</p>
+                                <p class="item_price">{{$job->min_price}} € - {{$job->max_price}} €</p>
                             </a>
 
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
@@ -56,7 +56,7 @@
                                     <h3>{{$jobClose->description}}</h3>
                                     <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$jobClose->category->title}}</span> /
                                     <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$jobClose->subcategory->title}}</span>
-                                    <p class="item_price">{{$jobClose->max_price}} € - {{$jobClose->min_price}} €</p>
+                                    <p class="item_price">{{$jobClose->min_price}} € - {{$jobClose->max_price}} €</p>
                                 </a>
 
                                 <a href="{{route('applicant.jobrequest.detail', ['id' => $jobClose->id])}}">

@@ -6,7 +6,23 @@
 
             </div>
             <div class="title">
-                <h1 class="head_art">{{$jobrequest->title}}</h1>
+                <div class="row">
+                    <div class="col">
+                        <h1 class="head_art">{{$jobrequest->title}}</h1>
+                    </div>
+                    <div class="col" style="text-align: right">
+                        <div class="icon">
+                            <svg id="Iconly_Curved_Show" data-name="Iconly/Curved/Show" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                                <g id="Show" transform="translate(1.719 2.969)">
+                                    <path id="Stroke_1" data-name="Stroke 1" d="M3.952,1.976A1.976,1.976,0,1,1,1.976,0,1.977,1.977,0,0,1,3.952,1.976Z" transform="translate(3.806 2.588)" fill="none" stroke="#cbcdd8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    <path id="Stroke_3" data-name="Stroke 3" d="M0,4.564c0,2.05,2.589,4.564,5.782,4.564s5.782-2.512,5.782-4.564S8.976,0,5.782,0,0,2.514,0,4.564Z" fill="none" stroke="#cbcdd8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                </g>
+                            </svg>
+                            295
+                        </div>
+
+                    </div>
+                </div>
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
                         <img src="{{asset($jobrequest->applicant->image)}}" alt="">
@@ -22,9 +38,9 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span>{{$jobrequest->created_at->diffForHumans()}}</span>
+                            <span>Poster {{$jobrequest->created_at->diffForHumans()}}</span>
                         </div>
-                        <div class="view margin-l-10">
+<!--                        <div class="view margin-l-10">
                             <div class="icon">
                                 <svg id="Iconly_Curved_Show" data-name="Iconly/Curved/Show" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
                                     <g id="Show" transform="translate(1.719 2.969)">
@@ -34,7 +50,7 @@
                                 </svg>
                             </div>
                             <span>295</span>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -45,7 +61,7 @@
                     </div>
                     <div class="sideRight">
                         <div class="time">
-                            <span>{{$jobrequest->max_price}} € - {{$jobrequest->min_price}} €</span>
+                            <span>Min {{$jobrequest->min_price}} € - Max {{$jobrequest->max_price}} €</span>
                         </div>
                     </div>
                 </div>
@@ -53,7 +69,7 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
-                        <h2>Temps estimé</h2>
+                        <h2>Date</h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">

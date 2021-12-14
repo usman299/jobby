@@ -118,7 +118,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span>{{$contract->created_at->diffForHumans()}}</span>
+                            <span>Créer {{$contract->created_at->diffForHumans()}}</span>
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
             </p>
         </div>
         <div class=" margin-t-20 padding-20 d-flex emBlock__border">
-           
+
             <a href="{{url('/chatify/'.$contract->jober_id)}}" class="btn bg-blue rounded-10 btn__default">
                 <span class="color-white">Discuter</span>
                 <div class="icon rounded-10">

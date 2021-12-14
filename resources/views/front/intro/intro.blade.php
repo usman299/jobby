@@ -3,7 +3,7 @@
 @section('content')
 
     <div id="wrapper">
-        <div id="content" style="background-image:url('{{asset($content->mainScreen)}}'); background-repeat: no-repeat; background-size: cover; position: relative;  height: 100vh; text-align: center; " >
+        <div id="content" style="background-image:url('{{asset($content->mainScreen)}}'); background-repeat: no-repeat; background-size: cover; position: relative;  height: 100vh; width: 100%; text-align: center;">
 
 
             <!-- Start npPage_introDefault -->

@@ -461,6 +461,58 @@ $user = Auth::user();
 
                             </a>
                         </li>
+                        <li class="nav-item {{  request()->is('app/support') ? '-active-links':'' }}">
+                            <a class="nav-link" href="{{route('app.support')}}">
+                                <div class="">
+                                    <div class="icon_current">
+                                        <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                            <g id="More_Circle" data-name="More Circle" transform="translate(2.292 2.292)">
+                                                <path id="Stroke_4" data-name="Stroke 4" d="M0,7.708C0,1.927,1.927,0,7.708,0s7.708,1.927,7.708,7.708-1.927,7.708-7.708,7.708S0,13.489,0,7.708Z" transform="translate(0 0)" fill="none" stroke="#556fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_11" data-name="Stroke 11" d="M.5.5H.5" transform="translate(9.883 8.792)" fill="none" stroke="#556fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path id="Stroke_13" data-name="Stroke 13" d="M.5.5H.5" transform="translate(7.383 5.458)" fill="none" stroke="#556fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                                <path id="Stroke_15" data-name="Stroke 15" d="M.5.5H.5" transform="translate(4.876 8.792)" fill="none" stroke="#556fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+
+                                    <span class="title_link">Soutien</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item {{  request()->is('app/about') ? '-active-links':'' }}">
+                            <a class="nav-link" href="{{route('app.about')}}">
+                                <div class="">
+                                    <div class="icon_current">
+                                        <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                            <g id="Message" transform="translate(2.043 2.377)">
+                                                <path id="Stroke_1" data-name="Stroke 1" d="M9.292,0S6.617,3.211,4.661,3.211,0,0,0,0" transform="translate(3.285 5.139)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_3" data-name="Stroke 3" d="M0,7.6C0,1.9,1.984,0,7.937,0s7.937,1.9,7.937,7.6-1.984,7.6-7.937,7.6S0,13.295,0,7.6Z" transform="translate(0 0)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+
+                                    <span class="title_link">Sur Mister Jobby</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item {{  request()->is('app/contact') ? '-active-links':'' }}">
+                            <a class="nav-link" href="{{route('app.contact')}}">
+                                <div class="">
+                                    <div class="icon_current">
+                                        <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                            <g id="Document" transform="translate(3.008 2.292)">
+                                                <path id="Stroke_1" data-name="Stroke 1" d="M6.017.5H0" transform="translate(3.971 10.289)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_2" data-name="Stroke 2" d="M6.017.5H0" transform="translate(3.971 7.155)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_3" data-name="Stroke 3" d="M2.3.5H0" transform="translate(3.972 4.023)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_4" data-name="Stroke 4" d="M0,7.708c0,5.781,1.748,7.708,6.992,7.708s6.992-1.927,6.992-7.708S12.238,0,6.992,0,0,1.927,0,7.708Z" transform="translate(0)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                            </g>
+                                        </svg>
+                                    </div>
+
+                                    <span class="title_link">Avoir une question?</span>
+                                </div>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link logoutbutton" href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -612,7 +664,7 @@ $user = Auth::user();
                                             </div>
                                             <div class="form-group input-lined">
                                                 <input type="date" name="estimate_time"  class="form-control" required="">
-                                                <label for="mobile">Temps estimé</label>
+                                                <label for="mobile">Date</label>
                                             </div>
                                             <div class="form-group input-lined">
                                                 <textarea class="form-control" rows="2" name="description"></textarea>
