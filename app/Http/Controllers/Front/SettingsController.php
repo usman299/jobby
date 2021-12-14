@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Category;
 use App\Countory;
 use App\Http\Controllers\Controller;
+use App\Notfication;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +39,13 @@ class SettingsController extends Controller
     public function notifications(){
         $title = 'Notifications';
         $user = Auth::user();
-        return view('front.settings.notifications', compact('user','title'));
+        $country_id = User::where('role','=',1)->where('status','=','1')->pluck('country');
+        $category_id = User::where('role','=',1)->where('status','=','1')->pluck('category_id');
+        $subcategory_id = User::where('role','=',1)->where('status','=','1')->pluck('subcategory_id');
+
+        $notfication = Notfication::whereIn('country_id',$country_id)
+            ->whereIn('category_id',$category_id)->whereIn('subcategory_id',$subcategory_id)->get();
+        return view('front.settings.notifications', compact('user','title','notfication'));
     }
     public function support(){
         $title = 'Soutien';

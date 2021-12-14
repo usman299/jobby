@@ -198,6 +198,18 @@
                 </div>
             </a>
         </div>
+        @if($contract->jobber_id_applicant==null)
+        @if($contract->status==3)
+        <div class="  margin-b-20  padding-20 d-flex emBlock__border">
+            <a href="" class="btn bg-secondary rounded-0 btn__default full-width" data-toggle="modal" data-target="#acceptpropsal" >
+                <span class="color-white "   >Passer en revue</span>
+                <div class="icon rounded-0">
+                    <i class="tio-chevron_right"></i>
+                </div>
+            </a>
+        </div>
+            @endif
+        @endif
 {{--        <div class="bg-white padding-20 d-flex emBlock__border">--}}
 {{--            <button  data-toggle="modal"--}}
 {{--                     data-target="#mdllJobDetails" class="btn justify-content-center bg-primary rounded-10 btn__default">--}}
@@ -210,6 +222,45 @@
 {{--            </button>--}}
 {{--        </div>--}}
     </section>
+
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="acceptpropsal" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
+                    <div class="itemProduct_sm">
+                        <h1 class="size-18 weight-600 color-secondary m-0">Écrire un message au jober</h1>
+                    </div>
+                    <div class="absolute right-0 padding-r-20">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="tio-clear"></i>
+                        </button>
+                    </div>
+                </div>
+                <form action="{{route('jobber.review', ['id' => $contract->id])}}" method="POST">
+                    @csrf
+                    <div class="modal-body env-pb">
+                        <div class="form-group input-lined">
+                            <textarea class="form-control" placeholder="Entrez le message" rows="3" name="message"></textarea>
+                            <label for="address"><strong style="font-size: 15px;">Message</strong><strong style="color: red;">*</strong></label>
+                        </div>
+                        <div class="form-group input-lined">
+                            <input type="text" class="form-control"  name="star" placeholder="Entrer la quantité de départ">
+
+                            <label for="address"><strong style="font-size: 15px;">Star</strong><strong style="color: red;">*</strong></label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit"
+                                class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal mdllJobDetails -->
 
     <br>
     <br>

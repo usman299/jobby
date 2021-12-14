@@ -6,7 +6,9 @@ use App\Contract;
 use App\Http\Controllers\Controller;
 use App\JobRequest;
 use App\Proposal;
+use App\Reviews;
 use App\User;
+use App\Notfication;
 use App\SubCategory;
 use App\JobberServicesOffers;
 use Illuminate\Http\Request;
@@ -51,7 +53,20 @@ class ApplicantController extends Controller
         $jobrequest->lat = $request->lat;
         $jobrequest->long = $request->long;
         $jobrequest->country_id = $user->country;
-        $jobrequest->save();
+
+        if($jobrequest->save()){
+            $notfications = new Notfication();
+            $notfications->sender_id = Auth::user()->id;
+            $notfications->generate_id = $jobrequest->id;
+            $notfications->message = 'Il y a une nouvelle demande d\'emploi dans votre région';
+            $notfications->activity = 'Demande d\'emploi';
+            $notfications->category_id = $request->category_id;
+            $notfications->subcategory_id = $request->subcategory_id;
+            $notfications->country_id = $user->country;
+            $notfications->save();
+
+
+        }
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
@@ -265,4 +280,36 @@ class ApplicantController extends Controller
 
         return view('front.applicant.services.services', compact('title','services'));
     }
+    public function jobberReviewContract(Request $request ,$id){
+
+         $review = new Reviews();
+         $review->message = $request->message;
+         $review->star = $request->star;
+         $review->sender_id = Auth::user()->id;
+         $contract = Contract::where('id','=',$id)->first();
+         if(Auth::user()->role==1) {
+             $review->reciver_id = $contract->applicant_id;
+         }
+         else{
+             $review->reciver_id = $contract->jober_id;
+         }
+
+         $review->contract_id = $id;
+         if($review->save()){
+             if(Auth::user()->role==1) {
+                 $contract->jobber_id_applicant = $review->id;
+             }
+             else {
+                 $contract->review_id_applicant = $review->id;
+             }
+             }
+             $contract->save();
+             $notification = array(
+                 'messege' => 'Your Review Added',
+                 'alert-type' => 'success'
+             );
+             return redirect()->back()->with($notification);
+         }
+
+
 }

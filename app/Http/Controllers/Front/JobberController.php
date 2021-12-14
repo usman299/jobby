@@ -6,6 +6,8 @@ use App\Category;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\JobberServicesOffers;
+use App\JobRequest;
+use App\Notfication;
 use App\SubCategory;
 use App\Proposal;
 use Illuminate\Http\Request;
@@ -135,13 +137,27 @@ class JobberController extends Controller
             );
             return redirect()->back()->with($notification);
         }else{
+
             $proposal = new Proposal();
             $proposal->jobRequest_id = $request->id;
             $proposal->price = $request->price;
             $proposal->time_limit = $request->time_limit;
             $proposal->description = $request->description;
             $proposal->jobber_id = Auth::user()->id;
-            $proposal->save();
+            if($proposal->save()){
+                $notfications = new Notfication();
+                $jobRequest = JobRequest::where('id','=',$request->id)->first();
+                $notfications->sender_id = Auth::user()->id;
+                $notfications->reciver_id = $jobRequest->applicant_id;
+                $notfications->generate_id = $proposal->id;
+                $notfications->message = 'Il y a une nouvelle demande de proposition dans votre région';
+                $notfications->activity = 'Proposition';
+                $notfications->category_id = $jobRequest->category_id;
+                $notfications->subcategory_id = $jobRequest->subcategory_id;
+                $notfications->country_id = Auth::user()->country;
+                $notfications->save();
+            }
+
             $notification = array(
                 'messege' => 'Sauvegarde réussie!',
                 'alert-type' => 'success'

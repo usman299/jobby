@@ -60,6 +60,7 @@ Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleSe
 // applicant Contract
     Route::Post('/applicant/services/contract/{id}', 'Front\ApplicantController@servicesContract')->name('applicant.services.contract');
     Route::Post('/applicant/proposals/contract/{id}', 'Front\ApplicantController@proposalsContract')->name('applicant.proposals.contract');
+    Route::Post('/jobber/review/contract/{id}', 'Front\ApplicantController@jobberReviewContract')->name('jobber.review');
 // End applicant Contract
 
     // Jobber Contract
