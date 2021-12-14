@@ -14,7 +14,10 @@ class Contract extends Model
     {
         return $this->belongsTo(User::class, 'applicant_id');
     }
-
+    public function jobber()
+    {
+        return $this->belongsTo(User::class, 'jober_id');
+    }
     public function service()
     {
         return $this->belongsTo(JobberServicesOffers::class, 'service_id');

@@ -7,10 +7,19 @@
  <div class="content-body">
             <div class="container-fluid">
                 <div class="page-titles">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)"><!-- Home -->Accueil</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)"><!-- Dashboard -->Tableau de bord</a></li>
-                    </ol>
+                    <div class=" row  "  >
+
+                        <div class="col-sm-4">
+                            <select class="form-control form-control-lg default-select select2" name="countory_id" onchange="location = this.options[this.selectedIndex].value;">
+                                <option>Choisir une Pays</option>
+                                @foreach($countory as $row)
+
+                                    <option value="{{route('search.jobber.country',['id'=>$row->id] ) }}">{{$row->name}}</option>
+
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <!-- row -->
                   <div class="col-12">
@@ -47,7 +56,7 @@
                                                 <td>{{$row->firstName }} {{$row->lastName }}</td>
                                                  <td>{{$row->email}}</td>
                                                  @if($row->role==2)
-                                                    <td><span class="badge light badge-success">Applicant</span></td>
+                                                    <td><span class="badge light badge-success">Demandeur</span></td>
 
                                                  @else
                                                     <td><span class="badge light badge-primary ">Jobber</span></td>

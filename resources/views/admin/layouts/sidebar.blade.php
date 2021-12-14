@@ -33,8 +33,8 @@
                             <span class="nav-text"><!-- Users --> Utilisateurs</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route('applicant.index')}}"><!-- applicant -->Jobber</a></li>
-                            <li><a href="{{route('jobber.index')}}"><!--  jobber --> Applicant</a></li>
+                            <li><a href="{{route('applicant.index')}}"><!-- applicant -->Demandeur</a></li>
+                            <li><a href="{{route('jobber.index')}}"><!--  jobber --> Jobber</a></li>
 
 
                 </ul>
@@ -54,6 +54,24 @@
                             <i class="flaticon-381-notepad"></i>
                             <!-- APP SETTING -->
                             <span class="nav-text">  Glissière</span>
+                        </a>
+                    </li>
+                    <li><a href="{{route('admin.jobrequest')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-notepad"></i>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">  Demande d'emploi</span>
+                        </a>
+                    </li>
+                    <li><a href="{{route('admin.proposal')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-notepad"></i>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">Proposition </span>
+                        </a>
+                    </li>
+                    <li><a href="{{route('admin.contract')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-notepad"></i>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">Contracter </span>
                         </a>
                     </li>
                    <!--  <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

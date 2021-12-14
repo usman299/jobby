@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Countory;
 use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
@@ -14,48 +15,61 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function searhApplicantCountry($id)
     {
-        //
+        $applicant = User::where('country','=',$id)->where('role','=','2')->get();
+        if($applicant!=null){
+            $countory = Countory::all();
+            return view('admin.user.applicant.index',compact('applicant','countory'));
+        }
     }
      public function applicant()
     {
-        $applicant = User::where('role','=','1')->get();
+        $applicant = User::where('role','=','2')->get();
         if($applicant!=null){
-            return view('admin.user.applicant.index',compact('applicant'));
+            $countory = Countory::all();
+            return view('admin.user.applicant.index',compact('applicant','countory'));
         }
 
+    }
 
-
+    public function searhJobberCountry($id)
+    {
+        $jobber = User::where('country','=',$id)->where('role','=','1')->get();
+        if($jobber!=null){
+            $countory = Countory::all();
+            return view('admin.user.jobber.index',compact('jobber','countory'));
+        }
     }
      public function jobber()
     {
-        $jobber = User::where('role','=','2')->get();
+        $jobber = User::where('role','=','1')->get();
         if($jobber!=null){
-            return view('admin.user.jobber.index',compact('jobber'));
+            $countory = Countory::all();
+            return view('admin.user.jobber.index',compact('jobber','countory'));
         }
-        
+
 
 
     }
     public function jobberShowProfile($id)
     {
-        $jobber = User::where('role','=','2')->first();
+        $jobber = User::where('id','=',$id)->first();
         if($jobber!=null){
             return view('admin.user.jobber.show',compact('jobber'));
         }
-        
+
 
 
     }
 
      public function applicantShowProfile($id)
     {
-        $applicant = User::where('role','=','1')->first();
+        $applicant = User::where('id','=',$id)->first();
         if($applicant!=null){
             return view('admin.user.applicant.show',compact('applicant'));
         }
-        
+
 
 
     }
@@ -92,7 +106,7 @@ class UsersController extends Controller
         if ($status==0) {
             User::find($id)->update(['status' => $status]);
             // toastr()->error('User Dactivate');
-           
+
             return redirect()->back();
         }
         else{
@@ -101,10 +115,10 @@ class UsersController extends Controller
             return redirect()->back();
 
         }
-       
 
-       
-        
+
+
+
     }
 
     /**
@@ -138,7 +152,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-    
+
        $user = User::where('id','=',$id)->first();
        if ($user->delete()) {
         // toastr()->error('User Delete');
@@ -157,7 +171,7 @@ class UsersController extends Controller
     }
      public function adminProfile()
     {
-       
+
        return view('admin.user.profile');
     }
 

@@ -14,6 +14,7 @@ class Proposal extends Model
     {
         return $this->belongsTo(User::class, 'jobber_id');
     }
+
     public function jobrequest()
     {
         return $this->belongsTo(JobRequest::class, 'jobRequest_id');

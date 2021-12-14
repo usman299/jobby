@@ -124,6 +124,7 @@ Route::get('/subcategory/delete/{id}', 'Admin\SubCategoryController@destroy')->n
 
 // START ROUTES Applicant
 Route::get('/applicant/index', 'Admin\UsersController@applicant')->name('applicant.index');
+Route::get('/applicant/country/{id}', 'Admin\UsersController@searhApplicantCountry')->name('search.applicant.country');
 Route::get('/applicant/profile/{id}', 'Admin\UsersController@applicantShowProfile')->name('applicant.profile');
 
 
@@ -133,6 +134,7 @@ Route::get('/applicant/profile/{id}', 'Admin\UsersController@applicantShowProfil
 
 // START ROUTES Jobber
 Route::get('/jobber/index', 'Admin\UsersController@jobber')->name('jobber.index');
+    Route::get('/jobber/country/{id}', 'Admin\UsersController@searhJobberCountry')->name('search.jobber.country');
 Route::get('/user/status/{status}/{id}', 'Admin\UsersController@status')->name('user.status');
 Route::get('/user/delete/{id}', 'Admin\UsersController@destroy')->name('user.delete');
 Route::get('/jobber/profile/{id}', 'Admin\UsersController@jobberShowProfile')->name('jobber.profile');
@@ -172,6 +174,19 @@ Route::get('/countory/edit/{id}', 'Admin\AppSettingController@countoryEdit')->na
 Route::post('/countory/update/{id}', 'Admin\AppSettingController@countoryUpdate')->name('countory.update');
 
 //Countory End
+
+    //JobRequest
+    Route::get('/admin/job/request', 'Admin\JobbyAppController@jobRequestIndex')->name('admin.jobrequest');
+    Route::get('/admin/search/country/{id}', 'Admin\JobbyAppController@jobRequestSearchCountry')->name('search.country');
+    Route::get('/job/request/show/{id}', 'Admin\JobbyAppController@jobRequestShow')->name('jobrequest.show');
+    Route::get('/admin/proposal', 'Admin\JobbyAppController@proposalIndex')->name('admin.proposal');
+    Route::get('/proposol/show/{id}', 'Admin\JobbyAppController@proposalShow')->name('proposol.show');
+    Route::get('/admin/contract', 'Admin\JobbyAppController@contractIndex')->name('admin.contract');
+    Route::get('/contract/show/{id}', 'Admin\JobbyAppController@contractShow')->name('contract.show');
+    Route::get('/admin/contract/status/{id}/{status}', 'Admin\JobbyAppController@adminContractStatus')->name('admin.contract.status');
+
+
+    //End Job Request
 
 
 });

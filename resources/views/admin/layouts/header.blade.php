@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 
-#
+
     <!-- Datatable -->
     <link href="{{asset('admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
     <!-- Custom Stylesheet -->
@@ -28,7 +28,14 @@
 
 	  <!-- Toastr -->
     <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}">
-
+<style>
+    .bootstrap-select .btn {
+        border: 1px solid #272baf!important;
+        background-color: transparent !important;
+        font-weight: 400;
+        color: #272baf !important;
+    }
+</style>
 
 
 

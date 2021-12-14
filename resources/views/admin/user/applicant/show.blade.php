@@ -1,4 +1,4 @@
-  
+
 @extends('admin.layouts.include')
 
 @section('content')
@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="profile-info">
 									<div class="profile-photo">
-										<img src="{{asset($jobber->image ?? '')}}" class="img-fluid rounded-circle" alt="">
+										<img src="{{asset($applicant->image ?? '')}}" class="img-fluid rounded-circle" alt="">
 									</div>
 									<div class="profile-details">
 										<div class="profile-name px-3 pt-2">
@@ -74,7 +74,7 @@
                                             </div>
                                         </div>
                                         <div class="mt-4">
-											<a href="javascript:void()" class="btn btn-primary mb-1 mr-1">Follow</a> 
+											<a href="javascript:void()" class="btn btn-primary mb-1 mr-1">Follow</a>
 											<a href="javascript:void()" class="btn btn-primary mb-1" data-toggle="modal" data-target="#sendMessageModal">Send Message</a>
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
 												</div>
 												<div class="modal-body">
 													<form class="comment-form">
-														<div class="row"> 
+														<div class="row">
 															<div class="col-lg-6">
 																<div class="form-group">
 																	<label class="text-black font-w600">Name <span class="required">*</span></label>
@@ -192,7 +192,7 @@
                                             <div id="my-posts" class="tab-pane fade active show">
                                                 <div class="my-post-content pt-3">
                                                     <div class="post-input">
-                                                        <textarea name="textarea" id="textarea" cols="30" rows="5" class="form-control bg-transparent" placeholder="Please type what you want...."></textarea> 
+                                                        <textarea name="textarea" id="textarea" cols="30" rows="5" class="form-control bg-transparent" placeholder="Please type what you want...."></textarea>
 														<a href="javascript:void()" class="btn btn-primary light px-3"><i class="fa fa-link"></i> </a>
                                                         <a href="javascript:void()" class="btn btn-primary light mr-1 px-3"><i class="fa fa-camera"></i> </a><a href="javascript:void()" class="btn btn-primary">Post</a>
                                                     </div>
@@ -247,7 +247,7 @@
                                                 </div>
                                                 <div class="profile-lang  mb-5">
                                                     <h4 class="text-primary mb-2">Language</h4>
-													<a href="javascript:void()" class="text-muted pr-3 f-s-16"><i class="flag-icon flag-icon-us"></i> English</a> 
+													<a href="javascript:void()" class="text-muted pr-3 f-s-16"><i class="flag-icon flag-icon-us"></i> English</a>
 													<a href="javascript:void()" class="text-muted pr-3 f-s-16"><i class="flag-icon flag-icon-fr"></i> French</a>
                                                     <a href="javascript:void()" class="text-muted pr-3 f-s-16"><i class="flag-icon flag-icon-bd"></i> Bangla</a>
                                                 </div>
