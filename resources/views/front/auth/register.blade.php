@@ -88,7 +88,7 @@
                         <h1>Créer un compte</h1>
                     </div>
                 </div>
-                <form id="regForm" class="loginformsubmit" method="POST" action="{{ route('register') }}">
+                <form id="regForm" class="loginformsubmit" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="em__body question_tabs">
                         <div class="tab">
@@ -214,6 +214,26 @@
                                 </div>
                             </div>
                         </div>
+                        @if($id == 1)
+                        <div class="tab">
+                            <div class="form-group" style="text-align: left!important;">
+                                <label>Document d'identité </label>
+                                <div class="input_group">
+                                    <input type="file" id="file" name="document1" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group" style="text-align: left!important;">
+                                <label>Justificatif de sécurité sociale</label>
+                                <div class="input_group">
+                                    <input type="file" id="file" name="document2" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group" style="text-align: left!important;">
+                                <label>Ces documents sont nécessaires
+
+                                    Ces documents sont nécessaires pour valider votre identité, votre âge, et votre éligibilité à travailler sur le territoire. Ils ne seront jamais rendus publics</label>
+                            </div>
+                        </div>
                         <div class="tab">
                             <div class="form-group" style="text-align: left!important;">
                                 <h1>Select Specialized Profile</h1>
@@ -243,6 +263,7 @@
 
                             </div>
                         </div>
+                        @endif
 
 
 <!--                        <div style="overflow:auto;">
@@ -256,7 +277,10 @@
                     <div class="question_step" style="text-align:center;margin-top:40px;">
                         <span class="step"></span>
                         <span class="step"></span>
+                        @if($id == 1)
                         <span class="step"></span>
+                        <span class="step"></span>
+                        @endif
                     </div>
                     <div class="em__footer">
 {{--                        <button type="submit" class="btn bg-primary color-white justify-content-center">Créer un compte</button>--}}

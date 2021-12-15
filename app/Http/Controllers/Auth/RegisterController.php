@@ -69,15 +69,33 @@ class RegisterController extends Controller
     {
         $questions = [];
         $answers = [];
-        $question = Questions::where('category_id', $data['category_id'])->get();
-        foreach ($question as $key => $value){
-            if (isset($data[$value->id])){
-                $questions[$key] = $value->question;
-                $answers[$key] = $data[$value->id];
-            }else{
-                dd("you are not filling all the answers");
+        if (isset($data['category_id'])){
+            $question = Questions::where('category_id', $data['category_id'])->get();
+            foreach ($question as $key => $value){
+                if (isset($data[$value->id])){
+                    $questions[$key] = $value->question;
+                    $answers[$key] = $data[$value->id];
+                }else{
+                    dd("you are not filling all the answers");
+                }
             }
+        }
 
+        if (request()->file('document1')) {
+            $image1 = request()->file('document1');
+            $name = time() . 'documents' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'documents/';
+            $image1->move($destinationPath, $name);
+        }else{
+            $name = "";
+        }
+        if (request()->file('document2')) {
+            $image2 = request()->file('document2');
+            $name2 = time() . 'documents' . '.' . $image2->getClientOriginalExtension();
+            $destinationPath = 'documents/';
+            $image2->move($destinationPath, $name2);
+        }else{
+            $name2 = "";
         }
         return User::create([
             'firstName' => $data['fname'],
@@ -90,10 +108,12 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'postalCode' => $data['postalCode'],
             'description' => $data['description'],
-            'category_id' => $data['category_id'],
-            'subcategory_id' => $data['subcategory_id'],
+            'category_id' => $data['category_id'] ?? '',
+            'subcategory_id' => $data['subcategory_id']?? '',
             'questions' => json_encode($questions),
             'answers' => json_encode($answers),
+            'document1' => 'documents/' . $name,
+            'document2' => 'documents/' . $name2,
             'password' => Hash::make($data['password']),
         ]);
     }
