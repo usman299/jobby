@@ -119,9 +119,9 @@
                 </div>
             </button>
 
-            <button data-toggle="modal"
+            <button {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} data-toggle="modal"
                data-target="#acceptpropsal" class="btn bg-green rounded-10 btn__default ml-3">
-                <span class="color-white">J'accepte</span>
+                <span class="color-white">Accepter la proposition</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
                 </div>
@@ -130,21 +130,30 @@
         </div>
         <div class="bg-white padding-20 d-flex emBlock__border">
 
-            <button  data-toggle="modal"
+           <button  data-toggle="modal"
                      data-target="" class="btn bg-info rounded-10 btn__default">
-                <a href="{{url('/chatify/'.$proposal->jobber->id)}}"><span class="color-white">Message</span> </a>
+               <a href="{{url('/chatify/'.$proposal->jobber->id)}}">  <span class="color-white">Message</span></a>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
                 </div>
             </button>
 
 
-            <button data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
-                <span class="color-white">Contract</span>
+            <button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
+                <span class="color-white">Commencer le contrat</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
                 </div>
             </button>
+        </div>
+        <div class="bg-white padding-20 d-flex emBlock__border">
+
+            <a href="{{route('proposal.reject', ['id' => $proposal->id])}}"><button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} class="btn bg-danger rounded-10 btn__default">
+                <span class="color-white">Rejeter la proposition</span>
+                <div class="icon rounded-10">
+                    <i class="tio-chevron_right"></i>
+                </div>
+            </button></a>
         </div>
     </section>
 
@@ -430,7 +439,7 @@
                                     @csrf
 
                                     <div class="form-group input-lined">
-                                        <input type="text" class="form-control"  id="price" name="price" placeholder=" Entrez la Prix"
+                                        <input type="number" class="form-control"  id="price" name="price" placeholder=" Entrez la Prix"
                                                required="">
                                         <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
                                     </div>

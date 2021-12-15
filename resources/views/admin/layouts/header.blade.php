@@ -37,7 +37,7 @@
     }
 </style>
 
-
+    @toastr_css
 
 
 </head>

@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
     <!-- normalize.css v8.0.1 -->
     <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- manifest meta -->
     <link rel="manifest" href="{{asset('_manifest.json')}}" />
@@ -59,6 +60,7 @@
             color: white;
         }
     </style>
+    @yield('style')
 </head>
 
 
@@ -99,6 +101,7 @@
         $(this).find(':input[type=submit]').html("Chargement..");
     });
 </script>
+@yield('script')
 </body>
 
 </html>

@@ -6,6 +6,7 @@ use App\AppSetting;
 use App\Countory;
 use App\JobRequest;
 use App\Notfication;
+use App\Questions;
 use App\User;
 use Illuminate\Http\Request;
 use App\SliderGalery;
@@ -85,5 +86,9 @@ class FrontendController extends Controller
     }
     public function register($id){
         return view('front.auth.register', compact('id'));
+    }
+    public function fetchquestions(Request $request){
+        $questions = Questions::where('subcategory_id', '=', $request->id)->get();
+        return response()->json($questions);
     }
 }

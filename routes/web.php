@@ -32,12 +32,13 @@ Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 
 Route::get('/front/login/{id}', 'FrontendController@login')->name('front.login');
 Route::get('/front/register/{id}', 'FrontendController@register')->name('front.register');
+Route::post('/fetchsubcategory', 'Front\ApplicantController@fetchsubcategory')->name('fetchsubcategory');
+Route::post('/fetchquestions', 'FrontendController@fetchquestions')->name('fetchquestions');
 
 
 //App Routes
 Route::group(['middleware' => ['auth', 'web', 'app']], function() {
 
-Route::post('/fetchsubcategory', 'Front\ApplicantController@fetchsubcategory')->name('fetchsubcategory');
 
 Route::get('/app', 'FrontendController@app')->name('front.app');
 Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
@@ -90,6 +91,7 @@ Route::get('/applicant/jobrequests/status/{id}', 'Front\ApplicantController@jobr
 Route::get('/applicant/proposals', 'Front\ApplicantController@proposals')->name('applicant.proposals');
 Route::get('/applicant/proposal/detail/{id}', 'Front\ApplicantController@proposalDetails')->name('applicant.proposal.detail');
 Route::post('/proposal/accept/{id}', 'Front\ApplicantController@proposalAccept')->name('proposal.accept');
+Route::get('/proposal/reject/{id}', 'Front\ApplicantController@proposalReject')->name('proposal.reject');
 
 Route::post('/proposal/submit', 'Front\JobberController@proposalSubmit')->name('proposal.submit');
 Route::get('/jobber/proposals', 'Front\JobberController@proposals')->name('jobber.proposals');
@@ -104,9 +106,16 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/category/index', 'Admin\CategoryController@index')->name('category.index');
+
+Route::get('/questions', 'Admin\QuestionController@index')->name('admin.questions');
+Route::get('/questions/delete/{id}', 'Admin\QuestionController@delete')->name('question.delete');
+Route::get('/questions/create', 'Admin\QuestionController@create')->name('question.create');
+Route::post('/questions/store', 'Admin\QuestionController@store')->name('question.store');
+
+
 // START ROUTES CATEGORY
 
-Route::get('/category/index', 'Admin\CategoryController@index')->name('category.index');
 Route::get('/category/create', 'Admin\CategoryController@create')->name('category.create');
 Route::post('/category/store', 'Admin\CategoryController@store')->name('category.store');
 Route::get('/category/destroy/{id}', 'Admin\CategoryController@destroy')->name('category.destroy');

@@ -100,7 +100,8 @@ class ApplicantController extends Controller
         $jobs = JobRequest::where('applicant_id', $user->id)->pluck('id');
         $activeProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 1)->get();
         $acceptProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 2)->get();
-        return view('front.applicant.proposals.proposals', compact('title', 'acceptProposals', 'activeProposals'));
+        $rejectProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 3)->get();
+        return view('front.applicant.proposals.proposals', compact('title', 'acceptProposals', 'activeProposals', 'rejectProposals'));
     }
     public function proposalDetails($id){
         $title = 'Propositions';
@@ -114,6 +115,16 @@ class ApplicantController extends Controller
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
+        );
+        return redirect()->route('applicant.proposals')->with($notification);
+    }
+    public function proposalReject($id){
+        $proposal = Proposal::find($id);
+        $proposal->status = 3;
+        $proposal->update();
+        $notification = array(
+            'messege' => 'Sauvegarde Reject!',
+            'alert-type' => 'error'
         );
         return redirect()->route('applicant.proposals')->with($notification);
     }
@@ -170,6 +181,7 @@ class ApplicantController extends Controller
             return redirect()->back()->with($notification);
         }
         else {
+           Proposal::find($id)->update(['status' => 2]);
 
             $service = JobberServicesOffers::find($id);
             if ($service != null) {

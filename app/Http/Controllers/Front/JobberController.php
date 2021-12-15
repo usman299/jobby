@@ -170,7 +170,8 @@ class JobberController extends Controller
         $user = Auth::user();
         $activeProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 1)->get();
         $acceptProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 2)->get();
-        return view('front.jobber.proposals.proposals', compact('title', 'acceptProposals', 'activeProposals'));
+        $rejectProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 3)->get();
+        return view('front.jobber.proposals.proposals', compact('title', 'acceptProposals', 'activeProposals', 'rejectProposals'));
     }
     public function getJobberContract(){
         $title = 'Contract';

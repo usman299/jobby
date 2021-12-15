@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Questions;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -66,6 +67,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $questions = [];
+        $answers = [];
+        $question = Questions::where('category_id', $data['category_id'])->get();
+        foreach ($question as $key => $value){
+            if (isset($data[$value->id])){
+                $questions[$key] = $value->question;
+                $answers[$key] = $data[$value->id];
+            }else{
+                dd("you are not filling all the answers");
+            }
+
+        }
         return User::create([
             'firstName' => $data['fname'],
             'lastName' => $data['lname'],
@@ -73,6 +86,14 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'role' => $data['role'],
             'country' => $data['country'],
+            'address' => $data['address'],
+            'gender' => $data['gender'],
+            'postalCode' => $data['postalCode'],
+            'description' => $data['description'],
+            'category_id' => $data['category_id'],
+            'subcategory_id' => $data['subcategory_id'],
+            'questions' => json_encode($questions),
+            'answers' => json_encode($answers),
             'password' => Hash::make($data['password']),
         ]);
     }
