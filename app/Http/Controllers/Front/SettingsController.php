@@ -10,14 +10,14 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use function Sodium\compare;
 
 class SettingsController extends Controller
 {
     public function settings(){
         $title = 'Paramètres';
         $user = Auth::user();
-        $countries = Countory::all();
-        return view('front.settings.settings', compact('user','title', 'countries'));
+        return view('front.settings.settings', compact('user','title'));
     }
     public function profile(){
         $title = 'Profil';
@@ -75,12 +75,25 @@ class SettingsController extends Controller
         $user->postalCode = $request->postalCode;
         $user->dob = $request->dob;
         $user->description = $request->description;
-        $user->category_id = $request->category_id;
+        /*$user->category_id = $request->category_id;
         $user->subcategory_id = $request->subcategory_id;
-        $user->rate_per_hour = $request->rate_per_hour;
+        $user->rate_per_hour = $request->rate_per_hour;*/
+
+        $user->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function badgeUpdate(Request $request){
+        $user = Auth::user();
         $user->is_company = $request->is_company;
         $user->company_name = $request->company_name;
+        $user->vat_type = $request->vat_type;
+        $user->company_address = $request->company_address;
         $user->siret = $request->siret;
+
         $user->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
@@ -118,5 +131,14 @@ class SettingsController extends Controller
             );
             return Redirect()->back()->with($notification);
         }
+    }
+    public function getBadge(){
+        $title = 'Obtenir badge PRO';
+        return view('front.settings.badge.get', compact('title'));
+    }
+    public function getBadgepro(){
+        $title = 'Obtenir badge PRO';
+        $user = Auth::user();
+        return view('front.settings.badge.pro', compact('title', 'user'));
     }
 }

@@ -44,6 +44,9 @@ Route::get('/app', 'FrontendController@app')->name('front.app');
 Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
+Route::get('/get/badge', 'Front\SettingsController@getBadge')->name('get.badge');
+Route::get('/get/badge/pro', 'Front\SettingsController@getBadgepro')->name('badge.pro');
+Route::post('/get/badge/update', 'Front\SettingsController@badgeUpdate')->name('badge.update');
 Route::get('/app/settings', 'Front\SettingsController@settings')->name('app.settings');
 Route::get('/app/settings/profile', 'Front\SettingsController@profile')->name('settings.profile');
 Route::get('/app/about', 'Front\SettingsController@about')->name('app.about');
@@ -58,25 +61,19 @@ Route::get('/applicant/services', 'Front\ApplicantController@services')->name('a
 Route::get('/applicant/jobber/services/{id}', 'Front\ApplicantController@jobberServices')->name('applicant.jobber.services');
 Route::get('/applicant/service/{id}', 'Front\ApplicantController@service')->name('applicant.service');
 Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleService')->name('applicant.singleService');
-// applicant Contract
-    Route::Post('/applicant/services/contract/{id}', 'Front\ApplicantController@servicesContract')->name('applicant.services.contract');
-    Route::Post('/applicant/proposals/contract/{id}', 'Front\ApplicantController@proposalsContract')->name('applicant.proposals.contract');
-    Route::Post('/jobber/review/contract/{id}', 'Front\ApplicantController@jobberReviewContract')->name('jobber.review');
-// End applicant Contract
 
-    // Jobber Contract
-    Route::get('/jobber/contract', 'Front\JobberController@getJobberContract')->name('jobber.contract');
-    Route::get('/jobber/contract/details/{id}', 'Front\JobberController@detialsJobberContract')->name('jobber.contract.details');
-    Route::get('/contract/status/{id}', 'Front\JobberController@contractStatus')->name('contract.status');
-    //End Jobber Conract
-    // Applicant Contract
-    Route::get('/applicant/contract', 'Front\ApplicantController@getApplicantContract')->name('applicant.contract');
-    Route::get('/applicant/contract/details/{id}', 'Front\ApplicantController@detialsApplicantContract')->name('applicant.contract.details');
-    Route::get('/applicant/contract/status/{id}/{status}', 'Front\ApplicantController@applicantContractDetailsStatus')->name('applicant.contract.status');
+Route::Post('/applicant/services/contract/{id}', 'Front\ApplicantController@servicesContract')->name('applicant.services.contract');
+Route::Post('/applicant/proposals/contract/{id}', 'Front\ApplicantController@proposalsContract')->name('applicant.proposals.contract');
+Route::Post('/jobber/review/contract/{id}', 'Front\ApplicantController@jobberReviewContract')->name('jobber.review');
 
-    // End Applicant Contract
+Route::get('/jobber/contract', 'Front\JobberController@getJobberContract')->name('jobber.contract');
+Route::get('/jobber/contract/details/{id}', 'Front\JobberController@detialsJobberContract')->name('jobber.contract.details');
+Route::get('/contract/status/{id}', 'Front\JobberController@contractStatus')->name('contract.status');
 
-//Services Add
+Route::get('/applicant/contract', 'Front\ApplicantController@getApplicantContract')->name('applicant.contract');
+Route::get('/applicant/contract/details/{id}', 'Front\ApplicantController@detialsApplicantContract')->name('applicant.contract.details');
+Route::get('/applicant/contract/status/{id}/{status}', 'Front\ApplicantController@applicantContractDetailsStatus')->name('applicant.contract.status');
+
 Route::get('/jobber/services', 'Front\JobberController@allServices')->name('jobber.services');
 Route::get('/jobber/single/services/{id}', 'Front\JobberController@singleServices')->name('jobber.single.services');
 Route::post('/jobber/services/store', 'Front\JobberController@storeServices')->name('jobber.services.store');
@@ -114,58 +111,41 @@ Route::get('/questions/create', 'Admin\QuestionController@create')->name('questi
 Route::post('/questions/store', 'Admin\QuestionController@store')->name('question.store');
 
 
-// START ROUTES CATEGORY
 
 Route::get('/category/create', 'Admin\CategoryController@create')->name('category.create');
 Route::post('/category/store', 'Admin\CategoryController@store')->name('category.store');
 Route::get('/category/destroy/{id}', 'Admin\CategoryController@destroy')->name('category.destroy');
 
-// END ROUTES CATEGORY
-
-
-// START ROUTES Sub CATEGORY
 
 Route::get('/subcategory/index', 'Admin\SubCategoryController@index')->name('subcategory.index');
 Route::get('/subcategory/create', 'Admin\SubCategoryController@create')->name('subcategory.create');
 Route::post('/subcategory/store', 'Admin\SubCategoryController@store')->name('subcategory.store');
 Route::get('/subcategory/delete/{id}', 'Admin\SubCategoryController@destroy')->name('subcategory.delete');
 
-// END ROUTES Sub CATEGORY
-
-// START ROUTES Applicant
 Route::get('/applicant/index', 'Admin\UsersController@applicant')->name('applicant.index');
 Route::get('/applicant/country/{id}', 'Admin\UsersController@searhApplicantCountry')->name('search.applicant.country');
 Route::get('/applicant/profile/{id}', 'Admin\UsersController@applicantShowProfile')->name('applicant.profile');
 
 
-// END ROUTES Applicant
-
-
-
-// START ROUTES Jobber
 Route::get('/jobber/index', 'Admin\UsersController@jobber')->name('jobber.index');
-    Route::get('/jobber/country/{id}', 'Admin\UsersController@searhJobberCountry')->name('search.jobber.country');
+Route::get('/jobber/country/{id}', 'Admin\UsersController@searhJobberCountry')->name('search.jobber.country');
 Route::get('/user/status/{status}/{id}', 'Admin\UsersController@status')->name('user.status');
 Route::get('/user/delete/{id}', 'Admin\UsersController@destroy')->name('user.delete');
 Route::get('/jobber/profile/{id}', 'Admin\UsersController@jobberShowProfile')->name('jobber.profile');
 
 
-// END ROUTES jobber
 Route::get('/skils/index', 'Admin\SkilsController@index')->name('skils.index');
 Route::get('/skils/create', 'Admin\SkilsController@create')->name('skils.create');
 Route::get('/skils/delete/{id}', 'Admin\SkilsController@destroy')->name('skils.delete');
 Route::post('/skils/store', 'Admin\SkilsController@store')->name('skils.store');
 Route::get('/skils/edit/{id}', 'Admin\SkilsController@edit')->name('skils.edit');
 Route::post('/skils/update/{id}', 'Admin\SkilsController@update')->name('skils.update');
- Route::get('/fetch/subcategory/{id}', 'Admin\SkilsController@fetchSubcategory');
+Route::get('/fetch/subcategory/{id}', 'Admin\SkilsController@fetchSubcategory');
 
 
-//  APP SETTING
 Route::get('/setting/create', 'Admin\AppSettingController@create')->name('setting.create');
 Route::post('/setting/store', 'Admin\AppSettingController@store')->name('setting.store');
-//  END APP SETTING
 
-//Slider Create
 Route::get('/slider/create', 'Admin\AppSettingController@sliderCreate')->name('slider.create');
 Route::post('/slider/store', 'Admin\AppSettingController@sliderStore')->name('slider.store');
 Route::get('/slider/index', 'Admin\AppSettingController@sliderIndex')->name('slider.index');
@@ -173,9 +153,6 @@ Route::get('/slider/edit/{id}', 'Admin\AppSettingController@sliderEdit')->name('
 Route::get('/slider/delete/{id}', 'Admin\AppSettingController@sliderDelete')->name('slider.delete');
 Route::post('/slider/update/{id}', 'Admin\AppSettingController@sliderUpdate')->name('slider.update');
 
-//END SLIDER Create
-
-//Coutnroy Add
 Route::get('/countory/create', 'Admin\AppSettingController@countoryCreate')->name('countory.create');
 Route::post('/countory/store', 'Admin\AppSettingController@countoryStore')->name('countory.store');
 Route::get('/countory/index', 'Admin\AppSettingController@countoryIndex')->name('countory.index');
@@ -183,9 +160,6 @@ Route::get('/countory/delete/{id}', 'Admin\AppSettingController@countoryDelete')
 Route::get('/countory/edit/{id}', 'Admin\AppSettingController@countoryEdit')->name('countory.edit');
 Route::post('/countory/update/{id}', 'Admin\AppSettingController@countoryUpdate')->name('countory.update');
 
-//Countory End
-
-    //JobRequest
     Route::get('/admin/job/request', 'Admin\JobbyAppController@jobRequestIndex')->name('admin.jobrequest');
     Route::get('/admin/search/country/{id}', 'Admin\JobbyAppController@jobRequestSearchCountry')->name('search.country');
     Route::get('/job/request/show/{id}', 'Admin\JobbyAppController@jobRequestShow')->name('jobrequest.show');
@@ -194,10 +168,6 @@ Route::post('/countory/update/{id}', 'Admin\AppSettingController@countoryUpdate'
     Route::get('/admin/contract', 'Admin\JobbyAppController@contractIndex')->name('admin.contract');
     Route::get('/contract/show/{id}', 'Admin\JobbyAppController@contractShow')->name('contract.show');
     Route::get('/admin/contract/status/{id}/{status}', 'Admin\JobbyAppController@adminContractStatus')->name('admin.contract.status');
-
-
-    //End Job Request
-
 
 });
 

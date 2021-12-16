@@ -1,10 +1,46 @@
 @extends('layouts.front')
 @section('content')
+    <section class="box__dashboard">
+        <div class="group">
+            <a href="#" class="btn item_link">
+                <div class="icon bg-green">
+                    <svg id="Iconly_Curved_Wallet" data-name="Iconly/Curved/Wallet" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                        <g id="Wallet" transform="translate(2.149 2.94)">
+                            <path id="Stroke_1" data-name="Stroke 1" d="M5.106,4.059H2.029A2.029,2.029,0,0,1,2.029,0H5.082" transform="translate(9.506 4.619)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                            <path id="Stroke_3" data-name="Stroke 3" d="M.563.476H.328" transform="translate(11.318 6.126)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                            <path id="Stroke_5" data-name="Stroke 5" d="M0,.476H3.214" transform="translate(3.873 3.031)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                            <path id="Stroke_7" data-name="Stroke 7" d="M0,6.76C0,1.69,1.84,0,7.363,0s7.363,1.69,7.363,6.76-1.84,6.76-7.363,6.76S0,11.83,0,6.76Z" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                        </g>
+                    </svg>
+
+                </div>
+                <div class="txt">
+                    <p>Mon solde</p>
+                    <span>0 €</span>
+                </div>
+            </a>
+            <a href="#" class="btn item_link">
+                <div class="icon bg-red">
+                    <svg id="Iconly_Curved_Paper_Plus" data-name="Iconly/Curved/Paper Plus" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                        <g id="Paper_Plus" data-name="Paper Plus" transform="translate(2.89 2.177)">
+                            <path id="Stroke_1" data-name="Stroke 1" d="M13.07,4.394,8.582.119A14.408,14.408,0,0,0,6.642,0C1.663,0,0,1.837,0,7.323s1.663,7.323,6.642,7.323,6.65-1.829,6.65-7.323A16.661,16.661,0,0,0,13.07,4.394Z" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                            <path id="Stroke_3" data-name="Stroke 3" d="M0,0V2.107A2.662,2.662,0,0,0,2.663,4.769H5" transform="translate(8.141 0.065)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                            <path id="Stroke_5" data-name="Stroke 5" d="M3.879.5H0" transform="translate(4.562 7.599)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                            <path id="Stroke_7" data-name="Stroke 7" d="M.5,3.879V0" transform="translate(6.002 6.16)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="txt">
+                    <p>Projets actifs</p>
+                    <span>0</span>
+                </div>
+            </a>
+        </div>
+    </section>
     <section>
         <div class="padding-20">
             <span class="size-12 text-uppercase color-text d-block">Compte</span>
         </div>
-
         <div class="em__pkLink emBlock__border bg-white border-t-0">
             <ul class="nav__list mb-0">
                 <li>
@@ -28,7 +64,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="path__name">Détails personnels</span>
+                            <span class="path__name">Mon Profil</span>
                         </div>
                         <div class="group">
                             <span class="short__name"></span>
@@ -69,6 +105,29 @@
                         </div>
                     </a>
                 </li>
+                @if($user->role == 1)
+                <li>
+                    <a href="{{route('get.badge')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-red">
+                                <svg id="Iconly_Curved_Paper_Plus" data-name="Iconly/Curved/Paper Plus" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Paper_Plus" data-name="Paper Plus" transform="translate(2.89 2.177)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M13.07,4.394,8.582.119A14.408,14.408,0,0,0,6.642,0C1.663,0,0,1.837,0,7.323s1.663,7.323,6.642,7.323,6.65-1.829,6.65-7.323A16.661,16.661,0,0,0,13.07,4.394Z" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M0,0V2.107A2.662,2.662,0,0,0,2.663,4.769H5" transform="translate(8.141 0.065)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_5" data-name="Stroke 5" d="M3.879.5H0" transform="translate(4.562 7.599)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_7" data-name="Stroke 7" d="M.5,3.879V0" transform="translate(6.002 6.16)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Obtenir badge PRO</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
 
@@ -115,47 +174,5 @@
     <br>
     <br>
     <br>
-    <!-- End. emSimple_main_footer -->
-    <div class="modal transition-bottom screenFull defaultModal modal__language fade" id="mdllLanguage"
-         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
-                    <div class="itemProduct_sm">
-                        <h1 class="size-15 weight-400 color-comment m-0">Choisissez une région</h1>
-                    </div>
-                    <!-- <div class="absolute right-0 padding-r-20">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <i class="tio-clear"></i>
-                        </button>
-                    </div> -->
-                </div>
-                <div class="modal-body p-0">
-                    <!-- Start emPage__language -->
-                    <div class="emPage__language em__signTypeOne pb-0">
-                        <div class="itemSingle">
-                            @foreach($countries as $countr)
-                                <div class="item {{$countr->id == $user->country ? 'selected' : ''}}">
-                                    <div class="txt">
-                                        <h2>{{$countr->name}}</h2>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-
-                    </div>
-                    <!-- End. emPage__language -->
-                </div>
-                <div class="modal-footer d-block border-none env-pb">
-                    <div class="em__footer text-center d-flex justify-content-center">
-                        <a href="/" class="btn bg-primary rounded-pill btn__default">
-                            <span class="color-white">Save Language</span>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 

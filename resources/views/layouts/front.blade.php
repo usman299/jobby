@@ -89,6 +89,21 @@ $user = Auth::user();
             text-align: center;
             width: 100px;
         }
+        .em__pkLink .nav__list li .item-link {
+            padding: 10px 20px;
+        }
+        .notify-badge{
+            position: absolute;
+            top: 30px;
+            background: #02a5ff;
+            text-align: center;
+            border-radius: 30px 30px 30px 30px;
+            color: white;
+            padding: 0px 0px;
+            font-size: 12px;
+            left: 50px;
+            color: white;
+        }
     </style>
     @yield('style')
 </head>
@@ -357,11 +372,17 @@ $user = Auth::user();
                     <div class="em_profile_user">
                         <div class="media">
                             <a href="#">
+                                @if($user->is_company == 1)
+{{--                                <span class="notify-badge">PRO</span>--}}
+                                <span class="notify-badge">
+                                    <img height="20px" src="https://media.gettyimages.com/vectors/shield-ok-vector-id1253267955?s=612x612" alt="">
+                                </span>
+                            @endif
                                 <!-- You can use an image -->
                                  <img class="_imgUser" src="{{asset($user->image)}}" alt="">
 
                             </a>
-                            <div class="media-body">
+                            <div class="media-body" style="margin-left: 10px">
                                 <div class="txt">
                                     <h3>{{$user->firstName}} {{$user->lastName}}</h3>
                                     <p>{{$user->email}} <br> {{$user->countory->name}}</p>

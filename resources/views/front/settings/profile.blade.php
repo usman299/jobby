@@ -120,10 +120,10 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Le genre</label>
+                    <label>Sexe</label>
                     <select class="form-control custom-select" name="gender">
-                        <option value="Mâle">Mâle</option>
-                        <option value="Fémail">Fémail</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>DOB</label>
+                    <label>Date de naissance</label>
                     <div class="input_group">
                         <input type="date" class="form-control" name="dob" value="{{$user->dob}}">
                     </div>
@@ -146,7 +146,7 @@
                     </div>
                 </div>
                 <hr>
-                @if($user->role == 1)
+<!--                @if($user->role == 1)
                     <div class="form-group">
                         <label>Catégorie spécialisée</label>
                         <select  onchange="categorychange(this)" class="form-control custom-select" name="category_id">
@@ -169,7 +169,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Travailler comme</label>
+                        <label>Statut professionnel</label>
                         <select class="form-control custom-select workstatus" name="is_company">
                             @if($user->is_company == 1)
                                 <option value="1">Société</option>
@@ -193,7 +193,7 @@
                             <input type="text" class="form-control" name="siret" value="{{$user->siret}}">
                         </div>
                     </div>
-                @endif
+                @endif-->
                 <div class="form-group">
                     <button type="submit" class="btn justify-content-center bg-primary rounded-10 btn__default full-width">
                         <span class="color-white">Sauvegarder</span>

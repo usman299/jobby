@@ -35,6 +35,8 @@ CreateUsersTable extends Migration
             $table->string('rate_per_hour')->nullable();
             $table->integer('is_company')->nullable();
             $table->string('company_name')->nullable();
+            $table->string('company_address')->nullable();
+            $table->string('vat_type')->nullable();
             $table->string('siret')->nullable();
             $table->longText('description')->nullable();
 
