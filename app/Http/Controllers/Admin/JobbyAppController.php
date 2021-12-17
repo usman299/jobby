@@ -45,11 +45,12 @@ class JobbyAppController extends Controller
     }
     public function contractIndex()
     {
-        $activContract = Contract::latest()->get();
+        $activContract = Contract::latest()->where('status','=',1)->get();
+        $deliverContract = Contract::latest()->where('status','=',2)->get();
         $compelteContract = Contract::latest()->where('status','=',3)->get();
         $pandingContract = Contract::latest()->where('status','=',4)->get();
         $cancelContract= Contract::latest()->where('status','=',5)->get();
-        return view('admin.contract.index',compact('activContract','compelteContract','pandingContract','cancelContract'));
+        return view('admin.contract.index',compact('activContract','deliverContract','compelteContract','pandingContract','cancelContract'));
     }
     public function contractShow($id)
     {

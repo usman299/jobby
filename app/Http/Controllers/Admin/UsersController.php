@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contract;
 use App\Countory;
 use App\Http\Controllers\Controller;
+use App\JobRequest;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -66,9 +68,12 @@ class UsersController extends Controller
      public function applicantShowProfile($id)
     {
         $applicant = User::where('id','=',$id)->first();
-        if($applicant!=null){
-            return view('admin.user.applicant.show',compact('applicant'));
-        }
+        $country =Countory::all();
+        $jobRequest = JobRequest::where('applicant_id','=',$id)->where('status','=',1)->latest()->get();
+        $contract = Contract::where('applicant_id','=',$id)->where('status','=',3)->latest()->get();
+
+        return view('admin.user.applicant.show',compact('applicant','jobRequest','contract','country'));
+
 
 
 
@@ -171,8 +176,48 @@ class UsersController extends Controller
     }
      public function adminProfile()
     {
+       $country = Countory::all();
+       $user = AUth::user();
+       return view('admin.user.profile',compact('country','user'));
+    }
+    public  function adminProfileUpdate(Request $request,$id){
+        $user = User::where('id','=',$id)->first();
+        $user->firstName = $request->firstName;
+        $user->lastName = $request->lastName;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->country = $request->country;
+        $user->country = $request->country;
+        if ($request->hasfile('image')) {
 
-       return view('admin.user.profile');
+            $image1 = $request->file('image');
+            $name = time() . 'image' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'admin/images/';
+            $image1->move($destinationPath, $name);
+            $user->image = 'admin/images/' . $name;
+        }
+        if($user->Update()){
+
+            toastr()->success('Data has been Update successfully!');
+            return back();
+
+        }
+    }
+
+    public  function adminPasswordUpdate(Request $request){
+
+        $user = Auth::user();
+        if($request->password == $request->confirm_password){
+            $user->password = Hash::make(($request->password));
+            $user->update();
+            toastr()->success('Password has been Update successfully!');
+            return back();
+        }
+        else{
+            toastr()->error('Password Not Update!');
+            return back();
+        }
     }
 
 

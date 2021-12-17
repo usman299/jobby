@@ -39,7 +39,7 @@ class ApplicantController extends Controller
         $subcategories = SubCategory::where('category_id', '=', $request->id)->get();
         return response()->json($subcategories);
     }
-    public function jobrequestSubmit(Request $request){
+    public function jobRequestSubmit(Request $request){
         $user = Auth::user();
         $jobrequest = new JobRequest();
         $jobrequest->applicant_id = $user->id;
@@ -56,7 +56,7 @@ class ApplicantController extends Controller
 
         if($jobrequest->save()){
             $notfications = new Notfication();
-            $notfications->sender_id = Auth::user()->id;
+            $notfications->sender_id = $user->id;
             $notfications->generate_id = $jobrequest->id;
             $notfications->message = 'Il y a une nouvelle demande d\'emploi dans votre région';
             $notfications->activity = 'Demande d\'emploi';
@@ -74,9 +74,10 @@ class ApplicantController extends Controller
         return redirect()->route('applicant.jobrequests')->with($notification);
     }
     public function jobrequests(){
+       $user = Auth::user();
         $title = 'Demandes demploi';
-        $jobrequests = JobRequest::latest()->where('applicant_id', Auth::user()->id)->where('status', 1)->get();
-        $jobrequestsClose = JobRequest::latest()->where('applicant_id', Auth::user()->id)->where('status', 2)->get();
+        $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 1)->get();
+        $jobrequestsClose = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 2)->get();
         return view('front.applicant.jobrequests.jobrequests', compact('jobrequests','title', 'jobrequestsClose'));
     }
     public function jobrequestsDetail($id){
@@ -129,9 +130,9 @@ class ApplicantController extends Controller
         return redirect()->route('applicant.proposals')->with($notification);
     }
     public function servicesContract(Request $request, $id){
-        $applicant_id = Auth::user()->id;
+           $applicant_id = Auth::user()->id;
 
-            $check = Contract::where('applicant_id', '=', Auth::user()->id)->where('service_id', '=', $id)->first();
+            $check = Contract::where('applicant_id', '=', $applicant_id)->where('service_id', '=', $id)->first();
 
         if ($check){
             $notification = array(
@@ -143,25 +144,18 @@ class ApplicantController extends Controller
         else {
 
                 $service = JobberServicesOffers::find($id);
-                if ($service != null) {
+                if ($service) {
                     $contract = new Contract();
                     $contract->service_id = $id;
                     $contract->applicant_id = $applicant_id;
                     $contract->jober_id = $service->jobber_id;
                     $contract->e_time = $request->e_time;
-                    $service = JobberServicesOffers::find($id);
                     $contract->price = $service->price;
                     $contract->description = $request->description;
                     $contract->save();
                     $notification = array(
                         'messege' => 'Contract  Generate Successfulyy',
                         'alert-type' => 'success'
-                    );
-                    return redirect()->back()->with($notification);
-                } else {
-                    $notification = array(
-                        'messege' => 'Service Not Found',
-                        'alert-type' => 'error'
                     );
                     return redirect()->back()->with($notification);
                 }
@@ -171,7 +165,7 @@ class ApplicantController extends Controller
     public function proposalsContract(Request $request, $id){
         $applicant_id = Auth::user()->id;
 
-        $check = Contract::where('applicant_id', '=', Auth::user()->id)->where('proposal_id', '=', $id)->first();
+        $check = Contract::where('applicant_id', '=', $applicant_id)->where('proposal_id', '=', $id)->first();
 
         if ($check){
             $notification = array(
@@ -183,12 +177,12 @@ class ApplicantController extends Controller
         else {
            Proposal::find($id)->update(['status' => 2]);
 
-            $service = JobberServicesOffers::find($id);
-            if ($service != null) {
+            $proposal = JobberServicesOffers::find($id);
+            if ($proposal) {
                 $contract = new Contract();
                 $contract->proposal_id = $id;
                 $contract->applicant_id = $applicant_id;
-                $contract->jober_id = $service->jobber_id;
+                $contract->jober_id =  $proposal->jobber_id;
                 $contract->e_time = $request->e_time;
                 $contract->price = $request->price;
                 $contract->description = $request->description;
@@ -196,12 +190,6 @@ class ApplicantController extends Controller
                 $notification = array(
                     'messege' => 'Contract  Generate Successfulyy',
                     'alert-type' => 'success'
-                );
-                return redirect()->back()->with($notification);
-            } else {
-                $notification = array(
-                    'messege' => 'Proposal Not Found',
-                    'alert-type' => 'error'
                 );
                 return redirect()->back()->with($notification);
             }
@@ -224,65 +212,34 @@ class ApplicantController extends Controller
     }
     public function applicantContractDetailsStatus($id,$status){
 
-        $contract = Contract::find($id);
-        if($contract->status!=$status) {
+             $contract = Contract::find($id);
+
+             $contract->status = $status;
+             $contract->update();
             if ($status==2) {
-                $contract->status = $status;
-                $contract->update();
                 $notification = array(
                     'messege' => 'Contract  Deliver Successfuly',
                     'alert-type' => 'success'
                 );
-                return redirect()->back()->with($notification);
             }
-            elseif ($status==3){
-
-                if($contract->status==5) {
-                    $notification = array(
-                        'messege' => 'Your already Contract Cancel',
-                        'alert-type' => 'error'
-                    );
-                    return redirect()->back()->with($notification);
-                }
-                else{
-                    $contract->status = $status;
-                    $contract->update();
-                    $notification = array(
-                        'messege' => 'Contract  Complete Successfuly',
-                        'alert-type' => 'success'
-                    );
-                    return redirect()->back()->with($notification);
-
-                }
+            elseif ($status==3) {
+                $notification = array(
+                    'messege' => 'Contract  Complete Successfuly',
+                    'alert-type' => 'success'
+                );
             }
             elseif ($status==4){
-                $contract->status = $status;
-                $contract->update();
+
                 $notification = array(
                     'messege' => 'Wating Admin Response',
                     'alert-type' => 'info'
                 );
-                return redirect()->back()->with($notification);
-            }
-            else{
-                $contract->status = $status;
-                $contract->update();
-                $notification = array(
-                    'messege' => 'Wating Admin Response',
-                    'alert-type' => 'error'
-                );
-                return redirect()->back()->with($notification);
 
             }
-        }
-        else{
-            $notification = array(
-                'messege' => 'Contract  Status Already Change',
-                'alert-type' => 'info'
-            );
             return redirect()->back()->with($notification);
 
-        }
+
+
     }
 
     public function jobberServices($id){
@@ -293,13 +250,13 @@ class ApplicantController extends Controller
         return view('front.applicant.services.services', compact('title','services'));
     }
     public function jobberReviewContract(Request $request ,$id){
-
+         $user = Auth::user();
          $review = new Reviews();
          $review->message = $request->message;
          $review->star = $request->star;
          $review->sender_id = Auth::user()->id;
          $contract = Contract::where('id','=',$id)->first();
-         if(Auth::user()->role==1) {
+         if($user->role==1) {
              $review->reciver_id = $contract->applicant_id;
          }
          else{
@@ -308,7 +265,7 @@ class ApplicantController extends Controller
 
          $review->contract_id = $id;
          if($review->save()){
-             if(Auth::user()->role==1) {
+             if($user->role==1) {
                  $contract->jobber_id_applicant = $review->id;
              }
              else {

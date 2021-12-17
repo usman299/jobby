@@ -33,7 +33,8 @@
                                                 <th><!-- category -->Catégorie</th>
                                                 <th><!-- title -->Titre</th>
                                                 <th>Image</th>
-{{--                                                <th>Action</th>--}}
+                                                <th>Couleur</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -53,21 +54,27 @@
 
 
                                                 <td> <input type="color" value="{{$row->backColor}}" disabled></td>
-{{--                                                <td>--}}
-{{--													<div class="d-flex">--}}
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="{{route('subcategory.edit', ['id' => $row->id])}}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+
+
+                                        </div>
+                                                    {{--													<div class="d-flex">--}}
 {{--														<!-- <a href="#" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a> -->--}}
 {{--														--}}
 {{--                                                        <a href="{{route('subcategory.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">--}}
 {{--                                                   <i class="fa fa-trash"></i>--}}
 {{--                                                </a>--}}
 {{--													</div>												--}}
-{{--												</td>												--}}
+												</td>
                                             </tr>
 
                                             @endforeach
 
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>

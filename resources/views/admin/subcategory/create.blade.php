@@ -1,7 +1,8 @@
  @extends('admin.layouts.include')
 
 @section('content')
- @toastr_css
+
+    @toastr_css
  <!--**********************************
             Content body start
         ***********************************-->
@@ -27,7 +28,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><!-- category -->Pays <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
-                                                <select class="form-control form-control-lg default-select select2" name="countory_id">
+                                                <select class="form-control form-control-lg default-select select2" id="countory_id" name="countory_id">
                                                     <option>Choisir une Pays</option>
                                                     @foreach($countory as $row)
 
@@ -40,14 +41,9 @@
                                        <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><!-- category -->Catégorie <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
-                                                <select class="form-control form-control-lg default-select select2" name="category_id">
-                                            	<option>Choisir une catégorie</option>
-                                            	@foreach($category as $row)
+                                                <select name="category_id" id="category_id" class="form-control category_id" required="">
 
-                                                <option value="{{$row->id}}">{{$row->title}}</option>
-
-                                                @endforeach
-                                            </select>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -89,8 +85,33 @@
         <!--**********************************
             Content body start
         ***********************************-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <script>
 
+                $('#countory_id').change(function() {
 
+                    $('#category_id').html('<option value="">Choisir une catégorie</option>');
+                    var id = $(this).val();
+
+                    $.ajax({
+                        method:"GET",
+                        url: "{{url('/fetchcategory')}}/"+id,
+                        async: false,
+                        success : function(response) {
+                            console.log(response);
+                            $.each(response, function(i, item) {
+
+                                $('#category_id').append('<option value="'+item.id+'">'+item.title+'</option>');
+                            });
+
+                        },
+                        error: function() {
+                            $('#option').html('<option value="">Catégorie non disponible</option>');
+                        }
+                    });
+
+                });
+            </script>
 
  @jquery
     @toastr_js

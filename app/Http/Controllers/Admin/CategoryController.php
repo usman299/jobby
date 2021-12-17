@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Category;
 use App\Countory;
+use App\SubCategory;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -32,6 +33,10 @@ class CategoryController extends Controller
         $countory = Countory::all();
       return view('admin.category.create',compact('countory'));
     }
+    public function fetchCategory($id){
+        $categories = Category::where('countory_id', '=', $id)->get();
+        return response()->json($categories);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -44,14 +49,9 @@ class CategoryController extends Controller
        $category = new Category();
 
        $category->title = $request->title;
-        $category->countory_id = $request->countory_id;
-       if($category->backColor != '#ffffff'){
-       $category->backColor = $request->backColor;}
-       else{
-        toastr()->info('White Color Select');
-        return back();
-       }
+       $category->countory_id = $request->countory_id;
 
+       $category->backColor = $request->backColor;
        if ($request->hasfile('img')) {
 
             $image1 = $request->file('img');
@@ -65,13 +65,10 @@ class CategoryController extends Controller
 
         toastr()->success('Data has been saved successfully!');
         $category = Category::all();
-         return view('admin.category.index',compact('category'));
+         return redirect()->route('category.index');
 
        }
-       else{
-        toastr()->error('An error has occurred please try again.');
-        return back();
-       }
+
     }
 
     /**
@@ -93,7 +90,10 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $countory = Countory::all();
+        $category = Category::where('id','=',$id)->first();
+
+        return view('admin.category.edit',compact('category','countory'));
     }
 
     /**
@@ -105,7 +105,29 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $category = Category::where('id','=',$id)->first();
+        $category->title = $request->title;
+        $category->countory_id = $request->countory_id;
+        $category->backColor = $request->backColor;
+        if ($request->hasfile('img')) {
+
+            $image1 = $request->file('img');
+            $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'admin/images/category/';
+            $image1->move($destinationPath, $name);
+            $category->img = 'admin/images/category/' . $name;
+        }
+
+        if($category->save()){
+
+            toastr()->success('Data has been saved successfully!');
+            $category = Category::all();
+            return redirect()->route('category.index');
+
+        }
+
+
     }
 
     /**

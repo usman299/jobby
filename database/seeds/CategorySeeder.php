@@ -14,14 +14,14 @@ class CategorySeeder extends Seeder
     {
 
         Category::create([
-            'title' => "Nettoyage",
+            'title' => "Bricolage",
             'countory_id'=> "1",
             'backColor' => "#ff4040",
             'img' => "admin/icons/002-plumber.png",
 
             ]);
             Category::create([
-                'title' => "Ménage",
+                'title' => "Autres",
                 'countory_id'=> "1",
                 'backColor' => "#fa9905",
                 'img' => "admin/icons/001-household.png",
@@ -29,54 +29,20 @@ class CategorySeeder extends Seeder
 
                 ]);
             Category::create([
-                'title' => "Electricienne",
+                'title' => "Aide ménagère",
                 'backColor' => "#53a7f9",
                 'countory_id'=> "1",
                 'img' => "admin/icons/003-electrician.png",
 
                 ]);
             Category::create([
-                'title' => "Peintre",
+                'title' => "Garde",
                 'countory_id'=> "1",
                 'backColor' => "#41bd83",
                 'img' => "admin/icons/004-painter.png",
 
                 ]);
-            Category::create([
-                'title' => "Sotierd",
-                'countory_id'=> "1",
-                'backColor' => "#fa9905 ",
-                'img' => "admin/icons/006-makeup.png",
 
-                ]);
-            Category::create([
-                'title' => "Méditation",
-                'countory_id'=> "1",
-                'backColor' => "#ff702c",
-                'img' => "admin/icons/005-meditation.png",
-
-                ]);
-            Category::create([
-                'title' => "Ménage",
-                'backColor' => "#2bd2f3",
-                'countory_id'=> "1",
-                'img' => "admin/icons/001-household.png",
-
-                ]);
-            Category::create([
-                'title' => "Annonce",
-                'countory_id'=> "1",
-                'backColor' => "#FFAF33",
-                'img' => "admin/icons/announcement.png",
-
-                ]);
-        Category::create([
-            'title' => "Méditation",
-            'countory_id'=> "1",
-            'backColor' => "#b740fa",
-            'img' => "admin/icons/005-meditation.png",
-
-        ]);
 
     }
 }

@@ -27,11 +27,11 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><!-- category -->Pays <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
-                                                <select class="form-control form-control-lg default-select select2" name="countory_id">
+                                                <select class="form-control form-control-lg default-select select2"  name="countory_id">
                                                     <option>Choisir une Pays</option>
                                                     @foreach($countory as $row)
 
-                                                        <option value="{{$row->id}}">{{$row->name}}</option>
+                                                        <option value="{{$row->id}}" >{{$row->name}}</option>
 
                                                     @endforeach
                                                 </select>
@@ -40,7 +40,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><!-- Title -->Titre <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="title" placeholder="Entrez le titre" required>
+                                                <input type="text" class="form-control"  name="title" placeholder="Entrez le titre" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -76,6 +76,8 @@
         <!--**********************************
             Content body start
         ***********************************-->
+
+
  @jquery
     @toastr_js
     @toastr_render

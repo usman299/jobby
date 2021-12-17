@@ -1,4 +1,4 @@
-  
+
 @extends('admin.layouts.include')
 
 @section('content')
@@ -28,13 +28,13 @@
 												</svg>
 											</span>
 											<div class="media-body">
-												<p class="fs-14 mb-2">No of Applicant</p>
+												<p class="fs-14 mb-2">Non de Demandeur</p>
 												<span class="title text-black font-w600">42%</span>
 											</div>
 										</div>
 										<div class="progress" style="height:5px;">
 											<div class="progress-bar bg-success" style="width: 42%; height:5px;" role="progressbar">
-												<span class="sr-only">42</span>
+												<span class="sr-only">1</span>
 											</div>
 										</div>
 									</div>
@@ -53,13 +53,13 @@
 												</svg>
 											</span>
 											<div class="media-body">
-												<p class="fs-14 mb-2">No of Jobber</p>
-												<span class="title text-black font-w600">42</span>
+												<p class="fs-14 mb-2">Non de Jobber</p>
+												<span class="title text-black font-w600">1</span>
 											</div>
 										</div>
 										<div class="progress" style="height:5px;">
 											<div class="progress-bar bg-secondary" style="width: 82%; height:5px;" role="progressbar">
-												<span class="sr-only">42% Complete</span>
+												<span class="sr-only">1</span>
 											</div>
 										</div>
 									</div>
@@ -79,13 +79,13 @@
 												</svg>
 											</span>
 											<div class="media-body">
-												<p class="fs-14 mb-2">No of Category</p>
-												<span class="title text-black font-w600">230 Km</span>
+												<p class="fs-14 mb-2">N° de contrat</p>
+												<span class="title text-black font-w600">2</span>
 											</div>
 										</div>
 										<div class="progress" style="height:5px;">
 											<div class="progress-bar bg-danger" style="width: 90%; height:5px;" role="progressbar">
-												<span class="sr-only">42</span>
+												<span class="sr-only">2</span>
 											</div>
 										</div>
 									</div>
@@ -106,13 +106,13 @@
 												</svg>
 											</span>
 											<div class="media-body">
-												<p class="fs-14 mb-2">No of Sub-Category</p>
-												<span class="title text-black font-w600">18</span>
+												<p class="fs-14 mb-2">No de jobRequête</p>
+												<span class="title text-black font-w600">8</span>
 											</div>
 										</div>
 										<div class="progress" style="height:5px;">
 											<div class="progress-bar bg-warning" style="width: 42%; height:5px;" role="progressbar">
-												<span class="sr-only">42% Complete</span>
+												<span class="sr-only">8</span>
 											</div>
 										</div>
 									</div>
@@ -128,7 +128,7 @@
         </div>
         <!--**********************************
             Content body end
-        ***********************************-->        
+        ***********************************-->
 
 
 

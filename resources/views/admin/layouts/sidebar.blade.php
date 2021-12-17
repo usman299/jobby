@@ -51,25 +51,25 @@
                         </a>
                     </li>
                     <li><a href="{{route('slider.index')}}" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-notepad"></i>
+                            <i class="flaticon-381-layer-1"></i>
                             <!-- APP SETTING -->
-                            <span class="nav-text">  Glissière</span>
+                            <span class="nav-text">   Crowser </span>
                         </a>
                     </li>
                     <li><a href="{{route('admin.jobrequest')}}" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-notepad"></i>
+                            <i class="flaticon-381-internet"></i></i>
                             <!-- APP SETTING -->
                             <span class="nav-text">  Demande d'emploi</span>
                         </a>
                     </li>
                     <li><a href="{{route('admin.proposal')}}" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-notepad"></i>
+                            <i class="flaticon-381-network"></i>
                             <!-- APP SETTING -->
                             <span class="nav-text">Proposition </span>
                         </a>
                     </li>
                     <li><a href="{{route('admin.contract')}}" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-notepad"></i>
+                            <i class="flaticon-381-settings-2"></i>
                             <!-- APP SETTING -->
                             <span class="nav-text">Contracter </span>
                         </a>

@@ -37,23 +37,8 @@ class FrontendController extends Controller
         $category = Category::take(9)->where('countory_id', '=',$user->country)->orderBy('id', 'DESC')->get();
         $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('category_id', '=', $user->category_id)->where('status', '=', 1)->paginate(10);
 
-        $country_id = User::where('role','=',1)->where('status','=','1')->pluck('country');
-        $category_id = User::where('role','=',1)->where('status','=','1')->pluck('category_id');
-        $subcategory_id = User::where('role','=',1)->where('status','=','1')->pluck('subcategory_id');
 
-        $country_id1 = User::where('role','=',2)->where('status','=','1')->pluck('country');
-        $category_id1 = User::where('role','=',2)->where('status','=','1')->pluck('category_id');
-        $subcategory_id1 = User::where('role','=',2)->where('status','=','1')->pluck('subcategory_id');
-
-
-
-        $notfication = Notfication::whereIn('country_id',$country_id)
-            ->whereIn('category_id',$category_id)->whereIn('subcategory_id',$subcategory_id)->where('status','=',1)->get();
-        $notfications = Notfication::whereIn('country_id',$country_id1)
-            ->whereIn('category_id',$category_id1)->whereIn('subcategory_id',$subcategory_id1)->where('status','=',1)->get();
-
-
-        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','notfication','notfications'));
+        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services'));
     }
     public function allCategories(){
         $title = 'Catégories';

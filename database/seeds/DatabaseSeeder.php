@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(SubCategorySeeder::class);
         $this->call(AppSettingSeeder::class);
-        $this->call(SkilsSeeder::class);
+//        $this->call(SkilsSeeder::class);
 //        $this->call(JobberRequestSeeder::class);
         $this->call(SliderGalerySeeder::class);
     }

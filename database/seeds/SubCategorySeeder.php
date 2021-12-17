@@ -12,7 +12,7 @@ class SubCategorySeeder extends Seeder
     public function run()
     {
         SubCategory::create([
-            'title' => "Annonce",
+            'title' => "Rénovation",
             'category_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
@@ -20,7 +20,7 @@ class SubCategorySeeder extends Seeder
 
             ]);
             SubCategory::create([
-                'title' => "Ménage",
+                'title' => "Entretien du jardin",
                 'category_id' => "1",
                 'countory_id'=> "1",
                 'backColor' => "#335EFF",
@@ -29,7 +29,7 @@ class SubCategorySeeder extends Seeder
 
                 ]);
                 SubCategory::create([
-                'title' => "Electricienne",
+                'title' => "Plomberie",
                 'category_id' => "1",
                     'countory_id'=> "1",
                 'backColor' => "#FFAF33",
@@ -38,7 +38,7 @@ class SubCategorySeeder extends Seeder
 
                 ]);
                 SubCategory::create([
-                'title' => "Peintre",
+                'title' => "Électricité et domotique",
                 'category_id' => "1",
                     'countory_id'=> "1",
                 'backColor' => "#FF3933",
@@ -47,7 +47,7 @@ class SubCategorySeeder extends Seeder
 
                 ]);
                 SubCategory::create([
-                'title' => "Se réconcilier",
+                'title' => "Petit bricolage",
                 'category_id' => "1",
                     'countory_id'=> "1",
                 'backColor' => "#FF3361 ",
@@ -55,20 +55,9 @@ class SubCategorySeeder extends Seeder
                 'img' => "admin/icons/006-makeup.png",
 
                 ]);
-                SubCategory::create([
-                'title' => "Méditation",
-                'category_id' => "1",
-                    'countory_id'=> "1",
-                'backColor' => "#FFAF33",
-
-                'img' => "admin/icons/005-meditation.png",
-
-                ]);
-
-
 
                 SubCategory::create([
-                    'title' => "Annonce",
+                    'title' => "Aide à la personne",
                     'category_id' => "2",
                     'countory_id'=> "1",
                     'backColor' => "#FFAF33",
@@ -76,7 +65,7 @@ class SubCategorySeeder extends Seeder
 
                     ]);
                     SubCategory::create([
-                        'title' => "Ménage",
+                        'title' => "Déménagement",
                         'category_id' => "2",
                         'countory_id'=> "1",
                         'backColor' => "#335EFF",
@@ -85,7 +74,7 @@ class SubCategorySeeder extends Seeder
 
                         ]);
                         SubCategory::create([
-                        'title' => "Electricienne",
+                        'title' => "Soutien scolaire",
                         'category_id' => "2",
                             'countory_id'=> "1",
                         'backColor' => "#FFAF33",
@@ -93,36 +82,11 @@ class SubCategorySeeder extends Seeder
                         'img' => "admin/icons/003-electrician.png",
 
                         ]);
-                        SubCategory::create([
-                        'title' => "Peintre",
-                        'category_id' => "2",
-                            'countory_id'=> "1",
-                        'backColor' => "#FF3933",
 
-                        'img' => "admin/icons/004-painter.png",
 
-                        ]);
-        SubCategory::create([
-        'title' => "Se réconcilier",
-        'category_id' => "2",
-            'countory_id'=> "2",
-        'backColor' => "#FF3361 ",
-
-        'img' => "admin/icons/006-makeup.png",
-
-        ]);
-        SubCategory::create([
-        'title' => "Méditation",
-        'category_id' => "2",
-            'countory_id'=> "2",
-        'backColor' => "#FFAF33",
-
-        'img' => "admin/icons/005-meditation.png",
-
-        ]);
 
         SubCategory::create([
-            'title' => "Annonce",
+            'title' => "Repassage",
             'category_id' => "3",
             'countory_id'=> "2",
             'backColor' => "#FFAF33",
@@ -139,8 +103,8 @@ class SubCategorySeeder extends Seeder
 
                 ]);
                 SubCategory::create([
-                'title' => "Electricienne",
-                'category_id' => "3",
+                'title' => "Garde d’enfants",
+                'category_id' => "4",
                     'countory_id'=> "3",
                 'backColor' => "#FFAF33",
 
@@ -148,188 +112,15 @@ class SubCategorySeeder extends Seeder
 
                 ]);
                 SubCategory::create([
-                'title' => "Peintre",
-                    'countory_id'=> "3",
+                'title' => "Garde d’animaux",
+                    'countory_id'=> "4",
                 'category_id' => "3",
                 'backColor' => "#FF3933",
 
                 'img' => "admin/icons/004-painter.png",
 
                 ]);
-                SubCategory::create([
-                'title' => "Se réconcilier",
-                'category_id' => "3",
-                    'countory_id'=> "3",
-                'backColor' => "#FF3361 ",
 
-                'img' => "admin/icons/006-makeup.png",
-
-                ]);
-                SubCategory::create([
-                'title' => "Méditation",
-                'category_id' => "3",
-                    'countory_id'=> "3",
-                'backColor' => "#FFAF33",
-
-                'img' => "admin/icons/005-meditation.png",
-
-                ]);
-
-                SubCategory::create([
-                    'title' => "Annonce",
-                    'category_id' => "4",
-                    'countory_id'=> "3",
-                    'backColor' => "#FFAF33",
-                    'img' => "admin/icons/announcement.png",
-
-                    ]);
-                    SubCategory::create([
-                        'title' => "Ménage",
-                        'category_id' => "4",
-                        'countory_id'=> "3",
-                        'backColor' => "#335EFF",
-                        'img' => "admin/icons/001-household.png",
-
-
-                        ]);
-                        SubCategory::create([
-                        'title' => "Electricienne",
-                        'category_id' => "4",
-                            'countory_id'=> "3",
-                        'backColor' => "#FFAF33",
-
-                        'img' => "admin/icons/003-electrician.png",
-
-                        ]);
-                        SubCategory::create([
-                        'title' => "Peintre",
-                        'category_id' => "4",
-                            'countory_id'=> "3",
-                        'backColor' => "#FF3933",
-
-                        'img' => "admin/icons/004-painter.png",
-
-                        ]);
-                        SubCategory::create([
-                        'title' => "Se réconcilier",
-                        'category_id' => "4",
-                        'backColor' => "#FF3361 ",
-                            'countory_id'=> "3",
-
-                        'img' => "admin/icons/006-makeup.png",
-
-                        ]);
-                        SubCategory::create([
-                        'title' => "Méditation",
-                        'category_id' => "4",
-                            'countory_id'=> "3",
-                        'backColor' => "#FFAF33",
-
-                        'img' => "admin/icons/005-meditation.png",
-
-                        ]);
-                        SubCategory::create([
-                            'title' => "Annonce",
-                            'category_id' => "5",
-                            'backColor' => "#FFAF33",
-                            'countory_id'=> "3",
-                            'img' => "admin/icons/announcement.png",
-
-                            ]);
-                            SubCategory::create([
-                                'title' => "Ménage",
-                                'category_id' => "5",
-                                'countory_id'=> "3",
-                                'backColor' => "#335EFF",
-                                'img' => "admin/icons/001-household.png",
-
-
-                                ]);
-                                SubCategory::create([
-                                'title' => "Electricienne",
-                                'category_id' => "5",
-                                'backColor' => "#FFAF33",
-                                    'countory_id'=> "3",
-
-                                'img' => "admin/icons/003-electrician.png",
-
-                                ]);
-                    SubCategory::create([
-                        'title' => "Annonce",
-                        'category_id' => "6",
-                        'backColor' => "#FFAF33",
-                        'img' => "admin/icons/announcement.png",
-
-                        ]);
-                        SubCategory::create([
-                            'title' => "Ménage",
-                            'category_id' => "6",
-                            'countory_id'=> "3",
-                            'backColor' => "#335EFF",
-                            'img' => "admin/icons/001-household.png",
-
-
-                            ]);
-                            SubCategory::create([
-                            'title' => "Electricienne",
-                            'category_id' => "6",
-                                'countory_id'=> "3",
-                            'backColor' => "#FFAF33",
-
-                            'img' => "admin/icons/003-electrician.png",
-
-                            ]);
-                    SubCategory::create([
-                        'title' => "Annonce",
-                        'category_id' => "7",
-                        'countory_id'=> "3",
-                        'backColor' => "#FFAF33",
-                        'img' => "admin/icons/announcement.png",
-
-                        ]);
-                        SubCategory::create([
-                            'title' => "Ménage",
-                            'category_id' => "7",
-                            'countory_id'=> "3",
-                            'backColor' => "#335EFF",
-                            'img' => "admin/icons/001-household.png",
-
-
-                            ]);
-                            SubCategory::create([
-                            'title' => "Electricienne",
-                            'category_id' => "7",
-                            'backColor' => "#FFAF33",
-
-                            'img' => "admin/icons/003-electrician.png",
-
-                            ]);
-                            SubCategory::create([
-                                'title' => "Annonce",
-                                'category_id' => "8",
-                                'countory_id'=> "3",
-                                'backColor' => "#FFAF33",
-                                'img' => "admin/icons/announcement.png",
-
-                                ]);
-                        SubCategory::create([
-                            'title' => "Ménage",
-                            'category_id' => "8",
-                            'countory_id'=> "3",
-                            'backColor' => "#335EFF",
-                            'img' => "admin/icons/001-household.png",
-
-
-                            ]);
-                        SubCategory::create([
-                        'title' => "Electricienne",
-                        'category_id' => "8",
-                        'backColor' => "#FFAF33",
-                            'countory_id'=> "3",
-
-                        'img' => "admin/icons/003-electrician.png",
-
-                        ]);
 
     }
 

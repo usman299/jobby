@@ -88,9 +88,9 @@
                                                             class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" >
                                                         <i class="fa fa-eye"></i>
 
-                                                        <a href="{{route('user.delete', ['id' => $row->id])}}" id="delete"
-                                                            class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete" id="toastr-danger-top-right">
-                                                        <i class="fa fa-trash"></i>
+{{--                                                        <a href="{{route('user.delete', ['id' => $row->id])}}" id="delete"--}}
+{{--                                                            class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete" id="toastr-danger-top-right">--}}
+{{--                                                        <i class="fa fa-trash"></i>--}}
                                                 </a>
                                                     </div>
                                                 </td>

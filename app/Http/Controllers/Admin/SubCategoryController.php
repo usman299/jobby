@@ -21,7 +21,7 @@ class SubCategoryController extends Controller
 
  public function index()
     {
-         $subcategory = SubCategory::all();
+         $subcategory = SubCategory::paginate(10);;
         return view('admin.subcategory.index',compact('subcategory'));
     }
 
@@ -48,36 +48,24 @@ class SubCategoryController extends Controller
         $subcategory = new SubCategory();
 
        $subcategory->title = $request->title;
-        $subcategory->countory_id = $request->countory_id;
+       $subcategory->countory_id = $request->countory_id;
        $subcategory->category_id = $request->category_id;
-       if($subcategory->backColor != '#ffffff'){
-        $subcategory->backColor = $request->backColor;}
-        else{
-         toastr()->info('White Color Select');
-         return back();
-        }
+       $subcategory->backColor = $request->backColor;
        if ($request->hasfile('img')) {
 
         $image1 = $request->file('img');
         $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
         $destinationPath = 'admin/images/subcategory/';
         $image1->move($destinationPath, $name);
-        $category->img = 'admin/images/subcategory/' . $name;
+        $subcategory->img = 'admin/images/subcategory/' . $name;
     }
-
-
        if($subcategory->save()){
 
         toastr()->success('Data has been saved successfully!');
-         $subcategory = SubCategory::all();
-
-       return view('admin.subcategory.index',compact('subcategory'));
+           return redirect()->route('subcategory.index');
 
        }
-       else{
-        toastr()->error('An error has occurred please try again.');
-        return back();
-       }
+
     }
 
     /**
@@ -98,8 +86,10 @@ class SubCategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {    $countory = Countory::all();
+        $subcategory = SubCategory::where('id','=',$id)->first();
+
+        return view('admin.subcategory.edit',compact('subcategory','countory'));
     }
 
     /**
@@ -111,6 +101,27 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $subcategory = SubCategory::where('id','=',$id)->first();
+        $subcategory->title = $request->title;
+        $subcategory->countory_id = $request->countory_id;
+        if($request->category_id) {
+            $subcategory->category_id = $request->category_id;
+        }
+        $subcategory->backColor = $request->backColor;
+        if ($request->hasfile('img')) {
+
+            $image1 = $request->file('img');
+            $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'admin/images/subcategory/';
+            $image1->move($destinationPath, $name);
+            $subcategory->img = 'admin/images/subcategory/' . $name;
+        }
+        if($subcategory->save()){
+
+            toastr()->success('Data has been saved successfully!');
+            return redirect()->route('subcategory.index');
+
+        }
         //
     }
 

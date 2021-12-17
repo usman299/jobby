@@ -101,9 +101,12 @@ Route::get('/jobber/proposals', 'Front\JobberController@proposals')->name('jobbe
 Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
+Route::post('/admin/profile/update/{id}', 'Admin\UsersController@adminProfileUpdate')->name('admin.profile.update');
+    Route::post('/admin/password/update', 'Admin\UsersController@adminPasswordUpdate')->name('admin.password.update');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/category/index', 'Admin\CategoryController@index')->name('category.index');
+
 
 Route::get('/questions', 'Admin\QuestionController@index')->name('admin.questions');
 Route::get('/questions/delete/{id}', 'Admin\QuestionController@delete')->name('question.delete');
@@ -114,7 +117,10 @@ Route::post('/questions/store', 'Admin\QuestionController@store')->name('questio
 
 Route::get('/category/create', 'Admin\CategoryController@create')->name('category.create');
 Route::post('/category/store', 'Admin\CategoryController@store')->name('category.store');
+Route::get('/category/index', 'Admin\CategoryController@index')->name('category.index');
 Route::get('/category/destroy/{id}', 'Admin\CategoryController@destroy')->name('category.destroy');
+Route::get('/category/edit/{id}', 'Admin\CategoryController@edit')->name('category.edit');
+Route::post('/category/update/{id}', 'Admin\CategoryController@update')->name('category.update');
 
 
 Route::get('/subcategory/index', 'Admin\SubCategoryController@index')->name('subcategory.index');
@@ -122,6 +128,13 @@ Route::get('/subcategory/create', 'Admin\SubCategoryController@create')->name('s
 Route::post('/subcategory/store', 'Admin\SubCategoryController@store')->name('subcategory.store');
 Route::get('/subcategory/delete/{id}', 'Admin\SubCategoryController@destroy')->name('subcategory.delete');
 
+Route::get('/fetchcategory/{id}', 'Admin\CategoryController@fetchCategory')->name('fetchcategory');
+Route::get('/subcategory/edit/{id}', 'Admin\SubCategoryController@edit')->name('subcategory.edit');
+Route::post('/subcategory/update/{id}', 'Admin\SubCategoryController@update')->name('subcategory.update');
+
+// END ROUTES Sub CATEGORY
+
+// START ROUTES Applicant
 Route::get('/applicant/index', 'Admin\UsersController@applicant')->name('applicant.index');
 Route::get('/applicant/country/{id}', 'Admin\UsersController@searhApplicantCountry')->name('search.applicant.country');
 Route::get('/applicant/profile/{id}', 'Admin\UsersController@applicantShowProfile')->name('applicant.profile');
@@ -168,6 +181,11 @@ Route::post('/countory/update/{id}', 'Admin\AppSettingController@countoryUpdate'
     Route::get('/admin/contract', 'Admin\JobbyAppController@contractIndex')->name('admin.contract');
     Route::get('/contract/show/{id}', 'Admin\JobbyAppController@contractShow')->name('contract.show');
     Route::get('/admin/contract/status/{id}/{status}', 'Admin\JobbyAppController@adminContractStatus')->name('admin.contract.status');
+
+
+
+
+
 
 });
 

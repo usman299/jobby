@@ -39,12 +39,8 @@ class SettingsController extends Controller
     public function notifications(){
         $title = 'Notifications';
         $user = Auth::user();
-        $country_id = User::where('role','=',1)->where('status','=','1')->pluck('country');
-        $category_id = User::where('role','=',1)->where('status','=','1')->pluck('category_id');
-        $subcategory_id = User::where('role','=',1)->where('status','=','1')->pluck('subcategory_id');
-
-        $notfication = Notfication::whereIn('country_id',$country_id)
-            ->whereIn('category_id',$category_id)->whereIn('subcategory_id',$subcategory_id)->get();
+        $notfication = Notfication::where('country_id','=',$user->country)
+            ->where('category_id','=',$user->category_id)->where('subcategory_id','=',$user->subcategory_id)->get();
         return view('front.settings.notifications', compact('user','title','notfication'));
     }
     public function support(){

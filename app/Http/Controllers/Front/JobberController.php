@@ -28,10 +28,10 @@ class JobberController extends Controller
         return view('front.jobber.service.edit', compact('title','services','categories'));
     }
     public function storeServices(Request $request){
-
+         $user = Auth::User();
          $services = new JobberServicesOffers();
-         $services->jobber_id = Auth::user()->id;
-         $services->country_id = Auth::user()->country;
+         $services->jobber_id = $user->id;
+         $services->country_id = $user->country;
          $services->title = $request->title;
          $services->duration = $request->duration;
          $services->price = $request->price;
@@ -50,18 +50,15 @@ class JobberController extends Controller
         }
 
         if($services->save()){
-             $title = 'Services';
-             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
+
              Session::flash('message', "Your Offers Save");
-            $categories = Category::all();
-             return view('front.jobber.service.index',compact( 'title','services','categories'));
+             return redirect()->route('jobber.services');
+
          }
          else{
-             $title = 'Services';
-             $categories = Category::all();
-             $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
+
              Session::flash('error', "Your Offers Not Save");
-             return view('front.jobber.service.index',compact( 'title','services','categories'));
+             return redirect()->route('jobber.services');
          }
 
 
@@ -71,10 +68,8 @@ class JobberController extends Controller
         $servicess->status = 2;
         $servicess->update();
         $title = 'Services';
-        $categories = Category::all();
-        $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
         Session::flash('error', "Your Offers Remove");
-        return view('front.jobber.service.index',compact( 'title','services','categories'));
+        return redirect()->route('jobber.services');
     }
     public function editServices($id){
 
@@ -85,19 +80,16 @@ class JobberController extends Controller
         return view('front.jobber.service.index',compact( 'title','services','servicesEdit','categories'));
     }
     public function updateServices(Request $request,$id){
-
+        $user = Auth::user();
         $services =  JobberServicesOffers::where('id','=',$id)->where('status','=',1)->first();
-        $services->jobber_id = Auth::user()->id;
-        $services->country_id = Auth::user()->country;
+        $services->jobber_id = $user->id;
+        $services->country_id = $user->country;
         $services->title = $request->title;
         $services->duration = $request->duration;
         $services->price = $request->price;
         $services->category_id = $request->category_id;
-        if($request->subcategory_id==null) {
+        if($request->subcategory_id) {
             $services->subcategory_id = $services->subcategory_id;
-        }
-        else{
-            $services->subcategory_id = $request->subcategory_id;
         }
         $services->skils = $request->skils;
         $services->description = $request->description;
@@ -112,18 +104,14 @@ class JobberController extends Controller
         }
 
         if($services->update()){
-            $title = 'Services';
-            $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
+
             Session::flash('message', "Your Offers Update");
-            $categories = Category::all();
-            return view('front.jobber.service.index',compact( 'title','services','categories'));
+            return redirect()->route('jobber.services');
         }
         else{
-            $title = 'Services';
-            $categories = Category::all();
-            $services = JobberServicesOffers::where('jobber_id','=',AUth::user()->id)->where('status','=',1)->get();
+
             Session::flash('error', "Your Offers Not Update");
-            return view('front.jobber.service.index',compact( 'title','services','categories'));
+            return redirect()->route('jobber.services');
         }
 
 

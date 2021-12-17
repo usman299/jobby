@@ -35,6 +35,11 @@
         font-weight: 400;
         color: #272baf !important;
     }
+
+    .photo-content .cover-photo {
+         min-height: 0px;
+
+    }
 </style>
 
     @toastr_css
