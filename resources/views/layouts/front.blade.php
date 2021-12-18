@@ -104,6 +104,7 @@ $user = Auth::user();
             left: 50px;
             color: white;
         }
+
     </style>
     @yield('style')
 </head>
