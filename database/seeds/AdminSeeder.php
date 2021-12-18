@@ -38,6 +38,8 @@ class AdminSeeder extends Seeder
             'role' => '1',
             'country' => '1',
             'avatar' => '0',
+            'category_id' => '1',
+            'subcategory_id' => '1',
             'password' => bcrypt('password'),
 
         ]);

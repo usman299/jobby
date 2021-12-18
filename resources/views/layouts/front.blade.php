@@ -104,6 +104,89 @@ $user = Auth::user();
             left: 50px;
             color: white;
         }
+
+        /*multi step form css*/
+        /* Mark input boxes that gets an error on validation: */
+        input.invalid {
+            background-color: #ffdddd;
+        }
+
+        /* Hide all steps by default: */
+        .tab {
+            display: none;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 17px;
+            font-family: Raleway;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #prevBtn {
+            background-color: #bbbbbb;
+        }
+
+        /* Make circles that indicate the steps of the form: */
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        /* Mark the steps that are finished and valid: */
+        .step.finish {
+            background-color: #556fff;
+        }
+        input[type="radio"] {
+            -ms-transform: scale(1.5); /* IE 9 */
+            -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+            transform: scale(1.5);
+        }
+        /*end multistep form*/
+
+        .buttons__footer {
+            position: fixed;
+            width: 100%;
+            bottom: 52px;
+            padding: 12px 20px;
+            background-color: var(--bg-white);
+            z-index: 10;
+        }
+        .em__signTypeOne.typeTwo .em_titleSign h1 {
+            font-size: 30px;
+            color: var(--color-secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .d-none{
+            display: none !important;
+        }
+        .d-block{
+            display: block !important;
+        }
+        .npPage_SuccessPkg {
+            text-align: center;
+            padding: 100px 30px 40px 30px;
+        }
     </style>
     @yield('style')
 </head>
@@ -375,6 +458,12 @@ $user = Auth::user();
                                 @if($user->is_company == 1)
 {{--                                <span class="notify-badge">PRO</span>--}}
                                 <span class="notify-badge">
+<!--                                    <svg id="Iconly_Bulk_Shield_Done" data-name="Iconly/Bulk/Shield Done" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                    <g id="Shield_Done" data-name="Shield Done" transform="translate(2.917 1.667)">
+                                        <path id="Fill_1" data-name="Fill 1" d="M7.155,16.667a.652.652,0,0,1-.3-.072l-3-1.553a7.044,7.044,0,0,1-2.038-1.513A6.869,6.869,0,0,1,.035,8.967L0,3.437A1.511,1.511,0,0,1,1.024,2.01L6.534.089A1.569,1.569,0,0,1,7.559.083L13.09,1.939a1.508,1.508,0,0,1,1.041,1.413l.035,5.534a6.869,6.869,0,0,1-1.722,4.579A7.019,7.019,0,0,1,10.427,15L7.453,16.591a.637.637,0,0,1-.3.076" transform="translate(0 0)" fill="#ff4040" opacity="0.4"></path>
+                                        <path id="Fill_4" data-name="Fill 4" d="M2.23,4.429a.636.636,0,0,1-.446-.177L.187,2.716A.6.6,0,0,1,.182,1.85a.641.641,0,0,1,.89-.006l1.149,1.1L5.027.182a.641.641,0,0,1,.89-.006.6.6,0,0,1,.006.866l-3.249,3.2a.633.633,0,0,1-.444.182" transform="translate(4.286 5.838)" fill="#ff4040"></path>
+                                    </g>
+                                </svg>-->
                                     <img height="20px" src="https://media.gettyimages.com/vectors/shield-ok-vector-id1253267955?s=612x612" alt="">
                                 </span>
                             @endif
@@ -801,6 +890,90 @@ $user = Auth::user();
     //     $(".dialog-background").show();
     // });
 
+</script>
+<script>
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+
+    function showTab(n) {
+        // This function will display the specified tab of the form...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        //... and fix the Previous/Next buttons:
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Submit";
+        } else {
+            document.getElementById("nextBtn").innerHTML = "Next";
+        }
+        //... and run a function that will display the correct step indicator:
+        fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+        x[currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+        // if you have reached the end of the form...
+        if (currentTab >= x.length) {
+            // ... the form gets submitted:
+            document.getElementById("regForm").submit();
+            return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+    }
+
+    function validateForm() {
+        // This function deals with validation of the form fields
+        var x, y, i, z, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+        z = x[currentTab].getElementsByTagName("select");
+        // A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+            // If a field is empty...
+            if (y[i].value == "") {
+                // add an "invalid" class to the field:
+                y[i].className += " is-invalid";
+                // and set the current valid status to false
+                valid = false;
+            }
+        }
+        for (i = 0; i < z.length; i++) {
+            // If a field is empty...
+            if (z[i].value == "") {
+                // add an "invalid" class to the field:
+                z[i].className += " is-invalid";
+                // and set the current valid status to false
+                valid = false;
+            }
+        }
+        // If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+    }
+
+    function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class on the current step:
+        x[n].className += " active";
+    }
 </script>
 @yield('script')
 </body>

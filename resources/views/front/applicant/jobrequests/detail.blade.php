@@ -100,7 +100,7 @@
         <div class="em__pkLink emBlock__border bg-white border-t-0">
             <ul class="nav__list mb-0">
                 <li>
-                    <a style="padding: 7px 20px" href="" class="item-link">
+                    <a style="padding: 7px 20px" href="{{route('job.comments', ['id' => $jobrequest->id])}}" class="item-link">
                         <div class="group">
                             <div class="icon bg-primary" style="height: 25px; width: 25px">
                                 <svg id="Iconly_Curved_Activity" data-name="Iconly/Curved/Activity" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">

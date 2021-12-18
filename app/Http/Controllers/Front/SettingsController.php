@@ -129,12 +129,38 @@ class SettingsController extends Controller
         }
     }
     public function getBadge(){
+        $user = Auth::user();
         $title = 'Obtenir badge PRO';
-        return view('front.settings.badge.get', compact('title'));
+        return view('front.settings.badge.get', compact('title', 'user'));
     }
     public function getBadgepro(){
         $title = 'Obtenir badge PRO';
         $user = Auth::user();
         return view('front.settings.badge.pro', compact('title', 'user'));
+    }
+    public function identity(){
+        $user = Auth::user();
+        $title = 'Preuve d\'identité';
+        return view('front.settings.identity', compact('title', 'user'));
+    }
+    public function identityStore(Request $request){
+        $user = Auth::user();
+        $user->euorpion = $request->euorpion;
+        $user->identity_type = $request->identity_type;
+        $user->security_no = $request->security_no;
+
+        if ($request->hasfile('identity_document')) {
+            $image1 = $request->file('identity_document');
+            $name = time() . 'profileImage' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'profileImage/';
+            $image1->move($destinationPath, $name);
+            $user->identity_document = 'profileImage/' . $name;
+        }
+        $user->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }

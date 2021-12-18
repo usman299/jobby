@@ -33,6 +33,7 @@ CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('dob')->nullable();
             $table->string('rate_per_hour')->nullable();
+
             $table->integer('is_company')->nullable();
             $table->string('company_name')->nullable();
             $table->string('company_address')->nullable();
@@ -45,6 +46,12 @@ CreateUsersTable extends Migration
 
             $table->longText('document1')->nullable();
             $table->longText('document2')->nullable();
+
+//            identity proof
+            $table->string('euorpion')->nullable();
+            $table->string('identity_type')->nullable();
+            $table->string('identity_document')->nullable();
+            $table->string('security_no')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

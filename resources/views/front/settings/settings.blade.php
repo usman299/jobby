@@ -127,6 +127,27 @@
                         </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('proof.indentity')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-green">
+                                <svg id="Iconly_Curved_Paper_Plus" data-name="Iconly/Curved/Paper Plus" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Paper_Plus" data-name="Paper Plus" transform="translate(2.89 2.177)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M13.07,4.394,8.582.119A14.408,14.408,0,0,0,6.642,0C1.663,0,0,1.837,0,7.323s1.663,7.323,6.642,7.323,6.65-1.829,6.65-7.323A16.661,16.661,0,0,0,13.07,4.394Z" transform="translate(0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M0,0V2.107A2.662,2.662,0,0,0,2.663,4.769H5" transform="translate(8.141 0.065)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_5" data-name="Stroke 5" d="M3.879.5H0" transform="translate(4.562 7.599)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_7" data-name="Stroke 7" d="M.5,3.879V0" transform="translate(6.002 6.16)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Identity Document</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
                 @endif
             </ul>
         </div>

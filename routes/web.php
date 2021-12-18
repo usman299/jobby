@@ -45,6 +45,7 @@ Route::get('/categories', 'FrontendController@allCategories')->name('front.categ
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
 Route::get('/get/badge', 'Front\SettingsController@getBadge')->name('get.badge');
+Route::get('/proof/indentity', 'Front\SettingsController@identity')->name('proof.indentity');
 Route::get('/get/badge/pro', 'Front\SettingsController@getBadgepro')->name('badge.pro');
 Route::post('/get/badge/update', 'Front\SettingsController@badgeUpdate')->name('badge.update');
 Route::get('/app/settings', 'Front\SettingsController@settings')->name('app.settings');
@@ -56,6 +57,9 @@ Route::get('/app/contact', 'Front\SettingsController@contact')->name('app.contac
 Route::get('/app/password/change', 'Front\SettingsController@passwordChange')->name('password.change');
 Route::post('/profile/update', 'Front\SettingsController@profileUpdate')->name('profile.update');
 Route::post('/password/update', 'Front\SettingsController@passwordUpdate')->name('password.update');
+Route::post('/identity/store', 'Front\SettingsController@identityStore')->name('identity.store');
+
+Route::get('/job/comments/{id}', 'Front\ApplicantController@comments')->name('job.comments');
 
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
 Route::get('/applicant/jobber/services/{id}', 'Front\ApplicantController@jobberServices')->name('applicant.jobber.services');

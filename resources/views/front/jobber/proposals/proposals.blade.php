@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('content')
-    <div class="tab__line two_item" style="margin-top: 55px">
+    <div class="tab__line three_item" style="margin-top: 55px">
         <ul class="nav nav-pills" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
                 <a class="nav-link active" id="pills-ex-tab" data-toggle="pill" href="#pills-ex" role="tab" aria-controls="pills-ex" aria-selected="true">Actif</a>

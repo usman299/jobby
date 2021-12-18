@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\JobRequest;
@@ -280,5 +281,10 @@ class ApplicantController extends Controller
              return redirect()->back()->with($notification);
          }
 
+     public function comments($id){
+         $title = 'Commentaires';
+       $comments = Comments::where('job_id', '=', $id)->get();
+       return view('front.common.comments', compact('comments', 'title'));
+     }
 
 }
