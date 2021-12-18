@@ -187,6 +187,7 @@ $user = Auth::user();
             text-align: center;
             padding: 100px 30px 40px 30px;
         }
+
     </style>
     @yield('style')
 </head>

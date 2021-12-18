@@ -43,6 +43,14 @@
     <!-- manifest meta -->
     <link rel="manifest" href="{{asset('_manifest.json')}}" />
     <style>
+        .em__signTypeOne .em_titleSign {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 20px !important;
+        }
         .npPage_introDefault .npButtons_networks {
              padding-top: 0px !important;
             padding-left: 20px;
