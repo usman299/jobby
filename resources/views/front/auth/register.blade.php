@@ -226,6 +226,62 @@
                             </div>
                         </div>
                         @if($id == 1)
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h1>Give Proof of identity</h1>
+                            </div>
+                            <div class="form-group" style="text-align: left!important;">
+                                <label>Document d'identité </label>
+                                <div class="input_group">
+                                    <input type="file" id="file" name="document1" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group" style="text-align: left!important;">
+                                <label>Justificatif de sécurité sociale</label>
+                                <div class="input_group">
+                                    <input type="file" id="file" name="document2" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group" style="text-align: left!important;">
+                                <label>Ces documents sont nécessaires
+
+                                    Ces documents sont nécessaires pour valider votre identité, votre âge, et votre éligibilité à travailler sur le territoire. Ils ne seront jamais rendus publics</label>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h1>Select Specialized Profile</h1>
+                            </div>
+                            <div class="form-group" style="text-align: left!important;">
+                                <div style="padding: 10px">
+                                    <?php
+                                    $categories = \App\Category::all();
+                                    ?>
+                                    <div class="input_group">
+                                        <select  onchange="categorychange(this)" class="form-control custom-select" name="category_id">
+                                            <option value="">Catégorie Spécialisée Selectc</option>
+                                            @foreach($categories as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="text-align: left!important;">
+                                <h1>Sous-catégorie spécialisée</h1>
+                                <div style="padding: 10px">
+                                    <div class="input_group">
+                                        <select onchange="subcategorychange(this)" name="subcategory_id"  class="form-control custom-select maincategory">
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                            <div class="newtabs">
+
+                            </div>
                         <div class="tab  Soutien scolaire">
 
                             <div class="em_titleSign" style="margin-left: auto;">
@@ -3805,58 +3861,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab">
-                            <div class="em_titleSign">
-                                <h1>Give Proof of identity</h1>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Document d'identité </label>
-                                <div class="input_group">
-                                    <input type="file" id="file" name="document1" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Justificatif de sécurité sociale</label>
-                                <div class="input_group">
-                                    <input type="file" id="file" name="document2" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Ces documents sont nécessaires
 
-                                    Ces documents sont nécessaires pour valider votre identité, votre âge, et votre éligibilité à travailler sur le territoire. Ils ne seront jamais rendus publics</label>
-                            </div>
-                        </div>
-                        <div class="tab">
-                            <div class="em_titleSign">
-                                <h1>Select Specialized Profile</h1>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div style="padding: 10px">
-                                    <?php
-                                    $categories = \App\Category::all();
-                                    ?>
-                                    <div class="input_group">
-                                        <select  onchange="categorychange(this)" class="form-control custom-select" name="category_id">
-                                            <option value="">Catégorie Spécialisée Selectc</option>
-                                            @foreach($categories as $cat)
-                                                <option value="{{$cat->id}}">{{$cat->title}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <h1>Sous-catégorie spécialisée</h1>
-                                <div style="padding: 10px">
-                                    <div class="input_group">
-                                        <select onchange="subcategorychange(this)" name="subcategory_id" class="form-control custom-select maincategory">
-                                        </select>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
+
 
                         @endif
 
@@ -3961,6 +3968,7 @@
     </div>
 
 @endsection
+
 @section('script')
     <script>
         function categorychange(elem){
@@ -4107,6 +4115,22 @@
                 $(".box").not(targetBox).hide();
                 $(targetBox).hide();
             });
+        });
+    </script>
+
+    <script>
+        function mainCategory() {
+            var str = $(".maincategory").val();
+               console.log(str);
+            $(".newtabs").html('');
+            $(".newtabs").append('<div class="tab"><div class="em_titleSign"><h1>Carte vitale</h1></div><div class="em__body"><div class="form-group" style="text-align: left!important;"><label>Carte vitale</label><div class="input_group"><input type="file" id="file" name="identity_document" class="form-control"></div></div><div class="form-group" style="text-align: left!important;"><label>Numéro de sécurité sociale</label><div class="input_group"><input type="text" id="file" name="security_no" class="form-control"></div></div><p>Votre numéro de sécurité sociale permet à vos clients de vous déclarer directement sur Yoojo. Il est confidentiel et sécurisé.</p></div></div>');
+
+        }
+        $(".maincategory").onchange(function(){
+             });
+        $(".certificate").click(function(){
+            $(".newtabs").html('');
+            $(".newtabs").append('<div class="tab"><div class="em_titleSign"><h1>Certificat de securite social</h1></div><div class="em__body"><div class="form-group" style="text-align: left!important;"><label>Certificat de securite social</label><div class="input_group"><input type="file" id="file" name="identity_document" class="form-control"></div></div><div class="form-group" style="text-align: left!important;"><label>Numéro de sécurité sociale</label><div class="input_group"><input type="text" id="file" name="security_no" class="form-control"></div></div><p>Votre numéro de sécurité sociale permet à vos clients de vous déclarer directement sur Yoojo. Il est confidentiel et sécurisé.</p></div></div>');
         });
     </script>
 @endsection
