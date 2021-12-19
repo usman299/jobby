@@ -187,7 +187,15 @@ $user = Auth::user();
             text-align: center;
             padding: 100px 30px 40px 30px;
         }
-
+        .itemCountr_manual.horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-snow);
+            border-radius: 10px;
+            width: 100px;
+            float: right;
+        }
     </style>
     @yield('style')
 </head>
@@ -737,7 +745,7 @@ $user = Auth::user();
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div class="padding-t-60">
+                        <div class="padding-t-30">
                             <div class="em__signTypeOne">
 
                                 <div class="em__body px-0">
@@ -764,22 +772,76 @@ $user = Auth::user();
                                                 <label for="email">Sous-catégorie</label>
                                             </div>
                                             <div class="form-group input-lined">
-                                                <input type="number" name="min_price"  class="form-control" required="">
-                                                <label for="mobile">Minimum Budget</label>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <input type="number" name="min_price" placeholder="Min (€)" class="form-control" required="">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <input type="number" name="max_price" placeholder="Max (€)" class="form-control" required="">
+                                                    </div>
+                                                </div>
+                                                <label for="mobile">Budget</label>
                                             </div>
                                             <input type="hidden" name="lat" class="lat">
                                             <input type="hidden" name="long" class="long">
                                             <div class="form-group input-lined">
-                                                <input type="number" name="max_price" class="form-control" required="">
-                                                <label for="mobile">Maximum Budget</label>
-                                            </div>
-                                            <div class="form-group input-lined">
                                                 <input type="date" name="estimate_time"  class="form-control" required="">
-                                                <label for="mobile">Date</label>
+                                                <label for="mobile">Date de service</label>
                                             </div>
                                             <div class="form-group input-lined">
-                                                <textarea class="form-control" rows="2" name="description"></textarea>
-                                                <label for="address">Details</label>
+                                                <input type="time" name="start_time"  class="form-control" required="">
+                                                <label for="mobile">Heure de début</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <div class="item-link hoverNone" style="text-align: right">
+                                                    <div class="group">
+                                                        <div class="itemCountr_manual horizontal itemButtons -sm border-0 min-w-110">
+                                                            <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
+                                                                <i class="tio-remove"></i>
+                                                            </a>
+                                                            <input type="text" class="form-control input_no color-secondary" value="1">
+                                                            <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
+                                                                <i class="tio-add color-white"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <label for="address">Durée estime (heure)</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <div class="item-link hoverNone" style="text-align: right">
+                                                    <div class="group">
+                                                        <div class="itemCountr_manual horizontal itemButtons -sm border-0 min-w-110">
+                                                            <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
+                                                                <i class="tio-remove"></i>
+                                                            </a>
+                                                            <input type="text" class="form-control input_no color-secondary" value="9">
+                                                            <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
+                                                                <i class="tio-add color-white"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <label for="address">Taux horaire (€)</label>
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <label for="files" class="btn" style="text-align: left; padding: 0px">
+                                                    <img style="height: 80px" id="output_image" src="http://127.0.0.1:8000/assets/img/0ffd6s54.jpg">
+                                                </label>
+                                                <input id="files" style="visibility:hidden;" type="file">
+                                                <label for="files1" class="btn" style="text-align: left; padding: 0px">
+                                                    <img style="height: 80px" id="output_image1" src="http://127.0.0.1:8000/assets/img/0ffd6s54.jpg">
+                                                </label>
+                                                <input id="files1" style="visibility:hidden;" type="file">
+                                                <label for="address">Photos</label>
+
+                                            </div>
+                                            <div class="form-group input-lined ">
+
+                                            </div>
+                                            <div class="form-group input-lined">
+                                                <textarea placeholder="Ecrire quelque chose sur le travail" class="form-control" rows="4" name="description"></textarea>
+                                                <label for="address">Description</label>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -826,6 +888,38 @@ $user = Auth::user();
 <!-- PWA app service registration and works js -->
 <script src="{{asset('assets/js/pwa-services.js')}}"></script>
 <script>
+    $("#files").change(function() {
+        filename = this.files[0].name;
+        readURL(this);
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#output_image').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#files1").change(function() {
+        filename = this.files[0].name;
+        readURL1(this);
+    });
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#output_image1').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
     function categorychange(elem){
         $('.maincategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
         event.preventDefault();

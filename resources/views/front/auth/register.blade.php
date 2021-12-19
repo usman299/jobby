@@ -21,6 +21,9 @@
         h1{
             text-align: center;
         }
+        h2{
+            text-align: left !important;
+        }
         button {
             background-color: #04AA6D;
             color: #ffffff;
@@ -64,6 +67,12 @@
             -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
             transform: scale(1.5);
         }
+        .f-20{
+            font-size:20px;
+        }
+        .allign-left{
+            text-align: left;
+        }
     </style>
 @endsection
 @section('content')
@@ -96,7 +105,7 @@
                 <form id="regForm" class="loginformsubmit" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="em__body question_tabs">
-                        <div class="tab">
+<!--                        <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Créer un compte</h1>
                             </div>
@@ -193,8 +202,8 @@
                                     <span> Je suis d'accord <a href="#" class="color-blue">termes et conditions</a></span>
                                 </label>
                             </div>
-                        </div>
-                        <div class="tab">
+                        </div>-->
+                            <!--                        <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Créer un compte</h1>
                             </div>
@@ -224,9 +233,9 @@
                                     <textarea name="description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         @if($id == 1)
-                      {{--  <div class="tab">
+                            {{--  <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Give Proof of identity</h1>
                             </div>
@@ -248,7 +257,7 @@
                                     Ces documents sont nécessaires pour valider votre identité, votre âge, et votre éligibilité à travailler sur le territoire. Ils ne seront jamais rendus publics</label>
                             </div>
                         </div>--}}
-                        <div class="tab">
+                            {{--                        <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Select Specialized Profile</h1>
                             </div>
@@ -277,28 +286,57 @@
                                 </div>
 
                             </div>
+                        </div>--}}
+
+                           <div class="tab">
+                            <div class="em_titleSign">
+                                <h2>Sélectionnez un profil spécialisé</h2>
+                            </div>
+                            <div  class="form-group" style="text-align: left!important;">
+                                <div style="padding: 10px">
+                                    <div class="input_group">
+                                        <select name="subcategory_id" onchange="subcategorychange(this)"  class="form-control custom-select">
+                                            <option value="">Sélectionnez un profil spécialisé</option>
+                                            <option value="Bricolage / Travaux">Bricolage / Travaux</option>
+                                            <option value="Électricité et domotique">Électricité et domotique</option>
+                                            <option value="Plomberie">Plomberie</option>
+                                            <option value="Aide à la personne">Aide à la personne</option>
+                                            <option value="Aide ménagère">Aide ménagère</option>
+                                            <option value="Livraison / Déménagement">Livraison / Déménagement</option>
+                                            <option value="Mécanique">Mécanique</option>
+                                            <option value="Entretien du jardin">Entretien du jardin</option>
+                                            <option value="Garde d’enfants">Garde d’enfants</option>
+                                            <option value="Garde d’animaux">Garde d’animaux</option>
+                                            <option value="Cours particuliers">Cours particuliers</option>
+                                            <option value="Évènementiel">Évènementiel</option>
+                                            <option value="Taches administrative">Taches administrative</option>
+                                            <option value="Informatique">Informatique</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
 
                         <div class="newtabs">
 
                         </div>
 
-                        <div class="tab  Soutien scolaire">
-
+                        <div class="tab">
                             <div class="em_titleSign" style="margin-left: auto;">
                                 <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
+                                <p class="f-20">Avez vous un lien avec le diplôme pour la compétence?</p>
                             </div>
                             <div class="form-group" style="text-align: left!important;">
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="OUI" name="diploma" class="custom-control-input yes">
+                                            <input type="radio" id="yes" value="OUI" name="diploma" class="custom-control-input diploma_yes">
                                             <label class="custom-control-label padding-l-10" for="yes">
                                                 OUI</label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="Non" name="diploma" class="custom-control-input">
+                                            <input type="radio" id="no" value="Non" name="diploma" class="custom-control-input diploma_no">
                                             <label class="custom-control-label padding-l-10" for="no">
                                                 Non
                                             </label>
@@ -306,707 +344,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" name="diploma_name"  class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
+                            <div class="doploma_name form-group allign-left">
+
                             </div>
                         </div>
-                        <div class="tab  Soutien scolaire">
-
+                        <div class="tab">
                             <div class="em_titleSign" style="margin-left: auto;">
                                 <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
+                                <p class="f-20">Quel expérience avez-vous en tant que prestataire?
                                 </p>
                             </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
-                        </div>
-                        <div class="tab  Soutien scolaire">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio"  id="equipement1" value="Aucun" name="equipement" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement">
-                                                Aucun
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Chenil" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Chenil
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Jardin" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Jardin
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Cage" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Cage
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Volière" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Volière
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Enclos extérieur" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Enclos extérieur
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Enclos intérieur" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Enclos intérieur
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement8" value="Arbre à chat" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement8">
-                                                Arbre à chat
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement9" value="Litière" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement9">
-                                                Litière
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement10" value="Caisse de transport" name="equipement" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement10">
-                                                Caisse de transport
-
-                                            </label>
-                                        </div>
-
-
-                                    </div></div>
-                            </div>
-
-                        </div>
-                        <div class="tab  Soutien scolaire">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description"  placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab  Soutien scolaire">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Efficace et discret" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Convivialité" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Convivialité
-
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Dynamique et souriant" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Dynamique et souriant
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Réactif et flexible" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Réactif et flexible
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagemen6" value="Respect de l’hygiène" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Respect de l’hygiène
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Pédagogue" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Pédagogue
-
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement13" value="À l’écoute" name="engagement13" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement13">
-                                                    À l’écoute
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement14" value="Organisé et méthodique" name="engagement14" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement14">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Préparation des repas" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Préparation des repas
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Calme et patient" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Calme et patient
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Interventions régulières" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Interventions régulières
-
-
-                                                </label>
-
-                                                <div class="custom-control custom-radio margin-b-10">
-                                                    <input type="radio" id="engagement11" value="Structure et rigueur" name="engagement11" class="custom-control-input">
-                                                    <label class="custom-control-label padding-l-10" for="engagement11">
-                                                        Structure et rigueur
-
-
-                                                    </label>
-                                                </div>
-                                                <div class="custom-control custom-radio margin-b-10">
-                                                    <input type="radio" id="engagement12" value=" Progression garantie" name="engagement12" class="custom-control-input">
-                                                    <label class="custom-control-label padding-l-10" for="engagement12">
-                                                        Progression garantie
-
-
-
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="tab  Soutien scolaire">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab Rénovation">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma_name" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab Rénovation">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value=" Je n’en ai aucune" name="experince1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
-                        </div>
-                        <div class="tab Rénovation">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aucun
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Seau à peinture" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Seau à peinture
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Rouleau" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Rouleau
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Echelle 2m" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Echelle 2m
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Echelle 4m" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Echelle 4m
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement16" value=" Pinceaux" name="equipement16" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement16">
-                                                Pinceaux
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Couteau à enduire" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Couteau à enduire
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Outils de découpe" name="equipement7" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Outils de découpe
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement8" value="Couteau à enduire" name="equipement8" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement8">
-                                                Couteau à enduire
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement9" value="Pistolet à peinture" name="equipement9" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement9">
-                                                Pistolet à peinture
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement9" value="Couteau à enduire" name="equipement9" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement9">
-                                                Couteau à enduire
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement10" value="" name="equipement10" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement10">
-                                                Pistolet à peinture
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement11" value="Décolleuse à papier peint" name="equipement11" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement11">
-                                                Décolleuse à papier peint
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement12" value="Brosse et rouleau à papier peint" name="equipement12" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement12">
-                                                Brosse et rouleau à papier peint
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement13" value="Cales" name="equipement13" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement13">
-                                                Cales
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement14" value="Agrafeuse" name="equipement14" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement14">
-                                                Agrafeuse
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement15" value="Equerre" name="equipement15" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement15">
-                                                Equerre
-
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
-                        </div>
-                        <div class="tab Rénovation">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab Rénovation">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Travail en sécurité
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Qualité avant rapidité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Rapidité et fiabilité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Résultat garanti
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Satisfait ou refait
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Chantier propre
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
-                        </div>
-                        <div class="tab Rénovation">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab  d’animaux">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma_name" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab d’animaux">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
+                            <div class="form-group allign-left">
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
@@ -1019,2865 +367,1458 @@
                                             <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="experince2">
                                                 J’ai moins d’un an
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="experince3">
                                                 J’ai entre 2 et 4 ans
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="experince4">
                                                 J’ai plus de 5 ans
-
                                             </label>
                                         </div>
-
-                                    </div></div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="equip_tab">
 
                         </div>
-                        <div class="tab  d’animaux">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h2>Description de la compétenc!</h2>
+                                <p class="p-20">Description personnalisée ?
                                 </p>
                             </div>
-                            <div class="form-group" style="text-align: left!important;">
+                            <div class="form-group allign-left">
+                                <div class="input_group">
+                                    <textarea name="personal_description"  placeholder="Décrivez votre savoir faire et vos expériences pour cette compétences (optionnel)" class="form-control" id="" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h2>Certifie sur l’honneur!</h2>
+                                <p class="f-20">Je certifie sur l’honneur l’authenticité des données renseignées.
+                                </p>
+                            </div>
+                            <div class="form-group allign-left">
+                                <div class="form-group" style="text-align: left!important;">
+                                    <div class="input_group">
+                                        <div class="bg-white ">
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="certifie" value="certifie" name="certifie" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="certifie">
+                                                    Je certifie sur l’honneur l’authenticité des données renseignées. (Case à cocher)
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+{{--        //1 2 3 8 --}}
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h2>Engagement pour la compétence!</h2>
+                                <p class="f-20">Quels sont vos engagements clients ?
+                                </p>
+                            </div>
+                            <div class="form-group allign-left">
+                                <div class="input_group">
+                                    <div class="bg-white">
+                                        <fieldset>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng1" value="Respect des lieux" name="eng1" class="custom-control-input ">
+                                                <label class="custom-control-label padding-l-10" for="eng1">
+                                                    Respect des lieux
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng2" value="Résultat impeccable" name="eng2" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng2">
+                                                    Résultat impeccable
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng3" value="Travail soigné" name="eng3" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng3">
+                                                    Travail soigné
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng4" value="Travail d’expert" name="eng4" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng4">
+                                                    Travail d’expert
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng5" value="Travail de passionné" name="eng5" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng5">
+                                                    Travail de passionné
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng6" value="Organisé et méthodique" name="eng6" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng6">
+                                                    Organisé et méthodique
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng7" value="Travail en sécurité" name="eng7" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng7">
+                                                    Travail en sécurité
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng8" value="Efficace et discret" name="eng8" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng8">
+                                                    Efficace et discret
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng9" value="Convivialité" name="eng9" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng9">
+                                                    Convivialité
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng10" value="Qualité avant rapidité" name="eng10" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng10">
+                                                    Qualité avant rapidité
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng11" value="Rapidité et fiabilité" name="eng11" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng11">
+                                                    Rapidité et fiabilité
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng12" value="Dynamique et souriant" name="eng12" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng12">
+                                                    Dynamique et souriant
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng13" value="Résultat garanti" name="eng13" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng13">
+                                                    Résultat garanti
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng14" value="Satisfait ou refait" name="eng14" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng14">
+                                                    Satisfait ou refait
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng15" value="Réactif et flexible" name="eng15" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng15">
+                                                    Réactif et flexible
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng16" value="Réactif et flexible" name="eng16" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng16">
+                                                    Chantier propre
+                                                </label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+{{--    4--}}
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h2>Engagement pour la compétence!</h2>
+                                <p class="f-20">Quels sont vos engagements clients ?
+                                </p>
+                            </div>
+                            <div class="form-group allign-left">
+                                <div class="input_group">
+                                    <div class="bg-white">
+                                        <fieldset>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng1" value="Travail soigné" name="eng1" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng1">
+                                                    Travail soigné
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng2" value="Travail d’expert" name="eng2" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng2">
+                                                    Travail d’expert
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng3" value="Travail de passionné" name="eng3" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng3">
+                                                    Travail de passionné
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng4" value="Organisé et méthodique" name="eng4" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng4">
+                                                    Organisé et méthodique
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng5" value="Efficace et discret" name="eng5" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng5">
+                                                    Efficace et discret
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng6" value="Convivialité" name="eng6" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng6">
+                                                    Convivialité
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng7" value="Dynamique et souriant" name="eng7" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng7">
+                                                    Dynamique et souriant
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng8" value="Réactif et flexible" name="eng8" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng8">
+                                                    Réactif et flexible
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng9" value="Respect de l’hygiène" name="eng9" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng9">
+                                                    Respect de l’hygiène
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng10" value="A l’écoute" name="eng10" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng10">
+                                                    A l’écoute
+                                                </label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng11" value="Calme et patient" name="eng11" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng11">
+                                                    Calme et patient
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng12" value="Interventions régulières" name="eng12" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng12">
+                                                    Interventions régulières
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng13" value="Transport possible" name="eng13" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng13">
+                                                    Transport possible
+                                                </label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+{{--    5 6 7 12--}}
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h2>Engagement pour la compétence!</h2>
+                                <p class="f-20">Quels sont vos engagements clients ?
+                                </p>
+                            </div>
+                            <div class="form-group allign-left">
+                                <div class="input_group">
+                                    <div class="bg-white">
+                                        <fieldset>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng1" value="Respect des lieux" name="eng1" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng1">
+                                                    Respect des lieux
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng2" value="Résultat impeccable" name="eng2" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng2">
+                                                    Résultat impeccable
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng3" value="Travail soigné" name="eng3" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng3">
+                                                    Travail soigné
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng4" value="Travail d’expert" name="eng4" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng4">
+                                                    Travail d’expert
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng5" value="Organisé et méthodique" name="eng5" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng5">
+                                                    Organisé et méthodique
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng6" value="Efficace et discret" name="eng6" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng6">
+                                                    Efficace et discret
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng7" value="Convivialité" name="eng7" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng7">
+                                                    Convivialité
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng8" value="Dynamique et souriant" name="eng8" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng8">
+                                                    Dynamique et souriant
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng9" value="Résultat garanti" name="eng9" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng9">
+                                                    Résultat garanti
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng10" value="Satisfait ou refait" name="eng10" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng10">
+                                                    Satisfait ou refait
+                                                </label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng11" value="Réactif et flexible" name="eng11" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng11">
+                                                    Réactif et flexible
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="eng12" value="Respect de l’hygiène" name="eng12" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="eng12">
+                                                    Respect de l’hygiène
+                                                </label>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+{{--9--}}
+                        <div class="tab">
+            <div class="em_titleSign">
+                <h2>Engagement pour la compétence!</h2>
+                <p class="f-20">Quels sont vos engagements clients ?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white">
+                        <fieldset>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng1" value="Respect des lieux" name="eng1" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng1">
+                                    Respect des lieux
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng2" value="Efficace et discret" name="eng2" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng2">
+                                    Efficace et discret
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng3" value="Convivialité" name="eng3" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng3">
+                                    Convivialité
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng4" value="Dynamique et souriant" name="eng4" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng4">
+                                    Dynamique et souriant
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng5" value="Réactif et flexible" name="eng5" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng5">
+                                    Réactif et flexible
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng6" value="Respect de l’hygiène" name="eng6" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng6">
+                                    Respect de l’hygiène
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng7" value="Pédagogue" name="eng7" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng7">
+                                    Pédagogue
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng8" value="À l’écoute" name="eng8" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng8">
+                                    À l’écoute
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng9" value="Nouvelles régulières" name="eng9" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng9">
+                                    Nouvelles régulières
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng10" value="Préparation des repas" name="eng10" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng10">
+                                    Préparation des repas
+                                </label>
+                            </div>
+
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng11" value="Calme et patient" name="eng11" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng11">
+                                    Calme et patient
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng12" value="Interventions régulières" name="eng12" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng12">
+                                    Interventions régulières
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{--10--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Engagement pour la compétence!</h2>
+                <p class="f-20">Quels sont vos engagements clients ?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white">
+                        <fieldset>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng1" value="Respect des lieux" name="eng1" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng1">
+                                    Respect des lieux
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng2" value="Efficace et discret" name="eng2" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng2">
+                                    Efficace et discret
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng3" value="Convivialité" name="eng3" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng3">
+                                    Convivialité
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng4" value="Dynamique et souriant" name="eng4" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng4">
+                                    Dynamique et souriant
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng5" value="Réactif et flexible" name="eng5" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng5">
+                                    Réactif et flexible
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng6" value="À l’écoute" name="eng6" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng6">
+                                    À l’écoute
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng7" value="Nouvelles régulières" name="eng7" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng7">
+                                    Nouvelles régulières
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng8" value="Préparation des repas" name="eng8" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng8">
+                                    Préparation des repas
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng9" value="Amoureux des animaux" name="eng9" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng9">
+                                    Amoureux des animaux
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng10" value="Amateur de promenades" name="eng10" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng10">
+                                    Amateur de promenades
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng11" value="Sportif" name="eng11" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng11">
+                                    Sportif
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng12" value="Transport possible" name="eng12" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng12">
+                                    Transport possible
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{--11 12 13 14--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Engagement pour la compétence!</h2>
+                <p class="f-20">Quels sont vos engagements clients ?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white">
+                        <fieldset>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng1" value="Efficace et discret" name="eng1" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng1">
+                                    Efficace et discret
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng2" value="Convivialité" name="eng2" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng2">
+                                    Convivialité
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng3" value="Dynamique et souriant" name="eng3" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng3">
+                                    Dynamique et souriant
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng4" value="Réactif et flexible" name="eng4" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng4">
+                                    Réactif et flexible
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng5" value="À l’écoute" name="eng5" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng5">
+                                    À l’écoute
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng6" value="Organisé et méthodique" name="eng6" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng6">
+                                    Organisé et méthodique
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng7" value="Calme et patient" name="eng7" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng7">
+                                    Calme et patient
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng8" value="Interventions régulières" name="eng8" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng8">
+                                    Interventions régulières
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng9" value="Structure et rigueur" name="eng9" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng9">
+                                    Structure et rigueur
+                                </label>
+                            </div>
+                            <div class="custom-control custom-radio margin-b-10">
+                                <input type="radio" id="eng10" value="Progression garantie" name="eng10" class="custom-control-input">
+                                <label class="custom-control-label padding-l-10" for="eng10">
+                                    Progression garantie
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{{--equip 1--}}
+                        <div class="tab">
+                            <div class="em_titleSign">
+                                <h2>Equipement pour la compétence!</h2>
+                                <p class="f-20">Quel équipement avez vous?
+                                </p>
+                            </div>
+                            <div class="form-group allign-left">
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
                                             <label class="custom-control-label padding-l-10" for="equipement1">
                                                 Aucun
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement2" value="Chenil" name="equipement2" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement2">
                                                 Chenil
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement3" value="Jardin" name="equipement3" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement3">
                                                 Jardin
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement4" value="Cage" name="equipement4" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement4">
                                                 Cage
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement5" value="Volière" name="equipement5" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement5">
                                                 Volière
-
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement6" value="Enclos extérieur" name="equipement6" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement6">
                                                 Enclos extérieur
-
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement7" value="Enclos intérieur" name="equipement7" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement7">
                                                 Enclos intérieur
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement8" value="Arbre à chat" name="equipement8" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement8">
                                                 Arbre à chat
-
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement9" value="Litière" name="equipement9" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement9">
                                                 Litière
-
-
-
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
                                             <input type="radio" id="equipement10" value="Caisse de transport" name="equipement10" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement10">
                                                 Caisse de transport
-
                                             </label>
                                         </div>
-
-
-                                    </div></div>
-                            </div>
-
-                        </div>
-                        <div class="tab  d’animaux">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab  d’animaux">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Efficace et discret" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Convivialité" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Convivialité
-
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Dynamique et souriant" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Dynamique et souriant
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Réactif et flexible" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Réactif et flexible
-
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="À l’écoute" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    À l’écoute
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Nouvelles régulières" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Nouvelles régulières
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Amoureux des animaux" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Amoureux des animaux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Amateur de promenades" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Amateur de promenades
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Sportif" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Sportif
-
-                                                </label>
-
-                                                <div class="custom-control custom-radio margin-b-10">
-                                                    <input type="radio" id="engagement11" value="Transport possible" name="engagement11" class="custom-control-input">
-                                                    <label class="custom-control-label padding-l-10" for="engagement11">
-                                                        Transport possible
-
-                                                    </label>
-                                                </div>                                                <div class="custom-control custom-radio margin-b-10">
-                                                    <input type="radio" id="engagement12" value="Respect de l’hygiène" name="engagement12" class="custom-control-input">
-                                                    <label class="custom-control-label padding-l-10" for="engagement12">
-                                                        Respect de l’hygiène
-
-
-                                                    </label>
-
-                                                </div>
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div></div>
-                        <div class="tab  d’animaux">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab d’enfants">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma_name" class="form-control" placeholder="Entrer le diplôme" required="">
+                                    </div>
                                 </div>
                             </div>
+                         </div>
+{{--equip 2--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
                         </div>
-                        <div class="tab  d’enfants">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Pince à sertir" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Pince à sertir
+                            </label>
                         </div>
-                        <div class="tab  d’enfants">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aucun
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Jeux de société" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Jeux de société
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Pate à modeler" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Pate à modeler
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Jeux pour enfant" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Jeux pour enfant
-
-
-                                            </label>
-                                        </div>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Multimètre" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Multimètre
+                            </label>
                         </div>
-                        <div class="tab  d’enfants">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab  d’enfants">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Efficace et discret" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Convivialité" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Convivialité
-
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Dynamique et souriant" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Dynamique et souriant
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Réactif et flexible" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Réactif et flexible
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="Respect de l’hygiène" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Respect de l’hygiène
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Pédagogue" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Pédagogue
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="À l’écoute" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    À l’écoute
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Nouvelles régulières" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Nouvelles régulières
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Préparation des repas" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Préparation des repas
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="Calme et patient" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Calme et patient
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="Interventions régulières" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Interventions régulières
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement13" value="Respect de l’hygiène" name="engagement13" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement13">
-                                                    Respect de l’hygiène
-
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Testeur de cable" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Testeur de cable
+                            </label>
                         </div>
-                        <div class="tab  d’enfants">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab Repassage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma_name" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Pince ampèremétrique" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Pince ampèremétrique
+                            </label>
                         </div>
-                        <div class="tab Repassage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Dégaineur / Dénudeur" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Dégaineur / Dénudeur
+                            </label>
                         </div>
-                        <div class="tab Repassage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aucun
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Centrale vapeur" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Centrale vapeur
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Fer à repasser" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Fer à repasser
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Pince coupante" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Pince coupante
+                            </label>
                         </div>
-                        <div class="tab Repassage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab Repassage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Résultat impeccable" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Travail soigné" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Travail de passionné" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="Organisé et méthodique" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Efficace et discret" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Convivialité" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Dynamique et souriant" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Résultat garanti" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Résultat garanti
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="Satisfait ou refait" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Satisfait ou refait
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="Réactif et flexible" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement13" value="Respect de l’hygiène" name="engagement13" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement13">
-                                                    Respect de l’hygiène
-
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement8" value="Tournevis électricien" name="equipement8" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement8">
+                                Tournevis électricien
+                            </label>
                         </div>
-                        <div class="tab Repassage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab Entretien ">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{{--equip 3--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
                         </div>
-                        <div class="tab Entretien">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Coupe-tube" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Coupe-tube
+                            </label>
                         </div>
-                            Equipement pour la compétence!
-                        <div class="tab Entretien ">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aucun
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Tondeuse à bras" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Tondeuse à bras
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Tondeuse autoportée" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Tondeuse autoportée
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Taille-haie" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Taille-haie
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Tronçonneuse" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Tronçonneuse
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Désehbeuse" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Désehbeuse
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Coupe bordure" name="equipement7" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Coupe bordure
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement8" value="Motoculteur" name="equipement8" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement8">
-                                                Motoculteur
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement9" value="Hache" name="equipement9" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement9">
-                                                Hache
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement10" value="Scie" name="equipement10" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement10">
-                                                Scie
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement11" value="Petit équipement de jardinage" name="equipement11" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement11">
-                                                Petit équipement de jardinage
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement12" value="Grand équipement de jardinage" name="equipement12" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement12">
-                                                Grand équipement de jardinage
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement13" value="Débrousailleuse" name="equipement13" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement13">
-                                                Débrousailleuse
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement14" value="Brouette" name="equipement14" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement14">
-                                                Brouette
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement15" value="Karcher" name="equipement15" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement15">
-                                                Karcher
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement16" value="Ébrancheur" name="equipement16" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement16">
-                                                Ébrancheur
-                                            </label>
-                                        </div>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Téflon" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Téflon
+                            </label>
                         </div>
-                        <div class="tab Entretien ">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab Entretien ">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Résultat impeccable" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Travail soigné" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Travail d’expert" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Travail de passionné" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="Organisé et méthodique" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Travail en sécurité" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Travail en sécurité
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Efficace et discret" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Convivialité" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Qualité avant rapidité" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Qualité avant rapidité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Rapidité et fiabilité" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Rapidité et fiabilité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="Dynamique et souriant" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="Résultat garanti" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Résultat garanti
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement13" value="Satisfait ou refait" name="engagement13" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement13">
-                                                    Satisfait ou refait
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement14" value="Réactif et flexible" name="engagement14" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement14">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement15" value="Chantier propre" name="engagement15" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement15">
-                                                    Chantier propre
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Clé à bonde" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Clé à bonde
+                            </label>
                         </div>
-                        <div class="tab Entretien ">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab Plomberie">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Pince à glissement" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Pince à glissement
+                            </label>
                         </div>
-                        <div class="tab Plomberie">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Pince à emboiture" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Pince à emboiture
+                            </label>
                         </div>
-                        <div class="tab Plomberie">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aucun
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Coupe-tube" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Coupe-tube
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Téflon" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Téflon
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Clé à bonde" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Clé à bonde
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Pince à glissement" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Pince à glissement
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Pince à emboiture" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Pince à emboiture
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Pince à cintrer" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Pince à cintrer
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Rodoir" name="equipement7" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Rodoir
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement8" value="Déboucheur" name="equipement8" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement8">
-                                                Déboucheur
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement9" value="Clé à molette" name="equipement9" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement9">
-                                                Clé à molette
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement10" value="Clé à siphon" name="equipement10" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement10">
-                                                Clé à siphon
-
-                                            </label>
-                                        </div>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Pince à cintrer" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Pince à cintrer
+                            </label>
                         </div>
-                        <div class="tab Plomberie">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab Plomberie">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Résultat impeccable" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Travail soigné" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Travail d’expert" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Travail de passionné" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="Organisé et méthodique" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Travail en sécurité" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Travail en sécurité
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Efficace et discret" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Convivialité" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Qualité avant rapidité" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Qualité avant rapidité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="Rapidité et fiabilité" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Rapidité et fiabilité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="Dynamique et souriant" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement13" value="Résultat garanti" name="engagement13" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement13">
-                                                    Résultat garanti
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement14" value="Satisfait ou refait" name="engagement14" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement14">
-                                                    Satisfait ou refait
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement15" value="Réactif et flexible" name="engagement15" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement15">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement16" value="Chantier propre" name="engagement16" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement16">
-                                                    Chantier propre
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement8" value="Rodoir" name="equipement8" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement8">
+                                Rodoir
+                            </label>
                         </div>
-                        <div class="tab Plomberie">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab Déménagement">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement9" value="Déboucheur" name="equipement9" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Déboucheur
+                            </label>
                         </div>
-                        <div class="tab Déménagement">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement10" value="Clé à molette" name="equipement10" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement10">
+                                Clé à molette
+                            </label>
                         </div>
-                        <div class="tab Déménagement">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2> Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Diable" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Diable
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Pick-up" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Pick-up
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Petit fourgon" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Petit fourgon
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Grand fourgon" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Grand fourgon
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Petit camion" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Petit camion
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Grand camion" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Grand camion
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Sangles" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Sangles
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Couverture" name="equipement7" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Couverture
-
-
-                                            </label>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="equipement8" value="Cartons" name="equipement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="equipement8">
-                                                    Cartons
-
-                                                </label>
-                                            </div>
-
-                                        </div></div>
-                                </div>
-
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement11" value="Clé à siphon" name="equipement11" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement11">
+                                Clé à siphon
+                            </label>
                         </div>
-                        <div class="tab Déménagement">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab Déménagement">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Résultat impeccable" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Travail soigné" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Travail d’expert" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Travail de passionné" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="Organisé et méthodique" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Travail en sécurité" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Travail en sécurité
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Efficace et discret" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Convivialité" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Rapidité et fiabilité" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Rapidité et fiabilité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="Dynamique et souriant" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="Réactif et flexible" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="experince13" value="Précautions maximum" name="experince13" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement13">
-                                                    Précautions maximum
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 4--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Vélo" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Vélo
+                            </label>
                         </div>
-                        <div class="tab Déménagement">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab ménage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Scooteur" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Scooteur
+                            </label>
                         </div>
-                        <div class="tab ménage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Voiture" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Voiture
+                            </label>
                         </div>
-                        <div class="tab ménage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aspirateur" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aspirateur
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Produit ménager" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Produit ménager
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Karcher" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Karcher
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Machine à coudre" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Machine à coudre
+                            </label>
                         </div>
-                        <div class="tab ménage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab ménage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Respect des lieux" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement1" value="Résultat impeccable" name="engagement1" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Travail soigné" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Travail d’expert" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Travail de passionné" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Organisé et méthodique" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="Efficace et discret" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="Convivialité" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Dynamique et souriant" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Résultat garanti" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Résultat garanti
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Satisfait ou refait" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Satisfait ou refait
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="Réactif et flexible" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="Respect de l’hygiène" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Respect de l’hygiène
-
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Tenue de serveur" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Tenue de serveur
+                            </label>
                         </div>
-                        <div class="tab ménage">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-                        <div class="tab Aide à">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Matériel de grillade" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Matériel de grillade
+                            </label>
                         </div>
-                        <div class="tab Aide à">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Matériel de cuisine" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Matériel de cuisine
+                            </label>
                         </div>
-                        <div class="tab Aide à">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2> Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Vélo" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Vélo
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Scooteur" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Scooteur
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Voiture" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Voiture
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Machine à coudre" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Machine à coudre
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Tenue de serveur" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Tenue de serveur
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value=" Matériel de grillade" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Matériel de grillade
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Matériel de cuisine" name="equipement7" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Matériel de cuisine
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 5--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aspirateur" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aspirateur
+                            </label>
                         </div>
-                        <div class="tab Aide à">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab Aide à">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="Travail soigné" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="Travail de passionné" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Travail d’expert                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="Travail de passionné" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail de passionné
-
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="Travail d’expert" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="no">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="Travail de passionné" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="Organisé et méthodique" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="Convivialité" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Convivialité
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="Convivialité" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="Dynamique et souriant" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="Réactif et flexible" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Réactif et flexible
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="Respect de l’hygiène" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Respect de l’hygiène
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement13" value="A l’écoute" name="engagement13" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement13">
-                                                    A l’écoute
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement14" value="" name="engagement14" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement14">
-                                                    Calme et patient
-
-
-                                                </label>
-
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement15" value="Interventions régulières" name="engagement15" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement15">
-                                                    Interventions régulières
-
-                                                </label>
-
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement16" value="Transport possible" name="engagement16" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement16">
-                                                    Transport possible
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Produit ménager" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Produit ménager
+                            </label>
                         </div>
-                        <div class="tab Aide à">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-
-                        <div class="tab Électricité">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma_name" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Karcher" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Karcher
+                            </label>
                         </div>
-                        <div class="tab Électricité">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value=" Je n’en ai aucune" name="experince1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Centrale vapeur" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Centrale vapeur
+                            </label>
                         </div>
-                        <div class="tab Électricité">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aucun
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Pince à sertir" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Pince à sertir
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Multimètre" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Multimètre
-
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Testeur de cable" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Testeur de cable
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Pince ampèremétrique" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Pince ampèremétrique
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Dégaineur / Dénudeur" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Dégaineur / Dénudeur
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Pince coupante" name="equipement7" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Pince coupante
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement8" value="Tournevis électricien" name="equipement8" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement8">
-                                                Tournevis électricien
-
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Fer à repasser" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Fer à repasser
+                            </label>
                         </div>
-                        <div class="tab Électricité">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab Électricité">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Travail en sécurité
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Qualité avant rapidité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Rapidité et fiabilité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Résultat garanti
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Satisfait ou refait
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Chantier propre
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 6--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Diable" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Diable
+                            </label>
                         </div>
-                        <div class="tab Électricité">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-
-                        <div class="tab petit">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p style="font-size: 20px">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-                            <div class="yes box form-group" style="text-align: left">
-                                <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
-                                <div class="input_group">
-                                    <input type="text" id="diploma_name" class="form-control" placeholder="Entrer le diplôme" required="">
-                                </div>
-                            </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Pick-up" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Pick-up
+                            </label>
                         </div>
-                        <div class="tab petit">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value=" Je n’en ai aucune" name="experince1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Petit fourgon" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Petit fourgon
+                            </label>
                         </div>
-                        <div class="tab petit">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2> Equipement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quel équipement avez vous?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="equipement1">
-                                                Aucun
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement2" value="Rabot" name="equipement2" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement2">
-                                                Rabot
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement3" value="Perceuse perforatrice" name="equipement3" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement3">
-                                                Perceuse perforatrice
-
-
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement4" value="Ponceuse" name="equipement4" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement4">
-                                                Ponceuse
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement5" value="Clé à molette" name="equipement5" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement5">
-                                                Clé à molette
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Scie" name="equipement6" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Scie
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement7" value="Scie circulaire" name="equipement7" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement7">
-                                                Scie circulaire
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement8" value="Set de tournevis" name="equipement8" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement8">
-                                                Set de tournevis
-
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement9" value="Niveau" name="equipement9" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="equipement9">
-                                                Niveau
-
-
-                                            </label>
-                                        </div>
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Petit camion" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Petit camion
+                            </label>
                         </div>
-                        <div class="tab petit">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Description de la compétenc!</h2>
-                                <p style="font-size: 20px">Description personnalisée ?
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <textarea name="compétenc_description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
-
-                                </div></div></div>
-                        <div class="tab petit">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Engagement pour la compétence!</h2>
-                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
-
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <fieldset>
-                                            <div class="custom-control custom-radio margin-b-10">
-
-                                                <input type="radio" id="engagement1" value="" name="engagement1" class="custom-control-input ">
-                                                <label class="custom-control-label padding-l-10" for="engagement1">
-                                                    Respect des lieux
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement2" value="" name="engagement2" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement2">
-                                                    Résultat impeccable
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement3" value="" name="engagement3" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement3">
-                                                    Travail soigné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement4" value="" name="engagement4" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement4">
-                                                    Travail d’expert
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement5" value="" name="engagement5" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement5">
-                                                    Travail de passionné
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement6" value="" name="engagement6" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement6">
-                                                    Organisé et méthodique
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Travail en sécurité
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement7" value="" name="engagement7" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement7">
-                                                    Efficace et discret
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement8" value="" name="engagement8" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement8">
-                                                    Convivialité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement9" value="" name="engagement9" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement9">
-                                                    Qualité avant rapidité
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement10" value="" name="engagement10" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement10">
-                                                    Rapidité et fiabilité
-                                                </label>
-                                            </div>
-
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Dynamique et souriant
-
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement11" value="" name="engagement11" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement11">
-                                                    Résultat garanti
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Satisfait ou refait
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Réactif et flexible
-                                                </label>
-                                            </div>
-                                            <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="engagement12" value="" name="engagement12" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="engagement12">
-                                                    Chantier propre
-
-                                                </label>
-
-                                            </div>
-                                        </fieldset>
-
-
-                                    </div></div>
-                            </div>
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Grand camion" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Grand camion
+                            </label>
                         </div>
-                        <div class="tab petit">
-
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p style="font-size: 20px">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <label class="custom-control-label padding-r-10" for="customCheck1">
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
-
-
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Sangles" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Sangles
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Couverture" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Couverture
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement8" value="Cartons" name="equipement8" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement8">
+                                Cartons
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 7--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Mallette à cliquets" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Mallette à cliquets
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Clé dynamométrique" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Clé dynamométrique
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Jeu de clé" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Jeu de clé
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Cric hydraulique" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Cric hydraulique
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Chandelles" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Chandelles
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Valise diagnostic" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Valise diagnostic
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement8" value="Booster de batterie" name="equipement8" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement8">
+                                Booster de batterie
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement9" value="Système de remorquage" name="equipement9" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Système de remorquage
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 8--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Tondeuse à bras" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Tondeuse à bras
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Tondeuse autoportée" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Tondeuse autoportée
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Taille-haie" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Taille-haie
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Tronçonneuse" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Tronçonneuse
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Désehbeuse" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Désehbeuse
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Coupe bordure" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Coupe bordure
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement8" value="Motoculteur" name="equipement8" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement8">
+                                Motoculteur
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement9" value="Hache" name="equipement9" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Hache
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement10" value="Scie" name="equipement10" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Scie
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement11" value="Petit équipement de jardinage" name="equipement11" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement11">
+                                Petit équipement de jardinage
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement12" value="Grand équipement de jardinage" name="equipement12" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement12">
+                                Grand équipement de jardinage
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement13" value="Débrousailleuse" name="equipement13" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement13">
+                                Débrousailleuse
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement14" value="Brouette" name="equipement14" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement14">
+                                Brouette
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement15" value="Karcher" name="equipement15" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement15">
+                                Karcher
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement16" value="Ébrancheur" name="equipement16" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement16">
+                                Ébrancheur
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 9--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Jeux de société" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Jeux de société
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Pate à modeler" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Pate à modeler
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Jeux pour enfant" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Jeux pour enfant
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 10--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Chenil" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Chenil
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Jardin" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Jardin
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Cage" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Cage
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Volière" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Volière
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Enclos extérieur" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Enclos extérieur
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Enclos intérieur" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Enclos intérieur
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement8" value="Arbre à chat" name="equipement8" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement8">
+                                Arbre à chat
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement9" value="Litière" name="equipement9" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Litière
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement10" value="Caisse de transpor" name="equipement10" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Caisse de transpor
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 11--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Livre d’exercices" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Livre d’exercices
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Ordinateur" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Ordinateur
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Webcam" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Webcam
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 12--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Tables" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Tables
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Chaises" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Chaises
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement4" value="Vaisselles" name="equipement4" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement4">
+                                Vaisselles
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement5" value="Nappes" name="equipement5" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement5">
+                                Nappes
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement6" value="Décoration" name="equipement6" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement6">
+                                Décoration
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement7" value="Ustensiles" name="equipement7" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement7">
+                                Ustensiles
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement8" value="Jeu de lumières" name="equipement8" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement8">
+                                Jeu de lumières
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement9" value="Sono" name="equipement9" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Sono
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement10" value="Jeux de jardin" name="equipement10" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement9">
+                                Jeux de jardin
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 13--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Ordinateur" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Ordinateur
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Webcam" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Webcam
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{--equip 14--}}
+                         <div class="tab">
+            <div class="em_titleSign">
+                <h2>Equipement pour la compétence!</h2>
+                <p class="f-20">Quel équipement avez vous?
+                </p>
+            </div>
+            <div class="form-group allign-left">
+                <div class="input_group">
+                    <div class="bg-white ">
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio"  id="equipement1" value="Aucun" name="equipement1" class="custom-control-input ">
+                            <label class="custom-control-label padding-l-10" for="equipement1">
+                                Aucun
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement2" value="Ordinateur" name="equipement2" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement2">
+                                Ordinateur
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio margin-b-10">
+                            <input type="radio" id="equipement3" value="Set de tournevis" name="equipement3" class="custom-control-input">
+                            <label class="custom-control-label padding-l-10" for="equipement3">
+                                Set de tournevis
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
                         @endif
 
 
@@ -3889,7 +1830,7 @@
                         </div>-->
                         <!-- Circles which indicates the steps of the form: -->
                     </div>
-                    <div class="question_step" style="text-align:center;margin-top:40px;">
+                    <div class="question_step" style="text-align:center;margin-top:40px; display: none">
                         <span class="step"></span>
                         <span class="step"></span>
                         @if($id == 1)
@@ -4005,28 +1946,12 @@
             });
         }
         function subcategorychange(elem){
-            // $('.maincategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
-            event.preventDefault();
             let id = elem.value;
-            let _token   = $('meta[name="csrf-token"]').attr('content');
-
-            $.ajax({
-                url: "{{route('fetchquestions')}}",
-                type:"POST",
-                data:{
-                    id:id,
-                    _token: _token
-                },
-                success:function(response){
-                    $.each(response, function(i, item) {
-                        console.log(item);
-                        $('.question_tabs').append("<div class='tab'><div class='form-group with_icon' style='text-align: left!important;'><h1>"+item.question+"</h1><div style='padding: 10px'><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option1+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option1+"</p></div></div></div><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option2+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option2+"</p></div></div></div><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option3+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option3+"</p></div></div></div><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option4+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option4+"</p></div></div></div></div></div></div>");
-                    });
-                    $.each(response, function(i, item) {
-                        $('.question_step').append("<span class='step''></span>");
-                    });
-                },
-            });
+            console.log(id);
+            if(id == "Bricolage / Travaux"){
+               $(".equip_tab").html('');
+               $(".equip_tab").append('');
+            }
         }
 
     </script>
@@ -4116,17 +2041,12 @@
     </script>
     <script>
         $(document).ready(function(){
-            $('#yes').click(function(){
-                var inputValue = $(this).attr("value");
-                var targetBox = $("." + inputValue);
-                $(".box").not(targetBox).hide();
-                $(targetBox).show();
+            $('.diploma_yes').click(function(){
+                $(".doploma_name").html('');
+               $(".doploma_name").append('<p class="f-20">Quel est le nom du diplôme?</p><div class="input_group"><input type="text" name="diploma_name"  class="form-control" placeholder="Entrer le diplôme" required=""></div>');
             });
-            $('#no').click(function(){
-                var inputValue = $(this).attr("value");
-                var targetBox = $("." + inputValue);
-                $(".box").not(targetBox).hide();
-                $(targetBox).hide();
+            $('.diploma_no').click(function(){
+                $(".doploma_name").html('');
             });
         });
     </script>

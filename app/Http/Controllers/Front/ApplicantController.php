@@ -284,7 +284,18 @@ class ApplicantController extends Controller
      public function comments($id){
          $title = 'Commentaires';
        $comments = Comments::where('job_id', '=', $id)->get();
-       return view('front.common.comments', compact('comments', 'title'));
+       return view('front.common.comments', compact('comments', 'title', 'id'));
      }
-
+     public function commentSubmit(Request $request){
+         $comment = new Comments();
+         $comment->job_id = $request->job_id;
+         $comment->user_id = Auth::user()->id;
+         $comment->comment = $request->comment;
+         $comment->save();
+         $notification = array(
+             'messege' => 'Le commentaire a été ajouté avec succès',
+             'alert-type' => 'success'
+         );
+         return redirect()->back()->with($notification);
+     }
 }

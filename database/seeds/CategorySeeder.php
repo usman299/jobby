@@ -13,21 +13,13 @@ class CategorySeeder extends Seeder
     public function run()
     {
 
-        Category::create([
+            Category::create([
             'title' => "Bricolage",
             'countory_id'=> "1",
             'backColor' => "#ff4040",
             'img' => "admin/icons/002-plumber.png",
 
             ]);
-            Category::create([
-                'title' => "Autres",
-                'countory_id'=> "1",
-                'backColor' => "#fa9905",
-                'img' => "admin/icons/001-household.png",
-
-
-                ]);
             Category::create([
                 'title' => "Aide ménagère",
                 'backColor' => "#53a7f9",
@@ -42,7 +34,14 @@ class CategorySeeder extends Seeder
                 'img' => "admin/icons/004-painter.png",
 
                 ]);
+        Category::create([
+            'title' => "Autres",
+            'countory_id'=> "1",
+            'backColor' => "#fa9905",
+            'img' => "admin/icons/001-household.png",
 
+
+        ]);
 
     }
 }

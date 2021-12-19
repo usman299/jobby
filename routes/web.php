@@ -60,6 +60,7 @@ Route::post('/password/update', 'Front\SettingsController@passwordUpdate')->name
 Route::post('/identity/store', 'Front\SettingsController@identityStore')->name('identity.store');
 
 Route::get('/job/comments/{id}', 'Front\ApplicantController@comments')->name('job.comments');
+Route::post('/comment/submit', 'Front\ApplicantController@commentSubmit')->name('comment.submit');
 
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
 Route::get('/applicant/jobber/services/{id}', 'Front\ApplicantController@jobberServices')->name('applicant.jobber.services');
