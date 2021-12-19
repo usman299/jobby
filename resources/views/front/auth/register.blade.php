@@ -226,7 +226,7 @@
                             </div>
                         </div>
                         @if($id == 1)
-                        <div class="tab">
+                      {{--  <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Give Proof of identity</h1>
                             </div>
@@ -247,7 +247,7 @@
 
                                     Ces documents sont nécessaires pour valider votre identité, votre âge, et votre éligibilité à travailler sur le territoire. Ils ne seront jamais rendus publics</label>
                             </div>
-                        </div>
+                        </div>--}}
                         <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Select Specialized Profile</h1>
@@ -279,9 +279,9 @@
                             </div>
                         </div>
 
-                            <div class="newtabs">
+                        <div class="newtabs">
 
-                            </div>
+                        </div>
                         <div class="tab  Soutien scolaire">
 
                             <div class="em_titleSign" style="margin-left: auto;">
@@ -293,7 +293,9 @@
                                 <div class="input_group">
                                     <label class="custom-control-label padding-r-10" for="customCheck1">
                                         Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.</label>
-                                </div></div></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="tab  Soutien scolaire">
 
                             <div class="em_titleSign" style="margin-left: auto;">
@@ -408,10 +410,12 @@
 
                                                     </label>
                                                 </div>
+                                            </div>
                                         </fieldset>
 
 
-                                    </div></div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -525,7 +529,7 @@
                             </div>
 
                         </div>
-                        <div class="tab Soutien scolaire">
+                        <div class="tab  Soutien scolaire">
 
                             <div class="em_titleSign" style="margin-left: auto;">
                                 <h2>Expérience pour la compétence!</h2>
