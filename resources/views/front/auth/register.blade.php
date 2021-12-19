@@ -293,23 +293,23 @@
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="yes" name="diploma" class="custom-control-input yes">
+                                            <input type="radio" id="yes" value="OUI" name="diploma" class="custom-control-input yes">
                                             <label class="custom-control-label padding-l-10" for="yes">
                                                 OUI</label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="no" name="diploma" class="custom-control-input">
+                                            <input type="radio" id="no" value="Non" name="diploma" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="no">
                                                 Non
                                             </label>
                                         </div>
-
-                                    </div></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="yes box form-group" style="text-align: left">
                                 <p style="font-size:20px; ">Quel est le nom du diplôme?</p>
                                 <div class="input_group">
-                                    <input type="text" id="diploma" class="form-control" placeholder="Entrer le diplôme" required="">
+                                    <input type="text" name="diploma_name" id="diploma" class="form-control" placeholder="Entrer le diplôme" required="">
                                 </div>
                             </div>
                         </div>
@@ -324,29 +324,29 @@
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="yes">
+                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
+                                            <label class="custom-control-label padding-l-10" for="experince1">
                                                 Je n’en ai aucune
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
+                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
+                                            <label class="custom-control-label padding-l-10" for="experince2">
                                                 J’ai moins d’un an
 
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
+                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
+                                            <label class="custom-control-label padding-l-10" for="experince3">
                                                 J’ai entre 2 et 4 ans
 
 
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="no">
+                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
+                                            <label class="custom-control-label padding-l-10" for="experince4">
                                                 J’ai plus de 5 ans
 
                                             </label>
@@ -359,7 +359,7 @@
                         <div class="tab  Soutien scolaire">
 
                             <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
+                                <h2>Equipement pour la compétence!</h2>
                                 <p style="font-size: 20px">Quel équipement avez vous?
                                 </p>
                             </div>

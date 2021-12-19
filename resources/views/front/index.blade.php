@@ -66,7 +66,7 @@
 
                         <div class="row">
                             @foreach($category as $row)
-                            <div class=" col-4 padding-t-20 " >
+                            <div class="col-4 padding-t-20" style="padding: 5px">
                                 <!-- item -->
 
                                 <div class="item">
