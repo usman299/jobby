@@ -4118,19 +4118,5 @@
         });
     </script>
 
-    <script>
-        function mainCategory() {
-            var str = $(".maincategory").val();
-               console.log(str);
-            $(".newtabs").html('');
-            $(".newtabs").append('<div class="tab"><div class="em_titleSign"><h1>Carte vitale</h1></div><div class="em__body"><div class="form-group" style="text-align: left!important;"><label>Carte vitale</label><div class="input_group"><input type="file" id="file" name="identity_document" class="form-control"></div></div><div class="form-group" style="text-align: left!important;"><label>Numéro de sécurité sociale</label><div class="input_group"><input type="text" id="file" name="security_no" class="form-control"></div></div><p>Votre numéro de sécurité sociale permet à vos clients de vous déclarer directement sur Yoojo. Il est confidentiel et sécurisé.</p></div></div>');
 
-        }
-        $(".maincategory").onchange(function(){
-             });
-        $(".certificate").click(function(){
-            $(".newtabs").html('');
-            $(".newtabs").append('<div class="tab"><div class="em_titleSign"><h1>Certificat de securite social</h1></div><div class="em__body"><div class="form-group" style="text-align: left!important;"><label>Certificat de securite social</label><div class="input_group"><input type="file" id="file" name="identity_document" class="form-control"></div></div><div class="form-group" style="text-align: left!important;"><label>Numéro de sécurité sociale</label><div class="input_group"><input type="text" id="file" name="security_no" class="form-control"></div></div><p>Votre numéro de sécurité sociale permet à vos clients de vous déclarer directement sur Yoojo. Il est confidentiel et sécurisé.</p></div></div>');
-        });
-    </script>
 @endsection
