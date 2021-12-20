@@ -59,7 +59,7 @@
             </div>
             <div class="row">
 
-                <div class="col-xl-8">
+                <div class="col-xl-10">
                     <div class="card">
                         <div class="card-body">
                             <div class="profile-tab">
@@ -73,6 +73,11 @@
                                         </li>
                                         <li class="nav-item"><a href="#password" data-toggle="tab" class="nav-link ">le mot de passe</a>
                                         </li>
+                                        <li class="nav-item"><a href="#badge" data-toggle="tab" class="nav-link ">Obtenez le badge Pro</a>
+                                        </li>
+                                        <li class="nav-item"><a href="#identity" data-toggle="tab" class="nav-link ">Document d'identité</a>
+                                        </li>
+
                                     </ul>
                                     <div class="tab-content">
                                         <div id="my-posts" class="tab-pane fade active show">
@@ -310,6 +315,146 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div id="badge" class="tab-pane fade ">
+                                            <div class="my-post-content pt-3">
+
+                                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
+
+
+                                                        @if($jobber->is_company==1)
+                                                        <div class="profile-personal-info">
+                                                            <h4 class="text-primary mb-4">Plus d'information</h4>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Nom de la compagnie: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->company_name}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Jobber Nom: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->firstName}} {{$jobber->lastName}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Adresse de la société: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->company_address}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Taper: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->vat_type}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Siret <span class="pull-right">:</span></h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->siret }}€ </span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Créé à<span class="pull-right">:</span></h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->created_at->diffForHumans()}}</span>
+                                                                </div>
+                                                            </div>
+                                                            @else
+                                                                <div class="profile-skills mb-5" style="text-align: center; margin-top: 20px;">
+                                                                <a href="javascript:void()" class="btn btn-warning dark btn-xs mb-1 " style="font-size: 20px;">Individuelle</a>
+                                                                </div>
+                                                            @endif
+
+
+                                                        </div>
+                                                    </div><hr>
+
+
+                                            </div>
+                                        </div>
+                                        <div id="identity" class="tab-pane fade ">
+                                            <div class="my-post-content pt-3">
+
+                                                <div class="profile-uoloaded-post border-bottom-1 pb-5">
+
+
+                                                    @if($jobber->euorpion)
+                                                        <div class="profile-personal-info">
+                                                            <h4 class="text-primary mb-4">Plus d'information</h4>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Euorpion: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->euorpion}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Jobber Nom: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->firstName}} {{$jobber->lastName}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Type d'identité: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->identity_type}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Numéro de Sécurité: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->security_no}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Document d'identité <span class="pull-right">:</span></h5>
+                                                                </div>
+
+                                                                <div class="col-sm-9 col-7"><span><a target="_blank"class="btn btn-primary dark btn-xs mb-1 " href="{{asset($jobber->identity_document)}}">Ouvrir le document</a> </span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Créé à<span class="pull-right">:</span></h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobber->created_at->diffForHumans()}}</span>
+                                                                </div>
+                                                            </div>
+                                                            @else
+                                                                <div class="profile-skills mb-5" style="text-align: center; margin-top: 20px;">
+                                                                    <a href="javascript:void()" class="btn btn-warning dark btn-xs mb-1 " style="font-size: 20px;">Document non Disponible des détails</a>
+                                                                </div>
+                                                            @endif
+
+
+                                                        </div>
+                                                </div><hr>
+
+
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <!-- Modal -->
