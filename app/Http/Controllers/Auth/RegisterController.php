@@ -67,6 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        dd($data);
         $questions = [];
         $answers = [];
         if (isset($data['category_id'])){
