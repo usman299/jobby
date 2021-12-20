@@ -25,7 +25,7 @@
             </div>
             <!-- row -->
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <div class="profile card card-body px-3 pt-3 pb-0">
                         <div class="profile-head">
                             <div class="photo-content">
