@@ -351,14 +351,14 @@
                         <div class="tab">
                             <div class="em_titleSign" style="margin-left: auto;">
                                 <h2>Expérience pour la compétence!</h2>
-                                <p class="f-20">Quel expérience avez-vous en tant que prestataire?
+                                <p style="font-size: 20px">Quel expérience avez-vous en tant que prestataire?
                                 </p>
                             </div>
-                            <div class="form-group allign-left">
+                            <div class="form-group" style="text-align: left!important;">
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
+                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince1" class="custom-control-input ">
                                             <label class="custom-control-label padding-l-10" for="experince1">
                                                 Je n’en ai aucune
                                             </label>
@@ -636,17 +636,19 @@
                         <div class="tab">
                             <div class="em_titleSign">
                                 <h2>Engagement pour la compétence!</h2>
-                                <p class="f-20">Quels sont vos engagements clients ?
+                                <p style="font-size: 20px">Quels sont vos engagements clients ? (3 choix max)
+
                                 </p>
                             </div>
-                            <div class="form-group allign-left">
+                            <div class="form-group" style="text-align: left!important;">
                                 <div class="input_group">
-                                    <div class="bg-white">
+                                    <div class="bg-white ">
                                         <fieldset>
                                             <div class="custom-control custom-radio margin-b-10">
                                                 <input type="radio" id="eng1" value="Respect des lieux" name="eng1" class="custom-control-input">
                                                 <label class="custom-control-label padding-l-10" for="eng1">
                                                     Respect des lieux
+
                                                 </label>
                                             </div>
                                             <div class="custom-control custom-radio margin-b-10">
@@ -1016,9 +1018,10 @@
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="equipement6" value="Enclos extérieur" name="equipement6" class="custom-control-input">
+                                            <input type="radio" id="equipement6" value="Désehbeuse" name="equipement6" class="custom-control-input">
                                             <label class="custom-control-label padding-l-10" for="equipement6">
-                                                Enclos extérieur
+                                                Désehbeuse
+
                                             </label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
@@ -1946,12 +1949,28 @@
             });
         }
         function subcategorychange(elem){
+            // $('.maincategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
+            event.preventDefault();
             let id = elem.value;
-            console.log(id);
-            if(id == "Bricolage / Travaux"){
-               $(".equip_tab").html('');
-               $(".equip_tab").append('');
-            }
+            let _token   = $('meta[name="csrf-token"]').attr('content');
+
+            $.ajax({
+                url: "{{route('fetchquestions')}}",
+                type:"POST",
+                data:{
+                    id:id,
+                    _token: _token
+                },
+                success:function(response){
+                    $.each(response, function(i, item) {
+                        console.log(item);
+                        $('.question_tabs').append("<div class='tab'><div class='form-group with_icon' style='text-align: left!important;'><h1>"+item.question+"</h1><div style='padding: 10px'><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option1+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option1+"</p></div></div></div><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option2+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option2+"</p></div></div></div><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option3+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option3+"</p></div></div></div><div class='input_group'><div class='row'><div class='col-2'><input type='radio' value='"+item.option4+"' name='"+item.id+"'></div><div class='col-10'><p>"+item.option4+"</p></div></div></div></div></div></div>");
+                    });
+                    $.each(response, function(i, item) {
+                        $('.question_step').append("<span class='step''></span>");
+                    });
+                },
+            });
         }
 
     </script>

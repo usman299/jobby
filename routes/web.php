@@ -107,7 +107,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::post('/admin/profile/update/{id}', 'Admin\UsersController@adminProfileUpdate')->name('admin.profile.update');
-    Route::post('/admin/password/update', 'Admin\UsersController@adminPasswordUpdate')->name('admin.password.update');
+    Route::post('/admin/password/update{id}', 'Admin\UsersController@adminPasswordUpdate')->name('admin.password.update');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

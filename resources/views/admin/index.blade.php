@@ -29,9 +29,10 @@
 											</span>
 											<div class="media-body">
 												<p class="fs-14 mb-2">Non de Demandeur</p>
-												<span class="title text-black font-w600">42%</span>
+												<span class="title text-black font-w600">{{$applicantCount}}</span>
 											</div>
 										</div>
+
 										<div class="progress" style="height:5px;">
 											<div class="progress-bar bg-success" style="width: 42%; height:5px;" role="progressbar">
 												<span class="sr-only">1</span>
@@ -54,7 +55,7 @@
 											</span>
 											<div class="media-body">
 												<p class="fs-14 mb-2">Non de Jobber</p>
-												<span class="title text-black font-w600">1</span>
+												<span class="title text-black font-w600">{{$jobberCount}}</span>
 											</div>
 										</div>
 										<div class="progress" style="height:5px;">
@@ -80,7 +81,7 @@
 											</span>
 											<div class="media-body">
 												<p class="fs-14 mb-2">N° de contrat</p>
-												<span class="title text-black font-w600">2</span>
+												<span class="title text-black font-w600">{{$contractCount}}</span>
 											</div>
 										</div>
 										<div class="progress" style="height:5px;">
@@ -107,7 +108,7 @@
 											</span>
 											<div class="media-body">
 												<p class="fs-14 mb-2">No de jobRequête</p>
-												<span class="title text-black font-w600">8</span>
+												<span class="title text-black font-w600">{{$jobRequestCount}}</span>
 											</div>
 										</div>
 										<div class="progress" style="height:5px;">

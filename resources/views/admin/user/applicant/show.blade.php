@@ -132,6 +132,7 @@
                                                                 <div class="col-sm-9 col-7"><span>{{$row->created_at->diffForHumans()}}</span>
                                                                 </div>
                                                             </div>
+                                                            <a href="{{route('jobrequest.show', ['id' => $row->id])}}" class="btn btn-primary dark btn-xs mb-1">Proposition</a><br>
 
                                                         </div>
                                                     </div><hr>
@@ -274,7 +275,7 @@
                                                 <div class="pt-3">
                                                     <div class="settings-form">
                                                         <h2 class="text-primary" style="margin: 20px; text-align: center">Réinitialisation du mot de passe</h2>
-                                                        <form method="POST" action="{{ route('admin.password.update') }}" enctype="multipart/form-data">
+                                                        <form method="POST" action="{{ route('admin.password.update',['id'=>$applicant->id]) }}" enctype="multipart/form-data">
                                                             @csrf
 
                                                             <div class="form-group col-md-6">

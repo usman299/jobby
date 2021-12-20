@@ -6,6 +6,7 @@ use App\Contract;
 use App\Countory;
 use App\Http\Controllers\Controller;
 use App\JobRequest;
+use App\Proposal;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -57,11 +58,11 @@ class UsersController extends Controller
     public function jobberShowProfile($id)
     {
         $jobber = User::where('id','=',$id)->first();
-        if($jobber!=null){
-            return view('admin.user.jobber.show',compact('jobber'));
-        }
+        $country =Countory::all();
+        $proposal = Proposal::where('jobber_id','=',$id)->where('status','=',1)->latest()->get();
+        $contract = Contract::where('jober_id','=',$id)->where('status','=',3)->latest()->get();
 
-
+        return view('admin.user.jobber.show',compact('jobber','proposal','contract','country'));
 
     }
 
@@ -205,9 +206,9 @@ class UsersController extends Controller
         }
     }
 
-    public  function adminPasswordUpdate(Request $request){
+    public  function adminPasswordUpdate(Request $request,$id){
 
-        $user = Auth::user();
+        $user = User::find($id);
         if($request->password == $request->confirm_password){
             $user->password = Hash::make(($request->password));
             $user->update();

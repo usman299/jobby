@@ -17,16 +17,16 @@
                         </a>
                     </li>
 
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-381-controls-3"></i>
-							<span class="nav-text"><!-- Category -->Catégorie</span>
-						</a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{route('category.index')}}"><!-- Category -->Catégorie</a></li>
-                            <li><a href="{{route('subcategory.index')}}"><!-- Sub Category --> Sous-catégorie</a></li>
+{{--                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">--}}
+{{--							<i class="flaticon-381-controls-3"></i>--}}
+{{--							<span class="nav-text"><!-- Category -->Catégorie</span>--}}
+{{--						</a>--}}
+{{--                        <ul aria-expanded="false">--}}
+{{--                            <li><a href="{{route('category.index')}}"><!-- Category -->Catégorie</a></li>--}}
+{{--                            <li><a href="{{route('subcategory.index')}}"><!-- Sub Category --> Sous-catégorie</a></li>--}}
 
-                        </ul>
-                    </li>
+{{--                        </ul>--}}
+{{--                    </li>--}}
 
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
@@ -37,7 +37,7 @@
                             <li><a href="{{route('jobber.index')}}"><!--  jobber --> Jobber</a></li>
 
 
-                </ul>
+                        </ul></li>
 
 {{--                <li><a href="{{route('skils.index')}}" class="ai-icon" aria-expanded="false">--}}
 {{--                            <i class="flaticon-381-notepad"></i>--}}
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li><a href="{{route('admin.jobrequest')}}" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-internet"></i></i>
+                            <i class="flaticon-381-internet"></i>
                             <!-- APP SETTING -->
                             <span class="nav-text">  Demande d'emploi</span>
                         </a>
@@ -102,7 +102,10 @@
 					<p><strong>Gymove Fitness Admin Dashboard</strong> © 2020 All Rights Reserved</p>
 					<p>Made with <span class="heart"></span> by DexignZone</p>
 				</div> -->
-			</div>
+
+                </ul>
+
+            </div>
         </div>
         <!--**********************************
             Sidebar end
