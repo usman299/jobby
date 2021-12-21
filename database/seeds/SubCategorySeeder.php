@@ -12,29 +12,11 @@ class SubCategorySeeder extends Seeder
     public function run()
     {
         SubCategory::create([
-            'title' => "Rénovation",
+            'title' => "Aménagement",
             'category_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
             'img' => "admin/icons/announcement.png",
-
-        ]);
-        SubCategory::create([
-            'title' => "Entretien du jardin",
-            'category_id' => "1",
-            'countory_id'=> "1",
-            'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
-
-
-        ]);
-        SubCategory::create([
-            'title' => "Plomberie",
-            'category_id' => "1",
-            'countory_id'=> "1",
-            'backColor' => "#FFAF33",
-
-            'img' => "admin/icons/003-electrician.png",
 
         ]);
         SubCategory::create([
@@ -47,22 +29,26 @@ class SubCategorySeeder extends Seeder
 
         ]);
         SubCategory::create([
-            'title' => "Petit bricolage",
-            'category_id' => "1",
-            'countory_id'=> "1",
-            'backColor' => "#FF3361 ",
-
-            'img' => "admin/icons/006-makeup.png",
-
-        ]);
-        SubCategory::create([
-            'title' => "Aménagement",
+            'title' => "Rénovation",
             'category_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
             'img' => "admin/icons/announcement.png",
 
         ]);
+
+        SubCategory::create([
+            'title' => "Plomberie",
+            'category_id' => "1",
+            'countory_id'=> "1",
+            'backColor' => "#FFAF33",
+
+            'img' => "admin/icons/003-electrician.png",
+
+        ]);
+
+
+
 
 
 
@@ -361,69 +347,6 @@ class SubCategorySeeder extends Seeder
 
         ]);
 
-
-        SubCategory::create([
-            'title' => "Entretien du gazon",
-            'category_id' => "2",
-            'countory_id'=> "2",
-            'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
-
-        ]);
-        SubCategory::create([
-            'title' => "Nettoyage de terrasse",
-            'category_id' => "2",
-            'countory_id'=> "1",
-            'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
-
-
-        ]);
-        SubCategory::create([
-            'title' => "Autre job de jardinage",
-            'category_id' => "2",
-            'countory_id'=> "1",
-            'backColor' => "#FFAF33",
-
-            'img' => "admin/icons/003-electrician.png",
-
-        ]);
-
-        SubCategory::create([
-            'title' => "Aide au déménagement",
-            'category_id' => "3",
-            'countory_id'=> "1",
-            'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
-
-        ]);
-        SubCategory::create([
-            'title' => "Déplacer un meuble",
-            'category_id' => "3",
-            'countory_id'=> "1",
-            'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
-
-
-        ]);
-        SubCategory::create([
-            'title' => "Déplacer de l’électroménager",
-            'category_id' => "3",
-            'countory_id'=> "1",
-            'backColor' => "#FFAF33",
-
-            'img' => "admin/icons/003-electrician.png",
-
-        ]);
-        SubCategory::create([
-            'title' => "Débarrasser des encombrants",
-            'countory_id'=> "1",
-            'category_id' => "3",
-            'backColor' => "#FF3933",
-
-            'img' => "admin/icons/004-painter.png",
-
-        ]);
         SubCategory::create([
             'title' => "Livraison de médicaments",
             'category_id' => "8",
