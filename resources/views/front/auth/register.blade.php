@@ -9,7 +9,7 @@
             display: none;
             margin-top: 20px;
         }
-        input.invalid {
+        input.is-invalid {
             background-color: #ffdddd;
         }
 
@@ -24,24 +24,6 @@
         h2{
             text-align: left !important;
         }
-        button {
-            background-color: #04AA6D;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 17px;
-            font-family: Raleway;
-            cursor: pointer;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        #prevBtn {
-            background-color: #bbbbbb;
-        }
-
         /* Make circles that indicate the steps of the form: */
         .step {
             height: 15px;
@@ -82,7 +64,7 @@
             <!-- Start main_haeder -->
             <header class="main_haeder header-sticky multi_item">
                 <div class="em_side_right">
-                    <a class="rounded-circle d-flex align-items-center text-decoration-none" href="">
+                    <a class="rounded-circle d-flex align-items-center text-decoration-none" onclick="history.back()">
                         <i class="tio-chevron_left size-24 color-text"></i>
                         <span class="color-text size-14">Arrière</span>
                     </a>
@@ -230,7 +212,7 @@
                             </div>
                         </div>
                         @if($id == 1)
-                           <div class="tab">
+<!--                        <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Give Proof of identity</h1>
                             </div>
@@ -251,7 +233,7 @@
 
                                     Ces documents sont nécessaires pour valider votre identité, votre âge, et votre éligibilité à travailler sur le territoire. Ils ne seront jamais rendus publics</label>
                             </div>
-                        </div>
+                        </div>-->
 <!--                            <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Select Specialized Profile</h1>
@@ -283,14 +265,14 @@
                             </div>
                         </div>-->
 
-                           <div class="tab">
+                        <div class="tab">
                             <div class="em_titleSign">
                                 <h2>Sélectionnez un profil spécialisé</h2>
                             </div>
                             <div  class="form-group" style="text-align: left!important;">
                                 <div style="padding: 10px">
                                     <div class="input_group">
-                                        <select name="subcategory_id" onchange="subcategorychange(this)"  class="form-control custom-select">
+                                        <select name="jobber_category_id" onchange="subcategorychange(this)"  class="form-control custom-select">
                                             <option value="">Sélectionnez un profil spécialisé</option>
                                             <option value="Bricolage / Travaux">Bricolage / Travaux</option>
                                             <option value="Électricité et domotique">Électricité et domotique</option>
@@ -316,7 +298,6 @@
                         <div class="newtabs">
 
                         </div>
-
                         <div class="tab">
                             <div class="em_titleSign" style="margin-left: auto;">
                                 <h2>Diplôme pour la compétence!</h2>
@@ -422,17 +403,8 @@
                                 </div>
                             </div>
                         </div>
-
                         @endif
 
-
-<!--                        <div style="overflow:auto;">
-                            <div style="float:right;">
-                                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                            </div>
-                        </div>-->
-                        <!-- Circles which indicates the steps of the form: -->
                     </div>
                     <div class="question_step" style="text-align:center;margin-top:40px; display: none">
                         <span class="step"></span>
@@ -512,17 +484,20 @@
                         <span class="step"></span>
                         @endif
                     </div>
-                    <div class="em__footer">
-{{--                        <button type="submit" class="btn bg-primary color-white justify-content-center">Créer un compte</button>--}}
-                        <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn bg-primary color-white justify-content-center">Suivante</button>
-                        <a href="{{route('front.login', ['id' => $id])}}" class="btn hover:color-secondary justify-content-center">Vous avez déjà un compte? se connecter</a>
+                    <div class="buttons__footer text-center">
+
+                        <div class="bg-white d-flex">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)"  class="btn bg-green rounded-10 btn__default">
+                                <span class="color-white">Retourner</span>
+                            </button>
+                            <button type="button" id="nextBtn" style="color: white" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default ml-3">
+                                <span class="color-white">Suivante</span>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </section>
-
         </div>
-
-
     </div>
 
 @endsection

@@ -8,7 +8,7 @@
             <!-- Start main_haeder -->
             <header class="main_haeder header-sticky multi_item">
                 <div class="em_side_right">
-                    <a class="rounded-circle d-flex align-items-center text-decoration-none" href="">
+                    <a class="rounded-circle d-flex align-items-center text-decoration-none" onclick="history.back()">
                         <i class="tio-chevron_left size-24 color-text"></i>
                         <span class="color-text size-14">Arrière</span>
                     </a>

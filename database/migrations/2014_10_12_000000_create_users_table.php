@@ -34,15 +34,13 @@ CreateUsersTable extends Migration
             $table->string('dob')->nullable();
             $table->string('rate_per_hour')->nullable();
 
+//            company
             $table->integer('is_company')->nullable();
             $table->string('company_name')->nullable();
             $table->string('company_address')->nullable();
             $table->string('vat_type')->nullable();
             $table->string('siret')->nullable();
             $table->longText('description')->nullable();
-
-            $table->longText('questions')->nullable();
-            $table->longText('answers')->nullable();
 
             $table->longText('document1')->nullable();
             $table->longText('document2')->nullable();

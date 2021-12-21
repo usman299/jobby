@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\JobberProfile;
 use App\Providers\RouteServiceProvider;
 use App\Questions;
 use App\User;
@@ -67,22 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data);
-        $questions = [];
-        $answers = [];
-        if (isset($data['category_id'])){
-            $question = Questions::where('category_id', $data['category_id'])->get();
-            foreach ($question as $key => $value){
-                if (isset($data[$value->id])){
-                    $questions[$key] = $value->question;
-                    $answers[$key] = $data[$value->id];
-                }else{
-                    dd("you are not filling all the answers");
-                }
-            }
-        }
-
-        if (request()->file('document1')) {
+        /*if (request()->file('document1')) {
             $image1 = request()->file('document1');
             $name = time() . 'documents' . '.' . $image1->getClientOriginalExtension();
             $destinationPath = 'documents/';
@@ -97,8 +83,8 @@ class RegisterController extends Controller
             $image2->move($destinationPath, $name2);
         }else{
             $name2 = "";
-        }
-        return User::create([
+        }*/
+        $user = User::create([
             'firstName' => $data['fname'],
             'lastName' => $data['lname'],
             'email' => $data['email'],
@@ -111,11 +97,14 @@ class RegisterController extends Controller
             'description' => $data['description'],
             'category_id' => $data['category_id'] ?? '',
             'subcategory_id' => $data['subcategory_id']?? '',
-            'questions' => json_encode($questions),
-            'answers' => json_encode($answers),
-            'document1' => 'documents/' . $name,
-            'document2' => 'documents/' . $name2,
+            /*'document1' => 'documents/' . $name,
+            'document2' => 'documents/' . $name2,*/
             'password' => Hash::make($data['password']),
         ]);
+        $data['jobber_id'] = $user->id;
+
+        JobberProfile::create($data);
+
+        return $user;
     }
 }
