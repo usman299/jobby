@@ -20,7 +20,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
 
-            'img' => "admin/icons/006-makeup.png",
+            'img' => "admin/subcategory/b1.jpeg",
 
         ]);
         ChildCategory::create([
@@ -29,7 +29,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b2.jpeg",
 
         ]);
         ChildCategory::create([
@@ -38,7 +38,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b3.jpeg",
 
 
         ]);
@@ -49,7 +49,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/icons/003-electrician.png",
+            'img' => "admin/subcategory/b4.jpeg",
 
         ]);
         ChildCategory::create([
@@ -59,7 +59,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/icons/004-painter.png",
+            'img' => "admin/subcategory/b5.jpeg",
 
         ]);
         ChildCategory::create([
@@ -69,7 +69,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
 
-            'img' => "admin/icons/006-makeup.png",
+            'img' => "admin/subcategory/b6.jpeg",
 
         ]);
         ChildCategory::create([
@@ -78,7 +78,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b7.jpeg",
 
         ]);
         ChildCategory::create([
@@ -87,7 +87,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b8.jpeg",
 
         ]);
         ChildCategory::create([
@@ -96,7 +96,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b9.jpeg",
 
 
         ]);
@@ -107,7 +107,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/icons/003-electrician.png",
+            'img' =>"admin/subcategory/b1.jpeg",
 
         ]);
         ChildCategory::create([
@@ -117,7 +117,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/icons/004-painter.png",
+            'img' => "admin/subcategory/b2.jpeg",
 
         ]);
 
@@ -127,7 +127,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b3.jpeg",
 
         ]);
         ChildCategory::create([
@@ -136,7 +136,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b4.jpeg",
 
 
         ]);
@@ -147,7 +147,7 @@ class ChildCategorySeeder extends Seeder
             'category_id' => "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/icons/004-painter.png",
+            'img' => "admin/subcategory/b5.jpeg",
 
         ]);
         ChildCategory::create([
@@ -156,7 +156,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b6.jpeg",
 
         ]);
         ChildCategory::create([
@@ -165,7 +165,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b7.jpeg",
 
 
         ]);
@@ -176,7 +176,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/icons/003-electrician.png",
+            'img' => "admin/subcategory/b8.jpeg",
 
         ]);
         ChildCategory::create([
@@ -186,7 +186,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/icons/004-painter.png",
+            'img' => "admin/subcategory/b9.jpeg",
 
         ]);
 
@@ -196,7 +196,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "3",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b1.jpeg",
 
         ]);
         ChildCategory::create([
@@ -205,7 +205,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "3",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b1.jpeg",
 
 
         ]);
@@ -216,7 +216,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/icons/003-electrician.png",
+            'img' => "admin/subcategory/b2.jpeg",
 
         ]);
         ChildCategory::create([
@@ -226,7 +226,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/icons/004-painter.png",
+            'img' => "admin/subcategory/b3.jpeg",
 
         ]);
         ChildCategory::create([
@@ -236,7 +236,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
 
-            'img' => "admin/icons/006-makeup.png",
+            'img' => "admin/subcategory/b4.jpeg",
 
         ]);
         ChildCategory::create([
@@ -245,7 +245,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "3",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b5.jpeg",
 
         ]);
 
@@ -256,7 +256,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'countory_id'=> "2",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b6.jpeg",
 
         ]);
 
@@ -267,16 +267,16 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b6.jpeg",
 
         ]);
         ChildCategory::create([
             'title' => "Changer un robinet",
             'category_id' => "1",
-            'countory_id'=> "4",
-            'subcategory_id' => "1",
+            'countory_id'=> "1",
+            'subcategory_id' => "4",
             'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b7.jpeg",
 
 
         ]);
@@ -287,7 +287,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/icons/003-electrician.png",
+            'img' =>"admin/subcategory/b8.jpeg",
 
         ]);
 
@@ -297,7 +297,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'subcategory_id' => "4",
             'backColor' => "#FFAF33",
-            'img' => "admin/icons/announcement.png",
+            'img' => "admin/subcategory/b9.jpeg",
 
         ]);
         ChildCategory::create([
@@ -306,7 +306,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b1.jpeg",
 
 
         ]);
@@ -317,7 +317,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/icons/003-electrician.png",
+            'img' => "admin/subcategory/b2.jpeg",
 
         ]);
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AppSetting;
+use App\ChildCategory;
 use App\Countory;
 use App\JobRequest;
 use App\Notfication;
@@ -33,12 +34,14 @@ class FrontendController extends Controller
         $title = 'Accueil';
         $user = Auth::user();
         $sliderGalery = SliderGalery::where('userRole','=',$user->role)->where('countory_id', '=',$user->country)->get();
+        $subcategory = SubCategory::all();
+        $childcatgory = ChildCategory::all();
         $services =JobberServicesOffers::where('status','=',1)->where('country_id','=',$user->country)->take(4)->orderBy('id', 'DESC')->get();
-        $category = Category::take(9)->where('countory_id', '=',$user->country)->orderBy('id', 'DESC')->get();
+        $category = Category::all();
         $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('category_id', '=', $user->category_id)->where('status', '=', 1)->paginate(10);
 
 
-        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services'));
+        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory'));
     }
     public function allCategories(){
         $title = 'Catégories';

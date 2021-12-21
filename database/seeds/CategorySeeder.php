@@ -20,7 +20,7 @@ class CategorySeeder extends Seeder
             'img' => "admin/icons/002-plumber.png",
 
         ]);
-        
+
         Category::create([
             'title' => "Jardinage",
             'countory_id'=> "1",
@@ -76,7 +76,7 @@ class CategorySeeder extends Seeder
             'title' => "Cours particuliers",
             'countory_id'=> "1",
             'backColor' => "#41bd83",
-            'img' => "admin/icons/004-painter.png",
+            'img' => "admin/icons/courses.jpeg",
 
         ]);
         Category::create([
