@@ -64,31 +64,262 @@
                     </div>
                     <div class="em_bodyCarousel padding-t-20">
                         <div class="owl-carousel owl-theme owlThemeCorses">
-                        @foreach($services as $row)
+
                             <!-- item -->
-                                <div class="item">
-                                    <div class="em_itemCourse_grid">
-                                        <a href="{{route('applicant.singleService',['id'=>$row->id])}}" class="card">
-                                            <div class="">
-                                                <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
-                                            </div>
-                                            <div class="">
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b10.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
 
-                                                <h6 class="card-title" style="margin: 10px;color: black;">
-                                                  Grade de Chien
-                                                </h6>
-                                                <p class="card-text" style="margin: 10px;color: black;">
-                                                    <strong>38€-76€</strong>
-                                                </p>
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                             Menage a domicile
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>26€-52€</strong>
+                                            </p>
 
 
 
-                                            </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b11.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                               Aide au demenagement
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>52€-150€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b9.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Peinture interieure
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>100€-350€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b8.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Peinture interieure
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>100€-350€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b7.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Assemblage de meubles
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>30€-84€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b6.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Assemblage de meubles
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>30€-84€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b5.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Deplacer un meuble
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>21€-42€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b4.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Grade d'enfants
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>20€-60€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b3.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Repassage
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>25€-35€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b2.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Tondre la pelouse
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>29€-57€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b1.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Fixation d'etageres
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>21€-42€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="em_itemCourse_grid">
+                                    <a href="#" class="card">
+                                        <div class="">
+                                            <img src="{{ asset('admin/subcategory/b8.jpeg')  }}" class="card-img-top" alt="img">
+                                        </div>
+                                        <div class="">
+
+                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                                Taille de haie
+                                            </h6>
+                                            <p class="card-text" style="margin: 10px;color: black;">
+                                                <strong>100€-350€</strong>
+                                            </p>
+
+
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                                 <!-- item -->
-                            @endforeach
+
                         </div>
                     </div>
                 </section>
@@ -147,7 +378,7 @@
                         {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
                         {{--                        </div>--}}
                     </div>
-                    <div class="em_bodyCarousel padding-t-20">
+                    <div class="em_bodyCarousel padding-t-10">
                         <div class="owl-carousel owl-theme owlThemeCorses">
                         @foreach($childcatgory as $row)
                             <!-- item -->
@@ -190,7 +421,7 @@
                         {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
                         {{--                        </div>--}}
                     </div>
-                    <div class="em_bodyCarousel padding-t-20">
+                    <div class="em_bodyCarousel padding-t-10">
                         <div class="owl-carousel owl-theme owlThemeCorses">
                         @foreach($childcatgory as $row)
                             <!-- item -->
@@ -233,7 +464,7 @@
                         {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
                         {{--                        </div>--}}
                     </div>
-                    <div class="em_bodyCarousel padding-t-20">
+                    <div class="em_bodyCarousel padding-t-10">
                         <div class="owl-carousel owl-theme owlThemeCorses">
                         @foreach($childcatgory as $row)
                             <!-- item -->
@@ -265,6 +496,315 @@
                         </div>
                     </div>
                 </section>
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Entretenir le jardin</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==2)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="#" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Déménagement</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==3)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="#" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Enfants</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==5)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="#" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Animaux</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==6)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="#" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Aide a domicile</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==8)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="#" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Évenementiel</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==10)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="#" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Réparation</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==12)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="#" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+
             <!-- End. block_page_Comp -->
             <!-- Start em_swiper_products -->
 {{--            SERVICECS COMMENT--}}
