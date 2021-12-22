@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
             'title' => "Bricolage",
             'countory_id'=> "1",
             'backColor' => "#ff4040",
-            'img' => "admin/icons/002-plumber.png",
+            'img' => "admin/subcategory/b10.jpeg",
 
         ]);
 
@@ -25,14 +25,14 @@ class CategorySeeder extends Seeder
             'title' => "Jardinage",
             'countory_id'=> "1",
             'backColor' => "#ff4040",
-            'img' => "admin/icons/002-plumber.png",
+            'img' => "admin/subcategory/b11.jpeg",
 
         ]);
         Category::create([
             'title' => "Livraison/Déménagement",
             'countory_id'=> "1",
             'backColor' => "#fa9905",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b12.jpeg",
 
 
         ]);
@@ -40,28 +40,28 @@ class CategorySeeder extends Seeder
             'title' => "Ménage",
             'backColor' => "#53a7f9",
             'countory_id'=> "1",
-            'img' => "admin/icons/003-electrician.png",
+            'img' => "admin/subcategory/b13.jpeg",
 
         ]);
         Category::create([
             'title' => "Enfants",
             'countory_id'=> "1",
             'backColor' => "#41bd83",
-            'img' => "admin/icons/004-painter.png",
+            'img' => "admin/subcategory/b14.jpeg",
 
         ]);
         Category::create([
             'title' => "Animaux",
             'countory_id'=> "1",
             'backColor' => "#ff4040",
-            'img' => "admin/icons/002-plumber.png",
+            'img' => "admin/subcategory/b15.jpeg",
 
         ]);
         Category::create([
             'title' => "Informatique",
             'countory_id'=> "1",
             'backColor' => "#fa9905",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b16.jpeg",
 
 
         ]);
@@ -69,7 +69,7 @@ class CategorySeeder extends Seeder
             'title' => "Aide a domicile",
             'backColor' => "#53a7f9",
             'countory_id'=> "1",
-            'img' => "admin/icons/003-electrician.png",
+            'img' => "admin/subcategory/b12.jpeg",
 
         ]);
         Category::create([
@@ -83,14 +83,14 @@ class CategorySeeder extends Seeder
             'title' => "Évenementiel",
             'countory_id'=> "1",
             'backColor' => "#ff4040",
-            'img' => "admin/icons/002-plumber.png",
+            'img' => "admin/subcategory/b5.jpeg",
 
         ]);
         Category::create([
             'title' => "Taches administrative",
             'countory_id'=> "1",
             'backColor' => "#fa9905",
-            'img' => "admin/icons/001-household.png",
+            'img' => "admin/subcategory/b7.jpeg",
 
 
         ]);
@@ -98,7 +98,7 @@ class CategorySeeder extends Seeder
             'title' => "Mécanique/Réparation",
             'backColor' => "#53a7f9",
             'countory_id'=> "1",
-            'img' => "admin/icons/003-electrician.png",
+            'img' => "admin/subcategory/b5.jpeg",
 
         ]);
 

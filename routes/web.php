@@ -140,14 +140,14 @@ Route::post('/subcategory/update/{id}', 'Admin\SubCategoryController@update')->n
 // END ROUTES Sub CATEGORY
 
     //Start Child Category
-//    Route::get('/childcategory/index', 'Admin\ChildCategoryController@index')->name('childcategory.index');
-//    Route::get('/childcategory/create', 'Admin\ChildCategoryControlle@create')->name('childcategory.create');
-//    Route::post('/childcategory/store', 'Admin\ChildCategoryControlle@store')->name('childcategory.store');
-//
-//
-//    Route::get('/fetchsubcategory/{id}', 'Admin\ChildCategoryControlle@fetchSubCategory')->name('fetchsubcategory');
-//    Route::get('/childcategory/edit/{id}', 'Admin\ChildCategoryControlle@edit')->name('childcategory.edit');
-//    Route::post('/childcategory/update/{id}', 'Admin\ChildCategoryControlle@update')->name('childcategory.update');
+    Route::get('/childcategory/index', 'Admin\ChildCategoryControlle@index')->name('childcategory.index');
+    Route::get('/childcategory/create', 'Admin\ChildCategoryControlle@create')->name('childcategory.create');
+    Route::post('/childcategory/store', 'Admin\ChildCategoryControlle@store')->name('childcategory.store');
+
+
+    Route::get('/fetchsubcategory/{id}', 'Admin\ChildCategoryControlle@fetchSubCategory')->name('fetchsubcategory');
+    Route::get('/childcategory/edit/{id}', 'Admin\ChildCategoryControlle@edit')->name('childcategory.edit');
+    Route::post('/childcategory/update/{id}', 'Admin\ChildCategoryControlle@update')->name('childcategory.update');
 
 
     //END CHILDCATEGORY

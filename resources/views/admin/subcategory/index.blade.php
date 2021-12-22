@@ -19,7 +19,7 @@
                                 <h4 class="card-title"><!-- SUbCategory -->Sous-catégorie</h4>
                                 <div class="float-lg-right">
 
-                <a href="{{route('subcategory.create')}}" class="btn btn-primary">Ajouter un nouveau</a>
+{{--                <a href="{{route('subcategory.create')}}" class="btn btn-primary">Ajouter un nouveau</a>--}}
 
                                  </div>
                             </div>
@@ -33,7 +33,7 @@
                                                 <th><!-- category -->Catégorie</th>
                                                 <th><!-- title -->Titre</th>
                                                 <th>Image</th>
-                                                <th>Couleur</th>
+{{--                                                <th>Couleur</th>--}}
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -42,18 +42,12 @@
                                             <tr>
 
                                                 <td>{{$row->id}}</td>
-
-                                               <?php $category =  \App\Category::where('id','=',$row->category_id)->first();?>
-
-                                               <td>{{$category->title }}</td>
+                                               <td>{{$row->category->title }}</td>
                                                 <td>{{$row->title}}</td>
                                                 <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1"
                                 data-title="{{$row->title}}"><img class="rounded-circle" width="50" src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
 
-
-
-
-                                                <td> <input type="color" value="{{$row->backColor}}" disabled></td>
+{{--                                                <td> <input type="color" value="{{$row->backColor}}" disabled></td>--}}
                                     <td>
                                         <div class="d-flex">
                                             <a href="{{route('subcategory.edit', ['id' => $row->id])}}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>

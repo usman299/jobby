@@ -33,33 +33,33 @@
                             <div class="basic-form">
                                 <form method="POST" action="{{ route('subcategory.update',['id'=>$subcategory->id]) }}" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label"><!-- category -->Pays <strong style="color: red;font-size: 20px;"> *</strong></label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control form-control-lg default-select select2" id="countory_id" name="countory_id">
-                                                <option>Choisir une Pays</option>
-                                                @foreach($countory as $row)
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label class="col-sm-3 col-form-label"><!-- category -->Pays <strong style="color: red;font-size: 20px;"> *</strong></label>--}}
+{{--                                        <div class="col-sm-9">--}}
+{{--                                            <select class="form-control form-control-lg default-select select2" id="countory_id" name="countory_id">--}}
+{{--                                                <option>Choisir une Pays</option>--}}
+{{--                                                @foreach($countory as $row)--}}
 
-                                                    <option value="{{$row->id}}" {{ $subcategory->countory_id == $row->id ? 'selected' : '' }}>{{$row->name}}</option>
+{{--                                                    <option value="{{$row->id}}" {{ $subcategory->countory_id == $row->id ? 'selected' : '' }}>{{$row->name}}</option>--}}
 
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label"><!-- category -->Catégorie <strong style="color: red;font-size: 20px;"> *</strong></label>
-                                        <div class="col-sm-9">
-                                            <select name="category_id" id="category_id" class="form-control category_id" >
+{{--                                                @endforeach--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label class="col-sm-3 col-form-label"><!-- category -->Catégorie <strong style="color: red;font-size: 20px;"> *</strong></label>--}}
+{{--                                        <div class="col-sm-9">--}}
+{{--                                            <select name="category_id" id="category_id" class="form-control category_id" >--}}
 
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label"><!-- Title -->Titre <strong style="color: red;font-size: 20px;"> *</strong></label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control"  value="{{$subcategory->title}}" name="title" placeholder="Entrez le titre" required>
-                                        </div>
-                                    </div>
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label class="col-sm-3 col-form-label"><!-- Title -->Titre <strong style="color: red;font-size: 20px;"> *</strong></label>--}}
+{{--                                        <div class="col-sm-9">--}}
+{{--                                            <input type="text" class="form-control"  value="{{$subcategory->title}}" name="title" placeholder="Entrez le titre" required>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label"><!--Icon-->Icône<strong style="color: red;font-size: 20px;"> * </strong></label>
                                         <div class="col-sm-5">
@@ -73,13 +73,13 @@
                                             <img id="output_image1" src="{{asset($subcategory->img)}}" />
 
                                         </div></div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label"><!-- bacgorung color -->Couleur <strong style="color: red;font-size: 20px;"> *</strong></label>
-                                        <div class="col-sm-9">
+{{--                                    <div class="form-group row">--}}
+{{--                                        <label class="col-sm-3 col-form-label"><!-- bacgorung color -->Couleur <strong style="color: red;font-size: 20px;"> *</strong></label>--}}
+{{--                                        <div class="col-sm-9">--}}
 
-                                            <input type="color" value="{{$subcategory->backColor}}" class="form-control" name="backColor"  required>
-                                        </div>
-                                    </div>
+{{--                                            <input type="color" value="{{$subcategory->backColor}}" class="form-control" name="backColor"  required>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
 
                                     <div class="form-group row">

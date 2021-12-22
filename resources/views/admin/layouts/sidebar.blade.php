@@ -24,6 +24,7 @@
 {{--                        <ul aria-expanded="false">--}}
 {{--                            <li><a href="{{route('category.index')}}"><!-- Category -->Catégorie</a></li>--}}
 {{--                            <li><a href="{{route('subcategory.index')}}"><!-- Sub Category --> Sous-catégorie</a></li>--}}
+{{--                            <li><a href="{{route('childcategory.index')}}"><!-- Sub Category --> Catégorie enfant</a></li>--}}
 
 {{--                        </ul>--}}
 {{--                    </li>--}}

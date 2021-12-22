@@ -21,7 +21,7 @@ class SubCategoryController extends Controller
 
  public function index()
     {
-         $subcategory = SubCategory::paginate(10);;
+         $subcategory = SubCategory::all();
         return view('admin.subcategory.index',compact('subcategory'));
     }
 
@@ -102,7 +102,9 @@ class SubCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $subcategory = SubCategory::where('id','=',$id)->first();
-        $subcategory->title = $request->title;
+        if($request->title) {
+            $subcategory->title = $request->title;
+        }
         $subcategory->countory_id = $request->countory_id;
         if($request->category_id) {
             $subcategory->category_id = $request->category_id;

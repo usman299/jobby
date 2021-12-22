@@ -107,7 +107,10 @@ class CategoryController extends Controller
     {
 
         $category = Category::where('id','=',$id)->first();
-        $category->title = $request->title;
+
+        if($request->title) {
+            $category->title = $request->title;
+        }
         $category->countory_id = $request->countory_id;
         $category->backColor = $request->backColor;
         if ($request->hasfile('img')) {
