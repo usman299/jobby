@@ -89,9 +89,7 @@ $user = Auth::user();
             text-align: center;
             width: 100px;
         }
-        .em__pkLink .nav__list li .item-link {
-            padding: 10px 20px;
-        }
+
         .notify-badge{
             position: absolute;
             top: 30px;
@@ -746,7 +744,24 @@ $user = Auth::user();
                     </div>
                     <div class="modal-body">
                         <div class="padding-t-30">
-                            <div class="em__signTypeOne">
+                                <div class="em__pkLink bg-white border-t-0">
+                                    <ul class="nav__list mb-0">
+                                        @foreach($categories as $cat)
+                                            <li>
+                                                <a href="{{route('job.subcategory', ['id' => $cat->id])}}" class="item-link" style="padding: 10px 0px">
+                                                    <div class="group">
+                                                        <span class="path__name">{{$cat->title}}</span>
+                                                    </div>
+                                                    <div class="group">
+                                                        <span class="short__name"></span>
+                                                        <i class="tio-chevron_right -arrwo"></i>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+<!--                            <div class="em__signTypeOne">
 
                                 <div class="em__body px-0">
                                     <form action="{{route('jobrequest.submit')}}" method="POST">
@@ -853,7 +868,7 @@ $user = Auth::user();
                                     </form>
                                 </div>
 
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>

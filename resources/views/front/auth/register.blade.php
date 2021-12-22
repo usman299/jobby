@@ -79,7 +79,7 @@
             <!-- End.main_haeder -->
 
             <section class="em__signTypeOne padding-t-50">
-                <form id="regForm" class="loginformsubmit" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                <form  id="regForm" class="loginformsubmit" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <div class="em__body question_tabs">
                       <div class="tab">
@@ -154,7 +154,7 @@
                             <div class="form-group with_icon" id="show_hide_password" style="text-align: left!important;">
                                 <label>Mot de passe</label>
                                 <div class="input_group">
-                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="tapez votre mot de passe" required="">
+                                    <input type="password" name="password" id="password" oninput="checkpassword()" class="form-control @error('password') is-invalid @enderror" placeholder="tapez votre mot de passe" required="">
                                     <div class="icon">
                                         <svg id="Iconly_Two-tone_Password" data-name="Iconly/Two-tone/Password" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                             <g id="Password" transform="translate(2 2)">
@@ -487,10 +487,10 @@
                     <div class="buttons__footer text-center">
 
                         <div class="bg-white d-flex">
-                            <button type="button" id="prevBtn" onclick="nextPrev(-1)"  class="btn bg-green rounded-10 btn__default">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)"  class="btn bg-green rounded-10 btn__default mr-3">
                                 <span class="color-white">Retourner</span>
                             </button>
-                            <button type="button" id="nextBtn" style="color: white" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default ml-3">
+                            <button type="button" id="nextBtn" style="color: white" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default">
                                 <span class="color-white">Suivante</span>
                             </button>
                         </div>
@@ -504,6 +504,15 @@
 
 @section('script')
     <script>
+        function checkpassword() {
+            var x = document.getElementById("password").value;
+            if(x.length < 8){
+                $("#password").addClass("is-invalid");
+            }else{
+                $("#password").removeClass("is-invalid");
+            }
+
+        }
         function categorychange(elem){
             $('.maincategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
             event.preventDefault();

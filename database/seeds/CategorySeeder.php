@@ -29,7 +29,7 @@ class CategorySeeder extends Seeder
 
         ]);
         Category::create([
-            'title' => "Livraison/Déménagement",
+            'title' => "Livraison / Déménagement",
             'countory_id'=> "1",
             'backColor' => "#fa9905",
             'img' => "admin/subcategory/b12.jpeg",

@@ -98,6 +98,10 @@ Route::get('/proposal/reject/{id}', 'Front\ApplicantController@proposalReject')-
 Route::post('/proposal/submit', 'Front\JobberController@proposalSubmit')->name('proposal.submit');
 Route::get('/jobber/proposals', 'Front\JobberController@proposals')->name('jobber.proposals');
 
+Route::get('/job/subcategory/{id}', 'Front\JobPostController@subcategory')->name('job.subcategory');
+Route::get('/job/childcatgory/{id}', 'Front\JobPostController@childcatgory')->name('job.childcatgory');
+Route::get('/job/request/{id}', 'Front\JobPostController@request')->name('job.request');
+Route::get('/request/subcategory/{id}', 'Front\JobPostController@requestSubcategory')->name('request.subcategory');
 
 });
 
