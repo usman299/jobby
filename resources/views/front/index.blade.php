@@ -68,7 +68,7 @@
                             <!-- item -->
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 23])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b10.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 14])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b11.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('job.request', ['id' => 19])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b9.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -131,14 +131,14 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 7])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b8.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
                                             <h6 class="card-title" style="margin: 10px;color: black;">
-                                                Peinture interieure
+                                                Couper un arbre
                                             </h6>
                                             <p class="card-text" style="margin: 10px;color: black;">
                                                 <strong>100€-350€</strong>
@@ -152,7 +152,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('job.request', ['id' => 1])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b7.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -173,14 +173,14 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 16])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b6.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
                                             <h6 class="card-title" style="margin: 10px;color: black;">
-                                                Assemblage de meubles
+                                                Déplacer de l’électroménager
                                             </h6>
                                             <p class="card-text" style="margin: 10px;color: black;">
                                                 <strong>30€-84€</strong>
@@ -194,7 +194,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 15])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b5.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -215,7 +215,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 29])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b4.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -236,7 +236,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 24])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b3.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -257,7 +257,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 5])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b2.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -278,7 +278,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('job.request', ['id' => 4])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b1.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -299,7 +299,7 @@
                             </div>
                             <div class="item">
                                 <div class="em_itemCourse_grid">
-                                    <a href="#" class="card">
+                                    <a href="{{route('request.subcategory', ['id' => 6])}}" class="card">
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b8.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
@@ -342,7 +342,7 @@
                             @if($row->category_id==9)
                                 <div class="item">
                                     <div class="em_itemCourse_grid">
-                                        <a href="#" class="card">
+                                        <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                             <div class="">
                                                 <img src="{{ asset($row->category->img ?? ' ')  }}" class="card-img-top" alt="img">
                                             </div>
@@ -385,7 +385,7 @@
                     @if($row->subcategory_id==2 || $row->subcategory_id==4 )
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('job.request', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -428,7 +428,7 @@
                                 @if($row->subcategory_id==1 )
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('job.request', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -471,7 +471,7 @@
                                 @if($row->subcategory_id==3)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('job.request', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -515,7 +515,7 @@
                                 @if($row->category_id==2)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -559,7 +559,7 @@
                                 @if($row->category_id==3)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -603,7 +603,7 @@
                                 @if($row->category_id==5)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -647,7 +647,7 @@
                                 @if($row->category_id==6)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -691,7 +691,7 @@
                                 @if($row->category_id==8)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -735,7 +735,7 @@
                                 @if($row->category_id==10)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
@@ -779,7 +779,7 @@
                                 @if($row->category_id==12)
                                     <div class="item">
                                         <div class="em_itemCourse_grid">
-                                            <a href="#" class="card">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
                                                     <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                                 </div>
