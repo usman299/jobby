@@ -149,7 +149,7 @@ Route::post('/subcategory/update/{id}', 'Admin\SubCategoryController@update')->n
     Route::post('/childcategory/store', 'Admin\ChildCategoryControlle@store')->name('childcategory.store');
 
 
-    Route::get('/fetchsubcategory/{id}', 'Admin\ChildCategoryControlle@fetchSubCategory')->name('fetchsubcategory');
+//    Route::get('/fetchsubcategory/{id}', 'Admin\ChildCategoryControlle@fetchSubCategory')->name('fetchsubcategory');
     Route::get('/childcategory/edit/{id}', 'Admin\ChildCategoryControlle@edit')->name('childcategory.edit');
     Route::post('/childcategory/update/{id}', 'Admin\ChildCategoryControlle@update')->name('childcategory.update');
 
