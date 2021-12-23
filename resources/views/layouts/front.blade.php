@@ -114,24 +114,6 @@ $user = Auth::user();
             display: none;
         }
 
-        button {
-            background-color: #04AA6D;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 17px;
-            font-family: Raleway;
-            cursor: pointer;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        #prevBtn {
-            background-color: #bbbbbb;
-        }
-
         /* Make circles that indicate the steps of the form: */
         .step {
             height: 15px;
@@ -174,7 +156,15 @@ $user = Auth::user();
             margin-bottom: 5px;
             text-align: left;
         }
-
+        .btn__default {
+            position: relative;
+            width: 100%;
+             max-width: 100%;
+            height: 55px;
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 25px;
+        }
         .d-none{
             display: none !important;
         }
@@ -764,7 +754,7 @@ $user = Auth::user();
 <!--                            <div class="em__signTypeOne">
 
                                 <div class="em__body px-0">
-                                    <form action="{{route('jobrequest.submit')}}" method="POST">
+                                    <form action="" method="POST">
                                         @csrf
                                         <div class="">
                                             <div class="form-group input-lined">
@@ -929,6 +919,21 @@ $user = Auth::user();
 
             reader.onload = function (e) {
                 $('#output_image1').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#files2").change(function() {
+        filename = this.files[0].name;
+        readURL2(this);
+    });
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#output_image2').attr('src', e.target.result);
             }
 
             reader.readAsDataURL(input.files[0]);

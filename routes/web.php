@@ -86,7 +86,9 @@ Route::get('/jobber/services/edit/{id}', 'Front\JobberController@editServices')-
 Route::post('/jobber/services/update/{id}', 'Front\JobberController@updateServices')->name('jobber.services.update');
 Route::get('/services/status/update/{id}', 'Front\JobberController@updateStatusServices')->name('services.status.update');
 
-Route::post('/jobrequest/submit', 'Front\ApplicantController@jobrequestSubmit')->name('jobrequest.submit');
+Route::post('/jobrequest/submit/{id}', 'Front\ApplicantController@jobrequestSubmit')->name('jobrequest.submit');
+Route::post('/job/subcategory/submit/{id}', 'Front\ApplicantController@jobSubcategorySubmit')->name('job.subcategory.submit');
+
 Route::get('/applicant/jobrequests', 'Front\ApplicantController@jobrequests')->name('applicant.jobrequests');
 Route::get('/applicant/jobrequests/detail/{id}', 'Front\ApplicantController@jobrequestsDetail')->name('applicant.jobrequest.detail');
 Route::get('/applicant/jobrequests/status/{id}', 'Front\ApplicantController@jobrequestsStatus')->name('applicant.jobrequest.status');

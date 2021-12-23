@@ -177,6 +177,7 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
         \Chatify\ChatifyServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Chatify' => Chatify\Facades\ChatifyMessenger::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

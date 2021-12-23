@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\ChildCategory;
 use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
@@ -14,6 +15,7 @@ use App\SubCategory;
 use App\JobberServicesOffers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ApplicantController extends Controller
 {
@@ -40,20 +42,57 @@ class ApplicantController extends Controller
         $subcategories = SubCategory::where('category_id', '=', $request->id)->get();
         return response()->json($subcategories);
     }
-    public function jobRequestSubmit(Request $request){
+    public function jobRequestSubmit(Request $request, $id){
+        $child = ChildCategory::find($id);
         $user = Auth::user();
         $jobrequest = new JobRequest();
         $jobrequest->applicant_id = $user->id;
-        $jobrequest->category_id = $request->category_id;
-        $jobrequest->subcategory_id = $request->subcategory_id;
-        $jobrequest->title = $request->title;
-        $jobrequest->min_price = $request->min_price;
-        $jobrequest->max_price = $request->max_price;
+        $jobrequest->category_id = $child->category->id;
+        $jobrequest->subcategory_id = $child->subcategory->id;
+        $jobrequest->childcategory_id = $id;
+        $jobrequest->country_id = $user->country;
+
+        $jobrequest->title = $child->title;
         $jobrequest->description = $request->description;
-        $jobrequest->estimate_time = $request->estimate_time;
+        $jobrequest->service_date = $request->service_date;
+        $jobrequest->start_time = $request->start_time;
+        $jobrequest->duration = $request->duration;
+        $jobrequest->hours = $request->hours;
+        $jobrequest->estimate_budget = $request->estimate_budget;
+        $jobrequest->address = $request->address;
+        $jobrequest->phone = $request->phone;
+
+        $jobrequest->small = $request->small;
+        $jobrequest->medium = $request->medium;
+        $jobrequest->large = $request->large;
+        $jobrequest->verylarge = $request->verylarge;
+        $jobrequest->question = $request->question;
+        $jobrequest->surface = $request->surface;
+        $jobrequest->count = $request->count;
+        $jobrequest->input = $request->input;
+        $jobrequest->detail_description = $request->detail_description;
+
         $jobrequest->lat = $request->lat;
         $jobrequest->long = $request->long;
-        $jobrequest->country_id = $user->country;
+
+        if($request->hasFile('image1')){
+            $image= $request->file('image1');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(300, 300)->save( public_path('/images/' . $filename ) );
+            $jobrequest->image1= '/images/'.$filename;
+        }
+        if($request->hasFile('image2')){
+            $image2= $request->file('image2');
+            $filename2 = time() . '.' . $image2->getClientOriginalExtension();
+            Image::make($image2)->resize(300, 300)->save( public_path('/images/' . $filename2 ) );
+            $jobrequest->image2= '/images/'.$filename2;
+        }
+        if($request->hasFile('image3')){
+            $image3= $request->file('image3');
+            $filename3 = time() . '.' . $image3->getClientOriginalExtension();
+            Image::make($image3)->resize(300, 300)->save( public_path('/images/' . $filename3 ) );
+            $jobrequest->image3= '/images/'.$filename3;
+        }
 
         if($jobrequest->save()){
             $notfications = new Notfication();
@@ -65,8 +104,78 @@ class ApplicantController extends Controller
             $notfications->subcategory_id = $request->subcategory_id;
             $notfications->country_id = $user->country;
             $notfications->save();
+        }
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('applicant.jobrequests')->with($notification);
+    }
+    public function jobSubcategorySubmit(Request $request, $id){
+        $subCategory = SubCategory::find($id);
+        $user = Auth::user();
+        $jobrequest = new JobRequest();
+        $jobrequest->applicant_id = $user->id;
+        $jobrequest->category_id = $subCategory->category->id;
+        $jobrequest->subcategory_id = $id;
+        $jobrequest->country_id = $user->country;
 
+        $jobrequest->title = $subCategory->title;
+        $jobrequest->description = $request->description;
+        $jobrequest->service_date = $request->service_date;
+        $jobrequest->start_time = $request->start_time;
+        $jobrequest->duration = $request->duration;
+        $jobrequest->hours = $request->hours;
+        $jobrequest->estimate_budget = $request->estimate_budget;
+        $jobrequest->address = $request->address;
+        $jobrequest->phone = $request->phone;
 
+        $jobrequest->small = $request->small;
+        $jobrequest->medium = $request->medium;
+        $jobrequest->large = $request->large;
+        $jobrequest->verylarge = $request->verylarge;
+        $jobrequest->question = $request->question;
+        $jobrequest->question1 = $request->question1;
+        $jobrequest->question2 = $request->question2;
+        $jobrequest->question3 = $request->question3;
+        $jobrequest->surface = $request->surface;
+        $jobrequest->count = $request->count;
+        $jobrequest->input = $request->input;
+        $jobrequest->pickup_address = $request->pickup_address;
+        $jobrequest->destination_address = $request->destination_address;
+        $jobrequest->dob = $request->dob;
+        $jobrequest->detail_description = $request->detail_description;
+
+        $jobrequest->lat = $request->lat;
+        $jobrequest->long = $request->long;
+        if($request->hasFile('image1')){
+            $image1= $request->file('image1');
+            $filename1 = time() . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(300, 300)->save( public_path('/images/' . $filename1 ) );
+            $jobrequest->image1= '/images/'.$filename1;
+        }
+        if($request->hasFile('image2')){
+            $image2= $request->file('image2');
+            $filename2 = time() . '.' . $image2->getClientOriginalExtension();
+            Image::make($image2)->resize(300, 300)->save( public_path('/images/' . $filename2 ) );
+            $jobrequest->image2= '/images/'.$filename2;
+        }
+        if($request->hasFile('image3')){
+            $image3= $request->file('image3');
+            $filename3 = time() . '.' . $image3->getClientOriginalExtension();
+            Image::make($image3)->resize(300, 300)->save( public_path('/images/' . $filename3 ) );
+            $jobrequest->image3= '/images/'.$filename3;
+        }
+        if($jobrequest->save()){
+            $notfications = new Notfication();
+            $notfications->sender_id = $user->id;
+            $notfications->generate_id = $jobrequest->id;
+            $notfications->message = 'Il y a une nouvelle demande d\'emploi dans votre région';
+            $notfications->activity = 'Demande d\'emploi';
+            $notfications->category_id = $request->category_id;
+            $notfications->subcategory_id = $request->subcategory_id;
+            $notfications->country_id = $user->country;
+            $notfications->save();
         }
         $notification = array(
             'messege' => 'Sauvegarde réussie!',

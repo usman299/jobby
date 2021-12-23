@@ -67,6 +67,15 @@
             transform: translate(-50%, -50%);
             color: white;
         }
+        .btn__default {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 55px;
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 25px;
+        }
     </style>
     @yield('style')
 </head>

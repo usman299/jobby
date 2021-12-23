@@ -13,7 +13,7 @@
 @endsection
 @section('content')
         <section class="bg-white em__signTypeOne typeTwo np__account padding-t-70">
-            <form id="regForm" class="loginformsubmit" method="POST" action="" enctype="multipart/form-data">
+            <form id="regForm" class="loginformsubmit" method="POST" action="{{route('jobrequest.submit', ['id' => $childcatgory->id])}}" enctype="multipart/form-data">
                 @csrf
                 <div class="em_titleSign" style="margin-bottom: 0px;">
                     <h2>{{$childcatgory->title}}</h2>
@@ -39,7 +39,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="small" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -62,7 +62,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="medium" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -85,7 +85,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="large" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -108,7 +108,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="verylarge" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -125,12 +125,12 @@
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="OUI" name="diploma" class="custom-control-input diploma_yes">
+                                            <input type="radio" id="yes" value="OUI" name="question" class="custom-control-input diploma_yes">
                                             <label class="custom-control-label padding-l-10" for="yes">
                                                 OUI</label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="Non" name="diploma" class="custom-control-input diploma_no">
+                                            <input type="radio" id="no" value="Non" name="question" class="custom-control-input diploma_no">
                                             <label class="custom-control-label padding-l-10" for="no">
                                                 Non
                                             </label>
@@ -162,7 +162,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="small" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -186,7 +186,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="medium" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -209,7 +209,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="large" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -232,7 +232,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="verylarge" class="form-control input_no color-secondary" value="1">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -249,12 +249,12 @@
                                 <div class="input_group">
                                     <div class="bg-white ">
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="OUI" name="diploma" class="custom-control-input diploma_yes">
+                                            <input type="radio" id="yes" value="OUI" name="question" class="custom-control-input diploma_yes">
                                             <label class="custom-control-label padding-l-10" for="yes">
                                                 OUI</label>
                                         </div>
                                         <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="Non" name="diploma" class="custom-control-input diploma_no">
+                                            <input type="radio" id="no" value="Non" name="question" class="custom-control-input diploma_no">
                                             <label class="custom-control-label padding-l-10" for="no">
                                                 Non
                                             </label>
@@ -277,7 +277,7 @@
                                     <div class="col-12">
                                         <div class="item-link hoverNone" style="text-align: right">
                                             <div class="group">
-                                                <input type="range" class="form-control" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
+                                                <input type="range" name="surface" class="form-control" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
                                                 <output>15</output>
                                             </div>
                                         </div>
@@ -300,7 +300,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -333,7 +333,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -354,7 +354,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -366,7 +366,7 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Type de meubles </label>
                                 <div class="input_group">
-                                    <input type="text" id="file" placeholder="Type de meubles" name="" class="form-control">
+                                    <input type="text" id="file" placeholder="Type de meubles" name="input" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -377,7 +377,7 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Description </label>
                                 <div class="input_group">
-                                    <textarea name="" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                                    <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -393,7 +393,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -405,7 +405,7 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Type de clôture  </label>
                                 <div class="input_group">
-                                    <input type="text" id="file" placeholder="bois, aluminium, pvc…" name="" class="form-control">
+                                    <input type="text" id="file" placeholder="bois, aluminium, pvc…" name="count" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -421,7 +421,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -438,14 +438,14 @@
                             <div class="form-group allign-left">
                                 <label>De quel service avez vous besoin? </label>
                                 <div class="input_group">
-                                    <input type="text" id="file" placeholder="Service Nom" name="" class="form-control">
+                                    <input type="text" id="file" placeholder="Service Nom" name="input" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group allign-left">
                             <label>Description </label>
                             <div class="input_group">
-                                <textarea name="" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                                <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
                             </div>
                         </div>
                     </div>
@@ -461,7 +461,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -482,7 +482,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -503,7 +503,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text"  name="count" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -524,7 +524,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -545,7 +545,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -568,7 +568,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="small" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -585,7 +585,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="medium" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -602,7 +602,7 @@
                                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                             <i class="tio-remove"></i>
                                         </a>
-                                        <input type="text" class="form-control input_no color-secondary" value="3">
+                                        <input type="text" name="large" class="form-control input_no color-secondary" value="3">
                                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                             <i class="tio-add color-white"></i>
                                         </a>
@@ -617,7 +617,7 @@
                     <div class="form-group allign-left padding-20">
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
-                            <input type="range" class="form-control" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
+                            <input type="range" name="surface" class="form-control" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
                             <output>15</output>m
                         </div>
                         <hr>
@@ -628,12 +628,12 @@
                             <div class="input_group">
                                 <div class="bg-white ">
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="yes" value="OUI" name="diploma" class="custom-control-input diploma_yes">
+                                        <input type="radio" id="yes" value="OUI" name="question" class="custom-control-input diploma_yes">
                                         <label class="custom-control-label padding-l-10" for="yes">
                                             OUI</label>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="no" value="Non" name="diploma" class="custom-control-input diploma_no">
+                                        <input type="radio" id="no" value="Non" name="question" class="custom-control-input diploma_no">
                                         <label class="custom-control-label padding-l-10" for="no">
                                             Non
                                         </label>
@@ -648,7 +648,7 @@
                     <div class="form-group allign-left padding-20">
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
-                            <input type="range" class="form-control" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
+                            <input type="range" class="form-control" name="surface" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
                             <output>15</output>m
                         </div>
                     </div>
@@ -664,7 +664,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -685,7 +685,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -706,7 +706,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -727,7 +727,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -748,7 +748,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -769,7 +769,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -790,7 +790,7 @@
                                             <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                                                 <i class="tio-remove"></i>
                                             </a>
-                                            <input type="text" class="form-control input_no color-secondary" value="3">
+                                            <input type="text" name="count" class="form-control input_no color-secondary" value="3">
                                             <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                                                 <i class="tio-add color-white"></i>
                                             </a>
@@ -801,27 +801,34 @@
                         </div>
                 </div>
                 @endif
+                @include('include.tabs')
                 <div class="question_step" style="text-align:center;margin-top:40px; display: none">
+                    <span class="step"></span>
+                    <span class="step"></span>
                     <span class="step"></span>
                 </div>
 
                 <div class="buttons__footer text-center">
                     <div class="bg-white d-flex">
-                        <a id="nextBtn" onclick="nextPrev(-1)" class="btn bg-green rounded-10 btn__default">
-                            <div class="icon rounded-10">
-                                <i class="tio-chevron_left"></i>
-                            </div>
+                        <button type="button" id="prevBtn" onclick="nextPrev(-1)"  class="btn bg-green rounded-10 btn__default mr-3">
                             <span class="color-white">Retourner</span>
-                        </a>
-                        <a id="nextBtn" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default ml-3">
+                        </button>
+                        <button type="button" id="nextBtn" style="color: white" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default">
                             <span class="color-white">Suivante</span>
-                            <div class="icon rounded-10">
-                                <i class="tio-chevron_right"></i>
-                            </div>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </form>
-
         </section>
+@endsection
+@section('script')
+    <script>
+        setInterval(function(){
+            var durationplus = $(".durationplus").val();
+            var rateperhour = $(".rateperhour").val();
+            var budget = (durationplus * rateperhour) + 5;
+            $(".estimate_budget").html(budget + "€");
+            $(".estimate_budgetval").val(budget);
+        }, 200);
+    </script>
 @endsection
