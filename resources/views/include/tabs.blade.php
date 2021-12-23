@@ -131,7 +131,9 @@
             <h4>Description</h4>
         </div>
         <div class="form-group">
-            <input type="text" name="estimate_budget" class="estimate_budgetval">
+            <input type="hidden" name="lat" class="lat">
+            <input type="hidden" name="long" class="long">
+            <input type="hidden" name="estimate_budget" class="estimate_budgetval">
             <textarea class="form-control" placeholder="informations complémentaire" name="detail_description" id="" cols="30" rows="5"></textarea>
         </div>
     </div>
