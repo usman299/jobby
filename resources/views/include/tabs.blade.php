@@ -1,13 +1,13 @@
 <div class="tab">
     <div class="form-group allign-left padding-20">
         <div>
-            <h4>Date de service</h4>
+            <h4>Date de service*</h4>
         </div>
         <div class="form-group">
             <input type="date" name="service_date" class="form-control">
         </div>
         <div>
-            <h4>Heure de la debut</h4>
+            <h4>Heure de la debut*</h4>
         </div>
         <div class="form-group">
             <select name="start_time" class="form-control" id="">
@@ -93,19 +93,20 @@
 <div class="tab">
     <div class="form-group allign-left padding-20">
         <div>
-            <h4>Ajout de l’adresse</h4>
+            <h4>Ajout de l’adresse*</h4>
         </div>
         <div class="form-group">
             <input type="text" name="address" placeholder="Ajout de l’adresse" class="form-control">
         </div>
         <div>
-            <h4>Ajout de téléphone </h4>
+            <h4>Ajout de téléphone* </h4>
         </div>
         <div class="form-group">
             <input type="text" name="phone" placeholder="Ajout de téléphone" class="form-control">
         </div>
         <div>
-            <h4>Pictures</h4>
+            <h4>Pictures*</h4>
+            <p>Télécharger 3 images importand*</p>
         </div>
         <div class="row" style="width: 100%">
             <div class="col-4">
@@ -128,7 +129,7 @@
             </div>
         </div>
         <div>
-            <h4>Description</h4>
+            <h4>Description*</h4>
         </div>
         <div class="form-group">
             <input type="hidden" name="lat" class="lat">

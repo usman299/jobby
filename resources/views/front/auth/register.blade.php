@@ -2704,9 +2704,9 @@
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Submit";
+                document.getElementById("nextBtn").innerHTML = "Soumettre";
             } else {
-                document.getElementById("nextBtn").innerHTML = "Next";
+                document.getElementById("nextBtn").innerHTML = "Suivante";
             }
             //... and run a function that will display the correct step indicator:
             fixStepIndicator(n)
@@ -2725,6 +2725,7 @@
             if (currentTab >= x.length) {
                 // ... the form gets submitted:
                 document.getElementById("regForm").submit();
+                document.getElementById("nextBtn").innerHTML = "Chargement..";
                 return false;
             }
             // Otherwise, display the correct tab:
