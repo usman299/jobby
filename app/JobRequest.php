@@ -12,6 +12,7 @@ class JobRequest extends Model
         'applicant_id', 'category_id','skils','subcategory_id','title','estimate_time','max_price',
         'min_price','description','file','status',
     ];
+    protected $dates = ['service_date'];
 
     public function category()
     {
@@ -20,6 +21,10 @@ class JobRequest extends Model
     public function subcategory()
     {
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
+    }
+    public function childcategory()
+    {
+        return $this->belongsTo(ChildCategory::class, 'childcategory_id');
     }
     public function applicant()
     {

@@ -23,10 +23,11 @@
                             </div>
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
                                 <h4 class="item_price" style="margin-bottom: 5px">{{$job->title}}</h4>
-                                <h3>{{$job->description}}</h3>
+                                <h3>{{$job->detail_description}}</h3>
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
                                 <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
-                                <p class="item_price">{{$job->min_price}} € - {{$job->max_price}} €</p>
+                                <p class="item_price">{{$job->estimate_budget}} €</p>
+                                <p style="color: black">{{$job->service_date->format('d-m-y')}} ({{$job->duration}} heures) </p>
                             </a>
 
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
@@ -34,7 +35,8 @@
                                     <div class="itemRating">
                                         <span style="min-width: 80px;" class="number">Vue</span>
                                     </div>
-                            </button></a>
+                                </button>
+                            </a>
                         </div>
                     </div>
                     @endforeach

@@ -275,12 +275,12 @@
                             <div class="input_group">
                                 <div class="bg-white ">
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="rere7788" value="OUI" name="questio1" class="custom-control-input">
+                                        <input type="radio" id="rere7788" value="OUI" name="question1" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="rere7788">
                                             OUI</label>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="7f787" value="Non" name="questio1" class="custom-control-input">
+                                        <input type="radio" id="7f787" value="Non" name="question1" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="7f787">
                                             Non
                                         </label>
@@ -1198,12 +1198,12 @@
                             <div class="input_group">
                                 <div class="bg-white ">
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="54654b" value="Installation de mise à jour" name="questio2" class="custom-control-input">
+                                        <input type="radio" id="54654b" value="Installation de mise à jour" name="question1" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="54654b">
                                             Installation de mise à jour</label>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="71654gg" value="Sauvegarde de données" name="questio2" class="custom-control-input">
+                                        <input type="radio" id="71654gg" value="Sauvegarde de données" name="question1" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="71654gg">
                                             Sauvegarde de données
                                         </label>
@@ -1392,7 +1392,7 @@
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
                         <div>
-                            <h4>TRetouche des photos?</h4>
+                            <h4>Retouche des photos?</h4>
                         </div>
                         <div class="form-group">
                             <div class="input_group">
@@ -1917,8 +1917,7 @@
                             </div>
                         </div>
                         <div>
-                            <h4>Matériel
-                                Type de réparation</h4>
+                            <h4>Matériel Type de réparation</h4>
                         </div>
                         <div class="form-group">
                             <div class="input_group">

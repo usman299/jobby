@@ -405,7 +405,7 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Type de clôture  </label>
                                 <div class="input_group">
-                                    <input type="text" id="file" placeholder="bois, aluminium, pvc…" name="count" class="form-control">
+                                    <input type="text" id="file" placeholder="bois, aluminium, pvc…" name="input" class="form-control">
                                 </div>
                             </div>
                         </div>

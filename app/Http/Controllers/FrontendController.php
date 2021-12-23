@@ -38,7 +38,7 @@ class FrontendController extends Controller
         $childcatgory = ChildCategory::all();
         $services =JobberServicesOffers::where('status','=',1)->where('country_id','=',$user->country)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::all();
-        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('category_id', '=', $user->category_id)->where('status', '=', 1)->paginate(10);
+        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('status', '=', 1)->paginate(10);
 
 
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory'));
