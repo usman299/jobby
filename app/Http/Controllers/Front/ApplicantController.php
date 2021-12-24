@@ -193,7 +193,7 @@ class ApplicantController extends Controller
         return view('front.applicant.jobrequests.jobrequests', compact('jobrequests','title', 'jobrequestsClose'));
     }
     public function jobrequestsDetail($id){
-        $title = 'Demander Détails';
+        $title = 'Détails de la demande';
         $jobrequest = JobRequest::find($id);
         return view('front.applicant.jobrequests.detail', compact('jobrequest','title'));
     }

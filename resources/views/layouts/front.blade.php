@@ -14,9 +14,7 @@ $user = Auth::user();
 
     <meta name="theme-color" content="#ffffff">
     <title>Mister Jobby</title>
-    <meta name="description" content="Nepro – The Multipurpose Mobile HTML5 Template">
-    <meta name="keywords"
-          content="bootstrap 4, mobile template, 404, chat, about, cordova, phonegap, mobile, html, ecommerce, shopping, store, delivery, wallet, banking, education, jobs, careers, distance learning" />
+    <meta name="description" content="Mister Jobby Find service provider in your area">
 
     <!-- favicon -->
     <link rel="icon" type="image/png" href="{{asset('assets/img/favicon/32.png')}}" sizes="32x32">

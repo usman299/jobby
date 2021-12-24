@@ -191,11 +191,11 @@
                                            required="">
                                 </div>
                             </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Le genre</label>
-                                <select  required="" class="form-control custom-select" name="gender">
-                                    <option value="Mâle">Mâle</option>
-                                    <option value="Fémail">Fémail</option>
+                            <div class="form-group"  style="text-align: left!important;">
+                                <label>Sexe</label>
+                                <select  class="form-control custom-select" name="gender">
+                                    <option value="Homme">Homme</option>
+                                    <option value="Femme">Femme</option>
                                 </select>
                             </div>
                             <div class="form-group" style="text-align: left!important;">
