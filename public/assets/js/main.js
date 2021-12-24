@@ -388,7 +388,7 @@
 
   $('.owlCards').owlCarousel({
     margin: 15,
-    loop: true,
+    loop: false,
     autoWidth: true,
     items: 3
   });
@@ -401,7 +401,7 @@
 
   $('.owlServiceProvider').owlCarousel({
     stagePadding: 50,
-    loop: true,
+    loop: false,
     margin: 15,
     nav: false,
     responsive: {
@@ -425,7 +425,7 @@
 
   $('.owlServiceProvider-two').owlCarousel({
     stagePadding: 40,
-    loop: true,
+    loop: false,
     margin: 15,
     nav: false,
     responsive: {
@@ -449,7 +449,7 @@
 
   $('.owl-package').owlCarousel({
     stagePadding: 60,
-    loop: true,
+    loop: false,
     margin: 10,
     nav: false,
     responsive: {
@@ -492,7 +492,7 @@
 
   $('.owlCategories_learning').owlCarousel({
     stagePadding: 20,
-    loop: true,
+    loop: false,
     margin: 10,
     nav: false,
     responsive: {
@@ -515,7 +515,7 @@
 */
   $('.owlCategories_Public').owlCarousel({
     margin: 15,
-    loop: true,
+    loop: false,
     autoWidth: true,
     items: 3
   });
@@ -527,7 +527,7 @@
   */
   $('.owlThemeCorses').owlCarousel({
     margin: 15,
-    loop: true,
+    loop: false,
     autoWidth: true,
     items: 2
   })
@@ -539,7 +539,7 @@
 */
   $('.owlCategories').owlCarousel({
     margin: 13,
-    loop: true,
+    loop: false,
     autoWidth: true,
     items: 2,
     responsive: {
@@ -709,7 +709,7 @@ if (!toastOffline.length) {
   );
 }
 
-//here is show function Offline 
+//here is show function Offline
 function isOfflineMode() {
   $('#offlineToast').addClass('show');
   $('#onlineToast').removeClass('show');
