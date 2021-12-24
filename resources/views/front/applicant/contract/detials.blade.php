@@ -315,18 +315,32 @@
                 </div>
                 <form action="{{route('jobber.review', ['id' => $contract->id])}}" method="POST">
                     @csrf
+
                     <div class="modal-body env-pb">
-                        <div class="form-group input-lined">
+
+
+                        <div class="form-group input-lined " >
                             <textarea class="form-control" placeholder="Entrez le message" rows="3" name="message"></textarea>
                             <label for="address"><strong style="font-size: 15px;">Message</strong><strong style="color: red;">*</strong></label>
                         </div>
-                        <div class="form-group input-lined">
-                            <input type="text" class="form-control"  name="star" placeholder="Entrer la quantité de départ">
+                        <div>
+                        <div class="form-group  rate">
+                            <input type="radio" id="star5" name="star" value="5" />
+                            <label for="star5" title="text">5 stars</label>
+                            <input type="radio" id="star4" name="star" value="4" />
+                            <label for="star4" title="text">4 stars</label>
+                            <input type="radio" id="star3" name="star" value="3" />
+                            <label for="star3" title="text">3 stars</label>
+                            <input type="radio" id="star2" name="star" value="2" />
+                            <label for="star2" title="text">2 stars</label>
+                            <input type="radio" id="star1" name="star" value="1" required />
+                            <label for="star1" title="text">1 star</label>
+                        </div></div>
 
-                            <label for="address"><strong style="font-size: 15px;">Star</strong><strong style="color: red;">*</strong></label>
-                        </div>
+
+
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer ">
                         <button type="submit"
                                 class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
                             Envoyer

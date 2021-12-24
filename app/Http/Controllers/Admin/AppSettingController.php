@@ -400,6 +400,8 @@ class AppSettingController extends Controller
     {
         $about = About::first();
         $about->description = $request->description;
+        $about->copyright = $request->copyright;
+        $about->condition = $request->condition;
         $about->update();
         toastr()->success('Your Data  Update');
         return back();

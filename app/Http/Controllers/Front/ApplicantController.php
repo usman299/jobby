@@ -217,9 +217,20 @@ class ApplicantController extends Controller
         return view('front.applicant.proposals.proposals', compact('title', 'acceptProposals', 'activeProposals', 'rejectProposals'));
     }
     public function proposalDetails($id){
+
         $title = 'Propositions';
        $proposal = Proposal::find($id);
-        return view('front.applicant.proposals.details', compact('title', 'proposal'));
+       $reviews = Reviews::where('reciver_id','=',$proposal->jobber_id)->get();
+       $totalReview = Reviews::where('reciver_id','=',$proposal->jobber_id)->sum('star');
+       $total = $reviews->count();
+       $totalReviews = round($totalReview/$total);
+       $fiveStar = (Reviews::where('star','=',5)->count()/$total)*100;
+       $fourStar = (Reviews::where('star','=',4)->count()/$total)*100;
+       $threeStar = (Reviews::where('star','=',3)->count()/$total)*100;
+       $twoStar = (Reviews::where('star','=',2)->count()/$total)*100;
+       $oneStar = (Reviews::where('star','=',1)->count()/$total)*100;
+
+        return view('front.applicant.proposals.details', compact('title', 'proposal','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar'));
     }
     public function proposalAccept(Request $request, $id){
         $proposal = Proposal::find($id);
