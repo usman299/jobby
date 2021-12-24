@@ -125,6 +125,9 @@ $user = Auth::user();
             display: inline-block;
             opacity: 0.5;
         }
+        .banner_sliderFull .em-swiperSliderFull.-height-sm .--item-inside .cover_img img{
+            height: 250px;
+        }
 
         .step.active {
             opacity: 1;
@@ -924,6 +927,7 @@ $user = Auth::user();
             reader.readAsDataURL(input.files[0]);
         }
     }
+
     $("#files2").change(function() {
         filename = this.files[0].name;
         readURL2(this);

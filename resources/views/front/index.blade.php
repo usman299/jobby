@@ -29,23 +29,27 @@
 @section('content')
         <main class="emPage__public">
             <!-- Start banner_swiper -->
-            <section class="banner_swiper padding-t-40 bg-white">
-                <div class="title_welcome">
-
-                </div>
+            <section class="banner_sliderFull margin-b-20 margin-t-50">
                 <!-- Swiper -->
-                <div class="owl-carousel owl-theme em-owlCentred em_owl_swipe margin-t-20">
-                    @foreach($sliderGalery as $row)
-                    <div class="item em_item">
-                        <div class="em_cover_img">
-                            <img src="{{ asset($row->img ?? ' ')  }}" alt="">
-                            <div class="em_text">
+                <div class="swiper-container em-swiperSliderFull -height-sm">
+                    <div class="swiper-wrapper">
+                        @foreach($sliderGalery as $row)
+                        <div class="swiper-slide">
+                            <div class="--item-inside">
+                                <div class="cover_img d-flex justify-content-center">
+                                    <img src="{{ asset($row->img ?? ' ')  }}" alt="">
+                                    <div
+                                        class="text_img position-absolute bottom-0 padding-b-50 padding-l-20 text-center">
 
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
+                        @endforeach
 
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
                 </div>
             </section>
             <!-- End. banner_swiper -->

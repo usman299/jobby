@@ -1,5 +1,7 @@
 <?php
 
+use App\About;
+use App\QuestionAnswer;
 use Illuminate\Database\Seeder;
 use App\AppSetting;
 use App\Countory;
@@ -60,112 +62,31 @@ class AppSettingSeeder extends Seeder
 
         ]);
 
-//        \App\Proposal::create([
-//            'jobRequest_id' => 1,
-//            'jobber_id'=>3,
-//            'status'=>1,
-//            'time_limit' => "5h 7min",
-//            'price'=>45,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        \App\Proposal::create([
-//            'jobRequest_id' => 2,
-//            'jobber_id'=>3,
-//            'status'=>1,
-//            'time_limit' => "5h 8min",
-//            'price'=>35,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        \App\Proposal::create([
-//            'jobRequest_id' => 3,
-//            'jobber_id'=>3,
-//            'status'=>1,
-//            'time_limit' => "8h 7min",
-//            'price'=>588,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        \App\Proposal::create([
-//            'jobRequest_id' => 4,
-//            'jobber_id'=>3,
-//            'status'=>1,
-//            'time_limit' => "9h 7min",
-//            'price'=>58,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        Contract::create([
-//            'proposal_id' => 1,
-//            'jober_id'=>3,
-//            'applicant_id'=>3,
-//            'e_time' => "2021-12-17",
-//            'status'=> 1,
-//            'price'=>45,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        Contract::create([
-//            'proposal_id' => 2,
-//            'jober_id'=>3,
-//            'applicant_id'=>3,
-//            'e_time' => "2021-12-14",
-//            'status'=> 5,
-//            'price'=>56,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        Contract::create([
-//            'proposal_id' => 3,
-//            'jober_id'=>3,
-//            'applicant_id'=>3,
-//            'e_time' => "2021-12-19",
-//            'status'=> 3,
-//            'price'=>56,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        Contract::create([
-//            'proposal_id' => 4,
-//            'jober_id'=>3,
-//            'applicant_id'=>3,
-//            'e_time' => "2021-12-19",
-//            'status'=> 5,
-//            'price'=>56,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        Contract::create([
-//            'service_id' => 1,
-//            'jober_id'=>3,
-//            'applicant_id'=>3,
-//            'e_time' => "2021-12-29",
-//            'status'=> 1,
-//            'price'=>56,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        Contract::create([
-//            'service_id' => 2,
-//            'jober_id'=>3,
-//            'applicant_id'=>3,
-//            'e_time' => "2021-12-15",
-//            'status'=> 3,
-//            'price'=>56,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
-//        Contract::create([
-//            'service_id' => 3,
-//            'jober_id'=>3,
-//            'applicant_id'=>3,
-//            'e_time' => "2021-12-20",
-//            'status'=> 6,
-//            'price'=>56,
-//            'description'=>"Build professional web & appdesigns using Adobe Illustrator CC",
-//
-//        ]);
+        // Setting
+
+        About::create([
+            'description' => "Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design. Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez Conception UI/UX et développement front-end. Nous apportons de la beauté au design.",
+
+        ]);
+        QuestionAnswer::create([
+            'question' => "Is this built with React ?",
+            'answer' => "Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the .show class.",
+        ]);QuestionAnswer::create([
+            'question' => "Is this a PWA?",
+            'answer' => "Yes. Our item is a PWA. We have a servier worker and a manifest.json file ready and prepared for you to use the item offline.",
+        ]);QuestionAnswer::create([
+            'question' => "What CSS framework this theme use?",
+            'answer' => "We are using the latest Bootstrap 4.",
+        ]);QuestionAnswer::create([
+            'question' => "Is this a WordPres Theme?",
+            'answer' => "No. Our item is an HTML, CSS3, and JS Site Template. You can however convert it to a WordPress Theme.",
+        ]);QuestionAnswer::create([
+            'question' => "What can I do with this template?",
+            'answer' => "You can make mobile websites or progressive web apps for mobile devices.",
+        ]);
+
+
+
 
 
     }

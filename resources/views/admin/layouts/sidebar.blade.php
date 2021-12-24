@@ -75,12 +75,33 @@
                             <span class="nav-text">Contracter </span>
                         </a>
                     </li>
-                    <li><a href="{{route('admin.questions')}}" class="ai-icon" aria-expanded="false">
-                            <i class="flaticon-381-add"></i>
-                            <!-- APP SETTING -->
-                            <span class="nav-text">Questions </span>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
+                            <span class="nav-text"><!-- Users --> Réglage</span>
                         </a>
-                    </li>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('question.index')}}"><!-- question -->Question Réponse</a></li>
+                            <li><a href="{{route('about.create')}}"><!--  about --> À propos de nous</a></li>
+
+
+                        </ul></li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
+                            <span class="nav-text"><!-- Users --> Contact</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('demandeur.contact')}}"><!-- question -->Demandeur Contact</a></li>
+                            <li><a href="{{route('jobber.contact')}}"><!--  about --> Jobber Contact</a></li>
+
+
+                        </ul></li>
+
+{{--                    <li><a href="{{route('admin.questions')}}" class="ai-icon" aria-expanded="false">--}}
+{{--                            <i class="flaticon-381-add"></i>--}}
+{{--                            <!-- APP SETTING -->--}}
+{{--                            <span class="nav-text">Questions </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                    <!--  <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 
                             <i class="flaticon-381-settings-2"></i>

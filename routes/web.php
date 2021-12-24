@@ -54,6 +54,7 @@ Route::get('/app/about', 'Front\SettingsController@about')->name('app.about');
 Route::get('/app/notifications', 'Front\SettingsController@notifications')->name('app.notifications');
 Route::get('/app/support', 'Front\SettingsController@support')->name('app.support');
 Route::get('/app/contact', 'Front\SettingsController@contact')->name('app.contact');
+Route::post('/app/contact/store', 'Front\SettingsController@contactStore')->name('app.contact.store');
 Route::get('/app/password/change', 'Front\SettingsController@passwordChange')->name('password.change');
 Route::post('/profile/update', 'Front\SettingsController@profileUpdate')->name('profile.update');
 Route::post('/password/update', 'Front\SettingsController@passwordUpdate')->name('password.update');
@@ -196,6 +197,24 @@ Route::get('/countory/index', 'Admin\AppSettingController@countoryIndex')->name(
 Route::get('/countory/delete/{id}', 'Admin\AppSettingController@countoryDelete')->name('countory.delete');
 Route::get('/countory/edit/{id}', 'Admin\AppSettingController@countoryEdit')->name('countory.edit');
 Route::post('/countory/update/{id}', 'Admin\AppSettingController@countoryUpdate')->name('countory.update');
+
+Route::get('/question/create', 'Admin\AppSettingController@questionCreate')->name('question.create');
+Route::post('/question/store', 'Admin\AppSettingController@questionStore')->name('question.store');
+Route::get('/question/index', 'Admin\AppSettingController@questionIndex')->name('question.index');
+Route::get('/question/edit/{id}', 'Admin\AppSettingController@questionEdit')->name('question.edit');
+Route::post('/question/update{id}', 'Admin\AppSettingController@questionUpdate')->name('question.update');
+Route::get('/question/delete/{id}', 'Admin\AppSettingController@questionDelete')->name('question.delete');
+
+//ABout Description
+Route::get('/about/create', 'Admin\AppSettingController@aboutCreate')->name('about.create');
+Route::post('/about/store', 'Admin\AppSettingController@aboutStore')->name('about.store');
+
+Route::get('/demandeur/contact', 'Admin\AppSettingController@demandeurContact')->name('demandeur.contact');
+Route::get('/contact/details/{id}', 'Admin\AppSettingController@contactDetials')->name('contact.details');
+Route::get('/jobber/contact', 'Admin\AppSettingController@jobberContact')->name('jobber.contact');
+
+
+
 
     Route::get('/admin/job/request', 'Admin\JobbyAppController@jobRequestIndex')->name('admin.jobrequest');
     Route::get('/admin/search/country/{id}', 'Admin\JobbyAppController@jobRequestSearchCountry')->name('search.country');

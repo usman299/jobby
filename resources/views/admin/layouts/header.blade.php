@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +13,9 @@
     <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
 	<link href="{{asset('admin/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
+    <!-- Summernote -->
+    <link href="{{asset('admin/vendor/summernote/summernote.css')}}" rel="stylesheet">
+
 
     <!-- Datatable -->
     <link href="{{asset('admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
@@ -34,7 +36,6 @@
     }
 </style>
 
-    @toastr_css
 
 
 </head>

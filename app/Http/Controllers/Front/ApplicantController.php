@@ -11,6 +11,7 @@ use App\Proposal;
 use App\Reviews;
 use App\User;
 use App\Notfication;
+use Validator;
 use App\SubCategory;
 use App\JobberServicesOffers;
 use Illuminate\Http\Request;
@@ -74,6 +75,7 @@ class ApplicantController extends Controller
 
         $jobrequest->lat = $request->lat;
         $jobrequest->long = $request->long;
+
 
         if($request->hasFile('image1')){
             $image= $request->file('image1');

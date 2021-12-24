@@ -13,18 +13,7 @@
         <div class="content_text bg-white emBlock__border margin-b-10">
             <h3 class="size-20 weight-500 color-secondary mb-1">What we offer</h3>
             <p>
-                Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez
-                Conception UI/UX et développement front-end. Nous apportons de la beauté au design.
-                Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez
-                Conception UI/UX et développement front-end. Nous apportons de la beauté au design.
-                Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez
-                Conception UI/UX et développement front-end. Nous apportons de la beauté au design.
-                Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez
-                Conception UI/UX et développement front-end. Nous apportons de la beauté au design.
-                Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez
-                Conception UI/UX et développement front-end. Nous apportons de la beauté au design.
-                Nous sommes Ikae Digital, une équipe créative et professionnelle avec plus de 7 ans d'expérience chez
-                Conception UI/UX et développement front-end. Nous apportons de la beauté au design.
+                {!! $about->description !!}
             </p>
         </div>
 

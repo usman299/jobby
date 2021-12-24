@@ -36,153 +36,70 @@
             </ul>
         </div>
 
-        <div class="content_text bg-white emBlock__border margin-b-10">
-            <h2 class="size-20 weight-500 color-secondary mb-2">Questions fréquentes</h2>
-            <p>
-                We get asked these questions a lot, so we made this small section to help you out identifying
-                what you need faster.
-            </p>
-        </div>
+
 
         <!-- Start emPage___profile -->
         <div class="em__pkLink accordion bg-white emBlock__border pt-3" id="accordionExample5">
             <ul class="nav__list with_border fullBorder">
-                <li>
-                    <div id="headingOne-text">
-                        <div class="item-link main_item" data-toggle="collapse" data-target="#collapseOne-text"
-                             aria-expanded="true" aria-controls="collapseOne-text">
-                            <div class="group">
-                                <div>
-                                            <span class="path__name text-transform-none">Is this built with
-                                                React ?</span>
+                @foreach($questionAnswer as $key => $row)
+                    @if($key+1 == 1)
+                        <li>
+                            <div id="headingOne-text">
+                                <div class="item-link main_item" data-toggle="collapse" data-target="#collapseOne-text"
+                                     aria-expanded="true" aria-controls="collapseOne-text">
+                                    <div class="group">
+                                        <div>
+                                            <span class="path__name text-transform-none">{!! $row->question !!}</span>
+                                        </div>
+                                    </div>
+                                    <div class="group">
+                                        <span class="short__name"></span>
+                                        <i class="tio-add iocn__plus -arrwo"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="group">
-                                <span class="short__name"></span>
-                                <i class="tio-add iocn__plus -arrwo"></i>
+                            <div id="collapseOne-text" class="collapse show" aria-labelledby="headingOne-text"
+                                 data-parent="#accordionExample5">
+                                <div class="card-body">
+                                    <p class="mb-0 size-15 color-text">
+                                        {!! $row->answer !!}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div id="collapseOne-text" class="collapse show" aria-labelledby="headingOne-text"
-                         data-parent="#accordionExample5">
-                        <div class="card-body">
-                            <p class="mb-0 size-15 color-text">
-                                Some placeholder content for the first accordion panel. This panel is shown
-                                by
-                                default, thanks to the .show class.
-                            </p>
-                        </div>
-                    </div>
-                </li>
+                        </li>
 
-                <li>
-                    <div id="headingTwo-text">
-                        <div class="item-link main_item" data-toggle="collapse" data-target="#collapseTwo-text"
-                             aria-expanded="false" aria-controls="collapseTwo-text">
-                            <div class="group">
-                                <div>
-                                    <span class="path__name text-transform-none">Is this a PWA?</span>
+                    @endif
+                    <li>
+                        <div id="headingFive-text">
+                            <div class="item-link main_item" data-toggle="collapse" data-target="#collapseFive-text"
+                                 aria-expanded="false" aria-controls="collapseFive-text">
+                                <div class="group">
+                                    <div>
+                                            <span class="path__name text-transform-none">
+                                                {!! $row->question !!}
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="group">
+                                    <span class="short__name"></span>
+                                    <i class="tio-add iocn__plus -arrwo"></i>
                                 </div>
                             </div>
-                            <div class="group">
-                                <span class="short__name"></span>
-                                <i class="tio-add iocn__plus -arrwo"></i>
-                            </div>
                         </div>
-                    </div>
-                    <div id="collapseTwo-text" class="collapse" aria-labelledby="headingTwo-text"
-                         data-parent="#accordionExample5">
-                        <div class="em__pkLink">
+                        <div id="collapseFive-text" class="collapse" aria-labelledby="headingFive-text"
+                             data-parent="#accordionExample5">
                             <div class="card-body">
                                 <p class="mb-0 size-15 color-text">
-                                    Yes. Our item is a PWA. We have a servier worker and a manifest.json file
-                                    ready and prepared for you to use the item offline.
+                                    {!! $row->answer !!}
                                 </p>
                             </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
 
-                <li>
-                    <div id="headingThree-text">
-                        <div class="item-link main_item" data-toggle="collapse"
-                             data-target="#collapseThree-text" aria-expanded="false"
-                             aria-controls="collapseThree-text">
-                            <div class="group">
-                                <div>
-                                            <span class="path__name text-transform-none">What CSS framework this theme
-                                                use?</span>
-                                </div>
-                            </div>
-                            <div class="group">
-                                <span class="short__name"></span>
-                                <i class="tio-add iocn__plus -arrwo"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="collapseThree-text" class="collapse" aria-labelledby="headingThree-text"
-                         data-parent="#accordionExample5">
-                        <div class="card-body">
-                            <p class="mb-0 size-15 color-text">
-                                We are using the latest Bootstrap 4.
-                            </p>
-                        </div>
-                    </div>
-                </li>
 
-                <li>
-                    <div id="headingFour-text">
-                        <div class="item-link main_item" data-toggle="collapse" data-target="#collapseFour-text"
-                             aria-expanded="false" aria-controls="collapseFour-text">
-                            <div class="group">
-                                <div>
-                                            <span class="path__name text-transform-none">Is this a WordPres
-                                                Theme?</span>
-                                </div>
-                            </div>
-                            <div class="group">
-                                <span class="short__name"></span>
-                                <i class="tio-add iocn__plus -arrwo"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="collapseFour-text" class="collapse" aria-labelledby="headingFour-text"
-                         data-parent="#accordionExample5">
-                        <div class="card-body">
-                            <p class="mb-0 size-15 color-text">
-                                No. Our item is an HTML, CSS3, and JS Site Template. You can however convert it
-                                to a WordPress Theme.
-                            </p>
-                        </div>
-                    </div>
-                </li>
+                @endforeach
 
-                <li>
-                    <div id="headingFive-text">
-                        <div class="item-link main_item" data-toggle="collapse" data-target="#collapseFive-text"
-                             aria-expanded="false" aria-controls="collapseFive-text">
-                            <div class="group">
-                                <div>
-                                            <span class="path__name text-transform-none">
-                                                What can I do with this template?
-                                            </span>
-                                </div>
-                            </div>
-                            <div class="group">
-                                <span class="short__name"></span>
-                                <i class="tio-add iocn__plus -arrwo"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="collapseFive-text" class="collapse" aria-labelledby="headingFive-text"
-                         data-parent="#accordionExample5">
-                        <div class="card-body">
-                            <p class="mb-0 size-15 color-text">
-                                You can make mobile websites or progressive web apps for mobile devices.
-                            </p>
-                        </div>
-                    </div>
-                </li>
+
 
             </ul>
         </div>

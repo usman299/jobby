@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 use App\AppSetting;
+use App\Contact;
 use App\SliderGalery;
 use App\Countory;
+use App\QuestionAnswer;
+use App\About;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -353,7 +356,66 @@ class AppSettingController extends Controller
             return back();
         }
 
+    }
 
+    public function questionCreate()
+    {
+        return view('admin.setting.questionAns.create');
+    }
+    public function questionStore(Request $request)
+    {    $questionAnswer = new QuestionAnswer();
+         $questionAnswer->question = $request->question;
+         $questionAnswer->answer = $request->answer;
+         $questionAnswer->save();
+        toastr()->success('Your Data  Added');
+        return redirect()->route('question.index');
+    }
+    public function questionIndex()
+    {   $questionAnswer = QuestionAnswer::all();
+        return view('admin.setting.questionAns.index',compact('questionAnswer'));
+    }
+    public function questionEdit($id)
+    {   $questionAnswer = QuestionAnswer::where('id','=',$id)->first();
+        return view('admin.setting.questionAns.edit',compact('questionAnswer'));
+    }
+    public function questionUpdate(Request $request,$id)
+    {   $questionAnswer = QuestionAnswer::where('id','=',$id)->first();
+        $questionAnswer->question = $request->question;
+        $questionAnswer->answer = $request->answer;
+        $questionAnswer->update();
+        toastr()->success('Your Data  Update');
+        return redirect()->route('question.index');
+    }
+    public function questionDelete($id)
+    {   $questionAnswer = QuestionAnswer::where('id','=',$id)->first();
+        $questionAnswer->delete();
+        toastr()->error('Your Data  Update');
+        return back();
+    }
+    public function aboutCreate()
+    {    $about = About::first();
+        return view('admin.setting.about.index',compact('about'));
+    }
+    public function aboutStore(Request $request)
+    {
+        $about = About::first();
+        $about->description = $request->description;
+        $about->update();
+        toastr()->success('Your Data  Update');
+        return back();
 
+    }
+
+    public function demandeurContact()
+    {    $contact = Contact::where('role','=',2)->get();
+        return view('admin.setting.contact.index',compact('contact'));
+    }
+    public function jobberContact()
+    {    $contact = Contact::where('role','=',1)->get();
+        return view('admin.setting.contact.index',compact('contact'));
+    }
+    public function contactDetials($id)
+    {    $contact = Contact::where('id','=',$id)->first();
+        return view('admin.setting.contact.show',compact('contact'));
     }
 }

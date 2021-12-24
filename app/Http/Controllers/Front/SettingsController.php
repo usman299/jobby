@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\About;
 use App\Category;
+use App\Contact;
 use App\Countory;
 use App\Http\Controllers\Controller;
 use App\Notfication;
+use App\QuestionAnswer;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +37,8 @@ class SettingsController extends Controller
     public function about(){
         $title = 'À propos de nous';
         $user = Auth::user();
-        return view('front.settings.about', compact('user','title'));
+        $about = About::first();
+        return view('front.settings.about', compact('user','title','about'));
     }
     public function notifications(){
         $title = 'Notifications';
@@ -46,12 +50,31 @@ class SettingsController extends Controller
     public function support(){
         $title = 'Soutien';
         $user = Auth::user();
-        return view('front.settings.support', compact('user','title'));
+        $questionAnswer = QuestionAnswer::all();
+        return view('front.settings.support', compact('user','title','questionAnswer'));
     }
     public function contact(){
         $title = 'Contact';
         $user = Auth::user();
         return view('front.settings.contact', compact('user','title'));
+    }
+    public function contactStore(Request $request){
+        $user = Auth::user();
+        $contact = new Contact();
+
+        $contact->user_id =  $user->id;
+        $contact->role = $user->role;
+        $contact->name = $request->name;
+        $contact->email =$request->email;
+        $contact->subject =$request->subject;
+        $contact->message =$request->message;
+        $contact->save();
+
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
     public function profileUpdate(Request $request){
         $user = Auth::user();

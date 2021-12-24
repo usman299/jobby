@@ -21,6 +21,11 @@
     <!-- Required vendors -->
     <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
 
+        <!-- Summernote -->
+        <script src="{{asset('admin/vendor/summernote/js/summernote.min.js')}}"></script>
+        <!-- Summernote init -->
+        <script src="{{asset('admin/js/plugins-init/summernote-init.js')}}"></script>
+
 	<script src="{{asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
 	<script src="{{asset('admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
     <script src="{{asset('admin/js/custom.min.js')}}"></script>
@@ -114,8 +119,6 @@
 
         });
     </script>
-        @jquery
-        @toastr_js
-        @toastr_render
+
 </body>
 </html>
