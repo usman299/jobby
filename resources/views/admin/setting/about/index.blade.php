@@ -31,6 +31,18 @@
                                             <textarea class="summernote" value="" name="description" >{{$about->description ?? ''}}</textarea>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label"><!-- Title --><strong>Termes et conditions</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
+                                        <div class="col-sm-12" style="margin-top: 20px">
+                                            <textarea class="summernote" value="" name="condition" >{{$about->condition ?? ''}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label"><!-- Title --><strong>Droits d'auteur</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
+                                        <div class="col-sm-7" style="margin-top: 20px">
+                                            <textarea  class="form-control" value="" rows="6" name="copyright" >{{$about->copyright ?? ''}}</textarea>
+                                        </div>
+                                    </div>
 
 
 

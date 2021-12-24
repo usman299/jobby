@@ -27,11 +27,11 @@
                 <img style="height: 35px" src="{{asset('main/logo.jpg')}}" alt="">
             </a>
             <h3 class="size-13 weight-400 color-secondary margin-b-10">
-                Copyright © Ikae Digital. Tous les droits sont réservés.
+                Copyright © Ikae Digital. {{$about->copyright}}
             </h3>
             <p class="size-12 color-text margin-b-20">
-                Mister Jobby est une application de services mobiles polyvalents. Professionnellement construit avec un UX élevé pour donner à votre page
-                le grand regard.
+                {{$about->condition}}
+
             </p>
             <div class="itemNetworks mt-2 emBlock__border">
                 <a href="#" class="btn facebook">

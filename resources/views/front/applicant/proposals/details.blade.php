@@ -218,7 +218,7 @@
                                 <p class="weight-600">{{$proposal->jobber->rate_per_hour??'0'}}€</p>
                             </div>
                             <div class="item">
-                                <span>Genre</span>
+                                <span>Sexe</span>
                                 <p class="weight-600">{{$proposal->jobber->gender??'non'}}</p>
                             </div>
                         </div>
@@ -233,6 +233,10 @@
                                     <span>Travaux terminés</span>
                                     <p>0</p>
                                 </div>
+{{--                                <div class="item">--}}
+{{--                                    <span>Travaux terminés</span>--}}
+{{--                                    <p>0</p>--}}
+{{--                                </div>--}}
                         </div>
 
                         <div class="em_body padding-t-40">
@@ -250,15 +254,42 @@
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="item_rate">
-                                                    <span class="noRate">4.0</span>
+                                                    <span class="noRate">{{$totalReviews}}.0</span>
                                                     <div class="">
-                                                        <p class="rateCutome">1.6k Commentaires</p>
+                                                        <p class="rateCutome">{{$total}} Commentaires</p>
                                                         <div class="emPatternRate">
-                                                            <span class="ico _rated"></span>
-                                                            <span class="ico _rated"></span>
-                                                            <span class="ico _rated"></span>
-                                                            <span class="ico _rated"></span>
-                                                            <span class="ico"></span>
+
+                                                            @if($totalReviews==5)
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                            @elseif($totalReviews==4)
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico"></span>
+                                                            @elseif($totalReviews==3)
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                            @elseif($totalReviews==2)
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                            @else
+                                                                <span class="ico _rated"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -268,7 +299,7 @@
                                                     <div class="">
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar" style="width: {{$fiveStar}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">5</span>
@@ -276,7 +307,7 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar" style="width: {{$fourStar}}%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">4</span>
@@ -284,7 +315,7 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: 8%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar" style="width: {{$threeStar}}%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">3</span>
@@ -292,7 +323,7 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar" style="width: {{$twoStar}}%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">2</span>
@@ -300,7 +331,7 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width:15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar" style="width:{{$oneStar}}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">1</span>
@@ -317,85 +348,69 @@
                                 <div class="emCommentCusomers">
                                     <div class="title"></div>
                                     <!-- item -->
+                                    @foreach($reviews as $row)
                                     <div class="itemUser">
                                         <div class="media">
                                             <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/064.jpg" alt="">
                                             <div class="media-body">
                                                 <div class="txt_details">
-                                                    <h4 class="username">Richard Crump <time>Today</time></h4>
+                                                    <h4 class="username">{{$row->applicant->firstName}}  {{$row->applicant->lastName}} <time>{{$row->created_at->diffForHumans()}}</time></h4>
                                                     <div class="emPatternRate">
+                                                        @if($row->star==5)
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        @elseif($row->star==4)
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico"></span>
+                                                        @elseif($row->star==3)
                                                         <span class="ico _rated"></span>
                                                         <span class="ico _rated"></span>
                                                         <span class="ico _rated"></span>
                                                         <span class="ico"></span>
                                                         <span class="ico"></span>
+                                                        @elseif($row->star==2)
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico"></span>
+                                                        <span class="ico"></span>
+                                                        <span class="ico"></span>
+                                                        @else
+                                                        <span class="ico _rated"></span>
+                                                        <span class="ico"></span>
+                                                        <span class="ico"></span>
+                                                        <span class="ico"></span>
+                                                        <span class="ico"></span>
+                                                        @endif
                                                     </div>
                                                     <p class="txtComment">
-                                                        Lacus sed turpis tincidunt id aliquet risus feugiat in. Cursus eget nunc
-                                                        scelerisque viverra mauris in aliquam.
+                                                        {{$row->message}}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <!-- item -->
-                                    <div class="itemUser">
-                                        <div class="media">
-                                            <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/0654.jpg" alt="">
-                                            <div class="media-body">
-                                                <div class="txt_details">
-                                                    <h4 class="username">Pedro Foster <time>2 days ago</time></h4>
-                                                    <div class="emPatternRate">
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico"></span>
-                                                    </div>
-                                                    <p class="txtComment">
-                                                        Cursus eget nunc scelerisque viverra mauris in aliquam.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="itemUser">
-                                        <div class="media">
-                                            <div class="no_img bg-purple">
-                                                <span>L</span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="txt_details">
-                                                    <h4 class="username">Leona Barker <time>6 days ago</time></h4>
-                                                    <div class="emPatternRate">
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico _rated"></span>
-                                                        <span class="ico"></span>
-                                                    </div>
-                                                    <p class="txtComment">
-                                                        Sit amet purus gravida quis. Elementum nisi quis eleifend quam
-                                                        adipiscing
-                                                        vitae.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="" class="btn all_reviews margin-t-20">See all reviews</a>
+
+{{--                                    <a href="" class="btn all_reviews margin-t-20">See all reviews</a>--}}
                                 </div>
                             </div>
 
                         </div>
 
                         <div class="padding-20 d-flex emBlock__border">
-                            <a href="{{route('applicant.jobber.services', ['id' => $proposal->jobber->id])}}" class="btn bg-green rounded-10 btn__default ml-3 full-width" style="float: right">
-                                <span class="color-white">Services offerts</span>
-                                <div class="icon rounded-10">
-                                    <i class="tio-chevron_right"></i>
-                                </div>
-                            </a>
+{{--                            <a href="{{route('applicant.jobber.services', ['id' => $proposal->jobber->id])}}" class="btn bg-green rounded-10 btn__default ml-3 full-width" style="float: right">--}}
+{{--                                <span class="color-white">Services offerts</span>--}}
+{{--                                <div class="icon rounded-10">--}}
+{{--                                    <i class="tio-chevron_right"></i>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
                         </div>
                     </div>
                 </div>
