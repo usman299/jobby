@@ -866,11 +866,11 @@ $user = Auth::user();
 
             </div>
         </div>
-{{--<div class="dialog-background" style="display: none">--}}
-{{--    <div class="dialog-loading-wrapper">--}}
-{{--        <span class="dialog-loading-icon">Loading....</span>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<div class="dialog-background" style="display: none">
+    <div class="dialog-loading-wrapper">
+        <span class="dialog-loading-icon">Loading....</span>
+    </div>
+</div>
 <!-- jquery -->
 <script src="{{asset('assets/js/jquery-3.6.0.js')}}"></script>
 <!-- popper.min.js 1.16.1 -->
@@ -1035,6 +1035,7 @@ $user = Auth::user();
             // ... the form gets submitted:
             document.getElementById("regForm").submit();
             document.getElementById("nextBtn").innerHTML = "Chargement..";
+            $(".dialog-background").show();
             return false;
         }
         // Otherwise, display the correct tab:

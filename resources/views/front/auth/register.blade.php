@@ -55,6 +55,41 @@
         .allign-left{
             text-align: left;
         }
+        .dialog-background{
+            background: none repeat scroll 0 0 rgba(105, 166, 217, 0.5);
+            height: 100%;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        .dialog-loading-wrapper {
+            background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+            border: 0 none;
+            height: 100px;
+            left: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            position: fixed;
+            top: 50%;
+            width: 100px;
+            z-index: 9999999;
+        }
+        .dialog-loading-icon {
+            background-color: #FFFFFF !important;
+            border-radius: 13px;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            margin: 0;
+            padding: 1px;
+            text-align: center;
+            width: 100px;
+        }
+
     </style>
 @endsection
 @section('content')
@@ -499,7 +534,11 @@
             </section>
         </div>
     </div>
-
+    <div class="dialog-background" style="display: none">
+        <div class="dialog-loading-wrapper">
+            <span class="dialog-loading-icon">Loading....</span>
+        </div>
+    </div>
 @endsection
 
 @section('script')
@@ -2726,6 +2765,7 @@
                 // ... the form gets submitted:
                 document.getElementById("regForm").submit();
                 document.getElementById("nextBtn").innerHTML = "Chargement..";
+                $(".dialog-background").show();
                 return false;
             }
             // Otherwise, display the correct tab:
