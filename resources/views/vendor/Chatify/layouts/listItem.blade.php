@@ -1,7 +1,7 @@
 {{-- -------------------- Saved Messages -------------------- --}}
 @if($get == 'saved')
     <table class="messenger-list-item m-li-divider" data-contact="{{ Auth::user()->id }}">
-        <tr data-action="0">
+        <tr data-action="0" style="display: none">
             {{-- Avatar side --}}
             <td>
             <div class="avatar av-m" style="background-color: #d9efff; text-align: center;">

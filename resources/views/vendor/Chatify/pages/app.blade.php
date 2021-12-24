@@ -5,7 +5,7 @@
     {{-- ----------------------Users/Groups lists side---------------------- --}}
     <div class="messenger-listView" style="margin-top: 50px">
         {{-- Header and search bar --}}
-        <div class="m-header">
+        <div class="m-header" style="display: none">
             <nav>
                 <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
                 {{-- header buttons --}}
@@ -23,13 +23,13 @@
             </div>
         </div>
         {{-- tabs and lists --}}
-        <div class="m-body contacts-container">
+        <div class="m-body contacts-container" style="margin-top: 0px">
            {{-- Lists [Users/Group] --}}
            {{-- ---------------- [ User Tab ] ---------------- --}}
            <div class="@if($type == 'user') show @endif messenger-tab users-tab app-scroll" data-view="users">
 
                {{-- Favorites --}}
-               <div class="favorites-section">
+               <div class="favorites-section" style="display: none">
                 <p class="messenger-title">Favoris</p>
                 <div class="messenger-favorites app-scroll-thin"></div>
                </div>
@@ -69,12 +69,12 @@
                 {{-- header back button, avatar and user name --}}
                 <div style="display: inline-flex;">
                     <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
-                    <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;">
+                    <div  class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px; display: none">
                     </div>
-                    <a href="#" class="user-name">{{ config('chatify.name') }}</a>
+                    <a  style="display: none" href="#" class="user-name">{{ config('chatify.name') }}</a>
                 </div>
                 {{-- header buttons --}}
-                <nav class="m-header-right">
+                <nav class="m-header-right" style="display: none">
                     <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
                     <a href="{{route('chatify')}}"><i class="fas fa-home"></i></a>
                     <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
