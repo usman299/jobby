@@ -35,7 +35,12 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span>Poster {{$jobrequest->created_at->diffForHumans()}}</span>
+                            <?php
+                            \Carbon\Carbon::setLocale('fr');
+                            $date = \Carbon\Carbon::parse($jobrequest->created_at);
+
+                            ?>
+                            <span>Poster {{$date->diffForHumans()}}</span>
                         </div>
                     </div>
                 </div>
@@ -55,7 +60,7 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
-                        <h2>Date d'entretien</h2>
+                        <h2>Date d’intervention</h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">
@@ -1679,6 +1684,8 @@
             </div>
         </section>
     @endif
+    <br>
+    <br>
     <br>
     <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade show" id="propsal" tabindex="-1"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
