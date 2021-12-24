@@ -281,16 +281,15 @@ class ApplicantController extends Controller
 
         if ($check){
             $notification = array(
-                'messege' => 'Already Applied',
+                'messege' => 'Vous avez déjà un contrat sur cette proposition',
                 'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);
         }
         else {
-           Proposal::find($id)->update(['status' => 2]);
-
-            $proposal = JobberServicesOffers::find($id);
-            if ($proposal) {
+                $proposal = Proposal::find($id);
+                $proposal->status = 2;
+                $proposal->update();
                 $contract = new Contract();
                 $contract->proposal_id = $id;
                 $contract->applicant_id = $applicant_id;
@@ -300,11 +299,10 @@ class ApplicantController extends Controller
                 $contract->description = $request->description;
                 $contract->save();
                 $notification = array(
-                    'messege' => 'Contract  Generate Successfulyy',
+                    'messege' => 'Contrat créé avec succès',
                     'alert-type' => 'success'
                 );
                 return redirect()->back()->with($notification);
-            }
         }
     }
 

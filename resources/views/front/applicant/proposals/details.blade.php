@@ -114,17 +114,11 @@
         <div class="bg-white padding-20 d-flex emBlock__border">
             <button  data-toggle="modal" data-target="#mdllJobDetails" class="btn bg-primary rounded-10 btn__default">
                 <span class="color-white">Profil du travailleur</span>
-                <div class="icon rounded-10">
-                    <i class="tio-chevron_right"></i>
-                </div>
             </button>
 
             <button {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} data-toggle="modal"
                data-target="#acceptpropsal" class="btn bg-green rounded-10 btn__default ml-3">
                 <span class="color-white">Accepter la proposition</span>
-                <div class="icon rounded-10">
-                    <i class="tio-chevron_right"></i>
-                </div>
             </button>
 
         </div>
@@ -133,26 +127,17 @@
            <button  data-toggle="modal"
                      data-target="" class="btn bg-info rounded-10 btn__default">
                <a href="{{url('/chatify/'.$proposal->jobber->id)}}">  <span class="color-white">Message</span></a>
-                <div class="icon rounded-10">
-                    <i class="tio-chevron_right"></i>
-                </div>
             </button>
 
 
             <button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
                 <span class="color-white">Commencer le contrat</span>
-                <div class="icon rounded-10">
-                    <i class="tio-chevron_right"></i>
-                </div>
             </button>
         </div>
         <div class="bg-white padding-20 d-flex emBlock__border">
 
             <a href="{{route('proposal.reject', ['id' => $proposal->id])}}"><button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} class="btn bg-danger rounded-10 btn__default">
                 <span class="color-white">Rejeter la proposition</span>
-                <div class="icon rounded-10">
-                    <i class="tio-chevron_right"></i>
-                </div>
             </button></a>
         </div>
     </section>
@@ -444,8 +429,8 @@
                                         <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
                                     </div>
                                     <div class="form-group input-lined">
-                                        <input type="date" id="price" name="e_time"  class="form-control"  required="">
-                                        <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Heure de fin</strong> <strong style="color: red;">*</strong> </label>
+                                        <input type="datetime-local" id="price" name="e_time"  class="form-control"  required="">
+                                        <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Date et heure de fin</strong> <strong style="color: red;">*</strong> </label>
                                     </div>
                                     <div class="form-group input-lined">
                                         <textarea class="form-control"  name="description" rows="4" id="description" placeholder="Entrez la  Description"></textarea>

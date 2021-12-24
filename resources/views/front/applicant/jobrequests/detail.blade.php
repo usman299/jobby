@@ -1653,21 +1653,21 @@
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
-                                    <img class="cover_img" style="height: 150px" src="{{asset($jobrequest->image1)}}" alt="">
+                                    <img id="myImg" class="cover_img" style="height: 150px" src="{{asset($jobrequest->image1)}}" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
-                                    <img class="cover_img" style="height: 150px" src="{{asset($jobrequest->image2)}}" alt="">
+                                    <img id="myImg2" class="cover_img" style="height: 150px" src="{{asset($jobrequest->image2)}}" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
-                                    <img class="cover_img" style="height: 150px" src="{{asset($jobrequest->image3)}}" alt="">
+                                    <img  id="myImg3" class="cover_img" style="height: 150px" src="{{asset($jobrequest->image3)}}" alt="">
                                 </div>
                             </div>
                         </div>
