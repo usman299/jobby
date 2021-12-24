@@ -81,7 +81,7 @@
             <div class="row">
                 <div class="col-6">
                     <h4>Estimation du budget: </h4>
-                    <p>5 € Admin fee </p>
+                    <p>Frais administratif 5€ </p>
                 </div>
                 <div class="col-6">
                     <h4 style="text-align: right" class="estimate_budget"> </h4>
@@ -106,7 +106,7 @@
         </div>
         <div>
             <h4>Pictures*</h4>
-            <p>Télécharger 3 images importand*</p>
+            <p>Télécharger 3 photos pour mieux comprendre votre demande</p>
         </div>
         <div class="row" style="width: 100%">
             <div class="col-4">
