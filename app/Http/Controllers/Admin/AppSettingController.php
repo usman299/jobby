@@ -7,6 +7,7 @@ use App\SliderGalery;
 use App\Countory;
 use App\QuestionAnswer;
 use App\About;
+use Intervention\Image\Facades\Image;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -254,12 +255,12 @@ class AppSettingController extends Controller
 
        $slider->userRole = $request->userRole;
        $slider->countory_id = $request->countory_id;
+
         if ($request->hasfile('img')) {
 
             $image1 = $request->file('img');
             $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'admin/images/';
-            $image1->move($destinationPath, $name);
+            Image::make($image1)->resize(410, 200)->save( public_path('admin/images/' . $name ) );
             $slider->img = 'admin/images/' . $name;
         }
         $slider->save();
@@ -287,8 +288,7 @@ class AppSettingController extends Controller
 
             $image1 = $request->file('img');
             $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'admin/images/';
-            $image1->move($destinationPath, $name);
+            Image::make($image1)->resize(410, 200)->save( public_path('admin/images/' . $name ) );
             $slider->img = 'admin/images/' . $name;
         }
         $slider->Update();
