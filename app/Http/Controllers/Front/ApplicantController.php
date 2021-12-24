@@ -7,6 +7,7 @@ use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\JobRequest;
+use App\Payment;
 use App\Proposal;
 use App\Reviews;
 use App\User;
@@ -277,33 +278,30 @@ class ApplicantController extends Controller
     public function proposalsContract(Request $request, $id){
         $applicant_id = Auth::user()->id;
 
-        $check = Contract::where('applicant_id', '=', $applicant_id)->where('proposal_id', '=', $id)->first();
+        $proposal = Proposal::find($id);
+        $proposal->status = 2;
+        $proposal->update();
 
-        if ($check){
-            $notification = array(
-                'messege' => 'Vous avez déjà un contrat sur cette proposition',
-                'alert-type' => 'error'
-            );
-            return redirect()->back()->with($notification);
-        }
-        else {
-                $proposal = Proposal::find($id);
-                $proposal->status = 2;
-                $proposal->update();
-                $contract = new Contract();
-                $contract->proposal_id = $id;
-                $contract->applicant_id = $applicant_id;
-                $contract->jober_id =  $proposal->jobber_id;
-                $contract->e_time = $request->e_time;
-                $contract->price = $request->price;
-                $contract->description = $request->description;
-                $contract->save();
-                $notification = array(
-                    'messege' => 'Contrat créé avec succès',
-                    'alert-type' => 'success'
-                );
-                return redirect()->back()->with($notification);
-        }
+        $contract = new Contract();
+        $contract->proposal_id = $id;
+        $contract->applicant_id = $applicant_id;
+        $contract->jober_id =  $proposal->jobber_id;
+        $contract->e_time = $request->e_time;
+        $contract->price = $proposal->price;
+        $contract->description = $request->description;
+        $contract->contract_no = 'CN-'.round(10000, 90000);
+        $contract->save();
+
+        $payment = new Payment();
+        $payment->proposal_id = $id;
+        $payment->applicant_id = $applicant_id;
+        $payment->jobber_id =  $proposal->jobber_id;
+        $payment->price =  $proposal->price;
+        $payment->type =  'card';
+        $payment->invoice_no =  'IN-'.round(10000, 90000);
+        $payment->save();
+
+        return view('front.payment.success', compact('contract'));
     }
 
     public function getApplicantContract(){

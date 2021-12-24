@@ -1063,7 +1063,10 @@ $user = Auth::user();
     $(".logoutbutton").click(function(){
         $(this).html('Déconnecter...');
     })
-
+    $(".formsubmit").submit(function(){
+        $(this).find(':input[type=submit]').prop('disabled', true);
+        $(this).find(':input[type=submit]').html("Chargement..");
+    });
     // $("a").click(function() {
     //     $(".dialog-background").show();
     // });

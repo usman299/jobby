@@ -24,6 +24,9 @@ Route::get('/map', function (){
     dd($details);
     return view('map');
 });
+Route::get('/success', function (){
+    return view('front.payment.success');
+});
 Route::get('/', 'FrontendController@index');
 Route::get('/intro', 'FrontendController@intro')->name('front.intro')->middleware('guest');
 Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
@@ -100,6 +103,8 @@ Route::get('/proposal/reject/{id}', 'Front\ApplicantController@proposalReject')-
 
 Route::post('/proposal/submit', 'Front\JobberController@proposalSubmit')->name('proposal.submit');
 Route::get('/jobber/proposals', 'Front\JobberController@proposals')->name('jobber.proposals');
+
+Route::get('/proposal/payment/{id}', 'Front\PaymentController@payment')->name('proposal.payment');
 
 Route::get('/job/subcategory/{id}', 'Front\JobPostController@subcategory')->name('job.subcategory');
 Route::get('/job/childcatgory/{id}', 'Front\JobPostController@childcatgory')->name('job.childcatgory');

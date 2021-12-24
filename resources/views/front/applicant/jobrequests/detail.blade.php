@@ -38,7 +38,6 @@
                             <?php
                             \Carbon\Carbon::setLocale('fr');
                             $date = \Carbon\Carbon::parse($jobrequest->created_at);
-
                             ?>
                             <span>Poster {{$date->diffForHumans()}}</span>
                         </div>
@@ -1701,7 +1700,7 @@
                         </button>
                     </div>
                 </div>
-                <form action="{{route('proposal.submit')}}" method="POST">
+                <form action="{{route('proposal.submit')}}" class="formsubmit" method="POST">
                     @csrf
                     <div class="modal-body env-pb">
                         <div class="form-group input-lined">

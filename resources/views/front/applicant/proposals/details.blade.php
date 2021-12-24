@@ -62,7 +62,11 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span>{{$proposal->created_at->diffForHumans()}}</span>
+                            <?php
+                            \Carbon\Carbon::setLocale('fr');
+                            $date = \Carbon\Carbon::parse($proposal->created_at);
+                            ?>
+                            <span>{{$date->diffForHumans()}}</span>
                         </div>
                     </div>
                 </div>
@@ -130,8 +134,8 @@
             </button>
 
 
-            <button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} data-toggle="modal" data-target="#mdllContent-form" style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
-                <span class="color-white">Commencer le contrat</span>
+            <button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
+                <a href="{{route('proposal.payment', ['id' => $proposal->id])}}"> <span class="color-white">Commencer le contrat</span></a>
             </button>
         </div>
         <div class="bg-white padding-20 d-flex emBlock__border">
@@ -159,7 +163,7 @@
                         </button>
                     </div>
                 </div>
-                <form action="{{route('proposal.accept', ['id' => $proposal->id])}}" method="POST">
+                <form  class="formsubmit" action="{{route('proposal.accept', ['id' => $proposal->id])}}" method="POST">
                     @csrf
                     <div class="modal-body env-pb">
                         <div class="form-group input-lined">
@@ -396,62 +400,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-    <!-- Form Modal -->
-    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllContent-form"
-         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable height-full">
-            <div class="modal-content rounded-0">
-                <div class="modal-header padding-l-20 padding-r-20 justify-content-center">
-                    <div class="itemProduct_sm">
-                        <h1 class="size-18 weight-600 color-secondary m-0">Créer un Contrat</h1>
-                    </div>
-                    <div class="absolute right-0 padding-r-20">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <i class="tio-clear"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="modal-body">
-                    <div class="padding-t-60">
-                        <div class="em__signTypeOne">
-
-                            <div class="em__body px-0">
-                                <form method="POST" action="{{ route('applicant.proposals.contract',['id'=>$proposal->id]) }}" enctype="multipart/form-data">
-                                    @csrf
-
-                                    <div class="form-group input-lined">
-                                        <input type="number" class="form-control"  id="price" name="price" placeholder=" Entrez la Prix"
-                                               required="">
-                                        <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">*</strong> </label>
-                                    </div>
-                                    <div class="form-group input-lined">
-                                        <input type="datetime-local" id="price" name="e_time"  class="form-control"  required="">
-                                        <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Date et heure de fin</strong> <strong style="color: red;">*</strong> </label>
-                                    </div>
-                                    <div class="form-group input-lined">
-                                        <textarea class="form-control"  name="description" rows="4" id="description" placeholder="Entrez la  Description"></textarea>
-                                        <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>La Description</strong> <strong style="color: red;">*</strong></label>
-                                    </div>
-
-                                    <div class="form-group input-lined margin-t-20">
-                                        <button type="submit" class="btn w-100 bg-primary  m-0 color-white h-55 d-flex align-items-center rounded-10 justify-content-center ">
-                                            Soumettre
-                                        </button>
-                                    </div>
-
-
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 

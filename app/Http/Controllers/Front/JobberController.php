@@ -120,7 +120,7 @@ class JobberController extends Controller
         $check = Proposal::where('jobber_id', '=', Auth::user()->id)->where('jobRequest_id', '=', $request->id)->first();
         if ($check){
             $notification = array(
-                'messege' => 'Already Applied',
+                'messege' => 'Déjà appliqué',
                 'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);
@@ -147,7 +147,7 @@ class JobberController extends Controller
             }
 
             $notification = array(
-                'messege' => 'Sauvegarde réussie!',
+                'messege' => 'Proposition envoyer !',
                 'alert-type' => 'success'
             );
             return redirect()->back()->with($notification);

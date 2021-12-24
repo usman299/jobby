@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <section class="emPage__detailsBlog">
+    <section class="emPage__detailsBlog bg-white">
         <div class="emPage___profile accordion bg-white" id="accordionExample">
             <div class="emBody__navLink with__border">
                 <ul>
@@ -118,7 +118,11 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span>Créer {{$contract->created_at->diffForHumans()}}</span>
+                            <?php
+                            \Carbon\Carbon::setLocale('fr');
+                            $date = \Carbon\Carbon::parse($contract->created_at);
+                            ?>
+                            <span>Créer {{$date->diffForHumans()}}</span>
                         </div>
                     </div>
                 </div>
