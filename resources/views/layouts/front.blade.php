@@ -126,7 +126,7 @@ $user = Auth::user();
             opacity: 0.5;
         }
         .banner_sliderFull .em-swiperSliderFull.-height-sm .--item-inside .cover_img img{
-            height: 250px;
+            height: 200px;
         }
 
         .step.active {
@@ -499,31 +499,31 @@ $user = Auth::user();
                             </a>
                         </li>
                         @if($user->role == 1)
-                        <li class="nav-item {{  request()->is('jobber/services') ? '-active-links':'' }}">
-                            <a class="nav-link" href="{{route('jobber.services')}}">
-                                <div class="">
-                                    <div class="icon_current">
-                                        <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
-                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                             viewBox="0 0 20 20">
-                                            <g id="Discovery" transform="translate(2.292 2.292)">
-                                                <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"
-                                                      transform="translate(0 0)" fill="none" stroke="#9498ac"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                                <path id="Stroke_3" data-name="Stroke 3"
-                                                      d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"
-                                                      transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5" />
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <span class="title_link">Service</span>
-                                </div>
-                            </a>
-                        </li>
+{{--                        <li class="nav-item {{  request()->is('jobber/services') ? '-active-links':'' }}">--}}
+{{--                            <a class="nav-link" href="{{route('jobber.services')}}">--}}
+{{--                                <div class="">--}}
+{{--                                    <div class="icon_current">--}}
+{{--                                        <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"--}}
+{{--                                             xmlns="http://www.w3.org/2000/svg" width="20" height="20"--}}
+{{--                                             viewBox="0 0 20 20">--}}
+{{--                                            <g id="Discovery" transform="translate(2.292 2.292)">--}}
+{{--                                                <path id="Stroke_1" data-name="Stroke 1"--}}
+{{--                                                      d="M0,7.708c0,5.781,1.927,7.708,7.708,7.708s7.708-1.927,7.708-7.708S13.489,0,7.708,0,0,1.927,0,7.708Z"--}}
+{{--                                                      transform="translate(0 0)" fill="none" stroke="#9498ac"--}}
+{{--                                                      stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                      stroke-miterlimit="10" stroke-width="1.5" />--}}
+{{--                                                <path id="Stroke_3" data-name="Stroke 3"--}}
+{{--                                                      d="M0,5.5,1.312,1.312,5.5,0,4.192,4.191Z"--}}
+{{--                                                      transform="translate(4.957 4.957)" fill="none" stroke="#9498ac"--}}
+{{--                                                      stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                      stroke-miterlimit="10" stroke-width="1.5" />--}}
+{{--                                            </g>--}}
+{{--                                        </svg>--}}
+{{--                                    </div>--}}
+{{--                                    <span class="title_link">Service</span>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         @else
                         <li class="nav-item {{  request()->is('applicant/contract') ? '-active-links':'' }}">
                             <a class="nav-link" href="{{route('applicant.contract')}}">

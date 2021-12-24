@@ -43,7 +43,7 @@
                                                     <option>Choisir une Pays</option>
                                                     @foreach($countory as $row)
 
-                                                        <option value="{{$row->id}}" {{ $slider->countory_id == $row->countory_id ? 'selected' : '' }}>{{$row->name}}</option>
+                                                        <option value="{{$row->id}}" {{ $slider->countory_id == $row->id ? 'selected' : '' }}>{{$row->name}}</option>
 
                                                     @endforeach
                                                 </select>
