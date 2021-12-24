@@ -54,7 +54,7 @@
                     <li><a href="{{route('slider.index')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-layer-1"></i>
                             <!-- APP SETTING -->
-                            <span class="nav-text">   Crowser </span>
+                            <span class="nav-text">   Bannières </span>
                         </a>
                     </li>
                     <li><a href="{{route('admin.jobrequest')}}" class="ai-icon" aria-expanded="false">
@@ -72,7 +72,7 @@
                     <li><a href="{{route('admin.contract')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-settings-2"></i>
                             <!-- APP SETTING -->
-                            <span class="nav-text">Contracter </span>
+                            <span class="nav-text">Contrat </span>
                         </a>
                     </li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

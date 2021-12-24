@@ -29,9 +29,9 @@
 @section('content')
         <main class="emPage__public">
             <!-- Start banner_swiper -->
-            <section class="banner_sliderFull margin-b-20 margin-t-50">
+            <section class="banner_sliderFull margin-b-20 margin-t-40">
                 <!-- Swiper -->
-                <div class="swiper-container em-swiperSliderFull -height-sm">
+                <div class="swiper-container em-swiperSliderFull -height-sm padding-t-10">
                     <div class="swiper-wrapper">
                         @foreach($sliderGalery as $row)
                         <div class="swiper-slide">

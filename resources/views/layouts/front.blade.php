@@ -147,7 +147,7 @@ $user = Auth::user();
         .buttons__footer {
             position: fixed;
             width: 100%;
-            bottom: 52px;
+            bottom: 52px !important;
             padding: 12px 20px;
             background-color: var(--bg-white);
             z-index: 10;

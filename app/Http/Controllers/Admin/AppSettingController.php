@@ -253,6 +253,7 @@ class AppSettingController extends Controller
        $slider = new SliderGalery();
 
        $slider->userRole = $request->userRole;
+       $slider->countory_id = $request->countory_id;
         if ($request->hasfile('img')) {
 
             $image1 = $request->file('img');
@@ -263,8 +264,7 @@ class AppSettingController extends Controller
         }
         $slider->save();
         toastr()->success('Added Slider Galery ');
-        $slider = SliderGalery::all();
-        return view('admin.slider.index',compact('slider'));
+       return redirect()->back();
     }
 
     public function sliderIndex()
