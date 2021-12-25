@@ -65,6 +65,7 @@ class JobbyAppController extends Controller
         $contract = Contract::find($id);
         if ($contract->status != $status) {
             if ($status == 3) {
+                Payment::where('contract_id', $contract->id)->update(['status' => 1]);
                 $contract->status = $status;
                 $contract->update();
                 toastr()->success('Contract  Comeplete Successfuly!');
@@ -76,6 +77,7 @@ class JobbyAppController extends Controller
 
                     return redirect()->back();
                 } else {
+                    Payment::where('contract_id', $contract->id)->update(['status' => 2]);
                     $contract->status = $status;
                     $contract->update();
 
