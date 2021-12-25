@@ -200,13 +200,14 @@
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
-
+         @if($contract->status!=3)
             <a href="" class="btn bg-red rounded-10 btn__default ml-3" data-toggle="modal" data-target="#mdllJobDetails"  >
                 <span class="color-white">Annuler</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
+            @endif
         </div>
 
 {{--            @if($contract->status==3 && $contract->review_id_applicant!=null)--}}
@@ -223,13 +224,15 @@
 
 
                 <div class=" margin-t-20 padding-20 d-flex emBlock__border">
-
-                    <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>3])}}" class="btn bg-green rounded-10 btn__default">
+                    @if($contract->status==1 || $contract->status==2 )
+                    <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>3])}}" disabled class="btn bg-green rounded-10 btn__default">
                         <span class="color-white">Achevée</span>
                         <div class="icon rounded-10">
                             <i class="tio-chevron_right"></i>
                         </div>
                     </a>
+                    @endif
+
                     @if($contract->review_id_applicant==null)
                         @if($contract->status==3)
                     <a href="" class="btn bg-secondary rounded-10 btn__default ml-3" data-toggle="modal" data-target="#applicantReview"   >

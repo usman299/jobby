@@ -6,6 +6,7 @@ use App\ChildCategory;
 use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
+use App\JobberProfile;
 use App\JobRequest;
 use App\Payment;
 use App\Proposal;
@@ -222,16 +223,34 @@ class ApplicantController extends Controller
         $title = 'Propositions';
        $proposal = Proposal::find($id);
        $reviews = Reviews::where('reciver_id','=',$proposal->jobber_id)->get();
-       $totalReview = Reviews::where('reciver_id','=',$proposal->jobber_id)->sum('star');
-       $total = $reviews->count();
-       $totalReviews = round($totalReview/$total);
-       $fiveStar = (Reviews::where('star','=',5)->count()/$total)*100;
-       $fourStar = (Reviews::where('star','=',4)->count()/$total)*100;
-       $threeStar = (Reviews::where('star','=',3)->count()/$total)*100;
-       $twoStar = (Reviews::where('star','=',2)->count()/$total)*100;
-       $oneStar = (Reviews::where('star','=',1)->count()/$total)*100;
 
-        return view('front.applicant.proposals.details', compact('title', 'proposal','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar'));
+       if (!$reviews->isempty()){
+           $totalReview = Reviews::where('reciver_id','=',$proposal->jobber_id)->sum('star');
+           $jobberprofile = JobberProfile::where('jobber_id','=',$proposal->jobber_id)->first();
+
+           $total = $reviews->count();
+
+           $totalReviews = round($totalReview / $total);
+           $fiveStar = (Reviews::where('star', '=', 5)->count() / $total) * 100;
+           $fourStar = (Reviews::where('star', '=', 4)->count() / $total) * 100;
+           $threeStar = (Reviews::where('star', '=', 3)->count() / $total) * 100;
+           $twoStar = (Reviews::where('star', '=', 2)->count() / $total) * 100;
+           $oneStar = (Reviews::where('star', '=', 1)->count() / $total) * 100;
+
+       }
+       else{
+           $reviews =null;
+           $totalReviews=0;
+           $total=0;
+           $fiveStar=0;
+           $fourStar=0;
+           $threeStar=0;
+           $twoStar=0;
+           $oneStar=0;
+           $jobberprofile=0;
+
+       }
+        return view('front.applicant.proposals.details', compact('title', 'proposal','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar','jobberprofile'));
     }
     public function proposalAccept(Request $request, $id){
         $proposal = Proposal::find($id);

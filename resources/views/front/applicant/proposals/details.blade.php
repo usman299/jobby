@@ -223,26 +223,25 @@
                             </div>
                         </div>
                         <div class="details__job">
-                            @if($proposal->jobber->company_name)
                             <div class="item">
-                                <span>Nom de la compagnie</span>
-                                <p>{{$proposal->jobber->company_name}}</p>
+                            <span>Nom de la compagnie</span>
+                            <p>{{$proposal->jobber->company_name??'non'}}</p>
                             </div>
-                             @endif
-                                <div class="item">
-                                    <span>Travaux terminés</span>
-                                    <p>0</p>
-                                </div>
-{{--                                <div class="item">--}}
-{{--                                    <span>Travaux terminés</span>--}}
-{{--                                    <p>0</p>--}}
-{{--                                </div>--}}
+                            <div class="item">
+                                <span>Catégorie</span>
+                                <p>{{$jobberprofile->jobber_category_id ??'non'}}</p>
+                            </div>
+                            <div class="item">
+                                <span>De l'expérience</span>
+                                <p>{{$jobberprofile->experince??'non'}}</p>
+                            </div>
+
                         </div>
 
                         <div class="em_body padding-t-40">
                             <div class="content">
                                 <p>
-                                   {{$proposal->jobber->description}}
+                                   {{$jobberprofile->personal_description ?? 'non'}}
                                 </p>
                             </div>
                         </div>
@@ -254,7 +253,11 @@
                                         <div class="row">
                                             <div class="col-4">
                                                 <div class="item_rate">
-                                                    <span class="noRate">{{$totalReviews}}.0</span>
+                                                    @if($totalReviews==0)
+                                                    <span class="noRate">{{$totalReviews}}</span>
+                                                    @else
+                                                        <span class="noRate">{{$totalReviews}}.0</span>
+                                                    @endif
                                                     <div class="">
                                                         <p class="rateCutome">{{$total}} Commentaires</p>
                                                         <div class="emPatternRate">
@@ -283,8 +286,14 @@
                                                                 <span class="ico"></span>
                                                                 <span class="ico"></span>
                                                                 <span class="ico"></span>
-                                                            @else
+                                                            @elseif($totalReviews==1)
                                                                 <span class="ico _rated"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                                <span class="ico"></span>
+                                                            @else
+                                                                <span class="ico"></span>
                                                                 <span class="ico"></span>
                                                                 <span class="ico"></span>
                                                                 <span class="ico"></span>
@@ -348,6 +357,7 @@
                                 <div class="emCommentCusomers">
                                     <div class="title"></div>
                                     <!-- item -->
+                                    @if($reviews!=null)
                                     @foreach($reviews as $row)
                                     <div class="itemUser">
                                         <div class="media">
@@ -396,6 +406,7 @@
                                         </div>
                                     </div>
                                     @endforeach
+                                    @endif
                                     <!-- item -->
 
 {{--                                    <a href="" class="btn all_reviews margin-t-20">See all reviews</a>--}}
