@@ -823,9 +823,53 @@ $user = Auth::user();
         </div>
     </div>
 
+    <?php
+    $categories = \App\Category::all();
+    ?>
+    <!-- Modal Form -->
+
+
     @yield('model')
 </div>
+        <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllForm"
+             tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable height-full">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header padding-l-20 padding-r-20 justify-content-center">
+                        <div class="itemProduct_sm">
+                            <h1 class="size-18 weight-600 color-secondary m-0">Publier une demande d'emploi</h1>
+                        </div>
+                        <div class="absolute right-0 padding-r-20">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="tio-clear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="padding-t-30">
+                                <div class="em__pkLink bg-white border-t-0">
+                                    <ul class="nav__list mb-0">
+                                        @foreach($categories as $cat)
+                                            <li>
+                                                <a href="{{route('job.subcategory', ['id' => $cat->id])}}" class="item-link" style="padding: 10px 0px">
+                                                    <div class="group">
+                                                        <span class="path__name">{{$cat->title}}</span>
+                                                    </div>
+                                                    <div class="group">
+                                                        <span class="short__name"></span>
+                                                        <i class="tio-chevron_right -arrwo"></i>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
 <div class="dialog-background" style="display: none">
     <div class="dialog-loading-wrapper">
         <span class="dialog-loading-icon">Loading....</span>
