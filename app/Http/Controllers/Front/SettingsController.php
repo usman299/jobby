@@ -43,8 +43,9 @@ class SettingsController extends Controller
     public function notifications(){
         $title = 'Notifications';
         $user = Auth::user();
-        $notfications = Notfication::where('country_id','=',$user->country)->get();
-        return view('front.settings.notifications', compact('user','title','notfication'));
+        $notfications = Notfication::latest()->where('r_id','=',$user->id)->paginate('20');
+        Notfication::latest()->where('r_id','=',$user->id)->update(['status' => 1]);
+        return view('front.settings.notifications', compact('user','title','notfications'));
     }
     public function support(){
         $title = 'Soutien';

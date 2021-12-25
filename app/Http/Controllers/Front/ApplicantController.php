@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\ChildCategory;
+use App\ChMessage;
 use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
@@ -220,40 +221,52 @@ class ApplicantController extends Controller
     public function proposalDetails($id){
 
         $title = 'Propositions';
-       $proposal = Proposal::find($id);
-       $reviews = Reviews::where('reciver_id','=',$proposal->jobber_id)->get();
+        $proposal = Proposal::find($id);
+        $reviews = Reviews::where('reciver_id','=',$proposal->jobber_id)->get();
         $jobberprofile = JobberProfile::where('jobber_id','=',$proposal->jobber_id)->first();
-
-       if (!$reviews->isempty()){
-           $totalReview = Reviews::where('reciver_id','=',$proposal->jobber_id)->sum('star');
-           $total = $reviews->count();
-
-           $totalReviews = round($totalReview / $total);
-           $fiveStar = (Reviews::where('star', '=', 5)->count() / $total) * 100;
-           $fourStar = (Reviews::where('star', '=', 4)->count() / $total) * 100;
-           $threeStar = (Reviews::where('star', '=', 3)->count() / $total) * 100;
-           $twoStar = (Reviews::where('star', '=', 2)->count() / $total) * 100;
-           $oneStar = (Reviews::where('star', '=', 1)->count() / $total) * 100;
-
-       }
-       else{
-           $reviews =null;
-           $totalReviews=0;
-           $total=0;
-           $fiveStar=0;
-           $fourStar=0;
-           $threeStar=0;
-           $twoStar=0;
-           $oneStar=0;
-
-
-       }
+           if (!$reviews->isempty()){
+               $totalReview = Reviews::where('reciver_id','=',$proposal->jobber_id)->sum('star');
+               $total = $reviews->count();
+               $totalReviews = round($totalReview / $total);
+               $fiveStar = (Reviews::where('star', '=', 5)->count() / $total) * 100;
+               $fourStar = (Reviews::where('star', '=', 4)->count() / $total) * 100;
+               $threeStar = (Reviews::where('star', '=', 3)->count() / $total) * 100;
+               $twoStar = (Reviews::where('star', '=', 2)->count() / $total) * 100;
+               $oneStar = (Reviews::where('star', '=', 1)->count() / $total) * 100;
+           }
+           else{
+               $reviews =null;
+               $totalReviews=0;
+               $total=0;
+               $fiveStar=0;
+               $fourStar=0;
+               $threeStar=0;
+               $twoStar=0;
+               $oneStar=0;
+           }
         return view('front.applicant.proposals.details', compact('title', 'proposal','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar','jobberprofile'));
     }
     public function proposalAccept(Request $request, $id){
+        $user = Auth::user();
         $proposal = Proposal::find($id);
         $proposal->status = 2;
         $proposal->update();
+
+        $messageID = mt_rand(9, 999999999) + time();
+        $message = new ChMessage();
+        $message->id = $messageID;
+        $message->type = 'user';
+        $message->from_id = $user->id;
+        $message->to_id = $proposal->jobber_id;
+        $message->body = $request->description;
+        $message->save();
+
+        $activity = "Accepter la proposition";
+        $msg = "Votre proposition est acceptée par le jobber";
+
+        NotificationHelper::pushNotification($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::addtoNitification($user->id, $proposal->jobber_id, $msg, $proposal->id, $activity, $user->country);
+
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
@@ -261,9 +274,17 @@ class ApplicantController extends Controller
         return redirect()->route('applicant.proposals')->with($notification);
     }
     public function proposalReject($id){
+        $user = Auth::user();
         $proposal = Proposal::find($id);
         $proposal->status = 3;
         $proposal->update();
+
+        $activity = "Rejet de la proposition";
+        $msg = "Votre proposition est rejetée par le jobber";
+
+        NotificationHelper::pushNotification($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::addtoNitification($user->id, $proposal->jobber_id, $msg, $proposal->id, $activity, $user->country);
+
         $notification = array(
             'messege' => 'Sauvegarde Reject!',
             'alert-type' => 'error'
@@ -304,7 +325,7 @@ class ApplicantController extends Controller
         }
 
     public function proposalsContract(Request $request, $id){
-        $applicant_id = Auth::user()->id;
+        $applicant_id = Auth::user();
 
         $proposal = Proposal::find($id);
         $proposal->status = 2;
@@ -312,7 +333,7 @@ class ApplicantController extends Controller
 
         $contract = new Contract();
         $contract->proposal_id = $id;
-        $contract->applicant_id = $applicant_id;
+        $contract->applicant_id = $applicant_id->id;
         $contract->jober_id =  $proposal->jobber_id;
         $contract->e_time = $request->e_time;
         $contract->price = $proposal->price;
@@ -322,12 +343,19 @@ class ApplicantController extends Controller
 
         $payment = new Payment();
         $payment->contract_id = $contract->id;
-        $payment->applicant_id = $applicant_id;
+        $payment->applicant_id = $applicant_id->id;
         $payment->jobber_id =  $proposal->jobber_id;
         $payment->price =  $proposal->price;
         $payment->type =  'card';
         $payment->invoice_no =  'IN-'.rand(10000, 90000);
         $payment->save();
+
+        $activity = "Début du contrat";
+        $msg = "Votre contrat commence avec le demandeur";
+
+        NotificationHelper::pushNotification($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
+
 
         return view('front.payment.success', compact('contract'));
     }

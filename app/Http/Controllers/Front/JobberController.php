@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Front;
 use App\Category;
 use App\Contract;
 use App\Http\Controllers\Controller;
+use App\Http\NotificationHelper;
 use App\JobberServicesOffers;
 use App\JobRequest;
 use App\Notfication;
 use App\Payment;
 use App\SubCategory;
 use App\Proposal;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -118,7 +120,8 @@ class JobberController extends Controller
 
     }
     public function proposalSubmit(Request $request){
-        $check = Proposal::where('jobber_id', '=', Auth::user()->id)->where('jobRequest_id', '=', $request->id)->first();
+        $user = Auth::user();
+        $check = Proposal::where('jobber_id', '=', $user->id)->where('jobRequest_id', '=', $request->id)->first();
         if ($check){
             $notification = array(
                 'messege' => 'Déjà appliqué',
@@ -132,8 +135,15 @@ class JobberController extends Controller
             $proposal->price = $request->price;
             $proposal->time_limit = $request->time_limit;
             $proposal->description = $request->description;
-            $proposal->jobber_id = Auth::user()->id;
+            $proposal->jobber_id = $user->id;
             $proposal->save();
+
+            $activity = "Nouvelle proposition";
+            $msg = "Vous avez une nouvelle proposition sur votre demande d'emploi";
+
+            NotificationHelper::pushNotification($msg, $proposal->jobrequest->applicant->device_token, $activity);
+            NotificationHelper::addtoNitification($user->id, $proposal->jobrequest->applicant->id, $msg, $proposal->id, $activity, $user->country);
+
             $notification = array(
                 'messege' => 'Proposition envoyer !',
                 'alert-type' => 'success'

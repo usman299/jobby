@@ -33,11 +33,11 @@
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
                             <div class="card-body">
                                 <p class="mb-0 size-15 color-text">
-                                    {{$proposal->jobrequest->description}}
+                                    {{$proposal->jobrequest->detail_description}}
                                 </p>
                                 <hr>
                                 <p class="mb-0 size-15 color-text">
-                                  <b>Ton budget: </b> {{$proposal->jobrequest->max_price}} € - {{$proposal->jobrequest->min_price}} €
+                                  <b>Ton budget: </b> {{$proposal->jobrequest->estimate_budget}} €
                                 </p>
                             </div>
                         </div>
@@ -115,35 +115,32 @@
             </p>
         </div>
 
+        @if(Auth::user()->role == 2)
         <div class="bg-white padding-20 d-flex emBlock__border">
             <button  data-toggle="modal" data-target="#mdllJobDetails" class="btn bg-primary rounded-10 btn__default">
                 <span class="color-white">Profil du travailleur</span>
             </button>
-
             <button {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} data-toggle="modal"
                data-target="#acceptpropsal" class="btn bg-green rounded-10 btn__default ml-3">
                 <span class="color-white">Accepter la proposition</span>
             </button>
-
         </div>
         <div class="bg-white padding-20 d-flex emBlock__border">
-
-           <button  data-toggle="modal"
-                     data-target="" class="btn bg-info rounded-10 btn__default">
+           <button  class="btn bg-info rounded-10 btn__default">
                <a href="{{url('/chatify/'.$proposal->jobber->id)}}">  <span class="color-white">Message</span></a>
             </button>
-
-
-            <button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
+            <button  {{$proposal->status == 3 ?  'disabled' : ''}} style="float: right" class="btn bg-danger rounded-10 btn__default ml-3">
                 <a href="{{route('proposal.payment', ['id' => $proposal->id])}}"> <span class="color-white">Commencer le contrat</span></a>
             </button>
         </div>
+        @if(!$proposal->status == 2 || $proposal->status == 3)
         <div class="bg-white padding-20 d-flex emBlock__border">
-
-            <a href="{{route('proposal.reject', ['id' => $proposal->id])}}"><button  {{$proposal->status == 2 || $proposal->status == 3 ?  'disabled' : ''}} class="btn bg-danger rounded-10 btn__default">
+            <a href="{{route('proposal.reject', ['id' => $proposal->id])}}"><button class="btn bg-danger rounded-10 btn__default">
                 <span class="color-white">Rejeter la proposition</span>
             </button></a>
         </div>
+        @endif
+        @endif
     </section>
 
     <br>

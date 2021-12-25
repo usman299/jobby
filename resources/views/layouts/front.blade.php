@@ -657,6 +657,9 @@ $user = Auth::user();
                             </a>
                         </li>
                         @endif
+                        <?php
+                        $notficatin_count = \App\Notfication::where('r_id','=',$user->id)->where('status', 0)->get()->count();
+                        ?>
                         <li class="nav-item {{  request()->is('app/notifications') ? '-active-links':'' }}">
                             <a class="nav-link" href="{{route('app.notifications')}}">
                                 <div class="">
@@ -673,8 +676,9 @@ $user = Auth::user();
 
                                     <span class="title_link">Notifications</span>
                                 </div>
-                                <span class="bg-red rounded-7 px-1 color-white min-w-25 px-1 h-28 d-flex align-items-center justify-content-center">3</span>
-
+                                @if($notficatin_count > 0)
+                                <span class="bg-red rounded-7 px-1 color-white min-w-25 px-1 h-28 d-flex align-items-center justify-content-center">{{$notficatin_count}}</span>
+                                @endif
                             </a>
                         </li>
                         <li class="nav-item {{  request()->is('app/support') ? '-active-links':'' }}">
@@ -819,161 +823,9 @@ $user = Auth::user();
         </div>
     </div>
 
-    <?php
-    $categories = \App\Category::all();
-    ?>
-    <!-- Modal Form -->
-
-
     @yield('model')
 </div>
-        <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="mdllForm"
-             tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable height-full">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header padding-l-20 padding-r-20 justify-content-center">
-                        <div class="itemProduct_sm">
-                            <h1 class="size-18 weight-600 color-secondary m-0">Publier une demande d'emploi</h1>
-                        </div>
-                        <div class="absolute right-0 padding-r-20">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <i class="tio-clear"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="padding-t-30">
-                                <div class="em__pkLink bg-white border-t-0">
-                                    <ul class="nav__list mb-0">
-                                        @foreach($categories as $cat)
-                                            <li>
-                                                <a href="{{route('job.subcategory', ['id' => $cat->id])}}" class="item-link" style="padding: 10px 0px">
-                                                    <div class="group">
-                                                        <span class="path__name">{{$cat->title}}</span>
-                                                    </div>
-                                                    <div class="group">
-                                                        <span class="short__name"></span>
-                                                        <i class="tio-chevron_right -arrwo"></i>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-<!--                            <div class="em__signTypeOne">
 
-                                <div class="em__body px-0">
-                                    <form action="" method="POST">
-                                        @csrf
-                                        <div class="">
-                                            <div class="form-group input-lined">
-                                                <input type="text" name="title" class="form-control" placeholder="Titre" required="">
-                                                <label for="username">Titre</label>
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <select onchange="categorychange(this)" name="category_id" class="form-control" required="">
-                                                    <option value="">Choisir une catégorie</option>
-                                                    @foreach($categories as $cat)
-                                                        <option value="{{$cat->id}}">{{$cat->title}}</option>
-                                                    @endforeach
-                                                </select>
-                                                <label for="email">Catégorie</label>
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <select name="subcategory_id" class="form-control maincategory" required="">
-
-                                                </select>
-                                                <label for="email">Sous-catégorie</label>
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <input type="number" name="min_price" placeholder="Min (€)" class="form-control" required="">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <input type="number" name="max_price" placeholder="Max (€)" class="form-control" required="">
-                                                    </div>
-                                                </div>
-                                                <label for="mobile">Budget</label>
-                                            </div>
-                                            <input type="hidden" name="lat" class="lat">
-                                            <input type="hidden" name="long" class="long">
-                                            <div class="form-group input-lined">
-                                                <input type="date" name="estimate_time"  class="form-control" required="">
-                                                <label for="mobile">Date de service</label>
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <input type="time" name="start_time"  class="form-control" required="">
-                                                <label for="mobile">Heure de début</label>
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <div class="item-link hoverNone" style="text-align: right">
-                                                    <div class="group">
-                                                        <div class="itemCountr_manual horizontal itemButtons -sm border-0 min-w-110">
-                                                            <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
-                                                                <i class="tio-remove"></i>
-                                                            </a>
-                                                            <input type="text" class="form-control input_no color-secondary" value="1">
-                                                            <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
-                                                                <i class="tio-add color-white"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <label for="address">Durée estime (heure)</label>
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <div class="item-link hoverNone" style="text-align: right">
-                                                    <div class="group">
-                                                        <div class="itemCountr_manual horizontal itemButtons -sm border-0 min-w-110">
-                                                            <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
-                                                                <i class="tio-remove"></i>
-                                                            </a>
-                                                            <input type="text" class="form-control input_no color-secondary" value="9">
-                                                            <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
-                                                                <i class="tio-add color-white"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <label for="address">Taux horaire (€)</label>
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <label for="files" class="btn" style="text-align: left; padding: 0px">
-                                                    <img style="height: 80px" id="output_image" src="http://127.0.0.1:8000/assets/img/0ffd6s54.jpg">
-                                                </label>
-                                                <input id="files" style="visibility:hidden;" type="file">
-                                                <label for="files1" class="btn" style="text-align: left; padding: 0px">
-                                                    <img style="height: 80px" id="output_image1" src="http://127.0.0.1:8000/assets/img/0ffd6s54.jpg">
-                                                </label>
-                                                <input id="files1" style="visibility:hidden;" type="file">
-                                                <label for="address">Photos</label>
-
-                                            </div>
-                                            <div class="form-group input-lined ">
-
-                                            </div>
-                                            <div class="form-group input-lined">
-                                                <textarea placeholder="Ecrire quelque chose sur le travail" class="form-control" rows="4" name="description"></textarea>
-                                                <label for="address">Description</label>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit"
-                                                    class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
-                                                Poster
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>-->
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
 <div class="dialog-background" style="display: none">
     <div class="dialog-loading-wrapper">
         <span class="dialog-loading-icon">Loading....</span>
