@@ -375,10 +375,18 @@ class ApplicantController extends Controller
         return view('front.applicant.contract.detials', compact('title', 'contract'));
     }
     public function applicantContractDetailsStatus($id,$status){
+         $user = Auth::user();
          $contract = Contract::find($id);
          $contract->status = $status;
          $contract->update();
+
             if ($status==2) {
+                $activity = "Travail terminé";
+                $msg = "Votre travail est terminé par jobber";
+
+                NotificationHelper::pushNotification($msg, $contract->applicant->device_token, $activity);
+                NotificationHelper::addtoNitification($user->id, $contract->applicant->id, $msg, $id, $activity, $user->country);
+
                 $notification = array(
                     'messege' => 'Contrat de livraison avec succès',
                     'alert-type' => 'success'
@@ -386,6 +394,12 @@ class ApplicantController extends Controller
             }
             elseif ($status==3) {
                 Payment::where('contract_id', $contract->id)->update(['status' => 1]);
+                $activity = "Contrat accepté";
+                $msg = "Félicitations, votre contrat est accepté";
+
+                NotificationHelper::pushNotification($msg, $contract->jobber->device_token, $activity);
+                NotificationHelper::addtoNitification($user->id, $contract->jobber->id, $msg, $id, $activity, $user->country);
+
                 $notification = array(
                     'messege' => 'Contrat terminé avec succès',
                     'alert-type' => 'success'

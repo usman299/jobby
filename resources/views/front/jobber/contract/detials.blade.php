@@ -202,7 +202,7 @@
         </div>
         @if($contract->jobber_id_applicant==null)
         @if($contract->status==3)
-        <div class="  margin-b-20  padding-20 d-flex emBlock__border">
+        <div class="margin-b-20  padding-20 d-flex emBlock__border">
             <a href="" class="btn bg-secondary rounded-0 btn__default full-width" data-toggle="modal" data-target="#acceptpropsal" >
                 <span class="color-white "   >Passer en revue</span>
                 <div class="icon rounded-0">

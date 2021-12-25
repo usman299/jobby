@@ -223,7 +223,7 @@
 {{--            @endif--}}
 
 
-                <div class=" margin-t-20 padding-20 d-flex emBlock__border">
+                <div class="padding-20 d-flex">
                     @if($contract->status==1 || $contract->status==2 )
                     <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>3])}}" disabled class="btn bg-green rounded-10 btn__default">
                         <span class="color-white">Achevée</span>
@@ -235,12 +235,12 @@
 
                     @if($contract->review_id_applicant==null)
                         @if($contract->status==3)
-                    <a href="" class="btn bg-secondary rounded-10 btn__default ml-3" data-toggle="modal" data-target="#applicantReview"   >
-                        <span class="color-white">Passer  revue</span>
-                        <div class="icon rounded-10">
-                            <i class="tio-chevron_right"></i>
-                        </div>
-                    </a>
+                            <a href="" class="btn bg-secondary rounded-10 btn__default" data-toggle="modal" data-target="#applicantReview"   >
+                                <span class="color-white">Passer  revue</span>
+                                <div class="icon rounded-10">
+                                    <i class="tio-chevron_right"></i>
+                                </div>
+                            </a>
                         @endif
                     @endif
                 </div>
