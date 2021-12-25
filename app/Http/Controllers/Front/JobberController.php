@@ -133,20 +133,7 @@ class JobberController extends Controller
             $proposal->time_limit = $request->time_limit;
             $proposal->description = $request->description;
             $proposal->jobber_id = Auth::user()->id;
-            if($proposal->save()){
-                $notfications = new Notfication();
-                $jobRequest = JobRequest::where('id','=',$request->id)->first();
-                $notfications->sender_id = Auth::user()->id;
-                $notfications->reciver_id = $jobRequest->applicant_id;
-                $notfications->generate_id = $proposal->id;
-                $notfications->message = 'Il y a une nouvelle demande de proposition dans votre région';
-                $notfications->activity = 'Proposition';
-                $notfications->category_id = $jobRequest->category_id;
-                $notfications->subcategory_id = $jobRequest->subcategory_id;
-                $notfications->country_id = Auth::user()->country;
-                $notfications->save();
-            }
-
+            $proposal->save();
             $notification = array(
                 'messege' => 'Proposition envoyer !',
                 'alert-type' => 'success'

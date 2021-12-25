@@ -43,8 +43,7 @@ class SettingsController extends Controller
     public function notifications(){
         $title = 'Notifications';
         $user = Auth::user();
-        $notfication = Notfication::where('country_id','=',$user->country)
-            ->where('category_id','=',$user->category_id)->where('subcategory_id','=',$user->subcategory_id)->get();
+        $notfications = Notfication::where('country_id','=',$user->country)->get();
         return view('front.settings.notifications', compact('user','title','notfication'));
     }
     public function support(){
