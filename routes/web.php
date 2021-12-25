@@ -229,6 +229,8 @@ Route::get('/jobber/contact', 'Admin\AppSettingController@jobberContact')->name(
     Route::get('/contract/show/{id}', 'Admin\JobbyAppController@contractShow')->name('contract.show');
     Route::get('/admin/contract/status/{id}/{status}', 'Admin\JobbyAppController@adminContractStatus')->name('admin.contract.status');
 
+    Route::get('/paymant/details', 'Admin\JobbyAppController@paymantDetials')->name('paymant.details');
+
 
 
 

@@ -222,11 +222,10 @@ class ApplicantController extends Controller
         $title = 'Propositions';
        $proposal = Proposal::find($id);
        $reviews = Reviews::where('reciver_id','=',$proposal->jobber_id)->get();
+        $jobberprofile = JobberProfile::where('jobber_id','=',$proposal->jobber_id)->first();
 
        if (!$reviews->isempty()){
            $totalReview = Reviews::where('reciver_id','=',$proposal->jobber_id)->sum('star');
-           $jobberprofile = JobberProfile::where('jobber_id','=',$proposal->jobber_id)->first();
-
            $total = $reviews->count();
 
            $totalReviews = round($totalReview / $total);
@@ -246,7 +245,7 @@ class ApplicantController extends Controller
            $threeStar=0;
            $twoStar=0;
            $oneStar=0;
-           $jobberprofile=0;
+
 
        }
         return view('front.applicant.proposals.details', compact('title', 'proposal','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar','jobberprofile'));

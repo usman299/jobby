@@ -22,7 +22,7 @@ class CreatePaymentsTable extends Migration
             $table->string('type')->nullable();
             $table->string('invoice_no')->nullable();
             $table->longtext('description')->nullable();
-            $table->integer('status')->default(0);
+            $table->integer('status')->default(0);//0=pending;1=compelte;2=cancel
             $table->timestamps();
         });
     }

@@ -191,12 +191,14 @@
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
+            @if($contract->status==1)
             <a href="{{route('applicant.contract.status', ['id' => $contract->id,'status'=>2])}}" class="btn bg-green rounded-10 btn__default ml-3"  >
                 <span class="color-white">Livrer</span>
                 <div class="icon rounded-10">
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
+            @endif
         </div>
         @if($contract->jobber_id_applicant==null)
         @if($contract->status==3)

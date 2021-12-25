@@ -57,6 +57,12 @@
                             <span class="nav-text">   Bannières </span>
                         </a>
                     </li>
+                    <li><a href="{{route('paymant.details')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-layer-1"></i>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">   Paiement </span>
+                        </a>
+                    </li>
                     <li><a href="{{route('admin.jobrequest')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-internet"></i>
                             <!-- APP SETTING -->

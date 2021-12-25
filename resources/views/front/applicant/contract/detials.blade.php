@@ -200,7 +200,7 @@
                     <i class="tio-chevron_right"></i>
                 </div>
             </a>
-         @if($contract->status!=3)
+         @if($contract->status==1 || $contract->status==2  )
             <a href="" class="btn bg-red rounded-10 btn__default ml-3" data-toggle="modal" data-target="#mdllJobDetails"  >
                 <span class="color-white">Annuler</span>
                 <div class="icon rounded-10">

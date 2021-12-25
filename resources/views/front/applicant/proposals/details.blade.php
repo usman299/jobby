@@ -210,36 +210,68 @@
 
                         <div class="details__job">
                             <div class="item">
-                                <span>Travailler comme</span>
-                                <p>{{$proposal->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
+                                <span class="weight-600">Travailler comme</span>
+                                <p >{{$proposal->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
                             </div>
                             <div class="item">
-                                <span>Tarif à l'heure</span>
-                                <p class="weight-600">{{$proposal->jobber->rate_per_hour??'0'}}€</p>
+                                <span class="weight-600">Tarif à l'heure</span>
+                                <p >{{$proposal->jobber->rate_per_hour??'0'}}€</p>
                             </div>
                             <div class="item">
-                                <span>Sexe</span>
+                                <span class="weight-600">Sexe</span>
                                 <p class="weight-600">{{$proposal->jobber->gender??'non'}}</p>
                             </div>
                         </div>
                         <div class="details__job">
                             <div class="item">
-                            <span>Nom de la compagnie</span>
+                            <span class="weight-600">Nom de la compagnie</span>
                             <p>{{$proposal->jobber->company_name??'non'}}</p>
                             </div>
                             <div class="item">
-                                <span>Catégorie</span>
+                                <span class="weight-600">Catégorie</span>
                                 <p>{{$jobberprofile->jobber_category_id ??'non'}}</p>
                             </div>
                             <div class="item">
-                                <span>De l'expérience</span>
+                                <span class="weight-600">De l'expérience</span>
+
                                 <p>{{$jobberprofile->experince??'non'}}</p>
+                            </div>
+
+                        </div>
+                        <div class="details__job">
+                            <div class="item">
+                                <span class="weight-600">Equipement</span>
+                                @if($jobberprofile)
+                                <p>{{$jobberprofile->equipement1??''}}@if($jobberprofile->equipement1)<strong>,</strong>@endif{{$jobberprofile->equipement2??''}}@if($jobberprofile->equipement2)<strong>,</strong>@endif{{$jobberprofile->equipement3 ??""}}@if($jobberprofile->equipement3)<strong>,</strong>@endif{{$jobberprofile->equipement4 ??""}}@if($jobberprofile->equipement4)<strong>,</strong>@endif
+                                    {{$jobberprofile->equipement5 ?? ""}}@if($jobberprofile->equipement5)<strong>,</strong>@endif{{$jobberprofile->equipement6?? ""}}@if($jobberprofile->equipement6)<strong>,</strong>@endif{{$jobberprofile->equipement7 ?? ""}}@if($jobberprofile->equipement7)<strong>,</strong>@endif{{$jobberprofile->equipement8 ?? ""}}@if($jobberprofile->equipement8)<strong>,</strong>@endif
+                                    {{$jobberprofile->equipement9 ?? ""}}@if($jobberprofile->equipement9)<strong>,</strong>@endif{{$jobberprofile->equipement10 ?? ""}}@if($jobberprofile->equipement10)<strong>,</strong>@endif{{$jobberprofile->equipement11 ?? ""}}@if($jobberprofile->equipement11)<strong>,</strong>@endif{{$jobberprofile->equipement12 ?? ""}}@if($jobberprofile->equipement12)<strong>,</strong>@endif
+                                    {{$jobberprofile->equipement13 ?? ""}}@if($jobberprofile->equipement13)<strong>@if($jobberprofile->equipement14)<strong>,</strong>@endif</strong>@endif{{$jobberprofile->equipement14 ?? ""}}@if($jobberprofile->equipement14)<strong>,</strong>@endif{{$jobberprofile->equipement15 ?? ""}}@if($jobberprofile->equipement15)<strong>,</strong>@endif{{$jobberprofile->equipement16 ?? ""}}
+                                </p>
+                                @else
+                             <p>non</p>
+                                @endif
+                            </div>
+
+                        </div>
+                        <div class="details__job">
+                            <div class="item">
+                                <span class="weight-600">Engangement</span>
+                                @if($jobberprofile)
+                                <p>{{$jobberprofile->eng1??''}}@if($jobberprofile->eng1)<strong>,</strong>@endif{{$jobberprofile->eng2??''}}@if($jobberprofile->eng2)<strong>,</strong>@endif{{$jobberprofile->eng3 ??""}}@if($jobberprofile->eng3)<strong>,</strong>@endif{{$jobberprofile->eng4 ??""}}@if($jobberprofile->eng4)<strong>,</strong>@endif
+                                    {{$jobberprofile->eng5 ?? ""}}@if($jobberprofile->eng5)<strong>,</strong>@endif{{$jobberprofile->eng6?? ""}}@if($jobberprofile->eng6)<strong>,</strong>@endif{{$jobberprofile->eng7 ?? ""}}@if($jobberprofile->eng7)<strong>,</strong>@endif{{$jobberprofile->eng8 ?? ""}}@if($jobberprofile->eng8)<strong>,</strong>@endif
+                                    {{$jobberprofile->eng9 ?? ""}}@if($jobberprofile->eng9)<strong>,</strong>@endif{{$jobberprofile->eng10 ?? ""}}@if($jobberprofile->eng10)<strong>,</strong>@endif{{$jobberprofile->eng11 ?? ""}}@if($jobberprofile->eng11)<strong>,</strong>@endif{{$jobberprofile->eng12 ?? ""}}@if($jobberprofile->eng12)<strong>,</strong>@endif
+                                    {{$jobberprofile->eng13 ?? ""}}@if($jobberprofile->eng13)<strong>,</strong>@endif{{$jobberprofile->eng14 ?? ""}}@if($jobberprofile->eng14)<strong>,</strong>@endif{{$jobberprofile->eng15 ?? ""}}@if($jobberprofile->eng15)<strong>,</strong>@endif{{$jobberprofile->eng16 ?? ""}}
+                                </p>
+                                @else
+                                    <p>non</p>
+                                @endif
                             </div>
 
                         </div>
 
                         <div class="em_body padding-t-40">
                             <div class="content">
+                                <span class="weight-600">La description</span>
                                 <p>
                                    {{$jobberprofile->personal_description ?? 'non'}}
                                 </p>
@@ -258,49 +290,49 @@
                                                     @else
                                                         <span class="noRate">{{$totalReviews}}.0</span>
                                                     @endif
-                                                    <div class="">
-                                                        <p class="rateCutome">{{$total}} Commentaires</p>
-                                                        <div class="emPatternRate">
+                                <div class="">
+                                    <p class="rateCutome">{{$total}} Commentaires</p>
+                                    <div class="emPatternRate">
 
-                                                            @if($totalReviews==5)
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                            @elseif($totalReviews==4)
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico"></span>
-                                                            @elseif($totalReviews==3)
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                            @elseif($totalReviews==2)
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                            @elseif($totalReviews==1)
-                                                                <span class="ico _rated"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                            @else
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                                <span class="ico"></span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
+                                        @if($totalReviews==5)
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                        @elseif($totalReviews==4)
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico"></span>
+                                        @elseif($totalReviews==3)
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                        @elseif($totalReviews==2)
+                                            <span class="ico _rated"></span>
+                                            <span class="ico _rated"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                        @elseif($totalReviews==1)
+                                            <span class="ico _rated"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                        @else
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                            <span class="ico"></span>
+                                        @endif
+                                    </div>
+                                </div>
                                                 </div>
                                             </div>
                                             <div class="col-8">

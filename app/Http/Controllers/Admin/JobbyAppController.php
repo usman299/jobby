@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Countory;
 use App\JobRequest;
+use App\Payment;
 use App\Proposal;
 use App\Contract;
 use App\Http\Controllers\Controller;
@@ -86,5 +87,13 @@ class JobbyAppController extends Controller
 
         }
 
+    }
+
+    public function paymantDetials()
+    {
+        $paymantComplete = Payment::where('status','=',1)->get();
+        $paymantPending = Payment::where('status','=',0)->get();
+        $paymantCancel = Payment::where('status','=',2)->get();
+        return view('admin.paymant.index',compact('paymantComplete','paymantPending','paymantCancel'));
     }
 }
