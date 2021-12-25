@@ -6,23 +6,20 @@ use App\Notfication;
 
 class NotificationHelper{
 
-    public static function pushNotification($msg, $fcm_token, $activity, $post_id=null, $otherusername=null, $image=null){
+    public static function pushNotification($msg, $fcm_token, $activity){
         $url = 'https://fcm.googleapis.com/fcm/send';
         $fields = array (
             'registration_ids' => array (
                 $fcm_token
             ),
             'notification' => array (
-                "type" =>$activity,
+                "title" =>$activity,
                 "body" => $msg,
-                "post_id"=>$post_id,
-                "otherusername"=>$otherusername,
-                "image"=>$image,
             )
         );
         $fields = json_encode($fields);
         $headers = array (
-            'Authorization: key=' . "AAAArtlB-KE:APA91bFVLEUan-vwsJjo_3U-Ajt32d--asVQV2RWg8b2Yz0OoMxjGLLozM94nA-XMkXQZtqRLEJvtfCXEzQH4DXHqTEx-yt-MIIElnKS6Arq4F5J1PkOZQ5jZAZHgxjHeuTqaxxoJBHE",
+            'Authorization: key=' . "AAAAY_MYego:APA91bHuBjDm8fcxm2sPpl3hq_aFRWvd6wOzK8JkJgxorMR0n3WnjlNjGptPlURrSdmuWtxcskabFSgKRmqYXXe-GCT1ZVkfhc8NYBnpNY-flbAyOZo0roiOQZU5LXQEGoZNIn2uHpHk",
             'Content-Type: application/json'
         );
         $ch = curl_init();

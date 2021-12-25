@@ -17,13 +17,6 @@ use Illuminate\Http\Response;
 
 
 Auth::routes();
-Route::get('/map', function (){
-    $json = file_get_contents("https://ipinfo.io/json");
-//        $json = file_get_contents("http://www.geoplugin.net/json.gp?ip=" . request()->ip());
-    $details = json_decode($json);
-    dd($details);
-    return view('map');
-});
 
 Route::get('/save-token/{token}',function ($token){
     Auth::user()->update(['device_token'=>$token]);

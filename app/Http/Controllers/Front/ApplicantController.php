@@ -170,16 +170,15 @@ class ApplicantController extends Controller
             Image::make($image3)->resize(300, 300)->save( public_path('/images/' . $filename3 ) );
             $jobrequest->image3= '/images/'.$filename3;
         }
-        if($jobrequest->save()){
-            $notfications = new Notfication();
-            $notfications->sender_id = $user->id;
-            $notfications->generate_id = $jobrequest->id;
-            $notfications->message = 'Il y a une nouvelle demande d\'emploi dans votre région';
-            $notfications->activity = 'Demande d\'emploi';
-            $notfications->category_id = $request->category_id;
-            $notfications->subcategory_id = $request->subcategory_id;
-            $notfications->country_id = $user->country;
-            $notfications->save();
+        $jobrequest->save();
+
+        $activity = "Demande d'emploi";
+        $msg = "Il y a une nouvelle offre d'emploi dans votre région";
+
+        $jobbers = User::where('country', '=', $user->country)->get();
+        foreach ($jobbers as $jobber){
+            NotificationHelper::pushNotification($msg, $jobber->device_token, $activity);
+            NotificationHelper::addtoNitification($user->id, $jobber->id, $msg, $jobrequest->id, $activity, $user->country);
         }
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
