@@ -42,6 +42,8 @@ CreateUsersTable extends Migration
             $table->string('siret')->nullable();
             $table->longText('description')->nullable();
 
+            $table->longText('device_token')->nullable();
+
             $table->longText('document1')->nullable();
             $table->longText('document2')->nullable();
 

@@ -1704,7 +1704,7 @@
                     @csrf
                     <div class="modal-body env-pb">
                         <div class="form-group input-lined">
-                            <input type="number" name="price" class="form-control" placeholder="Prix" required="">
+                            <input type="number" name="price" value="{{$jobrequest->estimate_budget}}" class="form-control" placeholder="Prix" required="">
                             <label for="username">Prix</label>
                         </div>
                         <input type="hidden" name="id" value="{{$jobrequest->id}}">

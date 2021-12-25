@@ -6,6 +6,7 @@ use App\ChildCategory;
 use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
+use App\Http\NotificationHelper;
 use App\JobberProfile;
 use App\JobRequest;
 use App\Payment;
@@ -97,18 +98,17 @@ class ApplicantController extends Controller
             Image::make($image3)->resize(300, 300)->save( public_path('/images/' . $filename3 ) );
             $jobrequest->image3= '/images/'.$filename3;
         }
+        $jobrequest->save();
 
-        if($jobrequest->save()){
-            $notfications = new Notfication();
-            $notfications->sender_id = $user->id;
-            $notfications->generate_id = $jobrequest->id;
-            $notfications->message = 'Il y a une nouvelle demande d\'emploi dans votre région';
-            $notfications->activity = 'Demande d\'emploi';
-            $notfications->category_id = $request->category_id;
-            $notfications->subcategory_id = $request->subcategory_id;
-            $notfications->country_id = $user->country;
-            $notfications->save();
+        $activity = "Demande d'emploi";
+        $msg = "Il y a une nouvelle offre d'emploi dans votre région";
+
+        $jobbers = User::where('country', '=', $user->country)->get();
+        foreach ($jobbers as $jobber){
+            NotificationHelper::pushNotification($msg, $jobber->device_token, $activity);
+            NotificationHelper::addtoNitification($user->id, $jobber->id, $msg, $jobrequest->id, $activity, $user->country);
         }
+
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
@@ -319,16 +319,16 @@ class ApplicantController extends Controller
         $contract->e_time = $request->e_time;
         $contract->price = $proposal->price;
         $contract->description = $request->description;
-        $contract->contract_no = 'CN-'.round(10000, 90000);
+        $contract->contract_no = 'CN-'.rand(10000, 90000);
         $contract->save();
 
         $payment = new Payment();
-        $payment->proposal_id = $id;
+        $payment->contract_id = $contract->id;
         $payment->applicant_id = $applicant_id;
         $payment->jobber_id =  $proposal->jobber_id;
         $payment->price =  $proposal->price;
         $payment->type =  'card';
-        $payment->invoice_no =  'IN-'.round(10000, 90000);
+        $payment->invoice_no =  'IN-'.rand(10000, 90000);
         $payment->save();
 
         return view('front.payment.success', compact('contract'));
@@ -349,35 +349,29 @@ class ApplicantController extends Controller
         return view('front.applicant.contract.detials', compact('title', 'contract'));
     }
     public function applicantContractDetailsStatus($id,$status){
-
-             $contract = Contract::find($id);
-
-             $contract->status = $status;
-             $contract->update();
+         $contract = Contract::find($id);
+         $contract->status = $status;
+         $contract->update();
             if ($status==2) {
                 $notification = array(
-                    'messege' => 'Contract  Deliver Successfuly',
+                    'messege' => 'Contrat de livraison avec succès',
                     'alert-type' => 'success'
                 );
             }
             elseif ($status==3) {
+                Payment::where('contract_id', $contract->id)->update(['status' => 1]);
                 $notification = array(
-                    'messege' => 'Contract  Complete Successfuly',
+                    'messege' => 'Contrat terminé avec succès',
                     'alert-type' => 'success'
                 );
             }
             elseif ($status==4){
-
                 $notification = array(
-                    'messege' => 'Wating Admin Response',
+                    'messege' => 'Réponse de l\'administrateur en attente',
                     'alert-type' => 'info'
                 );
-
             }
             return redirect()->back()->with($notification);
-
-
-
     }
 
     public function jobberServices($id){
@@ -434,5 +428,11 @@ class ApplicantController extends Controller
              'alert-type' => 'success'
          );
          return redirect()->back()->with($notification);
+     }
+     public function transactions(){
+         $title = 'Transactions';
+         $user = Auth::user();
+         $transactions = Payment::where('applicant_id', '=', $user->id)->get();
+         return view('front.applicant.earnings.index', compact('transactions', 'title'));
      }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\JobberServicesOffers;
 use App\JobRequest;
 use App\Notfication;
+use App\Payment;
 use App\SubCategory;
 use App\Proposal;
 use Illuminate\Http\Request;
@@ -175,9 +176,7 @@ class JobberController extends Controller
         return view('front.jobber.contract.detials', compact('title', 'contract'));
     }
     public function contractStatus($id){
-
         $contract = Contract::find($id);
-
         $contract->status = 2;
         if($contract->update()){
             $notification = array(
@@ -186,7 +185,11 @@ class JobberController extends Controller
             );
             return redirect()->back()->with($notification);
         }
-
-
+    }
+    public function earnings(){
+        $title = 'Revenus';
+        $user = Auth::user();
+        $earnings = Payment::where('jobber_id', '=', $user->id)->where('status', 1)->get();
+        return view('front.jobber.earnings.index', compact('earnings', 'title'));
     }
 }

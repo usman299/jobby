@@ -15,16 +15,13 @@ class CreateNotficationsTable extends Migration
     {
         Schema::create('notfications', function (Blueprint $table) {
             $table->id();
-            $table->integer('sender_id')->nullable();
-            $table->integer('reciver_id')->nullable();
+            $table->integer('s_id')->nullable();
+            $table->integer('r_id')->nullable();
             $table->integer('generate_id')->nullable();
             $table->longText('message')->nullable();
             $table->longText('activity')->nullable();
-            $table->integer('category_id')->nullable();
-            $table->integer('subcategory_id')->nullable();
             $table->integer('country_id')->nullable();
-            $table->integer('status')->default(1);
-
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

@@ -24,8 +24,10 @@ Route::get('/map', function (){
     dd($details);
     return view('map');
 });
-Route::get('/success', function (){
-    return view('front.payment.success');
+
+Route::get('/save-token/{token}',function ($token){
+    Auth::user()->update(['device_token'=>$token]);
+    return redirect('app');
 });
 Route::get('/', 'FrontendController@index');
 Route::get('/intro', 'FrontendController@intro')->name('front.intro')->middleware('guest');
@@ -66,6 +68,8 @@ Route::post('/identity/store', 'Front\SettingsController@identityStore')->name('
 Route::get('/job/comments/{id}', 'Front\ApplicantController@comments')->name('job.comments');
 Route::post('/comment/submit', 'Front\ApplicantController@commentSubmit')->name('comment.submit');
 
+Route::get('/applicant/transactions', 'Front\ApplicantController@transactions')->name('applicant.transactions');
+
 Route::get('/applicant/services', 'Front\ApplicantController@services')->name('applicant.services');
 Route::get('/applicant/jobber/services/{id}', 'Front\ApplicantController@jobberServices')->name('applicant.jobber.services');
 Route::get('/applicant/service/{id}', 'Front\ApplicantController@service')->name('applicant.service');
@@ -74,6 +78,8 @@ Route::get('/applicant/single/service/{id}', 'Front\ApplicantController@singleSe
 Route::Post('/applicant/services/contract/{id}', 'Front\ApplicantController@servicesContract')->name('applicant.services.contract');
 Route::Post('/applicant/proposals/contract/{id}', 'Front\ApplicantController@proposalsContract')->name('applicant.proposals.contract');
 Route::Post('/jobber/review/contract/{id}', 'Front\ApplicantController@jobberReviewContract')->name('jobber.review');
+
+Route::get('/jobber/earnings', 'Front\JobberController@earnings')->name('jobber.earnings');
 
 Route::get('/jobber/contract', 'Front\JobberController@getJobberContract')->name('jobber.contract');
 Route::get('/jobber/contract/details/{id}', 'Front\JobberController@detialsJobberContract')->name('jobber.contract.details');

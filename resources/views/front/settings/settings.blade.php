@@ -105,6 +105,25 @@
                         </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('applicant.transactions')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-yellow">
+                                <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Message" transform="translate(1.941 2.258)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0" transform="translate(3.121 4.882)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M0,7.217C0,1.8,1.885,0,7.54,0s7.54,1.8,7.54,7.217-1.885,7.217-7.54,7.217S0,12.63,0,7.217Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Transactions</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
                 @if($user->role == 1)
                 <li>
                     <a href="{{route('get.badge')}}" class="item-link">
@@ -141,6 +160,25 @@
                                 </svg>
                             </div>
                             <span class="path__name">Document d'identité</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('jobber.earnings')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-yellow">
+                                <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Message" transform="translate(1.941 2.258)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0" transform="translate(3.121 4.882)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M0,7.217C0,1.8,1.885,0,7.54,0s7.54,1.8,7.54,7.217-1.885,7.217-7.54,7.217S0,12.63,0,7.217Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Revenus</span>
                         </div>
                         <div class="group">
                             <span class="short__name"></span>
