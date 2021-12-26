@@ -86,7 +86,7 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
-                        <h2>Temps estimé</h2>
+                        <h2>Heure</h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">

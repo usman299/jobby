@@ -11,7 +11,6 @@
             <p class="color-text size-12 m-0">Version 1.0.0 - Mister Jobby</p>
         </div>
         <div class="content_text bg-white emBlock__border margin-b-10">
-            <h3 class="size-20 weight-500 color-secondary mb-1">What we offer</h3>
             <p>
                 {!! $about->description !!}
             </p>

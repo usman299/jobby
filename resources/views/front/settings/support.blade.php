@@ -38,72 +38,34 @@
 
 
 
-        <!-- Start emPage___profile -->
         <div class="em__pkLink accordion bg-white emBlock__border pt-3" id="accordionExample5">
             <ul class="nav__list with_border fullBorder">
                 @foreach($questionAnswer as $key => $row)
-                    @if($key+1 == 1)
-                        <li>
-                            <div id="headingOne-text">
-                                <div class="item-link main_item" data-toggle="collapse" data-target="#collapseOne-text"
-                                     aria-expanded="true" aria-controls="collapseOne-text">
-                                    <div class="group">
-                                        <div>
-                                            <span class="path__name text-transform-none">{!! $row->question !!}</span>
-                                        </div>
-                                    </div>
-                                    <div class="group">
-                                        <span class="short__name"></span>
-                                        <i class="tio-add iocn__plus -arrwo"></i>
-                                    </div>
+                <li>
+                    <div id="headingOne-text">
+                        <div class="item-link main_item collapsed" data-toggle="collapse" data-target="#collapseOne-text{{$row->id}}" aria-expanded="false" aria-controls="collapseOne-text">
+                            <div class="group">
+                                <div>
+                                            <span class="path__name text-transform-none">{{$row->question}}</span>
                                 </div>
                             </div>
-                            <div id="collapseOne-text" class="collapse show" aria-labelledby="headingOne-text"
-                                 data-parent="#accordionExample5">
-                                <div class="card-body">
-                                    <p class="mb-0 size-15 color-text">
-                                        {!! $row->answer !!}
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-
-                    @endif
-                    <li>
-                        <div id="headingFive-text">
-                            <div class="item-link main_item" data-toggle="collapse" data-target="#collapseFive-text"
-                                 aria-expanded="false" aria-controls="collapseFive-text">
-                                <div class="group">
-                                    <div>
-                                            <span class="path__name text-transform-none">
-                                                {!! $row->question !!}
-                                            </span>
-                                    </div>
-                                </div>
-                                <div class="group">
-                                    <span class="short__name"></span>
-                                    <i class="tio-add iocn__plus -arrwo"></i>
-                                </div>
+                            <div class="group">
+                                <span class="short__name"></span>
+                                <i class="tio-add iocn__plus -arrwo"></i>
                             </div>
                         </div>
-                        <div id="collapseFive-text" class="collapse" aria-labelledby="headingFive-text"
-                             data-parent="#accordionExample5">
-                            <div class="card-body">
-                                <p class="mb-0 size-15 color-text">
-                                    {!! $row->answer !!}
-                                </p>
-                            </div>
+                    </div>
+                    <div id="collapseOne-text{{$row->id}}" class="collapse" aria-labelledby="headingOne-text" data-parent="#accordionExample5" style="">
+                        <div class="card-body">
+                            <p class="mb-0 size-15 color-text">
+                                {!! $row->answer !!}
+                            </p>
                         </div>
-                    </li>
-
-
+                    </div>
+                </li>
                 @endforeach
-
-
-
             </ul>
         </div>
-        <!-- End. emPage___profile  -->
 
     </section>
 @endsection

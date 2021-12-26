@@ -315,7 +315,7 @@ $user = Auth::user();
                 </a>
             </div>
             <div class="title_page">
-                <span class="page_name">{{$title??'Messenger'}}</span>
+                <span class="page_name">{{$title??'Messagerie'}}</span>
             </div>
             <div class="em_side_right">
                 <button type="button" class="btn btn_menuSidebar item-show" data-toggle="modal"
@@ -385,7 +385,7 @@ $user = Auth::user();
                                     </g>
                                 </svg>
                             </div>
-                            <div class="txt__tile">Proposals</div>
+                            <div class="txt__tile">Propositions</div>
                         </a>
                     </div>
                 @endif
@@ -711,7 +711,7 @@ $user = Auth::user();
                                         </svg>
                                     </div>
 
-                                    <span class="title_link">Sur Mister Jobby</span>
+                                    <span class="title_link">À propose de nous</span>
                                 </div>
                             </a>
                         </li>
@@ -729,7 +729,7 @@ $user = Auth::user();
                                         </svg>
                                     </div>
 
-                                    <span class="title_link">Avoir une question?</span>
+                                    <span class="title_link">Vous avez une question ?</span>
                                 </div>
                             </a>
                         </li>

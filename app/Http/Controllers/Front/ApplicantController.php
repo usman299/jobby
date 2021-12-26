@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
 use App\JobberProfile;
 use App\JobRequest;
+use App\JobViews;
 use App\Payment;
 use App\Proposal;
 use App\Reviews;
@@ -195,8 +196,16 @@ class ApplicantController extends Controller
         return view('front.applicant.jobrequests.jobrequests', compact('jobrequests','title', 'jobrequestsClose'));
     }
     public function jobrequestsDetail($id){
+        $user = Auth::user();
         $title = 'Détails de la demande';
         $jobrequest = JobRequest::find($id);
+        $check_already_exist = JobViews::where('job_id', $id)->where('user_id', $user->id)->first();
+        if (!$check_already_exist){
+            $job_views = new JobViews();
+            $job_views->job_id = $id;
+            $job_views->user_id = $user->id;
+            $job_views->save();
+        }
         return view('front.applicant.jobrequests.detail', compact('jobrequest','title'));
     }
     public function jobrequestsStatus($id){

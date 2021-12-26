@@ -140,7 +140,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="path__name">Document d'identité</span>
+                            <span class="path__name">Document identité</span>
                         </div>
                         <div class="group">
                             <span class="short__name"></span>

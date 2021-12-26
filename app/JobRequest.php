@@ -52,5 +52,10 @@ class JobRequest extends Model
        $proposal = Proposal::where('jobRequest_id', $this->id)->get();
        return  $proposal->count();
     }
+    public function totalViews()
+    {
+       $views = JobViews::where('job_id', $this->id)->get();
+       return  $views->count();
+    }
 }
 

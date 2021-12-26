@@ -76,12 +76,12 @@
                                         <div class="">
                                             <img src="{{ asset('admin/subcategory/b10.jpeg')  }}" class="card-img-top" alt="img">
                                         </div>
-                                        <div class="">
+                                        <div class="txt">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                              Menage a domicile
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>26€-52€</strong>
                                             </p>
 
@@ -99,10 +99,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                Aide au demenagement
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>52€-150€</strong>
                                             </p>
 
@@ -120,10 +120,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Peinture interieure
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>100€-350€</strong>
                                             </p>
 
@@ -141,10 +141,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Couper un arbre
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>100€-350€</strong>
                                             </p>
 
@@ -162,10 +162,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Assemblage de meubles
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>30€-84€</strong>
                                             </p>
 
@@ -183,10 +183,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Déplacer de l’électroménager
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>30€-84€</strong>
                                             </p>
 
@@ -204,10 +204,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Deplacer un meuble
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>21€-42€</strong>
                                             </p>
 
@@ -225,10 +225,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Grade d'enfants
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>20€-60€</strong>
                                             </p>
 
@@ -246,10 +246,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Repassage
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>25€-35€</strong>
                                             </p>
 
@@ -267,10 +267,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Tondre la pelouse
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>29€-57€</strong>
                                             </p>
 
@@ -288,10 +288,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Fixation d'etageres
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>21€-42€</strong>
                                             </p>
 
@@ -309,10 +309,10 @@
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;color: black;">
+                                            <h6 class="card-title" style="margin: 10px;">
                                                 Taille de haie
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;color: black;">
+                                            <p class="card-text" style="margin: 10px;">
                                                 <strong>100€-350€</strong>
                                             </p>
 
@@ -352,10 +352,10 @@
                                             </div>
                                             <div class="">
 
-                                                <h6 class="card-title" style="margin: 5px;color: black;">
+                                                <h6 class="card-title" style="margin: 5px;">
                                                     {{$row->title}}
                                                 </h6>
-                                                <p class="card-text" style="margin: 5px;color: black;">
+                                                <p class="card-text" style="margin: 5px;">
                                                     {{$row->category->title}}
                                                 </p>
 
@@ -395,10 +395,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{Str::limit($row->title, 22)}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{Str::limit($row->category->title, 22)}}
                                                     </p>
 
@@ -438,10 +438,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{Str::limit($row->title, 22)}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{Str::limit($row->category->title, 22)}}
                                                     </p>
 
@@ -481,10 +481,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{Str::limit($row->title, 22)}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{Str::limit($row->category->title, 22)}}
                                                     </p>
 
@@ -525,10 +525,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{$row->title}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{$row->category->title}}
                                                     </p>
 
@@ -569,10 +569,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{$row->title}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{$row->category->title}}
                                                     </p>
 
@@ -613,10 +613,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{$row->title}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{$row->category->title}}
                                                     </p>
 
@@ -657,10 +657,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{$row->title}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{$row->category->title}}
                                                     </p>
 
@@ -701,10 +701,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{$row->title}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{$row->category->title}}
                                                     </p>
 
@@ -745,10 +745,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{$row->title}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{$row->category->title}}
                                                     </p>
 
@@ -789,10 +789,10 @@
                                                 </div>
                                                 <div class="">
 
-                                                    <h6 class="card-title" style="margin: 5px;color: black;">
+                                                    <h6 class="card-title" style="margin: 5px;">
                                                         {{$row->title}}
                                                     </h6>
-                                                    <p class="card-text" style="margin: 5px;color: black;">
+                                                    <p class="card-text" style="margin: 5px;">
                                                         {{$row->category->title}}
                                                     </p>
 
@@ -907,6 +907,7 @@
                                 <span class="icon_active"></span>
                                 <span class="txt_added">Appliquée</span>
                                 @endif
+
                             </button>
 
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
@@ -921,6 +922,7 @@
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
                                 <button type="button" class="btn btn_addCart item-active">
                                     <div class="itemRating">
+                                        <span style="min-width: 80px;" class="number">Vues: {{$job->totalViews()}}</span>
                                         <span style="min-width: 80px;" class="number">Vue</span>
                                     </div>
                                 </button>
