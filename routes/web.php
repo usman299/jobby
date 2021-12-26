@@ -22,6 +22,8 @@ Route::get('/save-token/{token}',function ($token){
     Auth::user()->update(['device_token'=>$token]);
     return redirect('app');
 });
+Route::get('/testnotification', 'HomeController@testnotification');
+
 Route::get('/', 'FrontendController@index');
 Route::get('/intro', 'FrontendController@intro')->name('front.intro')->middleware('guest');
 Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
