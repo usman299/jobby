@@ -923,7 +923,7 @@
                                 <button type="button" class="btn btn_addCart item-active">
                                     <div class="itemRating">
                                         <span style="min-width: 80px;" class="number">Vues: {{$job->totalViews()}}</span>
-                                        <span style="min-width: 80px;" class="number">Vue</span>
+                                        <span style="min-width: 100px; color: black; border: 1px solid black" class="number">Plus de détails</span>
                                     </div>
                                 </button>
                             </a>

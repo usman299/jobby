@@ -293,6 +293,41 @@ $user = Auth::user();
             color: #c59b08;
         }
 /*//END REVIEW*/
+        .rolecss{
+            background: {{$user->role == 1 ? 'linear-gradient(to right, #febc31, #fe4d86)' : 'linear-gradient(to right, #4ce9fe, #378afe)'}}!important;
+        }
+        .sidebarMenu.-left .modal-dialog .modal-content .modal-header .em_profile_user .txt p {
+            color: #000000;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        .sidebarMenu.-left .modal-dialog .modal-content .modal-footer .em_darkMode_menu .text p {
+            font-size: 13px;
+            color: #000000;
+            margin-bottom: 0;
+        }
+        .sidebarMenu.-left .modal-dialog .modal-content .modal-header .close i {
+            font-size: 17px;
+            font-weight: 600;
+            color: #000000;
+        }
+        .sidebarMenu.-left .modal-dialog .modal-content .modal-body .nav .nav-item .nav-link .title_link {
+            color: #000000;
+            font-size: 16px;
+            padding-left: 35px;
+        }
+        .sidebarMenu.-left .modal-dialog .modal-content .modal-header .em_profile_user .txt h3 {
+            font-size: 15px;
+            color: #000000;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .sidebarMenu.-left .modal-dialog .modal-content .modal-footer .em_darkMode_menu .text h3 {
+            font-size: 15px;
+            color: #000000;
+            margin-bottom: 0;
+            padding-bottom: 3px;
+        }
     </style>
     @yield('style')
 </head>
@@ -553,7 +588,7 @@ $user = Auth::user();
     <div class="modal sidebarMenu -left fade" id="mdllSidebarMenu-background" tabindex="-1"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
+            <div class="modal-content rolecss">
                 <div class="modal-header d-block">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="tio-clear"></i>
@@ -587,10 +622,10 @@ $user = Auth::user();
                     </div>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body rolecss">
                     <ul class="nav flex-column">
                         <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
-                            <a class="nav-link" href="{{route('front.app')}}">
+                            <a class="nav-link rolecss" href="{{route('front.app')}}">
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_Home" data-name="Iconly/Curved/Home" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -632,7 +667,7 @@ $user = Auth::user();
 {{--                        </li>--}}
                         @else
                         <li class="nav-item {{  request()->is('applicant/contract') ? '-active-links':'' }}">
-                            <a class="nav-link" href="{{route('applicant.contract')}}">
+                            <a class="nav-link rolecss" href="{{route('applicant.contract')}}">
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery"
@@ -661,7 +696,7 @@ $user = Auth::user();
                         $notficatin_count = \App\Notfication::where('r_id','=',$user->id)->where('status', 0)->get()->count();
                         ?>
                         <li class="nav-item {{  request()->is('app/notifications') ? '-active-links':'' }}">
-                            <a class="nav-link" href="{{route('app.notifications')}}">
+                            <a class="nav-link rolecss" href="{{route('app.notifications')}}">
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -682,7 +717,7 @@ $user = Auth::user();
                             </a>
                         </li>
                         <li class="nav-item {{  request()->is('app/support') ? '-active-links':'' }}">
-                            <a class="nav-link" href="{{route('app.support')}}">
+                            <a class="nav-link rolecss" href="{{route('app.support')}}">
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -695,12 +730,12 @@ $user = Auth::user();
                                         </svg>
                                     </div>
 
-                                    <span class="title_link">Soutien</span>
+                                    <span class="title_link">Centre d’assistance</span>
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item {{  request()->is('app/about') ? '-active-links':'' }}">
-                            <a class="nav-link" href="{{route('app.about')}}">
+                            <a class="nav-link rolecss" href="{{route('app.about')}}">
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -716,7 +751,7 @@ $user = Auth::user();
                             </a>
                         </li>
                         <li class="nav-item {{  request()->is('app/contact') ? '-active-links':'' }}">
-                            <a class="nav-link" href="{{route('app.contact')}}">
+                            <a class="nav-link rolecss" href="{{route('app.contact')}}">
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -734,7 +769,7 @@ $user = Auth::user();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link logoutbutton" href="{{route('logout')}}" onclick="event.preventDefault();
+                            <a class="nav-link logoutbutton rolecss" href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 <div class="">
                                     <div class="icon_current">

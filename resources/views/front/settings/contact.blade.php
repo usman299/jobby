@@ -3,11 +3,11 @@
     <section class="emPage__contact em__pkLink">
         <div class="emheadMap">
          <iframe class="google_map"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26371661.85956456!2d-113.72360706725829!3d36.21040627051876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2s!4v1576137923429!5m2!1sen!2s"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d145764.42930001044!2d-61.62378917715728!3d16.251279472561283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0565f7c5cc74972!2zMTbCsDE0JzM0LjUiTiA2McKwMzAnMTQuOSJX!5e0!3m2!1sen!2s!4v1640510569672!5m2!1sen!2s"
                         width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-            <div class="pin_mark">
-                <span></span>
-            </div>
+{{--            <div class="pin_mark">--}}
+{{--                <span></span>--}}
+{{--            </div>--}}
         </div>
         <div class="embk__form">
             <form method="POST" action="{{route('app.contact.store') }}" enctype="multipart/form-data">
