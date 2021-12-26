@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Category;
 use App\ChildCategory;
 use App\ChMessage;
 use App\Comments;
@@ -22,7 +23,7 @@ use App\JobberServicesOffers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
-
+use DB;
 class ApplicantController extends Controller
 {
    public function services(){
@@ -354,7 +355,7 @@ class ApplicantController extends Controller
         $payment->contract_id = $contract->id;
         $payment->applicant_id = $applicant_id->id;
         $payment->jobber_id =  $proposal->jobber_id;
-        $payment->price =  $proposal->price;
+        $payment->price =  $request->total;
         $payment->type =  'card';
         $payment->invoice_no =  'IN-'.rand(10000, 90000);
         $payment->save();
@@ -481,7 +482,12 @@ class ApplicantController extends Controller
      public function transactions(){
          $title = 'Transactions';
          $user = Auth::user();
-         $transactions = Payment::where('applicant_id', '=', $user->id)->get();
+         $transactions = Payment::latest()->where('applicant_id', '=', $user->id)->get();
          return view('front.applicant.earnings.index', compact('transactions', 'title'));
+     }
+     public function search(Request $request){
+         $subcategory = SubCategory::where('title', 'LIKE', '%' .$request->search. '%')->get();
+         $childsubcategory = ChildCategory::where('title', 'LIKE', '%' .$request->search. '%')->get();
+         return view('front.applicant.search', compact('subcategory', 'childsubcategory'));
      }
 }

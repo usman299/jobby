@@ -100,6 +100,8 @@ Route::get('/applicant/proposal/detail/{id}', 'Front\ApplicantController@proposa
 Route::post('/proposal/accept/{id}', 'Front\ApplicantController@proposalAccept')->name('proposal.accept');
 Route::get('/proposal/reject/{id}', 'Front\ApplicantController@proposalReject')->name('proposal.reject');
 
+Route::post('/category/search', 'Front\ApplicantController@search')->name('category.search');
+
 Route::post('/proposal/submit', 'Front\JobberController@proposalSubmit')->name('proposal.submit');
 Route::get('/jobber/proposals', 'Front\JobberController@proposals')->name('jobber.proposals');
 

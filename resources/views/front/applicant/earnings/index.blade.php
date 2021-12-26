@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="sideRight">
-                    <p>+ {{$transaction->contract->price}} <span>EUR</span></p>
+                    <p>+ {{$transaction->price}} <span>EUR</span></p>
                 </div>
             </div>
             <hr>

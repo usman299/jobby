@@ -57,7 +57,7 @@
 
                 <div class="text-center">
 
-                        <button type="submit" class="btn justify-content-center bg-blue rounded-pill btn__default full-width" ><span class="color-white">Dis bonjour!</span></button>
+                        <button type="submit" class="btn justify-content-center bg-blue rounded-pill btn__default full-width" ><span class="color-white">Envoyer</span></button>
 
                 </div>
 

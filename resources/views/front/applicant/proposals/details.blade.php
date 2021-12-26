@@ -133,7 +133,7 @@
                 <a href="{{route('proposal.payment', ['id' => $proposal->id])}}"> <span class="color-white">Commencer le contrat</span></a>
             </button>
         </div>
-        @if(!$proposal->status == 2 || $proposal->status == 3)
+        @if($proposal->status == 1)
         <div class="bg-white padding-20 d-flex emBlock__border">
             <a href="{{route('proposal.reject', ['id' => $proposal->id])}}"><button class="btn bg-danger rounded-10 btn__default">
                 <span class="color-white">Rejeter la proposition</span>

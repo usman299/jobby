@@ -186,7 +186,7 @@ class JobberController extends Controller
     public function earnings(){
         $title = 'Revenus';
         $user = Auth::user();
-        $earnings = Payment::where('jobber_id', '=', $user->id)->where('status', 1)->get();
+        $earnings = Payment::latest()->where('jobber_id', '=', $user->id)->where('status', 1)->get();
         return view('front.jobber.earnings.index', compact('earnings', 'title'));
     }
 }
