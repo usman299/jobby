@@ -73,6 +73,7 @@ Route::Post('/applicant/proposals/contract/{id}', 'Front\ApplicantController@pro
 Route::Post('/jobber/review/contract/{id}', 'Front\ApplicantController@jobberReviewContract')->name('jobber.review');
 
 Route::get('/jobber/earnings', 'Front\JobberController@earnings')->name('jobber.earnings');
+Route::get('/jobber/reviews', 'Front\JobberController@jobberReviews')->name('jobber.reviews');
 
 Route::get('/jobber/contract', 'Front\JobberController@getJobberContract')->name('jobber.contract');
 Route::get('/jobber/contract/details/{id}', 'Front\JobberController@detialsJobberContract')->name('jobber.contract.details');

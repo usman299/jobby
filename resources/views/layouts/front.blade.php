@@ -250,12 +250,24 @@ $user = Auth::user();
             .modal-contentimage {
                 width: 100%;
             }
+
         }
+        @media only screen and (max-width: 375px) {
+            .rate {
+                float: left;
+                height: 46px;
+                padding: 0 85px !important;
+            }
+        }
+
+
+
+
 
         /*//REview*/
         *{
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
         }
         .rate {
             float: left;

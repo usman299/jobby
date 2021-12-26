@@ -151,7 +151,7 @@
                 <li>
                     <a href="{{route('jobber.earnings')}}" class="item-link">
                         <div class="group">
-                            <div class="icon bg-yellow">
+                            <div class="icon bg-purple">
                                 <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
                                     <g id="Message" transform="translate(1.941 2.258)">
                                         <path id="Stroke_1" data-name="Stroke 1" d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0" transform="translate(3.121 4.882)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
@@ -167,6 +167,20 @@
                         </div>
                     </a>
                 </li>
+                    <li>
+                        <a href="{{route('jobber.reviews')}}" class="item-link">
+                            <div class="group">
+                                <div class="icon bg-warning">
+                                    <i class="ri-radar-fill"></i>
+                                </div>
+                                <span class="path__name">Evaluations</span>
+                            </div>
+                            <div class="group">
+                                <span class="short__name"></span>
+                                <i class="tio-chevron_right -arrwo"></i>
+                            </div>
+                        </a>
+                    </li>
                 @else
                     <li>
                         <a href="{{route('applicant.transactions')}}" class="item-link">
