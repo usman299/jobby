@@ -9,8 +9,11 @@
                 <form method="POST" action="{{ route('applicant.proposals.contract',['id'=>$proposal->id]) }}" id="payment-form" class="paymentformsubmit" enctype="multipart/form-data">
                     @csrf
 
+                    <input type="hidden" name="total" value="{{$total}}">
                     <div class="form-group input-lined">
-                        <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Le Prix</strong> <strong style="color: red;">: {{$proposal->price}} €</strong> </label>
+                        <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Prix</strong> <strong style="color: red;">: {{$proposal->price}} €</strong> </label>
+                        <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Frais administratif 10%</strong> <strong style="color: red;">: {{$percentage}} €</strong> </label>
+                        <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Montant total de la rémunération</strong> <strong style="color: red;">: {{$total}} €</strong> </label>
                     </div>
                     <div class="form-group input-lined">
                         <input type="datetime-local" min="{{Carbon\Carbon::now()->format('Y-m-d')."T".Carbon\Carbon::now()->format('H:i')}}" name="e_time"  class="form-control"  required="">

@@ -47,12 +47,12 @@
         <div class="input_group">
             <div class="item-link hoverNone">
                 <div class="group">
-                    <div class="itemCountr_manual horizontal itemButtons -lg border-0 min-w-145">
-                        <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
+                    <div class="itemCountr_manual1 horizontal itemButtons -lg border-0 min-w-145">
+                        <a href="#" data-dir="down" class="btn btn_counter1 rounded-circle co_down border">
                             <i class="tio-remove"></i>
                         </a>
-                        <input  type="text" name="duration" class="form-control input_no color-secondary durationplus" value="3">
-                        <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
+                        <input  type="text" name="duration" class="form-control input_no color-secondary durationplus" value="1">
+                        <a href="#" data-dir="up" class="btn btn_counter1 rounded-circle co_up bg-secondary">
                             <i class="tio-add color-white"></i>
                         </a>
                     </div>
@@ -68,7 +68,7 @@
                         <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
                             <i class="tio-remove"></i>
                         </a>
-                        <input type="text" name="hours" class="form-control input_no color-secondary rateperhour" min="9" value="9">
+                        <input type="text" name="hours" class="form-control input_no color-secondary rateperhour" min="9" value="10">
                         <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
                             <i class="tio-add color-white"></i>
                         </a>
@@ -81,10 +81,21 @@
             <div class="row">
                 <div class="col-6">
                     <h4>Estimation du budget: </h4>
-                    <p>Frais administratif 5€ </p>
                 </div>
                 <div class="col-6">
                     <h4 style="text-align: right" class="estimate_budget"> </h4>
+                </div>
+                <div class="col-6">
+                    <p>Frais administratif 10% </p>
+                </div>
+                <div class="col-6">
+                    <p style="text-align: right"><strong  class="percentage"></strong></p>
+                </div>
+                <div class="col-6">
+                    <p>Total </p>
+                </div>
+                <div class="col-6">
+                    <p style="text-align: right"><strong  class="total"></strong></p>
                 </div>
             </div>
         </div>

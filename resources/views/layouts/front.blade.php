@@ -340,6 +340,28 @@ $user = Auth::user();
             margin-bottom: 0;
             padding-bottom: 3px;
         }
+        .itemCountr_manual.horizontal .input_no {
+            width: 30px;
+            padding: 0;
+        }
+        .itemCountr_manual1.horizontal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border-snow);
+            border-radius: 10px;
+            width: 100px;
+            float: right;
+        }
+        .itemCountr_manual1.horizontal .input_no {
+            width: 30px;
+            padding: 0;
+            border: none !important;
+        }
+        .itemCountr_manual1.itemButtons.-lg .btn_counter1 {
+            width: 42px;
+            height: 42px;
+        }
     </style>
     @yield('style')
 </head>
@@ -578,22 +600,6 @@ $user = Auth::user();
         </div>
     </footer>
     <!-- End. em_main_footer -->
-
-    <!-- Start searchMenu__hdr -->
-    <section class="searchMenu__hdr">
-        <form>
-            <div class="form-group">
-                <div class="input_group">
-                    <input type="search" class="form-control" placeholder="type something here...">
-                    <i class="ri-search-2-line icon_serach"></i>
-                </div>
-            </div>
-        </form>
-        <button type="button" class="btn btn_meunSearch -close __removeMenu">
-            <i class="tio-clear"></i>
-        </button>
-    </section>
-    <!-- End. searchMenu__hdr -->
 
 
     <!-- Modal Sidebar Menu (withBackground) -->
@@ -1110,11 +1116,13 @@ $user = Auth::user();
         // A loop that checks every input field in the current tab:
         for (i = 0; i < y.length; i++) {
             // If a field is empty...
+            if(y[i].type.toLowerCase() == 'text') {
             if (y[i].value == "") {
                 // add an "invalid" class to the field:
                 y[i].className += " is-invalid";
                 // and set the current valid status to false
                 valid = false;
+            }
             }
         }
         for (i = 0; i < z.length; i++) {

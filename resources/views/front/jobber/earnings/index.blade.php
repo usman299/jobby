@@ -13,7 +13,7 @@
                 </div>
                 <div class="txt">
                     <p>Total des gains</p>
-                    <span>{{$earnings->sum('price')}} €</span>
+                    <span>{{$earnings->sum('price') - ($earnings->sum('price') * 20/100)}} €</span>
                 </div>
             </a>
         </div>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="sideRight">
-                    <p>+ {{$earning->contract->price}} <span>EUR</span></p>
+                    <p>+ {{$earning->contract->price - ($earning->contract->price * 10/100)}} <span>EUR</span></p>
                 </div>
             </div>
             <hr>

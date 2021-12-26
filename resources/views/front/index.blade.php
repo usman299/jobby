@@ -60,11 +60,11 @@
                     <div class="em_title_swiper">
                         <div class="txt">
                             <h5>Populaires en ce moment</h5>
-
+{{--                            <p data-toggle="modal" data-target="#mdllFilterJobs" style="float: left">Search</p>--}}
                         </div>
-{{--                        <div class="item_link">--}}
-{{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
-{{--                        </div>--}}
+                        <div class="item_link">
+                            <a data-toggle="modal" data-target="#mdllFilterJobs" >Chercher</a>
+                        </div>
                     </div>
                     <div class="em_bodyCarousel padding-t-20">
                         <div class="owl-carousel owl-theme owlThemeCorses">
@@ -950,6 +950,43 @@
     <br>
     <br>
 
+        <div class="modal transition-bottom screenFull defaultModal emModal__filters fade" id="mdllFilterJobs"
+             tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
+                        <div class="itemProduct_sm">
+                            <h1 class="size-18 weight-600 color-secondary m-0">Chercher</h1>
+                        </div>
+                        <div class="absolute right-0 padding-r-20">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <i class="tio-clear"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <form class="formsubmit" method="POST" action="{{route('category.search')}}">
+                        @csrf
+                        <div class="modal-body padding-b-100">
+
+                            <div class="em_box_content_filter">
+                                <div class="form-group">
+                                    <label>Chercher</label>
+                                    <input required type="text" placeholder="Chercher" name="search" class="form-control">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer border-0 pt-0 env-pb">
+                            <button href="#"
+                               class="btn min-w-140 bg-secondary m-0 hover:color-white color-white h-46 d-flex align-items-center rounded-8 justify-content-center">
+                                Trouve maintenant
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
 @endsection
 @section('script')
