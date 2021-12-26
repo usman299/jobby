@@ -916,14 +916,14 @@
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
                                 <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
                                 <p class="item_price">{{$job->estimate_budget}} €</p>
-                                <p style="color: black">{{$job->service_date->format('d-m-y')}} ({{$job->duration}} heures) </p>
+                                <p >{{$job->service_date->format('d-m-y')}} ({{$job->duration}} heures) </p>
                             </a>
 
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
                                 <button type="button" class="btn btn_addCart item-active">
                                     <div class="itemRating">
                                         <span style="min-width: 80px;" class="number">Vues: {{$job->totalViews()}}</span>
-                                        <span style="min-width: 100px; color: black; border: 1px solid black" class="number">Plus de détails</span>
+                                        <span style="min-width: 100px; color: #9a99a4; border: 1px solid #9a99a4" class="number">Plus de détails</span>
                                     </div>
                                 </button>
                             </a>
