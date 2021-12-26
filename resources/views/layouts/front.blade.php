@@ -1104,13 +1104,13 @@ $user = Auth::user();
         // A loop that checks every input field in the current tab:
         for (i = 0; i < y.length; i++) {
             // If a field is empty...
-            if(y[i].type.toLowerCase() == 'text') {
-            if (y[i].value == "") {
-                // add an "invalid" class to the field:
-                y[i].className += " is-invalid";
-                // and set the current valid status to false
-                valid = false;
-            }
+            if(y[i].type.toLowerCase() == 'text' || y[i].type.toLowerCase() == 'date') {
+                if (y[i].value == "") {
+                    // add an "invalid" class to the field:
+                    y[i].className += " is-invalid";
+                    // and set the current valid status to false
+                    valid = false;
+                }
             }
         }
         for (i = 0; i < z.length; i++) {

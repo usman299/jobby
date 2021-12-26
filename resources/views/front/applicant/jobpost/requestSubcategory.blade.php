@@ -1965,8 +1965,11 @@
         setInterval(function(){
             var durationplus = $(".durationplus").val();
             var rateperhour = $(".rateperhour").val();
-            var budget = (durationplus * rateperhour);
+            var budget = (parseFloat(durationplus) * parseFloat(rateperhour));
+            var percentage = budget * (10/100);
             $(".estimate_budget").html(budget + "€");
+            $(".total").html(budget + parseFloat(percentage.toFixed(2)) + "€");
+            $(".percentage").html(percentage.toFixed(2)+ "€");
             $(".estimate_budgetval").val(budget);
         }, 200);
         function showpopuploaction(){

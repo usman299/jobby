@@ -1649,6 +1649,7 @@
                 <div class="emBK__cards">
                     <h1 class="head_art">Aperçu du Job</h1>
                     <div class="owl-carousel owl-theme owlCards">
+                        @if($jobrequest->image1)
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
@@ -1656,6 +1657,8 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        @if($jobrequest->image2)
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
@@ -1663,6 +1666,8 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        @if($jobrequest->image3)
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
@@ -1670,6 +1675,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
