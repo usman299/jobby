@@ -1,5 +1,6 @@
 @extends('layouts.front')
 @section('content')
+
     <section class="emPage__detailsBlog">
         <div class="emPage___profile accordion bg-white" id="accordionExample">
             <div class="emBody__navLink with__border">
@@ -246,7 +247,7 @@
                             <textarea class="form-control" placeholder="Entrez le message" rows="3" name="message"></textarea>
                             <label for="address"><strong style="font-size: 15px;">Message</strong><strong style="color: red;">*</strong></label>
                         </div>
-                        <div>
+
                             <div class="form-group  rate">
                                 <input type="radio" id="star5" name="star" value="5" />
                                 <label for="star5" title="text">5 stars</label>
@@ -258,7 +259,7 @@
                                 <label for="star2" title="text">2 stars</label>
                                 <input type="radio" id="star1" name="star" value="1" />
                                 <label for="star1" title="text">1 star</label>
-                            </div></div>
+                            </div>
                     </div>
                     <div class="modal-footer">
                         <button type="submit"

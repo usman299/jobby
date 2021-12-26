@@ -6,10 +6,12 @@ use App\Category;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\JobberProfile;
 use App\JobberServicesOffers;
 use App\JobRequest;
 use App\Notfication;
 use App\Payment;
+use App\Reviews;
 use App\SubCategory;
 use App\Proposal;
 use App\User;
@@ -188,5 +190,31 @@ class JobberController extends Controller
         $user = Auth::user();
         $earnings = Payment::latest()->where('jobber_id', '=', $user->id)->where('status', 1)->get();
         return view('front.jobber.earnings.index', compact('earnings', 'title'));
+    }
+    public function jobberReviews(){
+        $title = 'Evaluations';
+        $user = Auth::user();
+        $reviews = Reviews::where('reciver_id','=',$user->id)->get();
+        if (!$reviews->isempty()){
+            $totalReview = Reviews::where('reciver_id','=',$user->id)->sum('star');
+            $total = $reviews->count();
+            $totalReviews = round($totalReview / $total);
+            $fiveStar = (Reviews::where('star', '=', 5)->count() / $total) * 100;
+            $fourStar = (Reviews::where('star', '=', 4)->count() / $total) * 100;
+            $threeStar = (Reviews::where('star', '=', 3)->count() / $total) * 100;
+            $twoStar = (Reviews::where('star', '=', 2)->count() / $total) * 100;
+            $oneStar = (Reviews::where('star', '=', 1)->count() / $total) * 100;
+        }
+        else{
+            $reviews =null;
+            $totalReviews=0;
+            $total=0;
+            $fiveStar=0;
+            $fourStar=0;
+            $threeStar=0;
+            $twoStar=0;
+            $oneStar=0;
+        }
+        return view('front.jobber.reviews.index', compact('title', 'user','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar'));
     }
 }
