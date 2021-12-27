@@ -85,7 +85,7 @@
                                                 @foreach($proposal as $row)
                                                     <div class="profile-uoloaded-post border-bottom-1 pb-5">
                                                         <img src="images/profile/8.jpg" alt="" class="img-fluid">
-                                                        <a class="post-title" href="post-details.html"><h3 class="text-black">{{$row->title}}</h3></a>
+                                                        <a class="post-title" href="#"><h3 class="text-black">{{$row->title}}</h3></a>
                                                         <p>{{$row->description}}</p>
                                                         <div class="profile-skills mb-5">
                                                             <a class="text-warning mb-2"><strong> Demande d'emploi    </strong></a>
@@ -93,9 +93,12 @@
                                                             @if($row->status==1)
                                                                 <a class="text-primary mb-2"><strong>Statut     </strong></a>
                                                                 <a href="javascript:void()" class="btn btn-primary dark btn-xs mb-1">Active</a><br>
+                                                            @elseif($row->status==2)
+                                                                <a class="text-success mb-2"><strong> Statut    </strong></a>
+                                                                <a href="javascript:void()" class="btn btn-success dark btn-xs mb-1">Accepte</a>
                                                             @else
-                                                                <a class="text-warning mb-2"><strong> Statut    </strong></a>
-                                                                <a href="javascript:void()" class="btn btn-warning dark btn-xs mb-1">Fermer</a>
+                                                                <a class="text-danger mb-2"><strong> Statut    </strong></a>
+                                                                <a href="javascript:void()" class="btn btn-danger dark btn-xs mb-1">Rejeter</a>
                                                             @endif
 
                                                         </div>
@@ -144,7 +147,12 @@
                                                                 <div class="col-sm-3 col-5">
                                                                     <h5 class="f-w-500">Créé à<span class="pull-right">:</span></h5>
                                                                 </div>
-                                                                <div class="col-sm-9 col-7"><span>{{$row->created_at->diffForHumans()}}</span>
+                                                                <?php
+                                                                \Carbon\Carbon::setLocale('fr');
+                                                                $date = \Carbon\Carbon::parse($row->created_at);
+                                                                ?>
+
+                                                                <div class="col-sm-9 col-7"><span>{{$date->diffForHumans()}}</span>
                                                                 </div>
                                                             </div>
 
@@ -183,21 +191,7 @@
                                                         <div class="col-sm-9 col-7"><span>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="row mb-2">
-                                                        @if($row->proposal)
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Titre de la proposition <span class="pull-right">:</span></h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7"><span>{{$row->proposal->title}}</span>
-                                                            </div>
-                                                        @else
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Titre de la Service <span class="pull-right">:</span></h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7"><span>{{$row->service->title}}</span>
-                                                            </div>
-                                                        @endif
-                                                    </div>
+
                                                     <div class="row mb-2">
                                                         <div class="col-sm-3 col-5">
                                                             <h5 class="f-w-500">Prix <span class="pull-right">:</span>
@@ -217,7 +211,12 @@
                                                         <div class="col-sm-3 col-5">
                                                             <h5 class="f-w-500">Créé à<span class="pull-right">:</span></h5>
                                                         </div>
-                                                        <div class="col-sm-9 col-7"><span>{{$row->created_at->diffForHumans()}}</span>
+                                                        <?php
+                                                        \Carbon\Carbon::setLocale('fr');
+                                                        $date = \Carbon\Carbon::parse($row->created_at);
+                                                        ?>
+
+                                                        <div class="col-sm-9 col-7"><span>{{$date->diffForHumans()}}</span>
                                                         </div>
                                                     </div>
                                                 </div><hr>
@@ -316,12 +315,9 @@
                                             </div>
                                         </div>
                                         <div id="badge" class="tab-pane fade ">
-                                            <div class="my-post-content pt-3">
-
-                                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
-
-
-                                                        @if($jobber->is_company==1)
+                                            <div class="pt-3">
+                                                <div class="settings-form">
+                                                    @if($jobber->is_company==1)
                                                         <div class="profile-personal-info">
                                                             <h4 class="text-primary mb-4">Plus d'information</h4>
                                                             <div class="row mb-2">
@@ -373,30 +369,25 @@
                                                             </div>
                                                             @else
                                                                 <div class="profile-skills mb-5" style="text-align: center; margin-top: 20px;">
-                                                                <a href="javascript:void()" class="btn btn-warning dark btn-xs mb-1 " style="font-size: 20px;">Individuelle</a>
+                                                                    <a href="#" class="btn btn-warning dark btn-xs mb-1 " style="font-size: 20px;">Individuelle</a>
                                                                 </div>
                                                             @endif
 
 
                                                         </div>
-                                                    </div><hr>
-
+                                                </div><hr>
 
                                             </div>
                                         </div>
-                                        <div id="identity" class="tab-pane fade">
-
-                                            <div class="my-post-content pt-3">
-
-                                                <div class="profile-uoloaded-post border-bottom-1 pb-5">
-
-
+                                        <div id="identity" class="tab-pane fade ">
+                                            <div class="pt-3">
+                                                <div class="settings-form">
                                                     @if($jobber->euorpion)
                                                         <div class="profile-personal-info">
                                                             <h4 class="text-primary mb-4">Plus d'information</h4>
                                                             <div class="row mb-2">
                                                                 <div class="col-sm-3 col-5">
-                                                                    <h5 class="f-w-500">Euorpion: <span class="pull-right">:</span>
+                                                                    <h5 class="f-w-500">Européen: <span class="pull-right">:</span>
                                                                     </h5>
                                                                 </div>
                                                                 <div class="col-sm-9 col-7"><span>{{$jobber->euorpion}}</span>
@@ -444,40 +435,21 @@
                                                             </div>
                                                             @else
                                                                 <div class="profile-skills mb-5" style="text-align: center; margin-top: 20px;">
-                                                                    <a href="javascript:void()" class="btn btn-warning dark btn-xs mb-1 " style="font-size: 20px;">Document non Disponible des détails</a>
+                                                                    <a href="#" class="btn btn-warning dark btn-xs mb-1 " style="font-size: 20px;">Document non Disponible des détails</a>
                                                                 </div>
                                                             @endif
-
-
                                                         </div>
                                                 </div><hr>
 
-
                                             </div>
                                         </div>
+
+
 
                                     </div>
                                 </div>
                                 <!-- Modal -->
-                                <div class="modal fade" id="replyModal">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Post Reply</h5>
-                                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <textarea class="form-control" rows="4">Message</textarea>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Reply</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

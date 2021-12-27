@@ -85,7 +85,12 @@
                                         <div class="col-sm-3 col-5">
                                             <h5 class="f-w-500">Créé à <span class="pull-right">:</span></h5>
                                         </div>
-                                        <div class="col-sm-9 col-7"><span class="badge light badge-info">{{$contract->created_at}}</span> </div>
+                                        
+                                        <?php
+                                        \Carbon\Carbon::setLocale('fr');
+                                        $date = \Carbon\Carbon::parse($contract->created_at);
+                                        ?>
+                                        <div class="col-sm-9 col-7"><span class="badge light badge-info">{{$date->diffForHumans()}}</span> </div>
                                     </div>
                                 </div>
 

@@ -69,7 +69,11 @@
                                 @else
                                     <td><span class="badge light badge-warning">Livrer</span></td>
                                 @endif
-                                <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                                <?php
+                                \Carbon\Carbon::setLocale('fr');
+                                $date = \Carbon\Carbon::parse($row->created_at);
+                                ?>
+                                <td>{{$date->diffForHumans()}}</td>
                                 <td><a href="{{route('contract.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
                             </tr>
@@ -125,7 +129,11 @@
 
                                                                     <td><span class="badge light badge-primary">Achevée</span></td>
 
-                                                                    <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                                                                    <?php
+                                                                    \Carbon\Carbon::setLocale('fr');
+                                                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                                                    ?>
+                                                                    <td>{{$date->diffForHumans()}}</td>
                                                                     <td><a href="{{route('contract.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
                                                                 </tr>
@@ -183,7 +191,11 @@
 
                                     <td><span class="badge light badge-primary">Achevée</span></td>
 
-                                <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                                <?php
+                                \Carbon\Carbon::setLocale('fr');
+                                $date = \Carbon\Carbon::parse($row->created_at);
+                                ?>
+                                <td>{{$date->diffForHumans()}}</td>
                                 <td><a href="{{route('contract.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
                             </tr>
@@ -240,7 +252,11 @@
 
                                 <td><span class="badge light badge-primary">Annuler</span></td>
 
-                            <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                            <?php
+                            \Carbon\Carbon::setLocale('fr');
+                            $date = \Carbon\Carbon::parse($row->created_at);
+                            ?>
+                            <td>{{$date->diffForHumans()}}</td>
                             <td>
 
                                 <a href="{{route('admin.contract.status', ['status'=> '3', 'id' => $row->id])}}" class="btn btn-success shadow btn-xs sharp" title="Accepter le contrat"><i class="fa fa-user-plus"></i></a>
@@ -298,8 +314,11 @@
 
 
                                             <td><span class="badge light badge-primary">Annuler</span></td>
-
-                                        <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                                        <?php
+                                        \Carbon\Carbon::setLocale('fr');
+                                        $date = \Carbon\Carbon::parse($row->created_at);
+                                        ?>
+                                        <td>{{$date->diffForHumans()}}</td>
                                         <td><a href="{{route('contract.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
                                     </tr>

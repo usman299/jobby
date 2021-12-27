@@ -93,9 +93,8 @@ class JobbyAppController extends Controller
 
     public function paymantDetials()
     {
-        $paymantComplete = Payment::where('status','=',1)->get();
-        $paymantPending = Payment::where('status','=',0)->get();
-        $paymantCancel = Payment::where('status','=',2)->get();
-        return view('admin.paymant.index',compact('paymantComplete','paymantPending','paymantCancel'));
+        $payment = Payment::all();
+
+        return view('admin.paymant.index',compact('payment'));
     }
 }

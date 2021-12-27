@@ -59,7 +59,7 @@ class UsersController extends Controller
     {
         $jobber = User::where('id','=',$id)->first();
         $country =Countory::all();
-        $proposal = Proposal::where('jobber_id','=',$id)->where('status','=',1)->latest()->get();
+        $proposal = Proposal::where('jobber_id','=',$id)->latest()->get();
         $contract = Contract::where('jober_id','=',$id)->where('status','=',3)->latest()->get();
 
         return view('admin.user.jobber.show',compact('jobber','proposal','contract','country'));

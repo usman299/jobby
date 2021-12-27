@@ -51,7 +51,11 @@
                                                                     <td>{{$row->jobRequest->applicant->firstName}} {{$row->jobRequest->applicant->lastName}}</td>
                                                                     <td>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</td>
                                                                     <td>{{$row->price}}€</td>
-                                                                    <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                                                                    <?php
+                                                                    \Carbon\Carbon::setLocale('fr');
+                                                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                                                    ?>
+                                                                    <td>{{$date->diffForHumans()}}</td>
                                                                     <td><a href="{{route('proposol.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
 
@@ -97,7 +101,11 @@
                                                                     <td>{{$row->jobRequest->applicant->firstName}} {{$row->jobRequest->applicant->lastName}}</td>
                                                                     <td>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</td>
                                                                     <td>{{$row->price}}€</td>
-                                                                    <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                                                                    <?php
+                                                                    \Carbon\Carbon::setLocale('fr');
+                                                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                                                    ?>
+                                                                    <td>{{$date->diffForHumans()}}</td>
                                                                     <td><a href="{{route('proposol.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
 
@@ -143,7 +151,11 @@
                         <td>{{$row->jobRequest->applicant->firstName}} {{$row->jobRequest->applicant->lastName}}</td>
                         <td>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</td>
                         <td>{{$row->price}}€</td>
-                        <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                        <?php
+                        \Carbon\Carbon::setLocale('fr');
+                        $date = \Carbon\Carbon::parse($row->created_at);
+                        ?>
+                        <td>{{$date->diffForHumans()}}</td>
                         <td><a href="{{route('proposol.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
 

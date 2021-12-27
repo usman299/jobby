@@ -67,14 +67,14 @@
                                                     <h5 class="f-w-500">Temps Estimé <span class="pull-right">:</span>
                                                     </h5>
                                                 </div>
-                                                <div class="col-sm-9 col-7"><span>{{$jobRequest->estimate_time}}</span>
+                                                <div class="col-sm-9 col-7"><span>{{$jobRequest->service_date}}</span>
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col-sm-3 col-5">
                                                     <h5 class="f-w-500">Prix  <span class="pull-right">:</span></h5>
                                                 </div>
-                                                <div class="col-sm-9 col-7"><span>{{$jobRequest->min_price}}€ - {{$jobRequest->max_price}}€</span>
+                                                <div class="col-sm-9 col-7"><span>{{$jobRequest->estimate_budget}}€ </span>
                                                 </div>
                                             </div>
 
@@ -110,7 +110,11 @@
                                                                     <td>{{$row->jobRequest->applicant->firstName}} {{$row->jobRequest->applicant->lastName}}</td>
                                                                     <td>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</td>
                                                                     <td>{{$row->price}}€</td>
-                                                                    <td>{{ date_format($row->created_at,'d M Y')}}</td>
+                                                                    <?php
+                                                                    \Carbon\Carbon::setLocale('fr');
+                                                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                                                    ?>
+                                                                    <td>{{$date->diffForHumans()}}</td>
                                                                     <td><a href="{{route('proposol.show', ['id' => $row->id])}}" id="edit" class="btn btn-primary shadow btn-xs sharp mr-1" title="edit" ><i class="fa fa-eye"></i></td>
 
 
