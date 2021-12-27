@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contract;
 use App\Countory;
+use App\Diploma;
 use App\Http\Controllers\Controller;
+use App\JobberProfile;
 use App\JobRequest;
 use App\Proposal;
 use App\User;
@@ -59,10 +61,12 @@ class UsersController extends Controller
     {
         $jobber = User::where('id','=',$id)->first();
         $country =Countory::all();
+        $jobberprofile = JobberProfile::where('jobber_id','=',$id)->first();
         $proposal = Proposal::where('jobber_id','=',$id)->latest()->get();
         $contract = Contract::where('jober_id','=',$id)->where('status','=',3)->latest()->get();
+        $diplomas = Diploma::where('jobber_id','=',$id)->latest()->get();
 
-        return view('admin.user.jobber.show',compact('jobber','proposal','contract','country'));
+        return view('admin.user.jobber.show',compact('jobber','proposal','contract','country','jobberprofile','diplomas'));
 
     }
 
