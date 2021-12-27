@@ -68,7 +68,10 @@
                             @foreach($category->subcategorys as $key => $subcategory)
 
                                 <div class="col-4">
-                                    @if($subcategory->id = $skills[$key])
+                                    <?php
+                                    $test = isset($skills[$key]) == true ? $skills[$key]:null;
+                                    ?>
+                                    @if($subcategory->id == $test)
                                     <input  id="for{{$subcategory->id}}" checked value="{{$subcategory->id}}" type="checkbox" name="skills[]">
                                         <br>
                                     <label for="for{{$subcategory->id}}">

@@ -7,7 +7,9 @@ use App\Category;
 use App\Contact;
 use App\Contract;
 use App\Countory;
+use App\Diploma;
 use App\Http\Controllers\Controller;
+use App\JobberProfile;
 use App\Notfication;
 use App\Payment;
 use App\QuestionAnswer;
@@ -196,6 +198,13 @@ class SettingsController extends Controller
         $categories = Category::all();
         return view('front.settings.skills', compact('title', 'user', 'categories'));
     }
+    public function experience(){
+        $user = Auth::user();
+        $profile = JobberProfile::where('jobber_id', $user->id)->first();
+        $title = 'Diplômes et expérience';
+        $diplomas = Diploma::where('jobber_id', $user->id)->get();
+        return view('front.settings.experience', compact('title', 'user', 'diplomas', 'profile'));
+    }
     public function skillsSubmit(Request $request){
         $user = Auth::user();
         if($request->skills){
@@ -207,6 +216,35 @@ class SettingsController extends Controller
         }
         $user->update();
 
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function experienceStore(Request $request){
+        $exper = new Diploma();
+        $exper->jobber_id = Auth::user()->id;
+        $exper->title = $request->title;
+        if ($request->hasfile('file')) {
+            $image1 = $request->file('file');
+            $name = time() . 'profileImage' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'profileImage/';
+            $image1->move($destinationPath, $name);
+            $exper->file = 'profileImage/' . $name;
+        }
+        $exper->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function experienceupdate(Request $request){
+        $user = Auth::user();
+        $profile = JobberProfile::where('jobber_id', $user->id)->first();
+        $profile->experince = $request->experince;
+        $profile->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
