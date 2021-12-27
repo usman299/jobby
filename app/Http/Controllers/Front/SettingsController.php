@@ -190,4 +190,27 @@ class SettingsController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+    public function skills(){
+        $user = Auth::user();
+        $title = 'Compétences';
+        $categories = Category::all();
+        return view('front.settings.skills', compact('title', 'user', 'categories'));
+    }
+    public function skillsSubmit(Request $request){
+        $user = Auth::user();
+        if($request->skills){
+            foreach($request->skills as $skill)
+            {
+                $data[] = $skill;
+                $user->skills = json_encode($data);
+            }
+        }
+        $user->update();
+
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
 }

@@ -44,6 +44,8 @@ Route::get('/app', 'FrontendController@app')->name('front.app');
 Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
+Route::get('/jobber/skills', 'Front\SettingsController@skills')->name('jobber.skills');
+Route::post('/jobber/skills/submit', 'Front\SettingsController@skillsSubmit')->name('skills.submit');
 Route::get('/get/badge', 'Front\SettingsController@getBadge')->name('get.badge');
 Route::get('/proof/indentity', 'Front\SettingsController@identity')->name('proof.indentity');
 Route::get('/get/badge/pro', 'Front\SettingsController@getBadgepro')->name('badge.pro');

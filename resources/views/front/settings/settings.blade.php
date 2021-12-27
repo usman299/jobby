@@ -130,6 +130,25 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('jobber.skills')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-secondary">
+                                <svg id="Iconly_Curved_Discovery" data-name="Iconly/Curved/Discovery" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Discovery" transform="translate(2.177 2.177)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M0,7.323c0,5.492,1.831,7.323,7.323,7.323s7.323-1.831,7.323-7.323S12.815,0,7.323,0,0,1.831,0,7.323Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M0,5.228,1.246,1.246,5.228,0,3.982,3.981Z" transform="translate(4.709 4.709)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Compétences</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('proof.indentity')}}" class="item-link">
                         <div class="group">
                             <div class="icon bg-green">
@@ -169,7 +188,7 @@
                         </div>
                     </a>
                 </li>
-                    <li>
+                <li>
                         <a href="{{route('jobber.reviews')}}" class="item-link">
                             <div class="group">
                                 <div class="icon bg-warning">
