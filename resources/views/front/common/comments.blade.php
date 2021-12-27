@@ -13,7 +13,7 @@
             </a>
         @endforeach
     </section>
-    <div class="buttons__footer text-center">
+    <div style="bottom: 60px !important;" class="buttons__footer text-center">
 
             <div class="bg-white d-flex">
                 <button type="button" data-toggle="modal"

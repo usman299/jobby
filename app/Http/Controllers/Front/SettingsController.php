@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Front;
 use App\About;
 use App\Category;
 use App\Contact;
+use App\Contract;
 use App\Countory;
 use App\Http\Controllers\Controller;
 use App\Notfication;
+use App\Payment;
 use App\QuestionAnswer;
 use App\User;
 use Illuminate\Http\Request;
@@ -20,7 +22,9 @@ class SettingsController extends Controller
     public function settings(){
         $title = 'Paramètres';
         $user = Auth::user();
-        return view('front.settings.settings', compact('user','title'));
+        $contract = Contract::where('jober_id', $user->id)->where('status', '!=', '3')->get()->count();
+        $payment = Payment::where('jobber_id', $user->id)->sum('jobber_get');
+        return view('front.settings.settings', compact('user','title', 'contract', 'payment'));
     }
     public function profile(){
         $title = 'Profil';

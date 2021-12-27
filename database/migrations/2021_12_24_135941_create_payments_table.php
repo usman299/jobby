@@ -18,7 +18,10 @@ class CreatePaymentsTable extends Migration
             $table->integer('contract_id');
             $table->integer('jobber_id');
             $table->integer('applicant_id');
-            $table->string('price')->nullable();
+            $table->float('contract_price')->nullable();
+            $table->float('percentage')->nullable();
+            $table->float('price')->nullable();
+            $table->float('jobber_get')->nullable();
             $table->string('type')->nullable();
             $table->string('invoice_no')->nullable();
             $table->longtext('description')->nullable();

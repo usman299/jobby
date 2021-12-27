@@ -60,10 +60,9 @@
                     <div class="em_title_swiper">
                         <div class="txt">
                             <h5>Populaires en ce moment</h5>
-{{--                            <p data-toggle="modal" data-target="#mdllFilterJobs" style="float: left">Search</p>--}}
                         </div>
                         <div class="item_link">
-                            <a data-toggle="modal" data-target="#mdllFilterJobs" >Chercher</a>
+                            <a data-toggle="modal" data-target="#mdllFilterJobs" >Que cherche tu ?</a>
                         </div>
                     </div>
                     <div class="em_bodyCarousel padding-t-20">

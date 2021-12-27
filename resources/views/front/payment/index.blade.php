@@ -10,6 +10,7 @@
                     @csrf
 
                     <input type="hidden" name="total" value="{{$total}}">
+                    <input type="hidden" name="percentage" value="{{$percentage}}">
                     <div class="form-group input-lined">
                         <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Prix</strong> <strong style="color: red;">: {{$proposal->price}} €</strong> </label>
                         <label for="price" class="margin-t-20" style="font-size: 15px;"> <strong>Frais administratif 10%</strong> <strong style="color: red;">: {{$percentage}} €</strong> </label>

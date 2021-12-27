@@ -1605,7 +1605,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="path__name">Voir les commentaires</span>
+                            <span class="path__name">Voir les commentaires ({{$jobrequest->comments->count()}})</span>
                         </div>
                         <div class="group">
                             <span class="short__name"></span>

@@ -1,5 +1,6 @@
 @extends('layouts.front')
 @section('content')
+    @if(Auth::user()->role == 1)
     <section class="box__dashboard">
         <div class="group">
             <a href="#" class="btn item_link">
@@ -16,7 +17,7 @@
                 </div>
                 <div class="txt">
                     <p>Mon solde</p>
-                    <span>0 €</span>
+                    <span>{{$payment}} €</span>
                 </div>
             </a>
             <a href="#" class="btn item_link">
@@ -32,11 +33,12 @@
                 </div>
                 <div class="txt">
                     <p>Projets actifs</p>
-                    <span>0</span>
+                    <span>{{$contract}}</span>
                 </div>
             </a>
         </div>
     </section>
+    @endif
     <section>
         <div class="padding-20">
             <span class="size-12 text-uppercase color-text d-block">Compte</span>

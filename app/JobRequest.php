@@ -38,6 +38,10 @@ class JobRequest extends Model
     {
         return $this->hasMany(Proposal::class, 'jobRequest_id');
     }
+    public function comments()
+    {
+        return $this->hasMany(Comments::class, 'job_id');
+    }
     public function isApplied()
     {
        $proposal = Proposal::where('jobRequest_id', $this->id)->where('jobber_id', Auth::user()->id)->first();
