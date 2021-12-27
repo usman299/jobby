@@ -114,7 +114,7 @@
                                                                 <div class="col-sm-3 col-5">
                                                                     <h5 class="f-w-500">Prix <span class="pull-right">:</span></h5>
                                                                 </div>
-                                                                <div class="col-sm-9 col-7"><span>{{$row->max_price }}€ - {{$row->min_price }}€ </span>
+                                                                <div class="col-sm-9 col-7"><span>{{$row->estimate_budget }}€  </span>
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-2">
@@ -122,14 +122,20 @@
                                                                     <h5 class="f-w-500">Date d'estimation <span class="pull-right">:</span>
                                                                     </h5>
                                                                 </div>
-                                                                <div class="col-sm-9 col-7"><span>{{$row->estimate_time }}</span>
+                                                                <div class="col-sm-9 col-7"><span>{{$row->service_date }}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-2">
                                                                 <div class="col-sm-3 col-5">
                                                                     <h5 class="f-w-500">Créé à<span class="pull-right">:</span></h5>
                                                                 </div>
-                                                                <div class="col-sm-9 col-7"><span>{{$row->created_at->diffForHumans()}}</span>
+
+                                                                <?php
+                                                                \Carbon\Carbon::setLocale('fr');
+                                                                $date = \Carbon\Carbon::parse($row->created_at);
+                                                                ?>
+
+                                                                <div class="col-sm-9 col-7"><span>{{$date->diffForHumans()}}</span>
                                                                 </div>
                                                             </div>
                                                             <a href="{{route('jobrequest.show', ['id' => $row->id])}}" class="btn btn-primary dark btn-xs mb-1">Proposition</a><br>
@@ -169,21 +175,21 @@
                                                     <div class="col-sm-9 col-7"><span>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</span>
                                                     </div>
                                                 </div>
-                                                <div class="row mb-2">
-                                                    @if($row->proposal)
-                                                    <div class="col-sm-3 col-5">
-                                                        <h5 class="f-w-500">Titre de la proposition <span class="pull-right">:</span></h5>
-                                                    </div>
-                                                    <div class="col-sm-9 col-7"><span>{{$row->proposal->title}}</span>
-                                                    </div>
-                                                    @else
-                                                        <div class="col-sm-3 col-5">
-                                                            <h5 class="f-w-500">Titre de la Service <span class="pull-right">:</span></h5>
-                                                        </div>
-                                                        <div class="col-sm-9 col-7"><span>{{$row->service->title}}</span>
-                                                        </div>
-                                                    @endif
-                                                </div>
+{{--                                                <div class="row mb-2">--}}
+{{--                                                    @if($row->proposal)--}}
+{{--                                                    <div class="col-sm-3 col-5">--}}
+{{--                                                        <h5 class="f-w-500">Titre de la proposition <span class="pull-right">:</span></h5>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="col-sm-9 col-7"><span>{{$row->proposal->title}}</span>--}}
+{{--                                                    </div>--}}
+{{--                                                    @else--}}
+{{--                                                        <div class="col-sm-3 col-5">--}}
+{{--                                                            <h5 class="f-w-500">Titre de la Service <span class="pull-right">:</span></h5>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="col-sm-9 col-7"><span>{{$row->service->title}}</span>--}}
+{{--                                                        </div>--}}
+{{--                                                    @endif--}}
+{{--                                                </div>--}}
                                                 <div class="row mb-2">
                                                     <div class="col-sm-3 col-5">
                                                         <h5 class="f-w-500">Prix <span class="pull-right">:</span>
@@ -203,7 +209,12 @@
                                                     <div class="col-sm-3 col-5">
                                                         <h5 class="f-w-500">Créé à<span class="pull-right">:</span></h5>
                                                     </div>
-                                                    <div class="col-sm-9 col-7"><span>{{$row->created_at->diffForHumans()}}</span>
+                                                    <?php
+                                                    \Carbon\Carbon::setLocale('fr');
+                                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                                    ?>
+
+                                                    <div class="col-sm-9 col-7"><span>{{$date->diffForHumans()}}</span>
                                                     </div>
                                                 </div>
                                             </div><hr>

@@ -13,17 +13,16 @@
                         <div class="profile-tab">
                             <div class="custom-tab-1">
                                 <ul class="nav nav-tabs">
-                                    <li class="nav-item"><a href="#completePaymant" data-toggle="tab" class="nav-link active show">Paymant complet</a>
+                                    <li class="nav-item"><a href="#applicantPaymant" data-toggle="tab" class="nav-link active show">Paiement reçu</a>
                                     </li>
-                                    <li class="nav-item"><a href="#pendingPaymant" data-toggle="tab" class="nav-link">En attente de paiement</a>
+                                    <li class="nav-item"><a href="#jobberPaymant" data-toggle="tab" class="nav-link">Payant</a>
                                     </li>
-                                    <li class="nav-item"><a href="#cancelPaymant" data-toggle="tab" class="nav-link">Annuler le paiement</a>
-                                    </li>
+
 
 
                                 </ul>
                                 <div class="tab-content">
-                                    <div id="completePaymant" class="tab-pane fade active show">
+                                    <div id="applicantPaymant" class="tab-pane fade active show">
                                         <div class="col-12">
                                             <div class="card">
                                                 <div class="card-header">
@@ -37,28 +36,30 @@
 
                                                                 <th>Id</th>
                                                                 <th>Nom de l'expéditeur</th>
-                                                                <th>Nom du destinataire</th>
-                                                                <th>Prix</th>
+{{--                                                                <th>Nom du destinataire</th>--}}
+                                                                <th>Recevoir le prix</th>
+                                                                <th>Le prix du contrat</th>
+                                                                <th>Bénéfice Prix</th>
                                                                 <th>Status</th>
                                                                 <th>Créé à</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            @foreach($paymantComplete as $row)
+                                                            @foreach($payment as $row)
+
                                                                 <tr>
 
                                                                     <td>{{$row->id}}</td>
                                                                     <td>{{$row->applicant->firstName}} {{$row->applicant->lastName}}</td>
-                                                                    <td>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</td>
-                                                                    <td>{{$row->price}}</td>
-                                                                    @if($row->status==1)
-                                                                        <td><span class="badge light badge-success">Compléter</span></td>
-                                                                    @elseif($row->status==0)
-                                                                        <td><span class="badge light badge-warning">En attente</span></td>
-                                                                    @else
-                                                                        <td><span class="badge light badge-danger">Annuler</span></td>
-                                                                    @endif
-                                                                    <td>{{$row->created_at}}</td>
+                                                                    <td style="text-align: center">{{$row->price}}€</td>
+                                                                    <td style="text-align: center">{{$row->contract_price}}€</td>
+                                                                    <td style="text-align: center">{{$row->percentage}}€</td>
+                                                                    <td><span class="badge light badge-success">Payer</span></td>
+                                                                    <?php
+                                                                    \Carbon\Carbon::setLocale('fr');
+                                                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                                                    ?>
+                                                                    <td>{{$date->diffForHumans()}}</td>
 
 
                                                                 </tr>
@@ -73,7 +74,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="pendingPaymant" class="tab-pane fade">
+                                    <div id="jobberPaymant" class="tab-pane fade">
 
                                         <div class="col-12">
                                             <div class="card">
@@ -87,29 +88,36 @@
                                                             <tr>
 
                                                                 <th>Id</th>
-                                                                <th>Nom de l'expéditeur</th>
                                                                 <th>Nom du destinataire</th>
-                                                                <th>Prix</th>
+                                                                <th>Le prix du contrat</th>
+                                                                <th>Envoyer le prix</th>
+                                                                <th>Bénéfice Prix</th>
                                                                 <th>Status</th>
                                                                 <th>Créé à</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            @foreach($paymantPending as $row)
+                                                            @foreach($payment as $row)
+
                                                                 <tr>
 
                                                                     <td>{{$row->id}}</td>
-                                                                    <td>{{$row->applicant->firstName}} {{$row->applicant->lastName}}</td>
                                                                     <td>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</td>
-                                                                    <td>{{$row->price}}</td>
+                                                                    <td style="text-align: center">{{$row->contract_price}}€</td>
+                                                                    <td style="text-align: center">{{$row->jobber_get}}€</td>
+                                                                    <td style="text-align: center">{{$row->percentage}}€</td>
                                                                     @if($row->status==1)
                                                                         <td><span class="badge light badge-success">Compléter</span></td>
                                                                     @elseif($row->status==0)
-                                                                        <td><span class="badge light badge-warning">En attente</span></td>
+                                                                        <td><span class="badge light badge-warning">Dans le traitement</span></td>
                                                                     @else
                                                                         <td><span class="badge light badge-danger">Annuler</span></td>
                                                                     @endif
-                                                                    <td>{{$row->created_at}}</td>
+                                                                    <?php
+                                                                    \Carbon\Carbon::setLocale('fr');
+                                                                    $date = \Carbon\Carbon::parse($row->created_at);
+                                                                    ?>
+                                                                    <td>{{$date->diffForHumans()}}</td>
 
 
                                                                 </tr>
@@ -125,57 +133,6 @@
 
                                     </div>
 
-                                    <div id="cancelPaymant" class="tab-pane fade">
-
-                                        <div class="col-12">
-                                            <div class="card">
-                                                <div class="card-header">
-
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table id="example3" class="display min-w850">
-                                                            <thead>
-                                                            <tr>
-
-                                                                <th>Id</th>
-                                                                <th>Nom de l'expéditeur</th>
-                                                                <th>Nom du destinataire</th>
-                                                                <th>Prix</th>
-                                                                <th>Status</th>
-                                                                <th>Créé à</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            @foreach($paymantCancel as $row)
-                                                                <tr>
-
-                                                                    <td>{{$row->id}}</td>
-                                                                    <td>{{$row->applicant->firstName}} {{$row->applicant->lastName}}</td>
-                                                                    <td>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</td>
-                                                                    <td>{{$row->price}}</td>
-                                                                    @if($row->status==1)
-                                                                        <td><span class="badge light badge-success">Compléter</span></td>
-                                                                    @elseif($row->status==0)
-                                                                        <td><span class="badge light badge-warning">En attente</span></td>
-                                                                    @else
-                                                                        <td><span class="badge light badge-danger">Annuler</span></td>
-                                                                    @endif
-                                                                    <td>{{$row->created_at}}</td>
-
-
-                                                                </tr>
-
-                                                            @endforeach
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
 
 
                                     <!-- Modal -->

@@ -14,7 +14,7 @@
                 @csrf
                 <div class="form-group input-lined lined__iconed">
                     <div class="input_group">
-                        <input type="text" class="form-control" id="username" name="name" placeholder="Enter full name" required="">
+                        <input type="text" class="form-control" id="username" name="name" placeholder="Entrez le nom complet" required="">
                         <div class="icon">
                             <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
                                 <g id="Message" transform="translate(2.248 2.614)">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group input-lined lined__iconed">
                     <div class="input_group">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" required="">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Entrez l'e-mail" required="">
                         <div class="icon">
                             <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
                                 <g id="Message" transform="translate(2.248 2.614)">
