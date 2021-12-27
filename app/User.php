@@ -54,7 +54,10 @@ class User extends Authenticatable
     {
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
     }
-
+    public function portfolio()
+    {
+        return $this->hasMany(Portfolio::class, 'jobber_id');
+    }
 
 }
 

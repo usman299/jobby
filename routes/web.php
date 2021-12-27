@@ -45,6 +45,7 @@ Route::get('/categories', 'FrontendController@allCategories')->name('front.categ
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
 Route::get('/jobber/skills', 'Front\SettingsController@skills')->name('jobber.skills');
+Route::get('/jobber/portfolio', 'Front\SettingsController@portfolio')->name('jobber.portfolio');
 Route::get('/jobber/experience', 'Front\SettingsController@experience')->name('jobber.experience');
 Route::post('/jobber/skills/submit', 'Front\SettingsController@skillsSubmit')->name('skills.submit');
 Route::get('/get/badge', 'Front\SettingsController@getBadge')->name('get.badge');
@@ -63,6 +64,7 @@ Route::post('/profile/update', 'Front\SettingsController@profileUpdate')->name('
 Route::post('/password/update', 'Front\SettingsController@passwordUpdate')->name('password.update');
 Route::post('/identity/store', 'Front\SettingsController@identityStore')->name('identity.store');
 Route::post('/experience/store', 'Front\SettingsController@experienceStore')->name('experience.store');
+Route::post('/portfolio/store', 'Front\SettingsController@portfolioStore')->name('portfolio.store');
 Route::post('/experience/update', 'Front\SettingsController@experienceupdate')->name('experience.update');
 
 Route::get('/job/comments/{id}', 'Front\ApplicantController@comments')->name('job.comments');

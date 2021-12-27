@@ -12,11 +12,14 @@ use App\Http\Controllers\Controller;
 use App\JobberProfile;
 use App\Notfication;
 use App\Payment;
+use App\Portfolio;
 use App\QuestionAnswer;
+use App\SubCategory;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
 use function Sodium\compare;
 
 class SettingsController extends Controller
@@ -198,6 +201,12 @@ class SettingsController extends Controller
         $categories = Category::all();
         return view('front.settings.skills', compact('title', 'user', 'categories'));
     }
+    public function portfolio(){
+        $user = Auth::user();
+        $title = 'Réalisation';
+        $portfolio = Portfolio::where('jobber_id', $user->id)->get();
+        return view('front.settings.portfolio', compact('title', 'user', 'portfolio'));
+    }
     public function experience(){
         $user = Auth::user();
         $profile = JobberProfile::where('jobber_id', $user->id)->first();
@@ -234,6 +243,23 @@ class SettingsController extends Controller
             $exper->file = 'profileImage/' . $name;
         }
         $exper->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function portfolioStore(Request $request){
+        $portfolio = new Portfolio();
+        $portfolio->jobber_id = Auth::user()->id;
+        $portfolio->title = $request->title;
+        if($request->hasFile('file')){
+            $image= $request->file('file');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(470, 250)->save( public_path('/images/' . $filename ) );
+            $portfolio->file= '/images/'.$filename;
+        }
+        $portfolio->save();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'

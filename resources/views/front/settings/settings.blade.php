@@ -163,6 +163,20 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('jobber.portfolio')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-orange">
+                                <i class="ri-pantone-line"></i>
+                            </div>
+                            <span class="path__name">Réalisation</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('proof.indentity')}}" class="item-link">
                         <div class="group">
                             <div class="icon bg-green">

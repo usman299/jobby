@@ -183,14 +183,18 @@
          tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header padding-l-20 padding-r-50">
+                <div class="modal-header padding-l-20 padding-r-50" style="background-color: #b2efff">
                     <div class="media align-items-center">
                         <div class="img_brand">
                             <img src="{{asset($proposal->jobber->image)}}" alt="">
                         </div>
                         <div class="media-body">
                             <div class="txt_info">
-                                <span>Membre depuis: {{$proposal->jobber->created_at->format('Y')}}</span>
+                                <?php
+                                \Carbon\Carbon::setLocale('fr');
+                                $date = \Carbon\Carbon::parse($proposal->jobber->created_at);
+                                ?>
+                                <span>Membre depuis: {{$date->translatedFormat('F Y')}}</span>
                                 <h2>{{$proposal->jobber->firstName}} {{$proposal->jobber->lastName}}</h2>
                                 <p>{{$proposal->jobber->countory->name}}</p>
                             </div>
@@ -211,29 +215,33 @@
                                 <p >{{$proposal->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
                             </div>
                             <div class="item">
-                                <span class="weight-600">Tarif à l'heure</span>
-                                <p >{{$proposal->jobber->rate_per_hour??'0'}}€</p>
+{{--                                <span class="weight-600">Tarif à l'heure</span>--}}
+{{--                                <p >{{$proposal->jobber->rate_per_hour??'0'}}€</p>--}}
                             </div>
                             <div class="item">
                                 <span class="weight-600">Sexe</span>
                                 <p class="weight-600">{{$proposal->jobber->gender??'non'}}</p>
                             </div>
                         </div>
+                        @if($proposal->jobber->is_company == 1)
                         <div class="details__job">
                             <div class="item">
                             <span class="weight-600">Nom de la compagnie</span>
                             <p>{{$proposal->jobber->company_name??'non'}}</p>
                             </div>
+                        </div>
+                        @endif
+                        <div class="details__job">
                             <div class="item">
-                                <span class="weight-600">Catégorie</span>
+                                <span class="weight-600">Profil expérimenté</span>
                                 <p>{{$jobberprofile->jobber_category_id ??'non'}}</p>
                             </div>
+                        </div>
+                        <div class="details__job">
                             <div class="item">
                                 <span class="weight-600">De l'expérience</span>
-
                                 <p>{{$jobberprofile->experince??'non'}}</p>
                             </div>
-
                         </div>
                         <div class="details__job">
                             <div class="item">
@@ -268,7 +276,7 @@
 
                         <div class="em_body padding-t-40">
                             <div class="content">
-                                <span class="weight-600">La description</span>
+                                <span class="weight-600">A propos</span>
                                 <p>
                                    {{$jobberprofile->personal_description ?? 'non'}}
                                 </p>
@@ -443,15 +451,34 @@
                             </div>
 
                         </div>
-
-                        <div class="padding-20 d-flex emBlock__border">
-{{--                            <a href="{{route('applicant.jobber.services', ['id' => $proposal->jobber->id])}}" class="btn bg-green rounded-10 btn__default ml-3 full-width" style="float: right">--}}
-{{--                                <span class="color-white">Services offerts</span>--}}
-{{--                                <div class="icon rounded-10">--}}
-{{--                                    <i class="tio-chevron_right"></i>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-                        </div>
+                        <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                            <!-- em_title_swiper -->
+                            <div class="em_title_swiper">
+                                <div class="txt">
+                                    <strong>Réalisation</strong>
+                                </div>
+                            </div>
+                            <div class="em_bodyCarousel padding-t-10">
+                                <div class="owl-carousel owl-theme owlThemeCorses">
+                                    @foreach($proposal->jobber->portfolio as $portfol)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="" class="card">
+                                                <div class="">
+                                                    <img src="{{asset($portfol->file)}}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+                                                    <h6 class="card-title" style="margin: 5px;">
+                                                        {{$portfol->title}}
+                                                    </h6>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
