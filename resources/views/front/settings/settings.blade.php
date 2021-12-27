@@ -173,7 +173,7 @@
                         <a href="{{route('jobber.reviews')}}" class="item-link">
                             <div class="group">
                                 <div class="icon bg-warning">
-                                    <i class="ri-radar-fill"></i>
+                                    <i class="ri-star-fill"></i>
                                 </div>
                                 <span class="path__name">Evaluations</span>
                             </div>
@@ -196,6 +196,20 @@
                                     </svg>
                                 </div>
                                 <span class="path__name">Transactions</span>
+                            </div>
+                            <div class="group">
+                                <span class="short__name"></span>
+                                <i class="tio-chevron_right -arrwo"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('jobber.reviews')}}" class="item-link">
+                            <div class="group">
+                                <div class="icon bg-warning">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="path__name">Evaluations</span>
                             </div>
                             <div class="group">
                                 <span class="short__name"></span>

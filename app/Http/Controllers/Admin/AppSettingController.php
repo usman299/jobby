@@ -293,8 +293,7 @@ class AppSettingController extends Controller
         }
         $slider->Update();
         toastr()->success('Update Slider Galery ');
-        $slider = SliderGalery::all();
-        return view('admin.slider.index',compact('slider'));
+        return back();
     }
     public function sliderDelete($id)
     {
@@ -405,7 +404,6 @@ class AppSettingController extends Controller
         $about->update();
         toastr()->success('Your Data  Update');
         return back();
-
     }
 
     public function demandeurContact()

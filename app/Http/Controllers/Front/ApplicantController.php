@@ -238,11 +238,11 @@ class ApplicantController extends Controller
                $totalReview = Reviews::where('reciver_id','=',$proposal->jobber_id)->sum('star');
                $total = $reviews->count();
                $totalReviews = round($totalReview / $total);
-               $fiveStar = (Reviews::where('star', '=', 5)->count() / $total) * 100;
-               $fourStar = (Reviews::where('star', '=', 4)->count() / $total) * 100;
-               $threeStar = (Reviews::where('star', '=', 3)->count() / $total) * 100;
-               $twoStar = (Reviews::where('star', '=', 2)->count() / $total) * 100;
-               $oneStar = (Reviews::where('star', '=', 1)->count() / $total) * 100;
+               $fiveStar = (Reviews::where('star', '=', 5)->where('reciver_id','=',$proposal->jobber_id)->count() / $total) * 100;
+               $fourStar = (Reviews::where('star', '=', 4)->where('reciver_id','=',$proposal->jobber_id)->count() / $total) * 100;
+               $threeStar = (Reviews::where('star', '=', 3)->where('reciver_id','=',$proposal->jobber_id)->count() / $total) * 100;
+               $twoStar = (Reviews::where('star', '=', 2)->where('reciver_id','=',$proposal->jobber_id)->count() / $total) * 100;
+               $oneStar = (Reviews::where('star', '=', 1)->where('reciver_id','=',$proposal->jobber_id)->count() / $total) * 100;
            }
            else{
                $reviews =null;

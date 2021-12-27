@@ -182,14 +182,14 @@ class UsersController extends Controller
        return view('admin.user.profile',compact('country','user'));
     }
     public  function adminProfileUpdate(Request $request,$id){
+
         $user = User::where('id','=',$id)->first();
         $user->firstName = $request->firstName;
         $user->lastName = $request->lastName;
         $user->email = $request->email;
         $user->address = $request->address;
         $user->phone = $request->phone;
-        $user->country = $request->country;
-        $user->country = $request->country;
+        $user->country = $request->countory_id;
         if ($request->hasfile('image')) {
 
             $image1 = $request->file('image');

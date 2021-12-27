@@ -25,7 +25,7 @@
             </div>
             <!-- row -->
             <div class="row">
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                     <div class="profile card card-body px-3 pt-3 pb-0">
                         <div class="profile-head">
                             <div class="photo-content">
@@ -59,7 +59,7 @@
             </div>
             <div class="row">
 
-                <div class="col-xl-10">
+                <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="profile-tab">
@@ -75,7 +75,7 @@
                                         </li>
                                         <li class="nav-item"><a href="#badge" data-toggle="tab" class="nav-link ">Obtenez le badge Pro</a>
                                         </li>
-                                        <li class="nav-item"><a href="#identity" data-toggle="tab" class="nav-link ">Document d'identité</a>
+                                        <li class="nav-item"><a href="#identity" data-toggle="tab" class="nav-link">Document d'identité</a>
                                         </li>
 
                                     </ul>
@@ -384,7 +384,8 @@
 
                                             </div>
                                         </div>
-                                        <div id="identity" class="tab-pane fade ">
+                                        <div id="identity" class="tab-pane fade">
+
                                             <div class="my-post-content pt-3">
 
                                                 <div class="profile-uoloaded-post border-bottom-1 pb-5">

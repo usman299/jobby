@@ -20,7 +20,7 @@
                                 <div class="float-lg-right">
 
    <a href="{{route('slider.create')}}" class="btn btn-primary">Ajouter un nouveau</a>
-                    
+
 
                                  </div>
                             </div>
@@ -29,27 +29,27 @@
                                     <table id="example3" class="display min-w850">
                                         <thead>
                                             <tr>
-                                                
+
                                                 <th><!-- id -->identifiant</th>
                                                 <th><!-- category -->Rôle</th>
                                                  <th><!-- subcategory -->Image</th>
-                                                
-                                                
+
+
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                              @foreach($slider as $row)
                                             <tr>
-                                                
+
                                                 <td>{{$row->id ?? ''}}</td>
                                                 @if($row->userRole==2)
-                                                 <td><span class="badge light badge-success">Applicant</span></td>
+                                                 <td><span class="badge light badge-success">Demandeur</span></td>
                                                  @else
                                                  <td><span class="badge light badge-warning">Jobber</span></td>
                                                  @endif
 
-                                                <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1" 
+                                                <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1"
                                 data-title="{{$row->title}}"><img class="rounded-circle" width="50" src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
 
 
@@ -62,13 +62,13 @@
                                                         <a href="{{route('slider.delete', ['id' => $row->id])}}" id="delete" class="btn btn-danger shadow btn-xs sharp" data-toggle="tooltip" title="Delete">
                                                    <i class="fa fa-trash"></i>
                                                 </a>
-                                                
-													</div>												
-												</td>												
+
+													</div>
+												</td>
                                             </tr>
 
                                             @endforeach
-                                           
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -77,7 +77,7 @@
                     </div>
 
 
- 
+
 
      @jquery
     @toastr_js

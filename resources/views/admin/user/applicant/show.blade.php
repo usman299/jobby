@@ -25,7 +25,7 @@
                 </div>
                 <!-- row -->
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div class="profile card card-body px-3 pt-3 pb-0">
                             <div class="profile-head">
                                 <div class="photo-content">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="row">
 
-                    <div class="col-xl-8">
+                    <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
                                 <div class="profile-tab">
