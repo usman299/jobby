@@ -29,7 +29,7 @@ CreateUsersTable extends Migration
             $table->integer('category_id')->nullable();
             $table->integer('subcategory_id')->nullable();
 
-            $table->longText('skills')->default("[]");
+            $table->longText('skills')->nullable();
             $table->string('gender')->nullable();
             $table->string('dob')->nullable();
             $table->string('rate_per_hour')->nullable();
