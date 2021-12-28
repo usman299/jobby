@@ -242,7 +242,7 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Date de naissance</label>
                                 <div class="input_group">
-                                    <input type="date" class="form-control" name="dob" value="{{$user->dob}}">
+                                    <input type="date" class="form-control" name="dob">
                                 </div>
                             </div>
 
