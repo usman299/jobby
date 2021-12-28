@@ -124,7 +124,6 @@
                     <select class="form-control custom-select" name="gender">
                         @if($user->gender == "Homme")
                             <option value="Homme">Homme</option>
-                            <option value="Homme">Homme</option>
                              <option value="Femme">Femme</option>
                         @else
                             <option value="Femme">Femme</option>
