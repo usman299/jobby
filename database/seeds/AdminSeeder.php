@@ -40,8 +40,21 @@ class AdminSeeder extends Seeder
             'avatar' => '0',
             'category_id' => '1',
             'subcategory_id' => '1',
+            'skills' => '[]',
             'password' => bcrypt('password'),
 
+        ]);
+
+        \App\JobberProfile::create([
+            'jobber_id' => '3',
+            'jobber_category_id' => 'Électricité et domotique',
+            'diploma' => 'Non',
+            'experince' => 'J’ai plus de 5 ans',
+            'personal_description' => 'ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd',
+            'equipement1' => 'test1',
+            'equipement2' => 'test2',
+            'eng1' => 'test1',
+            'eng2' => 'test2',
         ]);
 
 

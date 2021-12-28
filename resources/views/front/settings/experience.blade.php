@@ -2,7 +2,7 @@
 @section('content')
     <section class="bg-white em__signTypeOne typeTwo np__account padding-t-70">
         <div class="padding-20">
-            <span class="size-12 text-uppercase color-text d-block">Mes Delpomes</span>
+            <span class="size-12 text-uppercase color-text d-block">Mes diplômes</span>
         </div>
         <div class="em__pkLink emBlock__border bg-white border-t-0">
             <ul class="nav__list mb-0">
@@ -37,7 +37,7 @@
             </ul>
         </div>
     </section>
-    <div style="bottom: 60px !important;" class="buttons__footer text-center">
+    <div style="bottom: 80px !important;" class="buttons__footer text-center">
 
         <div class="bg-white d-flex">
             <button type="button" data-toggle="modal"

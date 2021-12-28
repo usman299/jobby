@@ -122,8 +122,14 @@
                 <div class="form-group">
                     <label>Sexe</label>
                     <select class="form-control custom-select" name="gender">
-                        <option value="Homme">Homme</option>
-                        <option value="Femme">Femme</option>
+                        @if($user->gender == "Homme")
+                            <option value="Homme">Homme</option>
+                            <option value="Homme">Homme</option>
+                             <option value="Femme">Femme</option>
+                        @else
+                            <option value="Femme">Femme</option>
+                            <option value="Homme">Homme</option>
+                        @endif
                     </select>
                 </div>
                 <div class="form-group">

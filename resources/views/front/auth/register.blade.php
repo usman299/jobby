@@ -240,6 +240,13 @@
                                 </div>
                             </div>
                             <div class="form-group" style="text-align: left!important;">
+                                <label>Date de naissance</label>
+                                <div class="input_group">
+                                    <input type="date" class="form-control" name="dob" value="{{$user->dob}}">
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="text-align: left!important;">
                                 <label>Description</label>
                                 <div class="input_group">
                                     <textarea name="description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -401,7 +408,7 @@
                         </div>
                         <div class="tab">
                             <div class="em_titleSign">
-                                <h2>Description de la compétenc!</h2>
+                                <h2>Description de la compétence!</h2>
                                 <p class="p-20">Description personnalisée ?
                                 </p>
                             </div>
