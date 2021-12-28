@@ -77,6 +77,8 @@
                                         </li>
                                         <li class="nav-item"><a href="#identity" data-toggle="tab" class="nav-link">Document d'identité</a>
                                         </li>
+                                        <li class="nav-item"><a href="#diplomas" data-toggle="tab" class="nav-link">Document d'identité</a>
+                                        </li>
 
                                     </ul>
                                     <div class="tab-content">
@@ -281,7 +283,76 @@
 
                                                         <button class="btn btn-primary" type="submit">Mettre à jour</button>
                                                     </form>
-                                                </div>
+                                                </div><hr>
+
+                                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
+                                                        <img src="images/profile/8.jpg" alt="" class="img-fluid">
+                                                        <a class="post-title" href="#"><h3 class="text-black">La description</h3></a>
+                                                        <p>{{$jobberprofile->personal_description ?? 'non'}}</p>
+                                                        <div class="profile-skills mb-5">
+                                                            <a class="text-warning mb-2"><strong> Catégorie   </strong></a>
+                                                            <a href="javascript:void()" class="btn btn-warning dark btn-xs mb-1">{{$jobberprofile->jobber_category_id ?? 'non'}}</a>
+
+                                                        </div>
+                                                        <div class="profile-personal-info">
+                                                            <h4 class="text-primary mb-4">Plus d'information</h4>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">De l'expérience: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobberprofile->experince ?? 'non'}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Diplôme: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>{{$jobberprofile->diploma_name ??'non'}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Equipement: <span class="pull-right">:</span>
+                                                                    </h5>
+                                                                </div>
+
+                                                                <div class="col-sm-9 col-7"><span>
+                                                                         @if($jobberprofile)
+                                                                            {{$jobberprofile->equipement1??''}}@if($jobberprofile->equipement1)<strong>,</strong>@endif{{$jobberprofile->equipement2??''}}@if($jobberprofile->equipement2)<strong>,</strong>@endif{{$jobberprofile->equipement3 ??""}}@if($jobberprofile->equipement3)<strong>,</strong>@endif{{$jobberprofile->equipement4 ??""}}@if($jobberprofile->equipement4)<strong>,</strong>@endif
+                                                                                {{$jobberprofile->equipement5 ?? ""}}@if($jobberprofile->equipement5)<strong>,</strong>@endif{{$jobberprofile->equipement6?? ""}}@if($jobberprofile->equipement6)<strong>,</strong>@endif{{$jobberprofile->equipement7 ?? ""}}@if($jobberprofile->equipement7)<strong>,</strong>@endif{{$jobberprofile->equipement8 ?? ""}}@if($jobberprofile->equipement8)<strong>,</strong>@endif
+                                                                                {{$jobberprofile->equipement9 ?? ""}}@if($jobberprofile->equipement9)<strong>,</strong>@endif{{$jobberprofile->equipement10 ?? ""}}@if($jobberprofile->equipement10)<strong>,</strong>@endif{{$jobberprofile->equipement11 ?? ""}}@if($jobberprofile->equipement11)<strong>,</strong>@endif{{$jobberprofile->equipement12 ?? ""}}@if($jobberprofile->equipement12)<strong>,</strong>@endif
+                                                                                {{$jobberprofile->equipement13 ?? ""}}@if($jobberprofile->equipement13)<strong>@if($jobberprofile->equipement14)<strong>,</strong>@endif</strong>@endif{{$jobberprofile->equipement14 ?? ""}}@if($jobberprofile->equipement14)<strong>,</strong>@endif{{$jobberprofile->equipement15 ?? ""}}@if($jobberprofile->equipement15)<strong>,</strong>@endif{{$jobberprofile->equipement16 ?? ""}}
+                                                                        @else
+                                                                             non
+                                                                        @endif
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-2">
+                                                                <div class="col-sm-3 col-5">
+                                                                    <h5 class="f-w-500">Engangement <span class="pull-right">:</span></h5>
+                                                                </div>
+                                                                <div class="col-sm-9 col-7"><span>
+                                                                        @if($jobberprofile)
+                                                                              {{$jobberprofile->eng1??''}}@if($jobberprofile->eng1)<strong>,</strong>@endif{{$jobberprofile->eng2??''}}@if($jobberprofile->eng2)<strong>,</strong>@endif{{$jobberprofile->eng3 ??""}}@if($jobberprofile->eng3)<strong>,</strong>@endif{{$jobberprofile->eng4 ??""}}@if($jobberprofile->eng4)<strong>,</strong>@endif
+                                                                                {{$jobberprofile->eng5 ?? ""}}@if($jobberprofile->eng5)<strong>,</strong>@endif{{$jobberprofile->eng6?? ""}}@if($jobberprofile->eng6)<strong>,</strong>@endif{{$jobberprofile->eng7 ?? ""}}@if($jobberprofile->eng7)<strong>,</strong>@endif{{$jobberprofile->eng8 ?? ""}}@if($jobberprofile->eng8)<strong>,</strong>@endif
+                                                                                {{$jobberprofile->eng9 ?? ""}}@if($jobberprofile->eng9)<strong>,</strong>@endif{{$jobberprofile->eng10 ?? ""}}@if($jobberprofile->eng10)<strong>,</strong>@endif{{$jobberprofile->eng11 ?? ""}}@if($jobberprofile->eng11)<strong>,</strong>@endif{{$jobberprofile->eng12 ?? ""}}@if($jobberprofile->eng12)<strong>,</strong>@endif
+                                                                                {{$jobberprofile->eng13 ?? ""}}@if($jobberprofile->eng13)<strong>,</strong>@endif{{$jobberprofile->eng14 ?? ""}}@if($jobberprofile->eng14)<strong>,</strong>@endif{{$jobberprofile->eng15 ?? ""}}@if($jobberprofile->eng15)<strong>,</strong>@endif{{$jobberprofile->eng16 ?? ""}}
+
+                                                                        @else
+                                                                            non
+                                                                        @endif
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div><hr>
+
+
                                             </div>
                                         </div>
                                         <div id="password" class="tab-pane fade ">
@@ -439,6 +510,40 @@
                                                                 </div>
                                                             @endif
                                                         </div>
+                                                </div><hr>
+
+                                            </div>
+                                        </div>
+                                        <div id="diplomas" class="tab-pane fade ">
+
+                                                <div class="settings-form">
+                                                    <h2 class="text-primary" style=" text-align: center">Document de diplômes</h2>
+                                                </div>
+
+                                                    <div class="profile-personal-info">
+
+                                                        <div class="row mb-2">
+                                                            <div class="col-sm-3 col-5">
+                                                                <h4 class="text-primary">Titre <span class="pull-right">:</span>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="col-sm-9 col-7"><span ><h4 class="text-primary">Document</h4 ></span>
+                                                            </div>
+                                                        </div>
+                                                        @foreach($diplomas  as $row)
+                                                        <div class="row mb-2">
+                                                            <div class="col-sm-3 col-5">
+                                                                <h5 class="f-w-500">{{$row->title ?? ''}}: <span class="pull-right">:</span>
+                                                                </h5>
+                                                            </div>
+                                                            <div class="col-sm-9 col-7"><a href="{{$row->file ?? '#'}}" ><span class="badge light badge-primary ">Voir le Document</span></a>
+                                                            </div>
+                                                        </div>
+                                                        @endforeach
+
+
+
+                                                    </div>
                                                 </div><hr>
 
                                             </div>
