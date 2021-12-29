@@ -25,7 +25,7 @@ class SubCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/b2.jpeg",
+            'img' => "admin/subcategory/Bricolage _ Rénovation.jpg",
 
         ]);
         SubCategory::create([
@@ -53,7 +53,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b5.jpeg",
+            'img' => "admin/subcategory/Tondre la pelouse.jpg",
 
         ]);
         SubCategory::create([
@@ -61,7 +61,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b6.jpeg",
+            'img' => "admin/subcategory/Taille de haie.jpg",
 
 
         ]);
@@ -71,7 +71,7 @@ class SubCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/subcategory/b7.jpeg",
+            'img' => "admin/subcategory/Couper un arbre.jpg",
 
         ]);
         SubCategory::create([
@@ -152,7 +152,7 @@ class SubCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' =>"admin/subcategory/b16.jpeg",
+            'img' =>"admin/subcategory/Déplacer électroménager.jpg",
 
         ]);
         SubCategory::create([
@@ -223,7 +223,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "4",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b6.jpeg",
+            'img' => "admin/subcategory/Repassage.jpg",
 
         ]);
 
@@ -268,7 +268,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "5",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b21.jpeg",
+            'img' => "admin/subcategory/Garde d'enfant.jpg",
 
 
         ]);
@@ -356,7 +356,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "8",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b13.jpeg",
+            'img' => "admin/subcategory/Cours particulier.jpg",
 
 
         ]);
@@ -375,7 +375,7 @@ class SubCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/b15.jpeg",
+            'img' => "admin/subcategory/Cours particulier.jpg",
 
         ]);
         SubCategory::create([

@@ -40,7 +40,7 @@ class CategorySeeder extends Seeder
             'title' => "Ménage",
             'backColor' => "#53a7f9",
             'countory_id'=> "1",
-            'img' => "admin/subcategory/b13.jpeg",
+            'img' => "admin/subcategory/Ménage.jpg",
 
         ]);
         Category::create([

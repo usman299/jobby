@@ -49,7 +49,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/subcategory/b4.jpeg",
+            'img' => "admin/subcategory/Fixation d'étagère.jpg",
 
         ]);
         ChildCategory::create([
@@ -156,7 +156,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b15.jpeg",
+            'img' => "admin/subcategory/Changer une ampoule jpg.jpg",
 
         ]);
         ChildCategory::create([
@@ -196,7 +196,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "3",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b19.jpeg",
+            'img' => "admin/subcategory/Peinture.jpg",
 
         ]);
         ChildCategory::create([

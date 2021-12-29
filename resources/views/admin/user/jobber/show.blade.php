@@ -517,17 +517,17 @@
                                         <div id="diplomas" class="tab-pane fade ">
 
                                                 <div class="settings-form">
-                                                    <h2 class="text-primary" style=" text-align: center">Document de diplômes</h2>
+                                                    <h2 class="text-primary" style=" text-align: center;margin-top: -135px!important;">Document de diplômes</h2>
                                                 </div>
 
                                                     <div class="profile-personal-info">
 
                                                         <div class="row mb-2">
                                                             <div class="col-sm-3 col-5">
-                                                                <h4 class="text-primary">Titre <span class="pull-right">:</span>
-                                                                </h4>
+                                                                <strong class="text-primary">Titre <span class="pull-right">:</span></strong>
+
                                                             </div>
-                                                            <div class="col-sm-9 col-7"><span ><h4 class="text-primary">Document</h4 ></span>
+                                                            <div class="col-sm-9 col-7"><span ><strong class="text-primary">Document</strong></span>
                                                             </div>
                                                         </div>
                                                         @foreach($diplomas  as $row)
