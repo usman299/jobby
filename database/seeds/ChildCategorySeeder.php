@@ -20,7 +20,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
 
-            'img' => "admin/subcategory/b1.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Assemblage de meubles.jpg",
 
         ]);
         ChildCategory::create([
@@ -29,7 +29,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b2.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Démontage de meubles.jpg",
 
         ]);
         ChildCategory::create([
@@ -38,7 +38,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b3.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/",
 
 
         ]);
@@ -49,7 +49,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/subcategory/Fixation d'étagère.jpg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Fixation  d'étagère.jpg",
 
         ]);
         ChildCategory::create([
@@ -59,7 +59,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/b5.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Accrocher TV au mur.jpg",
 
         ]);
         ChildCategory::create([
@@ -69,7 +69,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
 
-            'img' => "admin/subcategory/b6.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Pose de paroi de douche.jpg",
 
         ]);
         ChildCategory::create([
@@ -78,7 +78,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b7.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Accrocher un tableau.jpg",
 
         ]);
         ChildCategory::create([
@@ -87,7 +87,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b8.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Pose de miroir.jpg",
 
         ]);
         ChildCategory::create([
@@ -96,7 +96,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b9.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Réparation de meubles.jpg",
 
 
         ]);
@@ -107,7 +107,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' =>"admin/subcategory/b10.jpeg",
+            'img' =>"admin/jobby/1 Bricolage/1 Aménagement MJ/Petite réparation .jpg",
 
         ]);
         ChildCategory::create([
@@ -117,7 +117,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/b11.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Pose de cloture extérieur.jpg",
 
         ]);
 
@@ -127,7 +127,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b12.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Pose de hotte aspirante.jpg",
 
         ]);
         ChildCategory::create([
@@ -136,7 +136,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b13.jpeg",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Autre Job d'aménagement.jpg",
 
 
         ]);
@@ -147,7 +147,7 @@ class ChildCategorySeeder extends Seeder
             'category_id' => "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/b14.jpeg",
+            'img' => "admin/jobby/1 Bricolage/2 Electricité/Installation de prises.jpg",
 
         ]);
         ChildCategory::create([
@@ -156,7 +156,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/Changer une ampoule jpg.jpg",
+            'img' => "admin/jobby/1 Bricolage/2 Electricité/Changer une ampoule.jpg",
 
         ]);
         ChildCategory::create([
@@ -165,7 +165,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b16.jpeg",
+            'img' => "admin/jobby/1 Bricolage/2 Electricité/pose luminaire.jpg",
 
 
         ]);
@@ -176,7 +176,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/subcategory/b17.jpeg",
+            'img' => "admin/jobby/1 Bricolage/2 Electricité/Domotique.jpg",
 
         ]);
         ChildCategory::create([
@@ -186,7 +186,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/b18.jpeg",
+            'img' => "admin/jobby/1 Bricolage/2 Electricité/Installation clim.jpg",
 
         ]);
 
@@ -196,7 +196,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "3",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/Peinture.jpg",
+            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/Peinture intérieure.jpg",
 
         ]);
         ChildCategory::create([
@@ -205,7 +205,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "3",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b20.jpeg",
+            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/Pose de parquet .jpg",
 
 
         ]);
@@ -216,7 +216,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/subcategory/b21.jpeg",
+            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/",
 
         ]);
         ChildCategory::create([
@@ -226,7 +226,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/b3.jpeg",
+            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/Pose de dalles moquette.jpg",
 
         ]);
         ChildCategory::create([
@@ -236,7 +236,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
 
-            'img' => "admin/subcategory/b4.jpeg",
+            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/Enduire un mur.jpg",
 
         ]);
         ChildCategory::create([
@@ -245,7 +245,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "3",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b5.jpeg",
+            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/Pose de Lino .jpg",
 
         ]);
 
@@ -256,7 +256,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'countory_id'=> "2",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b6.jpeg",
+            'img' => "admin/jobby/1 Bricolage/4 Plomberie MJ-2/Réparation fuite d'eau.jpg",
 
         ]);
 
@@ -267,7 +267,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b11.jpeg",
+            'img' => "admin/jobby/1 Bricolage/4 Plomberie MJ-2/Changer une chasse d'eau.jpg",
 
         ]);
         ChildCategory::create([
@@ -276,7 +276,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'subcategory_id' => "4",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b12.jpeg",
+            'img' => "admin/jobby/1 Bricolage/4 Plomberie MJ-2/Changer un robinet .jpg",
 
 
         ]);
@@ -287,7 +287,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'backColor' => "#FFAF33",
 
-            'img' =>"admin/subcategory/b13.jpeg",
+            'img' =>"admin/jobby/1 Bricolage/4 Plomberie MJ-2/Déboucher un évier.jpg",
 
         ]);
 
@@ -297,7 +297,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'subcategory_id' => "4",
             'backColor' => "#FFAF33",
-            'img' => "admin/subcategory/b15.jpeg",
+            'img' => "admin/jobby/1 Bricolage/4 Plomberie MJ-2/Branchement d'une machine à laver.jpg",
 
         ]);
         ChildCategory::create([
@@ -306,7 +306,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "4",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/subcategory/b17.jpeg",
+            'img' => "admin/jobby/1 Bricolage/4 Plomberie MJ-2/Réparer une chasse d'eau.jpg",
 
 
         ]);
@@ -317,7 +317,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/subcategory/b20.jpeg",
+            'img' => "admin/jobby/1 Bricolage/4 Plomberie MJ-2/Changer une bonde de lavabo.jpg",
 
         ]);
 

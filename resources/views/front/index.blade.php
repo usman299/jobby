@@ -73,7 +73,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 23])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b10.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/4 Ménage MJ-2/Ménage a domicile.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="txt">
 
@@ -94,7 +94,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 14])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b11.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Aide au déménagement.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -115,7 +115,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('job.request', ['id' => 19])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b9.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/1 Bricolage/3 Rénovation MJ/Peinture intérieure.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -136,7 +136,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 7])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b8.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Couper un arbre.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -157,7 +157,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('job.request', ['id' => 1])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b7.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/1 Bricolage/1 Aménagement MJ/Assemblage de meubles.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -178,12 +178,12 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 16])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b6.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Déplacer électroménager.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
                                             <h6 class="card-title" style="margin: 10px;">
-                                                Déplacer de l’électroménager
+                                                {{Str::limit('Déplacer de l’électroménager', 22)}}
                                             </h6>
                                             <p class="card-text" style="margin: 10px;">
                                                 <strong>30€-84€</strong>
@@ -199,7 +199,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 15])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b5.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Déplacer un meuble.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -220,7 +220,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 29])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b4.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset("admin/jobby/5 Garde d'enfant/Garde d'enfant MJ-3.jpg")  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -241,7 +241,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 24])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b3.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/4 Ménage MJ-2/Repassage.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -262,7 +262,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 5])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b2.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Tondre la pelouse.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -283,7 +283,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('job.request', ['id' => 4])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b1.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset("admin/jobby/1 Bricolage/1 Aménagement MJ/Fixation  d'étagère.jpg")  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -304,7 +304,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 6])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/subcategory/b8.jpeg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Taille de haie.jpg')  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -323,8 +323,7 @@
                             </div>
                                 <!-- item -->
 
-                        </div>
-                    </div>
+                        </div>                    </div>
                 </section>
                 <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
                     <!-- em_title_swiper -->
@@ -347,7 +346,7 @@
                                     <div class="em_itemCourse_grid">
                                         <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                             <div class="">
-                                                <img src="{{ asset($row->category->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
                                             </div>
                                             <div class="">
 
