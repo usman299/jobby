@@ -90,7 +90,7 @@ class CategorySeeder extends Seeder
             'title' => "Taches administrative",
             'countory_id'=> "1",
             'backColor' => "#fa9905",
-            'img' => "admin/subcategory/b7.jpeg",
+            'img' => "admin/jobby/Tâche administratives mister jobby.jpg",
 
 
         ]);

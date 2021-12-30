@@ -38,7 +38,7 @@ class ChildCategorySeeder extends Seeder
             'subcategory_id' => "1",
             'countory_id'=> "1",
             'backColor' => "#335EFF",
-            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/",
+            'img' => "admin/jobby/1 Bricolage/1 Aménagement MJ/Pose de tringle de rideaux.jpg",
 
 
         ]);
