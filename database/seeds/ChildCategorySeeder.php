@@ -216,7 +216,7 @@ class ChildCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
 
-            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/",
+            'img' => "admin/jobby/1 Bricolage/3 Rénovation MJ/Pose dalle PVC.jpg",
 
         ]);
         ChildCategory::create([

@@ -813,9 +813,9 @@ $user = Auth::user();
 
                         <label class="text" for="switchDarkMode">
                             @if($user->role==1 && $user->check==1)
-                            <h3>Changer de vendeur</h3>
+                            <h3>Statut demandeur</h3>
                             @elseif($user->role==2 && $user->check==2)
-                            <h3>Commutateur Demandeur</h3>
+                            <h3>Statut jobber</h3>
                             @endif
 {{--                            <p>Navigation en mode nuit</p>--}}
                         </label>

@@ -196,7 +196,7 @@ class SubCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/jobby/3 Livraison déménagement MJ/",
+            'img' => "admin/jobby/3 Livraison déménagement MJ/Livraison plis et colis.jpg",
 
         ]);
         SubCategory::create([
@@ -402,7 +402,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "8",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/jobby/8 Aide à la personne  Mister jobby/",
+            'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Serveur_Serveuse.jpg",
 
         ]);
 
