@@ -20,7 +20,7 @@ CreateUsersTable extends Migration
             $table->string('lastName')->nullable();
             $table->string('email',128)->unique();
             $table->integer('role');   // joober=1; Applicant=2;
-
+            $table->integer('check')->default(1);
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('country')->nullable();

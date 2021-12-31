@@ -84,6 +84,9 @@ class RegisterController extends Controller
         }else{
             $name2 = "";
         }*/
+
+
+
         $user = User::create([
             'firstName' => $data['fname'],
             'lastName' => $data['lname'],
@@ -103,7 +106,9 @@ class RegisterController extends Controller
             'document2' => 'documents/' . $name2,*/
             'password' => Hash::make($data['password']),
         ]);
+
         $data['jobber_id'] = $user->id;
+
 
         JobberProfile::create($data);
 

@@ -810,6 +810,40 @@ $user = Auth::user();
                 </div>
                 <div class="modal-footer">
                     <div class="em_darkMode_menu">
+
+                        <label class="text" for="switchDarkMode">
+                            @if($user->role==1 && $user->check==1)
+                            <h3>Changer de vendeur</h3>
+                            @elseif($user->role==2 && $user->check==2)
+                            <h3>Commutateur Demandeur</h3>
+                            @endif
+{{--                            <p>Navigation en mode nuit</p>--}}
+                        </label>
+                        <label class="" for="switchDarkMode">
+                            @if($user->role==1 && $user->check==1)
+                           <a href="{{route('switch.role',['id'=>$user->id,'check'=>2])}}"><button type="button" class="btn rounded-8  btn_addBookmark item-active -active" style="background-color: #378afe">
+                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                       <path fill-rule="evenodd" clip-rule="evenodd" d="M11.6648 18.6316L5.73341 21.8811C5.25984 22.1272 4.67641 21.953 4.41533 21.4875V21.4875C4.3398 21.3433 4.29905 21.1834 4.29634 21.0206V6.62247C4.29634 3.87647 6.17277 2.77808 8.873 2.77808H15.2162C17.8341 2.77808 19.7929 3.80325 19.7929 6.4394V21.0206C19.7929 21.2804 19.6897 21.5295 19.506 21.7132C19.3224 21.8969 19.0733 22 18.8135 22C18.6478 21.9974 18.485 21.9567 18.3375 21.8811L12.3696 18.6316C12.1497 18.5128 11.8847 18.5128 11.6648 18.6316Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                       <path opacity="0.4" d="M8.36957 9.32266H15.6648" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                   </svg>
+                                   <span class="icon_active"></span>
+                               </button></a>
+                            @elseif($user->role==2 && $user->check==2)
+                            <a href="{{route('switch.role',['id'=>$user->id,'check'=>1])}}"><button type="button" class="btn rounded-8  btn_addBookmark item-active -active" style="background-color: #fe4d86">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.6648 18.6316L5.73341 21.8811C5.25984 22.1272 4.67641 21.953 4.41533 21.4875V21.4875C4.3398 21.3433 4.29905 21.1834 4.29634 21.0206V6.62247C4.29634 3.87647 6.17277 2.77808 8.873 2.77808H15.2162C17.8341 2.77808 19.7929 3.80325 19.7929 6.4394V21.0206C19.7929 21.2804 19.6897 21.5295 19.506 21.7132C19.3224 21.8969 19.0733 22 18.8135 22C18.6478 21.9974 18.485 21.9567 18.3375 21.8811L12.3696 18.6316C12.1497 18.5128 11.8847 18.5128 11.6648 18.6316Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path opacity="0.4" d="M8.36957 9.32266H15.6648" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                    <span class="icon_active"></span>
+                                </button></a>
+                            @endif
+                            <span class="handle"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="em_darkMode_menu">
+
                         <label class="text" for="switchDarkMode">
                             <h3>Mode sombre</h3>
                             <p>Navigation en mode nuit</p>

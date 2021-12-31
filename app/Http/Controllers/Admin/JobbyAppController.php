@@ -8,6 +8,7 @@ use App\Payment;
 use App\Proposal;
 use App\Contract;
 use App\Http\Controllers\Controller;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 
 class JobbyAppController extends Controller
@@ -97,4 +98,5 @@ class JobbyAppController extends Controller
 
         return view('admin.paymant.index',compact('payment'));
     }
+
 }

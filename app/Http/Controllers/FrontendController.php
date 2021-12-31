@@ -79,4 +79,5 @@ class FrontendController extends Controller
         $questions = Questions::where('subcategory_id', '=', $request->id)->get();
         return response()->json($questions);
     }
+
 }
