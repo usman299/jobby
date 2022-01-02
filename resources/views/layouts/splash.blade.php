@@ -80,9 +80,9 @@
 
 <body class="h-100 d-flex align-items-center text-center">
 <!-- Start em_loading -->
-<section class="em_loading" id="loaderPage">
-    <div class="spinner_flash"></div>
-</section>
+{{--<section class="em_loading" id="loaderPage">--}}
+{{--    <div class="spinner_flash"></div>--}}
+{{--</section>--}}
 <!-- End. em_loading -->
 @yield('content')
 

@@ -369,9 +369,9 @@ $user = Auth::user();
 
 <body class="bg-snow">
 <!-- Start em_loading -->
-<section class="em_loading" id="loaderPage">
-    <div class="spinner_flash"></div>
-</section>
+{{--<section class="em_loading" id="loaderPage">--}}
+{{--    <div class="spinner_flash"></div>--}}
+{{--</section>--}}
 <!-- End. em_loading -->
 <div id="wrapper">
     <div id="content">
