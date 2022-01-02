@@ -620,6 +620,15 @@ class SubCategorySeeder extends Seeder
 
         ]);
         SubCategory::create([
+            'title' => "Tâche administratives",
+            'category_id' => "11",
+            'countory_id'=> "1",
+            'backColor' => "#FF3933",
+
+            'img' => "admin/jobby/11 Taches admin/Tâche administratives mister jobby.jpg",
+
+        ]);
+        SubCategory::create([
             'title' => "Véhicule entretien",
             'category_id' => "12",
             'countory_id'=> "1",

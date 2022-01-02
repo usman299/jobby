@@ -39,7 +39,7 @@ Route::post('/fetchquestions', 'FrontendController@fetchquestions')->name('fetch
 //App Routes
 Route::group(['middleware' => ['auth', 'web', 'app']], function() {
 
-Route::get('/switch/role/{id}/{check}', 'Front\JobberController@switchRole')->name('switch.role');
+Route::get('/switch/role/{id}/{role}', 'Front\JobberController@switchRole')->name('switch.role');
 Route::get('/app', 'FrontendController@app')->name('front.app');
 Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
 Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');

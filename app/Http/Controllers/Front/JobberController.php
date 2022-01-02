@@ -217,30 +217,27 @@ class JobberController extends Controller
         }
         return view('front.jobber.reviews.index', compact('title', 'user','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar'));
     }
-    public function switchRole($id,$check)
+    public function switchRole($id,$role)
     {
         $user = User::where('id','=',$id)->where('status','=',1)->first();
-        if ($check==2){
-            $user->role = 2;
-            $user->check = $check;
+
+            $user->role = $role;
             $user->update();
-            $notification = array(
-                'messege' => 'Tableau de bord Bienvenue Demandeur',
-                'alert-type' => 'success'
-            );
+            if ($role==1) {
+                $notification = array(
+                    'messege' => 'Bienvenue sur le tableau de bord Jobber',
+                    'alert-type' => 'success'
+                );
+            }
+            else {
+                $notification = array(
+                    'messege' => 'Bienvenue dans le tableau de bord des candidats',
+                    'alert-type' => 'success'
+                );
+
+            }
             return redirect()->back()->with($notification);
-        }
-        else{
-            $user->role = 1;
-            $user->check = $check;
-            $user->update();
-            $notification = array(
-                'messege' => 'Content de te revoir',
-                'alert-type' => 'success'
-            );
-            return redirect()->back()->with($notification);
+
         }
 
-
-    }
 }

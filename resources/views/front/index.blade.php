@@ -59,7 +59,7 @@
                     <!-- em_title_swiper -->
                     <div class="em_title_swiper">
                         <div class="txt">
-                            <h5>Populaires en ce moment</h5>
+                            <h6>Populaires en ce moment</h6>
                         </div>
                         <div class="item_link">
                             <a data-toggle="modal" data-target="#mdllFilterJobs" >Que cherche tu ?</a>
@@ -762,6 +762,53 @@
                         </div>
                     </div>
                 </section>
+
+                <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
+                    <!-- em_title_swiper -->
+                    <div class="em_title_swiper">
+                        <div class="txt">
+
+                            <strong>Tâche administratives</strong>
+
+                        </div>
+                        {{--                        <div class="item_link">--}}
+                        {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
+                        {{--                        </div>--}}
+                    </div>
+
+                    <div class="em_bodyCarousel padding-t-10">
+                        <div class="owl-carousel owl-theme owlThemeCorses">
+                        @foreach($subcategory as $row)
+                            <!-- item -->
+                                @if($row->category_id==11)
+                                    <div class="item">
+                                        <div class="em_itemCourse_grid">
+                                            <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
+                                                <div class="">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                </div>
+                                                <div class="">
+
+                                                    <h6 class="card-title" style="margin: 5px;">
+                                                        {{$row->title}}
+                                                    </h6>
+                                                    <p class="card-text" style="margin: 5px;">
+                                                        {{$row->category->title}}
+                                                    </p>
+
+
+
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            <!-- item -->
+                            @endforeach
+                        </div>
+                    </div>
+
+                </section>
                 <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
                     <!-- em_title_swiper -->
                     <div class="em_title_swiper">
@@ -774,6 +821,7 @@
                         {{--                            <a href="{{route('applicant.services')}}">Voir tout</a>--}}
                         {{--                        </div>--}}
                     </div>
+
                     <div class="em_bodyCarousel padding-t-10">
                         <div class="owl-carousel owl-theme owlThemeCorses">
                         @foreach($subcategory as $row)
@@ -805,6 +853,7 @@
                             @endforeach
                         </div>
                     </div>
+
                 </section>
 
             <!-- End. block_page_Comp -->
