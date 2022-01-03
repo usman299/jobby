@@ -79,5 +79,13 @@ class FrontendController extends Controller
         $questions = Questions::where('subcategory_id', '=', $request->id)->get();
         return response()->json($questions);
     }
+    public function privacy(){
+        $title = 'Politique de confidentialité';
+        return view('front.privacy', compact('title'));
+    }
+    public function terms(){
+        $title = 'Termes et conditions';
+        return view('front.terms', compact('title'));
+    }
 
 }

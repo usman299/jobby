@@ -25,6 +25,8 @@ Route::get('/save-token/{token}',function ($token){
 Route::get('/testnotification', 'HomeController@testnotification');
 
 Route::get('/', 'FrontendController@index');
+Route::get('/privacy-policy', 'FrontendController@privacy')->name('front.privacy');
+Route::get('/terms-and-conditions', 'FrontendController@terms')->name('front.terms');
 Route::get('/intro', 'FrontendController@intro')->name('front.intro')->middleware('guest');
 Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
 Route::get('/intro/applicant', 'FrontendController@introapplicant')->name('intro.applicant');
