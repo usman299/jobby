@@ -391,7 +391,7 @@
                         </div>
                     </div>
                 </div>
-            @elseif($subcategory->id == 13 || $subcategory->id == 18 || $subcategory->id == 28 || $subcategory->id == 36 || $subcategory->id == 45 || $subcategory->id == 66 || $subcategory->id == 68)
+            @elseif($subcategory->id == 13 || $subcategory->id == 18 || $subcategory->id == 28 || $subcategory->id == 36 || $subcategory->id == 45 || $subcategory->id == 66 || $subcategory->id == 68 || $subcategory->id == 69)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
                         <div class="form-group" style="text-align: left!important;">
@@ -1771,7 +1771,7 @@
                         </div>
                     </div>
                 </div>
-            @elseif($subcategory->id == 69)
+            @elseif($subcategory->id == 70)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
                         <div>
@@ -1826,7 +1826,7 @@
                         </div>
                     </div>
                 </div>
-            @elseif($subcategory->id == 70)
+            @elseif($subcategory->id == 71)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
                         <div>
@@ -1893,7 +1893,7 @@
                         </div>
                     </div>
                 </div>
-            @elseif($subcategory->id == 71)
+            @elseif($subcategory->id == 72)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
                         <div>

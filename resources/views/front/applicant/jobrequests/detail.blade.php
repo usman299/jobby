@@ -803,7 +803,7 @@
                                 </div>
                             </div>
                         </div>
-                    @elseif($jobrequest->subcategory->id == 13 || $jobrequest->subcategory->id == 18 || $jobrequest->subcategory->id == 28 || $jobrequest->subcategory->id == 36 || $jobrequest->subcategory->id == 45 || $jobrequest->subcategory->id == 66 || $jobrequest->subcategory->id == 68)
+                    @elseif($jobrequest->subcategory->id == 13 || $jobrequest->subcategory->id == 18 || $jobrequest->subcategory->id == 28 || $jobrequest->subcategory->id == 36 || $jobrequest->subcategory->id == 45 || $jobrequest->subcategory->id == 66 || $jobrequest->subcategory->id == 68 || $jobrequest->subcategory->id == 69)
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
@@ -1505,7 +1505,7 @@
                                 </div>
                             </div>
                         </div>
-                    @elseif($jobrequest->subcategory->id == 67)
+                    @elseif($jobrequest->subcategory->id == 69)
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
@@ -1528,7 +1528,7 @@
                                 </div>
                             </div>
                         </div>
-                    @elseif($jobrequest->subcategory->id == 69)
+                    @elseif($jobrequest->subcategory->id == 70)
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
@@ -1541,7 +1541,7 @@
                                 </div>
                             </div>
                         </div>
-                    @elseif($jobrequest->subcategory->id == 70)
+                    @elseif($jobrequest->subcategory->id == 71)
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
@@ -1554,7 +1554,7 @@
                                 </div>
                             </div>
                         </div>
-                    @elseif($jobrequest->subcategory->id == 71)
+                    @elseif($jobrequest->subcategory->id == 72)
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
