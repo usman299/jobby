@@ -50,8 +50,8 @@
                                 </button>-->
             </div>
             <div class="link_privacy">
-                <a href="#" class="btn">Politique de confidentialité</a>
-                <a href="#" class="btn">Conditions d'utilisation</a>
+                <a href="{{route('front.privacy')}}" class="btn">Politique de confidentialité</a>
+                <a href="{{route('front.terms')}}" class="btn">Conditions d'utilisation</a>
             </div>
         </div>
     </section>

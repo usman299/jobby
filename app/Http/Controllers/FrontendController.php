@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AppSetting;
 use App\ChildCategory;
+use App\Condition;
 use App\Countory;
 use App\JobRequest;
 use App\Notfication;
@@ -81,11 +82,13 @@ class FrontendController extends Controller
     }
     public function privacy(){
         $title = 'Politique de confidentialité';
-        return view('front.privacy', compact('title'));
+        $condition = Condition::first();
+        return view('front.privacy', compact('title','condition'));
     }
     public function terms(){
         $title = 'Termes et conditions';
-        return view('front.terms', compact('title'));
+        $condition = Condition::first();
+        return view('front.terms', compact('title','condition'));
     }
 
 }

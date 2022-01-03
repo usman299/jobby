@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\About;
 use App\Category;
+use App\Condition;
 use App\Contact;
 use App\Contract;
 use App\Countory;
@@ -16,6 +17,7 @@ use App\Portfolio;
 use App\QuestionAnswer;
 use App\SubCategory;
 use App\User;
+use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -67,23 +69,45 @@ class SettingsController extends Controller
         $user = Auth::user();
         return view('front.settings.contact', compact('user','title'));
     }
-    public function contactStore(Request $request){
+    public function condition(){
+        dd('hi');
+       $condition = Condition::first();
+        return view('front.setting.condtion.create', compact('condition'));
+    }
+    public function conditionStore(Request $request){
+        dd($request);
         $user = Auth::user();
         $contact = new Contact();
-
+        if($user->role == 1){
+            $role = 'Demandeur';
+        }
+        else{
+            $role = 'Jobber';
+         }
         $contact->user_id =  $user->id;
         $contact->role = $user->role;
         $contact->name = $request->name;
         $contact->email =$request->email;
         $contact->subject =$request->subject;
         $contact->message =$request->message;
-        $contact->save();
 
-        $notification = array(
-            'messege' => 'Sauvegarde réussie!',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+        if($contact->save()) {
+            $dataa = array(
+                'name' => $request->name,
+                'email' => $request->email,
+                'role' => $role,
+                'subject' => $request->subject,
+                'message' => $request->message,
+            );
+
+            Mail::to('mughalusman5554@gmail.com')->send(new Contact($dataa));
+
+            $notification = array(
+                'messege' => 'Sauvegarde réussie!',
+                'alert-type' => 'success'
+            );
+            return redirect()->back()->with($notification);
+        }
     }
     public function profileUpdate(Request $request){
         $user = Auth::user();

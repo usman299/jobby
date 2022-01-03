@@ -18,8 +18,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <p>﻿Mister Jobby permet de mettre en relation des clients demandeurs de services, avec des personnes disponibles, compétentes et équipées pour les réaliser. La possibilité de mettre en concurrence les jobbeurs assure un service compétent en termes de prix et de délai. Mister Jobby est un phénomène qui répond ainsi à une vraie demande tant de la part des clients en termes de bricolage, de jardinage, d'électricité, de plomberie ou encore de déménagement, qu’aux particuliers et professionnels en quête de revenus complémentaires.
-            </p>
+            <p>{!! $condition->description1 !!}﻿</p>
         </div>
     </div>
 </div>

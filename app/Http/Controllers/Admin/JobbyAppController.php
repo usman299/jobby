@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Condition;
+use App\Contact;
 use App\Countory;
 use App\JobRequest;
 use App\Payment;
@@ -97,6 +99,20 @@ class JobbyAppController extends Controller
         $payment = Payment::all();
 
         return view('admin.paymant.index',compact('payment'));
+    }
+    public function condition(){
+
+        $condition = Condition::first();
+        return view('admin.setting.condtion.create', compact('condition'));
+    }
+    public function conditionStore(Request $request){
+
+        $condition = Condition::first();
+        $condition->description1 = $request->description1;
+        $condition->description2 = $request->description2;
+        $condition->update();
+        toastr()->success('Update Successfuly!');
+        return redirect()->back();
     }
 
 }

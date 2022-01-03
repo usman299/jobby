@@ -86,6 +86,10 @@ class AppSettingSeeder extends Seeder
             'question' => "What can I do with this template?",
             'answer' => "You can make mobile websites or progressive web apps for mobile devices.",
         ]);
+        Condition::create([
+            'description1' => "﻿Mister Jobby permet de mettre en relation des clients demandeurs de services, avec des personnes disponibles, compétentes et équipées pour les réaliser. La possibilité de mettre en concurrence les jobbeurs assure un service compétent en termes de prix et de délai. Mister Jobby est un phénomène qui répond ainsi à une vraie demande tant de la part des clients en termes de bricolage, de jardinage, d'électricité, de plomberie ou encore de déménagement, qu’aux particuliers et professionnels en quête de revenus complémentaires.",
+            'description2' => "﻿Mister Jobby permet de mettre en relation des clients demandeurs de services, avec des personnes disponibles, compétentes et équipées pour les réaliser. La possibilité de mettre en concurrence les jobbeurs assure un service compétent en termes de prix et de délai. Mister Jobby est un phénomène qui répond ainsi à une vraie demande tant de la part des clients en termes de bricolage, de jardinage, d'électricité, de plomberie ou encore de déménagement, qu’aux particuliers et professionnels en quête de revenus complémentaires.",
+        ]);
 
 
 

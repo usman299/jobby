@@ -245,6 +245,9 @@ Route::get('/jobber/contact', 'Admin\AppSettingController@jobberContact')->name(
 
     Route::get('/paymant/details', 'Admin\JobbyAppController@paymantDetials')->name('paymant.details');
 
+    Route::get('/app/condition', 'Admin\JobbyAppController@condition')->name('app.condition');
+    Route::post('/app/condition/store', 'Admin\JobbyAppController@conditionStore')->name('app.condition.store');
+
 
 
 

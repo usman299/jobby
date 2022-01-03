@@ -88,6 +88,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('question.index')}}"><!-- question -->Question Réponse</a></li>
                             <li><a href="{{route('about.create')}}"><!--  about --> À propos de nous</a></li>
+                            <li><a href="{{route('app.condition')}}"><!--  about --> Condition</a></li>
 
 
                         </ul></li>
