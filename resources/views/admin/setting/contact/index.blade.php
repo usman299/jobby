@@ -36,6 +36,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($contact as $row)
+
                                     <tr>
 
                                         <td >{{$row->id}}</td>

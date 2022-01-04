@@ -407,11 +407,11 @@ class AppSettingController extends Controller
     }
 
     public function demandeurContact()
-    {    $contact = Contact::where('role','=',2)->get();
+    {    $contact = Contact::all();
         return view('admin.setting.contact.index',compact('contact'));
     }
     public function jobberContact()
-    {    $contact = Contact::where('role','=',1)->get();
+    {    $contact = Contact::all();
         return view('admin.setting.contact.index',compact('contact'));
     }
     public function contactDetials($id)

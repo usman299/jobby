@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\About;
 use App\Category;
 use App\Condition;
+use App\Mail\AllContact;
 use App\Contact;
 use App\Contract;
 use App\Countory;
@@ -69,13 +70,9 @@ class SettingsController extends Controller
         $user = Auth::user();
         return view('front.settings.contact', compact('user','title'));
     }
-    public function condition(){
-        dd('hi');
-       $condition = Condition::first();
-        return view('front.setting.condtion.create', compact('condition'));
-    }
-    public function conditionStore(Request $request){
-        dd($request);
+
+    public function contactStore(Request $request){
+
         $user = Auth::user();
         $contact = new Contact();
         if($user->role == 1){
@@ -93,15 +90,14 @@ class SettingsController extends Controller
 
         if($contact->save()) {
             $dataa = array(
-                'name' => $request->name,
+                'firstName' => $user->firstName,
+                'lastName' => $user->lastName,
                 'email' => $request->email,
                 'role' => $role,
                 'subject' => $request->subject,
                 'message' => $request->message,
             );
-
-            Mail::to('mughalusman5554@gmail.com')->send(new Contact($dataa));
-
+            Mail::to('mughalusman5554@gmail.com')->send(new  AllContact($dataa));
             $notification = array(
                 'messege' => 'Sauvegarde réussie!',
                 'alert-type' => 'success'

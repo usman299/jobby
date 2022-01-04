@@ -28,13 +28,13 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label"><!-- Title --><strong>Politique de Confidentialité</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
                                         <div class="col-sm-12" style="margin-top: 20px">
-                                            <textarea class="summernote" name="description1"   >{{$condition->description1}}</textarea>
+                                            <textarea class="summernote" name="description1" >{{$condition->description1 ?? ''}}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label"><!-- Title --><strong>Termes et Conditions</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
                                         <div class="col-sm-12" style="margin-top: 20px">
-                                            <textarea class="summernote" name="description2"   >{{$condition->description2}}</textarea>
+                                            <textarea class="summernote" name="description2"   >{{$condition->description2 ?? ''}}</textarea>
                                         </div>
                                     </div>
 

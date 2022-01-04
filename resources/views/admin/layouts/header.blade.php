@@ -90,78 +90,40 @@
 									</svg>
 									<div class="pulse-css"></div>
                                 </a>
+                                <?php $contacts = \App\Contact::latest()->take(6)->get();  ?>
+
+
                                 <div class="dropdown-menu rounded dropdown-menu-right">
                                     <div id="DZ_W_Notification1" class="widget-media dz-scroll p-3 height380">
 										<ul class="timeline">
 											<li>
+                                                @if(!$contacts ->isempty())
+                                                @foreach($contacts as $row)
+
 												<div class="timeline-panel">
 													<div class="media mr-2">
-														<img alt="image" width="50" src="{{asset('admin/images/avatar/1.jpg')}}">
+														<img alt="image" width="50" src="{{asset($row->user->image)}}">
 													</div>
+
 													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
+														<a href="{{route('contact.details', ['id' => $row->id])}}"><h5 class="mb-1">{{$row->user->firstName}} {{$row->user->firstName}}</h5>
+                                                        <small class="d-block"><strong>{{Str::limit($row->subject, 22)}}</strong></small>
+														<small class="d-block">{{Str::limit($row->message, 22)}}</small>
+                                                        </a>
 													</div>
 												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-info">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1"><!-- Resport created successfully --> Rapport créé avec succès</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-success">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											 <li>
-												<div class="timeline-panel">
-													<div class="media mr-2">
-														<img alt="image" width="50" src="{{asset('admin/images/avatar/1.jpg')}}">
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Dr sultads Send you Photo</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-danger">
-														KG
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Resport created successfully</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
-											</li>
-											<li>
-												<div class="timeline-panel">
-													<div class="media mr-2 media-primary">
-														<i class="fa fa-home"></i>
-													</div>
-													<div class="media-body">
-														<h6 class="mb-1">Reminder : Treatment Time!</h6>
-														<small class="d-block">29 July 2020 - 02:26 PM</small>
-													</div>
-												</div>
+                                                @endforeach
+
 											</li>
 										</ul>
 									</div>
-                                    <a class="all-notification" href="javascript:void(0)">See all notifications <i class="ti-arrow-right"></i></a>
+
+                                    @if($contacts->count()>=5)
+                                    <a class="all-notification" href="{{route('demandeur.contact')}}">Voir toutes les notifications <i class="ti-arrow-right"></i></a>
+                                    @endif
+                                    @else
+                                        <h4 style="text-align: center; margin-top: 150px;">Non disponible Notification</h4>
+                                    @endif
                                 </div>
                             </li>
 							<!-- <li class="nav-item dropdown notification_dropdown">

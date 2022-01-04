@@ -1,6 +1,7 @@
 <?php
 
 use App\About;
+use App\Condition;
 use App\QuestionAnswer;
 use Illuminate\Database\Seeder;
 use App\AppSetting;

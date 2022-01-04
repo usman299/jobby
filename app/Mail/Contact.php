@@ -3,20 +3,21 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class Contact extends Mailable
 {
     use Queueable, SerializesModels;
+    public $dataa;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public $dataa;
+
     public function __construct($dataa)
     {
         $this->dataa =$dataa;

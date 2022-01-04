@@ -103,6 +103,7 @@ class JobbyAppController extends Controller
     public function condition(){
 
         $condition = Condition::first();
+
         return view('admin.setting.condtion.create', compact('condition'));
     }
     public function conditionStore(Request $request){

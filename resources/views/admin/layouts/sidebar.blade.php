@@ -92,16 +92,22 @@
 
 
                         </ul></li>
-                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <li><a href="{{route('demandeur.contact')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
-                            <span class="nav-text"><!-- Users --> Contact</span>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">Détails du contact </span>
                         </a>
-                        <ul aria-expanded="false">
-                            <li><a href="{{route('demandeur.contact')}}"><!-- question -->Demandeur Contact</a></li>
-                            <li><a href="{{route('jobber.contact')}}"><!--  about --> Jobber Contact</a></li>
+                    </li>
+{{--                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">--}}
+{{--                            <i class="flaticon-381-television"></i>--}}
+{{--                            <span class="nav-text"><!-- Users --> Contact</span>--}}
+{{--                        </a>--}}
+{{--                        <ul aria-expanded="false">--}}
+{{--                            <li><a href="{{route('demandeur.contact')}}"><!-- question -->Demandeur Contact</a></li>--}}
+{{--                            <li><a href="{{route('jobber.contact')}}"><!--  about --> Jobber Contact</a></li>--}}
 
 
-                        </ul></li>
+{{--                        </ul></li>--}}
 
 {{--                    <li><a href="{{route('admin.questions')}}" class="ai-icon" aria-expanded="false">--}}
 {{--                            <i class="flaticon-381-add"></i>--}}
