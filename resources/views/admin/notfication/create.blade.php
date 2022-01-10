@@ -39,7 +39,7 @@
                                         <label class="col-sm-3 col-form-label"><!-- category -->Utilisateur <strong style="color: red;font-size: 20px;"> *</strong></label>
                                         <div class="col-sm-6 " >
 {{--                                            multiple="" default-select--}}
-                                            <select multiple  class="form-control default-select select2" name="user_id[]" id="rolee" >
+                                            <select   class="form-control  select2" name="user_id[]" id="rolee" >
 
                                             </select>
                                         </div>
