@@ -434,11 +434,11 @@ class AppSettingController extends Controller
     {
         if ($request->user_id[0] == "send_to_all"){
             $firebaseToken = User::Where('role','=',$request->user_role)->whereNotNull('device_token')->pluck('device_token')->all();
-            dd($firebaseToken);
+
         }
         else{
             $firebaseToken = User::Where('role','=',$request->user_role)->whereIn('id', $request->user_id)->whereNotNull('device_token')->pluck('device_token')->all();
-              dd($firebaseToken);
+
         }
         $activity = "Notification";
 
