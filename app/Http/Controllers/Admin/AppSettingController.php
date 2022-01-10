@@ -438,7 +438,6 @@ class AppSettingController extends Controller
         }
         else{
             $firebaseToken = User::Where('role','=',$request->user_role)->whereIn('id', $request->user_id)->whereNotNull('device_token')->pluck('device_token')->all();
-
         }
         $activity = "Notification";
 
