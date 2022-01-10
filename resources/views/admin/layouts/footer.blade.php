@@ -17,7 +17,6 @@
     ***********************************-->
 
 
-
     <!-- Required vendors -->
     <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
 

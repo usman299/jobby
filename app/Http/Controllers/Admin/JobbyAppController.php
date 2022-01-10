@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\ChMessage;
 use App\Condition;
 use App\Contact;
 use App\Countory;
@@ -59,7 +60,9 @@ class JobbyAppController extends Controller
     public function contractShow($id)
     {
         $contract = Contract::where('id','=',$id)->first();
-        return view('admin.contract.show',compact('contract'));
+        $applicantMessages = ChMessage::where('from_id','=',$contract->applicant_id)->where('to_id','=',$contract->jober_id)->get();
+        $jobberMessages = ChMessage::where('from_id','=',$contract->jober_id)->where('to_id','=',$contract->applicant_id)->get();
+        return view('admin.contract.show',compact('contract','applicantMessages','jobberMessages'));
     }
 
     public function adminContractStatus($id,$status)

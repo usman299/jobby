@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Admin;
 use App\AppSetting;
 use App\Contact;
+use App\Http\NotificationHelper;
 use App\SliderGalery;
 use App\Countory;
 use App\QuestionAnswer;
 use App\About;
+use App\User;
 use Intervention\Image\Facades\Image;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -417,5 +419,31 @@ class AppSettingController extends Controller
     public function contactDetials($id)
     {    $contact = Contact::where('id','=',$id)->first();
         return view('admin.setting.contact.show',compact('contact'));
+    }
+    public function createNotfication()
+    {
+        return view('admin.notfication.create');
+    }
+    public function fetchdata($id){
+
+        $user = User::where('role','=',$id)->get();
+
+        return response()->json($user);
+    }
+    public function sendNotfication(Request $request)
+    {
+        if ($request->user_id[0] == "send_to_all"){
+            $firebaseToken = User::Where('role','=',$request->user_role)->whereNotNull('device_token')->pluck('device_token')->all();
+        }
+        else{
+            $firebaseToken = User::Where('role','=',$request->user_role)->whereIn('id', $request->user_id)->whereNotNull('device_token')->pluck('device_token')->all();
+
+        }
+        $activity = "Notification";
+
+        NotificationHelper::pushNotification($request->notification, $firebaseToken, $activity);
+        toastr()->success('Notfication Send');
+        return back();
+
     }
 }

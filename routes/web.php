@@ -22,6 +22,7 @@ Route::get('/save-token/{token}',function ($token){
     Auth::user()->update(['device_token'=>$token]);
     return redirect('app');
 });
+Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
 
 Route::get('/', 'FrontendController@index');
@@ -135,6 +136,9 @@ Route::post('/admin/profile/update/{id}', 'Admin\UsersController@adminProfileUpd
     Route::post('/admin/password/update{id}', 'Admin\UsersController@adminPasswordUpdate')->name('admin.password.update');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/admin/notfication', 'Admin\AppSettingController@createNotfication')->name('admin.notfication');
+    Route::post('/admin/notfication/send', 'Admin\AppSettingController@sendNotfication')->name('admin.notfication.send');
 
 
 
