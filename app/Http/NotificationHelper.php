@@ -7,6 +7,7 @@ use App\Notfication;
 class NotificationHelper{
 
     public static function pushNotification($msg, $fcm_token, $activity){
+        dd($msg,$fcm_token,$activity);
         $url = 'https://fcm.googleapis.com/fcm/send';
         $fields = array (
             'registration_ids' => array (
