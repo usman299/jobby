@@ -144,7 +144,7 @@ class JobberController extends Controller
             $msg = "Vous avez une nouvelle proposition sur votre demande d'emploi";
 
             NotificationHelper::pushNotification($msg, $proposal->jobrequest->applicant->device_token, $activity);
-            dd($msg,$proposal->jobrequest->applicant->device_token);
+
             NotificationHelper::addtoNitification($user->id, $proposal->jobrequest->applicant->id, $msg, $proposal->id, $activity, $user->country);
 
 
