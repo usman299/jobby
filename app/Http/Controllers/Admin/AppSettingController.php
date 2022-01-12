@@ -11,6 +11,7 @@ use App\About;
 use App\User;
 use Intervention\Image\Facades\Image;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -435,11 +436,22 @@ class AppSettingController extends Controller
         if ($request->user_id[0] == "send_to_all"){
             $firebaseToken = User::Where('role','=',$request->user_role)->whereNotNull('device_token')->pluck('device_token')->all();
 
-        }
-        else{
-            $firebaseToken = User::Where('role','=',$request->user_role)->whereIn('id', $request->user_id)->whereNotNull('device_token')->pluck('device_token')->all();
-        }
+            $users = User::where('role', '=', $request->user_role)->get();
 
+            foreach ($users as $user){
+                NotificationHelper::addtoNitification(Auth::user()->id, $user->id, $request->notification, 0, 'Message de l\'administrateur', $user->country);
+            }
+        }
+        else {
+            $firebaseToken = User::Where('role', '=', $request->user_role)->whereIn('id', $request->user_id)->whereNotNull('device_token')->pluck('device_token')->all();
+            foreach ($request->user_id as $user) {
+                $country = User::where('id', '=', $user)->first();
+
+                NotificationHelper::addtoNitification(Auth::user()->id, $user, $request->notification, 0, 'Message de l\'administrateur', $country->country);
+
+            }
+
+        }
 
         $SERVER_API_KEY = "AAAAY_MYego:APA91bHuBjDm8fcxm2sPpl3hq_aFRWvd6wOzK8JkJgxorMR0n3WnjlNjGptPlURrSdmuWtxcskabFSgKRmqYXXe-GCT1ZVkfhc8NYBnpNY-flbAyOZo0roiOQZU5LXQEGoZNIn2uHpHk";
 
