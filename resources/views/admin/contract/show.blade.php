@@ -128,7 +128,10 @@
                                             <div class="pt-4 border-bottom-1 pb-3">
 
                                                 <div class="card-body msg_card_body dz-scroll ps" id="DZ_W_Contacts_Body3">
-                                                    @foreach($applicantMessages as $row)
+
+                                                    @foreach($messages as $row)
+
+                                                        @if($row->user->role==2 )
                                                     <div class="d-flex justify-content-start mb-4">
                                                         <div class="">
                                                             <img src="{{asset($row->user->image ?? '')}}" style="width: 50px; height: 50px;border-radius: 50% !important;"  class="" alt="">
@@ -144,8 +147,8 @@
 
                                                         </div>
                                                     </div>
-                                                    @endforeach
-                                                    @foreach($jobberMessages as $row)
+                                                        @else
+
                                                     <div class="d-flex justify-content-end mb-4">
 
                                                         <div class="msg_cotainer_send"  style="float:left;">
@@ -161,6 +164,7 @@
                                                             <img src="{{asset($row->user->image ?? '')}}" style="width: 50px; height: 50px;border-radius: 50% !important;"class="rounded-circle user_img_msg" alt="">
                                                         </div>
                                                     </div>
+                                                        @endif
                                                     @endforeach
 
                                                     <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
