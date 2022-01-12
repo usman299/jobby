@@ -39,7 +39,7 @@
                                         <label class="col-sm-3 col-form-label"><!-- category -->Utilisateur <strong style="color: red;font-size: 20px;"> *</strong></label>
                                         <div class="col-sm-6 " >
 {{--                                            multiple="" default-select--}}
-                                            <select   class="form-control  select2" name="user_id[]" id="rolee" >
+                    <select   class="form-control  select2" name="user_id[]" id="rolee" >
 
                                             </select>
                                         </div>
@@ -70,6 +70,15 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script>
+            $('#rolee').multiselect({
+
+                includeSelectAllOption:true,
+                nonSelectedText:'Select Option',
+                enableFiltering: true,
+                buttonWidth: '500px',
+            });
+        </script>
+        <script>
 
             $('#user_role').change(function() {
 
@@ -85,6 +94,9 @@
                         $.each(response, function(i, item) {
                              console.log(item);
                             $('#rolee').append('<option value="'+item.id+'">'+item.firstName+'  '+item.lastName+'</option>');
+                            $('#rolee').multiselect('rebuild');
+                            $('#rolee').multiselect('refresh');
+
                         });
 
                     },
@@ -95,6 +107,7 @@
 
             });
         </script>
+
 
         @jquery
         @toastr_js
