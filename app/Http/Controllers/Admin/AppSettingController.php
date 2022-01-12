@@ -468,7 +468,7 @@ class AppSettingController extends Controller
 
         $response = curl_exec($ch);
 
-        toastr()->success('Notfication Send');
+        toastr()->success('Envoyé avec succès à tous');
         return back();
 
     }
