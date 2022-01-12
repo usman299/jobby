@@ -84,7 +84,7 @@
 
                 $('#rolee').html('<option value="send_to_all">Tout sélectionner</option>');
                 var id = $(this).val();
-                // alert(id);
+                 // alert(id);
                 $.ajax({
                     method:"GET",
                     url: "{{url('/fetch/data')}}/"+id,
