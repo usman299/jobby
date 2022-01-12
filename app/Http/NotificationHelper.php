@@ -20,7 +20,7 @@ class NotificationHelper{
         );
 
         $fields = json_encode($fields);
-        dd($msg,$fcm_token,$activity,$fields);
+
         $headers = array (
             'Authorization: key=' . "AAAAY_MYego:APA91bHuBjDm8fcxm2sPpl3hq_aFRWvd6wOzK8JkJgxorMR0n3WnjlNjGptPlURrSdmuWtxcskabFSgKRmqYXXe-GCT1ZVkfhc8NYBnpNY-flbAyOZo0roiOQZU5LXQEGoZNIn2uHpHk",
             'Content-Type: application/json'
