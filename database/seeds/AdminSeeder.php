@@ -1,5 +1,6 @@
 <?php
 
+use App\UserMail;
 use Illuminate\Database\Seeder;
 use App\User;
 
@@ -57,6 +58,14 @@ class AdminSeeder extends Seeder
             'equipement2' => 'test2',
             'eng1' => 'test1',
             'eng2' => 'test2',
+        ]);
+
+        UserMail::create([
+            'title' => 'Bienvenue sur Mister Jobby',
+            'url' => 'www.google.com',
+            'description1' => 'le bon jobbeur, pour le bon service au bon prix',
+            'description2' => 'Lorem Ipsum est simplement un texte factice de l\'impression industrie de la composition. Lorem Ipsum a été le texte standard de l\'industrie depuis que quand une empreinte inconnue',
+
         ]);
 
 

@@ -9,6 +9,7 @@ use App\Mail\AllContact;
 use App\Providers\RouteServiceProvider;
 use App\Questions;
 use App\User;
+use App\UserMail;
 use Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -112,10 +113,14 @@ class RegisterController extends Controller
         ]);
 
         $data['jobber_id'] = $user->id;
-
+         $setting = UserMail::first();
         $dataa = array(
             'firstName' => $data['fname'],
             'lastName' => $data['lname'],
+            'title'    => $setting->title,
+            'url'    => $setting->title,
+            'description1'    => $setting->description1,
+            'description2'    => $setting->description2,
 
         );
         JobberProfile::create($data);

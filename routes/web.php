@@ -22,6 +22,9 @@ Route::get('/save-token/{token}',function ($token){
     Auth::user()->update(['device_token'=>$token]);
     return redirect('app');
 });
+Route::get('/test',function (){
+    return view('front.mail.register');
+});
 Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
 
@@ -251,6 +254,8 @@ Route::get('/jobber/contact', 'Admin\AppSettingController@jobberContact')->name(
 
     Route::get('/app/condition', 'Admin\JobbyAppController@condition')->name('app.condition');
     Route::post('/app/condition/store', 'Admin\JobbyAppController@conditionStore')->name('app.condition.store');
+    Route::get('/app/mail/register', 'Admin\JobbyAppController@mailRegisterCreate')->name('app.mail.register');
+    Route::post('/app/mail/store', 'Admin\JobbyAppController@mailRegisterStore')->name('app.mail.store');
 
 
 

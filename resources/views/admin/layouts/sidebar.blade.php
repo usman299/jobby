@@ -98,6 +98,12 @@
                             <span class="nav-text">Notfication </span>
                         </a>
                     </li>
+                    <li><a href="{{route('app.mail.register')}}" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
+                            <!-- APP SETTING -->
+                            <span class="nav-text">Poster </span>
+                        </a>
+                    </li>
                     <li><a href="{{route('demandeur.contact')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
                             <!-- APP SETTING -->

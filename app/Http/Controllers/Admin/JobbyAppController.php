@@ -11,6 +11,7 @@ use App\Payment;
 use App\Proposal;
 use App\Contract;
 use App\Http\Controllers\Controller;
+use App\UserMail;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 
@@ -116,6 +117,23 @@ class JobbyAppController extends Controller
         $condition->description1 = $request->description1;
         $condition->description2 = $request->description2;
         $condition->update();
+        toastr()->success('Update Successfuly!');
+        return redirect()->back();
+    }
+    public function mailRegisterCreate(){
+
+        $usermail = UserMail::first();
+
+        return view('admin.setting.mail.userregister', compact('usermail'));
+    }
+    public function mailRegisterStore(Request $request){
+
+        $usermail = UserMail::first();
+        $usermail->title = $request->title;
+        $usermail->url = $request->url;
+        $usermail->description1 = $request->description1;
+        $usermail->description2 = $request->description2;
+        $usermail->update();
         toastr()->success('Update Successfuly!');
         return redirect()->back();
     }
