@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\JobberProfile;
+use App\Mail\UserRegister;
+use App\Mail\AllContact;
 use App\Providers\RouteServiceProvider;
 use App\Questions;
 use App\User;
+use Mail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -109,8 +113,13 @@ class RegisterController extends Controller
 
         $data['jobber_id'] = $user->id;
 
+        $dataa = array(
+            'firstName' => $data['fname'],
+            'lastName' => $data['lname'],
 
+        );
         JobberProfile::create($data);
+        Mail::to($data['email'])->send(new  UserRegister($dataa));
 
         return $user;
     }
