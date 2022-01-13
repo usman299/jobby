@@ -50,15 +50,16 @@
                         <div class="item em_item_product item_list">
                             <div class="title_product">
                                 <div class="itemRating">
-                                    <span class="number">{{$job->totalProposals()}}</span>
+                                    <span class="number">{{$jobClose->totalProposals()}}</span>
                                     <span class="users">Propositions</span>
                                 </div>
                                 <a href="{{route('applicant.jobrequest.detail', ['id' => $jobClose->id])}}">
                                     <h4 class="item_price" style="margin-bottom: 5px">{{$jobClose->title}}</h4>
-                                    <h3>{{$jobClose->description}}</h3>
+                                    <h3>{{$jobClose->detail_description}}</h3>
                                     <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$jobClose->category->title}}</span> /
                                     <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$jobClose->subcategory->title}}</span>
-                                    <p class="item_price">{{$jobClose->min_price}} € - {{$jobClose->max_price}} €</p>
+                                    <p class="item_price">{{$jobClose->estimate_budget}} €</p>
+                                    <p style="color: black">{{$jobClose->service_date->format('d-m-y')}} ({{$jobClose->duration}} heures) </p>
                                 </a>
 
                                 <a href="{{route('applicant.jobrequest.detail', ['id' => $jobClose->id])}}">
