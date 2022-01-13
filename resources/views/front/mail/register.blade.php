@@ -546,18 +546,10 @@
                                                                                 <table align="left" border="0" cellpadding="0" cellspacing="0" class="table1" width="140">
                                                                                     <!-- End Image -->
                                                                                     <tr>
-                                                                                        <td align="center" valign="middle" ><a href="#"><button style="background-color: #1fa0b6; /* Green */
-            border: none;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 1px;
-            cursor: pointer;
-            border-radius: 8px;" >Mister Jobby</button> </a></td>
-                                                                                    </tr>
+                                                                                        <td align="center" valign="middle" ><a href="{{route($dataa['url'])}}"><button style="background-color: #1fa0b6;border: none;color: white;padding: 20px; text-align: center;text-decoration: none; display: inline-block;font-size: 14px;margin: 2px 1px; cursor: pointer;border-radius: 8px;"  >Mister Jobby</button> </a></td>
+
+
+                                                                            </tr>
                                                                                     <!-- End Image -->
                                                                                 </table>
                                                                             </td>
