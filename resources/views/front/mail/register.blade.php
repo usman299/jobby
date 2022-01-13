@@ -86,6 +86,20 @@
 
 
         /*Responsive*/@media only screen and (max-width: 680px) {
+            button[class="button"] {
+                background-color: #1fa0b6; /* Green */
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                margin: 2px 1px;
+                cursor: pointer;
+                border-radius: 8px;
+            }
+
             body {
                 width: auto ! important;
             }
@@ -218,7 +232,7 @@
         }
 
 
-        button {
+        button[class="button"] {
             background-color: #1fa0b6; /* Green */
             border: none;
             color: white;
@@ -405,7 +419,7 @@
                                                                                 <table align="left" border="0" cellpadding="0" cellspacing="0" class="table1" width="140">
                                                                                     <!-- End Image -->
                                                                                     <tr>
-                                                                                        <td align="center" valign="middle" ><a href="#"><button >Mister Jobby</button> </a></td>
+                                                                                        <td align="center" valign="middle" ><a href="#"><button class="button" >Mister Jobby</button> </a></td>
                                                                                     </tr>
                                                                                     <!-- End Image -->
                                                                                 </table>
