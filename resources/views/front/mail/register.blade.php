@@ -230,6 +230,133 @@
 
 
         }
+        @media only screen and (max-width: 479px) {
+            body {
+                width: auto ! important;
+            }
+
+            table[class="table680"] {
+                width: 300px ! important;
+            }
+
+            table[class="td_width"] {
+                width:300px !important;
+            }
+
+            table[class="table-inner"] {
+                width: 82% ! important;
+                text-align: center ! important;
+            }
+
+
+
+            table[class="table1"] {
+                width: 100% ! important;
+                text-align: center ! important;
+            }
+
+
+            table[class="table2"] {
+                width: 100% ! important;
+                text-align: center ! important;
+                margin-bottom:35px ! important;
+            }
+
+            table[class="table3"] {
+                width: 100% ! important;
+                text-align: center ! important;
+                margin-bottom:30px ! important;
+            }
+
+            table[class="table4"] {
+                width: 100% ! important;
+                text-align: center ! important;
+                margin-top:25px ! important;
+            }
+
+
+            table[class="table5"] {
+                width: 80% ! important;
+                text-align: center ! important;
+            }
+
+
+            table[class="table6"] {
+                width: 75% ! important;
+                text-align: center ! important;
+            }
+
+
+            table[class="table7"] {
+                width: 90% ! important;
+                text-align: center ! important;
+            }
+
+
+            table[class="table_s"] {
+                width: 80% ! important;
+                text-align: center ! important;
+            }
+
+
+            td[class="td_600"] {
+                width:100% !important;
+                text-align:center ! important;
+                display:block !important;margin:auto ;
+                border:none ! important;
+                padding:0px;
+            }
+
+
+            td[class="text-center"] {
+                text-align:center ! important;
+            }
+
+            td[class="padding_hide"] {
+                padding:0px ! important;
+            }
+
+            td[class="padding-top"] {
+                padding-top:15px ! important;
+                text-align:center ! important;
+            }
+
+
+
+
+            td[class="td_hide"] {
+                width: 0% !important;
+                height: 0px ! important;
+                display:none ! important;
+            }
+
+            /* image */
+
+            img[class="img"] {
+                width: 246px ! important;
+                height: 260px ! important;
+            }
+
+
+
+            img[class="img1"] {
+                width: 200px ! important;
+                height: 170px ! important;
+            }
+
+
+            img[class="img2"] {
+                width: 201px ! important;
+                height: 175px ! important;
+            }
+
+            img[class="img3"] {
+                width: 200px ! important;
+                height: 130px ! important;
+            }
+
+
+        }
 
 
         button[class="button"] {
