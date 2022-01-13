@@ -218,7 +218,7 @@
         }
 
 
-        .button {
+        button {
             background-color: #1fa0b6; /* Green */
             border: none;
             color: white;
@@ -229,8 +229,9 @@
             font-size: 14px;
             margin: 2px 1px;
             cursor: pointer;
+            border-radius: 8px;
         }
-        .button4 {border-radius: 8px;}
+
 
     </style>
 </head>
@@ -404,7 +405,7 @@
                                                                                 <table align="left" border="0" cellpadding="0" cellspacing="0" class="table1" width="140">
                                                                                     <!-- End Image -->
                                                                                     <tr>
-                                                                                        <td align="center" valign="middle" ><a href="#"><button  class="button button4">Mister Jobby</button> </a></td>
+                                                                                        <td align="center" valign="middle" ><a href="#"><button >Mister Jobby</button> </a></td>
                                                                                     </tr>
                                                                                     <!-- End Image -->
                                                                                 </table>
