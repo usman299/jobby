@@ -236,15 +236,15 @@
             }
 
             table[class="table680"] {
-                width: 300px ! important;
+                width: 100% ! important;
             }
 
             table[class="td_width"] {
-                width:300px !important;
+                width:100% !important;
             }
 
             table[class="table-inner"] {
-                width: 82% ! important;
+                width: 100%  ! important;
                 text-align: center ! important;
             }
 
@@ -276,25 +276,25 @@
 
 
             table[class="table5"] {
-                width: 80% ! important;
+                width: 100%  ! important;
                 text-align: center ! important;
             }
 
 
             table[class="table6"] {
-                width: 75% ! important;
+                width: 100%  ! important;
                 text-align: center ! important;
             }
 
 
             table[class="table7"] {
-                width: 90% ! important;
+                width: 100%  ! important;
                 text-align: center ! important;
             }
 
 
             table[class="table_s"] {
-                width: 80% ! important;
+                width:100%  ! important;
                 text-align: center ! important;
             }
 
