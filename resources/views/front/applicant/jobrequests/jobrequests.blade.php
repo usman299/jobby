@@ -50,7 +50,7 @@
                         <div class="item em_item_product item_list">
                             <div class="title_product">
                                 <div class="itemRating">
-                                    <span class="number">{{$job->totalProposals()}}</span>
+                                    <span class="number">{{$jobClose->totalProposals()}}</span>
                                     <span class="users">Propositions</span>
                                 </div>
                                 <a href="{{route('applicant.jobrequest.detail', ['id' => $jobClose->id])}}">
