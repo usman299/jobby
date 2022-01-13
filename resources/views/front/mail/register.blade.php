@@ -359,19 +359,19 @@
         }
 
 
-        button[class="button"] {
-            background-color: #1fa0b6; /* Green */
-            border: none;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            margin: 2px 1px;
-            cursor: pointer;
-            border-radius: 8px;
-        }
+        /*button[class="button"] {*/
+        /*    background-color: #1fa0b6; !* Green *!*/
+        /*    border: none;*/
+        /*    color: white;*/
+        /*    padding: 20px;*/
+        /*    text-align: center;*/
+        /*    text-decoration: none;*/
+        /*    display: inline-block;*/
+        /*    font-size: 14px;*/
+        /*    margin: 2px 1px;*/
+        /*    cursor: pointer;*/
+        /*    border-radius: 8px;*/
+        /*}*/
 
 
     </style>
@@ -546,7 +546,17 @@
                                                                                 <table align="left" border="0" cellpadding="0" cellspacing="0" class="table1" width="140">
                                                                                     <!-- End Image -->
                                                                                     <tr>
-                                                                                        <td align="center" valign="middle" ><a href="#"><button class="button" >Mister Jobby</button> </a></td>
+                                                                                        <td align="center" valign="middle" ><a href="#"><button style="background-color: #1fa0b6; /* Green */
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 2px 1px;
+            cursor: pointer;
+            border-radius: 8px;" >Mister Jobby</button> </a></td>
                                                                                     </tr>
                                                                                     <!-- End Image -->
                                                                                 </table>
@@ -606,14 +616,14 @@
 
 
                                             <td class="td_600" valign="top">
-                                                <table align="center" border="0" cellpadding="0" cellspacing="0" class="table1" width="173">
+                                                <table align="center" border="0" cellpadding="0" cellspacing="0" class="table1" width="640">
 
                                                     <tr>
                                                         <td>
-                                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="150" class="table4">
+                                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="540" class="table4">
                                                                 <tr>
                                                                     <td style="padding-bottom:8px;">
-                                                                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="150">
+                                                                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="460">
                                                                             <!-- images -->
                                                                             <tr>
                                                                                 <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph38" mc:edit="ph38" src="{{asset('images/icon6.png')}}" style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
