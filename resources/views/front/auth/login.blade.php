@@ -22,17 +22,17 @@
             </header>
             <!-- End.main_haeder -->
 
-            <section class="em__signTypeOne padding-t-50">
+            <section class="em__signTypeOne margin-t-40">
                 <div class="em_titleSign">
                     <div class="brand">
-                        <h1>S'identifier</h1>
+                        <img style=" width: 100%;" src="{{asset('images/jobbby.jpeg')}}" alt="">
                     </div>
                 </div>
                 <form method="POST" class="loginformsubmit" action="{{ route('login') }}" >
                     @csrf
-                <div class="em__body">
+                    <div class="em__body">
                         <div class="form-group with_icon" style="text-align: left!important;">
-                            <label>Adresse e-mail</label>
+                            {{--                            <label>Adresse e-mail</label>--}}
                             <div class="input_group">
                                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="example@mail.com" required>
                                 <div class="icon">
@@ -58,7 +58,7 @@
                             @enderror
                         </div>
                         <div class="form-group with_icon mb-2" id="show_hide_password" style="text-align: left!important;">
-                            <label>Mot de passe</label>
+                            {{--                            <label>Mot de passe</label>--}}
                             <div class="input_group">
                                 <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="tapez votre mot de passe" required>
                                 <div class="icon">
@@ -94,14 +94,26 @@
                             <div class="invalid-feedback">{{$message}}</div>
                             @enderror
                         </div>
-                        <a href="#" class="link__forgot">Mot de passe oublié?</a>
-                </div>
-                <div class="em__footer">
-                    <button type="submit" class="btn bg-primary color-white justify-content-center">S'identifier</button>
-                    <a href="{{route('front.register', ['id' => $id])}}" class="btn hover:color-secondary justify-content-center">Pas un
-                        membre?
-                        S'inscrire maintenant</a>
-                </div>
+                        <a href="#" class=""style="float:right;font-size: 15px;">Mot de passe oublié?</a>
+                    </div>
+                    <div class="">
+                        <button type="submit"  style="background-color: red; background-image: linear-gradient(#ea4f31, #f39000); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">Connexion</button>
+                        {{--                        <a href="{{route('front.register', ['id' => $id])}}" class="btn hover:color-secondary justify-content-center">Pas un--}}
+                        {{--                            membre?--}}
+                        {{--                            S'inscrire maintenant</a>--}}
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <strong>OU</strong>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <a href="{{route('front.register', ['id' => $id])}}"> <button type="submit"  style="background-color: #039a67; background-image: linear-gradient(#039a67, #00afbe); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">créer un compte</button></a>
+
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <img style=" width: 100%;" src="{{asset('images/icone10.jpeg')}}" alt="">
+
+                    </div>
+
                 </form>
             </section>
 
