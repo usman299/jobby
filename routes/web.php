@@ -23,7 +23,7 @@ Route::get('/save-token/{token}',function ($token){
     return redirect('app');
 });
 Route::get('/test',function (){
-    return view('front.mail.register');
+    return view('front.mail.test');
 });
 Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
