@@ -28,7 +28,7 @@ class FrontendController extends Controller
             $value = $request->cookie('name');*/
                 return redirect()->route('front.intro');
         }else{
-            return  view('auth.login');
+            return  redirect()->route('web.index');
         }
     }
     public function app(){
@@ -43,6 +43,9 @@ class FrontendController extends Controller
 
 
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory'));
+    }
+    public function website(){
+        return view('web.index');
     }
     public function allCategories(){
         $title = 'Catégories';

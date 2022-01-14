@@ -36,6 +36,9 @@ Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobbe
 Route::get('/intro/applicant', 'FrontendController@introapplicant')->name('intro.applicant');
 Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 
+//website routes
+Route::get('/web', 'FrontendController@website')->name('web.index');
+
 Route::get('/front/login/{id}', 'FrontendController@login')->name('front.login');
 Route::get('/front/register/{id}', 'FrontendController@register')->name('front.register');
 Route::post('/fetchsubcategory', 'Front\ApplicantController@fetchsubcategory')->name('fetchsubcategory');
