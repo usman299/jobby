@@ -25,7 +25,7 @@ class SubCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3933",
 
-            'img' => "admin/subcategory/Bricolage _ Rénovation.jpg",
+            'img' => "admin/jobby/1 Bricolage/2 Electricité/Domotique.jpg",
 
         ]);
         SubCategory::create([
@@ -260,7 +260,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "4",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
-            'img' => "admin/jobby/4 Ménage MJ-2/",
+            'img' => "admin/jobby/4 Ménage MJ-2/Nettoyage de vitre.jpg",
 
         ]);
         SubCategory::create([
@@ -331,7 +331,7 @@ class SubCategorySeeder extends Seeder
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
 
-            'img' => "admin/jobby/7 Informatique MJ/",
+            'img' => "admin/jobby/7 Informatique MJ/Cours informatique.jpg",
 
         ]);
         SubCategory::create([

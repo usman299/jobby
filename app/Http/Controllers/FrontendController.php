@@ -18,6 +18,7 @@ use App\SubCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Crypt;
 
 class FrontendController extends Controller
 {
@@ -45,7 +46,8 @@ class FrontendController extends Controller
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory'));
     }
     public function website(){
-        return view('web.index');
+        $category = Category::all();
+        return view('web.index',compact('category'));
     }
     public function allCategories(){
         $title = 'Catégories';
@@ -88,10 +90,37 @@ class FrontendController extends Controller
         $condition = Condition::first();
         return view('front.privacy', compact('title','condition'));
     }
+    public function iframe2($id){
+        $route = Crypt::decryptString($id);
+        return view('web.pages.iframe',compact('route'));
+    }
     public function terms(){
         $title = 'Termes et conditions';
         $condition = Condition::first();
         return view('front.terms', compact('title','condition'));
+    }
+
+    public function mainRegister(){
+
+        return view('web.pages.mainregister');
+    }
+    public function devenezJobber(){
+        $category = Category::all();
+        return view('web.pages.jobber',compact('category'));
+    }
+    public function mainCategory(){
+        $category = Category::all();
+        return view('web.pages.maincategory',compact('category'));
+    }
+    public function iframe(Request $request){
+         $route = $request->route;
+        return view('web.pages.iframe',compact('route'));
+    }
+    public function search(Request $request){
+
+        $subcategory = SubCategory::where('title', 'LIKE', '%' .$request->keywords. '%')->get();
+        $childsubcategory = ChildCategory::where('title', 'LIKE', '%' .$request->keywords. '%')->get();
+        return view('web.pages.search', compact('subcategory', 'childsubcategory'));
     }
 
 }

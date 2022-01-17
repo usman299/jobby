@@ -491,6 +491,7 @@ class ApplicantController extends Controller
          return view('front.applicant.earnings.index', compact('transactions', 'title'));
      }
      public function search(Request $request){
+
          $subcategory = SubCategory::where('title', 'LIKE', '%' .$request->search. '%')->get();
          $childsubcategory = ChildCategory::where('title', 'LIKE', '%' .$request->search. '%')->get();
          return view('front.applicant.search', compact('subcategory', 'childsubcategory'));

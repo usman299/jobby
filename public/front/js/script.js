@@ -795,7 +795,7 @@
               document.querySelector('.page').style.overflow = 'hidden';
               document.querySelector('.page').style.width = '100%';
               document.querySelector('.page').style.height = '100%';
-              // alert('switch'); 
+              // alert('switch');
             }
           },
           onToggleClose: function () {

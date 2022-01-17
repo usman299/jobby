@@ -19,9 +19,9 @@ class CreateChildCategoriesTable extends Migration
             $table->string('countory_id')->nullable();
             $table->string('img');
             $table->string('backColor');
-            $table->foreignId('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->foreignId('subcategory_id');
+            $table->foreign('subcategory_id')->references('id')->on('sub_categories');
+            $table->string('category_id');
             $table->timestamps();
         });
     }

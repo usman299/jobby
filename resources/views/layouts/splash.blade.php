@@ -40,6 +40,17 @@
     <!-- manifest meta -->
     <link rel="manifest" href="{{asset('_manifest.json')}}" />
     <style>
+        @media only screen and (min-width: 800px) {
+            .buttons__footer {
+            position: inherit;
+            width: 100%;
+            bottom: 0;
+            padding: 12px 20px;
+            background-color: var(--bg-white);
+            z-index: 10;
+        }
+        }
+
         .em__signTypeOne .em_titleSign {
             display: grid;
             align-items: center;

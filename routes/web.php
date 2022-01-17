@@ -39,6 +39,12 @@ Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 
 //website routes
 Route::get('/web', 'FrontendController@website')->name('web.index');
+Route::get('/inscription', 'FrontendController@mainRegister')->name('inscription');
+Route::get('/devenez/jobber', 'FrontendController@devenezJobber')->name('devenez.jobber');
+Route::get('/main/category', 'FrontendController@mainCategory')->name('main.category');
+Route::post('iframe', 'FrontendController@iframe')->name('iframe');
+Route::get('/iframe/request/{id}', 'FrontendController@iframe2')->name('iframe.category');
+Route::post('/subcategory/search', 'FrontendController@search')->name('subcategory.search');
 
 Route::get('/front/login/{id}', 'FrontendController@login')->name('front.login');
 Route::get('/front/register/{id}', 'FrontendController@register')->name('front.register');
