@@ -54,15 +54,13 @@
                 border: 3px solid #1087eb;
                 height: 45px;
                 padding: 11px;
-                margin-right: 499px;
+                margin-right: 236px;
                 text-align: center;
                 width: 250px;
                 border-radius: 20px;
             }
 
-            .figure-responsive img {
-                min-width: 136%;
-            }
+
             .iframe{
 
                 width: 60%;
