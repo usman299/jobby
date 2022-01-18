@@ -102,6 +102,7 @@
                         {{--                            membre?--}}
                         {{--                            S'inscrire maintenant</a>--}}
                     </div>
+                </form>
                     <div style="margin-top: 30px;">
                         <strong>OU</strong>
                     </div>
@@ -114,7 +115,7 @@
 
                     </div>
 
-                </form>
+
             </section>
 
         </div>
