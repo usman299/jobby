@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="{{asset('front/css/fonts.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
     <style>
-
+        .figure-responsive img {
+            min-width: 100%;
+        }
         .table-job-offers tr:last-child {
             border-bottom: 0px solid #ffffff;
         }
