@@ -2,7 +2,7 @@
 @section('content')
     <style>
         .figure-responsive img {
-            min-width: 136%;
+            min-width: 103%;
         }
         .text-center {
             text-align: left !important;
@@ -23,7 +23,7 @@
                     </form>
                     <div style="margin-top: 20px;"><b style="margin-right: 249px; color: black;font-size: 18px; margin-top: 200px;">OU</b></div><br>
                     <div style="float: left; font-size: 15px; color: black"><p>Inscrivez-vous en téléchargeant l'application « Misster Jobby »</p></div>
-                    <div class="group" style="float: left"><a class="button button-warning button-fixed-size" href="#"><img src="{{asset('images/android.png')}}" alt="" width="138" height="35"/></a><a class="button button-warning button-fixed-size" href="#"><img src="{{asset('images/apple.png')}}" alt=""></a></div>
+                    <div class="group" style="float: left"><a class=" button button-warning button-fixed-size" href="#"><img src="{{asset('images/android.png')}}" alt="" width="138" height="35"/></a><a class=" button button-warning  button-fixed-size" href="#"><img src="{{asset('images/apple2.png')}}" alt="" width="138" height="35"></a></div>
 
 
                 </div>

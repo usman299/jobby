@@ -123,4 +123,10 @@ class FrontendController extends Controller
         return view('web.pages.search', compact('subcategory', 'childsubcategory'));
     }
 
+    public function subcategoryIndex($id){
+        $subcategory = SubCategory::where('category_id', '=', $id)->get();
+        $category = Category::where('id', '=', $id)->first();
+        return view('web.pages.subcategory', compact('subcategory','category'));
+    }
+
 }

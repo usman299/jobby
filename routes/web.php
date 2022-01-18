@@ -45,6 +45,7 @@ Route::get('/main/category', 'FrontendController@mainCategory')->name('main.cate
 Route::post('iframe', 'FrontendController@iframe')->name('iframe');
 Route::get('/iframe/request/{id}', 'FrontendController@iframe2')->name('iframe.category');
 Route::post('/subcategory/search', 'FrontendController@search')->name('subcategory.search');
+Route::get('/subcategory/view/{id}', 'FrontendController@subcategoryIndex')->name('subcategory.view');
 
 Route::get('/front/login/{id}', 'FrontendController@login')->name('front.login');
 Route::get('/front/register/{id}', 'FrontendController@register')->name('front.register');
