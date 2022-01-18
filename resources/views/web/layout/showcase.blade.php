@@ -123,9 +123,35 @@
                                         </div>
 
                                     </li>
+                                    @auth
+                                        <?php $route = Crypt::encryptString('app/settings/profile');  ?>
+                                        <li class="rd-nav-item">
+                                            <div class="rd-navbar-aside-item">
+                                                <a href="{{route('iframe.category', ['id' => $route])}}" class="rd-nav-link" style="color: black;  "><b>
+                                                        Votre Profil</b></a>
+                                            </div>
+
+                                        </li>
+                                            <li class="rd-nav-item">
+                                                <div class="rd-navbar-aside-item">
+                                                    <a href="{{route('logout')}}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="rd-nav-link" style="color: black;  "><b>
+                                                            Se
+                                                            déconnecter</b></a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                          style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+
+                                            </li>
+
+                                    </li>
+                                    @endauth
                                 </ul>
                             </div>
                         </div>
+                       @if(!Auth::User())
                         <div class="rd-navbar-aside">
                             <div class="rd-navbar-aside-item">
                                 <a href="{{route('inscription')}}" style="color: black; "><b>Inscription</b></a>
@@ -153,7 +179,9 @@
                                     </form>
                                 </div>
                             </div>&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp
+
                         </div>
+                        @endif
                     </div>
                 </div>
             </nav>
