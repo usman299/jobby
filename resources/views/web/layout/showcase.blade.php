@@ -119,7 +119,7 @@
                             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                             <!-- RD Navbar Brand-->
                             <div class="rd-navbar-brand">
-                                <!--Brand--><a class="brand" href="{{route('web.index')}}"><img class="brand-logo-dark" src="{{asset('images/logoo.png')}}" alt="" width="143" height="26"/><img class="brand-logo-light" src="images/logo-inverse-286x52.png" alt="" width="143" height="26"/></a>
+                                <!--Brand--><a class="brand" href="{{route('web.index')}}"><img class="brand-logo-dark" src="{{asset('images/newlogo.png')}}" alt="" width="143" height="26"/><img class="brand-logo-light" src="images/logo-inverse-286x52.png" alt="" width="143" height="26"/></a>
                             </div>
                         </div>
                         <div class="rd-navbar-main-element">
