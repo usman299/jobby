@@ -1,5 +1,14 @@
 @extends('web.layout.showcase')
 @section('content')
+    <style>
+        @media (min-width: 1600px) {
+            .rd-navbar-classic.rd-navbar-static .rd-navbar-popup {
+                left: -104%;
+                transform: translate3d(-50%, 0, 0);
+                right: auto;
+            }
+        }
+    </style>
     <!-- Welcome to JobsFactory-->
     <div class="jumbotron-creative-inner">
         <div class="container">
