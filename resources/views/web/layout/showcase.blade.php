@@ -68,7 +68,21 @@
                 width: 60%;
 
             }
+
+
         }
+
+        @media (min-width: 1600px) {
+            .rd-navbar-classic.rd-navbar-static .rd-navbar-popup {
+                left: -104%;
+                transform: translate3d(-50%, 0, 0);
+                right: auto;
+            }
+        }
+
+
+
+
 
 
 
