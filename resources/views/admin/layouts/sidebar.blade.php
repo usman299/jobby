@@ -92,6 +92,18 @@
 
 
                         </ul></li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
+                            <span class="nav-text"><!-- Users --> Paramétrer ShowCase</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('services.create')}}"><!-- question --> Service</a></li>
+                            <li><a href="{{route('testi.index')}}"><!--  about --> Réussites</a></li>
+                            <li><a href="{{route('blog.index')}}"><!--  about --> Blog</a></li>
+                            <li><a href="{{route('jobfactory.create')}}"><!--  about --> Usine d'emplois</a></li>
+
+
+                        </ul></li>
                     <li><a href="{{route('admin.notfication')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
                             <!-- APP SETTING -->

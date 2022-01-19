@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\AppSetting;
+use App\Blog;
 use App\ChildCategory;
 use App\Condition;
 use App\Countory;
+use App\JobFactory;
 use App\JobRequest;
 use App\Notfication;
 use App\Questions;
+use App\SCaseServices;
+use App\Testimonial;
 use App\User;
 use Illuminate\Http\Request;
 use App\SliderGalery;
@@ -47,7 +51,11 @@ class FrontendController extends Controller
     }
     public function website(){
         $category = Category::all();
-        return view('web.index',compact('category'));
+        $service = SCaseServices::first();
+        $testi = Testimonial::get();
+        $blog = Blog::get();
+        $jobFactory = JobFactory::first();
+        return view('web.index',compact('category','service','testi','blog','jobFactory'));
     }
     public function allCategories(){
         $title = 'Catégories';
@@ -127,6 +135,10 @@ class FrontendController extends Controller
         $subcategory = SubCategory::where('category_id', '=', $id)->get();
         $category = Category::where('id', '=', $id)->first();
         return view('web.pages.subcategory', compact('subcategory','category'));
+    }
+    public function singleBlog($id){
+        $blog = Blog::where('id','=',$id)->first();
+        return view('web.pages.singleblog', compact('blog'));
     }
 
 }

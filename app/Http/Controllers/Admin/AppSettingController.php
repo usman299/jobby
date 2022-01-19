@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 use App\AppSetting;
+use App\Blog;
 use App\Contact;
 use App\Http\NotificationHelper;
+use App\JobFactory;
+use App\SCaseServices;
 use App\SliderGalery;
 use App\Countory;
 use App\QuestionAnswer;
 use App\About;
+use App\Testimonial;
 use App\User;
 use Intervention\Image\Facades\Image;
+use PHPUnit\Util\Test;
 use Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -484,4 +489,160 @@ class AppSettingController extends Controller
         return back();
 
     }
+    public function servicesCreate()
+    {   $srvice = SCaseServices::first();
+        return view('admin.showCaseSetting.service',compact('srvice'));
+    }
+    public function serviceStore(Request $request)
+    {
+        $srvice = SCaseServices::first();
+        $srvice->title = $request->title;
+        $srvice->title1 = $request->title1;
+        $srvice->title2 = $request->title2;
+        $srvice->title3 = $request->title3;
+        $srvice->title4 = $request->title4;
+        $srvice->description1 = $request->description1;
+        $srvice->description2 = $request->description2;
+        $srvice->description3 = $request->description3;
+        $srvice->description4 = $request->description4;
+
+        if ($request->hasfile('img')) {
+
+            $image1 = $request->file('img');
+            $name = time() . 'img' . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(540, 413)->save( public_path('admin/images/' . $name ) );
+            $srvice->img = 'admin/images/' . $name;
+        }
+        $srvice->update();
+        toastr()->success('Your Data  Update');
+        return back();
+    }
+
+    public function testiCreate()
+    {
+        return view('admin.showCaseSetting.testi.create');
+    }
+    public function testiIndex()
+    {   $testi = Testimonial::get();
+        return view('admin.showCaseSetting.testi.index',compact('testi'));
+    }
+
+    public function testiStore(Request $request)
+    {
+        $testi = new Testimonial();
+        $testi->name = $request->name;
+        $testi->destination = $request->destination;
+        $testi->description = $request->description;
+        if ($request->hasfile('image')) {
+
+            $image1 = $request->file('image');
+            $name = time() . 'image' . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(540, 413)->save( public_path('admin/images/' . $name ) );
+            $testi->image = 'admin/images/' . $name;
+        }
+        $testi->save();
+        toastr()->success('Your Data  Added');
+        return back();
+    }
+
+
+    public function testiDelete($id)
+    {    $testi = Testimonial::where('id','=',$id)->first();
+        $testi->delete();
+        toastr()->error('Your Data  Delete');
+        return back();
+    }
+    public function testiEdit($id)
+    {    $testi = Testimonial::where('id','=',$id)->first();
+        return view('admin.showCaseSetting.testi.edit',compact('testi'));
+
+    }
+
+    public function testiUpdate(Request $request,$id)
+    {
+        $testi = Testimonial::where('id','=',$id)->first();
+        $testi->name = $request->name;
+        $testi->destination = $request->destination;
+        $testi->description = $request->description;
+        if ($request->hasfile('image')) {
+
+            $image1 = $request->file('image');
+            $name = time() . 'image' . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(369, 253)->save( public_path('admin/images/' . $name ) );
+            $testi->image = 'admin/images/' . $name;
+        }
+        $testi->Update();
+        toastr()->success('Your Data  Update');
+        return back();
+    }
+
+    public function blogCreate()
+    {
+        return view('admin.showCaseSetting.blog.create');
+    }
+    public function blogIndex()
+    {   $blog = Blog::get();
+        return view('admin.showCaseSetting.blog.index',compact('blog'));
+    }
+
+    public function blogStore(Request $request)
+    {
+        $blog = new Blog();
+        $blog->name = $request->name;
+        $blog->description = $request->description;
+        if ($request->hasfile('image')) {
+
+            $image1 = $request->file('image');
+            $name = time() . 'image' . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(540, 413)->save( public_path('admin/images/' . $name ) );
+            $blog->image = 'admin/images/' . $name;
+        }
+        $blog->save();
+        toastr()->success('Your Data  Added');
+        return back();
+    }
+
+
+    public function blogDelete($id)
+    {    $blog = Blog::where('id','=',$id)->first();
+        $blog->delete();
+        toastr()->error('Your Data  Delete');
+        return back();
+    }
+    public function blogEdit($id)
+    {    $blog = Blog::where('id','=',$id)->first();
+        return view('admin.showCaseSetting.blog.edit',compact('blog'));
+
+    }
+
+    public function blogUpdate(Request $request,$id)
+    {
+        $blog = Blog::where('id','=',$id)->first();
+        $blog->name = $request->name;
+        $blog->description = $request->description;
+        if ($request->hasfile('image')) {
+
+            $image1 = $request->file('image');
+            $name = time() . 'image' . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(540, 413)->save( public_path('admin/images/' . $name ) );
+            $blog->image = 'admin/images/' . $name;
+        }
+        $blog->Update();
+        toastr()->success('Your Data  Update');
+        return back();
+    }
+    public function jobfactoryCreate()
+    {   $jobfactory = JobFactory::first();
+        return view('admin.showCaseSetting.jobfactory',compact('jobfactory'));
+    }
+    public function jobfactoryStore(Request $request)
+    {   $jobfactory = JobFactory::first();
+        $jobfactory->title = $request->title;
+        $jobfactory->description = $request->description;
+        $jobfactory->update();
+
+        toastr()->success('Your Data  Update');
+        return back();
+    }
+
 }

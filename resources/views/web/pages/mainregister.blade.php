@@ -7,7 +7,7 @@
     </style>
     <section class="section section-md bg-default text-center">
         <div class="container">
-            <h3>Bienvenue chez   <span class="text-primary">Mister Jobby</span>(ex Youpijob)</h3>
+            <h3>Bienvenue chez   <span class="text-primary">Mister Jobby</span></h3>
 
             <div class="row row-50 justify-content-center align-items-center text-left">
 

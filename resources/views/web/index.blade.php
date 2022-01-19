@@ -51,12 +51,12 @@
     <!-- Welcome to JobsFactory-->
     <section class="section section-md bg-default text-center">
         <div class="container">
-            <h3>Le service à <span class="text-primary">domicile</span>en toute sérénité</h3>
-            <p class="text-spacing-05">Un endroit où les principaux employeurs recherchent déjà votre talent et votre
-                expérience.</p>
+            <h3>{{$service->title}}</h3>
+{{--            <p class="text-spacing-05">Un endroit où les principaux employeurs recherchent déjà votre talent et votre--}}
+{{--                expérience.</p>--}}
             <div class="row row-50 justify-content-center align-items-center text-left">
                 <div class="col-md-10 col-lg-6">
-                    <figure class="figure-responsive block-5"><img src="{{asset('front/images/home-2-540x413.jpg')}}"
+                    <figure class="figure-responsive block-5"><img src="{{asset($service->img)}}"
                                                                    alt="" width="540" height="413"/>
                     </figure>
                 </div>
@@ -67,12 +67,8 @@
                             <article class="box-line box-line_sm">
                                 <div class="box-line-inner">
                                     <div class="box-line-icon icon mercury-icon-group"></div>
-                                    <h4 class="box-line-title">Prestataires qualifiés</h4>
-                                    <h6>Tous les prestataires sont vérifiés,
-
-                                        suivis et évalués pour chaque service
-
-                                        rendu afin de vous garantir le meilleur de satisfaction.</h6>
+                                    <h4 class="box-line-title">{{$service->title1}}</h4>
+                                    <h6>{{$service->description1}}</h6>
                                 </div>
                             </article>
                         </div>
@@ -81,13 +77,8 @@
                             <article class="box-line box-line_sm">
                                 <div class="box-line-inner">
                                     <div class="box-line-icon icon mercury-icon-partners"></div>
-                                    <h4 class="box-line-title">Service encadré</h4>
-                                    <h6>Notre service client est à votre
-
-                                        disposition 7j/7 pour vous assurer une expérience parfaite de la prise de
-                                        commande jusqu'à la fin de la
-
-                                        prestation.</h6>
+                                    <h4 class="box-line-title">{{$service->title2}}</h4>
+                                    <h6>{{$service->description2}}</h6>
                                 </div>
                             </article>
                         </div>
@@ -96,11 +87,8 @@
                             <article class="box-line box-line_sm">
                                 <div class="box-line-inner">
                                     <div class="box-line-icon icon mercury-icon-chat"></div>
-                                    <h4 class="box-line-title">Budget respecté</h4>
-                                    <h6>Toutes les prestations sont couvertes par notre assurance AXA, qu'il s'agisse de
-                                        dommages corporels ou matériels
-
-                                        occasionnes chez vous, sans franchise</h6>
+                                    <h4 class="box-line-title">{{$service->title3}}</h4>
+                                    <h6>{{$service->description3}}</h6>
                                 </div>
                             </article>
                         </div>
@@ -109,9 +97,8 @@
                             <article class="box-line box-line_sm">
                                 <div class="box-line-inner">
                                     <div class="box-line-icon icon mercury-icon-target"></div>
-                                    <h4 class="box-line-title">Prestations assurées</h4>
-                                    <h6>Tous les prix sont définis à l'avance, les jobbers s'engagent à les respecter.
-                                        Toutes les rémunérations sont déclenchées en ligne après votre accord.</h6>
+                                    <h4 class="box-line-title">{{$service->title4}}</h4>
+                                    <h6>{{$service->description4}}</h6>
                                 </div>
                             </article>
                         </div>
@@ -163,6 +150,7 @@
                 <div class="owl-carousel" data-items="1" data-md-items="2" data-dots="true" data-nav="false"
                      data-stage-padding="0" data-loop="false" data-margin="30" data-autoplay="true"
                      data-mouse-drag="false">
+                    @foreach($testi as $row)
                     <blockquote class="quote-mary">
                         <div class="quote-mary-main">
                             <svg class="quote-mary-mark" version="1.1" x="0px" y="0px" viewbox="0 0 36 28" width="38"
@@ -171,63 +159,20 @@
                                     d="M13,0l-2.4,13.3H15V28H0V13.1L4,0H13z M34,0l-2.4,13.3H36V28H20.9V13.1L25,0H34z"></path>
                             </svg>
                             <div class="quote-mary-text">
-                                <p>ISi je n'ai pas trouvé JobsFactory, je suis presque sûr que je ne serais nulle part,
-                                    ils m'ont aidé à trouver un emploi en moins de 2 jours et le travail est incroyable.
-                                    Merci!</p>
+                                <p>{!! $row->description !!}</p>
                             </div>
                         </div>
                         <div class="quote-mary-meta"><img class="quote-mary-avatar"
-                                                          src="{{asset('front/images/user-2-73x73.jpg')}}" alt=""
+                                                          src="{{asset($row->image)}}" alt=""
                                                           width="73" height="73"/>
                             <div class="quote-mary-info">
-                                <cite class="quote-mary-cite heading-5">Karen Sanders</cite>
-                                <p class="quote-mary-subtitle">Directeur marketing</p>
+                                <cite class="quote-mary-cite heading-5">{{$row->name}}</cite>
+                                <p class="quote-mary-subtitle">{!! $row->destination !!}</p>
                             </div>
                         </div>
                     </blockquote>
-                    <blockquote class="quote-mary">
-                        <div class="quote-mary-main">
-                            <svg class="quote-mary-mark" version="1.1" x="0px" y="0px" viewbox="0 0 36 28" width="38"
-                                 height="28">
-                                <path
-                                    d="M13,0l-2.4,13.3H15V28H0V13.1L4,0H13z M34,0l-2.4,13.3H36V28H20.9V13.1L25,0H34z"></path>
-                            </svg>
-                            <div class="quote-mary-text">
-                                <p>Quelques jours après la publication d'un CV, j'ai eu des employeurs potentiels qui
-                                    m'ont contacté. Après plusieurs entretiens, j'ai décidé d'accepter un poste situé à
-                                    proximité.</p>
-                            </div>
-                        </div>
-                        <div class="quote-mary-meta"><img class="quote-mary-avatar"
-                                                          src="{{asset('front/images/user-1-73x73.jpg')}}" alt=""
-                                                          width="73" height="73"/>
-                            <div class="quote-mary-info">
-                                <cite class="quote-mary-cite heading-5">Walter Williams</cite>
-                                <p class="quote-mary-subtitle">Responsables RH</p>
-                            </div>
-                        </div>
-                    </blockquote>
-                    <blockquote class="quote-mary">
-                        <div class="quote-mary-main">
-                            <svg class="quote-mary-mark" version="1.1" x="0px" y="0px" viewbox="0 0 36 28" width="38"
-                                 height="28">
-                                <path
-                                    d="M13,0l-2.4,13.3H15V28H0V13.1L4,0H13z M34,0l-2.4,13.3H36V28H20.9V13.1L25,0H34z"></path>
-                            </svg>
-                            <div class="quote-mary-text">
-                                <p>I found a job as a Web Developer and applied through my iPhone with the JobsFactory
-                                    website! It’s very easy to search for jobs and apply here!</p>
-                            </div>
-                        </div>
-                        <div class="quote-mary-meta"><img class="quote-mary-avatar"
-                                                          src="{{asset('front/images/user-4-73x73.jpg')}}" alt=""
-                                                          width="73" height="73"/>
-                            <div class="quote-mary-info">
-                                <cite class="quote-mary-cite heading-5">Julia Smith</cite>
-                                <p class="quote-mary-subtitle">Web Developer</p>
-                            </div>
-                        </div>
-                    </blockquote>
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -239,57 +184,34 @@
         <div class="container">
             <h3 class="text-center">Derniers articles</h3>
             <div class="row row-30 row-xl-70">
+                @foreach($blog as $row)
                 <div class="col-12 col-lg-4">
                     <!-- Post Minimal-->
-                    <article class="post-minimal"><a class="post-minimal-media" href="blog-post.html"><img
-                                class="post-minimal-image" src="{{asset('front/images/blog-1-369x253.jpg')}}" alt=""
+                    <article class="post-minimal"><a class="post-minimal-media" href="{{route('single.blog',['id'=>$row->id])}}"><img
+                                class="post-minimal-image" src="{{asset($row->image)}}" alt=""
                                 width="369" height="253"/></a>
                         <div class="post-minimal-main">
-                            <h5 class="post-minimal-title"><a href="blog-post.html">8 prédictions surprenantes sur
-                                    l'avenir du travail</a></h5>
-                            <p>Il est indéniable que le paysage du travail est en train de changer. De plus en plus
-                                d'entreprises adoptent des politiques de travail flexibles</p>
-                            <time class="post-minimal-time" datetime="2019">23 novembre 2022</time>
+                            <h5 class="post-minimal-title"><a href="{{route('single.blog',['id'=>$row->id])}}"></a>{{$row->name}}</h5>
+                            <p>{!! Str::limit($row->description, 145) !!}</p>
+                            <?php
+                            \Carbon\Carbon::setLocale('fr');
+                            $date = \Carbon\Carbon::parse($row->created_at);
+                            ?>
+
+                            <time class="post-minimal-time" datetime="2019">{{$date->diffForHumans()}}</time>
                         </div>
                     </article>
                 </div>
-                <div class="col-12 col-lg-4">
-                    <!-- Post Minimal-->
-                    <article class="post-minimal"><a class="post-minimal-media" href="blog-post.html"><img
-                                class="post-minimal-image" src="{{asset('front/images/blog-2-369x253.jpg')}}" alt=""
-                                width="369" height="253"/></a>
-                        <div class="post-minimal-main">
-                            <h5 class="post-minimal-title"><a href="blog-post.html">Réussite de la recherche d'emploi :
-                                    trouver un emploi en développement des affaires</a></h5>
-                            <p>Les professionnels du développement des affaires sont au cœur de toutes sortes
-                                d'organisations, des startups aux multinationales.</p>
-                            <time class="post-minimal-time" datetime="2019">23 novembre 2022</time>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <!-- Post Minimal-->
-                    <article class="post-minimal"><a class="post-minimal-media" href="blog-post.html"><img
-                                class="post-minimal-image" src="{{asset('front/images/blog-3-369x253.jpg')}}" alt=""
-                                width="369" height="253"/></a>
-                        <div class="post-minimal-main">
-                            <h5 class="post-minimal-title"><a href="blog-post.html">Comment impressionner votre futur
-                                    employeur</a></h5>
-                            <p>Vous êtes engagé dans votre recherche d'emploi et vous utilisez chaque once de votre
-                                temps libre pour parcourir les listes, écrire une couverture</p>
-                            <time class="post-minimal-time" datetime="2019">23 novembre 2022</time>
-                        </div>
-                    </article>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
     <!-- CTA-->
     <section class="section section-md bg-default text-center">
         <div class="container">
-            <h3>Obtenez l'application JobsFactory pour votre mobile</h3>
-            <p class="offset-top-20px"><span style="max-width: 670px;">La recherche d'emploi n'a jamais été aussi facile. Vous pouvez désormais trouver un emploi correspondant à vos attentes professionnelles, postuler à des emplois et recevoir des commentaires directement sur votre mobile. Commencez votre recherche d'emploi maintenant!</span>
-            </p>
+            <h3>{{$jobFactory->title}}</h3>
+            <p class="offset-top-20px"><span style="max-width: 670px;">{!! $jobFactory->description !!}</span></p>
             <div class="group"><a class="button button-primary button-fixed-size" href="#"><img
                         src="{{asset('front/images/google-play-download-138x35.png')}}" alt="" width="138" height="35"/></a><a
                     class="button button-primary button-fixed-size" href="#"><img

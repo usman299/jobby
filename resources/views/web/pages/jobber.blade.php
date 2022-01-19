@@ -22,7 +22,7 @@
                     <button type="submit" class="button button-xs button-primary button-icon  " style="margin-right: 400px; width: 62%;" >S'inscrire maintenant </button><br>
                     </form>
                     <div style="margin-top: 20px;"><b style="margin-right: 249px; color: black;font-size: 18px; margin-top: 200px;">OU</b></div><br>
-                    <div style="float: left; font-size: 15px; color: black"><p>Inscrivez-vous en téléchargeant l'application « Misster Jobby »</p></div>
+                    <div style="float: left; font-size: 15px; color: black"><p>Inscrivez-vous en téléchargeant l'application « Mister Jobby »</p></div>
                     <div class="group" style="float: left"><a class=" button button-warning button-fixed-size" href="#"><img src="{{asset('images/android.png')}}" alt="" width="138" height="35"/></a><a class=" button button-warning  button-fixed-size" href="#"><img src="{{asset('images/apple2.png')}}" alt="" width="138" height="35"></a></div>
 
 

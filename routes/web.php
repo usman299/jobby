@@ -47,6 +47,8 @@ Route::get('/iframe/request/{id}', 'FrontendController@iframe2')->name('iframe.c
 Route::post('/subcategory/search', 'FrontendController@search')->name('subcategory.search');
 Route::get('/subcategory/view/{id}', 'FrontendController@subcategoryIndex')->name('subcategory.view');
 
+Route::get('/single/blog/{id}', 'FrontendController@singleBlog')->name('single.blog');
+
 Route::get('/front/login/{id}', 'FrontendController@login')->name('front.login');
 Route::get('/front/register/{id}', 'FrontendController@register')->name('front.register');
 Route::post('/fetchsubcategory', 'Front\ApplicantController@fetchsubcategory')->name('fetchsubcategory');
@@ -240,6 +242,29 @@ Route::get('/question/index', 'Admin\AppSettingController@questionIndex')->name(
 Route::get('/question/edit/{id}', 'Admin\AppSettingController@questionEdit')->name('question.edit');
 Route::post('/question/update{id}', 'Admin\AppSettingController@questionUpdate')->name('question.update');
 Route::get('/question/delete/{id}', 'Admin\AppSettingController@questionDelete')->name('question.delete');
+
+// SHOCASE SEETING
+Route::get('/services/create', 'Admin\AppSettingController@servicesCreate')->name('services.create');
+Route::post('/services/store', 'Admin\AppSettingController@serviceStore')->name('services.store');
+
+    Route::get('/testi/create', 'Admin\AppSettingController@testiCreate')->name('testi.create');
+    Route::get('/testi/index', 'Admin\AppSettingController@testiIndex')->name('testi.index');
+    Route::post('/testi/store', 'Admin\AppSettingController@testiStore')->name('testi.store');
+    Route::get('/testi/delete/{id}', 'Admin\AppSettingController@testiDelete')->name('testi.delete');
+    Route::get('/testi/edit/{id}', 'Admin\AppSettingController@testiEdit')->name('testi.edit');
+    Route::post('/testi/update/{id}', 'Admin\AppSettingController@testiUpdate')->name('testi.update');
+
+    Route::get('/blog/create', 'Admin\AppSettingController@blogCreate')->name('blog.create');
+    Route::get('/blog/index', 'Admin\AppSettingController@blogIndex')->name('blog.index');
+    Route::post('/blog/store', 'Admin\AppSettingController@blogStore')->name('blog.store');
+    Route::get('/blog/delete/{id}', 'Admin\AppSettingController@blogDelete')->name('blog.delete');
+    Route::get('/blog/edit/{id}', 'Admin\AppSettingController@blogEdit')->name('blog.edit');
+    Route::post('/blog/update/{id}', 'Admin\AppSettingController@blogUpdate')->name('blog.update');
+    Route::get('/jobfactory/create', 'Admin\AppSettingController@jobfactoryCreate')->name('jobfactory.create');
+    Route::post('/jobfactory/store', 'Admin\AppSettingController@jobfactoryStore')->name('jobfactory.store');
+
+
+
 
 //ABout Description
 Route::get('/about/create', 'Admin\AppSettingController@aboutCreate')->name('about.create');
