@@ -26,6 +26,7 @@ Route::get('/test',function (){
     $id = 1;
     return view('front.mail.test',compact('id'));
 });
+Route::get('/admin/login', 'Admin\JobbyAppController@adminLogin')->name('admin.login');
 Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
 

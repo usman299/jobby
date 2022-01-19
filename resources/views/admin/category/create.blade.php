@@ -55,7 +55,7 @@
                                             <label class="col-sm-3 col-form-label"><!-- bacgorung color -->Couleur <strong style="color: red;font-size: 20px;"> *</strong></label>
                                             <div class="col-sm-9">
 
-                                                <input type="color" value="#ff0000" class="form-control" name="backColor"  required>
+                                                <input type="color" value="#ff0000" class="form-control" name="backColor"  required >
                                             </div>
                                         </div>
 

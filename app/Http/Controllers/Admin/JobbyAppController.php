@@ -137,5 +137,9 @@ class JobbyAppController extends Controller
         toastr()->success('Update Successfuly!');
         return redirect()->back();
     }
+    public function adminLogin(){
+
+        return view('auth.login');
+    }
 
 }
