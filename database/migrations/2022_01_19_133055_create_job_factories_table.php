@@ -16,6 +16,9 @@ class CreateJobFactoriesTable extends Migration
         Schema::create('job_factories', function (Blueprint $table) {
             $table->id();
             $table->longtext('title')->nullable();
+            $table->string('url1')->nullable();
+            $table->string('url2')->nullable();
+            $table->string('image')->nullable();
             $table->longtext('description')->nullable();
             $table->timestamps();
         });

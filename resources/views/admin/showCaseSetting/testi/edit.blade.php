@@ -5,6 +5,11 @@
         width: 120px;
         height: 150px;
     }
+    #output_image3{
+        border-style: ridge;
+        width: 120px;
+        height: 150px;
+    }
 </style>
 @section('content')
     @toastr_css
@@ -46,7 +51,7 @@
                                         <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                                         <div class="col-sm-6">
                                             <label class="form-control @error('img') is-invalid @enderror">
-                                                <center><i class="fa fa-image"></i> <!--Add Jobber introduction Screen one--> <strong style="font-size: 18px;"> Ajouter l'écran d'introduction Jobber un</strong></center><input type="file" style="display: none;"name="image" value="{{ old('image') }}"   accept="image/png, image/gif, image/jpeg" id="imgInp2" onchange="preview_image(event)">
+                                                <center><i class="fa fa-image"></i> <!--Add Jobber introduction Screen one--> <strong style="font-size: 18px;"> Ajouter une image</strong></center><input type="file" style="display: none;"name="image" value="{{ old('image') }}"   accept="image/png, image/gif, image/jpeg" id="imgInp2" onchange="preview_image(event)">
                                             </label>
                                         </div>
                                         <div class="col-sm-4">
@@ -55,6 +60,7 @@
 
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label"><!-- Title --><strong>La description</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
                                         <div class="col-sm-12" style="margin-top: 20px">
@@ -91,6 +97,18 @@
                 reader.onload = function()
                 {
                     var output = document.getElementById('output_image2');
+                    output.src = reader.result;
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
+        <script>
+            function preview_image1(event)
+            {
+                var reader = new FileReader();
+                reader.onload = function()
+                {
+                    var output = document.getElementById('output_image3');
                     output.src = reader.result;
                 }
                 reader.readAsDataURL(event.target.files[0]);

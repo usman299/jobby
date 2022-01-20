@@ -540,6 +540,7 @@ class AppSettingController extends Controller
             Image::make($image1)->resize(540, 413)->save( public_path('admin/images/' . $name ) );
             $testi->image = 'admin/images/' . $name;
         }
+
         $testi->save();
         toastr()->success('Your Data  Added');
         return back();
@@ -581,7 +582,7 @@ class AppSettingController extends Controller
         return view('admin.showCaseSetting.blog.create');
     }
     public function blogIndex()
-    {   $blog = Blog::get();
+    {   $blog = Blog::latest()->get();
         return view('admin.showCaseSetting.blog.index',compact('blog'));
     }
 
@@ -639,6 +640,16 @@ class AppSettingController extends Controller
     {   $jobfactory = JobFactory::first();
         $jobfactory->title = $request->title;
         $jobfactory->description = $request->description;
+        $jobfactory->url1 = $request->url1;
+        $jobfactory->url2 = $request->url2;
+        if ($request->hasfile('image')) {
+
+            $image1 = $request->file('image');
+            $name = time() . 'image' . '.' . $image1->getClientOriginalExtension();
+            Image::make($image1)->resize(540, 413)->save( public_path('admin/images/' . $name ) );
+            $jobfactory->image = 'admin/images/' . $name;
+        }
+
         $jobfactory->update();
 
         toastr()->success('Your Data  Update');

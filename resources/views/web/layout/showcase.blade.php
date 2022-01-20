@@ -232,27 +232,33 @@
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4 col-xl-3">
-                            <p class="footer-creative-title">Messages d'actualité récents</p>
+                            <p class="footer-creative-title">Derniers articles</p>
                             <div class="footer-creative-divider"></div>
                             <div class="post-line-group">
-                                <!-- Post Line--><a class="post-line" href="blog-post.html">
+                                <?php  $blog = App\Blog::latest()->get();
+                                $jobFactory = App\JobFactory::first();
+                                ?>
+                                @foreach($blog as $key => $row)
+                                    @if($key+1<3)
+                                <!-- Post Line--><a class="post-line" href="{{route('single.blog',['id'=>$row->id])}}">
                                     <time class="post-line-time" datetime="2019"><span
-                                            class="post-line-time-day">25</span><span
-                                            class="post-line-time-month">April</span></time>
-                                    <p class="post-line-text">Le Canada crée 12 500 emplois lors du modeste rebond de
-                                        juillet</p></a>
-                                <!-- Post Line--><a class="post-line" href="blog-post.html">
-                                    <time class="post-line-time" datetime="2019"><span
-                                            class="post-line-time-day">14</span><span
-                                            class="post-line-time-month">April</span></time>
-                                    <p class="post-line-text">Externalisation vs marketing numérique interne</p></a>
+                                            class="post-line-time-day">{{$row->created_at->format('d')}}</span><span
+                                            <?php
+                                            \Carbon\Carbon::setLocale('fr');
+                                            $date = \Carbon\Carbon::parse($row->created_at);
+                                            ?>
+                                            class="post-line-time-month">{{$date->format('F')}}</span></time>
+                                    <p class="post-line-text">{{$row->name}}</p></a>
+                                @endif
+                                    @endforeach
+
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
-                            <div class="group"><a class="button button-warning button-fixed-size" href="#"><img
+                            <div class="group"><a class="button button-warning button-fixed-size" href="{{$jobFactory->url1}}"><img
                                         src="{{asset('front/images/google-play-download-138x35.png')}}" alt=""
                                         width="138" height="35"/></a><a class="button button-warning button-fixed-size"
-                                                                        href="#"><img
+                                                                        href="{{$jobFactory->url2}}"><img
                                         src="{{asset('front/images/appstore.svg')}}" alt=""></a></div>
 
 

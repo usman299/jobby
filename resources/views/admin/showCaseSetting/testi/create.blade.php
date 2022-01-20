@@ -55,6 +55,7 @@
 
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label"><!-- Title --><strong>La description</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
                                         <div class="col-sm-12" style="margin-top: 20px">

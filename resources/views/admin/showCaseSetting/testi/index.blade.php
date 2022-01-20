@@ -34,6 +34,7 @@
                                     <th><!-- category -->Nom</th>
                                     <th><!-- subcategory -->Destination </th>
                                     <th><!-- subcategory -->Image </th>
+
                                     <th><!-- subcategory -->Description  </th>
 
 

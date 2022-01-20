@@ -36,8 +36,34 @@
                                         <div class="col-sm-4" style="margin-top: 20px">
                                             <input type="text" class="form-control" value="{{$jobfactory->title}}" name="title" placeholder="Titre">
                                         </div>
+                                        <label class="col-sm-2 col-form-label"><!-- Title --><strong>URL de la boutique Google</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
+                                        <div class="col-sm-4" style="margin-top: 20px">
+                                            <input type="text" class="form-control" value="{{$jobfactory->url1}}" name="url1" placeholder="URL de la boutique Google">
+                                        </div>
 
                                     </div>
+                                    <div class="form-group row">
+
+                                        <label class="col-sm-2 col-form-label"><!-- Title --><strong>URL de la boutique Apple</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>
+                                        <div class="col-sm-4" style="margin-top: 20px">
+                                            <input type="text" class="form-control" value="{{$jobfactory->url2}}" name="url2" placeholder="URL de la boutique Apple">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
+                                        <div class="col-sm-6">
+                                            <label class="form-control @error('img') is-invalid @enderror">
+                                                <center><i class="fa fa-image"></i> <!--Add Jobber introduction Screen one--> <strong style="font-size: 18px;"> Ajouter l'écran d'introduction Jobber un</strong></center><input type="file" style="display: none;"name="image" value="{{ old('image') }}"   accept="image/png, image/gif, image/jpeg" id="imgInp2" onchange="preview_image(event)">
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                            <img id="output_image2" src="{{asset($jobfactory->image)}}" />
+
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label"><!-- Title --><strong>La description</strong> <strong style="color: red;font-size: 20px;"> *</strong></label>

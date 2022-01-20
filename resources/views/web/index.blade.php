@@ -142,7 +142,7 @@
     </section>
     <!-- Success Stories-->
     <section class="parallax-container section-md bg-primary bg-overlay-1 text-center"
-             data-parallax-img="{{asset('front/images/bg-image-7.jpg')}}">
+             data-parallax-img="{{asset($jobFactory->image)}}">
         <div class="parallax-content">
             <div class="container">
                 <h3>Réussites </h3>
@@ -212,9 +212,9 @@
         <div class="container">
             <h3>{{$jobFactory->title}}</h3>
             <p class="offset-top-20px"><span style="max-width: 670px;">{!! $jobFactory->description !!}</span></p>
-            <div class="group"><a class="button button-primary button-fixed-size" href="#"><img
+            <div class="group"><a class="button button-primary button-fixed-size" href="{{$jobFactory->url1}}"><img
                         src="{{asset('front/images/google-play-download-138x35.png')}}" alt="" width="138" height="35"/></a><a
-                    class="button button-primary button-fixed-size" href="#"><img
+                    class="button button-primary button-fixed-size" href="{{$jobFactory->url2}}"><img
                         src="{{asset('front/images/appstore.svg')}}" alt=""></a></div>
         </div>
     </section>

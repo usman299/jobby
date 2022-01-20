@@ -142,6 +142,10 @@ class AppSettingSeeder extends Seeder
         ]);
         JobFactory::create([
             'title' => 'Obtenez l\'application JobsFactory pour votre mobile' ,
+            'url1' => 'www.google.com' ,
+            'url2' => 'www.google.com' ,
+            'image' => 'front/images/bg-image-7.jpg' ,
+
             'description' => 'La recherche d\'emploi n\'a jamais été aussi facile. Vous pouvez désormais trouver un emploi correspondant à vos attentes professionnelles, postuler à des emplois et recevoir des commentaires directement sur votre mobile. Commencez votre recherche d\'emploi maintenant! ',
             ]);
 
