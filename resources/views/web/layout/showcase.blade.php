@@ -215,9 +215,9 @@
                             <div class="row row-narrow row-15">
                                 <div class="col-6">
                                     <ul class="list-marked-1">
-                                        <li><a href="#">Parcourir les emplois</a></li>
+                                        <li><a href="{{route('app.about')}}">À propos de nous</a></li>
                                         <li><a href="#">Parcourir les catégories</a></li>
-                                        <li><a href="#">Soumettre CV</a></li>
+                                        <li><a href="{{route('app.contact')}}">Contact</a></li>
                                         <li><a href="#">Entreprises</a></li>
                                     </ul>
                                 </div>
@@ -268,10 +268,20 @@
             </div>
             <div class="footer-creative-aside">
                 <div class="container">
-                    <p class="rights"><span>Ikae Digital</span><span>&nbsp;&copy;&nbsp;</span><span
-                            class="copyright-year"></span><span>&nbsp;</span><a href="#">Politique de
-                            confidentialité</a></p>
+                    <div class="row">
+                        <div class="col-6">
+                    <p class="rights"><span>Copyright</span><span>&nbsp;&copy;&nbsp;</span><span
+                            class="copyright-year"></span><span>&nbsp;</span><a href="https://www.ikaedigital.com/">   Designed
+                            by Ikae Digital</a></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="rights"><span>Propulse par la Credit Agricode</span><span>&nbsp;&copy;&nbsp; </span><span
+                                    class="copyright-year"></span><span>&nbsp;</span><a href="https://www.ikaedigital.com/"><img style="width: 156px;" src="https://mamikook.fr/front/1111.png"></a></p>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </footer>
 </div>
