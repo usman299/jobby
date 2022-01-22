@@ -211,7 +211,7 @@
                             <div class="custom-control custom-checkbox mr-sm-2" style="text-align: left!important;">
                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                 <label class="custom-control-label" for="customControlAutosizing">
-                                    <span> Je suis d'accord <a href="#" class="color-blue">termes et conditions</a></span>
+                                    <span> Je suis d'accord <a href="{{route('front.terms')}}" class="color-blue">termes et conditions</a></span>
                                 </label>
                             </div>
                         </div>

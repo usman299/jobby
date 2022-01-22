@@ -40,6 +40,10 @@ Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 
 //website routes
 Route::get('/web', 'FrontendController@website')->name('web.index');
+Route::get('/about/us', 'FrontendController@about')->name('about.us');
+Route::get('/suport/faq', 'FrontendController@suport')->name('suport.faq');
+Route::get('/suport/priviciy', 'FrontendController@suportPriviciy')->name('suport.priviciy');
+Route::get('/suport/terms', 'FrontendController@suportTerms')->name('suport.terms');
 Route::get('/inscription', 'FrontendController@mainRegister')->name('inscription');
 Route::get('/devenez/jobber', 'FrontendController@devenezJobber')->name('devenez.jobber');
 Route::get('/main/category', 'FrontendController@mainCategory')->name('main.category');
@@ -74,8 +78,9 @@ Route::get('/get/badge/pro', 'Front\SettingsController@getBadgepro')->name('badg
 Route::post('/get/badge/update', 'Front\SettingsController@badgeUpdate')->name('badge.update');
 Route::get('/app/settings', 'Front\SettingsController@settings')->name('app.settings');
 Route::get('/app/settings/profile', 'Front\SettingsController@profile')->name('settings.profile');
-Route::get('/app/about', 'Front\SettingsController@about')->name('app.about');
+
 Route::get('/app/notifications', 'Front\SettingsController@notifications')->name('app.notifications');
+Route::get('/app/about', 'Front\SettingsController@about')->name('app.about');
 Route::get('/app/support', 'Front\SettingsController@support')->name('app.support');
 Route::get('/app/contact', 'Front\SettingsController@contact')->name('app.contact');
 Route::post('/app/contact/store', 'Front\SettingsController@contactStore')->name('app.contact.store');

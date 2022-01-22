@@ -215,18 +215,17 @@
                             <div class="row row-narrow row-15">
                                 <div class="col-6">
                                     <ul class="list-marked-1">
-                                        <li><a href="{{route('app.about')}}">À propos de nous</a></li>
-                                        <li><a href="#">Parcourir les catégories</a></li>
-                                        <li><a href="{{route('app.contact')}}">Contact</a></li>
-                                        <li><a href="#">Entreprises</a></li>
+                                        <li><a href="{{route('about.us')}}">À propos de nous</a></li>
+                                        <li><a href="{{route('suport.terms')}}">Termes et conditions</a></li>
+                                        <li><a href="{{route('suport.faq')}}">Soutien FAQ</a></li>
+
                                     </ul>
                                 </div>
                                 <div class="col-6">
                                     <ul class="list-marked-1">
-                                        <li><a href="#">Publier une offre</a></li>
-                                        <li><a href="#">Trouver un candidat</a></li>
-                                        <li><a href="#">Tableau des prix</a></li>
-                                        <li><a href="#">FAQ </a></li>
+                                        <li><a href="{{route('suport.priviciy')}}">Politique de confidentialité</a></li>
+
+
                                     </ul>
                                 </div>
                             </div>

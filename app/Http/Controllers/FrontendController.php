@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\AppSetting;
 use App\Blog;
 use App\ChildCategory;
@@ -10,6 +11,7 @@ use App\Countory;
 use App\JobFactory;
 use App\JobRequest;
 use App\Notfication;
+use App\QuestionAnswer;
 use App\Questions;
 use App\SCaseServices;
 use App\Testimonial;
@@ -139,6 +141,24 @@ class FrontendController extends Controller
     public function singleBlog($id){
         $blog = Blog::where('id','=',$id)->first();
         return view('web.pages.singleblog', compact('blog'));
+    }
+    public function about(){
+        $jobfactory = JobFactory::first();
+        $about = About::first();
+        $service = SCaseServices::first();
+        return view('web.pages.about',compact('jobfactory','about','service'));
+    }
+    public function suport(){
+        $question = QuestionAnswer::all();
+        return view('web.pages.suport',compact('question'));
+    }
+    public function suportPriviciy(){
+        $condition = Condition::first();
+        return view('web.pages.privicy',compact('condition'));
+    }
+    public function suportTerms(){
+        $condition = Condition::first();
+        return view('web.pages.terms',compact('condition'));
     }
 
 }
