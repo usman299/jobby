@@ -117,7 +117,7 @@
                         @foreach($reviews as $row)
                             <div class="itemUser ">
                                 <div class="media">
-                                    <img class="x_img" src="{{asset($row->applicant->image ?? 'http://127.0.0.1:8000/assets/img/persons/064.jpg')}}" alt="">
+                                    <img class="x_img" src="{{asset($row->applicant->image ?? 'http://127.0.0.1:8000/assets/img/persons/064.jpg')}}"   loading="lazy"  alt="">
                                     <div class="media-body">
                                         <div class="txt_details">
                                             <h4 class="username">{{$row->applicant->firstName}}  {{$row->applicant->lastName}} <time>{{$row->created_at->diffForHumans()}}</time></h4>

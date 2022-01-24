@@ -37,7 +37,7 @@
                         <div class="swiper-slide">
                             <div class="--item-inside">
                                 <div class="cover_img d-flex justify-content-center">
-                                    <img src="{{ asset($row->img ?? ' ')  }}" alt="">
+                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  alt="">
                                     <div
                                         class="text_img position-absolute bottom-0 padding-b-50 padding-l-20 text-center">
 
@@ -73,7 +73,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 23])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/4 Ménage MJ-2/Ménage a domicile.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/4 Ménage MJ-2/Ménage a domicile.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="txt">
 
@@ -94,7 +94,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 14])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Aide au déménagement.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Aide au déménagement.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -115,7 +115,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('job.request', ['id' => 19])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/1 Bricolage/3 Rénovation MJ/Peinture intérieure.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/1 Bricolage/3 Rénovation MJ/Peinture intérieure.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -136,14 +136,14 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 7])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Couper un arbre.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Couper un arbre.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
-                                            <h6 class="card-title" style="margin: 10px;">
+                                            <h6 class="card-title"   style="margin: 10px;">
                                                 Couper un arbre
                                             </h6>
-                                            <p class="card-text" style="margin: 10px;">
+                                            <p class="card-text"     style="margin: 10px;">
                                                 <strong>100€-350€</strong>
                                             </p>
 
@@ -157,7 +157,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('job.request', ['id' => 1])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/1 Bricolage/1 Aménagement MJ/Assemblage de meubles.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/1 Bricolage/1 Aménagement MJ/Assemblage de meubles.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -178,7 +178,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 16])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Déplacer électroménager.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Déplacer électroménager.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -199,7 +199,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 15])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Déplacer un meuble.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/3 Livraison déménagement MJ/Déplacer un meuble.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -220,7 +220,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 29])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset("admin/jobby/5 Garde d'enfant/Garde d'enfant MJ-3.jpg")  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset("admin/jobby/5 Garde d'enfant/Garde d'enfant MJ-3.jpg")  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -241,7 +241,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 24])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/4 Ménage MJ-2/Repassage.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/4 Ménage MJ-2/Repassage.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -262,7 +262,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 5])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Tondre la pelouse.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Tondre la pelouse.jpg')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -283,7 +283,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('job.request', ['id' => 4])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset("admin/jobby/1 Bricolage/1 Aménagement MJ/Fixation  d'étagère.jpg")  }}" class="card-img-top" alt="img">
+                                            <img  loading="lazy"  src="{{ asset("admin/jobby/1 Bricolage/1 Aménagement MJ/Fixation  d'étagère.jpg")  }}" class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -304,7 +304,7 @@
                                 <div class="em_itemCourse_grid">
                                     <a href="{{route('request.subcategory', ['id' => 6])}}" class="card">
                                         <div class="">
-                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Taille de haie.jpg')  }}" class="card-img-top" alt="img">
+                                            <img src="{{ asset('admin/jobby/2 Jardinage MJ-2/Taille de haie.jpg')  }}" loading="lazy"  class="card-img-top" alt="img">
                                         </div>
                                         <div class="">
 
@@ -346,7 +346,7 @@
                                     <div class="em_itemCourse_grid">
                                         <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                             <div class="">
-                                                <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                             </div>
                                             <div class="">
 
@@ -389,7 +389,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('job.request', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -432,7 +432,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('job.request', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -475,7 +475,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('job.request', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -519,7 +519,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -563,7 +563,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -607,7 +607,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -651,7 +651,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -695,7 +695,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -739,7 +739,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -785,7 +785,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 
@@ -831,7 +831,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="{{route('request.subcategory', ['id' => $row->id])}}" class="card">
                                                 <div class="">
-                                                    <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                                    <img src="{{ asset($row->img ?? ' ')  }}" loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
 

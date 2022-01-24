@@ -24,7 +24,7 @@
                                                 <a  href="{{route('iframe.category', ['id' => $route])}}">
                                                     @endif
                                             <article class="company-light">
-                                                <figure class="company-light-figure"><img class="company-light-image" src="{{asset($row->img)}}" style="border-radius: 5px" alt="" width="150" height="100%"/>
+                                                <figure class="company-light-figure"><img class="company-light-image"  loading="lazy"  src="{{asset($row->img)}}" style="border-radius: 5px" alt="" width="150" height="100%"/>
                                                 </figure>
                                                 <div class="company-light-main">
                                                     <h5 class="company-light-title">{{$row->title}}</h5>
@@ -48,7 +48,7 @@
                                                     <?php $route = Crypt::encryptString('job/request/'.$childcat->id);  ?>
                                                     <a href="{{route('iframe.category', ['id' => $route])}}">
                                                         <article class="company-light">
-                                                            <figure class="company-light-figure"><img class="company-light-image" src="{{asset($childcat->img)}}" style="border-radius: 5px" alt="" width="150" height="100%"/>
+                                                            <figure class="company-light-figure"><img class="company-light-image"  loading="lazy"  src="{{asset($childcat->img)}}" style="border-radius: 5px" alt="" width="150" height="100%"/>
                                                             </figure>
                                                             <div class="company-light-main">
                                                                 <h5 class="company-light-title">{{$childcat->title}}</h5>
@@ -79,7 +79,7 @@
                                                 <?php $route = Crypt::encryptString('job/request/'.$row->id);  ?>
                                                 <a href="{{route('iframe.category', ['id' => $route])}}">
                                                     <article class="company-light">
-                                                        <figure class="company-light-figure"><img class="company-light-image" src="{{asset($row->img)}}" style="border-radius: 5px" alt="" width="150" height="100%"/>
+                                                        <figure class="company-light-figure"><img class="company-light-image" src="{{asset($row->img)}}" style="border-radius: 5px" alt=""  loading="lazy"  width="150" height="100%"/>
                                                         </figure>
                                                         <div class="company-light-main">
                                                             <h5 class="company-light-title">{{$row->title}}</h5>

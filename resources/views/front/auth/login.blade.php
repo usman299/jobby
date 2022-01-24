@@ -25,7 +25,7 @@
             <section class="em__signTypeOne margin-t-40">
                 <div class="em_titleSign">
                     <div class="brand">
-                        <img style=" width: 100%;" src="{{asset('images/jobbby.jpeg')}}" alt="">
+                        <img style=" width: 100%;" src="{{asset('images/jobbby.jpeg')}}"  loading="lazy"  alt="">
                     </div>
                 </div>
                 <form method="POST" class="loginformsubmit" action="{{ route('login') }}" >
@@ -111,7 +111,7 @@
 
                     </div>
                     <div style="margin-top: 10px;">
-                        <img style=" width: 100%;" src="{{asset('images/icone10.jpeg')}}" alt="">
+                        <img style=" width: 100%;" src="{{asset('images/icone10.jpeg')}}"  loading="lazy"  alt="">
 
                     </div>
 

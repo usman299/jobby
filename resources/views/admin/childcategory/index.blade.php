@@ -45,7 +45,7 @@
                                         <td>{{$row->category->title }}</td>
                                         <td>{{$row->subcategory->title}}</td>
                                         <td><a href="{{ asset($row->img ?? ' ')  }} " data-lightbox="image-1"
-                                               data-title="{{$row->title}}"><img class="rounded-circle" width="50" src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
+                                               data-title="{{$row->title}}"><img class="rounded-circle" width="50"  loading="lazy"   src="{{asset($row->img)}}" alt="Album Photo" style="border-radius: 20%;height: 60px;width: 60px; text-align: center;"></a></td>
 
 
 

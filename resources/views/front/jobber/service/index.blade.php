@@ -76,7 +76,7 @@
 
                         <div class="col-4">
                             <div class="cover_card">
-                                <img src="{{asset($row->img)}}" class="card-img-top" alt="img">
+                                <img src="{{asset($row->img)}}" loading="lazy"  class="card-img-top" alt="img">
                             </div>
                         </div>
                         <div class="col-8 my-auto">
@@ -181,7 +181,7 @@
                                         </label>
                                     </div>
                                     <div class="form-group input-lined ">
-                                        <img id="output_image" src="{{ asset('assets/img/0ffd6s54.jpg')  }}" />
+                                        <img id="output_image"  loading="lazy"  src="{{ asset('assets/img/0ffd6s54.jpg')  }}" />
                                     </div>
 
 {{--                                        <label for="pass" class="margin-t-20" style="font-size: 15px;"> <strong>Image</strong> <strong style="color: red;">*</strong></label>--}}

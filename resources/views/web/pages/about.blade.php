@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row row-30 align-items-center">
                 <div class="col-lg-6 height-fill">
-                    <figure class="figure-responsive"><img src="{{asset($service->img)}}" alt="" width="573" height="368"/>
+                    <figure class="figure-responsive"><img src="{{asset($service->img)}}"   loading="lazy"  alt="" width="573" height="368"/>
                     </figure>
                 </div>
                 <div class="col-lg-6">
@@ -42,7 +42,7 @@
         <div class="container">
             <h3>{{$jobfactory->name}}</h3>
             <p class="offset-top-20px"><span style="max-width: 670px;"> {{$jobfactory->description}}</span></p>
-            <div class="group"><a class="button button-primary button-fixed-size" href="{{$jobfactory->url1}}"><img src="{{asset('front/images/google-play-download-138x35.png')}}" alt="" width="138" height="35"/></a><a class="button button-primary button-fixed-size" href="{{$jobfactory->url2}}"><img src="{{asset('front/images/appstore.svg')}}" alt=""></a></div>
+            <div class="group"><a class="button button-primary button-fixed-size" href="{{$jobfactory->url1}}"><img src="{{asset('images/2560px-Google_Play_Store_badge_EN.svg.png')}}" alt="" width="138" height="35"/></a><a class="button button-primary button-fixed-size" href="{{$jobfactory->url2}}"><img src="{{asset('images/App-Store-Button-transparent.png')}}" alt=""></a></div>
         </div>
     </section>
 

@@ -43,7 +43,7 @@
                         d="M-0.000,33.000 C-0.000,33.000 80.000,54.000 113.000,83.000 C146.000,112.000 147.000,152.000 183.000,174.000 C219.000,196.000 288.000,172.000 334.000,193.000 C380.000,214.000 379.000,282.000 427.000,317.000 C475.000,352.000 548.000,336.000 588.000,371.000 C628.000,406.000 614.000,483.000 647.000,513.000 C680.000,543.000 786.000,537.000 841.000,587.000 C896.000,637.000 885.000,739.000 932.000,776.000 C979.000,813.000 1026.000,796.000 1069.000,817.000 C1112.000,838.000 1135.000,865.000 1189.000,893.000 C1243.000,921.000 1433.000,970.000 1433.000,970.000 L1446.000,0.000 L-0.000,33.000 Z"></path>
                 </svg>
             </div>
-            <img class="jc-decoration-image" src="{{asset('front/images/home-1-748x528.png')}}" alt="" width="748"
+            <img class="jc-decoration-image"  loading="lazy"  src="{{asset('front/images/home-1-748x528.png')}}" alt="" width="748"
                  height="528"/>
         </div>
     </div>
@@ -56,7 +56,7 @@
 {{--                expérience.</p>--}}
             <div class="row row-50 justify-content-center align-items-center text-left">
                 <div class="col-md-10 col-lg-6">
-                    <figure class="figure-responsive block-5"><img src="{{asset($service->img)}}"
+                    <figure class="figure-responsive block-5"><img  loading="lazy"  loading="lazy"  loading="lazy"   src="{{asset($service->img)}}"
                                                                    alt="" width="540" height="413"/>
                     </figure>
                 </div>
@@ -120,9 +120,9 @@
                     @foreach($category as $row)
                         <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 maincatalog">
                             <!-- Profile Classic--><a  href="{{route('subcategory.view',['id'=>$row->id])}}">
-                                <figure class="profile-classic-figure"><img style="border-radius: 20px;"
+                                <figure class="profile-classic-figure"><img style="border-radius: 20px;"  loading="lazy"
                                                                             class="profile-classic-image"
-                                                                            src="{{asset($row->img)}}" alt=""
+                                                                            src="{{asset($row->img)}}"  loading="lazy"  alt=""
                                                                             width="266"/>
                                 </figure>
                                 <div class="profile-classic-main">
@@ -162,8 +162,8 @@
                                 <p>{!! $row->description !!}</p>
                             </div>
                         </div>
-                        <div class="quote-mary-meta"><img class="quote-mary-avatar"
-                                                          src="{{asset($row->image)}}" alt=""
+                        <div class="quote-mary-meta"><img class="quote-mary-avatar"  loading="lazy"
+                                                          src="{{asset($row->image)}}"  loading="lazy"  alt=""
                                                           width="73" height="73"/>
                             <div class="quote-mary-info">
                                 <cite class="quote-mary-cite heading-5">{{$row->name}}</cite>
@@ -188,7 +188,7 @@
                 <div class="col-12 col-lg-4">
                     <!-- Post Minimal-->
                     <article class="post-minimal"><a class="post-minimal-media" href="{{route('single.blog',['id'=>$row->id])}}"><img
-                                class="post-minimal-image" src="{{asset($row->image)}}" alt=""
+                                class="post-minimal-image"  loading="lazy"  src="{{asset($row->image)}}" alt=""
                                 width="369" height="253"/></a>
                         <div class="post-minimal-main">
                             <h5 class="post-minimal-title"><a href="{{route('single.blog',['id'=>$row->id])}}"></a>{{$row->name}}</h5>
@@ -213,9 +213,9 @@
             <h3>{{$jobFactory->title}}</h3>
             <p class="offset-top-20px"><span style="max-width: 670px;">{!! $jobFactory->description !!}</span></p>
             <div class="group"><a class="button button-primary button-fixed-size" href="{{$jobFactory->url1}}"><img
-                        src="{{asset('front/images/google-play-download-138x35.png')}}" alt="" width="138" height="35"/></a><a
+                        src="{{asset('images/2560px-Google_Play_Store_badge_EN.svg.png')}}"  loading="lazy"  alt="" width="138" height="35"/></a><a
                     class="button button-primary button-fixed-size" href="{{$jobFactory->url2}}"><img
-                        src="{{asset('front/images/appstore.svg')}}" alt=""></a></div>
+                        src="{{asset('images/App-Store-Button-transparent.png')}}"  loading="lazy"  alt=""></a></div>
         </div>
     </section>
 @endsection

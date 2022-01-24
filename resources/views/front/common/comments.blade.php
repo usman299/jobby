@@ -4,7 +4,7 @@
         <h1 class="head_art">Commentaires</h1>
         @foreach($comments as $comment)
             <a href="#" class="emCategorie_itemJobs _list bg-blue">
-                <img src="{{asset($comment->user->image)}}" style="height: 40px; border-radius: 50px" alt="">
+                <img src="{{asset($comment->user->image)}}"  loading="lazy"  style="height: 40px; border-radius: 50px" alt="">
                 <div class="txt">
                     <h2>{{$comment->user->firstName}} {{$comment->user->lastName}}</h2>
                     <p style="margin-bottom: 10px">{{$comment->comment}}</p>

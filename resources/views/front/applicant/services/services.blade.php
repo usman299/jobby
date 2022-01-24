@@ -38,7 +38,7 @@
                     <div class="row no-gutters">
                         <div class="col-4">
                             <div class="cover_card">
-                                <img src="{{ asset($row->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                <img src="{{ asset($row->img ?? ' ')  }}" loading="lazy"  class="card-img-top" alt="img">
                             </div>
                         </div>
                         <div class="col-8 my-auto">

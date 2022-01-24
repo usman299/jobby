@@ -2,7 +2,7 @@
 @section('content')
     @if($user->is_company != 1)
     <section style="margin-top: 50px">
-        <img style="width: 100%" src="{{asset('admin/jobby/Activer votre badge PRO (2).jpg')}}" alt="">
+        <img style="width: 100%"  loading="lazy"  loading="lazy"  src="{{asset('admin/jobby/Activer votre badge PRO (2).jpg')}}" alt="">
     </section>
     <section class="npAbout_sections emBlock__border border-t-none" style="text-align: center">
         <div class="np__description">

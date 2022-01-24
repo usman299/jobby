@@ -1623,7 +1623,7 @@
         <h1 class="head_art">Offres ({{$jobrequest->proposals->count()}})</h1>
             @foreach($jobrequest->proposals as $proposal)
             <a href="{{route('applicant.proposal.detail', ['id' => $proposal->id])}}" class="emCategorie_itemJobs _list bg-blue">
-                <img src="{{asset($proposal->jobber->image)}}" style="height: 40px; border-radius: 50px" alt="">
+                <img src="{{asset($proposal->jobber->image)}}"  loading="lazy"  style="height: 40px; border-radius: 50px" alt="">
                 <div class="txt">
                     <h2>{{$proposal->jobber->firstName}} {{$proposal->jobber->lastName}}</h2>
                     <p style="margin-bottom: 10px">{{Str::limit($proposal->description, 40)}}</p>
@@ -1653,7 +1653,7 @@
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
-                                    <img id="myImg" class="cover_img" style="height: 150px" src="{{asset($jobrequest->image1)}}" alt="">
+                                    <img id="myImg" class="cover_img" style="height: 150px"  loading="lazy"  src="{{asset($jobrequest->image1)}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -1662,7 +1662,7 @@
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
-                                    <img id="myImg2" class="cover_img" style="height: 150px" src="{{asset($jobrequest->image2)}}" alt="">
+                                    <img id="myImg2" class="cover_img" style="height: 150px"  loading="lazy"  src="{{asset($jobrequest->image2)}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -1671,7 +1671,7 @@
                         <div class="item" style="height: 170px">
                             <div class="ele__card">
                                 <div class="bg_imgCard">
-                                    <img  id="myImg3" class="cover_img" style="height: 150px" src="{{asset($jobrequest->image3)}}" alt="">
+                                    <img  id="myImg3" class="cover_img"  loading="lazy"  style="height: 150px" src="{{asset($jobrequest->image3)}}" alt="">
                                 </div>
                             </div>
                         </div>

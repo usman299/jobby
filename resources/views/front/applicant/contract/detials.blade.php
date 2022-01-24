@@ -105,7 +105,7 @@
                     <div class="item_person">
 
                         <?php $jobber = \App\User::where('id','=',$contract->jober_id)->first(); ?>
-                        <img src="{{asset($jobber->image)}}" alt="">
+                        <img src="{{asset($jobber->image)}}"  loading="lazy"  alt="">
                         <h2>{{$jobber->firstName}} {{$jobber->lastName}}</h2>
                     </div>
                     <div class="sideRight">

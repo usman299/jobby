@@ -38,7 +38,7 @@
     </tr>
     <tr>
         <td  style="text-align: center;">
-            <img style="margin-top: 20px; width: 100%;" src="{{asset('images/icon5.png')}}" alt="">
+            <img style="margin-top: 20px; width: 100%;" src="{{asset('images/icon5.png')}}"  loading="lazy"  alt="">
         </td>
     </tr>
 </table>
@@ -68,10 +68,10 @@
 <table style="margin-top: 20px">
     <tr>
         <td style="text-align: center">
-            <a href="#" class="fa fa-facebook"><img src="https://ci5.googleusercontent.com/proxy/Hp1tHwpZJplBQHTr-WRQujyXVO54yAQdUwALRHoIu3TW_4YDZ6B6Ls74s-w-3MEDpMW9F5Bc8V4B2IT49EMXsm4X1qqiK8IjzmNO4S_OfAs-tByTjpOe2-uS3s3hY3HTf5w=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/fb.jpg" alt=""></a>
-            <a href="#" class="fa fa-facebook"><img src="https://ci6.googleusercontent.com/proxy/IrEOgUYJAxNOXCfkCzRhp3Pr5plttxi_SK_vo7HZtMFa9MnD5KZqMxD0PxnsIjARnAifRp7OuUYYY20Bx98L__qgfC-G266Bqx7WcwKAYkekf1hLO0pZhaVmV4UfPbaFNGY=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/tw.jpg" alt=""></a>
-            <a href="#" class="fa fa-facebook"><img src="https://ci6.googleusercontent.com/proxy/KSBDtD0zHbN5XeL5qH34sW3-l80xoG-w0BBfwWJAKOpm5TzMSQdySc4IybYGoQHKjT_Wo3UDUSeCtTIWDxoIky3CVQs4NQ208Te17XQNfgN2coi-_NX4ppd5lt40uL9B-LE=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/li.jpg" alt=""></a>
-            <a href="#" class="fa fa-facebook"><img src="https://ci4.googleusercontent.com/proxy/cqBt0SYqEkz5P5RlEVBOgBiEsYGuAGdvEGnMKJY7Pny4E4Fc4Wh2XESh_BSxyR0kc6MwhSZ90frj3Z0X3li2uWsh2aqA78SPkhL0ypAuvU4H_SC5HzvlUoN3eE5687knUrE=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/yt.jpg" alt=""></a>
+            <a href="#" class="fa fa-facebook"><img src="https://ci5.googleusercontent.com/proxy/Hp1tHwpZJplBQHTr-WRQujyXVO54yAQdUwALRHoIu3TW_4YDZ6B6Ls74s-w-3MEDpMW9F5Bc8V4B2IT49EMXsm4X1qqiK8IjzmNO4S_OfAs-tByTjpOe2-uS3s3hY3HTf5w=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/fb.jpg"  loading="lazy"  alt=""></a>
+            <a href="#" class="fa fa-facebook"><img src="https://ci6.googleusercontent.com/proxy/IrEOgUYJAxNOXCfkCzRhp3Pr5plttxi_SK_vo7HZtMFa9MnD5KZqMxD0PxnsIjARnAifRp7OuUYYY20Bx98L__qgfC-G266Bqx7WcwKAYkekf1hLO0pZhaVmV4UfPbaFNGY=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/tw.jpg"  loading="lazy"  alt=""></a>
+            <a href="#" class="fa fa-facebook"><img src="https://ci6.googleusercontent.com/proxy/KSBDtD0zHbN5XeL5qH34sW3-l80xoG-w0BBfwWJAKOpm5TzMSQdySc4IybYGoQHKjT_Wo3UDUSeCtTIWDxoIky3CVQs4NQ208Te17XQNfgN2coi-_NX4ppd5lt40uL9B-LE=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/li.jpg"   loading="lazy" alt=""></a>
+            <a href="#" class="fa fa-facebook"><img src="https://ci4.googleusercontent.com/proxy/cqBt0SYqEkz5P5RlEVBOgBiEsYGuAGdvEGnMKJY7Pny4E4Fc4Wh2XESh_BSxyR0kc6MwhSZ90frj3Z0X3li2uWsh2aqA78SPkhL0ypAuvU4H_SC5HzvlUoN3eE5687knUrE=s0-d-e1-ft#http://pubs.payoneer.com/EmailSender/Payoneer/img/Default/BlocksTemplate/yt.jpg"  loading="lazy"  alt=""></a>
         </td>
     </tr>
     <tr>
@@ -584,7 +584,7 @@
 
                                                             <!-- Image -->
                                                             <tr>
-                                                                <td align="center" valign="middle"><img alt="img" class="img2" data-crop="false" editable="" height="260" label="ph5" mc:edit="ph5" src="{{asset('images/icon5.png')}}" style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="260" /></td>
+                                                                <td align="center" valign="middle"><img alt="img" class="img2" data-crop="false" editable="" height="260" label="ph5" mc:edit="ph5" src="{{asset('images/icon5.png')}}"  loading="lazy"  style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="260" /></td>
                                                             </tr>
                                                             <!-- End Image -->
                                                         </table>
@@ -689,10 +689,10 @@
                                                                         <table align="center" border="0" cellpadding="0" cellspacing="0" width="460">
                                                                             <!-- images -->
                                                                             <tr>
-                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph38" mc:edit="ph38" src="{{asset('images/icon6.png')}}" style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
-                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph39" mc:edit="ph39" src="{{asset('images/icon7.png')}}" style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
-                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph40" mc:edit="ph40" src="{{asset('images/icon8.png')}}" style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
-                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph41" mc:edit="ph41" src="{{asset('images/icon9.png')}}" style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
+                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph38" mc:edit="ph38" src="{{asset('images/icon6.png')}}"   loading="lazy"  style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
+                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph39" mc:edit="ph39" src="{{asset('images/icon7.png')}}"  loading="lazy"   style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
+                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph40" mc:edit="ph40" src="{{asset('images/icon8.png')}}"  loading="lazy"  style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
+                                                                                <td align="center" valign="top"><a href="#"><img alt="img" data-crop="false" editable="" height="32" label="ph41" mc:edit="ph41" src="{{asset('images/icon9.png')}}"  loading="lazy"   style="border: 0px; display: block; font-size: 0px; line-height: 0px;" width="32" /></a></td>
                                                                             </tr>
                                                                             <!-- End images -->
 

@@ -17,7 +17,7 @@
     <section class="embanner_SubCategories">
         <div class="em_head">
             <div class="cover_course">
-                <img src="{{ asset($services->img ?? ' ')  }}" alt="">
+                <img src="{{ asset($services->img ?? ' ')  }}"  loading="lazy"  alt="">
 
             </div>
         </div>
@@ -132,7 +132,7 @@
                                             </label>
                                         </div>
                                         <div class="form-group input-lined ">
-                                            <img id="output_image" src="{{ asset($services->img ?? '')  }}" />
+                                            <img id="output_image" src="{{ asset($services->img ?? '')  }}"  loading="lazy"  />
                                         </div>
 
                                         {{--                                        <label for="pass" class="margin-t-20" style="font-size: 15px;"> <strong>Image</strong> <strong style="color: red;">*</strong></label>--}}

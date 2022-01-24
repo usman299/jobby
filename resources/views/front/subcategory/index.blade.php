@@ -42,7 +42,7 @@
                     <a href="{{route('applicant.service',['id'=>$row->id])}}" class="em__itemList_jobs">
                         <div class="media align-items-center">
                             <div class="img_logo">
-                                <img src="{{ asset($row->img ?? ' ')  }}" alt="">
+                                <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  alt="">
                             </div>
                             <div class="media-body">
                                 <div class="txt ">

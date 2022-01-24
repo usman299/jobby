@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <div class="embox__avatar">
                         <div class="emitem_avt">
-                            <img class="img__avatar" src="{{asset($user->image)}}" alt="">
+                            <img class="img__avatar" src="{{asset($user->image)}}"  loading="lazy"  alt="">
                         </div>
                         <div class="txt__upload">
                             <div class="btnUpload__item">

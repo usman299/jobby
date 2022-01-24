@@ -23,7 +23,7 @@
                         <div class="item em_item_product item_list">
                             <div class="em_head">
                                 <a href="#" class="image_product">
-                                    <img src="{{asset($contract->user->image)}}" alt="">
+                                    <img src="{{asset($contract->user->image)}}"  loading="lazy"  alt="">
                                 </a>
                             </div>
                             <div class="title_product">
@@ -66,7 +66,7 @@
                         <div class="item em_item_product item_list">
                             <div class="em_head">
                                 <a href="#" class="image_product">
-                                    <img src="{{asset($contract->user->image)}}" alt="">
+                                    <img src="{{asset($contract->user->image)}}"  loading="lazy"  alt="">
                                 </a>
                             </div>
                             <div class="title_product">
@@ -108,7 +108,7 @@
                         <div class="item em_item_product item_list">
                             <div class="em_head">
                                 <a href="#" class="image_product">
-                                    <img src="{{asset($contract->user->image)}}" alt="">
+                                    <img src="{{asset($contract->user->image)}}" loading="lazy"  alt="">
                                 </a>
                             </div>
                             <div class="title_product">

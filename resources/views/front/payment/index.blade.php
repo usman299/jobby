@@ -53,7 +53,7 @@
     <script>
         const stripeKey = "{{ env('STRIPE_PUBLISHABLE_KEY') }}";
     </script>
-    <script src="{{asset('js/stripe.js')}}"></script>
+    <script src="{{asset('js/stripe.js')}}"  loading="lazy" ></script>
     <script>
         $(".paymentformsubmit").submit(function(){
             $(this).find(':input[type=submit]').prop('disabled', true);

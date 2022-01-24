@@ -49,7 +49,7 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
-                        <img src="{{asset($proposal->jobber->image)}}" alt="">
+                        <img src="{{asset($proposal->jobber->image)}}"  loading="lazy"  alt="">
                         <h2>{{$proposal->jobber->firstName}} {{$proposal->jobber->lastName}}</h2>
                     </div>
                     <div class="sideRight">
@@ -186,7 +186,7 @@
                 <div class="modal-header padding-l-20 padding-r-50" style="background-color: #b2efff">
                     <div class="media align-items-center">
                         <div class="img_brand">
-                            <img src="{{asset($proposal->jobber->image)}}" alt="">
+                            <img src="{{asset($proposal->jobber->image)}}"  loading="lazy"  alt="">
                         </div>
                         <div class="media-body">
                             <div class="txt_info">
@@ -398,7 +398,7 @@
                                     @foreach($reviews as $row)
                                     <div class="itemUser">
                                         <div class="media">
-                                            <img class="x_img" src="{{asset($row->applicant->image ?? 'http://127.0.0.1:8000/assets/img/persons/064.jpg')}}" alt="">
+                                            <img class="x_img"  loading="lazy"  src="{{asset($row->applicant->image ?? 'http://127.0.0.1:8000/assets/img/persons/064.jpg')}}" alt="">
                                             <div class="media-body">
                                                 <div class="txt_details">
                                                     <h4 class="username">{{$row->applicant->firstName}}  {{$row->applicant->lastName}} <time>{{$row->created_at->diffForHumans()}}</time></h4>
@@ -465,7 +465,7 @@
                                         <div class="em_itemCourse_grid">
                                             <a href="" class="card">
                                                 <div class="">
-                                                    <img src="{{asset($portfol->file)}}" class="card-img-top" alt="img">
+                                                    <img src="{{asset($portfol->file)}}"  loading="lazy"  class="card-img-top" alt="img">
                                                 </div>
                                                 <div class="">
                                                     <h6 class="card-title" style="margin: 5px;">

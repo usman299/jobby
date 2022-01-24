@@ -4,7 +4,7 @@
     <section class="embanner_SubCategories">
         <div class="em_head">
             <div class="cover_course">
-                <img src="{{ asset($services->img ?? ' ')  }}" alt="">
+                <img src="{{ asset($services->img ?? ' ')  }}"   loading="lazy" alt="">
 
             </div>
         </div>
@@ -289,7 +289,7 @@
                     <div class="media align-items-center">
                         <div class="img_brand">
 
-                                <img src="{{asset($services->user->image)}}" alt="">
+                                <img src="{{asset($services->user->image)}}"  loading="lazy"  alt="">
                             </div>
                             <div class="media-body">
                                 <div class="txt_info">
@@ -419,7 +419,7 @@
                                         <!-- item -->
                                         <div class="itemUser">
                                             <div class="media">
-                                                <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/064.jpg" alt="">
+                                                <img class="x_img"  loading="lazy"  src="http://127.0.0.1:8000/assets/img/persons/064.jpg" alt="">
                                                 <div class="media-body">
                                                     <div class="txt_details">
                                                         <h4 class="username">Richard Crump <time>Today</time></h4>
@@ -441,7 +441,7 @@
                                         <!-- item -->
                                         <div class="itemUser">
                                             <div class="media">
-                                                <img class="x_img" src="http://127.0.0.1:8000/assets/img/persons/0654.jpg" alt="">
+                                                <img class="x_img"  loading="lazy"  src="http://127.0.0.1:8000/assets/img/persons/0654.jpg" alt="">
                                                 <div class="media-body">
                                                     <div class="txt_details">
                                                         <h4 class="username">Pedro Foster <time>2 days ago</time></h4>

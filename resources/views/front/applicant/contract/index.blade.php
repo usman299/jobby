@@ -24,7 +24,7 @@
                             <div class="em_head">
                                 <?php $jobber = \App\User::where('id','=',$contract->jober_id)->first(); ?>
                                 <a href="#" class="image_product">
-                                    <img src="{{asset($jobber->image)}}" alt="">
+                                    <img src="{{asset($jobber->image)}}"  loading="lazy"  alt="">
                                 </a>
                             </div>
                             <div class="title_product">
@@ -73,7 +73,7 @@
                             <div class="em_head">
                                 <a href="#" class="image_product">
                                     <?php $jobber = \App\User::where('id','=',$contract->jober_id)->first(); ?>
-                                    <img src="{{asset($jobber->image)}}" alt="">
+                                    <img src="{{asset($jobber->image)}}"  loading="lazy"  alt="">
                                 </a>
                             </div>
                             <div class="title_product ">
@@ -117,7 +117,7 @@
                             <div class="em_head">
                                 <a href="#" class="image_product">
                                     <?php $jobber = \App\User::where('id','=',$contract->jober_id)->first(); ?>
-                                    <img src="{{asset($jobber->image)}}" alt="">
+                                    <img src="{{asset($jobber->image)}}"  loading="lazy"  alt="">
                                 </a>
                             </div>
                             <div class="title_product">

@@ -22,7 +22,7 @@
                     <article class="post-creative"><img class="post-creative-image" src="{{asset($blog->image)}}" alt="" width="768" height="475"/>
                         <div class="post-creative-meta">
                             <div class="post-creative-meta-inner">
-                                <div class="post-creative-author"><img class="post-creative-author-image" src="{{asset('images/logoo.png')}}" alt="" width="36" height="36"/>
+                                <div class="post-creative-author"><img class="post-creative-author-image"  loading="lazy"  loading="lazy"   src="{{asset('images/logoo.png')}}" alt="" width="36" height="36"/>
                                     <p>
                                         by&nbsp;<a href="#">Mister Jobby</a></p>
                                 </div>

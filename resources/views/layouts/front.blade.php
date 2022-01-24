@@ -623,11 +623,11 @@ $user = Auth::user();
                                         <path id="Fill_4" data-name="Fill 4" d="M2.23,4.429a.636.636,0,0,1-.446-.177L.187,2.716A.6.6,0,0,1,.182,1.85a.641.641,0,0,1,.89-.006l1.149,1.1L5.027.182a.641.641,0,0,1,.89-.006.6.6,0,0,1,.006.866l-3.249,3.2a.633.633,0,0,1-.444.182" transform="translate(4.286 5.838)" fill="#ff4040"></path>
                                     </g>
                                 </svg>-->
-                                    <img height="20px" src="https://media.gettyimages.com/vectors/shield-ok-vector-id1253267955?s=612x612" alt="">
+                                    <img height="20px" loading="lazy"   src="https://media.gettyimages.com/vectors/shield-ok-vector-id1253267955?s=612x612" alt="">
                                 </span>
                             @endif
                                 <!-- You can use an image -->
-                                 <img class="_imgUser" src="{{asset($user->image)}}" alt="">
+                                 <img class="_imgUser"  loading="lazy"  src="{{asset($user->image)}}" alt="">
 
                             </a>
                             <div class="media-body" style="margin-left: 10px">

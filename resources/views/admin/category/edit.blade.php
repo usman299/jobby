@@ -61,7 +61,7 @@
 
                                         <div class="col-sm-4">
 
-                                            <img id="output_image1" src="{{asset($category->img)}}" />
+                                            <img id="output_image1"  loading="lazy"  src="{{asset($category->img)}}" />
 
                                         </div></div>
 {{--                                    <div class="form-group row">--}}

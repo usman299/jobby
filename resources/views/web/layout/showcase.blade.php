@@ -12,8 +12,21 @@
     <link rel="stylesheet" href="{{asset('front/css/fonts.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
     <style>
+        .button-fixed-size img {
+            width: auto;
+            height: auto;
+            max-width: 113%;
+        }
+        .button-primary, .button-primary:focus {
+            color: #ffffff;
+            background-color: #fcfdff;
+            border-color: #fdfeff;
+        }
         .figure-responsive img {
             min-width: 100%;
+        }
+        .footer-creative-main a {
+            color: #000000;
         }
         .table-job-offers tr:last-child {
             border-bottom: 0px solid #ffffff;
@@ -93,7 +106,7 @@
 <body>
 
 <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-            src="{{asset('images/ie8-panel/warning_bar_0000_us.jpg')}}" height="42" width="820"
+            src="{{asset('images/ie8-panel/warning_bar_0000_us.jpg')}}"  loading="lazy"  height="42" width="820"
             alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
 </div>
 <div class="preloader">
@@ -119,7 +132,7 @@
                             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                             <!-- RD Navbar Brand-->
                             <div class="rd-navbar-brand">
-                                <!--Brand--><a class="brand" href="{{route('web.index')}}"><img class="brand-logo-dark" src="{{asset('images/newlogo.png')}}" alt="" width="143" height="26"/><img class="brand-logo-light" src="images/logo-inverse-286x52.png" alt="" width="143" height="26"/></a>
+                                <!--Brand--><a class="brand" href="{{route('web.index')}}"><img class="brand-logo-dark"  loading="lazy"  src="{{asset('images/newlogo.png')}}" alt="" width="143" height="26"/><img class="brand-logo-light" src="images/logo-inverse-286x52.png"  loading="lazy"  alt="" width="143" height="26"/></a>
                             </div>
                         </div>
                         <div class="rd-navbar-main-element">
@@ -242,11 +255,10 @@
                                 <!-- Post Line--><a class="post-line" href="{{route('single.blog',['id'=>$row->id])}}">
                                     <time class="post-line-time" datetime="2019"><span
                                             class="post-line-time-day">{{$row->created_at->format('d')}}</span><span
-                                            <?php
-                                            \Carbon\Carbon::setLocale('fr');
-                                            $date = \Carbon\Carbon::parse($row->created_at);
-                                            ?>
-                                            class="post-line-time-month">{{$date->format('F')}}</span></time>
+                                            @php
+                                                \Carbon\Carbon::setlocale('fr');
+                                            @endphp
+                                            class="post-line-time-month">{{\Carbon\Carbon::parse($row->created_at)->translatedformat('M')}}</span></time>
                                     <p class="post-line-text">{{$row->name}}</p></a>
                                 @endif
                                     @endforeach
@@ -255,10 +267,10 @@
                         </div>
                         <div class="col-sm-6 col-lg-3">
                             <div class="group"><a class="button button-warning button-fixed-size" href="{{$jobFactory->url1}}"><img
-                                        src="{{asset('front/images/google-play-download-138x35.png')}}" alt=""
+                                        src="{{asset('images/2560px-Google_Play_Store_badge_EN.svg.png')}}"  loading="lazy"  alt=""
                                         width="138" height="35"/></a><a class="button button-warning button-fixed-size"
                                                                         href="{{$jobFactory->url2}}"><img
-                                        src="{{asset('front/images/appstore.svg')}}" alt=""></a></div>
+                                        src="{{asset('images/App-Store-Button-transparent.png')}}"  loading="lazy"  alt=""></a></div>
 
 
                         </div>
@@ -275,7 +287,7 @@
                             Ikae Digital</a></p>
                         </div>
                         <div class="col-6">
-                            <p class="rights"><span>Propulse par la Credit Agricode</span><span>&nbsp;</span><a href="https://www.ikaedigital.com/"><img style="width: 111px;" src="{{asset('images/Fichier 1.png')}}"></a></p>
+                            <p class="rights"><span>Propulse par la Credit Agricole</span><span>&nbsp;</span><a href="https://www.ikaedigital.com/"><img style="width: 111px; height: 72px;"  loading="lazy" src="{{asset('images/Fichier 1.png')}}"></a></p>
                         </div>
                     </div>
 

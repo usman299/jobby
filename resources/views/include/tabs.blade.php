@@ -122,13 +122,13 @@
         <div class="row" style="width: 100%">
             <div class="col-4">
                 <label for="files" class="btn" style="text-align: left; padding: 0px">
-                    <img style="height: 80px; width: 100%" id="output_image" src="{{asset('assets/img/0ffd6s54.jpg')}}">
+                    <img style="height: 80px; width: 100%" id="output_image"  loading="lazy"  src="{{asset('assets/img/0ffd6s54.jpg')}}">
                 </label>
                 <input name="image1" id="files" style="visibility:hidden;" type="file">
             </div>
             <div class="col-4">
                 <label for="files1" class="btn" style="text-align: left; padding: 0px">
-                    <img style="height: 80px; width: 100%" id="output_image1" src="{{asset('assets/img/0ffd6s54.jpg')}}">
+                    <img style="height: 80px; width: 100%" id="output_image1"  loading="lazy"  src="{{asset('assets/img/0ffd6s54.jpg')}}">
                 </label>
                 <input name="image2" id="files1" style="visibility:hidden;" type="file">
             </div>

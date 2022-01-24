@@ -71,17 +71,17 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
-                    
+
                         <label class="form-control @error('img') is-invalid @enderror">
                     <center><i class="fa fa-image"></i> <!-- Add main screen --> <strong style="font-size: 18px;">Ajouter l'écran principal</strong></center><input type="file" style="display: none;"name="mainScreen" value="{{ old('mainScreen') }}"  accept="image/png, image/gif, image/jpeg" id="imgInp" onchange="preview_image(event)">
                         </label>
                     </div>
                     <div class="col-sm-4">
-                    @if($appSetting!=null)   
-                    <img id="output_image" src="{{ asset($appSetting->mainScreen ?? ' ')  }}" />
-                    @endif   
+                    @if($appSetting!=null)
+                    <img id="output_image" src="{{ asset($appSetting->mainScreen ?? ' ')  }}"  loading="lazy"  />
+                    @endif
                     </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
@@ -90,12 +90,12 @@
                         </label>
                     </div>
                     <div class="col-sm-4">
-                    @if($appSetting!=null)   
-                    <img id="output_image1" src="{{ asset($appSetting->appLogo ?? ' ')  }}" />
-                    @endif  
-                        
+                    @if($appSetting!=null)
+                    <img id="output_image1"  loading="lazy"  src="{{ asset($appSetting->appLogo ?? ' ')  }}" />
+                    @endif
+
                     </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
@@ -104,11 +104,11 @@
                         </label>
                     </div>
                     <div class="col-sm-4">
-                    @if($appSetting!=null)   
-                    <img id="output_image2" src="{{ asset($appSetting->jooberIntroScreen1 ?? ' ')  }}" />
-                    @endif  
+                    @if($appSetting!=null)
+                    <img id="output_image2"  loading="lazy"  src="{{ asset($appSetting->jooberIntroScreen1 ?? ' ')  }}" />
+                    @endif
                     </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
@@ -117,11 +117,11 @@
                         </label>
                     </div>
                     <div class="col-sm-4">
-                    @if($appSetting!=null)   
-                    <img id="output_image3" src="{{ asset($appSetting->jooberIntroScreen2 ?? ' ')  }}" />
-                    @endif    
+                    @if($appSetting!=null)
+                    <img id="output_image3"  loading="lazy"  src="{{ asset($appSetting->jooberIntroScreen2 ?? ' ')  }}" />
+                    @endif
                     </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
@@ -130,11 +130,11 @@
                         </label>
                     </div>
                     <div class="col-sm-4">
-                    @if($appSetting!=null)   
-                    <img id="output_image4" src="{{ asset($appSetting->jooberIntroScreen3 ?? ' ')  }}" />
-                    @endif   
+                    @if($appSetting!=null)
+                    <img id="output_image4"  loading="lazy"  src="{{ asset($appSetting->jooberIntroScreen3 ?? ' ')  }}" />
+                    @endif
                     </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
@@ -143,11 +143,11 @@
                         </label>
                     </div>
                     <div class="col-sm-4">
-                    @if($appSetting!=null)   
-                    <img id="output_image5" src="{{ asset($appSetting->applicantIntroScreen1 ?? ' ')  }}" />
-                    @endif   
+                    @if($appSetting!=null)
+                    <img id="output_image5"  loading="lazy"  src="{{ asset($appSetting->applicantIntroScreen1 ?? ' ')  }}" />
+                    @endif
                     </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
@@ -156,11 +156,11 @@
                         </label>
                     </div>
                     <div class="col-sm-4">
-                    @if($appSetting!=null)   
-                    <img id="output_image6" src="{{ asset($appSetting->applicantIntroScreen2 ?? ' ')  }}" />
-                    @endif   
+                    @if($appSetting!=null)
+                    <img id="output_image6"  loading="lazy"  src="{{ asset($appSetting->applicantIntroScreen2 ?? ' ')  }}" />
+                    @endif
                     </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Image<strong style="color: red;font-size: 20px;"> * </strong></label>
                     <div class="col-sm-6">
@@ -170,16 +170,16 @@
                     </div>
                     <div class="col-sm-4">
                     @if($appSetting!=null)
-                    <img id="output_image7" src="{{ asset($appSetting->applicantIntroScreen3 ?? ' ')  }}"/>
+                    <img id="output_image7"  loading="lazy"  src="{{ asset($appSetting->applicantIntroScreen3 ?? ' ')  }}"/>
                    @endif
-                        
+
                     </div>
-                </div> 
-                
-                
-                                        
-                                        
-                                        
+                </div>
+
+
+
+
+
                 <div class="form-group row">
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary"><!-- Sign in -->Nous Faire Parvenir</button>
@@ -197,7 +197,7 @@
             Content body start
         ***********************************-->
 <script>
-function preview_image(event) 
+function preview_image(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -210,7 +210,7 @@ function preview_image(event)
 
 </script>
 <script>
-function preview_image1(event) 
+function preview_image1(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -223,7 +223,7 @@ function preview_image1(event)
 
 </script>
 <script>
-function preview_image2(event) 
+function preview_image2(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -236,7 +236,7 @@ function preview_image2(event)
 
 </script>
 <script>
-function preview_image3(event) 
+function preview_image3(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -249,7 +249,7 @@ function preview_image3(event)
 
 </script>
 <script>
-function preview_image4(event) 
+function preview_image4(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -262,7 +262,7 @@ function preview_image4(event)
 
 </script>
 <script>
-function preview_image5(event) 
+function preview_image5(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -275,7 +275,7 @@ function preview_image5(event)
 
 </script>
 <script>
-function preview_image6(event) 
+function preview_image6(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -288,7 +288,7 @@ function preview_image6(event)
 
 </script>
 <script>
-function preview_image7(event) 
+function preview_image7(event)
 {
  var reader = new FileReader();
  reader.onload = function()
@@ -300,7 +300,7 @@ function preview_image7(event)
 }
 
 </script>
-       
+
  @jquery
     @toastr_js
     @toastr_render

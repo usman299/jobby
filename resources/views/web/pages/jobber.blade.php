@@ -23,12 +23,12 @@
                     </form>
                     <div style="margin-top: 20px;"><b style="margin-right: 249px; color: black;font-size: 18px; margin-top: 200px;">OU</b></div><br>
                     <div style="float: left; font-size: 15px; color: black"><p>Inscrivez-vous en téléchargeant l'application « Mister Jobby »</p></div>
-                    <div class="group" style="float: left"><a class=" button button-warning button-fixed-size" href="#"><img src="{{asset('images/android.png')}}" alt="" width="138" height="35"/></a><a class=" button button-warning  button-fixed-size" href="#"><img src="{{asset('images/apple2.png')}}" alt="" width="138" height="35"></a></div>
+                    <div class="group" style="float: left"><a class=" button button-warning button-fixed-size" href="#"><img src="{{asset('images/android.png')}}"  loading="lazy"  alt="" width="138" height="35"/></a><a class=" button button-warning  button-fixed-size" href="#"><img src="{{asset('images/apple2.png')}}"  loading="lazy"  alt="" width="138" height="35"></a></div>
 
 
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <figure class="figure-responsive block-5"><img src="{{asset('images/devenez.png')}}" alt="" width="740" height="513"/>
+                    <figure class="figure-responsive block-5"><img src="{{asset('images/devenez.png')}}"   loading="lazy"  alt="" width="740" height="513"/>
                     </figure>
                 </div>
             </div>
@@ -41,7 +41,7 @@
             <div class="row ">
                 @foreach($category as $row)
                 <div class="col-md-3 col-lg-3" style="margin-top: 10px;">
-                    <img src="{{asset($row->img)}}" style="border-radius: 50%; width: 50px; height: 50px;" > &nbsp  <span style="color: black; font-size: 17px; "><b>{{$row->title}}</b></span>
+                    <img src="{{asset($row->img)}}"  loading="lazy"  style="border-radius: 50%; width: 50px; height: 50px;" > &nbsp  <span style="color: black; font-size: 17px; "><b>{{$row->title}}</b></span>
                 </div>
                 @endforeach
 

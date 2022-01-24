@@ -9,7 +9,7 @@
                     <div class="em_itemCourse_grid">
                         <a href="{{route('request.subcategory', ['id' => $cat->id])}}" class="card">
                             <div class="">
-                                <img src="{{ asset($cat->category->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                <img src="{{ asset($cat->category->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                             </div>
                             <div class="txt">
                                 <h6 class="card-title" style="margin: 10px;">
@@ -29,7 +29,7 @@
                     <div class="em_itemCourse_grid">
                         <a href="{{route('job.request', ['id' => $cat->id])}}" class="card">
                             <div class="">
-                                <img src="{{ asset($cat->img ?? ' ')  }}" class="card-img-top" alt="img">
+                                <img src="{{ asset($cat->img ?? ' ')  }}"  loading="lazy"  class="card-img-top" alt="img">
                             </div>
                             <div class="txt">
                                 <h6 class="card-title" style="margin: 10px;">

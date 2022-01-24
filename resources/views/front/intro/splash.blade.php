@@ -3,7 +3,7 @@
 @section('content')
 <div class="spalsh__screen mx-auto">
     <div class="logo">
-        <img src="{{asset('main/logo.jpg')}}" width="117" height="47" alt="">
+        <img src="{{asset('main/logo.jpg')}}"  loading="lazy"  width="117" height="47" alt="">
     </div>
 
     <div class="env-pb d-flex justify-content-center">
@@ -13,7 +13,7 @@
     </div>
 
 </div>
-<script src="{{asset('assets/js/splash.js')}}"></script>
+<script src="{{asset('assets/js/splash.js')}}"  loading="lazy" ></script>
 @endsection
 <!-- splash -->
 

@@ -33,7 +33,7 @@
                                     <div class="item">
                                         <a href="{{route('front.subcategories',['id'=>$row->id])}}" class="emCategorie_itemJobs " style="background-color:{{$row->backColor}} ">
                                             <div class="icon">
-                                                <img src="{{ asset($row->img ?? ' ')  }}" style="width: 30px; height:30px; background-color: white;">
+                                                <img src="{{ asset($row->img ?? ' ')  }}"  loading="lazy"  style="width: 30px; height:30px; background-color: white;">
                                             </div>
                                             <div class="txt">
                                                 <h2>{{$row->title}}</h2>

@@ -136,7 +136,7 @@
                                                         @if($row->user->role==2 )
                                                     <div class="d-flex justify-content-start mb-4">
                                                         <div class="">
-                                                            <img src="{{asset($row->user->image ?? '')}}" style="width: 50px; height: 50px;border-radius: 50% !important;"  class="" alt="">
+                                                            <img src="{{asset($row->user->image ?? '')}}"  loading="lazy"  style="width: 50px; height: 50px;border-radius: 50% !important;"  class="" alt="">
                                                         </div>
                                                         <div class="chatbox" >
                                                             {{$row->user->firstName ?? '' }} {{$row->user->lastName ?? ''}}:<br>
@@ -163,7 +163,7 @@
                                                             <span class="msg_time"> {{$date->diffForHumans() ?? ''}}</span>
                                                         </div>
                                                         <div class="img_cont_msg">
-                                                            <img src="{{asset($row->user->image ?? '')}}" style="width: 50px; height: 50px;border-radius: 50% !important;"class="rounded-circle user_img_msg" alt="">
+                                                            <img src="{{asset($row->user->image ?? '')}}"  loading="lazy"  style="width: 50px; height: 50px;border-radius: 50% !important;"class="rounded-circle user_img_msg" alt="">
                                                         </div>
                                                     </div>
                                                         @endif

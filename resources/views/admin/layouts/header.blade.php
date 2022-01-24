@@ -50,8 +50,8 @@
         <div class="nav-header">
             <a href="{{route('home')}}" class="brand-logo">
                 <!-- <img class="logo-abbr" src="{{asset('admin/images/logo.png')}}" alt=""> -->
-                <img class="logo-compact" src="{{asset('admin/images/jobby-logo.jpg')}}" alt="">
-                <img class="brand-title" src="{{asset('admin/images/jobby-logo.jpg')}}" alt="">
+                <img class="logo-compact" src="{{asset('admin/images/jobby-logo.jpg')}}"  loading="lazy"  alt="">
+                <img class="brand-title" src="{{asset('admin/images/jobby-logo.jpg')}}"   loading="lazy"  alt="">
             </a>
 
             <div class="nav-control">
@@ -104,7 +104,7 @@
 
 												<div class="timeline-panel">
 													<div class="media mr-2">
-														<img alt="image" width="50" src="{{asset($row->user->image)}}">
+														<img alt="image" width="50"  loading="lazy"  src="{{asset($row->user->image)}}">
 													</div>
 
 													<div class="media-body">
@@ -202,7 +202,7 @@
 							</li> -->
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
-                                    <img src="{{ asset(Auth::user()->image ?? ' ')  }}" width="20" alt=""/>
+                                    <img src="{{ asset(Auth::user()->image ?? ' ')  }}"   loading="lazy"  width="20" alt=""/>
 									<div class="header-info">
 										 @if(Auth::check())
 										<span class="text-black"><strong>{{Auth::user()->fname}}  {{Auth::user()->lname}}</strong></span>
