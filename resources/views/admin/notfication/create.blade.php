@@ -90,12 +90,10 @@
                     url: "{{url('/fetch/data')}}/"+id,
                     async: false,
                     success : function(response) {
-                        // console.log(response);
+                         // console.log(response);
                         $.each(response, function(i, item) {
-                             console.log(item);
+                             // console.log(item);
                             $('#rolee').append('<option value="'+item.id+'">'+item.firstName+'  '+item.lastName+'</option>');
-                            $('#rolee').multiselect('rebuild');
-                            $('#rolee').multiselect('refresh');
 
                         });
 
