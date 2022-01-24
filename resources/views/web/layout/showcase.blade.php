@@ -287,7 +287,7 @@
                             Ikae Digital</a></p>
                         </div>
                         <div class="col-6">
-                            <p class="rights"><span>Propulse par la Credit Agricole</span><span>&nbsp;</span><a href="https://www.ikaedigital.com/"><img style="width: 111px; height: 72px;"  loading="lazy" src="{{asset('images/Fichier 1.png')}}"></a></p>
+                            <p class="rights"><span>Propulsé par la Crédit Agricole</span><span>&nbsp;</span><a href="https://www.ikaedigital.com/"><img style="width: 111px; height: 72px;"  loading="lazy" src="{{asset('images/Fichier 1.png')}}"></a></p>
                         </div>
                     </div>
 
