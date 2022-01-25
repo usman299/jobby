@@ -71,9 +71,7 @@
                 width: 250px;
                 border-radius: 20px;
             }
-            .group .button-fixed-size {
-                display: inline-flex;
-            }
+
 
 
             .iframe{
@@ -277,10 +275,10 @@
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-3">
-                            <div class="group"><a class="button button-warning button-fixed-size" href="{{$jobFactory->url1}}"><img
+                            <div class="group"><a class="button button-warning button-fixed-size" style="color:#1087eb; " href="{{$jobFactory->url1}}"><img
                                         src="{{asset('images/2560px-Google_Play_Store_badge_EN.svg.png')}}"  loading="lazy"  alt=""
                                         width="138" height="35"/></a><a class="button button-warning button-fixed-size"
-                                                                        href="{{$jobFactory->url2}}"><img
+                                                                        style="color:#1087eb; " href="{{$jobFactory->url2}}"><img
                                         src="{{asset('images/App-Store-Button-transparent.png')}}"  loading="lazy"  alt=""></a></div>
 
 
