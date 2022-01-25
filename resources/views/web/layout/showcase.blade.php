@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
     <style>
 
-        .footer-creative-main a {
-            color: #1087eb;
-        }
+
         .button-primary, .button-primary:focus {
             color: #ffffff;
             background-color: #fcfdff;
@@ -73,6 +71,9 @@
                 width: 250px;
                 border-radius: 20px;
             }
+            .group .button-fixed-size {
+                display: inline-flex;
+            }
 
 
             .iframe{
@@ -104,6 +105,7 @@
                 height: auto;
                 max-width: 113%;
             }
+
         }
 
 
