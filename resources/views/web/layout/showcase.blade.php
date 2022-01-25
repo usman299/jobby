@@ -12,11 +12,8 @@
     <link rel="stylesheet" href="{{asset('front/css/fonts.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
     <style>
-        .button-fixed-size img {
-            width: auto;
-            height: auto;
-            max-width: 113%;
-        }
+
+
         .button-primary, .button-primary:focus {
             color: #ffffff;
             background-color: #fcfdff;
@@ -91,12 +88,26 @@
                 transform: translate3d(-50%, 0, 0);
                 right: auto;
             }
+            .button-fixed-size img {
+                width: auto;
+                height: auto;
+                max-width: 113%;
+            }
+
         }
+        @media (max-width: 600px) {
 
-
-
-
-
+            .button-fixed-size img {
+                width: 237px;
+                height: auto;
+                max-width: 113%;
+            }
+            .footer-creative-main a {
+                color: #1087eb;
+            }
+            .okkkk{
+                color: white;
+            }
 
 
 
@@ -224,19 +235,19 @@
                     <div class="row row-50 justify-content-lg-between">
                         <div class="col-lg-5 col-xl-4">
                             <p class="footer-creative-title">Liens rapides</p>
-                            <div class="footer-creative-divider"></div>
+                            <div class="footer-creative-divider" ></div>
                             <div class="row row-narrow row-15">
                                 <div class="col-6">
                                     <ul class="list-marked-1">
-                                        <li><a href="{{route('about.us')}}">À propos de nous</a></li>
-                                        <li><a href="{{route('suport.terms')}}">Termes et conditions</a></li>
-                                        <li><a href="{{route('suport.faq')}}">Soutien FAQ</a></li>
+                                        <li ><a href="{{route('about.us')}}" style="color: white">À propos de nous</a></li>
+                                        <li><a href="{{route('suport.terms')}}" style="color: white">Termes et conditions</a></li>
+                                        <li><a href="{{route('suport.faq')}}" style="color: white">Soutien FAQ</a></li>
 
                                     </ul>
                                 </div>
                                 <div class="col-6">
                                     <ul class="list-marked-1">
-                                        <li><a href="{{route('suport.priviciy')}}">Politique de confidentialité</a></li>
+                                        <li><a href="{{route('suport.priviciy')}}" style="color: white">Politique de confidentialité</a></li>
 
 
                                     </ul>
