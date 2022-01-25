@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="{{asset('front/css/style.css')}}">
     <style>
 
-
+        .footer-creative-main a {
+            color: #1087eb;
+        }
         .button-primary, .button-primary:focus {
             color: #ffffff;
             background-color: #fcfdff;
@@ -102,12 +104,8 @@
                 height: auto;
                 max-width: 113%;
             }
-            .footer-creative-main a {
-                color: #1087eb;
-            }
-            .okkkk{
-                color: white;
-            }
+        }
+
 
 
 
