@@ -39,7 +39,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" name="small" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="small" class="form-control input_no color-secondary" value="0">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -62,7 +62,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" name="medium" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="medium" class="form-control input_no color-secondary" value="0">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -85,7 +85,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" name="large" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="large" class="form-control input_no color-secondary" value="0">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
@@ -108,7 +108,7 @@
                                                     <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
                                                         <i class="tio-remove"></i>
                                                     </a>
-                                                    <input type="text" name="verylarge" class="form-control input_no color-secondary" value="1">
+                                                    <input type="text" name="verylarge" class="form-control input_no color-secondary" value="0">
                                                     <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
                                                         <i class="tio-add color-white"></i>
                                                     </a>
