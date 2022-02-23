@@ -17,7 +17,7 @@
                 @csrf
                 <div class="em_titleSign" style="margin-bottom: 0px;">
                     <h2>{{$childcatgory->title}}</h2>
-                    <p>Informations sur le besoin</p>
+
                 </div>
                 @if($childcatgory->id == 1)
                 <div class="tab">
