@@ -564,18 +564,18 @@
             @elseif($subcategory->id == 19 || $subcategory->id == 21)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
-                        <div class="form-group allign-left">
-                            <label>Adresse de prise en charge </label>
-                            <div class="input_group">
-                                <input type="text" name="pickup_address" class="form-control" placeholder="Adresse de prise en charge">
-                            </div>
-                        </div>
-                        <div class="form-group allign-left">
-                            <label>Adresse de destination  </label>
-                            <div class="input_group">
-                                <input type="text" name="destination_address" class="form-control" placeholder="Adresse de destination ">
-                            </div>
-                        </div>
+{{--                        <div class="form-group allign-left">--}}
+{{--                            <label>Adresse de prise en charge </label>--}}
+{{--                            <div class="input_group">--}}
+{{--                                <input type="text" name="pickup_address" class="form-control" placeholder="Adresse de prise en charge">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group allign-left">--}}
+{{--                            <label>Adresse de destination  </label>--}}
+{{--                            <div class="input_group">--}}
+{{--                                <input type="text" name="destination_address" class="form-control" placeholder="Adresse de destination ">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div>
                             <h4>Faut-il monter les meubles?</h4>
                         </div>
