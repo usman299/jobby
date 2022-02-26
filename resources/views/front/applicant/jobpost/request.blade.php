@@ -271,14 +271,24 @@
                         <div class="form-group allign-left">
                             <div class="input_group">
                                 <div class="row">
+
                                     <div class="col-12">
                                        <h4>Tringles a rideaux a fixer</h4>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="item-link hoverNone" style="text-align: right">
                                             <div class="group">
                                                 <input type="range" name="surface" class="form-control" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
                                                 <output>15</output>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group" style="text-align: left!important;">
+                                            <label>Description </label>
+                                            <div class="input_group">
+                                                <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -307,7 +317,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
+
+                            <div class="form-group" style="text-align: left!important;">
+                                <label>Description </label>
+                                <div class="input_group">
+                                    <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                                </div>
+                            </div>
+
                     </div>
                 </div>
                 @elseif($childcatgory->id == 5 || $childcatgory->id == 6 || $childcatgory->id == 7 || $childcatgory->id == 8)
@@ -342,6 +360,14 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group" style="text-align: left!important;">
+                            <label>Description </label>
+                            <div class="input_group">
+                                <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                            </div>
+                        </div>
+
                 </div>
                 @elseif($childcatgory->id == 9)
                 <div class="tab">
@@ -370,6 +396,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                 @elseif($childcatgory->id == 10)
                 <div class="tab">
@@ -409,6 +441,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                     </div>
                 @elseif($childcatgory->id == 12)
                 <div class="tab">
@@ -430,6 +468,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                     </div>
                 @elseif($childcatgory->id == 13)
                 <div class="tab">
@@ -470,6 +514,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                     </div>
                 @elseif($childcatgory->id == 15)
                 <div class="tab">
@@ -489,6 +539,12 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                     </div>
@@ -512,6 +568,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                     </div>
                 @elseif($childcatgory->id == 17)
                 <div class="tab">
@@ -533,6 +595,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                 @elseif($childcatgory->id == 18)
                 <div class="tab">
@@ -552,6 +620,12 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -611,6 +685,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                  @elseif($childcatgory->id == 20)
                 <div class="tab">
@@ -642,6 +722,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                 @elseif($childcatgory->id == 21 || $childcatgory->id == 22 || $childcatgory->id == 24)
                 <div class="tab">
@@ -650,6 +736,12 @@
                         <div class="group">
                             <input type="range" class="form-control" name="surface" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
                             <output>15</output>m
+                        </div>
+                    </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -673,6 +765,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                  @elseif($childcatgory->id == 26)
                 <div class="tab">
@@ -694,6 +792,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                 @elseif($childcatgory->id == 27)
                 <div class="tab">
@@ -715,6 +819,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                 @elseif($childcatgory->id == 28)
                 <div class="tab">
@@ -736,6 +846,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                  @elseif($childcatgory->id == 29)
                 <div class="tab">
@@ -757,6 +873,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                  @elseif($childcatgory->id == 30)
                 <div class="tab">
@@ -778,6 +900,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                  @elseif($childcatgory->id == 31)
                 <div class="tab">
@@ -799,6 +927,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="form-group allign-left">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
                 </div>
                 @endif
                 @include('include.tabs')
