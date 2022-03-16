@@ -147,6 +147,7 @@ Route::get('/job/childcatgory/{id}', 'Front\JobPostController@childcatgory')->na
 Route::get('/job/request/{id}', 'Front\JobPostController@request')->name('job.request');
 Route::get('/request/subcategory/{id}', 'Front\JobPostController@requestSubcategory')->name('request.subcategory');
 
+
 });
 
 
