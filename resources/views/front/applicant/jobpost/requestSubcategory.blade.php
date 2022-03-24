@@ -392,17 +392,7 @@
                         </div>
                     </div>
                 </div>
-            @elseif($subcategory->id == 13 || $subcategory->id == 18 || $subcategory->id == 28 || $subcategory->id == 36 || $subcategory->id == 45 || $subcategory->id == 66 || $subcategory->id == 68 || $subcategory->id == 69)
-                <div class="tab">
-                    <div class="form-group allign-left padding-20">
-                        <div class="form-group" style="text-align: left!important;">
-                            <label>Description </label>
-                            <div class="input_group">
-                                <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             @elseif($subcategory->id == 14)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
@@ -1940,6 +1930,16 @@
                     </div>
                 </div>
             @endif
+            <div class="tab">
+                <div class="form-group allign-left padding-20">
+                    <div class="form-group" style="text-align: left!important;">
+                        <label>Description </label>
+                        <div class="input_group">
+                            <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
            @include('include.tabs')
             <div class="question_step" style="text-align:center;margin-top:40px; display: none">
                 <span class="step"></span>

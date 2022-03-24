@@ -594,7 +594,7 @@ $user = Auth::user();
 
                     </div>
 
-                    <div class="txt__tile">Paramètres</div>
+                    <div class="txt__tile">Mon_Profil</div>
                 </a>
             </div>
         </div>
@@ -786,6 +786,7 @@ $user = Auth::user();
                                 </div>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link logoutbutton rolecss" href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

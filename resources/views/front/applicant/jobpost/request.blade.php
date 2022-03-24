@@ -697,8 +697,8 @@
                     <div class="form-group allign-left padding-20">
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
-                            <input type="range" name="surface" class="form-control" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
-                            <output>15</output>m
+                            <input type="range" name="surface" class="form-control" value="24" min="10" max="100" oninput="this.nextElementSibling.value = this.value">
+                            <output>10</output>m
                         </div>
                         <hr>
                         <div>
@@ -734,8 +734,8 @@
                     <div class="form-group allign-left padding-20">
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
-                            <input type="range" class="form-control" name="surface" value="24" min="1" max="15" oninput="this.nextElementSibling.value = this.value">
-                            <output>15</output>m
+                            <input type="range" class="form-control" name="surface" value="24" min="10" max="100" oninput="this.nextElementSibling.value = this.value">
+                            <output>10</output>m
                         </div>
                     </div>
                     <div class="form-group allign-left">

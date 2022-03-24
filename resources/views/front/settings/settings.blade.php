@@ -16,7 +16,7 @@
 
                 </div>
                 <div class="txt">
-                    <p>Mon solde</p>
+                    <p>Revenus</p>
                     <span>{{$payment}} €</span>
                 </div>
             </a>
@@ -45,35 +45,6 @@
         </div>
         <div class="em__pkLink emBlock__border bg-white border-t-0">
             <ul class="nav__list mb-0">
-                <li>
-                    <a href="{{route('settings.profile')}}" class="item-link">
-                        <div class="group">
-                            <div class="icon bg-primary">
-                                <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile"
-                                     xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                     viewBox="0 0 19 19">
-                                    <g id="Profile" transform="translate(3.958 1.9)">
-                                        <path id="Stroke_1" data-name="Stroke 1"
-                                              d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z"
-                                              transform="translate(0 9.47)" fill="none" stroke="#fff"
-                                              stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-miterlimit="10" stroke-width="1.5" />
-                                        <path id="Stroke_3" data-name="Stroke 3"
-                                              d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z"
-                                              transform="translate(1.94)" fill="none" stroke="#fff"
-                                              stroke-linecap="round" stroke-linejoin="round"
-                                              stroke-miterlimit="10" stroke-width="1.5" />
-                                    </g>
-                                </svg>
-                            </div>
-                            <span class="path__name">Mon Profil</span>
-                        </div>
-                        <div class="group">
-                            <span class="short__name"></span>
-                            <i class="tio-chevron_right -arrwo"></i>
-                        </div>
-                    </a>
-                </li>
                 <li>
                     <a href="{{route('password.change')}}" class="item-link">
                         <div class="group">
@@ -107,6 +78,36 @@
                         </div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('settings.profile')}}" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-primary">
+                                <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile"
+                                     xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                     viewBox="0 0 19 19">
+                                    <g id="Profile" transform="translate(3.958 1.9)">
+                                        <path id="Stroke_1" data-name="Stroke 1"
+                                              d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z"
+                                              transform="translate(0 9.47)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-miterlimit="10" stroke-width="1.5" />
+                                        <path id="Stroke_3" data-name="Stroke 3"
+                                              d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z"
+                                              transform="translate(1.94)" fill="none" stroke="#fff"
+                                              stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-miterlimit="10" stroke-width="1.5" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Informations Personnelles</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                </li>
+
                 @if($user->role == 1)
                 <li>
                     <a href="{{route('get.badge')}}" class="item-link">
@@ -232,6 +233,25 @@
                     </li>
                 @else
                     <li>
+                        <a href="{{route('jobber.earnings')}}" class="item-link">
+                            <div class="group">
+                                <div class="icon bg-purple">
+                                    <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                        <g id="Message" transform="translate(1.941 2.258)">
+                                            <path id="Stroke_1" data-name="Stroke 1" d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0" transform="translate(3.121 4.882)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                            <path id="Stroke_3" data-name="Stroke 3" d="M0,7.217C0,1.8,1.885,0,7.54,0s7.54,1.8,7.54,7.217-1.885,7.217-7.54,7.217S0,12.63,0,7.217Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <span class="path__name">Revenus</span>
+                            </div>
+                            <div class="group">
+                                <span class="short__name"></span>
+                                <i class="tio-chevron_right -arrwo"></i>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{route('applicant.transactions')}}" class="item-link">
                             <div class="group">
                                 <div class="icon bg-yellow">
@@ -242,7 +262,7 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <span class="path__name">Transactions</span>
+                                <span class="path__name">Mon solde</span>
                             </div>
                             <div class="group">
                                 <span class="short__name"></span>
@@ -265,6 +285,71 @@
                         </a>
                     </li>
                 @endif
+                <li>
+                    <a  href="{{route('app.support')}}"  class="item-link">
+                        <div class="group">
+                            <div class="icon bg-blue">
+                                <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Profile" transform="translate(3.958 1.9)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z" transform="translate(0 9.47)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z" transform="translate(1.94)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Centre d’assistance</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+
+                </li>
+                <li>
+                    <a  href="{{route('conditions')}}"  class="item-link">
+                        <div class="group">
+                            <div class="icon bg-pink">
+                                <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile" xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
+                                    <g id="Profile" transform="translate(3.958 1.9)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z" transform="translate(0 9.47)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z" transform="translate(1.94)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Conditions generales</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+
+                </li>
+                <li>
+                    <a  href="{{route('logout')}}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="item-link">
+                        <div class="group">
+                            <div class="icon bg-red">
+                                <svg id="Iconly_Curved_Info_Square" data-name="Iconly/Curved/Info Square" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                    <g id="Info_Square" data-name="Info Square" transform="translate(2.292 2.292)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M0,7.708C0,1.927,1.927,0,7.708,0s7.708,1.927,7.708,7.708-1.927,7.708-7.708,7.708S0,13.489,0,7.708Z" transform="translate(15.417 15.417) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_3" data-name="Stroke 3" d="M0,0V3.246" transform="translate(7.708 10.954) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_15" data-name="Stroke 15" d="M0,0H.007" transform="translate(7.712 4.792) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="path__name">Déconnecter</span>
+                        </div>
+                        <div class="group">
+                            <span class="short__name"></span>
+                            <i class="tio-chevron_right -arrwo"></i>
+                        </div>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+
             </ul>
         </div>
 

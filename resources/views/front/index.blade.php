@@ -18,7 +18,7 @@
 
             background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
         }
-        #map { height: 220px; width: 100vw; }
+        #map { height: 400px; width: 100vw; }
 
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -29,7 +29,7 @@
 @section('content')
         <main class="emPage__public">
             <!-- Start banner_swiper -->
-            <section class="banner_sliderFull margin-b-20 margin-t-40">
+            <section class="banner_sliderFull margin-t-40">
                 <!-- Swiper -->
                 <div class="swiper-container em-swiperSliderFull -height-sm padding-t-10">
                     <div class="swiper-wrapper">
@@ -925,10 +925,10 @@
                 @else
             <section class="components_page padding-b-30">
 
-                <div class="emTitle_co padding-20">
-                    <h2 class="size-16 weight-500 color-secondary mb-1">Trouver sur la carte</h2>
-                    <p class="size-12 color-text m-0">Trouvez des emplois actifs dans votre région</p>
-                </div>
+{{--                <div class="emTitle_co padding-20">--}}
+{{--                    <h2 class="size-16 weight-500 color-secondary mb-1">Trouver sur la carte</h2>--}}
+{{--                    <p class="size-12 color-text m-0">Trouvez des emplois actifs dans votre région</p>--}}
+{{--                </div>--}}
 
                 <div id="map"></div>
                 <!-- Start title -->

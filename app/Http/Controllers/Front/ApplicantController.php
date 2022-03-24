@@ -199,6 +199,7 @@ class ApplicantController extends Controller
     public function jobrequestsDetail($id){
         $user = Auth::user();
         $title = 'Détails de la demande';
+
         $jobrequest = JobRequest::find($id);
         $check_already_exist = JobViews::where('job_id', $id)->where('user_id', $user->id)->first();
         if (!$check_already_exist){

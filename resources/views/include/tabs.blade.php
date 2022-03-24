@@ -4,7 +4,9 @@
             <h4>Date de service*</h4>
         </div>
         <div class="form-group">
-            <input type="date" name="service_date" class="form-control">
+            <input type="date" id="txtDate" class="form-control" />
+
+            {{--            <input type="date" min="{{Carbon\Carbon::now()->format('Y-m-d')."T".Carbon\Carbon::now()->format('H:i')}}" name="service_date" class="form-control">--}}
         </div>
         <div>
             <h4>Heure de la debut*</h4>
@@ -116,7 +118,7 @@
             <input type="text" name="phone" placeholder="Ajout de téléphone" class="form-control">
         </div>
         <div>
-            <h4>Pictures*</h4>
+            <h4>Photos*</h4>
             <p>Télécharger 3 photos pour mieux comprendre votre demande</p>
         </div>
         <div class="row" style="width: 100%">
@@ -150,3 +152,22 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+    $(function(){
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if(month < 10)
+            month = '0' + month.toString();
+        if(day < 10)
+            day = '0' + day.toString();
+
+        var minDate= year + '-' + month + '-' + day;
+
+        $('#txtDate').attr('min', minDate);
+    });
+</script>

@@ -109,7 +109,11 @@ class FrontendController extends Controller
         $condition = Condition::first();
         return view('front.terms', compact('title','condition'));
     }
-
+    public function conditions(){
+        $title = 'Termes et conditions';
+        $condition = Condition::first();
+        return view('front.settings.condtions', compact('title','condition'));
+    }
     public function mainRegister(){
 
         return view('web.pages.mainregister');

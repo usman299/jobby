@@ -41,6 +41,7 @@ Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 //website routes
 Route::get('/web', 'FrontendController@website')->name('web.index');
 Route::get('/about/us', 'FrontendController@about')->name('about.us');
+Route::get('/conditions', 'FrontendController@conditions')->name('conditions');
 Route::get('/suport/faq', 'FrontendController@suport')->name('suport.faq');
 Route::get('/suport/priviciy', 'FrontendController@suportPriviciy')->name('suport.priviciy');
 Route::get('/suport/terms', 'FrontendController@suportTerms')->name('suport.terms');

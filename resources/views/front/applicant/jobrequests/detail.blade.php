@@ -1,9 +1,37 @@
 @extends('layouts.front')
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<style>
+    .emCategorie_itemJobs {
+        padding: 10px 20px 5px 20px;
+    }
+    .emCategorie_itemJobs .icon {
+
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+
+    }
+    .em_owl_swipe .em_item .em_cover_img::before {
+
+        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    }
+    #map { height: 400px; width: 100vw; }
+
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
 @section('content')
+
     <section class="bg-white emPage__detailsBlog">
         <div class="emheader_cover">
             <div class="title">
                 <div class="row" style="padding-top: 20px">
+                    <div class="col-12 padding-10" >
+                    <div id="map"></div>
+                    </div>
                     <div class="col-8">
                         <h1 class="head_art">{{$jobrequest->title}}</h1>
                     </div>
@@ -1733,4 +1761,61 @@
             </div>
         </div>
     </div>
+@section('script')
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+    <script>
+
+
+        var mymap = L.map('map', { gestureHandling: true,  dragging: true, tap: true }).setView([16.1922065, -61.272382499999], 10);
+
+        mymap.locate({setView: true, maxZoom: 16});
+        function locateUser() {
+            mymap.locate({setView : true,  maxZoom: 16})
+        }
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 200,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(mymap);
+
+        function onLocationError(e) {
+            alert(e.message);
+        }
+        mymap.on('locationerror', onLocationError);
+
+        function onLocationFound(e) {
+            var radius = e.accuracy;
+
+            // L.marker(e.latlng).addTo(mymap)
+            //     .bindPopup("Vous êtes à l'intérieur " + radius + " mètres de ce point");
+
+            // L.circle(e.latlng, radius).addTo(mymap);
+        }
+
+        mymap.on('locationfound', onLocationFound);
+
+        /* var latlng = L.latLng(33.650911, 73.013316);
+         var newMarker = new L.marker(latlng).addTo(mymap).on('click', function(e) {
+             console.log(e.latlng);
+         });*/
+
+        var locations = [
+
+            ["{{$jobrequest->title}}", {{$jobrequest->lat}},{{$jobrequest->long}}, {{$jobrequest->id}}],
+
+        ];
+        console.log(locations);
+
+        for (var i = 0; i < locations.length; i++) {
+            var link = $('<a href="{{url('applicant/jobrequests/detail/')}}/'+locations[i][3]+'" class="speciallink">'+locations[i][0]+'</a>')[0];
+            marker = new L.marker([locations[i][1], locations[i][2]])
+                .bindPopup(link)
+                .addTo(mymap);
+        }
+
+    </script>
 @endsection
