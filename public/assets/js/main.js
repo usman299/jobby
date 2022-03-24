@@ -364,7 +364,7 @@
         if (oldValue > 1) {
           newVal = parseInt(oldValue) - 1;
         } else {
-          newVal = 1;
+          newVal = 0;
         }
       }
       btn.closest('.itemCountr_manual').find('input').val(newVal);
@@ -391,7 +391,7 @@
         if (oldValue > 1) {
           newVal = parseFloat(oldValue) - 0.5;
         } else {
-          newVal = 1;
+          newVal = 0;
         }
       }
       btn.closest('.itemCountr_manual1').find('input').val(newVal);
