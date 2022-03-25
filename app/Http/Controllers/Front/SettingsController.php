@@ -232,6 +232,7 @@ class SettingsController extends Controller
         $profile = JobberProfile::where('jobber_id', $user->id)->first();
         $title = 'Diplômes et expérience';
         $diplomas = Diploma::where('jobber_id', $user->id)->get();
+
         return view('front.settings.experience', compact('title', 'user', 'diplomas', 'profile'));
     }
     public function skillsSubmit(Request $request){

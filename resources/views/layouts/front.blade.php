@@ -454,7 +454,7 @@ $user = Auth::user();
                                     </g>
                                 </svg>
                             </div>
-                            <div class="txt__tile">Propositions</div>
+                            <div class="txt__tile">Decouverte</div>
                         </a>
                     </div>
                 @endif
@@ -487,7 +487,7 @@ $user = Auth::user();
                         </svg>
                     </div>
 
-                    <div class="txt__tile">Propositions</div>
+                    <div class="txt__tile">Decouverte</div>
                 </a>
                 @else
                     <a href="{{route('jobber.contract')}}" class="btn btn_navLink">

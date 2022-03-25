@@ -4,20 +4,32 @@
             <form action="{{route('skills.submit')}}" method="POST">
                 @csrf
                 <?php
+
                 $skills = json_decode($user->skills);
                 ?>
+
                 @foreach($categories as $category)
                     <div class="padding-10">
                         <hr>
                         <p>{{$category->title}}</p>
                         <div class="row">
+
                             @foreach($category->subcategorys as $key => $subcategory)
+
                                 <div class="col-4">
+                                    @if($skills)
                                         <input  id="for{{$subcategory->id}}" @if(in_array($subcategory->id, $skills)) checked @endif  value="{{$subcategory->id}}" type="checkbox" name="skills[]"><br>
+                                    @else
+                                        <input  id="for{{$subcategory->id}}"   value="{{$subcategory->id}}" type="checkbox" name="skills[]"><br>
+                                    @endif
+
                                         <label for="for{{$subcategory->id}}" >
                                             <p>{{$subcategory->title}}</p></label>
                                 </div>
+
                             @endforeach
+
+
                         </div>
                     </div>
                 @endforeach

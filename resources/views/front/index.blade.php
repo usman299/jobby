@@ -963,7 +963,7 @@
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
                                 <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
                                 <p class="item_price">{{$job->estimate_budget}} €</p>
-                                <p >{{$job->service_date->format('d-m-y')}} ({{$job->duration}} heures) </p>
+{{--                                <p >{{$job->service_date->format('d-m-y')}} ({{$job->duration}} heures) </p>--}}
                             </a>
 
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">

@@ -26,7 +26,7 @@
                     <a data-toggle="modal"
                        data-target="#experience" class="item-link">
                         <div class="group">
-                            <span class="path__name">{{$profile->experince}}</span>
+                            <span class="path__name">{{$profile->experince  ?? ' '}}</span>
                         </div>
                         <div class="group">
                             <span class="short__name"></span>
@@ -101,6 +101,7 @@
                 <form action="{{route('experience.update')}}" class="formsubmit" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="input_group padding-20">
+                        @if($profile)
                         <div class="bg-white ">
                             <div class="custom-control custom-radio margin-b-10">
                                 <input type="radio" id="experince1" value="Je n’en ai aucune" {{$profile->experince == "Je n’en ai aucune" ? 'checked' : ''}} name="experince" class="custom-control-input ">
@@ -127,6 +128,7 @@
                                 </label>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <div class="modal-footer">
                         <button type="submit"
