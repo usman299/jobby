@@ -963,7 +963,22 @@
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
                                 <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
                                 <p class="item_price">{{$job->estimate_budget}} €</p>
-{{--                                <p >{{$job->service_date->format('d-m-y')}} ({{$job->duration}} heures) </p>--}}
+
+                                <?php
+                                $diff = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $job->created_at)->diffInMinutes(\Carbon\Carbon::now());
+
+                                ?>
+                                @if($diff<=60)
+                                    <p ><b>Nouvelle</b>   ({{$job->duration}} heures) </p>
+                                @elseif($diff>60 && $diff<=1440)
+                                    <p ><b>Aujourd'hui</b>   ({{$job->duration}} heures) </p>
+                                @elseif($diff>1440 && $diff<=2880)
+                                    <p ><b>Demain</b>   ({{$job->duration}} heures) </p>
+                                @else
+                                    <p ><b>{{$job->service_date->format('d-m-y')}} </b>({{$job->duration}} heures) </p>
+                                @endif
+
+
                             </a>
 
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">

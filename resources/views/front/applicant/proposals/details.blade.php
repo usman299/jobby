@@ -210,10 +210,12 @@
                     <div class="emPage__detailsJobs">
 
                         <div class="details__job">
+
                             <div class="item">
                                 <span class="weight-600">Travailler comme</span>
                                 <p >{{$proposal->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
                             </div>
+
                             <div class="item">
 {{--                                <span class="weight-600">Tarif à l'heure</span>--}}
 {{--                                <p >{{$proposal->jobber->rate_per_hour??'0'}}€</p>--}}
@@ -223,6 +225,16 @@
                                 <p class="weight-600">{{$proposal->jobber->gender??'non'}}</p>
                             </div>
                         </div>
+                        <div class="details__job">
+                            <div class="item">
+                                <span class="weight-600">E-mail</span>
+                                <p >{{$proposal->jobber->email??'non'}}</p>
+                            </div></div>
+                        <div class="details__job">
+                            <div class="item">
+                                <span class="weight-600">Phone</span>
+                                <p >{{$proposal->jobber->phone??'non'}}</p>
+                            </div></div>
                         @if($proposal->jobber->is_company == 1)
                         <div class="details__job">
                             <div class="item">
@@ -230,6 +242,7 @@
                             <p>{{$proposal->jobber->company_name??'non'}}</p>
                             </div>
                         </div>
+
                         @endif
                         <div class="details__job">
                             <div class="item">

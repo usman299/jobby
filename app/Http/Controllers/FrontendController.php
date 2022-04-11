@@ -8,6 +8,7 @@ use App\Blog;
 use App\ChildCategory;
 use App\Condition;
 use App\Countory;
+use App\Ignorjobrequest;
 use App\JobFactory;
 use App\JobRequest;
 use App\Notfication;
@@ -46,10 +47,13 @@ class FrontendController extends Controller
         $childcatgory = ChildCategory::all();
         $services =JobberServicesOffers::where('status','=',1)->where('country_id','=',$user->country)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::all();
-        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('status', '=', 1)->paginate(10);
+        $skills = json_decode($user->skills,true);
+        $jobStatus = Ignorjobrequest::where('user_id',$user->id)->pluck('j_id');
+
+        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id',$jobStatus)->whereIn('subcategory_id',$skills)->where('status', '=', 1)->paginate(10);
 
 
-        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory'));
+        return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory','skills'));
     }
     public function website(){
         $category = Category::all();
@@ -89,7 +93,9 @@ class FrontendController extends Controller
         return view('front.auth.login', compact('id'));
     }
     public function register($id){
-        return view('front.auth.register', compact('id'));
+        $user = Auth::user();
+        $categories = Category::all();
+        return view('front.auth.register', compact('id','user','categories'));
     }
     public function fetchquestions(Request $request){
         $questions = Questions::where('subcategory_id', '=', $request->id)->get();

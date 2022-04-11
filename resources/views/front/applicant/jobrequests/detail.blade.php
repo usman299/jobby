@@ -28,6 +28,7 @@
     <section class="bg-white emPage__detailsBlog">
         <div class="emheader_cover">
             <div class="title">
+
                 <div class="row" style="padding-top: 20px">
                     <div class="col-12 padding-10" >
                     <div id="map"></div>
@@ -1709,17 +1710,26 @@
             </div>
         </section>
         <section class="components_page padding-b-30">
-            <div class="bg-white padding-20 d-flex emBlock__border">
-                <button type="button" data-toggle="modal"
-                   data-target="#propsal" class="btn justify-content-center bg-primary rounded-10 btn__default full-width">
-                    <span class="color-white">Envoyer la proposition</span>
-                </button>
-            </div>
+{{--            <div class="bg-white padding-20 d-flex emBlock__border">--}}
+{{--                <button type="button" data-toggle="modal"--}}
+{{--                   data-target="#propsal" class="btn justify-content-center bg-primary rounded-10 btn__default full-width">--}}
+{{--                    <span class="color-white">Envoyer la proposition</span>--}}
+{{--                </button>--}}
+{{--            </div>--}}
+                    <div class="bg-white padding-20 d-flex emBlock__border">
+                        <button  data-toggle="modal"
+                                 data-target="#propsal" class="btn justify-content-center bg-primary rounded-10 btn__default">
+                            <span class="color-white">Envoyer la proposition</span>
+                        </button>
+
+                        <a  href="{{route('applicant.jobrequest.ignor',['id'=>$jobrequest->id])}}" class="btn justify-content-center bg-red rounded-10 btn__default ml-3">
+                            <span class="color-white">Ignorer</span>
+                        </a>
+                    </div>
+
         </section>
     @endif
-    <br>
-    <br>
-    <br>
+
     <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade show" id="propsal" tabindex="-1"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

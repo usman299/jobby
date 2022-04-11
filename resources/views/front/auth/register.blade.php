@@ -217,6 +217,39 @@
                         </div>
                         <div class="tab">
                             <div class="em_titleSign">
+                                <h1>Tes compétences</h1>
+                            </div>
+{{--                            <section class="bg-white em__signTypeOne typeTwo np__account padding-t-70">--}}
+
+                                    @foreach($categories as $category)
+                                        <div class="padding-10">
+                                            <hr>
+                                            <p>{{$category->title}}</p>
+                                            <div class="row">
+
+                                                @foreach($category->subcategorys as $key => $subcategory)
+
+                                                    <div class="col-4">
+
+
+                                                            <input  id="for{{$subcategory->id}}"   value="{{$subcategory->id}}" type="checkbox" name="skills[]"><br>
+
+
+                                                        <label for="for{{$subcategory->id}}" >
+                                                            <p>{{$subcategory->title}}</p></label>
+                                                    </div>
+
+                                                @endforeach
+
+
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+{{--                            </section>--}}
+                        </div>
+                        <div class="tab">
+                            <div class="em_titleSign">
                                 <h1>Créer un compte</h1>
                             </div>
                             <div class="form-group" style="text-align: left!important;">
@@ -453,6 +486,7 @@
                         <span class="step"></span>
                         @if($id == 1)
                         <span class="step"></span>
+                            <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>
                         <span class="step"></span>

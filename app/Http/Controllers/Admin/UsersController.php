@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Card;
 use App\Contract;
 use App\Countory;
 use App\Diploma;
@@ -20,6 +21,35 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function indexCards(){
+        $cards = Card::all();
+        return view('admin.cards.index', compact('cards'));
+    }
+    public function createCards(){
+        return view('admin.cards.create');
+    }
+    public function storeCards(Request $request){
+        $cards = new Card();
+        $cards->title = $request->title;
+        $cards->sku = $request->sku;
+        if ($request->hasfile('photo')) {
+            $image1 = $request->file('photo');
+            $name = time() . 'photo' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'card/';
+            $image1->move($destinationPath, $name);
+            $cards->photo = 'card/' . $name;
+
+        }
+        $cards->save();
+        toastr()->success('Votre carte ajoutée');
+        return redirect()->back();
+    }
+    public function deleteCards($id){
+        $cards = Card::find($id);
+        $cards->delete();
+        toastr()->error('Votre carte Supprimer');
+        return redirect()->back();
+    }
     public function searhApplicantCountry($id)
     {
         $applicant = User::where('country','=',$id)->where('role','=','2')->get();

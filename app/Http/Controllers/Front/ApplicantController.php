@@ -9,6 +9,7 @@ use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\Ignorjobrequest;
 use App\JobberProfile;
 use App\JobRequest;
 use App\JobViews;
@@ -219,6 +220,18 @@ class ApplicantController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('applicant.jobrequests')->with($notification);
+    }
+    public function jobrequestsIgnor($id){
+
+        $status = new Ignorjobrequest();
+        $status->j_id = $id;
+        $status->user_id = Auth::user()->id;
+        $status->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
     }
     public function proposals(){
         $title = 'Propositions';

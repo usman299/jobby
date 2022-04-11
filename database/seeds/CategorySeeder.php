@@ -101,6 +101,13 @@ class CategorySeeder extends Seeder
             'img' => "admin/jobby/12 Mécanique réparation mister jobby/Réparation Dépanage.jpg",
 
         ]);
+        Category::create([
+            'title' => "Location de materiel",
+            'backColor' => "#53a7f9",
+            'countory_id'=> "1",
+            'img' => "admin/jobby/12 Mécanique réparation mister jobby/Réparation Dépanage.jpg",
+
+        ]);
 
 
     }

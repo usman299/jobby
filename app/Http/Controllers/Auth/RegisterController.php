@@ -91,7 +91,6 @@ class RegisterController extends Controller
         }*/
 
 
-
         $user = User::create([
             'firstName' => $data['fname'],
             'lastName' => $data['lname'],
@@ -99,7 +98,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'role' => $data['role'],
             'dob' => $data['dob'],
-            'skills' => "[]",
+            'skills' => json_encode($data['skills']),
             'country' => $data['country'],
             'address' => $data['address'],
             'gender' => $data['gender'],
@@ -111,6 +110,7 @@ class RegisterController extends Controller
             'document2' => 'documents/' . $name2,*/
             'password' => Hash::make($data['password']),
         ]);
+
 
         $data['jobber_id'] = $user->id;
          $setting = UserMail::first();

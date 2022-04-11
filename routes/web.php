@@ -130,6 +130,9 @@ Route::post('/job/subcategory/submit/{id}', 'Front\ApplicantController@jobSubcat
 
 Route::get('/applicant/jobrequests', 'Front\ApplicantController@jobrequests')->name('applicant.jobrequests');
 Route::get('/applicant/jobrequests/detail/{id}', 'Front\ApplicantController@jobrequestsDetail')->name('applicant.jobrequest.detail');
+Route::get('/applicant/jobrequests/ignor/{id}', 'Front\ApplicantController@jobrequestsIgnor')->name('applicant.jobrequest.ignor');
+
+
 Route::get('/applicant/jobrequests/status/{id}', 'Front\ApplicantController@jobrequestsStatus')->name('applicant.jobrequest.status');
 Route::get('/applicant/proposals', 'Front\ApplicantController@proposals')->name('applicant.proposals');
 Route::get('/applicant/proposal/detail/{id}', 'Front\ApplicantController@proposalDetails')->name('applicant.proposal.detail');
@@ -154,6 +157,12 @@ Route::get('/request/subcategory/{id}', 'Front\JobPostController@requestSubcateg
 
 //Admin routes
 Route::group(['middleware' => ['auth', 'web', 'role']], function() {
+
+    Route::get('admin/cards/index', 'Admin\UsersController@indexCards')->name('cards.index');
+    Route::get('admin/cards/delete/{id}', 'Admin\UsersController@deleteCards')->name('card.delete');
+    Route::get('admin/cards/sale', 'Admin\UsersController@sale')->name('cards.sale');
+    Route::get('admin/cards/create', 'Admin\UsersController@createCards')->name('cards.create');
+    Route::post('admin/cards/store', 'Admin\UsersController@storeCards')->name('cards.store');
 
 Route::get('/admin/profile', 'Admin\UsersController@adminProfile')->name('admin.profile');
 Route::post('/admin/profile/update/{id}', 'Admin\UsersController@adminProfileUpdate')->name('admin.profile.update');

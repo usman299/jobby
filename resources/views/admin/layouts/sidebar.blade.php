@@ -94,6 +94,15 @@
                         </ul></li>
                     <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
+                            <span class="nav-text"><!-- Users --> Cartes cadeaux</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('cards.index')}}"><!-- question -->Cartes cadeaux</a></li>
+                            <li><a href="{{route('about.create')}}"><!--  about --> Vente de cartes-cadeaux</a></li>
+
+                        </ul></li>
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-television"></i>
                             <span class="nav-text"><!-- Users --> Paramétrer ShowCase</span>
                         </a>
                         <ul aria-expanded="false">
