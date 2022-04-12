@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\Mail\OtpMail;
+use Mail;
 use App\AppSetting;
 use App\Blog;
 use App\ChildCategory;
@@ -26,6 +28,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
+use Session;
 
 class FrontendController extends Controller
 {
@@ -169,6 +172,35 @@ class FrontendController extends Controller
     public function suportTerms(){
         $condition = Condition::first();
         return view('web.pages.terms',compact('condition'));
+    }
+    public function otpVerify(){
+        $otp = rand(1000, 9999);
+        $user = Auth::user();
+
+            $users = User::where('email', '=', $user->email)->update(['otp' => $otp]);
+
+
+        $email = $user->email;
+        $dataa = array(
+                'otp' => $otp,
+            );
+
+        Mail::to($user->email)->send(new  OtpMail($dataa));
+        return view('front.sendotp', compact('email'));
+    }
+    public function otpVerifyEmail(Request $request){
+        $user = User::where('email', $request->email)->where('otp', $request->otp)->first();
+        if ($user) {
+            $user->otp = null;
+            $user->email_verified_at = 1;
+            $user->update();
+
+            return redirect('/app');
+        } else {
+
+            Session::flash('message', " Votre OTP ne correspond pas Veuillez réessayer!");
+            return redirect()->back();
+        }
     }
 
 }

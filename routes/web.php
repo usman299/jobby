@@ -65,7 +65,10 @@ Route::post('/fetchquestions', 'FrontendController@fetchquestions')->name('fetch
 Route::group(['middleware' => ['auth', 'web', 'app']], function () {
 
     Route::get('/switch/role/{id}/{role}', 'Front\JobberController@switchRole')->name('switch.role');
-    Route::get('/app', 'FrontendController@app')->name('front.app');
+    Route::get('/app', 'FrontendController@app')->name('front.app')->middleware('verify');
+
+    Route::get('/app/otp/verify', 'FrontendController@otpVerify')->name('otp.verify.app');
+    Route::post('/otp/verify/email', 'FrontendController@otpVerifyEmail')->name('otp.verify.email');
     Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
     Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
