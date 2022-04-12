@@ -28,7 +28,7 @@ class OtpMail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@ikaedigital.com', 'Misster Jobby')
+        return $this->from('info@ikaedigital.com', 'Mister jobby')
             ->view('front.otpmail')
             ->subject('Sécurité pass')
             ->with('dataa', $this->dataa);

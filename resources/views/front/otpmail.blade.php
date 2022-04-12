@@ -15,7 +15,7 @@
 
     Vérifiez votre e-mail, veuillez utiliser le code suivant : <br>
     <b>{{$dataa['otp']}} </b> <br>
-    Missjobby prend la sécurité de votre compte très au sérieux. Misster jobby ne vous enverra jamais d'e-mail vous demandant de saisir ou de vérifier votre E-mail Misster jobby. Si vous recevez un e-mail suspect contenant un lien pour mettre à jour les informations de votre compte, ne cliquez pas sur le lien—. Au lieu de cela, signalez cet e-mail à Missjobby afin que nous puissions l'examiner. Nous espérons vous voir bientôt.
+    Mister jobby prend la sécurité de votre compte très au sérieux. Mister jobby ne vous enverra jamais d'e-mail vous demandant de saisir ou de vérifier votre E-mail Mister jobby. Si vous recevez un e-mail suspect contenant un lien pour mettre à jour les informations de votre compte, ne cliquez pas sur le lien—. Au lieu de cela, signalez cet e-mail à Missjobby afin que nous puissions l'examiner. Nous espérons vous voir bientôt.
 
 </p>
 
