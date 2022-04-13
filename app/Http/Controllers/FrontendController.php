@@ -52,8 +52,8 @@ class FrontendController extends Controller
         $category = Category::all();
         $skills = json_decode($user->skills,true);
         $jobStatus = Ignorjobrequest::where('user_id',$user->id)->pluck('j_id');
-//        ->whereNotIn('id',$jobStatus)->whereIn('subcategory_id',$skills)
-        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->where('status', '=', 1)->paginate(10);
+
+        $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id',$jobStatus)->whereIn('subcategory_id',$skills)->where('status', '=', 1)->paginate(10);
 
 
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory','skills'));
