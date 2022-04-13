@@ -2811,6 +2811,8 @@
             }
             // Otherwise, display the correct tab:
             showTab(currentTab);
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
 
         function validateForm() {
