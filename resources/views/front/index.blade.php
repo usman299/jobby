@@ -1,5 +1,6 @@
 @extends('layouts.front')
 @section('style')
+    <?php $user = Auth::user();?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <style>
@@ -33,6 +34,7 @@
                 <!-- Swiper -->
                 <div class="swiper-container em-swiperSliderFull -height-sm padding-t-10">
                     <div class="swiper-wrapper">
+
                         @foreach($sliderGalery as $row)
                         <div class="swiper-slide">
                             <div class="--item-inside">
@@ -48,6 +50,7 @@
                         @endforeach
 
                     </div>
+
                     <!-- Add Pagination -->
                     <div class="swiper-pagination"></div>
                 </div>
@@ -943,6 +946,23 @@
 
                     @if($jobrequests->count())
                     @foreach($jobrequests as $job)
+                        <?php
+                            // convert from degrees to radians
+                            $earthRadius = 3959;
+                            $latFrom = deg2rad($user->latitude);
+                            $lonFrom = deg2rad($user->longitude);
+                            $latTo = deg2rad($job->lat);
+                            $lonTo = deg2rad($job->long);
+
+                            $latDelta = $latTo - $latFrom;
+                            $lonDelta = $lonTo - $lonFrom;
+
+                            $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+                                    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+                            $miles =($angle * $earthRadius)*1.6;
+
+                            ?>
+
                     <div class="item em_item_product item_list">
                         <div class="title_product">
                             <button style=" position: absolute !important;right: 20px;top: 15px; width: 30px; height: 30px; " type="button" class="btn rounded-8 btn_addCart item-active -active">
@@ -954,7 +974,6 @@
                                 <span class="icon_active"></span>
                                 <span class="txt_added">Appliquée</span>
                                 @endif
-
                             </button>
 
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
@@ -962,7 +981,7 @@
                                 <h3>{{$job->detail_description}}</h3>
                                 <span  class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->category->title}}</span> /
                                 <span  class="rounded-pill bg-primary px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">{{$job->subcategory->title}}</span>
-                                <p class="item_price">{{$job->estimate_budget}} €</p>
+                                <p class="item_price">{{$job->estimate_budget}} €   <label style="font-size: 15px;">({{round($miles,2)}}KM)</label> </p>
 
                                 <?php
                                 $diff = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $job->created_at)->diffInMinutes(\Carbon\Carbon::now());
@@ -984,8 +1003,11 @@
                             <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
                                 <button type="button" class="btn btn_addCart item-active">
                                     <div class="itemRating">
+
                                         <span style="min-width: 80px;" class="number">Vues: {{$job->totalViews()}}</span>
-                                        <span style="min-width: 100px; color: #9a99a4; border: 1px solid #9a99a4" class="number">Plus de détails</span>
+                                        <span style="min-width: 100px; color: #9a99a4; border: 1px solid #9a99a4" class="number">Détails</span>
+
+
                                     </div>
                                 </button>
                             </a>
@@ -1074,6 +1096,7 @@
 
         function onLocationError(e) {
             alert(e.message);
+            console.log(e);
         }
         mymap.on('locationerror', onLocationError);
 
@@ -1098,7 +1121,7 @@
             ["{{$jobb->title}}", {{$jobb->lat}},{{$jobb->long}}, {{$jobb->id}}],
             @endforeach
         ];
-        console.log(locations);
+        // console.log(locations);
 
         for (var i = 0; i < locations.length; i++) {
             var link = $('<a href="{{url('applicant/jobrequests/detail/')}}/'+locations[i][3]+'" class="speciallink">'+locations[i][0]+'</a>')[0];
@@ -1108,4 +1131,37 @@
         }
 
     </script>
+    <script>
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        }
+
+        function showPosition(position) {
+
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            let id = {{$user->id}};
+
+            let _token = $('meta[name="csrf-token"]').attr('content');
+            $.ajax({
+                url: "{{route('addlocation')}}",
+                type: "POST",
+                data: {
+                    id: id,
+                    _token: _token,
+                    latitude: latitude,
+                    longitude: longitude
+                },
+                success: function (response) {
+                   console.log(response);
+                },
+            });
+
+        }
+
+    </script>
+
 @endsection

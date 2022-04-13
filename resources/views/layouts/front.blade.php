@@ -4,7 +4,8 @@
 $user = Auth::user();
 ?>
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
@@ -367,7 +368,7 @@ $user = Auth::user();
 </head>
 
 
-<body class="bg-snow">
+<body class="bg-snow" onload="getLocation()">
 <!-- Start em_loading -->
 {{--<section class="em_loading" id="loaderPage">--}}
 {{--    <div class="spinner_flash"></div>--}}
