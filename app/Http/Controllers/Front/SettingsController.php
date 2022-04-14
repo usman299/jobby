@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\About;
+use App\Card;
 use App\Category;
 use App\Condition;
 use App\Mail\AllContact;
@@ -297,5 +298,10 @@ class SettingsController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+    public function appAllcards(Request $request){
+        $card = Card::all();
+        $title = 'Vos cartes';
+        return view('front.settings.gift',compact('card','title'));
     }
 }

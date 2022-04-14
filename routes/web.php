@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
     Route::get('/jobber/skills', 'Front\SettingsController@skills')->name('jobber.skills');
+    Route::get('/app/allcards', 'Front\SettingsController@appAllcards')->name('app.allcards');
     Route::get('/jobber/portfolio', 'Front\SettingsController@portfolio')->name('jobber.portfolio');
     Route::get('/jobber/experience', 'Front\SettingsController@experience')->name('jobber.experience');
     Route::post('/jobber/skills/submit', 'Front\SettingsController@skillsSubmit')->name('skills.submit');
