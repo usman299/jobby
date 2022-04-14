@@ -4,9 +4,9 @@
             <h4>Date de service*</h4>
         </div>
         <div class="form-group">
-            <input type="date" id="txtDate" class="form-control" />
+{{--            <input type="date" name="service_date" id="txtDate" class="form-control" />--}}
 
-            {{--            <input type="date" min="{{Carbon\Carbon::now()->format('Y-m-d')."T".Carbon\Carbon::now()->format('H:i')}}" name="service_date" class="form-control">--}}
+                        <input type="date" min="{{Carbon\Carbon::now()->format('Y-m-d')."T".Carbon\Carbon::now()->format('H:i')}}" name="service_date" class="form-control">
         </div>
         <div>
             <h4>Heure de la debut*</h4>

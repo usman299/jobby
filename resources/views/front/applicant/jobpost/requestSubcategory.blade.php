@@ -1945,6 +1945,8 @@
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
             </div>
 
             <div class="buttons__footer text-center">
