@@ -17,7 +17,6 @@
 
         background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
     }
-    #map { height: 400px; width: 100vw; }
 
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -26,13 +25,13 @@
 @section('content')
 
     <section class="bg-white emPage__detailsBlog">
+        <div class="col-12" style="padding: 0px">
+            <div id="map" style="width: 100%; height: 200px"></div>
+        </div>
         <div class="emheader_cover">
             <div class="title">
-
                 <div class="row" style="padding-top: 20px">
-                    <div class="col-12 padding-10" >
-                    <div id="map"></div>
-                    </div>
+
                     <div class="col-8">
                         <h1 class="head_art">{{$jobrequest->title}}</h1>
                     </div>
