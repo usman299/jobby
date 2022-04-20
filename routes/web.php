@@ -152,8 +152,13 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
 
     Route::get('/job/subcategory/{id}', 'Front\JobPostController@subcategory')->name('job.subcategory');
     Route::get('/job/childcatgory/{id}', 'Front\JobPostController@childcatgory')->name('job.childcatgory');
+
     Route::get('/job/request/{id}', 'Front\JobPostController@request')->name('job.request');
     Route::get('/request/subcategory/{id}', 'Front\JobPostController@requestSubcategory')->name('request.subcategory');
+
+
+    Route::get('/job/request/status/{id}/{status}', 'Front\JobPostController@requestStatus')->name('job.request.status');
+    Route::get('/request/subcategory/status/{id}/{status}', 'Front\JobPostController@requestSubcategoryStatus')->name('request.subcategory.status');
 
 
 });

@@ -31,6 +31,7 @@ class AdminSeeder extends Seeder
             'country' => '1',
             'avatar' => '0',
             'password' => bcrypt('password'),
+            'email_verified_at' => "2022-04-14 14:49:23",
 
         ]);
         User::create([
@@ -45,6 +46,7 @@ class AdminSeeder extends Seeder
             'subcategory_id' => '1',
             'skills' => '[]',
             'password' => bcrypt('password'),
+            'email_verified_at' => "2022-04-14 14:49:23",
 
         ]);
 

@@ -15,6 +15,7 @@
     <section class="bg-white em__signTypeOne typeTwo np__account padding-t-70">
         <form id="regForm" class="loginformsubmit" method="POST" action="{{route('job.subcategory.submit', ['id' => $subcategory->id])}}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="status" value="{{$status->id}}">
             <div class="em_titleSign" style="margin-bottom: 0px;">
                 <h2>{{$subcategory->title}}</h2>
                 <p>Informations sur le besoin</p>

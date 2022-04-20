@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Front;
 
 use App\ChildCategory;
 use App\Http\Controllers\Controller;
+use App\JobStatus;
 use App\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobPostController extends Controller
 {
@@ -30,11 +32,38 @@ class JobPostController extends Controller
     public function request($id){
         $title = 'Publier une offre';
         $childcatgory =  ChildCategory::where('id', '=', $id)->first();
-        return view('front.applicant.jobpost.request', compact('childcatgory', 'title'));
+
+        $status = new JobStatus();
+        $status->user_id = Auth::user()->id;
+        $status->child_category = $id;
+        $status->save();
+
+        return view('front.applicant.jobpost.request', compact('childcatgory', 'title', 'status'));
     }
     public function requestSubcategory($id){
         $title = 'Publier une offre';
         $subcategory =  SubCategory::where('id', '=', $id)->first();
-        return view('front.applicant.jobpost.requestSubcategory', compact('subcategory', 'title'));
+
+        $status = new JobStatus();
+        $status->user_id = Auth::user()->id;
+        $status->sub_category = $id;
+        $status->save();
+
+        return view('front.applicant.jobpost.requestSubcategory', compact('subcategory', 'title', 'status'));
+    }
+
+    public function requestStatus($id, $status){
+        $title = 'Publier une offre';
+        $childcatgory =  SubCategory::where('id', '=', $id)->first();
+
+        $status = JobStatus::find($status);
+        return view('front.applicant.jobpost.request', compact('childcatgory', 'title', 'status'));
+    }
+    public function requestSubcategoryStatus($id, $status){
+        $title = 'Publier une offre';
+        $childcatgory =  ChildCategory::where('id', '=', $id)->first();
+
+        $status = JobStatus::find($status);
+        return view('front.applicant.jobpost.requestSubcategory', compact('childcatgory', 'title', 'status'));
     }
 }

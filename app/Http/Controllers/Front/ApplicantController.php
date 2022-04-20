@@ -12,6 +12,7 @@ use App\Http\NotificationHelper;
 use App\Ignorjobrequest;
 use App\JobberProfile;
 use App\JobRequest;
+use App\JobStatus;
 use App\JobViews;
 use App\Payment;
 use App\Proposal;
@@ -104,6 +105,9 @@ class ApplicantController extends Controller
         }
         $jobrequest->save();
 
+        $status = JobStatus::find($request->status);
+        $status->delete();
+
         $activity = "Demande d'emploi";
         $msg = "Il y a une nouvelle offre d'emploi dans votre région";
 
@@ -176,6 +180,9 @@ class ApplicantController extends Controller
         }
         $jobrequest->save();
 
+        $status = JobStatus::find($request->status);
+        $status->delete();
+
         $activity = "Demande d'emploi";
         $msg = "Il y a une nouvelle offre d'emploi dans votre région";
 
@@ -195,7 +202,8 @@ class ApplicantController extends Controller
         $title = 'Demandes demploi';
         $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 1)->get();
         $jobrequestsClose = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 2)->get();
-        return view('front.applicant.jobrequests.jobrequests', compact('jobrequests','title', 'jobrequestsClose'));
+        $draft = JobStatus::where('user_id', $user->id)->get();
+        return view('front.applicant.jobrequests.jobrequests', compact('jobrequests','title', 'jobrequestsClose','draft'));
     }
     public function jobrequestsDetail($id){
         $user = Auth::user();
