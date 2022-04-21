@@ -175,17 +175,17 @@ class JobberController extends Controller
     public function detialsJobberContract($id){
         $title = 'Contract';
         $contract = Contract::find($id);
-        $reviews = Reviews::where('reciver_id','=',$contract->jobber->id)->get();
-        $jobberprofile = JobberProfile::where('jobber_id','=',$contract->jobber->id)->first();
+        $reviews = Reviews::where('reciver_id','=',$contract->applicant->id)->get();
+        $jobberprofile = JobberProfile::where('jobber_id','=',$contract->applicant->id)->first();
         if (!$reviews->isempty()){
-            $totalReview = Reviews::where('reciver_id','=',$contract->jobber->id)->sum('star');
+            $totalReview = Reviews::where('reciver_id','=',$contract->applicant->id)->sum('star');
             $total = $reviews->count();
             $totalReviews = round($totalReview / $total);
-            $fiveStar = (Reviews::where('star', '=', 5)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
-            $fourStar = (Reviews::where('star', '=', 4)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
-            $threeStar = (Reviews::where('star', '=', 3)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
-            $twoStar = (Reviews::where('star', '=', 2)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
-            $oneStar = (Reviews::where('star', '=', 1)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
+            $fiveStar = (Reviews::where('star', '=', 5)->where('reciver_id','=',$contract->applicant->id)->count() / $total) * 100;
+            $fourStar = (Reviews::where('star', '=', 4)->where('reciver_id','=',$contract->applicant->id)->count() / $total) * 100;
+            $threeStar = (Reviews::where('star', '=', 3)->where('reciver_id','=',$contract->applicant->id)->count() / $total) * 100;
+            $twoStar = (Reviews::where('star', '=', 2)->where('reciver_id','=',$contract->applicant->id)->count() / $total) * 100;
+            $oneStar = (Reviews::where('star', '=', 1)->where('reciver_id','=',$contract->applicant->id)->count() / $total) * 100;
         }
         else{
             $reviews =null;
