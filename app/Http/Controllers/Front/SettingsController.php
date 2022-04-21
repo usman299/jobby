@@ -32,7 +32,7 @@ class SettingsController extends Controller
         $title = 'Paramètres';
         $user = Auth::user();
         $contract = Contract::where('jober_id', $user->id)->where('status', '!=', '3')->get()->count();
-        $payment = Payment::where('jobber_id', $user->id)->sum('jobber_get');
+        $payment = Payment::where('jobber_id', $user->id)->where('status', 1)->sum('jobber_get');
         return view('front.settings.settings', compact('user','title', 'contract', 'payment'));
     }
     public function profile(){
