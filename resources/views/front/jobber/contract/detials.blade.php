@@ -253,7 +253,7 @@
         <div class="bg-white padding-20 d-flex emBlock__border">
             <button data-toggle="modal" data-target="#mdllJobDetails1"
                     class="btn justify-content-center bg-primary rounded-10 btn__default">
-                <span class="color-white">Profil du travailleur</span>
+                <span class="color-white">Profil du demandeur</span>
             </button>
         </div>
     </section>
@@ -316,17 +316,17 @@
                 <div class="modal-header padding-l-20 padding-r-50" style="background-color: #b2efff">
                     <div class="media align-items-center">
                         <div class="img_brand">
-                            <img src="{{asset($contract->jobber->image??'')}}" loading="lazy" alt="">
+                            <img src="{{asset($contract->applicant->image??'')}}" loading="lazy" alt="">
                         </div>
                         <div class="media-body">
                             <div class="txt_info">
                                 <?php
                                 \Carbon\Carbon::setLocale('fr');
-                                $date = \Carbon\Carbon::parse($contract->jobber->created_at);
+                                $date = \Carbon\Carbon::parse($contract->applicant->created_at);
                                 ?>
                                 <span>Membre depuis: {{$date->translatedFormat('F Y')}}</span>
-                                <h2>{{$contract->jobber->firstName}} {{$contract->jobber->lastName}}</h2>
-                                <p>{{$contract->jobber->countory->name}}</p>
+                                <h2>{{$contract->applicant->firstName}} {{$contract->applicant->lastName}}</h2>
+                                <p>{{$contract->applicant->countory->name}}</p>
                             </div>
                         </div>
                     </div>
@@ -343,7 +343,7 @@
 
                             <div class="item">
                                 <span class="weight-600">Travailler comme</span>
-                                <p>{{$contract->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
+                                <p>{{$contract->applicant->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
                             </div>
 
                             <div class="item">
@@ -352,22 +352,22 @@
                             </div>
                             <div class="item">
                                 <span class="weight-600">Sexe</span>
-                                <p class="weight-600">{{$contract->jobber->gender??'non'}}</p>
+                                <p class="weight-600">{{$contract->applicant->gender??'non'}}</p>
                             </div>
                         </div>
                         <div class="details__job">
                             <div class="item">
                                 <span class="weight-600">E-mail</span>
-                                <p>{{$contract->jobber->email??'non'}}</p>
+                                <p>{{$contract->applicant->email??'non'}}</p>
                             </div>
                         </div>
                         <div class="details__job">
                             <div class="item">
                                 <span class="weight-600">Phone</span>
-                                <p>{{$contract->jobber->phone??'non'}}</p>
+                                <p>{{$contract->applicant->phone??'non'}}</p>
                             </div>
                         </div>
-                        @if($contract->jobber->is_company == 1)
+                        @if($contract->applicant->is_company == 1)
                             <div class="details__job">
                                 <div class="item">
                                     <span class="weight-600">Nom de la compagnie</span>
@@ -376,79 +376,6 @@
                             </div>
 
                         @endif
-                        <div class="details__job">
-                            <div class="item">
-                                <span class="weight-600">Profil expérimenté</span>
-                                <p>{{$jobberprofile->jobber_category_id ??'non'}}</p>
-                            </div>
-                        </div>
-                        <div class="details__job">
-                            <div class="item">
-                                <span class="weight-600">De l'expérience</span>
-                                <p>{{$jobberprofile->experince??'non'}}</p>
-                            </div>
-                        </div>
-                        <div class="details__job">
-                            <div class="item">
-                                <span class="weight-600">Equipement</span>
-                                @if($jobberprofile)
-                                    <p>{{$jobberprofile->equipement1??''}}@if($jobberprofile->equipement1)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement2??''}}@if($jobberprofile->equipement2)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement3 ??""}}@if($jobberprofile->equipement3)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement4 ??""}}@if($jobberprofile->equipement4)
-                                            <strong>,</strong>@endif
-                                        {{$jobberprofile->equipement5 ?? ""}}@if($jobberprofile->equipement5)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement6?? ""}}@if($jobberprofile->equipement6)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement7 ?? ""}}@if($jobberprofile->equipement7)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement8 ?? ""}}@if($jobberprofile->equipement8)
-                                            <strong>,</strong>@endif
-                                        {{$jobberprofile->equipement9 ?? ""}}@if($jobberprofile->equipement9)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement10 ?? ""}}@if($jobberprofile->equipement10)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement11 ?? ""}}@if($jobberprofile->equipement11)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement12 ?? ""}}@if($jobberprofile->equipement12)
-                                            <strong>,</strong>@endif
-                                        {{$jobberprofile->equipement13 ?? ""}}@if($jobberprofile->equipement13)
-                                            <strong>@if($jobberprofile->equipement14)<strong>,</strong>@endif
-                                            </strong>@endif{{$jobberprofile->equipement14 ?? ""}}@if($jobberprofile->equipement14)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement15 ?? ""}}@if($jobberprofile->equipement15)
-                                            <strong>,</strong>@endif{{$jobberprofile->equipement16 ?? ""}}
-                                    </p>
-                                @else
-                                    <p>non</p>
-                                @endif
-                            </div>
-
-                        </div>
-                        <div class="details__job">
-                            <div class="item">
-                                <span class="weight-600">Engangement</span>
-                                @if($jobberprofile)
-                                    <p>{{$jobberprofile->eng1??''}}@if($jobberprofile->eng1)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng2??''}}@if($jobberprofile->eng2)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng3 ??""}}@if($jobberprofile->eng3)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng4 ??""}}@if($jobberprofile->eng4)
-                                            <strong>,</strong>@endif
-                                        {{$jobberprofile->eng5 ?? ""}}@if($jobberprofile->eng5)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng6?? ""}}@if($jobberprofile->eng6)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng7 ?? ""}}@if($jobberprofile->eng7)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng8 ?? ""}}@if($jobberprofile->eng8)
-                                            <strong>,</strong>@endif
-                                        {{$jobberprofile->eng9 ?? ""}}@if($jobberprofile->eng9)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng10 ?? ""}}@if($jobberprofile->eng10)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng11 ?? ""}}@if($jobberprofile->eng11)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng12 ?? ""}}@if($jobberprofile->eng12)
-                                            <strong>,</strong>@endif
-                                        {{$jobberprofile->eng13 ?? ""}}@if($jobberprofile->eng13)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng14 ?? ""}}@if($jobberprofile->eng14)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng15 ?? ""}}@if($jobberprofile->eng15)
-                                            <strong>,</strong>@endif{{$jobberprofile->eng16 ?? ""}}
-                                    </p>
-                                @else
-                                    <p>non</p>
-                                @endif
-                            </div>
-
-                        </div>
 
                         <div class="em_body padding-t-40">
                             <div class="content">
@@ -641,35 +568,7 @@
                             </div>
 
                         </div>
-                        <section class="em_swiper_products emCoureses__grid margin-b-20 margin-t-20">
-                            <!-- em_title_swiper -->
-                            <div class="em_title_swiper">
-                                <div class="txt">
-                                    <strong>Réalisation</strong>
-                                </div>
-                            </div>
-                            <div class="em_bodyCarousel padding-t-10">
-                                <div class="owl-carousel owl-theme owlThemeCorses">
-                                    @foreach($contract->jobber->portfolio as $portfol)
-                                        <div class="item">
-                                            <div class="em_itemCourse_grid">
-                                                <a href="" class="card">
-                                                    <div class="">
-                                                        <img src="{{asset($portfol->file)}}" loading="lazy"
-                                                             class="card-img-top" alt="img">
-                                                    </div>
-                                                    <div class="">
-                                                        <h6 class="card-title" style="margin: 5px;">
-                                                            {{$portfol->title}}
-                                                        </h6>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </section>
+
                     </div>
                 </div>
             </div>
