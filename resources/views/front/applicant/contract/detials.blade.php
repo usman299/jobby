@@ -272,11 +272,12 @@
         </div>
 
 
-                <div class="bg-white padding-20 d-flex emBlock__border">
-                    <button  data-toggle="modal" data-target="#mdllJobDetails1" class="btn justify-content-center bg-primary rounded-10 btn__default">
-                        <span class="color-white">Profil du travailleur</span>
-                    </button>
-                </div>
+        <div class="bg-white padding-20 d-flex emBlock__border">
+            <button data-toggle="modal" data-target="#mdllJobDetails1"
+                    class="btn justify-content-center bg-primary rounded-10 btn__default">
+                <span class="color-white">Profil du travailleur</span>
+            </button>
+        </div>
     </section>
 
     <br>
@@ -385,7 +386,7 @@
                 <div class="modal-header padding-l-20 padding-r-50" style="background-color: #b2efff">
                     <div class="media align-items-center">
                         <div class="img_brand">
-                            <img src="{{asset($contract->jobber->image??'')}}"  loading="lazy"  alt="">
+                            <img src="{{asset($contract->jobber->image??'')}}" loading="lazy" alt="">
                         </div>
                         <div class="media-body">
                             <div class="txt_info">
@@ -412,7 +413,7 @@
 
                             <div class="item">
                                 <span class="weight-600">Travailler comme</span>
-                                <p >{{$contract->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
+                                <p>{{$contract->jobber->is_company == 1 ? 'Société' : 'Individuelle'}}</p>
                             </div>
 
                             <div class="item">
@@ -424,16 +425,18 @@
                                 <p class="weight-600">{{$contract->jobber->gender??'non'}}</p>
                             </div>
                         </div>
-                                                <div class="details__job">
-                                                    <div class="item">
-                                                        <span class="weight-600">E-mail</span>
-                                                        <p >{{$contract->jobber->email??'non'}}</p>
-                                                    </div></div>
-                                                <div class="details__job">
-                                                    <div class="item">
-                                                        <span class="weight-600">Phone</span>
-                                                        <p >{{$contract->jobber->phone??'non'}}</p>
-                                                    </div></div>
+                        <div class="details__job">
+                            <div class="item">
+                                <span class="weight-600">E-mail</span>
+                                <p>{{$contract->jobber->email??'non'}}</p>
+                            </div>
+                        </div>
+                        <div class="details__job">
+                            <div class="item">
+                                <span class="weight-600">Phone</span>
+                                <p>{{$contract->jobber->phone??'non'}}</p>
+                            </div>
+                        </div>
                         @if($contract->jobber->is_company == 1)
                             <div class="details__job">
                                 <div class="item">
@@ -459,10 +462,26 @@
                             <div class="item">
                                 <span class="weight-600">Equipement</span>
                                 @if($jobberprofile)
-                                    <p>{{$jobberprofile->equipement1??''}}@if($jobberprofile->equipement1)<strong>,</strong>@endif{{$jobberprofile->equipement2??''}}@if($jobberprofile->equipement2)<strong>,</strong>@endif{{$jobberprofile->equipement3 ??""}}@if($jobberprofile->equipement3)<strong>,</strong>@endif{{$jobberprofile->equipement4 ??""}}@if($jobberprofile->equipement4)<strong>,</strong>@endif
-                                        {{$jobberprofile->equipement5 ?? ""}}@if($jobberprofile->equipement5)<strong>,</strong>@endif{{$jobberprofile->equipement6?? ""}}@if($jobberprofile->equipement6)<strong>,</strong>@endif{{$jobberprofile->equipement7 ?? ""}}@if($jobberprofile->equipement7)<strong>,</strong>@endif{{$jobberprofile->equipement8 ?? ""}}@if($jobberprofile->equipement8)<strong>,</strong>@endif
-                                        {{$jobberprofile->equipement9 ?? ""}}@if($jobberprofile->equipement9)<strong>,</strong>@endif{{$jobberprofile->equipement10 ?? ""}}@if($jobberprofile->equipement10)<strong>,</strong>@endif{{$jobberprofile->equipement11 ?? ""}}@if($jobberprofile->equipement11)<strong>,</strong>@endif{{$jobberprofile->equipement12 ?? ""}}@if($jobberprofile->equipement12)<strong>,</strong>@endif
-                                        {{$jobberprofile->equipement13 ?? ""}}@if($jobberprofile->equipement13)<strong>@if($jobberprofile->equipement14)<strong>,</strong>@endif</strong>@endif{{$jobberprofile->equipement14 ?? ""}}@if($jobberprofile->equipement14)<strong>,</strong>@endif{{$jobberprofile->equipement15 ?? ""}}@if($jobberprofile->equipement15)<strong>,</strong>@endif{{$jobberprofile->equipement16 ?? ""}}
+                                    <p>{{$jobberprofile->equipement1??''}}@if($jobberprofile->equipement1)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement2??''}}@if($jobberprofile->equipement2)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement3 ??""}}@if($jobberprofile->equipement3)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement4 ??""}}@if($jobberprofile->equipement4)
+                                            <strong>,</strong>@endif
+                                        {{$jobberprofile->equipement5 ?? ""}}@if($jobberprofile->equipement5)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement6?? ""}}@if($jobberprofile->equipement6)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement7 ?? ""}}@if($jobberprofile->equipement7)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement8 ?? ""}}@if($jobberprofile->equipement8)
+                                            <strong>,</strong>@endif
+                                        {{$jobberprofile->equipement9 ?? ""}}@if($jobberprofile->equipement9)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement10 ?? ""}}@if($jobberprofile->equipement10)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement11 ?? ""}}@if($jobberprofile->equipement11)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement12 ?? ""}}@if($jobberprofile->equipement12)
+                                            <strong>,</strong>@endif
+                                        {{$jobberprofile->equipement13 ?? ""}}@if($jobberprofile->equipement13)
+                                            <strong>@if($jobberprofile->equipement14)<strong>,</strong>@endif
+                                            </strong>@endif{{$jobberprofile->equipement14 ?? ""}}@if($jobberprofile->equipement14)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement15 ?? ""}}@if($jobberprofile->equipement15)
+                                            <strong>,</strong>@endif{{$jobberprofile->equipement16 ?? ""}}
                                     </p>
                                 @else
                                     <p>non</p>
@@ -474,10 +493,25 @@
                             <div class="item">
                                 <span class="weight-600">Engangement</span>
                                 @if($jobberprofile)
-                                    <p>{{$jobberprofile->eng1??''}}@if($jobberprofile->eng1)<strong>,</strong>@endif{{$jobberprofile->eng2??''}}@if($jobberprofile->eng2)<strong>,</strong>@endif{{$jobberprofile->eng3 ??""}}@if($jobberprofile->eng3)<strong>,</strong>@endif{{$jobberprofile->eng4 ??""}}@if($jobberprofile->eng4)<strong>,</strong>@endif
-                                        {{$jobberprofile->eng5 ?? ""}}@if($jobberprofile->eng5)<strong>,</strong>@endif{{$jobberprofile->eng6?? ""}}@if($jobberprofile->eng6)<strong>,</strong>@endif{{$jobberprofile->eng7 ?? ""}}@if($jobberprofile->eng7)<strong>,</strong>@endif{{$jobberprofile->eng8 ?? ""}}@if($jobberprofile->eng8)<strong>,</strong>@endif
-                                        {{$jobberprofile->eng9 ?? ""}}@if($jobberprofile->eng9)<strong>,</strong>@endif{{$jobberprofile->eng10 ?? ""}}@if($jobberprofile->eng10)<strong>,</strong>@endif{{$jobberprofile->eng11 ?? ""}}@if($jobberprofile->eng11)<strong>,</strong>@endif{{$jobberprofile->eng12 ?? ""}}@if($jobberprofile->eng12)<strong>,</strong>@endif
-                                        {{$jobberprofile->eng13 ?? ""}}@if($jobberprofile->eng13)<strong>,</strong>@endif{{$jobberprofile->eng14 ?? ""}}@if($jobberprofile->eng14)<strong>,</strong>@endif{{$jobberprofile->eng15 ?? ""}}@if($jobberprofile->eng15)<strong>,</strong>@endif{{$jobberprofile->eng16 ?? ""}}
+                                    <p>{{$jobberprofile->eng1??''}}@if($jobberprofile->eng1)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng2??''}}@if($jobberprofile->eng2)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng3 ??""}}@if($jobberprofile->eng3)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng4 ??""}}@if($jobberprofile->eng4)
+                                            <strong>,</strong>@endif
+                                        {{$jobberprofile->eng5 ?? ""}}@if($jobberprofile->eng5)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng6?? ""}}@if($jobberprofile->eng6)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng7 ?? ""}}@if($jobberprofile->eng7)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng8 ?? ""}}@if($jobberprofile->eng8)
+                                            <strong>,</strong>@endif
+                                        {{$jobberprofile->eng9 ?? ""}}@if($jobberprofile->eng9)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng10 ?? ""}}@if($jobberprofile->eng10)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng11 ?? ""}}@if($jobberprofile->eng11)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng12 ?? ""}}@if($jobberprofile->eng12)
+                                            <strong>,</strong>@endif
+                                        {{$jobberprofile->eng13 ?? ""}}@if($jobberprofile->eng13)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng14 ?? ""}}@if($jobberprofile->eng14)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng15 ?? ""}}@if($jobberprofile->eng15)
+                                            <strong>,</strong>@endif{{$jobberprofile->eng16 ?? ""}}
                                     </p>
                                 @else
                                     <p>non</p>
@@ -557,7 +591,9 @@
                                                     <div class="">
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: {{$fiveStar}}%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar"
+                                                                     style="width: {{$fiveStar}}%" aria-valuenow="70"
+                                                                     aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">5</span>
@@ -565,7 +601,9 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: {{$fourStar}}%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar"
+                                                                     style="width: {{$fourStar}}%" aria-valuenow="30"
+                                                                     aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">4</span>
@@ -573,7 +611,9 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: {{$threeStar}}%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar"
+                                                                     style="width: {{$threeStar}}%" aria-valuenow="8"
+                                                                     aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">3</span>
@@ -581,7 +621,9 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width: {{$twoStar}}%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar"
+                                                                     style="width: {{$twoStar}}%" aria-valuenow="5"
+                                                                     aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">2</span>
@@ -589,7 +631,9 @@
                                                         </div>
                                                         <div class="item">
                                                             <div class="progress">
-                                                                <div class="progress-bar" role="progressbar" style="width:{{$oneStar}}%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                                                <div class="progress-bar" role="progressbar"
+                                                                     style="width:{{$oneStar}}%" aria-valuenow="15"
+                                                                     aria-valuemin="0" aria-valuemax="100">
                                                                 </div>
                                                             </div>
                                                             <span class="txt">1</span>
@@ -610,10 +654,14 @@
                                         @foreach($reviews as $row)
                                             <div class="itemUser">
                                                 <div class="media">
-                                                    <img class="x_img"  loading="lazy"  src="{{asset($row->applicant->image ?? '/assets/img/persons/064.jpg')}}" alt="">
+                                                    <img class="x_img" loading="lazy"
+                                                         src="{{asset($row->applicant->image ?? '/assets/img/persons/064.jpg')}}"
+                                                         alt="">
                                                     <div class="media-body">
                                                         <div class="txt_details">
-                                                            <h4 class="username">{{$row->applicant->firstName}}  {{$row->applicant->lastName}} <time>{{$row->created_at->diffForHumans()}}</time></h4>
+                                                            <h4 class="username">{{$row->applicant->firstName}}  {{$row->applicant->lastName}}
+                                                                <time>{{$row->created_at->diffForHumans()}}</time>
+                                                            </h4>
                                                             <div class="emPatternRate">
                                                                 @if($row->star==5)
                                                                     <span class="ico _rated"></span>
@@ -677,7 +725,8 @@
                                             <div class="em_itemCourse_grid">
                                                 <a href="" class="card">
                                                     <div class="">
-                                                        <img src="{{asset($portfol->file)}}"  loading="lazy"  class="card-img-top" alt="img">
+                                                        <img src="{{asset($portfol->file)}}" loading="lazy"
+                                                             class="card-img-top" alt="img">
                                                     </div>
                                                     <div class="">
                                                         <h6 class="card-title" style="margin: 5px;">
