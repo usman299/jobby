@@ -357,6 +357,7 @@ class ApplicantController extends Controller
         }
 
     public function proposalsContract(Request $request, $id){
+
         $applicant_id = Auth::user();
 
         $proposal = Proposal::find($id);
@@ -365,6 +366,7 @@ class ApplicantController extends Controller
 
         $contract = new Contract();
         $contract->proposal_id = $id;
+        $contract->jobRequest_id = $proposal->jobRequest_id;
         $contract->applicant_id = $applicant_id->id;
         $contract->jober_id =  $proposal->jobber_id;
         $contract->e_time = $request->e_time;

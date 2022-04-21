@@ -49,8 +49,9 @@
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
+
                         <img src="{{asset($proposal->jobber->image)}}"  loading="lazy"  alt="">
-                        <h2>{{$proposal->jobber->firstName}} {{$proposal->jobber->lastName}}</h2>
+                        <h2 data-toggle="modal" data-target="#mdllJobDetails">{{$proposal->jobber->firstName}} {{$proposal->jobber->lastName}}</h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">
@@ -225,16 +226,16 @@
                                 <p class="weight-600">{{$proposal->jobber->gender??'non'}}</p>
                             </div>
                         </div>
-                        <div class="details__job">
-                            <div class="item">
-                                <span class="weight-600">E-mail</span>
-                                <p >{{$proposal->jobber->email??'non'}}</p>
-                            </div></div>
-                        <div class="details__job">
-                            <div class="item">
-                                <span class="weight-600">Phone</span>
-                                <p >{{$proposal->jobber->phone??'non'}}</p>
-                            </div></div>
+{{--                        <div class="details__job">--}}
+{{--                            <div class="item">--}}
+{{--                                <span class="weight-600">E-mail</span>--}}
+{{--                                <p >{{$proposal->jobber->email??'non'}}</p>--}}
+{{--                            </div></div>--}}
+{{--                        <div class="details__job">--}}
+{{--                            <div class="item">--}}
+{{--                                <span class="weight-600">Phone</span>--}}
+{{--                                <p >{{$proposal->jobber->phone??'non'}}</p>--}}
+{{--                            </div></div>--}}
                         @if($proposal->jobber->is_company == 1)
                         <div class="details__job">
                             <div class="item">

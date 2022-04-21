@@ -27,6 +27,7 @@ Route::get('/test', function () {
     return view('email.draftpost', compact('draft'));
 });
 Route::get('/cron', 'CronController@draftjobs');
+Route::get('/notresponce/proposals', 'CronController@notResponceProposals')->name('notresponce.proposals');
 Route::get('/admin/login', 'Admin\JobbyAppController@adminLogin')->name('admin.login');
 Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
