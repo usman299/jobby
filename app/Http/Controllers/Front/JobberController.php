@@ -175,7 +175,29 @@ class JobberController extends Controller
     public function detialsJobberContract($id){
         $title = 'Contract';
         $contract = Contract::find($id);
-        return view('front.jobber.contract.detials', compact('title', 'contract'));
+        $reviews = Reviews::where('reciver_id','=',$contract->jobber->id)->get();
+        $jobberprofile = JobberProfile::where('jobber_id','=',$contract->jobber->id)->first();
+        if (!$reviews->isempty()){
+            $totalReview = Reviews::where('reciver_id','=',$contract->jobber->id)->sum('star');
+            $total = $reviews->count();
+            $totalReviews = round($totalReview / $total);
+            $fiveStar = (Reviews::where('star', '=', 5)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
+            $fourStar = (Reviews::where('star', '=', 4)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
+            $threeStar = (Reviews::where('star', '=', 3)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
+            $twoStar = (Reviews::where('star', '=', 2)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
+            $oneStar = (Reviews::where('star', '=', 1)->where('reciver_id','=',$contract->jobber->id)->count() / $total) * 100;
+        }
+        else{
+            $reviews =null;
+            $totalReviews=0;
+            $total=0;
+            $fiveStar=0;
+            $fourStar=0;
+            $threeStar=0;
+            $twoStar=0;
+            $oneStar=0;
+        }
+        return view('front.jobber.contract.detials', compact('title', 'contract','reviews','totalReviews','total','fiveStar','fourStar','threeStar', 'twoStar' ,'oneStar','jobberprofile'));
     }
     public function contractStatus($id){
         $contract = Contract::find($id);
