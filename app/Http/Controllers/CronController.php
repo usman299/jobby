@@ -16,16 +16,21 @@ use Carbon\Carbon;
 
 class CronController extends Controller
 {
+//    y funcion draft wali job posts k users ko email send kr k un ka status change kr deta hy ic sy bas ek user ko ek dfa email jay ge
     public function draftjobs(){
         $drafts = JobStatus::where('status', 0)->get();
         foreach ($drafts as $draft){
             if ($draft->sub){
                 if ($draft->sub_category != 0){
                     Mail::to($draft->user->email)->send(new DraftJobs($draft));
+                    $draft->status = 1;
+                    $draft->update();
                 }
             }else{
                 if ($draft->child_category != 0){
                     Mail::to($draft->user->email)->send(new DraftJobs($draft));
+                    $draft->status = 1;
+                    $draft->update();
                 }
             }
         }
