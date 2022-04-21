@@ -8,6 +8,7 @@ use App\Contract;
 use App\JobberProfile;
 use App\JobRequest;
 use App\Mail\NotResponce;
+use App\Mail\JobberNotResponse;
 use App\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -30,33 +31,40 @@ class CronController extends Controller
             }
         }
     }
+    //jb proposal par applicant responce na de
     public function notResponceProposals(){
-        $jobRequest = JobRequest::where('status','=',1)->get();
+        $jobRequest = JobRequest::where('status','=',1)->whereDate('created_at', Carbon::yesterday())->get();
         foreach ($jobRequest as $row ){
-            $day = $row->created_at->diffInHours(Carbon::now());
-            if($day>=24){
-                $contract = Contract::where('jobRequest_id',$row->id)->first();
-                if(!$contract){
-                    $dataa = array(
-                        'firstName' => $contract->applicant->firstName,
-                        'lastName' => $contract->applicant->lastName,
-                    );
-                    Mail::to($contract->applicant->email)->send(new  NotResponce($dataa));
-                    return 1;
-                }
-                else{
-                    return 0;
-                }
+            $contract = Contract::where('jobRequest_id',$row->id)->first();
+        if($contract==null){
+            $dataa = array(
+                'firstName' => $row->applicant->firstName,
+                'lastName' => $row->applicant->lastName,
+
+            );
+            Mail::to($row->applicant->email)->send(new  NotResponce($dataa));
+             return 1;
             }
-
-
         }
 
-
-
-
-
-
-        return view('front.settings.gift',compact('card','title'));
     }
+
+    //Jb Jobber Jobrequest pe responce na kre
+    public function notJobberSendProposals(){
+        $jobRequest = JobRequest::where('status','=',1)->whereDate('created_at', Carbon::yesterday())->get();
+        foreach ($jobRequest as $row ){
+            $proposal = Proposal::where('jobRequest_id',$row->id)->first();
+
+            if($proposal==null){
+                $dataa = array(
+                    'firstName' => $row->applicant->firstName,
+                    'lastName' => $row->applicant->lastName,
+                );
+                Mail::to($row->applicant->email)->send(new  JobberNotResponse($dataa));
+                return 1;
+            }
+        }
+
+    }
+
 }

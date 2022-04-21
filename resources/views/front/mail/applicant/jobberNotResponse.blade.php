@@ -34,8 +34,9 @@
 <table>
     <tr style="background-color: #1fa0b6;">
         <td style="text-align: center; color: white;">
-            <h1>Félicitations, votre jobber est
-                prêt</h1>
+            <h1>Votre annonce ne plaît pas aux
+                jobbers
+            </h1>
         </td>
     </tr>
     <tr>
@@ -55,11 +56,11 @@
         <td style="text-align: center; color: white">
             <h1>Bonjour,{{$dataa['firstName']}} {{$dataa['lastName']}}</h1>
 
-            <p>E suis heureux de vous annoncer que votre choix de jobber est
-                confirmé. Je vous invite à entrer en contact avec le jobber depuis
-                la plateforme !
+            <p>Aucune offre n'a été reçue depuis la publication de votre
+                annonce. Il y a sûrement des raisons à cela.
+                Je vous invite à suivre nos conseils pour améliorer votre annonce !
             </p>
-            <a target="_blank" href="{{route('web.index')}}"> <button class="button" style="background-color: grey!important;color:white!important;">Comment va se deroule le job</button></a>
+            <a target="_blank" href="{{route('web.index')}}"> <button class="button" style="background-color: grey!important;color:white!important;">Comment attirer des bons  jobber</button></a>
             <br>
             <br>
             <br>

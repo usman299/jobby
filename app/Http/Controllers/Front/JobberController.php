@@ -9,6 +9,8 @@ use App\Http\NotificationHelper;
 use App\JobberProfile;
 use App\JobberServicesOffers;
 use App\JobRequest;
+use App\Mail\NewProposal;
+use Illuminate\Support\Facades\Mail;
 use App\Notfication;
 use App\Payment;
 use App\Reviews;
@@ -146,7 +148,13 @@ class JobberController extends Controller
             NotificationHelper::pushNotification($msg, $proposal->jobrequest->applicant->device_token, $activity);
 
             NotificationHelper::addtoNitification($user->id, $proposal->jobrequest->applicant->id, $msg, $proposal->id, $activity, $user->country);
+            $dataa = array(
+                'firstName' => $proposal->jobrequest->applicant->firstName,
+                'lastName' => $proposal->jobrequest->applicant->lastName,
 
+            );
+
+            Mail::to($proposal->jobrequest->applicant->email)->send(new  NewProposal($dataa));
 
 
             $notification = array(

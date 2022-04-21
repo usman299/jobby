@@ -34,8 +34,8 @@
 <table>
     <tr style="background-color: #1fa0b6;">
         <td style="text-align: center; color: white;">
-            <h1>Félicitations, votre jobber est
-                prêt</h1>
+            <h1>La mission est clôturée
+            </h1>
         </td>
     </tr>
     <tr>
@@ -55,11 +55,13 @@
         <td style="text-align: center; color: white">
             <h1>Bonjour,{{$dataa['firstName']}} {{$dataa['lastName']}}</h1>
 
-            <p>E suis heureux de vous annoncer que votre choix de jobber est
-                confirmé. Je vous invite à entrer en contact avec le jobber depuis
-                la plateforme !
+            <p>Je suis heureux de vous annoncer que votre demande est
+                clôturée. J'espère que nos services vous ont été bénéfique.
+                Je vous invite à nous dire ce qui vous a plu et ce que vous
+                aimeriez que l'on améliore !
+                !
             </p>
-            <a target="_blank" href="{{route('web.index')}}"> <button class="button" style="background-color: grey!important;color:white!important;">Comment va se deroule le job</button></a>
+            <a target="_blank" href="{{route('web.index')}}"> <button class="button" style="background-color: grey!important;color:white!important;">Votre avis nous interesse</button></a>
             <br>
             <br>
             <br>

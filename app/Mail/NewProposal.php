@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NotResponce extends Mailable
+class NewProposal extends Mailable
 {
     use Queueable, SerializesModels;
     public $dataa;
@@ -28,6 +28,6 @@ class NotResponce extends Mailable
      */
     public function build()
     {
-        return $this->view('front.mail.applicant.notresponse')->with('dataa', $this->dataa);
+        return $this->view('front.mail.applicant.newproposal')->with('dataa', $this->dataa);
     }
 }
