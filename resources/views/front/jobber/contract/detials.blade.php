@@ -120,7 +120,7 @@
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
                         <img src="{{asset($contract->user->image)}}" loading="lazy" alt="">
-                        <h2>{{$contract->user->firstName}} {{$contract->user->lastName}}</h2>
+                        <h2 data-toggle="modal" data-target="#mdllJobDetails1">{{$contract->user->firstName}} {{$contract->user->lastName}}</h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">

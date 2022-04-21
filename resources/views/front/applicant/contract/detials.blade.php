@@ -120,7 +120,7 @@
 
                         <?php $jobber = \App\User::where('id', '=', $contract->jober_id)->first(); ?>
                         <img src="{{asset($jobber->image)}}" loading="lazy" alt="">
-                        <h2>{{$jobber->firstName}} {{$jobber->lastName}}</h2>
+                        <h2 data-toggle="modal" data-target="#mdllJobDetails1">{{$jobber->firstName}} {{$jobber->lastName}}</h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">
