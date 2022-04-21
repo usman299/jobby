@@ -284,6 +284,10 @@ class ApplicantController extends Controller
         $proposal->status = 2;
         $proposal->update();
 
+        $jobrequest = JobRequest::find($proposal->jobRequest_id);
+        $jobrequest->status = 2;
+        $jobrequest->update();
+
         $messageID = mt_rand(9, 999999999) + time();
         $message = new ChMessage();
         $message->id = $messageID;
@@ -363,6 +367,10 @@ class ApplicantController extends Controller
         $proposal = Proposal::find($id);
         $proposal->status = 2;
         $proposal->update();
+
+        $jobrequest = JobRequest::find($proposal->jobRequest_id);
+        $jobrequest->status = 2;
+        $jobrequest->update();
 
         $contract = new Contract();
         $contract->proposal_id = $id;
