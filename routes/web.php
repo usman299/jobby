@@ -23,9 +23,10 @@ Route::get('/save-token/{token}', function ($token) {
     return redirect('app');
 });
 Route::get('/test', function () {
-    $id = 1;
-    return view('front.mail.test', compact('id'));
+    $draft = \App\JobStatus::find(1);
+    return view('email.draftpost', compact('draft'));
 });
+Route::get('/cron', 'CronController@draftjobs');
 Route::get('/admin/login', 'Admin\JobbyAppController@adminLogin')->name('admin.login');
 Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
