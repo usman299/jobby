@@ -989,7 +989,7 @@
                                     </button>
 
                                     <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
-                                        <h4 class="item_price" >{{$job->title}}</h4>
+                                        <h4 class="item_price" style="margin-bottom: 5px">{{$job->title}}</h4>
                                         <h3>{{$job->detail_description}}</h3>
                                         <span>{{$job->category->title}}</span>
                                         /
