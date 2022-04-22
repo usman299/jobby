@@ -1825,7 +1825,13 @@
 
         for (var i = 0; i < locations.length; i++) {
             var link = $('<a href="{{url('applicant/jobrequests/detail/')}}/'+locations[i][3]+'" class="speciallink">'+locations[i][0]+'</a>')[0];
-            marker = new L.marker([locations[i][1], locations[i][2]])
+            marker = new L.marker([locations[i][1], locations[i][2]],{draggable: true,
+                icon: L.icon({
+                    iconUrl: '/logo.png',
+                    iconSize: [34, 34],
+                    iconAnchor: [22, 22],
+
+                })
                 .bindPopup(link)
                 .addTo(mymap);
         }
