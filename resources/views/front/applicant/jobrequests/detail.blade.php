@@ -29,7 +29,7 @@
             <div id="map" style="width: 100%; height: 200px"></div>
             <br>
             @php $user = Auth::user(); @endphp
-            <a href="https://www.google.es/maps/dir/'{{$jobrequest->lat}},{{$jobrequest->long}}'/'{{$user->latitude}},{{$user->longitude}}'/data=!4m2!4m1!3e2"><p style="text-align: center">Find The Route on map >></p></a>
+            <a href="https://www.google.es/maps/dir/'{{$jobrequest->lat}},{{$jobrequest->long}}'/'{{$user->latitude}},{{$user->longitude}}'/"><p style="text-align: center">Trouver l'itinéraire sur la carte >></p></a>
             <hr>
         </div>
         <div class="emheader_cover">
