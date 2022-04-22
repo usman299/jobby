@@ -45,6 +45,11 @@ $user = Auth::user();
     <!-- manifest meta -->
     <link rel="manifest" href="{{asset('_manifest.json')}}" />
     <style>
+        #wrapper, #content {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
         .rounded-pill{
             display: inline-block !important; text-align: center;
         }
