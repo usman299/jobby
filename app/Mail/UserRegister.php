@@ -28,6 +28,9 @@ class UserRegister extends Mailable
      */
     public function build()
     {
-        return $this->view('front.mail.register')->with('dataa', $this->dataa);
+        return $this->from('info@ikaedigital.com', 'Mister jobby')
+            ->view('front.mail.register')
+            ->subject('E-mail de bienvenue')
+            ->with('dataa', $this->dataa);
     }
 }
