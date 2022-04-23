@@ -43,8 +43,13 @@ $user = Auth::user();
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
     <!-- manifest meta -->
-    <link rel="manifest" href="{{asset('_manifest.json')}}" />
+{{--    <link rel="manifest" href="{{asset('_manifest.json')}}" />--}}
     <style>
+        #wrapper, #content {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
         .rounded-pill{
             display: inline-block !important; text-align: center;
         }
@@ -989,7 +994,7 @@ $user = Auth::user();
 <!-- main.js -->
 <script src="{{asset('assets/js/main.js')}}" defer></script>
 <!-- PWA app service registration and works js -->
-<script src="{{asset('assets/js/pwa-services.js')}}"></script>
+{{--<script src="{{asset('assets/js/pwa-services.js')}}"></script>--}}
 <script>
     $("#files").change(function() {
         filename = this.files[0].name;
