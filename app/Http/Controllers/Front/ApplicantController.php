@@ -14,11 +14,13 @@ use App\JobberProfile;
 use App\JobRequest;
 use App\JobStatus;
 use App\JobViews;
+use App\Mail\NewProposal;
 use App\Payment;
 use App\Proposal;
 use App\Reviews;
 use App\User;
 use App\Notfication;
+use Illuminate\Support\Facades\Mail;
 use Validator;
 use App\SubCategory;
 use App\JobberServicesOffers;
@@ -499,9 +501,28 @@ class ApplicantController extends Controller
          $contract = Contract::where('id','=',$id)->first();
          if($user->role==1) {
              $review->reciver_id = $contract->applicant_id;
+             if($request->star<4) {
+                 $dataa = array(
+                     'firstName' => $contract->applicant->firstName,
+                     'lastName' => $contract->applicant->lastName,
+
+                 );
+
+                 Mail::to($contract->applicant->email)->send(new  NewProposal($dataa));
+             }
+
          }
          else{
              $review->reciver_id = $contract->jober_id;
+             if($request->star<4) {
+                 $dataa = array(
+                     'firstName' => $contract->jobber->firstName,
+                     'lastName' => $contract->jobber->lastName,
+
+                 );
+
+                 Mail::to($contract->jobber->email)->send(new  NewProposal($dataa));
+             }
          }
 
          $review->contract_id = $id;
