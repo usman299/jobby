@@ -10,10 +10,10 @@
             <section class="npPage_introDefault hero-text">
 
                 <div class="npButtons_networks env-pb margin-b-20">
-                    <a href="{{route('intro.jobber')}}" class="btn rounded-pill border-snow" style="background: linear-gradient(to right, #febc31, #fe4d86);">
+                    <a href="{{route('front.login', ['id' => 1])}}" class="btn rounded-pill border-snow" style="background: linear-gradient(to right, #febc31, #fe4d86);">
                         <span style="color: white" class="color-secondary">Publier une demander</span>
                     </a>
-                    <a href="{{route('intro.applicant')}}" class="btn rounded-pill border-snow"  style="background: linear-gradient(to right, #4ce9fe, #378afe);">
+                    <a href="{{route('front.login', ['id' => 2])}}" class="btn rounded-pill border-snow"  style="background: linear-gradient(to right, #4ce9fe, #378afe);">
                         <span style="color: white"  class="color-secondary">Postuler aux missions</span>
                     </a>
                 </div>

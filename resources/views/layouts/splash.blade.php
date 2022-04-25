@@ -37,8 +37,6 @@
     <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <!-- manifest meta -->
-    <link rel="manifest" href="{{asset('_manifest.json')}}" />
     <style>
         @media only screen and (min-width: 800px) {
             .buttons__footer {
@@ -118,8 +116,6 @@
 
 <!-- main.js -->
 <script src="{{asset('assets/js/main.js')}}" defer></script>
-<!-- PWA app service registration and works js -->
-<script src="{{asset('assets/js/pwa-services.js')}}"></script>
 <script>
     $(".loginformsubmit").submit(function(){
         $(this).find(':input[type=submit]').prop('disabled', true);

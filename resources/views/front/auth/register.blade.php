@@ -4,11 +4,12 @@
     <style>
 
         /* Mark input boxes that gets an error on validation: */
-        .box{
+        .box {
 
             display: none;
             margin-top: 20px;
         }
+
         input.is-invalid {
             background-color: #ffdddd;
         }
@@ -18,12 +19,14 @@
             display: none;
         }
 
-        h1{
+        h1 {
             text-align: center;
         }
-        h2{
+
+        h2 {
             text-align: left !important;
         }
+
         /* Make circles that indicate the steps of the form: */
         .step {
             height: 15px;
@@ -44,18 +47,22 @@
         .step.finish {
             background-color: #556fff;
         }
+
         input[type="radio"] {
             -ms-transform: scale(1.5); /* IE 9 */
             -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
             transform: scale(1.5);
         }
-        .f-20{
-            font-size:20px;
+
+        .f-20 {
+            font-size: 20px;
         }
-        .allign-left{
+
+        .allign-left {
             text-align: left;
         }
-        .dialog-background{
+
+        .dialog-background {
             background: none repeat scroll 0 0 rgba(105, 166, 217, 0.5);
             height: 100%;
             left: 0;
@@ -66,6 +73,7 @@
             width: 100%;
             z-index: 100;
         }
+
         .dialog-loading-wrapper {
             background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
             border: 0 none;
@@ -78,6 +86,7 @@
             width: 100px;
             z-index: 9999999;
         }
+
         .dialog-loading-icon {
             background-color: #FFFFFF !important;
             border-radius: 13px;
@@ -114,10 +123,11 @@
             <!-- End.main_haeder -->
 
             <section class="em__signTypeOne padding-t-50">
-                <form  id="regForm" class="loginformsubmit" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" autocomplete="off">
+                <form id="regForm" class="loginformsubmit" method="POST" action="{{ route('register') }}"
+                      enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <div class="em__body question_tabs">
-                      <div class="tab">
+                        <div class="tab">
                             <div class="em_titleSign">
                                 <h1>Créer un compte</h1>
                             </div>
@@ -125,13 +135,25 @@
                             <div class="form-group with_icon" style="text-align: left!important;">
                                 <label>Prénom</label>
                                 <div class="input_group">
-                                    <input type="text"  class="form-control @error('fname') is-invalid @enderror" name="fname" placeholder="John" required="">
-                                    <input type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" placeholder="Smit" required="">
+                                    <input type="text" autocomplete="false" class="form-control @error('fname') is-invalid @enderror"
+                                           name="fname"  placeholder="John" required="">
+                                    <input type="text" autocomplete="false" class="form-control @error('lname') is-invalid @enderror"
+                                           name="lname" placeholder="Smit" required="">
                                     <div class="icon">
-                                        <svg id="Iconly_Two-tone_Profile" data-name="Iconly/Two-tone/Profile" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <svg id="Iconly_Two-tone_Profile" data-name="Iconly/Two-tone/Profile"
+                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
                                             <g id="Profile" transform="translate(4 2)">
-                                                <circle id="Ellipse_736" cx="4.778" cy="4.778" r="4.778" transform="translate(2.801 0)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></circle>
-                                                <path id="Path_33945" d="M0,3.016a2.215,2.215,0,0,1,.22-.97A4.042,4.042,0,0,1,3.039.426,16.787,16.787,0,0,1,5.382.1,25.053,25.053,0,0,1,9.767.1a16.979,16.979,0,0,1,2.343.33c1.071.22,2.362.659,2.819,1.62a2.27,2.27,0,0,1,0,1.95c-.458.961-1.748,1.4-2.819,1.611a15.716,15.716,0,0,1-2.343.339A25.822,25.822,0,0,1,6.2,6a4.066,4.066,0,0,1-.815-.055,15.423,15.423,0,0,1-2.334-.339C1.968,5.4.687,4.957.22,4A2.279,2.279,0,0,1,0,3.016Z" transform="translate(0 13.185)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <circle id="Ellipse_736" cx="4.778" cy="4.778" r="4.778"
+                                                        transform="translate(2.801 0)" fill="none" stroke="#200e32"
+                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-miterlimit="10" stroke-width="1.5"
+                                                        opacity="0.4"></circle>
+                                                <path id="Path_33945"
+                                                      d="M0,3.016a2.215,2.215,0,0,1,.22-.97A4.042,4.042,0,0,1,3.039.426,16.787,16.787,0,0,1,5.382.1,25.053,25.053,0,0,1,9.767.1a16.979,16.979,0,0,1,2.343.33c1.071.22,2.362.659,2.819,1.62a2.27,2.27,0,0,1,0,1.95c-.458.961-1.748,1.4-2.819,1.611a15.716,15.716,0,0,1-2.343.339A25.822,25.822,0,0,1,6.2,6a4.066,4.066,0,0,1-.815-.055,15.423,15.423,0,0,1-2.334-.339C1.968,5.4.687,4.957.22,4A2.279,2.279,0,0,1,0,3.016Z"
+                                                      transform="translate(0 13.185)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
                                             </g>
                                         </svg>
                                     </div>
@@ -143,12 +165,24 @@
                             <div class="form-group with_icon" style="text-align: left!important;">
                                 <label>Adresse e-mail</label>
                                 <div class="input_group">
-                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="example@mail.com" required="">
+                                    <input autocomplete="false" type="email" name="email"
+                                           class="form-control @error('email') is-invalid @enderror"
+                                           placeholder="example@mail.com" required="">
                                     <div class="icon">
-                                        <svg id="Iconly_Two-tone_Message" data-name="Iconly/Two-tone/Message" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <svg id="Iconly_Two-tone_Message" data-name="Iconly/Two-tone/Message"
+                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
                                             <g id="Message" transform="translate(2 3)">
-                                                <path id="Path_445" d="M11.314,0,7.048,3.434a2.223,2.223,0,0,1-2.746,0L0,0" transform="translate(3.954 5.561)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
-                                                <path id="Rectangle_511" d="M4.888,0h9.428A4.957,4.957,0,0,1,17.9,1.59a5.017,5.017,0,0,1,1.326,3.7v6.528a5.017,5.017,0,0,1-1.326,3.7,4.957,4.957,0,0,1-3.58,1.59H4.888C1.968,17.116,0,14.741,0,11.822V5.294C0,2.375,1.968,0,4.888,0Z" transform="translate(0 0)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Path_445"
+                                                      d="M11.314,0,7.048,3.434a2.223,2.223,0,0,1-2.746,0L0,0"
+                                                      transform="translate(3.954 5.561)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
+                                                <path id="Rectangle_511"
+                                                      d="M4.888,0h9.428A4.957,4.957,0,0,1,17.9,1.59a5.017,5.017,0,0,1,1.326,3.7v6.528a5.017,5.017,0,0,1-1.326,3.7,4.957,4.957,0,0,1-3.58,1.59H4.888C1.968,17.116,0,14.741,0,11.822V5.294C0,2.375,1.968,0,4.888,0Z"
+                                                      transform="translate(0 0)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
                                             </g>
                                         </svg>
                                     </div>
@@ -160,13 +194,27 @@
                             <div class="form-group with_icon" style="text-align: left!important;">
                                 <label>Téléphone</label>
                                 <div class="input_group">
-                                    <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="+255 5645 6545" required="">
+                                    <input type="text" name="phone"
+                                           class="form-control @error('phone') is-invalid @enderror"
+                                           placeholder="+255 5645 6545" required="">
                                     <div class="icon">
-                                        <svg id="Iconly_Two-tone_Call" data-name="Iconly/Two-tone/Call" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <svg id="Iconly_Two-tone_Call" data-name="Iconly/Two-tone/Call"
+                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
                                             <g id="Call" transform="translate(2.5 2.5)">
-                                                <path id="Call-2" data-name="Call" d="M.49,2.373C.807,1.849,2.549-.056,3.793,0a1.636,1.636,0,0,1,.967.517,16.863,16.863,0,0,1,2.468,3.34C7.471,5.026,6.078,5.7,6.5,6.878a9.873,9.873,0,0,0,5.619,5.616c1.177.426,1.851-.966,3.019-.723a16.894,16.894,0,0,1,3.34,2.468,1.639,1.639,0,0,1,.517.967c.046,1.309-1.977,3.077-2.371,3.3-.93.665-2.144.654-3.624-.034C8.874,16.757,2.274,10.282.524,6-.145,4.525-.192,3.3.49,2.373Z" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                <path id="Stroke_1" data-name="Stroke 1" d="M0,0,1.469,2.179" transform="translate(1.883 1.294)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
-                                                <path id="Stroke_3" data-name="Stroke 3" d="M0,0,2.188,1.71" transform="translate(15.364 15.567)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
+                                                <path id="Call-2" data-name="Call"
+                                                      d="M.49,2.373C.807,1.849,2.549-.056,3.793,0a1.636,1.636,0,0,1,.967.517,16.863,16.863,0,0,1,2.468,3.34C7.471,5.026,6.078,5.7,6.5,6.878a9.873,9.873,0,0,0,5.619,5.616c1.177.426,1.851-.966,3.019-.723a16.894,16.894,0,0,1,3.34,2.468,1.639,1.639,0,0,1,.517.967c.046,1.309-1.977,3.077-2.371,3.3-.93.665-2.144.654-3.624-.034C8.874,16.757,2.274,10.282.524,6-.145,4.525-.192,3.3.49,2.373Z"
+                                                      fill="none" stroke="#200e32" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-miterlimit="10"
+                                                      stroke-width="1.5"></path>
+                                                <path id="Stroke_1" data-name="Stroke 1" d="M0,0,1.469,2.179"
+                                                      transform="translate(1.883 1.294)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
+                                                <path id="Stroke_3" data-name="Stroke 3" d="M0,0,2.188,1.71"
+                                                      transform="translate(15.364 15.567)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
                                             </g>
                                         </svg>
                                     </div>
@@ -186,17 +234,36 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group with_icon" id="show_hide_password" style="text-align: left!important;">
+                            <div class="form-group with_icon" id="show_hide_password"
+                                 style="text-align: left!important;">
                                 <label>Mot de passe</label>
                                 <div class="input_group">
-                                    <input type="password" name="password" id="password" oninput="checkpassword()" class="form-control @error('password') is-invalid @enderror" placeholder="tapez votre mot de passe" required="">
+                                    <input type="password" name="password" id="password" oninput="checkpassword()"
+                                           class="form-control @error('password') is-invalid @enderror"
+                                           placeholder="tapez votre mot de passe" required="">
                                     <div class="icon">
-                                        <svg id="Iconly_Two-tone_Password" data-name="Iconly/Two-tone/Password" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <svg id="Iconly_Two-tone_Password" data-name="Iconly/Two-tone/Password"
+                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24">
                                             <g id="Password" transform="translate(2 2)">
-                                                <path id="Stroke_1" data-name="Stroke 1" d="M13.584,0H4.915C1.894,0,0,2.139,0,5.166v8.168C0,16.361,1.885,18.5,4.915,18.5h8.668c3.031,0,4.917-2.139,4.917-5.166V5.166C18.5,2.139,16.614,0,13.584,0Z" transform="translate(0.75 0.75)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
-                                                <path id="Stroke_3" data-name="Stroke 3" d="M3.7,1.852A1.852,1.852,0,1,1,1.851,0,1.852,1.852,0,0,1,3.7,1.852Z" transform="translate(4.989 8.148)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                <path id="Stroke_5" data-name="Stroke 5" d="M0,0H6.318V1.852" transform="translate(8.692 10)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                <path id="Stroke_7" data-name="Stroke 7" d="M.5,1.852V0" transform="translate(11.682 10)" fill="none" stroke="#200e32" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_1" data-name="Stroke 1"
+                                                      d="M13.584,0H4.915C1.894,0,0,2.139,0,5.166v8.168C0,16.361,1.885,18.5,4.915,18.5h8.668c3.031,0,4.917-2.139,4.917-5.166V5.166C18.5,2.139,16.614,0,13.584,0Z"
+                                                      transform="translate(0.75 0.75)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5" opacity="0.4"></path>
+                                                <path id="Stroke_3" data-name="Stroke 3"
+                                                      d="M3.7,1.852A1.852,1.852,0,1,1,1.851,0,1.852,1.852,0,0,1,3.7,1.852Z"
+                                                      transform="translate(4.989 8.148)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_5" data-name="Stroke 5" d="M0,0H6.318V1.852"
+                                                      transform="translate(8.692 10)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                <path id="Stroke_7" data-name="Stroke 7" d="M.5,1.852V0"
+                                                      transform="translate(11.682 10)" fill="none" stroke="#200e32"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
                                             </g>
                                         </svg>
                                     </div>
@@ -217,51 +284,18 @@
                         </div>
                         <div class="tab">
                             <div class="em_titleSign">
-                                <h1>Tes compétences</h1>
-                            </div>
-{{--                            <section class="bg-white em__signTypeOne typeTwo np__account padding-t-70">--}}
-
-                                    @foreach($categories as $category)
-                                        <div class="padding-10">
-                                            <hr>
-                                            <p>{{$category->title}}</p>
-                                            <div class="row">
-
-                                                @foreach($category->subcategorys as $key => $subcategory)
-
-                                                    <div class="col-4">
-
-
-                                                            <input  id="for{{$subcategory->id}}"   value="{{$subcategory->id}}" type="checkbox" name="skills[]"><br>
-
-
-                                                        <label for="for{{$subcategory->id}}" >
-                                                            <p>{{$subcategory->title}}</p></label>
-                                                    </div>
-
-                                                @endforeach
-
-
-                                            </div>
-                                        </div>
-                                    @endforeach
-
-{{--                            </section>--}}
-                        </div>
-                        <div class="tab">
-                            <div class="em_titleSign">
                                 <h1>Créer un compte</h1>
                             </div>
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Adresse</label>
                                 <div class="input_group">
-                                    <input  type="text" class="form-control" name="address"
+                                    <input type="text" class="form-control" name="address"
                                            required="">
                                 </div>
                             </div>
-                            <div class="form-group"  style="text-align: left!important;">
+                            <div class="form-group" style="text-align: left!important;">
                                 <label>Sexe</label>
-                                <select  class="form-control custom-select" name="gender">
+                                <select class="form-control custom-select" name="gender">
                                     <option value="Homme">Homme</option>
                                     <option value="Femme">Femme</option>
                                 </select>
@@ -269,7 +303,7 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Code postal</label>
                                 <div class="input_group">
-                                    <input  required="" type="text" class="form-control" name="postalCode">
+                                    <input required="" type="text" class="form-control" name="postalCode">
                                 </div>
                             </div>
                             <div class="form-group" style="text-align: left!important;">
@@ -282,202 +316,185 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Description</label>
                                 <div class="input_group">
-                                    <textarea name="description" placeholder="Écris quelque chose à propos de toi" class="form-control" id="" cols="30" rows="5"></textarea>
+                                    <textarea name="description" placeholder="Écris quelque chose à propos de toi"
+                                              class="form-control" id="" cols="30" rows="5"></textarea>
                                 </div>
                             </div>
                         </div>
-                        @if($id == 1)
-<!--                        <div class="tab">
-                            <div class="em_titleSign">
-                                <h1>Give Proof of identity</h1>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Document d'identité </label>
-                                <div class="input_group">
-                                    <input type="file" id="file" name="document1" class="form-control">
+                    @if($id == 1)
+                            <div class="tab">
+                                <div class="em_titleSign">
+                                    <h1>Tes compétences</h1>
                                 </div>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Justificatif de sécurité sociale</label>
-                                <div class="input_group">
-                                    <input type="file" id="file" name="document2" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Ces documents sont nécessaires
-
-                                    Ces documents sont nécessaires pour valider votre identité, votre âge, et votre éligibilité à travailler sur le territoire. Ils ne seront jamais rendus publics</label>
-                            </div>
-                        </div>-->
-<!--                            <div class="tab">
-                            <div class="em_titleSign">
-                                <h1>Select Specialized Profile</h1>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div style="padding: 10px">
-                                    <?php
-                                    $categories = \App\Category::all();
-                                    ?>
-                                    <div class="input_group">
-                                        <select  onchange="categorychange(this)" class="form-control custom-select" name="category_id">
-                                            <option value="">Catégorie Spécialisée Selectc</option>
-                                            @foreach($categories as $cat)
-                                                <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                @foreach($categories as $category)
+                                    <div class="padding-10">
+                                        <hr>
+                                        <p>{{$category->title}}</p>
+                                        <div class="row">
+                                            @foreach($category->subcategorys as $key => $subcategory)
+                                                <div class="col-4">
+                                                    <input id="for{{$subcategory->id}}" value="{{$subcategory->id}}"
+                                                           type="checkbox" name="skills[]"><br>
+                                                    <label for="for{{$subcategory->id}}">
+                                                        <p>{{$subcategory->title}}</p></label>
+                                                </div>
                                             @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <h1>Sous-catégorie spécialisée</h1>
-                                <div style="padding: 10px">
-                                    <div class="input_group">
-                                        <select onchange="subcategorychange(this)" name="subcategory_id"  class="form-control custom-select maincategory">
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>-->
-
-                        <div class="tab">
-                            <div class="em_titleSign">
-                                <h2>Sélectionnez un profil spécialisé</h2>
-                            </div>
-                            <div  class="form-group" style="text-align: left!important;">
-                                <div style="padding: 10px">
-                                    <div class="input_group">
-                                        <select name="jobber_category_id" onchange="subcategorychange(this)"  class="form-control custom-select">
-                                            <option value="">Sélectionnez un profil spécialisé</option>
-                                            <option value="Bricolage / Travaux">Bricolage / Travaux</option>
-                                            <option value="Électricité et domotique">Électricité et domotique</option>
-                                            <option value="Plomberie">Plomberie</option>
-                                            <option value="Aide à la personne">Aide à la personne</option>
-                                            <option value="Aide ménagère">Aide ménagère</option>
-                                            <option value="Livraison / Déménagement">Livraison / Déménagement</option>
-                                            <option value="Mécanique">Mécanique</option>
-                                            <option value="Entretien du jardin">Entretien du jardin</option>
-                                            <option value="Garde d’enfants">Garde d’enfants</option>
-                                            <option value="Garde d’animaux">Garde d’animaux</option>
-                                            <option value="Cours particuliers">Cours particuliers</option>
-                                            <option value="Évènementiel">Évènementiel</option>
-                                            <option value="Taches administrative">Taches administrative</option>
-                                            <option value="Informatique">Informatique</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="newtabs">
-
-                        </div>
-                        <div class="tab">
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Diplôme pour la compétence!</h2>
-                                <p class="f-20">Avez vous un lien avec le diplôme pour la compétence?</p>
-                            </div>
-                            <div class="form-group" style="text-align: left!important;">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="yes" value="OUI" name="diploma" class="custom-control-input diploma_yes">
-                                            <label class="custom-control-label padding-l-10" for="yes">
-                                                OUI</label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="no" value="Non" name="diploma" class="custom-control-input diploma_no">
-                                            <label class="custom-control-label padding-l-10" for="no">
-                                                Non
-                                            </label>
                                         </div>
                                     </div>
+                                @endforeach
+                            </div>
+                            <div class="tab">
+                                <div class="em_titleSign">
+                                    <h2>Sélectionnez un profil spécialisé</h2>
                                 </div>
-                            </div>
-                            <div class="doploma_name form-group allign-left">
-
-                            </div>
-                        </div>
-                        <div class="tab">
-                            <div class="em_titleSign" style="margin-left: auto;">
-                                <h2>Expérience pour la compétence!</h2>
-                                <p class="f-20">Quel expérience avez-vous en tant que prestataire?
-                                </p>
-                            </div>
-                            <div class="form-group allign-left">
-                                <div class="input_group">
-                                    <div class="bg-white ">
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince1" value="Je n’en ai aucune" name="experince" class="custom-control-input ">
-                                            <label class="custom-control-label padding-l-10" for="experince1">
-                                                Je n’en ai aucune
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince2" value="J’ai moins d’un an" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince2">
-                                                J’ai moins d’un an
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince3">
-                                                J’ai entre 2 et 4 ans
-                                            </label>
-                                        </div>
-                                        <div class="custom-control custom-radio margin-b-10">
-                                            <input type="radio" id="experince4" value="J’ai plus de 5 ans" name="experince" class="custom-control-input">
-                                            <label class="custom-control-label padding-l-10" for="experince4">
-                                                J’ai plus de 5 ans
-                                            </label>
+                                <div class="form-group" style="text-align: left!important;">
+                                    <div style="padding: 10px">
+                                        <div class="input_group">
+                                            <select name="jobber_category_id" onchange="subcategorychange(this)"
+                                                    class="form-control custom-select">
+                                                <option value="">Sélectionnez un profil spécialisé</option>
+                                                <option value="Bricolage / Travaux">Bricolage / Travaux</option>
+                                                <option value="Électricité et domotique">Électricité et domotique
+                                                </option>
+                                                <option value="Plomberie">Plomberie</option>
+                                                <option value="Aide à la personne">Aide à la personne</option>
+                                                <option value="Aide ménagère">Aide ménagère</option>
+                                                <option value="Livraison / Déménagement">Livraison / Déménagement
+                                                </option>
+                                                <option value="Mécanique">Mécanique</option>
+                                                <option value="Entretien du jardin">Entretien du jardin</option>
+                                                <option value="Garde d’enfants">Garde d’enfants</option>
+                                                <option value="Garde d’animaux">Garde d’animaux</option>
+                                                <option value="Cours particuliers">Cours particuliers</option>
+                                                <option value="Évènementiel">Évènementiel</option>
+                                                <option value="Taches administrative">Taches administrative</option>
+                                                <option value="Informatique">Informatique</option>
+                                            </select>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
-                        </div>
-                        <div class="equip_tab">
 
-                        </div>
-                        <div class="tab">
-                            <div class="em_titleSign">
-                                <h2>Description de la compétence!</h2>
-                                <p class="p-20">Description personnalisée ?
-                                </p>
+                            <div class="newtabs">
+
                             </div>
-                            <div class="form-group allign-left">
-                                <div class="input_group">
-                                    <textarea name="personal_description"  placeholder="Décrivez votre savoir faire et vos expériences pour cette compétences (optionnel)" class="form-control" id="" cols="30" rows="5"></textarea>
+                            <div class="tab">
+                                <div class="em_titleSign" style="margin-left: auto;">
+                                    <h2>Diplôme pour la compétence!</h2>
+                                    <p class="f-20">Avez vous un lien avec le diplôme pour la compétence?</p>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="eng_tab">
-
-                        </div>
-                        <div class="tab">
-                            <div class="em_titleSign">
-                                <h2>Certifie sur l’honneur!</h2>
-                                <p class="f-20">Je certifie sur l’honneur l’authenticité des données renseignées.
-                                </p>
-                            </div>
-                            <div class="form-group allign-left">
                                 <div class="form-group" style="text-align: left!important;">
                                     <div class="input_group">
                                         <div class="bg-white ">
                                             <div class="custom-control custom-radio margin-b-10">
-                                                <input type="radio" id="certifie" value="certifie" name="certifie" class="custom-control-input">
-                                                <label class="custom-control-label padding-l-10" for="certifie">
-                                                    Je certifie sur l’honneur l’authenticité des données renseignées. (Case à cocher)
+                                                <input type="radio" id="yes" value="OUI" name="diploma"
+                                                       class="custom-control-input diploma_yes">
+                                                <label class="custom-control-label padding-l-10" for="yes">
+                                                    OUI</label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="no" value="Non" name="diploma"
+                                                       class="custom-control-input diploma_no">
+                                                <label class="custom-control-label padding-l-10" for="no">
+                                                    Non
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <p>
-                                        Il pourra vous être demandé de justifier des données renseignées pour en vérifier l’authencité, au quel cas votre compte pourra être suspendu.
-                                    </p>
+                                </div>
+                                <div class="doploma_name form-group allign-left">
+
                                 </div>
                             </div>
-                        </div>
+                            <div class="tab">
+                                <div class="em_titleSign" style="margin-left: auto;">
+                                    <h2>Expérience pour la compétence!</h2>
+                                    <p class="f-20">Quel expérience avez-vous en tant que prestataire?
+                                    </p>
+                                </div>
+                                <div class="form-group allign-left">
+                                    <div class="input_group">
+                                        <div class="bg-white ">
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="experince1" value="Je n’en ai aucune"
+                                                       name="experince" class="custom-control-input ">
+                                                <label class="custom-control-label padding-l-10" for="experince1">
+                                                    Je n’en ai aucune
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="experince2" value="J’ai moins d’un an"
+                                                       name="experince" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="experince2">
+                                                    J’ai moins d’un an
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="experince3" value="J’ai entre 2 et 4 ans"
+                                                       name="experince" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="experince3">
+                                                    J’ai entre 2 et 4 ans
+                                                </label>
+                                            </div>
+                                            <div class="custom-control custom-radio margin-b-10">
+                                                <input type="radio" id="experince4" value="J’ai plus de 5 ans"
+                                                       name="experince" class="custom-control-input">
+                                                <label class="custom-control-label padding-l-10" for="experince4">
+                                                    J’ai plus de 5 ans
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="equip_tab">
+
+                            </div>
+                            <div class="tab">
+                                <div class="em_titleSign">
+                                    <h2>Description de la compétence!</h2>
+                                    <p class="p-20">Description personnalisée ?
+                                    </p>
+                                </div>
+                                <div class="form-group allign-left">
+                                    <div class="input_group">
+                                        <textarea name="personal_description"
+                                                  placeholder="Décrivez votre savoir faire et vos expériences pour cette compétences (optionnel)"
+                                                  class="form-control" id="" cols="30" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="eng_tab">
+
+                            </div>
+                            <div class="tab">
+                                <div class="em_titleSign">
+                                    <h2>Certifie sur l’honneur!</h2>
+                                    <p class="f-20">Je certifie sur l’honneur l’authenticité des données renseignées.
+                                    </p>
+                                </div>
+                                <div class="form-group allign-left">
+                                    <div class="form-group" style="text-align: left!important;">
+                                        <div class="input_group">
+                                            <div class="bg-white ">
+                                                <div class="custom-control custom-radio margin-b-10">
+                                                    <input type="radio" id="certifie" value="certifie" name="certifie"
+                                                           class="custom-control-input">
+                                                    <label class="custom-control-label padding-l-10" for="certifie">
+                                                        Je certifie sur l’honneur l’authenticité des données
+                                                        renseignées. (Case à cocher)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            Il pourra vous être demandé de justifier des données renseignées pour en
+                                            vérifier l’authencité, au quel cas votre compte pourra être suspendu.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
 
                     </div>
@@ -485,88 +502,90 @@
                         <span class="step"></span>
                         <span class="step"></span>
                         @if($id == 1)
-                        <span class="step"></span>
                             <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
-                        <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
+                            <span class="step"></span>
                         @endif
                     </div>
                     <div class="buttons__footer text-center">
 
                         <div class="bg-white d-flex">
-                            <button type="button" id="prevBtn" onclick="nextPrev(-1)"  class="btn bg-green rounded-10 btn__default mr-3">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)"
+                                    class="btn bg-green rounded-10 btn__default mr-3">
                                 <span class="color-white">Retourner</span>
                             </button>
-                            <button type="button" id="nextBtn" style="color: white" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default">
+                            <button type="button" id="nextBtn" style="color: white" onclick="nextPrev(1)"
+                                    class="btn bg-blue rounded-10 btn__default">
                                 <span class="color-white">Suivante</span>
                             </button>
                         </div>
@@ -586,39 +605,41 @@
     <script>
         function checkpassword() {
             var x = document.getElementById("password").value;
-            if(x.length < 8){
+            if (x.length < 8) {
                 $("#password").addClass("is-invalid");
-            }else{
+            } else {
                 $("#password").removeClass("is-invalid");
             }
 
         }
-        function categorychange(elem){
+
+        function categorychange(elem) {
             $('.maincategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
             event.preventDefault();
             let id = elem.value;
-            let _token   = $('meta[name="csrf-token"]').attr('content');
+            let _token = $('meta[name="csrf-token"]').attr('content');
 
             $.ajax({
                 url: "{{route('fetchsubcategory')}}",
-                type:"POST",
-                data:{
-                    id:id,
+                type: "POST",
+                data: {
+                    id: id,
                     _token: _token
                 },
-                success:function(response){
-                    $.each(response, function(i, item) {
-                        $('.maincategory').append('<option value="'+item.id+'">'+item.title+'</option>');
+                success: function (response) {
+                    $.each(response, function (i, item) {
+                        $('.maincategory').append('<option value="' + item.id + '">' + item.title + '</option>');
                     });
                 },
             });
         }
-        function subcategorychange(elem){
+
+        function subcategorychange(elem) {
             let id = elem.value;
             console.log(id);
-            if(id == "Bricolage / Travaux"){
-               $(".equip_tab").html('');
-               $(".equip_tab").append(`<div class="tab">
+            if (id == "Bricolage / Travaux") {
+                $(".equip_tab").html('');
+                $(".equip_tab").append(`<div class="tab">
                             <div class="em_titleSign">
                                 <h2>Equipement pour la compétence!</h2>
                                 <p class="f-20">Quel équipement avez vous?
@@ -803,7 +824,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Électricité et domotique"){
+            } else if (id == "Électricité et domotique") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -978,7 +999,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Plomberie"){
+            } else if (id == "Plomberie") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(` <div class="tab">
             <div class="em_titleSign">
@@ -1171,7 +1192,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Aide à la personne"){
+            } else if (id == "Aide à la personne") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(` <div class="tab">
             <div class="em_titleSign">
@@ -1323,7 +1344,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Aide ménagère"){
+            } else if (id == "Aide ménagère") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -1457,7 +1478,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Livraison / Déménagement"){
+            } else if (id == "Livraison / Déménagement") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -1609,7 +1630,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Mécanique"){
+            } else if (id == "Mécanique") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(` <div class="tab">
             <div class="em_titleSign">
@@ -1767,7 +1788,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Entretien du jardin"){
+            } else if (id == "Entretien du jardin") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(` <div class="tab">
             <div class="em_titleSign">
@@ -1990,7 +2011,7 @@
                                 </div>
                             </div>
                         </div>`);
-            }else if(id == "Garde d’enfants"){
+            } else if (id == "Garde d’enfants") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -2118,7 +2139,7 @@
                 </div>
             </div>
         </div>`);
-            }else if(id == "Garde d’animaux"){
+            } else if (id == "Garde d’animaux") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -2281,7 +2302,7 @@
                 </div>
             </div>
         </div>`);
-            }else if(id == "Cours particuliers"){
+            } else if (id == "Cours particuliers") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -2396,7 +2417,7 @@
                 </div>
             </div>
         </div>`);
-            }else if(id == "Évènementiel"){
+            } else if (id == "Évènementiel") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -2547,7 +2568,7 @@
                 </div>
             </div>
         </div>`);
-            }else if(id == "Taches administrative"){
+            } else if (id == "Taches administrative") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -2656,7 +2677,7 @@
                 </div>
             </div>
         </div>`);
-            }else if(id == "Informatique"){
+            } else if (id == "Informatique") {
                 $(".equip_tab").html('');
                 $(".equip_tab").append(`<div class="tab">
             <div class="em_titleSign">
@@ -2858,12 +2879,12 @@
         }
     </script>
     <script>
-        $(document).ready(function(){
-            $('.diploma_yes').click(function(){
+        $(document).ready(function () {
+            $('.diploma_yes').click(function () {
                 $(".doploma_name").html('');
-               $(".doploma_name").append('<p class="f-20">Quel est le nom du diplôme?</p><div class="input_group"><input type="text" name="diploma_name"  class="form-control" placeholder="Entrer le diplôme" required=""></div>');
+                $(".doploma_name").append('<p class="f-20">Quel est le nom du diplôme?</p><div class="input_group"><input type="text" name="diploma_name"  class="form-control" placeholder="Entrer le diplôme" required=""></div>');
             });
-            $('.diploma_no').click(function(){
+            $('.diploma_no').click(function () {
                 $(".doploma_name").html('');
             });
         });

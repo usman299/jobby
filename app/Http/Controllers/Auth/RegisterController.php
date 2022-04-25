@@ -90,6 +90,11 @@ class RegisterController extends Controller
             $name2 = "";
         }*/
 
+        if ($data['skills']) {
+            $skills = json_encode($data['skills']);
+        }else{
+            $skills = [];
+        }
 
         $user = User::create([
             'firstName' => $data['fname'],
@@ -98,7 +103,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'role' => $data['role'],
             'dob' => $data['dob'],
-            'skills' => json_encode($data['skills']),
+            'skills' => $skills,
             'country' => $data['country'],
             'address' => $data['address'],
             'gender' => $data['gender'],
@@ -121,11 +126,9 @@ class RegisterController extends Controller
             'url'    => $setting->title,
             'description1'    => $setting->description1,
             'description2'    => $setting->description2,
-
         );
         JobberProfile::create($data);
         Mail::to($data['email'])->send(new  UserRegister($dataa));
-
         return $user;
     }
 }
