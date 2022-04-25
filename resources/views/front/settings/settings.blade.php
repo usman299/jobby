@@ -1,5 +1,8 @@
 @extends('layouts.front')
 @section('content')
+    <br>
+    <br>
+    <br>
     <main class="emPage__public">
         @if(Auth::user()->role == 1)
             <section class="box__dashboard">
