@@ -135,9 +135,9 @@
                             <div class="form-group with_icon" style="text-align: left!important;">
                                 <label>Prénom</label>
                                 <div class="input_group">
-                                    <input type="text" class="form-control @error('fname') is-invalid @enderror"
-                                           name="fname" placeholder="John" required="">
-                                    <input type="text" class="form-control @error('lname') is-invalid @enderror"
+                                    <input type="text" autocomplete="false" class="form-control @error('fname') is-invalid @enderror"
+                                           name="fname"  placeholder="John" required="">
+                                    <input type="text" autocomplete="false" class="form-control @error('lname') is-invalid @enderror"
                                            name="lname" placeholder="Smit" required="">
                                     <div class="icon">
                                         <svg id="Iconly_Two-tone_Profile" data-name="Iconly/Two-tone/Profile"
@@ -165,7 +165,7 @@
                             <div class="form-group with_icon" style="text-align: left!important;">
                                 <label>Adresse e-mail</label>
                                 <div class="input_group">
-                                    <input type="email" name="email"
+                                    <input autocomplete="false" type="email" name="email"
                                            class="form-control @error('email') is-invalid @enderror"
                                            placeholder="example@mail.com" required="">
                                     <div class="icon">
