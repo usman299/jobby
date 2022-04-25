@@ -26,6 +26,9 @@
                     </div>
                     <input type="hidden" id="pay" value="complete">
                     <div class="form-group input-lined">
+                        <p>Avez-vous un code promo ou une carte-cadeau ? <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" >Cliquez ici</a></p>
+                    </div>
+                    <div class="form-group input-lined">
                         <div class="form-group stripe-payment-method-div">
                             <div id="card-element"></div>
                             <div id="card-errors" class="text-danger" role="alert"></div>
@@ -47,6 +50,33 @@
     <!-- End. emPageAbout -->
 
 @endsection
+<!-- Kenne's Checkout Area End Here -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <form action="{{route('redeem.voucher')}}" method="POST">
+                    @csrf
+                    <input required name="code" placeholder="Entrer le code du bon" class="form-control">
+                    <br>
+                    <input type="hidden" name="total" value="{{$proposal->price}}">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="card-button" class="btn w-100 bg-primary  m-0 color-white h-55 d-flex align-items-center rounded-10 justify-content-center" value="Payer" type="submit" data-secret="{{ $intent }}">
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section('script')
 
     <script src="https://js.stripe.com/v3/"></script>

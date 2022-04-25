@@ -15,6 +15,7 @@
                 <div class="emPage__billsWallet padding-20 py-0">
                     <div class="emBk__bills">
                         @foreach($card as $row)
+                            <a href="{{route('app.singlecards',['id'=>$row->id])}}">
                         <div class="item" >
                             <div class="emhead_w" >
                                 <div class="icon_img">
@@ -23,14 +24,16 @@
 {{--                                <a href="#" class="btn btn_default bg-primary">Pay Now!</a>--}}
                             </div>
                             <div class="embody_w" style="margin-top: 25px;">
+
                                 <div class="details_w">
                                     <h3>{{$row->title}}</h3>
                                     <span>Code du bon cadeau:<b>{{$row->sku}}</b></span>
                                 </div>
 
+
                             </div>
                         </div>
-                        @endforeach
+                            </a>@endforeach
 
                     </div>
                 </div>

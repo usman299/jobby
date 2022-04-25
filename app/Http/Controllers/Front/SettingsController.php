@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Front;
 
 use App\About;
 use App\Card;
+use App\CardPaymant;
 use App\Category;
 use App\Condition;
 use App\Mail\AllContact;
+use App\Mail\BonCadeau;
 use App\Contact;
 use App\Contract;
 use App\Countory;
@@ -303,5 +305,80 @@ class SettingsController extends Controller
         $card = Card::all();
         $title = 'Vos cartes';
         return view('front.settings.gift',compact('card','title'));
+    }
+    public function appSingleCards($id){
+
+        $card = Card::where('id','=',$id)->first();
+        $title = 'Carte unique';
+        return view('front.card.index',compact('card','title'));
+    }
+    public function cardpay(Request $request, $id)
+    {   $total = $request->price;
+        if(isset($total)){
+            \Stripe\Stripe::setApiKey (env('STRIPE_SECRET_KEY'));
+            $payment_intent = \Stripe\PaymentIntent::create([
+                'amount' => ($total) *100,
+                'currency' => 'EUR'
+            ]);
+        }
+        $intent = $payment_intent->client_secret;
+        $r_name = $request->name;
+        $r_email = $request->email;
+        $senderphone = $request->senderphone;
+        $sendername = $request->sendername;
+        return view('front.card.checkout',compact('total','id','intent','r_name','r_email','senderphone','sendername'));
+    }
+    public function cardCheckout(Request $request, $id)
+    {
+        $item = Card::where('id','=',$id)->first();
+        $new = new CardPaymant();
+        $new->card_id = $item->sku;
+        $new->sendername = $request->sendername;
+        $new->senderphone = $request->senderphone;
+        $new->r_name = $request->r_name;
+        $new->r_email = $request->email;
+        $new->message = $request->message;
+        $new->price = $request->total;
+        $new->paymentstatus = '1';
+        $new->card_number = rand(100000000, 900000000);
+        $new->save();
+        Mail::to($new->r_email)->send(new BonCadeau($new, $item));
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect('/app/allcards')->with($notification);;
+
+    }
+    public function redeeemVoucher(Request $request)
+    {
+        $cardspayment = CardPaymant::where('card_number', '=', $request->code)->where('valid', '=', '0')->first();
+
+        if ($cardspayment){
+            if($cardspayment->price >=$request->total){
+
+                $cardspayment->valid = '1';
+                $cardspayment->update();
+                $notification = array(
+                    'messege'=>'Bon dachat avec succès',
+                    'alert-type'=>'success'
+                );
+                return redirect('/app/allcards')->with($notification);
+            }
+            else{
+                $notification = array(
+                    'messege'=>'Votre montant supérieur au portefeuille',
+                    'alert-type'=>'error'
+                );
+                return redirect('/app/allcards')->with($notification);;
+            }
+
+        }else{
+            $notification = array(
+                'messege'=>'Le code promo nest plus valide',
+                'alert-type'=>'error'
+            );
+            return redirect('/app/allcards')->with($notification);;
+        }
     }
 }
