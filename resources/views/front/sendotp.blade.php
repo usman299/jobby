@@ -57,7 +57,7 @@
 
                         <a href="{{route('front.register',['id'=>Auth::user()->role])}}" class="size-14 color-primary hover:color-primary text-decoration-none">S'inscrire</a>
                     </div>
-                    <input type="submit" value="Vérifier le code" class="btn bg-primary rounded-pill btn__default">
+                    <input style="color: white; text-align: center" type="submit" value="Vérifier le code" class="btn bg-primary rounded-pill btn__default">
 
                 </div>
 
