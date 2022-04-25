@@ -399,9 +399,13 @@ $user = Auth::user();
                 </button>
             </div>
         </header>
+        <br>
+        <br>
+        <br>
         <!-- End.main_haeder -->
 
         @yield('content')
+
     </div>
 <!-- Start em_main_footer -->
     <footer class="em_main_footer ouline_footer with__text">
