@@ -78,7 +78,11 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
 
     Route::get('/jobber/skills', 'Front\SettingsController@skills')->name('jobber.skills');
     Route::get('/app/allcards', 'Front\SettingsController@appAllcards')->name('app.allcards');
-    Route::get('/jobber/portfolio', 'Front\SettingsController@portfolio')->name('jobber.portfolio');
+    Route::get('/app/singlecards/{id}', 'Front\SettingsController@appSingleCards')->name('app.singlecards');
+    Route::post('/app/card/pay/{id}', 'Front\SettingsController@cardpay')->name('app.card.pay');
+    Route::post('/app/card/checkout/{id}', 'Front\SettingsController@cardCheckout')->name('card.checkout');
+    Route::post('/redeem/voucher', 'Front\SettingsController@redeeemVoucher')->name('redeem.voucher');
+    Route::get('/jobber/portfolio', 'Front\SettingsController@')->name('jobber.portfolio');
     Route::get('/jobber/experience', 'Front\SettingsController@experience')->name('jobber.experience');
     Route::post('/jobber/skills/submit', 'Front\SettingsController@skillsSubmit')->name('skills.submit');
     Route::get('/get/badge', 'Front\SettingsController@getBadge')->name('get.badge');
