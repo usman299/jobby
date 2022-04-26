@@ -48,35 +48,49 @@
         </div>
     </section>
     <!-- End. emPageAbout -->
+    <!-- Kenne's Checkout Area End Here -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="{{route('redeem.voucher')}}" method="POST">
+                        @csrf
+                        <div class="form-group input-lined">
+                            <input required name="code" placeholder="Entrer le code du bon" class="form-control">
+                            <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Code</strong> <strong style="color: red;">*</strong> </label>
+                        </div>
 
-@endsection
-<!-- Kenne's Checkout Area End Here -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-body">
-                <form action="{{route('redeem.voucher')}}" method="POST">
-                    @csrf
-                    <input required name="code" placeholder="Entrer le code du bon" class="form-control">
-                    <br>
-                    <input type="hidden" name="total" value="{{$proposal->price}}">
+                        <div class="form-group input-lined">
+                            <input type="datetime-local" min="{{Carbon\Carbon::now()->format('Y-m-d')."T".Carbon\Carbon::now()->format('H:i')}}" name="e_time"  class="form-control"  required="">
+                            <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Date et heure de fin</strong> <strong style="color: red;">*</strong> </label>
+                        </div>
+                        <div class="form-group input-lined">
+                            <textarea class="form-control"  name="description" rows="4" id="description" placeholder="Entrez la  Description"></textarea>
+                            <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>La Description</strong> <strong style="color: red;">*</strong></label>
+                        </div>
+                        <br>
+                        <input type="hidden" name="total" value="{{$proposal->price}}">
+                        <input type="hidden" name="p_id" value="{{$proposal->id}}">
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input id="card-button" class="btn w-100 bg-primary  m-0 color-white h-55 d-flex align-items-center rounded-10 justify-content-center" value="Payer" type="submit" data-secret="{{ $intent }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input id="card-button" class="btn w-100 bg-primary  m-0 color-white h-55 d-flex align-items-center rounded-10 justify-content-center" value="Payer" type="submit" data-secret="{{ $intent }}">
+
+                            </div>
 
                         </div>
-                    </div>
-                </form>
+                    </form>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+@endsection
+
 @section('script')
 
     <script src="https://js.stripe.com/v3/"></script>

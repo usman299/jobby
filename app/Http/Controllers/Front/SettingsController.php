@@ -7,6 +7,8 @@ use App\Card;
 use App\CardPaymant;
 use App\Category;
 use App\Condition;
+use App\Http\NotificationHelper;
+use App\JobRequest;
 use App\Mail\AllContact;
 use App\Mail\BonCadeau;
 use App\Contact;
@@ -18,6 +20,7 @@ use App\JobberProfile;
 use App\Notfication;
 use App\Payment;
 use App\Portfolio;
+use App\Proposal;
 use App\QuestionAnswer;
 use App\SubCategory;
 use App\User;
@@ -359,18 +362,57 @@ class SettingsController extends Controller
 
                 $cardspayment->valid = '1';
                 $cardspayment->update();
-                $notification = array(
-                    'messege'=>'Bon dachat avec succès',
-                    'alert-type'=>'success'
-                );
-                return redirect('/app/allcards')->with($notification);
+
+                $applicant_id = Auth::user();
+
+                $proposal = Proposal::find($request->p_id);
+                $proposal->status = 2;
+                $proposal->update();
+
+                $jobrequest = JobRequest::find($proposal->jobRequest_id);
+                $jobrequest->status = 2;
+                $jobrequest->update();
+
+                $contract = new Contract();
+                $contract->proposal_id = $request->p_id;
+                $contract->jobRequest_id = $proposal->jobRequest_id;
+                $contract->applicant_id = $applicant_id->id;
+                $contract->jober_id =  $proposal->jobber_id;
+                $contract->e_time = $request->e_time;
+                $contract->price = $proposal->price;
+                $contract->description = $request->description;
+                $contract->contract_no = 'CN-'.rand(10000, 90000);
+                $contract->save();
+
+                $payment = new Payment();
+                $payment->contract_id = $contract->id;
+                $payment->applicant_id = $applicant_id->id;
+                $payment->jobber_id =  $proposal->jobber_id;
+
+                $payment->price =  $request->total;
+                $payment->contract_price =   $proposal->price;
+                $payment->percentage =  0;
+                $payment->jobber_get =  $request->total;
+
+                $payment->type =  'gift card';
+                $payment->invoice_no =  'IN-'.rand(10000, 90000);
+                $payment->save();
+
+                $activity = "Début du contrat";
+                $msg = "Votre contrat commence avec le demandeur";
+
+                NotificationHelper::pushNotification($msg, $proposal->jobber->device_token, $activity);
+                NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
+
+                return view('front.payment.success', compact('contract'));
+
             }
             else{
                 $notification = array(
                     'messege'=>'Votre montant supérieur au portefeuille',
                     'alert-type'=>'error'
                 );
-                return redirect('/app/allcards')->with($notification);;
+                return redirect()->back()->with($notification);
             }
 
         }else{
@@ -378,7 +420,7 @@ class SettingsController extends Controller
                 'messege'=>'Le code promo nest plus valide',
                 'alert-type'=>'error'
             );
-            return redirect('/app/allcards')->with($notification);;
+            return redirect()->back()->with($notification);
         }
     }
 }
