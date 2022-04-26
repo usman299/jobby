@@ -16,7 +16,7 @@ use Illuminate\Http\Response;
 */
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/save-token/{token}', function ($token) {
     Auth::user()->update(['device_token' => $token]);
@@ -68,8 +68,7 @@ Route::post('/fetchquestions', 'FrontendController@fetchquestions')->name('fetch
 Route::group(['middleware' => ['auth', 'web', 'app']], function () {
 
     Route::get('/switch/role/{id}/{role}', 'Front\JobberController@switchRole')->name('switch.role');
-    Route::get('/app', 'FrontendController@app')->name('front.app');
-//    Route::get('/app', 'FrontendController@app')->name('front.app')->middleware('verify');
+    Route::get('/app', 'FrontendController@app')->name('front.app')->middleware('verify');
     Route::post('/addlocation', 'FrontendController@addLocation')->name('addlocation');
     Route::get('/app/otp/verify', 'FrontendController@otpVerify')->name('otp.verify.app');
     Route::post('/otp/verify/email', 'FrontendController@otpVerifyEmail')->name('otp.verify.email');

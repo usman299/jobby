@@ -197,7 +197,6 @@ class FrontendController extends Controller
 
             return redirect('/app');
         } else {
-
             Session::flash('message', " Votre OTP ne correspond pas Veuillez réessayer!");
             return redirect()->back();
         }

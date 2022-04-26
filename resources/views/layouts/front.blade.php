@@ -969,7 +969,7 @@ $user = Auth::user();
         </div>
 <div class="dialog-background" style="display: none">
     <div class="dialog-loading-wrapper">
-        <span class="dialog-loading-icon">Loading....</span>
+        <span class="dialog-loading-icon">Chargement....</span>
     </div>
 </div>
 <div id="myModalimage" class="modalimage">
