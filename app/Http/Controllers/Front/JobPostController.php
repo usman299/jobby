@@ -40,6 +40,13 @@ class JobPostController extends Controller
 
         return view('front.applicant.jobpost.request', compact('childcatgory', 'title', 'status'));
     }
+    public function requestStatus($id, $status){
+        $title = 'Publier une offre';
+        $childcatgory =  ChildCategory::where('id', '=', $id)->first();
+
+        $status = JobStatus::find($status);
+        return view('front.applicant.jobpost.request', compact('childcatgory', 'title', 'status'));
+    }
     public function requestSubcategory($id){
         $title = 'Publier une offre';
         $subcategory =  SubCategory::where('id', '=', $id)->first();
@@ -51,17 +58,9 @@ class JobPostController extends Controller
 
         return view('front.applicant.jobpost.requestSubcategory', compact('subcategory', 'title', 'status'));
     }
-
-    public function requestStatus($id, $status){
-        $title = 'Publier une offre';
-        $childcatgory =  SubCategory::where('id', '=', $id)->first();
-
-        $status = JobStatus::find($status);
-        return view('front.applicant.jobpost.request', compact('childcatgory', 'title', 'status'));
-    }
     public function requestSubcategoryStatus($id, $status){
         $title = 'Publier une offre';
-        $subcategory =  ChildCategory::where('id', '=', $id)->first();
+        $subcategory =  SubCategory::where('id', '=', $id)->first();
 
         $status = JobStatus::find($status);
         return view('front.applicant.jobpost.requestSubcategory', compact('subcategory', 'title', 'status'));
