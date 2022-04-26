@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::get('/app', 'FrontendController@app')->name('front.app')->middleware('verify');
     Route::post('/addlocation', 'FrontendController@addLocation')->name('addlocation');
     Route::get('/app/otp/verify', 'FrontendController@otpVerify')->name('otp.verify.app');
+    Route::get('/app/otp/resend', 'FrontendController@otpVerifyResend')->name('otp.verify.resend');
     Route::post('/otp/verify/email', 'FrontendController@otpVerifyEmail')->name('otp.verify.email');
     Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
     Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
