@@ -138,35 +138,7 @@
                     </li>
 
                     @if($user->role == 1)
-                        <li>
-                            <a href="{{route('app.allcards')}}" class="item-link">
-                                <div class="group">
-                                    <div class="icon bg-pink">
-                                        <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile"
-                                             xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                             viewBox="0 0 19 19">
-                                            <g id="Profile" transform="translate(3.958 1.9)">
-                                                <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z"
-                                                      transform="translate(0 9.47)" fill="none" stroke="#fff"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5"/>
-                                                <path id="Stroke_3" data-name="Stroke 3"
-                                                      d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z"
-                                                      transform="translate(1.94)" fill="none" stroke="#fff"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5"/>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <span class="path__name">Carte cadeaux</span>
-                                </div>
-                                <div class="group">
-                                    <span class="short__name"></span>
-                                    <i class="tio-chevron_right -arrwo"></i>
-                                </div>
-                            </a>
-                        </li>
+
                         <li>
                             <a href="{{route('get.badge')}}" class="item-link">
                                 <div class="group">
@@ -342,6 +314,35 @@
                             </a>
                         </li>
                     @else
+                        <li>
+                            <a href="{{route('app.allcards')}}" class="item-link">
+                                <div class="group">
+                                    <div class="icon bg-pink">
+                                        <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile"
+                                             xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                             viewBox="0 0 19 19">
+                                            <g id="Profile" transform="translate(3.958 1.9)">
+                                                <path id="Stroke_1" data-name="Stroke 1"
+                                                      d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z"
+                                                      transform="translate(0 9.47)" fill="none" stroke="#fff"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5"/>
+                                                <path id="Stroke_3" data-name="Stroke 3"
+                                                      d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z"
+                                                      transform="translate(1.94)" fill="none" stroke="#fff"
+                                                      stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-miterlimit="10" stroke-width="1.5"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <span class="path__name">Carte cadeaux</span>
+                                </div>
+                                <div class="group">
+                                    <span class="short__name"></span>
+                                    <i class="tio-chevron_right -arrwo"></i>
+                                </div>
+                            </a>
+                        </li>
                         <li>
                             <a href="{{route('applicant.transactions')}}" class="item-link">
                                 <div class="group">

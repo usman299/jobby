@@ -176,17 +176,29 @@ class FrontendController extends Controller
     public function otpVerify(){
         $otp = rand(1000, 9999);
         $user = Auth::user();
-
-            $users = User::where('email', '=', $user->email)->update(['otp' => $otp]);
-
-
         $email = $user->email;
-        $dataa = array(
+        if($user->otp==null) {
+            $users = User::where('email', '=', $email)->update(['otp' => $otp]);
+            $dataa = array(
                 'otp' => $otp,
             );
 
-        Mail::to($user->email)->send(new  OtpMail($dataa));
+            Mail::to($user->email)->send(new  OtpMail($dataa));
+        }
+
         return view('front.sendotp', compact('email'));
+    }
+    public function otpVerifyResend(){
+        $otp = rand(1000, 9999);
+        $user = Auth::user();
+        $email = $user->email;
+        $users = User::where('email', '=', $email)->update(['otp' => $otp]);
+            $dataa = array(
+                'otp' => $otp,
+            );
+            Mail::to($user->email)->send(new  OtpMail($dataa));
+
+            return view('front.sendotp', compact('email'));
     }
     public function otpVerifyEmail(Request $request){
         $user = User::where('email', $request->email)->where('otp', $request->otp)->first();
@@ -197,7 +209,6 @@ class FrontendController extends Controller
 
             return redirect('/app');
         } else {
-
             Session::flash('message', " Votre OTP ne correspond pas Veuillez réessayer!");
             return redirect()->back();
         }

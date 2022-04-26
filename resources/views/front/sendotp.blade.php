@@ -26,7 +26,7 @@
             <!-- End.main_haeder -->
 
             <!-- Start em__signTypeOne -->
-            <form method="POST"class="padding-t-40" action="{{ route('otp.verify.email') }}">
+            <form method="POST" class="padding-t-40 loginformsubmit" action="{{ route('otp.verify.email') }}">
                 @csrf
             <section class="em__signTypeOne typeTwo np__account padding-t-70">
                 <div class="em_titleSign">
@@ -52,17 +52,12 @@
                 <div class="buttons__footer text-center">
                     <div class="padding-b-30">
                         <p class="color-text size-14 text-center margin-b-20">
-                            Vous ne recevez aucun code ? <span class="color-snow"><a href="{{route('otp.verify.app')}}">Renvoyer à nouveau</a></span>
+                            Vous ne recevez aucun code ? <span class="color-snow"><a href="{{route('otp.verify.resend')}}">Renvoyer à nouveau</a></span>
                         </p>
 
                         <a href="{{route('front.register',['id'=>Auth::user()->role])}}" class="size-14 color-primary hover:color-primary text-decoration-none">S'inscrire</a>
                     </div>
-                    <button type="submit" class="btn bg-primary rounded-pill btn__default">
-                        <span class="color-white">Verify Code</span>
-                        <div class="icon rounded-circle">
-                            <i class="tio-chevron_right"></i>
-                        </div>
-                    </button>
+                    <input style="color: white; text-align: center" type="submit" value="Vérifier le code" class="btn bg-primary rounded-pill btn__default">
 
                 </div>
 

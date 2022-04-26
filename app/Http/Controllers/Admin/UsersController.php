@@ -22,6 +22,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function indexCards(){
+
+
         $cards = Card::all();
         return view('admin.cards.index', compact('cards'));
     }

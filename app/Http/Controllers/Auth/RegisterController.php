@@ -89,11 +89,10 @@ class RegisterController extends Controller
         }else{
             $name2 = "";
         }*/
-
-        if ($data['skills']) {
+        if (isset($data['skills'])){
             $skills = json_encode($data['skills']);
         }else{
-            $skills = [];
+            $skills = '[]';
         }
 
         $user = User::create([

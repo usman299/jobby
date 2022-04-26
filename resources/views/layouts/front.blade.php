@@ -399,9 +399,13 @@ $user = Auth::user();
                 </button>
             </div>
         </header>
+        <br>
+        <br>
+        <br>
         <!-- End.main_haeder -->
 
         @yield('content')
+
     </div>
 <!-- Start em_main_footer -->
     <footer class="em_main_footer ouline_footer with__text">
@@ -965,7 +969,7 @@ $user = Auth::user();
         </div>
 <div class="dialog-background" style="display: none">
     <div class="dialog-loading-wrapper">
-        <span class="dialog-loading-icon">Loading....</span>
+        <span class="dialog-loading-icon">Chargement....</span>
     </div>
 </div>
 <div id="myModalimage" class="modalimage">

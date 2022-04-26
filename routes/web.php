@@ -71,12 +71,17 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::get('/app', 'FrontendController@app')->name('front.app')->middleware('verify');
     Route::post('/addlocation', 'FrontendController@addLocation')->name('addlocation');
     Route::get('/app/otp/verify', 'FrontendController@otpVerify')->name('otp.verify.app');
+    Route::get('/app/otp/resend', 'FrontendController@otpVerifyResend')->name('otp.verify.resend');
     Route::post('/otp/verify/email', 'FrontendController@otpVerifyEmail')->name('otp.verify.email');
     Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
     Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
     Route::get('/jobber/skills', 'Front\SettingsController@skills')->name('jobber.skills');
     Route::get('/app/allcards', 'Front\SettingsController@appAllcards')->name('app.allcards');
+    Route::get('/app/singlecards/{id}', 'Front\SettingsController@appSingleCards')->name('app.singlecards');
+    Route::post('/app/card/pay/{id}', 'Front\SettingsController@cardpay')->name('app.card.pay');
+    Route::post('/app/card/checkout/{id}', 'Front\SettingsController@cardCheckout')->name('card.checkout');
+    Route::post('/redeem/voucher', 'Front\SettingsController@redeeemVoucher')->name('redeem.voucher');
     Route::get('/jobber/portfolio', 'Front\SettingsController@portfolio')->name('jobber.portfolio');
     Route::get('/jobber/experience', 'Front\SettingsController@experience')->name('jobber.experience');
     Route::post('/jobber/skills/submit', 'Front\SettingsController@skillsSubmit')->name('skills.submit');
