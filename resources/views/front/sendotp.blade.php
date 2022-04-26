@@ -52,7 +52,7 @@
                 <div class="buttons__footer text-center">
                     <div class="padding-b-30">
                         <p class="color-text size-14 text-center margin-b-20">
-                            Vous ne recevez aucun code ? <span class="color-snow"><a href="{{route('otp.verify.app')}}">Renvoyer à nouveau</a></span>
+                            Vous ne recevez aucun code ? <span class="color-snow"><a href="{{route('otp.verify.resend')}}">Renvoyer à nouveau</a></span>
                         </p>
 
                         <a href="{{route('front.register',['id'=>Auth::user()->role])}}" class="size-14 color-primary hover:color-primary text-decoration-none">S'inscrire</a>
