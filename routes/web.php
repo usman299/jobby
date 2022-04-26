@@ -19,7 +19,9 @@ use Illuminate\Http\Response;
 Auth::routes();
 
 Route::get('/save-token/{token}', function ($token) {
-    Auth::user()->update(['device_token' => $token]);
+    if (Auth::user()){
+        Auth::user()->update(['device_token' => $token]);
+    }
     return redirect('app');
 });
 Route::get('/test', function () {
