@@ -42,7 +42,7 @@ class JobPostController extends Controller
     }
     public function requestStatus($id, $status){
         $title = 'Publier une offre';
-        $childcatgory =  ChildCategory::where('id', '=', $id)->first();
+        $childcatgory =  SubCategory::where('id', '=', $id)->first();
 
         $status = JobStatus::find($status);
         return view('front.applicant.jobpost.request', compact('childcatgory', 'title', 'status'));
@@ -60,7 +60,7 @@ class JobPostController extends Controller
     }
     public function requestSubcategoryStatus($id, $status){
         $title = 'Publier une offre';
-        $subcategory =  SubCategory::where('id', '=', $id)->first();
+        $subcategory =  ChildCategory::where('id', '=', $id)->first();
 
         $status = JobStatus::find($status);
         return view('front.applicant.jobpost.requestSubcategory', compact('subcategory', 'title', 'status'));
