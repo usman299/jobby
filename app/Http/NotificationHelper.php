@@ -7,33 +7,30 @@ use App\Notfication;
 class NotificationHelper{
 
     public static function pushNotification($msg, $fcm_token, $activity){
-
-        $url = 'https://fcm.googleapis.com/fcm/send';
-        $fields = array (
-            'registration_ids' => array (
-                $fcm_token
-            ),
-            'notification' => array (
-                "title" =>$activity,
+        $SERVER_API_KEY = 'AAAAY_MYego:APA91bHuBjDm8fcxm2sPpl3hq_aFRWvd6wOzK8JkJgxorMR0n3WnjlNjGptPlURrSdmuWtxcskabFSgKRmqYXXe-GCT1ZVkfhc8NYBnpNY-flbAyOZo0roiOQZU5LXQEGoZNIn2uHpHk';
+        $data = [
+            "registration_ids" => $fcm_token,
+            "notification" => [
+                "title" => $activity,
                 "body" => $msg,
-            )
-        );
-
-        $fields = json_encode($fields);
-
-        $headers = array (
-            'Authorization: key=' . "AAAAY_MYego:APA91bHuBjDm8fcxm2sPpl3hq_aFRWvd6wOzK8JkJgxorMR0n3WnjlNjGptPlURrSdmuWtxcskabFSgKRmqYXXe-GCT1ZVkfhc8NYBnpNY-flbAyOZo0roiOQZU5LXQEGoZNIn2uHpHk",
-            'Content-Type: application/json'
-        );
+            ]
+        ];
+        $dataString = json_encode($data);
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url );
-        curl_setopt($ch, CURLOPT_POST, true );
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers );
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields );
-        $result = curl_exec($ch);
-        curl_close($ch);
-        return $result;
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+        $response = curl_exec($ch);
+
+        return $response;
     }
     public static function addtoNitification($s_id, $r_id, $msg, $generate_id, $activity, $country_id)
     {

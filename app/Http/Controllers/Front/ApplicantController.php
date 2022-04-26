@@ -115,9 +115,9 @@ class ApplicantController extends Controller
 
         $jobbers = User::where('id', '!=', $user->id)->where('country', '=', $user->country)->get();
         foreach ($jobbers as $jobber){
-            NotificationHelper::pushNotification($msg, $jobber->device_token, $activity);
             NotificationHelper::addtoNitification($user->id, $jobber->id, $msg, $jobrequest->id, $activity, $user->country);
         }
+        NotificationHelper::pushNotification($msg, $jobbers->pluck('device_token'), $activity);
 
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
@@ -190,9 +190,10 @@ class ApplicantController extends Controller
 
         $jobbers = User::where('id', '!=', $user->id)->where('country', '=', $user->country)->get();
         foreach ($jobbers as $jobber){
-            NotificationHelper::pushNotification($msg, $jobber->device_token, $activity);
             NotificationHelper::addtoNitification($user->id, $jobber->id, $msg, $jobrequest->id, $activity, $user->country);
         }
+        NotificationHelper::pushNotification($msg, $jobbers->pluck('device_token'), $activity);
+
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
