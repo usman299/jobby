@@ -16,7 +16,7 @@ use Illuminate\Http\Response;
 */
 
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::get('/save-token/{token}', function ($token) {
     Auth::user()->update(['device_token' => $token]);
