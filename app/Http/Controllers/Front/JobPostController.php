@@ -61,9 +61,9 @@ class JobPostController extends Controller
     }
     public function requestSubcategoryStatus($id, $status){
         $title = 'Publier une offre';
-        $childcatgory =  ChildCategory::where('id', '=', $id)->first();
+        $subcategory =  ChildCategory::where('id', '=', $id)->first();
 
         $status = JobStatus::find($status);
-        return view('front.applicant.jobpost.requestSubcategory', compact('childcatgory', 'title', 'status'));
+        return view('front.applicant.jobpost.requestSubcategory', compact('subcategory', 'title', 'status'));
     }
 }
