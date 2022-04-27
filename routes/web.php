@@ -29,13 +29,10 @@ Route::get('/test', function () {
 Route::get('/ip', function () {
 
 //
-//        $json = file_get_contents("https://ipinfo.io/".request()->ip()."/geo");
-//        $details = json_decode($json, true);
-//        return $details;
-//
-        $json = file_get_contents("https://ipapi.co/".request()->ip());
+        $json = file_get_contents("https://ipinfo.io/".request()->ip()."/geo");
         $details = json_decode($json, true);
         return $details;
+
 
 });
 Route::get('/cron', 'CronController@draftjobs');
