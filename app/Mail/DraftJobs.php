@@ -11,6 +11,7 @@ class DraftJobs extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
+    public $draft;
     /**
      * Create a new message instance.
      *
