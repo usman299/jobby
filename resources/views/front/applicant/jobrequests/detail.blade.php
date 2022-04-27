@@ -1669,7 +1669,7 @@
 
             <div class="bg-white padding-20 d-flex emBlock__border">
                 <a href="{{route('applicant.jobrequest.status', ['id' => $jobrequest->id])}}" class="btn justify-content-center bg-danger rounded-10 btn__default full-width">
-                    <span class="color-white">Proche</span>
+                    <span class="color-white">Annuler</span>
                 </a>
             </div>
 
