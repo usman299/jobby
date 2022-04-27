@@ -19,17 +19,24 @@ class CronController extends Controller
 {
 //    y funcion draft wali job posts k users ko email send kr k un ka status change kr deta hy ic sy bas ek user ko ek dfa email jay ge
     public function draftjobs(){
+        $start = Carbon::now();
         $drafts = JobStatus::where('status', 0)->get();
         foreach ($drafts as $draft){
             if ($draft->sub){
                 if ($draft->sub_category != 0){
-                    Mail::to($draft->user->email)->send(new DraftJobs($draft));
+//                    Mail::to($draft->user->email)->send(new DraftJobs($draft));
+                    $job = new \App\Jobs\SendEmailJob($draft->user->email , $draft);
+                    $job->delay($start->addSeconds(36));
+                    dispatch($job);
                     $draft->status = 1;
                     $draft->update();
                 }
             }else{
                 if ($draft->child_category != 0){
-                    Mail::to($draft->user->email)->send(new DraftJobs($draft));
+//                    Mail::to($draft->user->email)->send(new DraftJobs($draft));
+                    $job = new \App\Jobs\SendEmailJob($draft->user->email , $draft);
+                    $job->delay($start->addSeconds(36));
+                    dispatch($job);
                     $draft->status = 1;
                     $draft->update();
                 }
