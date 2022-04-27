@@ -988,9 +988,9 @@
                                         @endif
                                     </button>
 {{--                                    <button--}}
-{{--                                        style=" position: absolute !important;right: 20px;top: 50px; width: 10px; height: 30px; "--}}
+{{--                                        style=" position: absolute !important;right: 20px;top: 50px; width: 70px; height: 30px; "--}}
 {{--                                        type="button" class="btn rounded-8 btn_addCart item-active -active">--}}
-{{--                                            <span class="rounded-pill bg-orange px-1 color-white min-w-25 h-21 d-flex align-items-center justify-content-center">Urgent</span>--}}
+{{--                                            <span class="rounded-pill bg-orange px-1 color-white min-w-25 h-23 d-flex align-items-center justify-content-center">Urgente</span>--}}
 {{--                                    </button>--}}
 
                                     <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
