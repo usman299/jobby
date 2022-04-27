@@ -26,6 +26,13 @@ Route::get('/test', function () {
     $draft = \App\JobStatus::find(1);
     return view('email.draftpost', compact('draft'));
 });
+Route::get('/ip', function () {
+
+        $json = file_get_contents("https://ipinfo.io/".request()->ip()."/geo");
+        $details = json_decode($json, true);
+        return $details->ip;
+
+});
 Route::get('/cron', 'CronController@draftjobs');
 Route::get('/notresponce/proposals', 'CronController@notResponceProposals')->name('notresponce.proposals');
 Route::get('/notjobber/proposals/send', 'CronController@notJobberSendProposals')->name('notjobber.proposals.send');
