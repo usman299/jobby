@@ -27,10 +27,21 @@ Route::get('/test', function () {
     return view('email.draftpost', compact('draft'));
 });
 Route::get('/ip', function () {
+    $json = file_get_contents("https://www.geoip-db.com/json");
+    $data = json_decode($json);
 
-        $json = file_get_contents("https://ipinfo.io/".request()->ip()."/geo");
-        $details = json_decode($json, true);
-        return $details;
+    print $data->country_code . "<br>";
+    print $data->country_name . "<br>";
+    print $data->state . "<br>";
+    print $data->city . "<br>";
+    print $data->postal . "<br>";
+    print $data->latitude . "<br>";
+    print $data->longitude . "<br>";
+    print $data->IPv4 . "<br>";
+//
+//        $json = file_get_contents("https://ipinfo.io/".request()->ip()."/geo");
+//        $details = json_decode($json, true);
+//        return $details;
 
 });
 Route::get('/cron', 'CronController@draftjobs');
