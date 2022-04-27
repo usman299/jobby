@@ -86,6 +86,12 @@ class ApplicantController extends Controller
         $jobrequest->lat = $request->lat;
         $jobrequest->long = $request->long;
 
+        if ($request->urgent){
+            $jobrequest->urgent = 1;
+        }else{
+            $jobrequest->urgent = 0;
+        }
+
 
         if($request->hasFile('image1')){
             $image= $request->file('image1');
@@ -162,6 +168,13 @@ class ApplicantController extends Controller
 
         $jobrequest->lat = $request->lat;
         $jobrequest->long = $request->long;
+
+        if ($request->urgent){
+            $jobrequest->urgent = 1;
+        }else{
+            $jobrequest->urgent = 0;
+        }
+
         if($request->hasFile('image1')){
             $image1= $request->file('image1');
             $filename1 = time() . '.' . $image1->getClientOriginalExtension();

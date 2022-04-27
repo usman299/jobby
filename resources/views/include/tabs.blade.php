@@ -79,6 +79,15 @@
             </div>
         </div>
         <hr>
+        <div class="row">
+            <div class="col-10">
+                <b><p>Est-ce que vous avez besoin du jobber urdgent?</p></b>
+            </div>
+            <div class="col-2" style="text-align: right">
+                <input name="urgent" value="1" type="checkbox">
+            </div>
+        </div>
+        <hr>
         <div>
             <div class="row">
                 <div class="col-6">

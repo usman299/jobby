@@ -113,7 +113,7 @@
                                             <p class="date color-snow">{{$d->created_at->format('d-m-y')}}</p>
                                         </div>
                                         <div class="action">
-                                            <a href="{{route('request.subcategory.status', ['id' => $d->sub->id , 'status' => $d->id ])}}" class="btn">
+                                            <a href="{{route('request.subcategory.status', ['id' => $d->child->id , 'status' => $d->id ])}}" class="btn">
                                                 Terminer le travail
                                             </a>
                                         </div>
