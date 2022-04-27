@@ -182,10 +182,8 @@ class FrontendController extends Controller
             $dataa = array(
                 'otp' => $otp,
             );
-
             Mail::to($user->email)->send(new  OtpMail($dataa));
         }
-
         return view('front.sendotp', compact('email'));
     }
     public function otpVerifyResend(){

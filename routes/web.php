@@ -16,7 +16,7 @@ use Illuminate\Http\Response;
 */
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/save-token/{token}', function ($token) {
     Auth::user()->update(['device_token' => $token]);
@@ -32,6 +32,47 @@ Route::get('/ip', function () {
         return $details;
 });
 
+Route::get('/stripe', function () {
+  return view('stripe');
+});
+Route::post('/stripe/post', function (Request $request) {
+
+    $stripe = new \Stripe\StripeClient('sk_test_51Ia9JLGGZGzjCRwlo1pfllMTHuOT1sacxSijeBVjgkyxFXbQvrxy2YdrFkZSFxEecdgS1cK9s1Ptgp6iRsgtvAaI00rAoXzlbI');
+
+    $id = $stripe->accounts->create(
+        [
+            'country' => 'FR',
+            'type' => 'custom',
+            'capabilities' => [
+                'card_payments' => ['requested' => true],
+                'transfers' => ['requested' => true],
+            ],
+
+            'account_token' => $request->token_account,
+        ]
+    );
+
+    $data2 = $stripe->accountLinks->create(
+        [
+            'account' => $id->id,
+            'refresh_url' => 'https://app.yummybox.fr/',
+            'return_url' => route('home'),
+            'type' => 'account_onboarding',
+        ]
+    );
+   return redirect($data2->url);
+    $token = $request->token_person;
+
+    \Stripe\Stripe::setApiKey('sk_test_51Ia9JLGGZGzjCRwlo1pfllMTHuOT1sacxSijeBVjgkyxFXbQvrxy2YdrFkZSFxEecdgS1cK9s1Ptgp6iRsgtvAaI00rAoXzlbI');
+
+    $person = \Stripe\Account::createPerson(
+        $id->id, // id of the account created earlier
+        [
+            'person_token' => $token,
+        ]
+    );
+
+})->name('stripe.post');
 Route::get('/cron', 'CronController@draftjobs');
 Route::get('/notresponce/proposals', 'CronController@notResponceProposals')->name('notresponce.proposals');
 Route::get('/notjobber/proposals/send', 'CronController@notJobberSendProposals')->name('notjobber.proposals.send');
