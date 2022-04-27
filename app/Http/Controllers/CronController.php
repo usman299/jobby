@@ -41,6 +41,7 @@ class CronController extends Controller
                     $draft->update();
                 }
             }
+            sleep(50);
         }
     }
     //jb proposal par applicant responce na de
