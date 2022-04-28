@@ -226,6 +226,30 @@
                                 <p class="weight-600">{{$proposal->jobber->gender??'non'}}</p>
                             </div>
                         </div>
+                        <div class="details__job">
+
+                            <div class="item">
+                                <span class="weight-600">Nombre total d'emplois</span>
+                                <?php
+                                $total_job = \App\Contract::where('jober_id','=',$proposal->jobber->id)->where('status','=',3)->count();
+                                $cancel_job = \App\Contract::where('jober_id','=',$proposal->jobber->id)->where('status','=',4)->count();
+                                $grand_total = \App\Contract::where('jober_id','=',$proposal->jobber->id)->where('status','!=',1)->count();
+
+
+                                ?>
+
+                                <p >{{$total_job ?? '0'}}</p>
+                            </div>
+
+                            <div class="item">
+                                {{--                                <span class="weight-600">Tarif à l'heure</span>--}}
+                                {{--                                <p >{{$proposal->jobber->rate_per_hour??'0'}}€</p>--}}
+                            </div>
+                            <div class="item">
+                                <span class="weight-600">Annuler le travail</span>
+                                <p class="weight-600">{{number_format(($cancel_job/$grand_total)*100, 2)}}%</p>
+                            </div>
+                        </div>
 {{--                        <div class="details__job">--}}
 {{--                            <div class="item">--}}
 {{--                                <span class="weight-600">E-mail</span>--}}
