@@ -53,6 +53,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "2",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
+            'price'=> "50",
             'img' => "admin/jobby/2 Jardinage MJ-2/Tondre la pelouse.jpg",
 
         ]);
@@ -60,6 +61,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Taille de haie",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/2 Jardinage MJ-2/Taille de haie.jpg",
 
@@ -69,6 +71,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Couper un arbre",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/2 Jardinage MJ-2/Couper un arbre.jpg",
@@ -78,6 +81,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Débrousaillage",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/2 Jardinage MJ-2/Débrouisaillage.jp.jpg",
@@ -87,6 +91,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Désherbage",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3361 ",
 
             'img' => "admin/jobby/2 Jardinage MJ-2/Désherbage.jpg",
@@ -96,6 +101,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Entretien des espaces vert",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/2 Jardinage MJ-2/Entretien des espaces verts.jpg",
 
@@ -106,6 +112,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Entretien du gazon",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/2 Jardinage MJ-2/Entretien du gazon.jpg",
 
@@ -114,6 +121,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Nettoyage de terrasse",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/2 Jardinage MJ-2/Nettoyage de terrasse.jpg",
 
@@ -123,6 +131,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Autre job de jardinage",
             'category_id' => "2",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/2 Jardinage MJ-2/Autre job de jardinage.jpg",
@@ -133,6 +142,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Aide au déménagement",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/3 Livraison déménagement MJ/Aide au déménagement.jpg",
 
@@ -141,6 +151,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Déplacer un meuble",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/3 Livraison déménagement MJ/Déplacer un meuble.jpg",
 
@@ -150,6 +161,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Déplacer de l’électroménager",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' =>"admin/jobby/3 Livraison déménagement MJ/Déplacer électroménager.jpg",
@@ -159,6 +171,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Débarrasser des encombrants",
             'countory_id'=> "1",
             'category_id' => "3",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/3 Livraison déménagement MJ/Débarasser des encombrants.jpg",
@@ -168,6 +181,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Autre job de démagement",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/3 Livraison déménagement MJ/Autre job de déménagement.jpg",
 
@@ -176,6 +190,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Livrer un meuble",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/3 Livraison déménagement MJ/Livrer un meuble.jpg",
 
@@ -185,6 +200,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Livrer l’électroménager",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/3 Livraison déménagement MJ/Livrer électroménager.jpg",
@@ -194,6 +210,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Livrer plis et colis",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/3 Livraison déménagement MJ/Livraison plis et colis.jpg",
@@ -203,6 +220,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Livraison de courses",
             'category_id' => "3",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3361 ",
 
             'img' => "admin/jobby/3 Livraison déménagement MJ/Livraison d courses.jpg",
@@ -212,6 +230,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Ménage à domicile",
             'category_id' => "4",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/4 Ménage MJ-2/Ménage a domicile.jpg",
 
@@ -221,6 +240,7 @@ class SubCategorySeeder extends Seeder
         SubCategory::create([
             'title' => "Repassage",
             'category_id' => "4",
+            'price'=> "50",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/4 Ménage MJ-2/Repassage.jpg",
@@ -232,6 +252,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Lavage automobile",
             'category_id' => "4",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/4 Ménage MJ-2/Lavage automobile.jpg",
 
@@ -240,6 +261,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Lavage de piscine",
             'category_id' => "4",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/4 Ménage MJ-2/Lavage de piscine.jpg",
 
@@ -249,6 +271,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Nettoyage de vitre",
             'category_id' => "4",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/4 Ménage MJ-2/Nettoyage de vitre.jpg",
@@ -259,6 +282,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Autre job de nettoyage",
             'category_id' => "4",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/4 Ménage MJ-2/Nettoyage de vitre.jpg",
 
@@ -267,6 +291,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Garde d’enfant",
             'category_id' => "5",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/5 Garde d'enfant/Garde d'enfant MJ-3.jpg",
 
@@ -276,6 +301,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Garde de chien",
             'category_id' => "6",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/6 Animaux MJ/Garde de chien.jpg",
@@ -285,6 +311,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Garde de chat",
             'countory_id'=> "1",
             'category_id' => "6",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/6 Animaux MJ/Garde de chat.jpg",
@@ -294,6 +321,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Garde d’autres animaux",
             'category_id' => "6",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/6 Animaux MJ/Garde d'animaux.jpg",
 
@@ -302,6 +330,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Nettoyer mon ordinateur",
             'category_id' => "7",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/7 Informatique MJ/Nettoyer réparer mon téléphone.jpg",
 
@@ -311,6 +340,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Cours d’informatique",
             'category_id' => "7",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' =>"admin/jobby/7 Informatique MJ/Cours informatique.jpg",
@@ -320,6 +350,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Installer une imprimante",
             'category_id' => "7",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/7 Informatique MJ/Installer une imprimante.jpg",
@@ -329,6 +360,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Autre job d’informatique",
             'category_id' => "7",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3361 ",
 
             'img' => "admin/jobby/7 Informatique MJ/Cours informatique.jpg",
@@ -338,6 +370,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Maintien à domicile",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Maintien a domicile.jpg",
 
@@ -347,6 +380,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Livraison de médicaments",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Livraison de médicaments.jpg",
 
@@ -355,6 +389,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Faire/Livrer des courses",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Faire livrer des courses.jpg",
 
@@ -364,6 +399,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Livraison à domicile",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Livraison à domicile .jpg",
@@ -373,6 +409,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Accompagnement en course",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Accompagnement en course.jpg",
@@ -382,6 +419,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Accompagnement aux rendez-vous médicaux",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3361 ",
 
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Accompagnement aux rendezvous médicaux.jpg",
@@ -391,6 +429,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Préparer des repas",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Préparer des repas.jpg",
 
@@ -401,6 +440,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Serveur/Serveuse",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Serveur_Serveuse.jpg",
 
@@ -411,6 +451,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Retouche couture",
             'category_id' => "8",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/8 Aide à la personne  Mister jobby/Retouche couture.jpg",
 
@@ -419,6 +460,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Français",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/9 Cours particulier mister jobby/Français.jpg",
 
@@ -428,6 +470,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Anglais",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/9 Cours particulier mister jobby/Anglais.jpg",
@@ -438,6 +481,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Espagnol",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/9 Cours particulier mister jobby/Espagnol.jpg",
 
@@ -446,6 +490,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Créole",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/9 Cours particulier mister jobby/Créole.jpg",
 
@@ -455,6 +500,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Mathématique",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/9 Cours particulier mister jobby/Math.jpg",
@@ -464,6 +510,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Histoire",
             'countory_id'=> "1",
             'category_id' => "9",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/9 Cours particulier mister jobby/Histoire.jpg",
@@ -473,6 +520,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Géographie",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/9 Cours particulier mister jobby/géographie.jpg",
 
@@ -481,6 +529,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Philosophie",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/9 Cours particulier mister jobby/Philosophie.jpg",
 
@@ -490,6 +539,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Science de l’ingénieur",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/9 Cours particulier mister jobby/Sciences de l'ingénieur.jpg",
@@ -499,6 +549,7 @@ class SubCategorySeeder extends Seeder
             'title' => "SVT",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/9 Cours particulier mister jobby/SVT.jpg",
@@ -508,6 +559,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Physique",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3361 ",
 
             'img' => "admin/jobby/9 Cours particulier mister jobby/Physique.jpg",
@@ -516,6 +568,7 @@ class SubCategorySeeder extends Seeder
         SubCategory::create([
             'title' => "Chimie",
             'category_id' => "9",
+            'price'=> "50",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/9 Cours particulier mister jobby/Chimie.jpg",
@@ -527,6 +580,7 @@ class SubCategorySeeder extends Seeder
             'title' => "SES",
             'category_id' => "9",
             'countory_id'=> "2",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/9 Cours particulier mister jobby/SES.jpg",
 
@@ -535,6 +589,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Arts plastiques",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/9 Cours particulier mister jobby/Art plastique.jpg",
 
@@ -544,6 +599,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Education musicale",
             'category_id' => "9",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/9 Cours particulier mister jobby/Musique.jpg",
@@ -554,6 +610,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Photographie",
             'category_id' => "10",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' =>"admin/jobby/10 Évènementiel Mister Jobby/Photographie .jpg",
 
@@ -562,6 +619,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Chef à domicile",
             'category_id' => "10",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/10 Évènementiel Mister Jobby/Chef a domicile.jpg",
 
@@ -571,6 +629,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Barman",
             'category_id' => "10",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
 
             'img' => "admin/jobby/10 Évènementiel Mister Jobby/Barman.jpg",
@@ -580,6 +639,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Serveur",
             'countory_id'=> "1",
             'category_id' => "10",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/10 Évènementiel Mister Jobby/Serveur.jpg",
@@ -588,6 +648,7 @@ class SubCategorySeeder extends Seeder
             'title' => "DJ",
             'category_id' => "10",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' => "admin/jobby/10 Évènementiel Mister Jobby/DJ.jpg",
 
@@ -596,6 +657,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Animateur",
             'category_id' => "10",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#335EFF",
             'img' => "admin/jobby/10 Évènementiel Mister Jobby/Animateur.jpg",
 
@@ -606,6 +668,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "10",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
+            'price'=> "50",
 
             'img' => "admin/jobby/10 Évènementiel Mister Jobby/Distribution de flyers.jpg",
 
@@ -614,6 +677,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Hôte/Hôtesse d’accueil",
             'category_id' => "10",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/10 Évènementiel Mister Jobby/Décoratrice.jpg",
@@ -623,6 +687,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Tâche administratives",
             'category_id' => "11",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FF3933",
 
             'img' => "admin/jobby/11 Taches admin/Tâche administratives mister jobby.jpg",
@@ -633,6 +698,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "12",
             'countory_id'=> "1",
             'backColor' => "#FF3361 ",
+            'price'=> "50",
 
             'img' => "admin/jobby/12 Mécanique réparation mister jobby/Véhicule entretien.jpg",
 
@@ -642,6 +708,7 @@ class SubCategorySeeder extends Seeder
             'category_id' => "12",
             'countory_id'=> "1",
             'backColor' => "#FFAF33",
+            'price'=> "50",
             'img' => "admin/jobby/12 Mécanique réparation mister jobby/Véhicule réparation.jpg",
 
         ]);
@@ -651,6 +718,7 @@ class SubCategorySeeder extends Seeder
             'title' => "Réparation / Dépannage",
             'category_id' => "12",
             'countory_id'=> "1",
+            'price'=> "50",
             'backColor' => "#FFAF33",
             'img' =>"admin/jobby/12 Mécanique réparation mister jobby/Réparation Dépanage.jpg",
 
