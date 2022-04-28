@@ -271,6 +271,7 @@
                                         <i class="tio-hidden_outlined"></i>
                                     </button>
                                 </div>
+                                <div style="display: none" class="invalid-feedback passerror">Le mot de passe doit comporter au moins 8 caractères.</div>
                                 @error('password')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
@@ -309,7 +310,7 @@
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Date de naissance</label>
                                 <div class="input_group">
-                                    <input type="date" class="form-control" name="dob">
+                                    <input id="datepicker" type="text" class="form-control" name="dob">
                                 </div>
                             </div>
 
@@ -607,8 +608,10 @@
             var x = document.getElementById("password").value;
             if (x.length < 8) {
                 $("#password").addClass("is-invalid");
+                $(".passerror").show();
             } else {
                 $("#password").removeClass("is-invalid");
+                $(".passerror").hide();
             }
 
         }

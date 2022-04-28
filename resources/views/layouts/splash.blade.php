@@ -36,6 +36,7 @@
     <!-- normalize.css v8.0.1 -->
     <link rel="stylesheet" href="{{asset('assets/css/normalize.css')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link href="{{asset('date/jquery-ui.css')}}" rel="stylesheet">
 
     <style>
         @media only screen and (min-width: 800px) {
@@ -116,10 +117,38 @@
 
 <!-- main.js -->
 <script src="{{asset('assets/js/main.js')}}" defer></script>
+
+<script src="{{asset('date/jquery-ui.js')}}"></script>
+
 <script>
     $(".loginformsubmit").submit(function(){
         $(this).find(':input[type=submit]').prop('disabled', true);
         $(this).find(':input[type=submit]').html("Chargement..");
+    });
+</script>
+<script>
+    jQuery(function($){
+        $.datepicker.regional['fr'] = {
+            closeText: 'Fermer',
+            prevText: '&#x3c;Préc',
+            nextText: 'Suiv&#x3e;',
+            currentText: 'Aujourd\'hui',
+            monthNames: ['Janvier','Fevrier','Mars','Avril','Mai','Juin',
+                'Juillet','Aout','Septembre','Octobre','Novembre','Decembre'],
+            monthNamesShort: ['Jan','Fev','Mar','Avr','Mai','Jun',
+                'Jul','Aou','Sep','Oct','Nov','Dec'],
+            dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+            dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+            dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd-mm-yy',
+            showButtonPanel: true
+        };
+        $.datepicker.setDefaults($.datepicker.regional['fr']);
+    });
+    $( "#datepicker" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
     });
 </script>
 @yield('script')

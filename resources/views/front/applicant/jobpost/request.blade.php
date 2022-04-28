@@ -418,23 +418,12 @@
                 @elseif($childcatgory->id == 11)
                 <div class="tab">
                         <div class="form-group allign-left padding-20">
-                            <p>Nombre de mètre linéaire</p>
-                            <div class="input_group">
-                                <div class="item-link hoverNone">
-                                    <div class="group">
-                                        <div class="itemCountr_manual horizontal itemButtons -lg border-0 min-w-145">
-                                            <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
-                                                <i class="tio-remove"></i>
-                                            </a>
-                                            <input type="text" name="count" class="form-control input_no color-secondary" value="0">
-                                            <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
-                                                <i class="tio-add color-white"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <h4>Sélectionner la surface </h4>
+                            <div class="group">
+                                <input type="range" name="surface" class="form-control" value="24" min="1" max="500" oninput="this.nextElementSibling.value = this.value">
+                                <output>1</output>m
                             </div>
-                            <br>
+                            <hr>
                             <div class="form-group" style="text-align: left!important;">
                                 <label>Type de clôture  </label>
                                 <div class="input_group">
@@ -442,7 +431,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -469,7 +458,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -487,7 +476,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group allign-left">
+                        <div class="form-group allign-left padding-20">
                             <label>Description </label>
                             <div class="input_group">
                                 <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -515,7 +504,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -542,7 +531,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -569,7 +558,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -579,24 +568,74 @@
                 @elseif($childcatgory->id == 17)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
-                        <p>Nombre de cameras / box / équipement </p>
-                        <div class="input_group">
-                            <div class="item-link hoverNone">
-                                <div class="group">
-                                    <div class="itemCountr_manual horizontal itemButtons -lg border-0 min-w-145">
-                                        <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
-                                            <i class="tio-remove"></i>
-                                        </a>
-                                        <input type="text" name="count" class="form-control input_no color-secondary" value="0">
-                                        <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
-                                            <i class="tio-add color-white"></i>
-                                        </a>
+                        <div class="">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4>Nombre de cameras</h4>
+                                </div>
+                                <div class="col-6">
+                                    <div class="item-link hoverNone" style="text-align: right">
+                                        <div class="group">
+                                            <div class="itemCountr_manual horizontal itemButtons -sm border-0 min-w-110">
+                                                <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
+                                                    <i class="tio-remove"></i>
+                                                </a>
+                                                <input type="text" name="small" class="form-control input_no color-secondary" value="0">
+                                                <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
+                                                    <i class="tio-add color-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4>Box</h4>
+                                </div>
+                                <div class="col-6">
+                                    <div class="item-link hoverNone" style="text-align: right">
+                                        <div class="group">
+                                            <div class="itemCountr_manual horizontal itemButtons -sm border-0 min-w-110">
+                                                <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
+                                                    <i class="tio-remove"></i>
+                                                </a>
+                                                <input type="text" name="medium" class="form-control input_no color-secondary" value="0">
+                                                <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
+                                                    <i class="tio-add color-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4>Equipement</h4>
+                                </div>
+                                <div class="col-6">
+                                    <div class="item-link hoverNone" style="text-align: right">
+                                        <div class="group">
+                                            <div class="itemCountr_manual horizontal itemButtons -sm border-0 min-w-110">
+                                                <a href="#" data-dir="down" class="btn btn_counter rounded-10 co_down border">
+                                                    <i class="tio-remove"></i>
+                                                </a>
+                                                <input type="text" name="large" class="form-control input_no color-secondary" value="0">
+                                                <a href="#" data-dir="up" class="btn btn_counter rounded-10 co_up bg-primary">
+                                                    <i class="tio-add color-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -623,7 +662,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -635,7 +674,8 @@
                     <div class="form-group allign-left padding-20">
                         <p>Nombre de pièces </p>
                         <hr>
-                        <p>Petites </p>
+                        <h4>Petites </h4>
+                        <p>(Entre 1 et 1,5m)</p>
                         <div class="input_group">
                             <div class="item-link hoverNone">
                                 <div class="group">
@@ -652,7 +692,8 @@
                             </div>
                         </div>
                         <hr>
-                        <p>Moyennes </p>
+                        <h4>Moyennes </h4>
+                        <p>(Entre 1,5 et 2m)</p>
                         <div class="input_group">
                             <div class="item-link hoverNone">
                                 <div class="group">
@@ -669,7 +710,8 @@
                             </div>
                         </div>
                         <hr>
-                        <p>Grandes </p>
+                        <h4>Grandes </h4>
+                        <p>(Entre 2 et 3m)</p>
                         <div class="input_group">
                             <div class="item-link hoverNone">
                                 <div class="group">
@@ -686,7 +728,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -723,7 +765,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -739,7 +781,7 @@
                             <output>10</output>m
                         </div>
                     </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -766,7 +808,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -793,7 +835,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -820,7 +862,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -847,7 +889,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -874,7 +916,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -901,7 +943,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -928,7 +970,7 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="form-group allign-left">
+                    <div class="form-group allign-left padding-20">
                         <label>Description </label>
                         <div class="input_group">
                             <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>

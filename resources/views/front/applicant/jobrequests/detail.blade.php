@@ -368,11 +368,11 @@
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
-                                    <h2>Nombre de mètre linéaire</h2>
+                                    <h2>Surface</h2>
                                 </div>
                                 <div class="sideRight">
                                     <div class="time">
-                                        <span>{{$jobrequest->count}}</span>
+                                        <span>{{$jobrequest->surface}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -456,11 +456,31 @@
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
-                                    <h2>Nombre de cameras / box / équipement</h2>
+                                    <h2>Nombre de cameras</h2>
                                 </div>
                                 <div class="sideRight">
                                     <div class="time">
-                                        <span>{{$jobrequest->count}}</span>
+                                        <span>{{$jobrequest->small}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item__auther emBlock__border">
+                                <div class="item_person">
+                                    <h2>Box</h2>
+                                </div>
+                                <div class="sideRight">
+                                    <div class="time">
+                                        <span>{{$jobrequest->medium}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item__auther emBlock__border">
+                                <div class="item_person">
+                                    <h2>Equipement</h2>
+                                </div>
+                                <div class="sideRight">
+                                    <div class="time">
+                                        <span>{{$jobrequest->large}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -911,38 +931,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item__auther emBlock__border">
-                                <div class="item_person">
-                                    <h2>Nombre et type </h2>
-                                </div>
-                            </div>
-                            <div class="item__auther emBlock__border">
-                                <div class="item_person">
-                                    <h2>Petites</h2>
-                                </div>
-                                <div class="sideRight">
-                                    <div class="time">
-                                        <span>{{$jobrequest->small}}</span>
+                            <div class="title">
+                                <div class="item__auther emBlock__border">
+                                    <div class="item_person">
+                                        <h2>Nombre</h2>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="item__auther emBlock__border">
-                                <div class="item_person">
-                                    <h2>Moyennes</h2>
-                                </div>
-                                <div class="sideRight">
-                                    <div class="time">
-                                        <span>{{$jobrequest->medium}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item__auther emBlock__border">
-                                <div class="item_person">
-                                    <h2>Grandes</h2>
-                                </div>
-                                <div class="sideRight">
-                                    <div class="time">
-                                        <span>{{$jobrequest->large}}</span>
+                                    <div class="sideRight">
+                                        <div class="time">
+                                            <span>{{$jobrequest->count}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -1159,21 +1156,36 @@
                         <div class="title">
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
-                                    <h2>Nombre et type de véhicule</h2>
+                                    <h3>Nombre de fuites d’eau</h3>
+                                </div>
+                            </div>
+                            <div class="item__auther emBlock__border">
+                                <div class="item_person">
+                                    <h2>Citadine</h2>
                                 </div>
                                 <div class="sideRight">
                                     <div class="time">
-                                        <span>{{$jobrequest->question}} </span>
+                                        <span>{{$jobrequest->small}}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
-                                    <h2>A quelle fréquence souhaitez-vous que ce job soit effectué?</h2>
+                                    <h2>Berline</h2>
                                 </div>
                                 <div class="sideRight">
                                     <div class="time">
-                                        <span>{{$jobrequest->question1}}</span>
+                                        <span>{{$jobrequest->medium}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item__auther emBlock__border">
+                                <div class="item_person">
+                                    <h2>SUV</h2>
+                                </div>
+                                <div class="sideRight">
+                                    <div class="time">
+                                        <span>{{$jobrequest->large}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -1565,6 +1577,30 @@
                             <div class="item__auther emBlock__border">
                                 <div class="item_person">
                                     <h2>Type d’entretien</h2>
+                                </div>
+                                <div class="sideRight">
+                                    <div class="time">
+                                        <span>{{$jobrequest->question}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @elseif($jobrequest->subcategory->id == 67)
+                        <div class="title">
+                            <div class="item__auther emBlock__border">
+                                <div class="item_person">
+                                    <h2>Numéro</h2>
+                                </div>
+                                <div class="sideRight">
+                                    <div class="time">
+                                        <span>{{$jobrequest->surface}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item__auther emBlock__border">
+                                <div class="item_person">
+                                    <h2>Type de distribution
+                                    </h2>
                                 </div>
                                 <div class="sideRight">
                                     <div class="time">

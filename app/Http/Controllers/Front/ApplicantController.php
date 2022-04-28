@@ -20,6 +20,7 @@ use App\Proposal;
 use App\Reviews;
 use App\User;
 use App\Notfication;
+use Golchha21\ReSmushIt\Facades\Optimize;
 use Illuminate\Support\Facades\Mail;
 use Validator;
 use App\SubCategory;
