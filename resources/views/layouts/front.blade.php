@@ -46,10 +46,11 @@ $user = Auth::user();
     <!-- manifest meta -->
     {{--    <link rel="manifest" href="{{asset('_manifest.json')}}" />--}}
     <style>
-        .path__name11 {
+        .em__pkLink .nav__list li .item-link .path__name {
             color: var(--color-secondary);
             font-size: 16px;
             display: block;
+            /* text-transform: capitalize; */
         }
         #wrapper, #content {
             width: 100% !important;
@@ -1105,7 +1106,7 @@ $user = Auth::user();
                                             <li>
                                                 <a href="{{route('job.subcategory', ['id' => $cat->id])}}" class="item-link" style="padding: 10px 0px">
                                                     <div class="group">
-                                                        <span class="path__name11">{{$cat->title}}</span>
+                                                        <span class="path__name">{{$cat->title}}</span>
                                                     </div>
                                                     <div class="group">
                                                         <span class="short__name"></span>

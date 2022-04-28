@@ -52,11 +52,20 @@ class FrontendController extends Controller
         $category = Category::all();
         $skills = json_decode($user->skills,true);
         $jobStatus = Ignorjobrequest::where('user_id',$user->id)->pluck('j_id');
-
         $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id',$jobStatus)->whereIn('subcategory_id',$skills)->where('status', '=', 1)->paginate(10);
-
-
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory','skills'));
+    }
+    public function guest($type){
+        $title = 'Accueil';
+        $sliderGalery = SliderGalery::where('userRole','=',1)->where('countory_id', '=',1)->get();
+        $subcategory = SubCategory::all();
+        $childcatgory = ChildCategory::all();
+        $services =JobberServicesOffers::where('status','=',1)->where('country_id','=',1)->take(4)->orderBy('id', 'DESC')->get();
+        $category = Category::all();
+        $skills = json_decode("[1,2,3,4,5,6,7,8,9]",true);
+        $jobStatus = Ignorjobrequest::where('user_id',1)->pluck('j_id');
+        $jobrequests = JobRequest::latest()->where('country_id', '=', 1)->whereNotIn('id',$jobStatus)->whereIn('subcategory_id',$skills)->where('status', '=', 1)->paginate(10);
+        return view('front.guest',compact('type','sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory','skills'));
     }
     public function website(){
         $category = Category::all();

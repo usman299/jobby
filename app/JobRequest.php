@@ -44,7 +44,7 @@ class JobRequest extends Model
     }
     public function isApplied()
     {
-       $proposal = Proposal::where('jobRequest_id', $this->id)->where('jobber_id', Auth::user()->id)->first();
+       $proposal = Proposal::where('jobRequest_id', $this->id)->where('jobber_id', Auth::user()->id??'1')->first();
        if ($proposal){
            return true;
        }else{

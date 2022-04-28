@@ -110,7 +110,7 @@
                 <div class="em_side_right">
                     <a class="rounded-circle d-flex align-items-center text-decoration-none" onclick="history.back()">
                         <i class="tio-chevron_left size-24 color-text"></i>
-                        <span class="color-text size-14">Arrière</span>
+                        <span class="color-text size-14">Retour</span>
                     </a>
                 </div>
                 <div class="title_page">

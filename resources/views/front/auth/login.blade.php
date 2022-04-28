@@ -10,7 +10,7 @@
                 <div class="em_side_right">
                     <a class="rounded-circle d-flex align-items-center text-decoration-none" onclick="history.back()">
                         <i class="tio-chevron_left size-24 color-text"></i>
-                        <span class="color-text size-14">Arrière</span>
+                        <span class="color-text size-14">Retour</span>
                     </a>
                 </div>
                 <div class="title_page">
@@ -107,9 +107,13 @@
                         <strong>OU</strong>
                     </div>
                     <div style="margin-top: 30px;">
-                        <a href="{{route('front.register', ['id' => $id])}}"> <button type="submit"  style="background-color: #039a67; background-image: linear-gradient(#039a67, #00afbe); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">créer un compte</button></a>
+                        <a href="{{route('front.register', ['id' => $id])}}"> <button type="submit"  style="background-color: #039a67; background-image: linear-gradient(#039a67, #00afbe); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">Créer un compte</button></a>
 
                     </div>
+{{--                    <div style="margin-top: 10px;">--}}
+{{--                        <a href="{{route('guest.user', ['type' => 'jobber'])}}"> <button type="submit"  style="background-color: #039a67; background-image: linear-gradient(#039a67, #00afbe); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">Naviguer sans connexion</button></a>--}}
+
+{{--                    </div>--}}
                     <div style="margin-top: 10px;">
                         <img style=" width: 100%;" src="{{asset('images/icone10.jpeg')}}"  loading="lazy"  alt="">
 
