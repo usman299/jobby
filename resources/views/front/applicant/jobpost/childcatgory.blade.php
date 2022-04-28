@@ -9,7 +9,7 @@
                     <li>
                         <a href="{{route('job.request', ['id' => $cat->id])}}" class="item-link">
                             <div class="group">
-                                <span class="path__name">{{$cat->title}}</span>
+                                <span class="path__name11">{{$cat->title}}</span>
                             </div>
                             <div class="group">
                                 <span class="short__name"></span>

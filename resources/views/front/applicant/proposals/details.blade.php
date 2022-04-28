@@ -50,7 +50,7 @@
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
 
-                        <img src="{{asset($proposal->jobber->image??'')}}"  loading="lazy"  alt="">
+                        <img data-toggle="modal" data-target="#mdllJobDetails" src="{{asset($proposal->jobber->image??'')}}"  loading="lazy"  alt="">
                         <h2 data-toggle="modal" data-target="#mdllJobDetails">{{$proposal->jobber->firstName}} {{$proposal->jobber->lastName}}</h2>
                     </div>
                     <div class="sideRight">
