@@ -247,7 +247,11 @@
                             </div>
                             <div class="item">
                                 <span class="weight-600">Annuler le travail</span>
-                                <p class="weight-600">{{number_format(($cancel_job/$grand_total)*100, 2)}}%</p>
+                                @if($cancel_job!=0)
+                                <p class="weight-600">{{number_format(($cancel_job/$grand_total)*100, 2) ?? '0'}}%</p>
+                                @else
+                                    <p class="weight-600">0%</p>
+                                @endif
                             </div>
                         </div>
 {{--                        <div class="details__job">--}}
