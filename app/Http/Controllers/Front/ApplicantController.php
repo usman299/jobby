@@ -55,6 +55,8 @@ class ApplicantController extends Controller
         return response()->json($subcategories);
     }
     public function jobRequestSubmit(Request $request, $id){
+
+
         $child = ChildCategory::find($id);
         $user = Auth::user();
         $jobrequest = new JobRequest();
@@ -71,7 +73,9 @@ class ApplicantController extends Controller
         $jobrequest->duration = $request->duration;
         $jobrequest->hours = $request->hours;
         $jobrequest->estimate_budget = $request->estimate_budget;
-        $jobrequest->address = $request->address;
+        $jobrequest->address = $request->address . '-' .
+                               $request->state . '-' .
+                               $request->postal;
         $jobrequest->phone = $request->phone;
 
         $jobrequest->small = $request->small;

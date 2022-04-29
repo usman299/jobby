@@ -136,11 +136,24 @@
 <div class="tab">
     <div class="form-group allign-left padding-20">
         <div>
-            <h4>Ajout de l’adresse*</h4>
+            <h4>Adresse(Rue du domicile)*</h4>
         </div>
         <div class="form-group">
             <input type="text" name="address" placeholder="Ajout de l’adresse" class="form-control">
         </div>
+        <div>
+            <h4>Ajoutez votre état*</h4>
+        </div>
+        <div class="form-group">
+            <input type="text" name="state" placeholder="Ajoutez votre état" class="form-control">
+        </div>
+        <div>
+            <h4>Ajouter un code postal*</h4>
+        </div>
+        <div class="form-group">
+            <input type="text" name="postal" placeholder="Ajouter un code postal" class="form-control">
+        </div>
+        --
         <div>
             <h4>Ajout de téléphone* </h4>
         </div>
