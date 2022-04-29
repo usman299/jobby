@@ -108,6 +108,12 @@
         <hr>
         <div>
             <div class="row">
+                <div class="col-8">
+                    <p>Prix de la prestation demandée </p>
+                </div>
+                <div class="col-4">
+                    <p style="text-align: right"><strong>{{$childcatgory->price??$subcategory->price??0}}€</strong></p>
+                </div>
                 <div class="col-6">
                     <h4>Estimation du budget: </h4>
                 </div>
