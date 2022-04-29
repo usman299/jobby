@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-//        $schedule->call('App\Http\Controllers\CronController@draftjobs')->daily();
+        $schedule->call('App\Http\Controllers\CronController@draftjobs')->daily();
 //        $schedule->call('App\Http\Controllers\CronController@notResponceProposals')->daily();
 //        $schedule->call('App\Http\Controllers\CronController@notJobberSendProposals')->daily();
     }
