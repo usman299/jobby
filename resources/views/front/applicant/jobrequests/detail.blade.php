@@ -1891,6 +1891,7 @@
             var rateperhour = {{$jobrequest->duration}}
 
             var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}} ;
+            var budget3 = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}} + (((parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}})/100)*10;
             var tax = (((parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}})/100)*10;
             var budget1 = (parseFloat(durationplus) * parseFloat(rateperhour)) ;
             var budget2 = (parseFloat(durationplus));
@@ -1901,8 +1902,8 @@
             $(".totalperhours").val(budget1);
             $(".budget2").html(budget2);
             $(".hours").val(budget2);
-            $(".estimatebudget2").val(budget);
-            $(".estimatebudget2").html(budget + "€");
+            $(".estimatebudget2").val(budget3);
+            $(".estimatebudget2").html(budget3 + "€");
 
 
         }, 200);
