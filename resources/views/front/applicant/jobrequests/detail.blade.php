@@ -13,6 +13,11 @@
         margin-bottom: 15px;
 
     }
+    .form-control {
+
+
+        font-weight: 600!important;
+    }
     .em_owl_swipe .em_item .em_cover_img::before {
 
         background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
@@ -1778,30 +1783,91 @@
             <div class="modal-content">
                 <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
                     <div class="itemProduct_sm">
-                        <h1 class="size-18 weight-600 color-secondary m-0">Envoyer la proposition</h1>
-                    </div>
+                        <h1 class="size-18 weight-600 color-secondary m-0">Ajuster votre tarif horaire</h1>
+                    </div><br>
+
                     <div class="absolute right-0 padding-r-20">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i class="tio-clear"></i>
                         </button>
                     </div>
                 </div>
+                <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
+                <div class="itemProduct_sm">
+                    <div class="itemCountr_manual1 horizontal itemButtons -lg border-0 min-w-145">
+                        <a href="#" data-dir="down" class="btn btn_counter1 rounded-circle co_down border">
+                            <i class="tio-remove"></i>
+                        </a>
+                        <input type="text" name="duration" class="form-control input_no color-secondary durationplus" value="{{$jobrequest->hours}}">
+                        <a href="#" data-dir="up" class="btn btn_counter1 rounded-circle co_up bg-secondary">
+                            <i class="tio-add color-white"></i>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
+                    <div class="row">
+                        <div class="col-8">
+                            <h5>Duree initiale </h5>
+                        </div>
+
+                        <div class="col-8">
+                           <p>Des heures supplementaires pourront etre ajoutees.</p>
+                        </div>
+                        <div class="col-4">
+                            <p style="text-align: right"><strong class="percentage">{{$jobrequest->duration}}h</strong></p>
+                        </div>
+                        <div class="col-8">
+                            <h6>Remuneration totale </h6>
+                        </div>
+                        <div class="col-4">
+                            <p style="text-align: right"><strong class="perhours">{{$jobrequest->duration * $jobrequest->hours}}€</strong></p>
+                        </div>
+                        <div class="col-6">
+
+                        </div>
+                        <div class="col-6">
+                            <p style="text-align: right"><strong class="total">{{$jobrequest->duration}}h * <b class="budget2">{{$jobrequest->hours}}</b>€</strong></p>
+                        </div>
+                        <div class="col-8">
+                            <p><b>Prix de la prestation demandée </b></p>
+                        </div>
+                        <div class="col-4">
+                            <p style="text-align: right"><strong class="percentage">{{$jobrequest->subcategory->price}}€</strong></p>
+                        </div>
+                        <div class="col-8">
+                            <h6>Total </h6>
+                        </div>
+                        <div class="col-4">
+                            <p style="text-align: right"><strong class="estimatebudget">{{$jobrequest->estimate_budget}}€</strong></p>
+                        </div>
+                        <div class="col-8">
+                            <h6>Payer la taxe 10 % </h6>
+                        </div>
+                        <div class="col-4">
+                            <p style="text-align: right"><strong class="tax">{{($jobrequest->estimate_budget/100)*10}})€</strong></p>
+                        </div>
+                        <div class="col-8">
+                            <h5>Sous-total général </h5>
+                        </div>
+                        <div class="col-4">
+                            <p style="text-align: right"><strong class="estimatebudget">{{$jobrequest->estimate_budget}}€</strong></p>
+                        </div>
+                    </div>
+                </div>
                 <form action="{{route('proposal.submit')}}" class="formsubmit" method="POST">
                     @csrf
                     <div class="modal-body env-pb">
-                        <div class="form-group input-lined">
-                            <input type="number" name="price" value="{{$jobrequest->estimate_budget}}" class="form-control" placeholder="Prix" required="">
-                            <label for="username">Prix</label>
-                        </div>
+
                         <input type="hidden" name="id" value="{{$jobrequest->id}}">
-                        <div class="form-group input-lined">
-                            <input type="text" name="time_limit"  class="form-control" required="">
-                            <label for="mobile">Temps estimé</label>
-                        </div>
-                        <div class="form-group input-lined">
-                            <textarea class="form-control" rows="6" name="description"></textarea>
-                            <label for="address">Details</label>
-                        </div>
+                        <input type="hidden" name="price" class="estimatebudget2" value="{{$jobrequest->estimate_budget}}">
+                        <input type="hidden" name="hours" class="hours" value="{{$jobrequest->hours}}">
+                        <input type="hidden" name="total_hours" class="totalperhours" value="{{$jobrequest->duration}}*{{$jobrequest->hours}}">
+                        <input type="hidden" name="duration" class="" value="{{$jobrequest->duration}}">
+                        <input type="hidden" name="service_price" class="" value="{{$jobrequest->subcategory->price}}">
+                        <input type="hidden" name="tax" class="tax1" value="{{($jobrequest->estimate_budget/100)*10}}">
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit"
@@ -1809,11 +1875,37 @@
                             Poster
                         </button>
                     </div>
+                    <div class="modal-footer">
+                        <p> En signant, vous vous engagez a etre disponible le <b>Samedi {{$jobrequest->service_date->format('d-m-y')}} {{$jobrequest->start_time}}</b></p>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 @section('script')
+
+    <script>
+        setInterval(function(){
+            var durationplus = $(".durationplus").val();
+
+            var rateperhour = {{$jobrequest->duration}}
+
+            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}};
+            var tax = (((parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}})/100)*10;
+            var budget1 = (parseFloat(durationplus) * parseFloat(rateperhour)) ;
+            var budget2 = (parseFloat(durationplus));
+            $(".estimatebudget").html(budget + "€");
+            $(".tax").html(tax + "€");
+            $(".tax1").val(tax);
+            $(".perhours").html(budget1 + "€");
+            $(".totalperhours").val(budget1);
+            $(".budget2").html(budget2);
+            $(".hours").val(budget2);
+            $(".estimatebudget2").val(budget);
+
+
+        }, 200);
+    </script>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="

@@ -137,8 +137,11 @@ class JobberController extends Controller
             $proposal = new Proposal();
             $proposal->jobRequest_id = $request->id;
             $proposal->price = $request->price;
-            $proposal->time_limit = $request->time_limit;
-            $proposal->description = $request->description;
+            $proposal->hours = $request->hours;
+            $proposal->duration = $request->duration;
+            $proposal->total_hours = $request->total_hours;
+            $proposal->service_price = $request->service_price;
+            $proposal->tax = $request->tax;
             $proposal->jobber_id = $user->id;
             $proposal->save();
 
