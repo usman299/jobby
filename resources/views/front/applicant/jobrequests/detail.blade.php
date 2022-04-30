@@ -1890,7 +1890,7 @@
 
             var rateperhour = {{$jobrequest->duration}}
 
-            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}};
+            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}} + {{($jobrequest->subcategory->price)/100*10}};
             var tax = (((parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}})/100)*10;
             var budget1 = (parseFloat(durationplus) * parseFloat(rateperhour)) ;
             var budget2 = (parseFloat(durationplus));
