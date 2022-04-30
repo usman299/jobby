@@ -1845,13 +1845,13 @@
                             <h6>Payer la taxe 10 % </h6>
                         </div>
                         <div class="col-4">
-                            <p style="text-align: right"><strong class="tax">{{($jobrequest->estimate_budget/100)*10}})€</strong></p>
+                            <p style="text-align: right"><strong class="tax">{{($jobrequest->estimate_budget/100)*10}}€</strong></p>
                         </div>
                         <div class="col-8">
                             <h5>Sous-total général </h5>
                         </div>
                         <div class="col-4">
-                            <p style="text-align: right"><strong class="estimatebudget">{{$jobrequest->estimate_budget}}€</strong></p>
+                            <p style="text-align: right"><strong class="estimatebudget">{{$jobrequest->estimate_budget - ($jobrequest->estimate_budget/100)*10}}€</strong></p>
                         </div>
                     </div>
                 </div>
