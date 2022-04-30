@@ -1851,7 +1851,7 @@
                             <h5>Sous-total général </h5>
                         </div>
                         <div class="col-4">
-                            <p style="text-align: right"><strong class="estimatebudget">{{$jobrequest->estimate_budget + ($jobrequest->estimate_budget/100)*10}}€</strong></p>
+                            <p style="text-align: right"><strong class="estimatebudget2">{{$jobrequest->estimate_budget + ($jobrequest->estimate_budget/100)*10}}€</strong></p>
                         </div>
                     </div>
                 </div>
@@ -1890,7 +1890,7 @@
 
             var rateperhour = {{$jobrequest->duration}}
 
-            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}} + {{($jobrequest->subcategory->price)/100*10}};
+            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}} ;
             var tax = (((parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}})/100)*10;
             var budget1 = (parseFloat(durationplus) * parseFloat(rateperhour)) ;
             var budget2 = (parseFloat(durationplus));
