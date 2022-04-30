@@ -62,7 +62,7 @@
     <br>
     <tr>
         <td style="text-align: center">
-            <a target="_blank" href="https://www.google.com/"> <button class="button">www.misterjobby.fr</button></a>
+            <a target="_blank" href="{{route('web.index')}}"> <button class="button">www.misterjobby.fr</button></a>
         </td>
     </tr>
     <br>
