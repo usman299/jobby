@@ -1895,13 +1895,14 @@
             var budget1 = (parseFloat(durationplus) * parseFloat(rateperhour)) ;
             var budget2 = (parseFloat(durationplus));
             $(".estimatebudget").html(budget + "€");
-            $(".tax").html(tax + "€");
-            $(".tax1").val(tax);
+            $(".tax").html(tax.toFixed(2) + "€");
+            $(".tax1").val(tax.toFixed(2));
             $(".perhours").html(budget1 + "€");
             $(".totalperhours").val(budget1);
             $(".budget2").html(budget2);
             $(".hours").val(budget2);
             $(".estimatebudget2").val(budget);
+            $(".estimatebudget2").html(budget + "€");
 
 
         }, 200);
