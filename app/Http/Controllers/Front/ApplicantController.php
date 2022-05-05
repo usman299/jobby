@@ -88,8 +88,8 @@ class ApplicantController extends Controller
         $jobrequest->input = $request->input;
         $jobrequest->detail_description = $request->detail_description;
 
-        $jobrequest->lat = $request->lat;
-        $jobrequest->long = $request->long;
+        $jobrequest->lat = $request->lat??$user->latitude;
+        $jobrequest->long = $request->long??$user->longitude;
 
         if ($request->urgent){
             $jobrequest->urgent = 1;
@@ -179,8 +179,8 @@ class ApplicantController extends Controller
         $jobrequest->dob = $request->dob;
         $jobrequest->detail_description = $request->detail_description;
 
-        $jobrequest->lat = $request->lat;
-        $jobrequest->long = $request->long;
+        $jobrequest->lat = $request->lat??$user->latitude;
+        $jobrequest->long = $request->long??$user->longitude;
 
         if ($request->urgent){
             $jobrequest->urgent = 1;
