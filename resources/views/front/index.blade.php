@@ -1002,7 +1002,11 @@
                                         /
                                         <span>{{$job->subcategory->title}}</span>
                                         <p class="item_price">{{$job->estimate_budget}} € <label
-                                                style="font-size: 15px;">({{round($miles,2)}}KM)</label></p>
+                                                style="font-size: 15px;">
+                                                @if($user->latitude)
+                                                ({{round($miles,2)}}KM)
+                                                    @endif
+                                            </label></p>
 
                                         <?php
                                         $diff = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $job->created_at)->diffInMinutes(\Carbon\Carbon::now());
