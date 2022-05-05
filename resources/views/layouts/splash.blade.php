@@ -149,6 +149,17 @@
     $( "#datepicker" ).datepicker({
         changeMonth: true,
         changeYear: true,
+        yearRange: '1910:c',
+        dateFormat: 'dd.mm.yy',
+        beforeShow: function () {
+            var currentYear = (new Date).getFullYear();
+            var currentMonth = (new Date).getMonth() + 1;
+            var currentDay = (new Date).getDate();
+
+            $(this).datepicker({
+                minDate: new Date((currentYear - 12), currentMonth, currentDay),
+            });
+        }
     });
 </script>
 @yield('script')

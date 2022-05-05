@@ -99,7 +99,7 @@
         <hr>
         <div class="row">
             <div class="col-10">
-                <b><p>Est-ce que vous avez besoin du jobber urdgent?</p></b>
+                <b><p>Est-ce que vous avez besoin du jobber urgent?</p></b>
             </div>
             <div class="col-2" style="text-align: right">
                 <input name="urgent" value="1" type="checkbox">
@@ -142,13 +142,13 @@
 <div class="tab">
     <div class="form-group allign-left padding-20">
         <div>
-            <h4>Adresse(Rue du domicile)*</h4>
+            <h4>Adresse*</h4>
         </div>
         <div class="form-group">
             <input type="text" name="address" placeholder="Ajout de l’adresse" class="form-control">
         </div>
         <div>
-            <h4>Ajoutez votre état*</h4>
+            <h4>Ajoutez votre ville*</h4>
         </div>
         <div class="form-group">
             <input type="text" name="state" placeholder="Ajoutez votre état" class="form-control">
