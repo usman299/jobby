@@ -1029,14 +1029,11 @@
                                     <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
                                         <button type="button" class="btn btn_addCart item-active">
                                             <div class="itemRating">
-
                                                 <span style="min-width: 80px;"
                                                       class="number">Vues: {{$job->totalViews()}}</span>
                                                 <span
                                                     style="min-width: 100px; color: #9a99a4; border: 1px solid #9a99a4"
                                                     class="number">Détails</span>
-
-
                                             </div>
                                         </button>
                                     </a>
