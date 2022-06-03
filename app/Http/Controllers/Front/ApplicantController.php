@@ -88,8 +88,8 @@ class ApplicantController extends Controller
         $jobrequest->input = $request->input;
         $jobrequest->detail_description = $request->detail_description;
 
-        $jobrequest->lat = $request->lat;
-        $jobrequest->long = $request->long;
+        $jobrequest->lat = $request->lat??$user->latitude;
+        $jobrequest->long = $request->long??$user->longitude;
 
         if ($request->urgent){
             $jobrequest->urgent = 1;
@@ -99,22 +99,30 @@ class ApplicantController extends Controller
 
 
         if($request->hasFile('image1')){
-            $image= $request->file('image1');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 300)->save( public_path('/images/' . $filename ) );
-            $jobrequest->image1= '/images/'.$filename;
+            $image1 = $request->file('image1');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $jobrequest->image1 = 'images/' . $name;
+
+//            $image= $request->file('image1');
+//            $filename = time() . '.' . $image->getClientOriginalExtension();
+//            Image::make($image)->resize(300, 300)->save( public_path('/images/' . $filename ) );
+//            $jobrequest->image1= '/images/'.$filename;
         }
         if($request->hasFile('image2')){
-            $image2= $request->file('image2');
-            $filename2 = time() . '.' . $image2->getClientOriginalExtension();
-            Image::make($image2)->resize(300, 300)->save( public_path('/images/' . $filename2 ) );
-            $jobrequest->image2= '/images/'.$filename2;
+            $image2 = $request->file('image2');
+            $name2 = time() . 'images' . '.' . $image2->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image2->move($destinationPath, $name2);
+            $jobrequest->image2 = 'images/' . $name2;
         }
         if($request->hasFile('image3')){
-            $image3= $request->file('image3');
-            $filename3 = time() . '.' . $image3->getClientOriginalExtension();
-            Image::make($image3)->resize(300, 300)->save( public_path('/images/' . $filename3 ) );
-            $jobrequest->image3= '/images/'.$filename3;
+            $image3 = $request->file('image3');
+            $name3 = time() . 'images' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image3->move($destinationPath, $name3);
+            $jobrequest->image3 = 'images/' . $name3;
         }
         $jobrequest->save();
 
@@ -171,8 +179,8 @@ class ApplicantController extends Controller
         $jobrequest->dob = $request->dob;
         $jobrequest->detail_description = $request->detail_description;
 
-        $jobrequest->lat = $request->lat;
-        $jobrequest->long = $request->long;
+        $jobrequest->lat = $request->lat??$user->latitude;
+        $jobrequest->long = $request->long??$user->longitude;
 
         if ($request->urgent){
             $jobrequest->urgent = 1;
@@ -181,22 +189,30 @@ class ApplicantController extends Controller
         }
 
         if($request->hasFile('image1')){
-            $image1= $request->file('image1');
-            $filename1 = time() . '.' . $image1->getClientOriginalExtension();
-            Image::make($image1)->resize(300, 300)->save( public_path('/images/' . $filename1 ) );
-            $jobrequest->image1= '/images/'.$filename1;
+            $image1 = $request->file('image1');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $jobrequest->image1 = 'images/' . $name;
+
+//            $image= $request->file('image1');
+//            $filename = time() . '.' . $image->getClientOriginalExtension();
+//            Image::make($image)->resize(300, 300)->save( public_path('/images/' . $filename ) );
+//            $jobrequest->image1= '/images/'.$filename;
         }
         if($request->hasFile('image2')){
-            $image2= $request->file('image2');
-            $filename2 = time() . '.' . $image2->getClientOriginalExtension();
-            Image::make($image2)->resize(300, 300)->save( public_path('/images/' . $filename2 ) );
-            $jobrequest->image2= '/images/'.$filename2;
+            $image2 = $request->file('image2');
+            $name2 = time() . 'images' . '.' . $image2->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image2->move($destinationPath, $name2);
+            $jobrequest->image2 = 'images/' . $name2;
         }
         if($request->hasFile('image3')){
-            $image3= $request->file('image3');
-            $filename3 = time() . '.' . $image3->getClientOriginalExtension();
-            Image::make($image3)->resize(300, 300)->save( public_path('/images/' . $filename3 ) );
-            $jobrequest->image3= '/images/'.$filename3;
+            $image3 = $request->file('image3');
+            $name3 = time() . 'images' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image3->move($destinationPath, $name3);
+            $jobrequest->image3 = 'images/' . $name3;
         }
         $jobrequest->save();
 

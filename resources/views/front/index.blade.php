@@ -1002,7 +1002,11 @@
                                         /
                                         <span>{{$job->subcategory->title}}</span>
                                         <p class="item_price">{{$job->estimate_budget}} € <label
-                                                style="font-size: 15px;">({{round($miles,2)}}KM)</label></p>
+                                                style="font-size: 15px;">
+                                                @if($user->latitude)
+                                                ({{round($miles,2)}}KM)
+                                                    @endif
+                                            </label></p>
 
                                         <?php
                                         $diff = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $job->created_at)->diffInMinutes(\Carbon\Carbon::now());
@@ -1025,14 +1029,11 @@
                                     <a href="{{route('applicant.jobrequest.detail', ['id' => $job->id])}}">
                                         <button type="button" class="btn btn_addCart item-active">
                                             <div class="itemRating">
-
                                                 <span style="min-width: 80px;"
                                                       class="number">Vues: {{$job->totalViews()}}</span>
                                                 <span
                                                     style="min-width: 100px; color: #9a99a4; border: 1px solid #9a99a4"
                                                     class="number">Détails</span>
-
-
                                             </div>
                                         </button>
                                     </a>
