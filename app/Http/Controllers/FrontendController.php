@@ -34,14 +34,15 @@ use Session;
 class FrontendController extends Controller
 {
     public function index(Request $request){
-        $check =  preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
-        if($check){
-           /* Cookie::queue('name', "bilawal", 35791394);
-            $value = $request->cookie('name');*/
-                return redirect()->route('front.intro');
-        }else{
-            return  redirect()->route('web.index');
-        }
+        return  redirect()->route('web.index');
+//        $check =  preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+//        if($check){
+//           /* Cookie::queue('name', "bilawal", 35791394);
+//            $value = $request->cookie('name');*/
+//                return redirect()->route('front.intro');
+//        }else{
+//            return  redirect()->route('web.index');
+//        }
     }
     public function app(){
         $title = 'Accueil';
