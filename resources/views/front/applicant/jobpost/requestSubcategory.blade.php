@@ -27,7 +27,7 @@
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
                             <input type="range" name="surface" class="form-control" value="10" min="10" max="5000" oninput="this.nextElementSibling.value = this.value">
-                            <output>10</output>m
+                            <output>10</output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
@@ -112,7 +112,7 @@
                         <h4>Sélectionner le nombre de mètre linéaire </h4>
                         <div class="group">
                             <input type="range" name="surface" class="form-control" value="24" min="10" max="100" oninput="this.nextElementSibling.value = this.value">
-                            <output>10  </output>m
+                            <output>10  </output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
@@ -298,7 +298,7 @@
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
                             <input type="range" class="form-control" name="surface" value="24" min="250" max="5000" oninput="this.nextElementSibling.value = this.value">
-                            <output>5000</output>m
+                            <output>5000</output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
@@ -413,7 +413,7 @@
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
                             <input type="range"  name="surface" class="form-control" value="500" min="250" max="5000" oninput="this.nextElementSibling.value = this.value">
-                            <output>500</output>m
+                            <output>500</output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
@@ -686,7 +686,7 @@
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
                             <input name="surface" type="range" class="form-control" value="100" min="100" max="500" oninput="this.nextElementSibling.value = this.value">
-                            <output>100  </output>m
+                            <output>100  </output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
@@ -917,7 +917,7 @@
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
                             <input type="range" name="surface" class="form-control" value="24" min="10" max="50" oninput="this.nextElementSibling.value = this.value">
-                            <output>10</output>m
+                            <output>10</output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
@@ -1738,7 +1738,7 @@
                         <h4>Nombre de flyers</h4>
                         <div class="group">
                             <input type="range" name="surface" class="form-control" value="24" min="100" max="5000" oninput="this.nextElementSibling.value = this.value">
-                            <output>100</output>m
+                            <output>100</output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
