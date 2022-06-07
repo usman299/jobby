@@ -675,7 +675,7 @@
                         <p>Nombre de pièces </p>
                         <hr>
                         <h4>Petites </h4>
-                        <p>(Entre 1 et 1,5m)</p>
+                        <p>(Wc,salle de bain, placard)</p>
                         <div class="input_group">
                             <div class="item-link hoverNone">
                                 <div class="group">
@@ -693,7 +693,7 @@
                         </div>
                         <hr>
                         <h4>Moyennes </h4>
-                        <p>(Entre 1,5 et 2m)</p>
+                        <p>(Cuisine, couloir, dressing )</p>
                         <div class="input_group">
                             <div class="item-link hoverNone">
                                 <div class="group">
@@ -711,7 +711,7 @@
                         </div>
                         <hr>
                         <h4>Grandes </h4>
-                        <p>(Entre 2 et 3m)</p>
+                        <p>(Chambre,salon)</p>
                         <div class="input_group">
                             <div class="item-link hoverNone">
                                 <div class="group">
