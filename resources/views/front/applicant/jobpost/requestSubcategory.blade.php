@@ -125,24 +125,28 @@
                                         <input type="radio" id="yes" value="Petite" name="question" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="yes">
                                             Petite </label>
+                                        <p>(Entre 1 et 1,5m)</p>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
                                         <input type="radio" id="no" value="Moyenne" name="question" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="no">
                                             Moyenne
                                         </label>
+                                        <p>(Entre 1,5 et 2m)</p>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
                                         <input type="radio" id="845456" value="Grande" name="question" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="845456">
                                             Grande
                                         </label>
+                                        <p>(Entre 2 et 3m)</p>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
                                         <input type="radio" id="065" value="Très grande" name="question" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="065">
                                             Très grande
                                         </label>
+                                        <p>(plus de 3m)</p>
                                     </div>
                                 </div>
                             </div>
@@ -412,8 +416,8 @@
                         <hr>
                         <h4>Sélectionner la surface </h4>
                         <div class="group">
-                            <input type="range"  name="surface" class="form-control" value="500" min="250" max="5000" oninput="this.nextElementSibling.value = this.value">
-                            <output>500</output>m<sup><b>2</b></sup>
+                            <input type="range"  name="surface" class="form-control" value="500" min="250" max="500" oninput="this.nextElementSibling.value = this.value">
+                            <output>10</output>m<sup><b>2</b></sup>
                         </div>
                         <hr>
                         <div>
@@ -690,7 +694,7 @@
                         </div>
                         <hr>
                         <div>
-                            <h4>Besoins supplémentaire</h4>
+                            <h4>Besoins supplémentaires</h4>
                         </div>
                         <div class="form-group">
                             <div class="input_group">
@@ -701,13 +705,13 @@
                                             Nettoyage de l’électroménager</label>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="321456" value="Nettoyage des fenêtres" name="question" class="custom-control-input">
+                                        <input type="radio" id="sds788" value="Nettoyage des fenêtres" name="question" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="321456">
                                             Nettoyage des fenêtres
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="32145fg6" value="Repassage" name="question" class="custom-control-input">
+                                        <input type="radio" id="sds788" value="Repassage" name="question" class="custom-control-input">
                                         <label class="custom-control-label padding-l-10" for="32145fg6">
                                             Repassage
                                         </label>

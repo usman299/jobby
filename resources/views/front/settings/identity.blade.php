@@ -61,6 +61,12 @@
                                             Certificat de securite social
                                         </label>
                                     </div>
+                                    <div class="custom-control custom-radio margin-b-10">
+                                        <input type="radio" id="type3" value="Pièce d'identité" name="identity_type" class="custom-control-input certificate">
+                                        <label class="custom-control-label padding-l-10" for="type3">
+                                            Pièce d'identité
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

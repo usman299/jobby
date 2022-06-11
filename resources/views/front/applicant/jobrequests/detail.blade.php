@@ -1764,14 +1764,23 @@
 {{--                </button>--}}
 {{--            </div>--}}
                     <div class="bg-white padding-20 d-flex emBlock__border">
-                        <button  data-toggle="modal"
-                                 data-target="#propsal" class="btn justify-content-center bg-primary rounded-10 btn__default">
-                            <span class="color-white">Envoyer la proposition</span>
-                        </button>
+                        <div class="row">
+                            <div class="col-6">
+                                <h2>{{$jobrequest->estimate_budget}} €</h2>
+                            </div>
+                            <div class="col-6">
+                                <button  data-toggle="modal"
+                                         style="margin-left: 70px;" data-target="#propsal" class="btn justify-content-center bg-primary rounded-10 btn__default">
+                                    <span class="color-white">Postuler</span>
+                                </button>
+                            </div>
+                        </div>
 
-                        <a  href="{{route('applicant.jobrequest.ignor',['id'=>$jobrequest->id])}}" class="btn justify-content-center bg-red rounded-10 btn__default ml-3">
-                            <span class="color-white">Ignorer</span>
-                        </a>
+
+
+{{--                        <a  href="{{route('applicant.jobrequest.ignor',['id'=>$jobrequest->id])}}" class="btn justify-content-center bg-red rounded-10 btn__default ml-3">--}}
+{{--                            <span class="color-white">Ignorer</span>--}}
+{{--                        </a>--}}
                     </div>
 
         </section>

@@ -119,6 +119,24 @@
 
                     </div>
 
+                    <div class="logSocial" style="margin-top: 50px;">
+
+                        <a href="#" class="btn __facebbok bg-facebook rounded-10">
+                            <i class="tio-facebook"></i>
+                        </a>
+                        <a href="#" class="btn __google border-solid border-snow rounded-10">
+                            <div class="icon">
+                                <svg id="search" xmlns="http://www.w3.org/2000/svg" width="19.469" height="19.469" viewBox="0 0 19.469 19.469">
+                                    <path id="Path_1675" data-name="Path 1675" d="M4.315,144.776l-.678,2.53-2.477.052a9.752,9.752,0,0,1-.072-9.09h0l2.205.4.966,2.192a5.81,5.81,0,0,0,.055,3.911Z" transform="translate(0 -133.01)" fill="#fbbb00"></path>
+                                    <path id="Path_1676" data-name="Path 1676" d="M270.978,208.176a9.731,9.731,0,0,1-3.47,9.41h0l-2.778-.142-.393-2.454a5.8,5.8,0,0,0,2.5-2.963h-5.205v-3.851h9.35Z" transform="translate(-251.679 -200.26)" fill="#518ef8"></path>
+                                    <path id="Path_1677" data-name="Path 1677" d="M45.177,314.969h0a9.738,9.738,0,0,1-14.669-2.978l3.155-2.582a5.79,5.79,0,0,0,8.343,2.964Z" transform="translate(-29.349 -297.643)" fill="#28b446"></path>
+                                    <path id="Path_1678" data-name="Path 1678" d="M43.484,2.241,40.33,4.823A5.789,5.789,0,0,0,31.8,7.854l-3.171-2.6h0a9.737,9.737,0,0,1,14.86-3.017Z" transform="translate(-27.536)" fill="#f14336"></path>
+                                </svg>
+                            </div>
+                        </a>
+
+                </div>
+
 
             </section>
 

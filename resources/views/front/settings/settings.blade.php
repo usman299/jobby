@@ -31,8 +31,10 @@
 
                         </div>
                         <div class="txt">
+                            <a href="{{route('jobber.earnings')}}" class="item-link">
                             <p>Revenus</p>
                             <span>{{$payment}} €</span>
+                            </a>
                         </div>
                     </a>
                     <a href="#" class="btn item_link">
@@ -74,39 +76,39 @@
             </div>
             <div class="em__pkLink emBlock__border bg-white border-t-0">
                 <ul class="nav__list mb-0">
-                    <li>
-                        <a href="{{route('password.change')}}" class="item-link">
-                            <div class="group">
-                                <div class="icon bg-turquoise">
-                                    <svg id="Iconly_Curved_Lock" data-name="Iconly/Curved/Lock"
-                                         xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                         viewBox="0 0 19 19">
-                                        <g id="Lock" transform="translate(3.365 2.177)">
-                                            <path id="Stroke_1" data-name="Stroke 1"
-                                                  d="M7.221,5.267v-1.7A3.611,3.611,0,0,0,0,3.55V5.267"
-                                                  transform="translate(2.454 0)" fill="none" stroke="#fff"
-                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-miterlimit="10" stroke-width="1.5"/>
-                                            <path id="Stroke_3" data-name="Stroke 3" d="M.5,0V1.758"
-                                                  transform="translate(5.564 9.03)" fill="none" stroke="#fff"
-                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-miterlimit="10" stroke-width="1.5"/>
-                                            <path id="Stroke_5" data-name="Stroke 5"
-                                                  d="M6.064,0C1.516,0,0,1.241,0,4.965S1.516,9.93,6.064,9.93s6.065-1.241,6.065-4.965S10.612,0,6.064,0Z"
-                                                  transform="translate(0 4.809)" fill="none" stroke="#fff"
-                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-miterlimit="10" stroke-width="1.5"/>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <span class="path__name">Sécurité et mot de passe</span>
-                            </div>
-                            <div class="group">
-                                <span class="short__name"></span>
-                                <i class="tio-chevron_right -arrwo"></i>
-                            </div>
-                        </a>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="{{route('password.change')}}" class="item-link">--}}
+{{--                            <div class="group">--}}
+{{--                                <div class="icon bg-turquoise">--}}
+{{--                                    <svg id="Iconly_Curved_Lock" data-name="Iconly/Curved/Lock"--}}
+{{--                                         xmlns="http://www.w3.org/2000/svg" width="19" height="19"--}}
+{{--                                         viewBox="0 0 19 19">--}}
+{{--                                        <g id="Lock" transform="translate(3.365 2.177)">--}}
+{{--                                            <path id="Stroke_1" data-name="Stroke 1"--}}
+{{--                                                  d="M7.221,5.267v-1.7A3.611,3.611,0,0,0,0,3.55V5.267"--}}
+{{--                                                  transform="translate(2.454 0)" fill="none" stroke="#fff"--}}
+{{--                                                  stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                  stroke-miterlimit="10" stroke-width="1.5"/>--}}
+{{--                                            <path id="Stroke_3" data-name="Stroke 3" d="M.5,0V1.758"--}}
+{{--                                                  transform="translate(5.564 9.03)" fill="none" stroke="#fff"--}}
+{{--                                                  stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                  stroke-miterlimit="10" stroke-width="1.5"/>--}}
+{{--                                            <path id="Stroke_5" data-name="Stroke 5"--}}
+{{--                                                  d="M6.064,0C1.516,0,0,1.241,0,4.965S1.516,9.93,6.064,9.93s6.065-1.241,6.065-4.965S10.612,0,6.064,0Z"--}}
+{{--                                                  transform="translate(0 4.809)" fill="none" stroke="#fff"--}}
+{{--                                                  stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                  stroke-miterlimit="10" stroke-width="1.5"/>--}}
+{{--                                        </g>--}}
+{{--                                    </svg>--}}
+{{--                                </div>--}}
+{{--                                <span class="path__name">Sécurité et mot de passe</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="group">--}}
+{{--                                <span class="short__name"></span>--}}
+{{--                                <i class="tio-chevron_right -arrwo"></i>--}}
+{{--                            </div>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li>
                         <a href="{{route('settings.profile')}}" class="item-link">
                             <div class="group">
@@ -270,35 +272,35 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('jobber.earnings')}}" class="item-link">
-                                <div class="group">
-                                    <div class="icon bg-purple">
-                                        <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message"
-                                             xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                             viewBox="0 0 19 19">
-                                            <g id="Message" transform="translate(1.941 2.258)">
-                                                <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0"
-                                                      transform="translate(3.121 4.882)" fill="none" stroke="#fff"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                <path id="Stroke_3" data-name="Stroke 3"
-                                                      d="M0,7.217C0,1.8,1.885,0,7.54,0s7.54,1.8,7.54,7.217-1.885,7.217-7.54,7.217S0,12.63,0,7.217Z"
-                                                      transform="translate(0 0)" fill="none" stroke="#fff"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <span class="path__name">Revenus</span>
-                                </div>
-                                <div class="group">
-                                    <span class="short__name"></span>
-                                    <i class="tio-chevron_right -arrwo"></i>
-                                </div>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{route('jobber.earnings')}}" class="item-link">--}}
+{{--                                <div class="group">--}}
+{{--                                    <div class="icon bg-purple">--}}
+{{--                                        <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message"--}}
+{{--                                             xmlns="http://www.w3.org/2000/svg" width="19" height="19"--}}
+{{--                                             viewBox="0 0 19 19">--}}
+{{--                                            <g id="Message" transform="translate(1.941 2.258)">--}}
+{{--                                                <path id="Stroke_1" data-name="Stroke 1"--}}
+{{--                                                      d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0"--}}
+{{--                                                      transform="translate(3.121 4.882)" fill="none" stroke="#fff"--}}
+{{--                                                      stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                      stroke-miterlimit="10" stroke-width="1.5"></path>--}}
+{{--                                                <path id="Stroke_3" data-name="Stroke 3"--}}
+{{--                                                      d="M0,7.217C0,1.8,1.885,0,7.54,0s7.54,1.8,7.54,7.217-1.885,7.217-7.54,7.217S0,12.63,0,7.217Z"--}}
+{{--                                                      transform="translate(0 0)" fill="none" stroke="#fff"--}}
+{{--                                                      stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                      stroke-miterlimit="10" stroke-width="1.5"></path>--}}
+{{--                                            </g>--}}
+{{--                                        </svg>--}}
+{{--                                    </div>--}}
+{{--                                    <span class="path__name">Revenus</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="group">--}}
+{{--                                    <span class="short__name"></span>--}}
+{{--                                    <i class="tio-chevron_right -arrwo"></i>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li>
                             <a href="{{route('jobber.reviews')}}" class="item-link">
                                 <div class="group">

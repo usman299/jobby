@@ -129,6 +129,13 @@ class SettingsController extends Controller
         $user->postalCode = $request->postalCode;
         $user->dob = $request->dob;
         $user->description = $request->description;
+
+        if($request->password){
+            $user->password=Hash::make($request->password);
+            Auth::logout();
+        }
+
+
         /*$user->category_id = $request->category_id;
         $user->subcategory_id = $request->subcategory_id;
         $user->rate_per_hour = $request->rate_per_hour;*/
@@ -422,5 +429,10 @@ class SettingsController extends Controller
             );
             return redirect()->back()->with($notification);
         }
+    }
+    public function appLogout()
+    {
+        Auth::logout();
+        return view('front.auth.login');
     }
 }

@@ -491,37 +491,32 @@ $user = Auth::user();
                     <div class="item_link">
                         <a href="{{route('jobber.proposals')}}" class="btn btn_navLink">
                             <div class="icon_current">
-                                <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document"
-                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <g id="Document" transform="translate(3.61 2.75)">
-                                        <path id="Stroke_1" data-name="Stroke 1" d="M7.22.5H0"
-                                              transform="translate(4.766 12.446)" fill="none" stroke="#9498ac"
-                                              stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                              stroke-width="1.5"/>
-                                        <path id="Stroke_2" data-name="Stroke 2" d="M7.22.5H0"
-                                              transform="translate(4.766 8.686)" fill="none" stroke="#9498ac"
-                                              stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                              stroke-width="1.5"/>
-                                        <path id="Stroke_3" data-name="Stroke 3" d="M2.755.5H0"
-                                              transform="translate(4.766 4.927)" fill="none" stroke="#9498ac"
-                                              stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                              stroke-width="1.5"/>
-                                        <path id="Stroke_4" data-name="Stroke 4"
-                                              d="M0,9.25c0,6.937,2.1,9.25,8.391,9.25s8.391-2.313,8.391-9.25S14.685,0,8.391,0,0,2.313,0,9.25Z"
+                                <svg id="Iconly_Curved_Home" data-name="Iconly/Curved/Home"
+                                     xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                     viewBox="0 0 20 20">
+                                    <g id="Home" transform="translate(2 1.667)">
+                                        <path id="Stroke_1" data-name="Stroke 1" d="M0,.5H4.846"
+                                              transform="translate(5.566 11.28)" fill="none" stroke="#9498ac"
+                                              stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-miterlimit="10" stroke-width="1.5"></path>
+                                        <path id="Stroke_2" data-name="Stroke 2"
+                                              d="M0,9.761C0,5.068.512,5.4,3.266,2.842,4.471,1.872,6.346,0,7.965,0S11.5,1.862,12.712,2.842c2.754,2.554,3.265,2.227,3.265,6.919,0,6.906-1.633,6.906-7.988,6.906S0,16.667,0,9.761Z"
                                               transform="translate(0)" fill="none" stroke="#9498ac"
-                                              stroke-linecap="round"
-                                              stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+                                              stroke-linecap="round" stroke-linejoin="round"
+                                              stroke-miterlimit="10" stroke-width="1.5"></path>
                                     </g>
                                 </svg>
                             </div>
-                            <div class="txt__tile">Decouverte</div>
+                            <div class="txt__tile">
+                               Proposal
+                            </div>
                         </a>
                     </div>
                 @endif
             </div>
             <div class="item_link">
                 @if($user->role == 2)
-                    <a href="{{route('applicant.proposals')}}" class="btn btn_navLink">
+                    <a href="{{route('front.app')}}" class="btn btn_navLink">
                         <div class="icon_current">
                             <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle"
                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -547,7 +542,9 @@ $user = Auth::user();
                             </svg>
                         </div>
 
-                        <div class="txt__tile">Decouverte</div>
+                        <div class="txt__tile">
+                            Accueil
+                        </div>
                     </a>
                 @else
                     <a href="{{route('jobber.contract')}}" class="btn btn_navLink">
@@ -722,8 +719,9 @@ $user = Auth::user();
 
                 <div class="modal-body rolecss">
                     <ul class="nav flex-column">
-                        <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
-                            <a class="nav-link rolecss" href="{{route('front.app')}}">
+                        @if($user->role == 2)
+                        <li class="nav-item {{  request()->is('/applicant/proposals') ? '-active-links':'' }}">
+                            <a class="nav-link rolecss" href="{{route('applicant.proposals')}}">
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_Home" data-name="Iconly/Curved/Home"
@@ -742,10 +740,38 @@ $user = Auth::user();
                                             </g>
                                         </svg>
                                     </div>
-                                    <span class="title_link">Accueil</span>
+                                    <span class="title_link">Proposals</span>
                                 </div>
                             </a>
                         </li>
+                        @else
+                            <li class="nav-item {{  request()->is('app') ? '-active-links':'' }}">
+                                <a class="nav-link rolecss" href="{{route('front.app')}}">
+                                    <div class="">
+                                        <div class="icon_current">
+                                            <svg id="Iconly_Curved_Home" data-name="Iconly/Curved/Home"
+                                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                 viewBox="0 0 20 20">
+                                                <g id="Home" transform="translate(2 1.667)">
+                                                    <path id="Stroke_1" data-name="Stroke 1" d="M0,.5H4.846"
+                                                          transform="translate(5.566 11.28)" fill="none" stroke="#9498ac"
+                                                          stroke-linecap="round" stroke-linejoin="round"
+                                                          stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                    <path id="Stroke_2" data-name="Stroke 2"
+                                                          d="M0,9.761C0,5.068.512,5.4,3.266,2.842,4.471,1.872,6.346,0,7.965,0S11.5,1.862,12.712,2.842c2.754,2.554,3.265,2.227,3.265,6.919,0,6.906-1.633,6.906-7.988,6.906S0,16.667,0,9.761Z"
+                                                          transform="translate(0)" fill="none" stroke="#9498ac"
+                                                          stroke-linecap="round" stroke-linejoin="round"
+                                                          stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <span class="title_link">
+Accueil
+</span>
+                                    </div>
+                                </a>
+                            </li>
+                        @endif
                         @if($user->role == 1)
                             {{--                        <li class="nav-item {{  request()->is('jobber/services') ? '-active-links':'' }}">--}}
                             {{--                            <a class="nav-link" href="{{route('jobber.services')}}">--}}
@@ -935,8 +961,7 @@ $user = Auth::user();
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link logoutbutton rolecss" href="{{route('logout')}}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                            <a class="nav-link logoutbutton rolecss" href="{{route('app.logout')}}" >
                                 <div class="">
                                     <div class="icon_current">
                                         <svg id="Iconly_Curved_Info_Square" data-name="Iconly/Curved/Info Square"
@@ -963,9 +988,7 @@ $user = Auth::user();
                                     <span class="title_link">Déconnecter</span>
                                 </div>
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+
                         </li>
                     </ul>
                 </div>

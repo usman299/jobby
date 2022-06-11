@@ -140,6 +140,7 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::post('/get/badge/update', 'Front\SettingsController@badgeUpdate')->name('badge.update');
     Route::get('/app/settings', 'Front\SettingsController@settings')->name('app.settings');
     Route::get('/app/settings/profile', 'Front\SettingsController@profile')->name('settings.profile');
+    Route::get('/app/logout', 'Front\SettingsController@appLogout')->name('app.logout');
 
     Route::get('/app/notifications', 'Front\SettingsController@notifications')->name('app.notifications');
     Route::get('/app/about', 'Front\SettingsController@about')->name('app.about');
