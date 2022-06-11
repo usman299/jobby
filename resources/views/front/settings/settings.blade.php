@@ -4,7 +4,7 @@
         @if(Auth::user()->role == 1)
             <section class="box__dashboard">
                 <div class="group">
-                    <a href="#" class="btn item_link">
+                    <a href="{{route('jobber.earnings')}}" class="btn item_link">
                         <div class="icon bg-green">
                             <svg id="Iconly_Curved_Wallet" data-name="Iconly/Curved/Wallet"
                                  xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19">
@@ -31,12 +31,11 @@
 
                         </div>
                         <div class="txt">
-                            <a href="{{route('jobber.earnings')}}" class="item-link">
                             <p>Revenus</p>
                             <span>{{$payment}} €</span>
-                            </a>
                         </div>
                     </a>
+
                     <a href="#" class="btn item_link">
                         <div class="icon bg-red">
                             <svg id="Iconly_Curved_Paper_Plus" data-name="Iconly/Curved/Paper Plus"
