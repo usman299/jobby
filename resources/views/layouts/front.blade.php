@@ -653,7 +653,7 @@ $user = Auth::user();
             </div>
             <div class="item_link">
                 <a href="{{route('app.settings')}}" class="btn btn_navLink">
-                    <div class="icon_current ico  bg-opacity-10 strok-orange">
+                    <div class="icon_current ico  bg-opacity-10 stroke-orange">
                         <svg id="Iconly_Curved_Setting" data-name="Iconly/Curved/Setting"
                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <g id="Setting" transform="translate(3.5 2.5)">
