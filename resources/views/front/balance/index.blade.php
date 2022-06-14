@@ -121,7 +121,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="path__name">Historique des transactions/span>
+                            <span class="path__name">Historique des transactions</span>
                         </div>
                         <div class="group">
                             <span class="short__name"></span>
@@ -155,13 +155,13 @@
                 <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
                     <div class="itemProduct_sm">
                         <div class="itemCountr_manual1 horizontal itemButtons -lg border-0 min-w-145">
-                            <a href="#" data-dir="down" class="btn btn_counter1 rounded-circle co_down border">
-                                <i class="tio-remove"></i>
-                            </a>
-                            <input type="number" name="balance"  class="form-control input_no color-secondary durationplus" value="0">
-                            <a href="#" data-dir="up" class="btn btn_counter1 rounded-circle co_up bg-secondary">
-                                <i class="tio-add color-white"></i>
-                            </a>
+{{--                            <a href="#" data-dir="down" class="btn btn_counter1 rounded-circle border">--}}
+{{--                                <i class="tio-remove"></i>--}}
+{{--                            </a>--}}
+                            <input type="number" name="balance" min="30"  value="30" placeholder="Entrer le montant" max="100000" class="form-control " >
+{{--                            <a href="#" data-dir="up" class="btn btn_counter1 rounded-circle  bg-secondary">--}}
+{{--                                <i class="tio-add color-white"></i>--}}
+{{--                            </a>--}}
                         </div>
                     </div>
                 </div>
@@ -209,7 +209,7 @@
                     <div class="modal-footer">
                         <button type="submit"
                                 class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
-                            Submit
+                            Soumettre
                         </button>
                     </div>
 

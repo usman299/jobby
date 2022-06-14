@@ -62,7 +62,7 @@
                                         </label>
                                     </div>
                                     <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="type3" value="Pièce d'identité" name="identity_type" class="custom-control-input certificate">
+                                        <input type="radio" id="type3" value="Pièce d'identité" name="identity_type" class="custom-control-input pièce">
                                         <label class="custom-control-label padding-l-10" for="type3">
                                             Pièce d'identité
                                         </label>
@@ -116,6 +116,10 @@
         $(".certificate").click(function(){
             $(".newtabs").html('');
             $(".newtabs").append('<div class="tab"><div class="em_titleSign"><h1>Certificat de securite social</h1></div><div class="em__body"><div class="form-group" style="text-align: left!important;"><label>Certificat de securite social</label><div class="input_group"><input type="file" id="file" name="identity_document" class="form-control"></div></div><div class="form-group" style="text-align: left!important;"><label>Numéro de sécurité sociale</label><div class="input_group"><input type="text" id="file" name="security_no" class="form-control"></div></div><p>Votre numéro de sécurité sociale permet à vos clients de vous déclarer directement sur Mister Jobby. Il est confidentiel et sécurisé.</p></div></div>');
+        });
+        $(".pièce").click(function(){
+            $(".newtabs").html('');
+            $(".newtabs").append('<div class="tab"><div class="em_titleSign"><h1>Pièce d\'identité</h1></div><div class="em__body"><div class="form-group" style="text-align: left!important;"><label>Pièce d\'identité</label><div class="input_group"><input type="file" id="file" name="identity_document" class="form-control"></div></div><div class="form-group" style="text-align: left!important;"><label>Numéro de sécurité sociale</label><div class="input_group"><input type="text" id="file" name="security_no" class="form-control"></div></div><p>Votre numéro de sécurité sociale permet à vos clients de vous déclarer directement sur Mister Jobby. Il est confidentiel et sécurisé.</p></div></div>');
         });
     </script>
 @endsection
