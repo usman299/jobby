@@ -6,6 +6,7 @@ use App\About;
 use App\Card;
 use App\CardPaymant;
 use App\Category;
+use App\Check;
 use App\Condition;
 use App\Http\NotificationHelper;
 use App\JobRequest;
@@ -24,6 +25,7 @@ use App\Proposal;
 use App\QuestionAnswer;
 use App\SubCategory;
 use App\User;
+use App\Walet;
 use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -433,6 +435,61 @@ class SettingsController extends Controller
     public function appLogout()
     {
         Auth::logout();
-        return view('front.auth.login');
+        $id=1;
+        return view('front.auth.login',compact('id'));
+    }
+    public function appBalanceIndex()
+    {
+        return view('front.balance.index');
+    }
+    public function appBalanceDetails()
+    {    $walet = Walet::where('user_id','=',Auth::user()->id)->latest()->get();
+        return view('front.balance.detials',compact('walet'));
+    }
+    public function payment(Request $request){
+
+        $title = "Page de paiement";
+        $balance = $request->balance;
+        if(isset($balance)){
+            \Stripe\Stripe::setApiKey (env('STRIPE_SECRET_KEY'));
+            $payment_intent = \Stripe\PaymentIntent::create([
+                'amount' => ($balance) *100,
+                'currency' => 'EUR'
+            ]);
+        }
+        $intent = $payment_intent->client_secret;
+        return view('front.balance.checkout', compact(  'intent', 'balance','title'));
+    }
+    public function addWalet(Request $request){
+          $user = Auth::user();
+         $walet = new Walet();
+         $walet->balance = $request->balance;
+         $walet->user_id = $user->id;
+         $walet->save();
+
+         $user->walet = $request->balance;
+         $user->update();
+         return view('front.balance.success');
+
+    }
+    public function addCheck(Request $request){
+        $check = new Check();
+        $check->user_id = Auth::user()->id;
+        if ($request->hasfile('img')) {
+            $image1 = $request->file('img');
+            $name1 = time() . 'img' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'img/';
+            $image1->move($destinationPath, $name1);
+            $check->img = 'img/' . $name1;
+        }
+        $check->save();
+
+        $notification = array(
+            'messege' => 'Votre administrateur d\'envoi de données',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->back()->with($notification);
+
     }
 }

@@ -461,32 +461,37 @@ $user = Auth::user();
         <div class="em_body_navigation -active-links">
             <div class="item_link">
                 @if($user->role == 2)
-                    <a href="{{route('applicant.jobrequests')}}" class="btn btn_navLink">
-                        <div class="icon_current">
-                            <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document"
+                    <a href="{{route('front.app')}}" class="btn btn_navLink">
+                        <div class="icon_current ico  bg-opacity-10 stroke-yellow">
+                            <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle"
                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <g id="Document" transform="translate(3.61 2.75)">
-                                    <path id="Stroke_1" data-name="Stroke 1" d="M7.22.5H0"
-                                          transform="translate(4.766 12.446)" fill="none" stroke="#9498ac"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="1.5"/>
-                                    <path id="Stroke_2" data-name="Stroke 2" d="M7.22.5H0"
-                                          transform="translate(4.766 8.686)" fill="none" stroke="#9498ac"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="1.5"/>
-                                    <path id="Stroke_3" data-name="Stroke 3" d="M2.755.5H0"
-                                          transform="translate(4.766 4.927)" fill="none" stroke="#9498ac"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="1.5"/>
+                                <g id="More_Circle" data-name="More Circle" transform="translate(2 2)">
                                     <path id="Stroke_4" data-name="Stroke 4"
-                                          d="M0,9.25c0,6.937,2.1,9.25,8.391,9.25s8.391-2.313,8.391-9.25S14.685,0,8.391,0,0,2.313,0,9.25Z"
-                                          transform="translate(0)" fill="none" stroke="#9498ac" stroke-linecap="round"
-                                          stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+                                          d="M0,9.25C0,2.313,2.313,0,9.25,0S18.5,2.313,18.5,9.25,16.187,18.5,9.25,18.5,0,16.187,0,9.25Z"
+                                          transform="translate(0.75 0.75)" fill="none" stroke="#9498ac"
+                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                                          stroke-width="1.5"/>
+                                    <path id="Stroke_11" data-name="Stroke 11" d="M.5.5H.5"
+                                          transform="translate(12.709 11.4)" fill="none" stroke="#9498ac"
+                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                                          stroke-width="2"/>
+                                    <path id="Stroke_13" data-name="Stroke 13" d="M.5.5H.5"
+                                          transform="translate(9.709 7.4)" fill="none" stroke="#9498ac"
+                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                                          stroke-width="2"/>
+                                    <path id="Stroke_15" data-name="Stroke 15" d="M.5.5H.5"
+                                          transform="translate(6.7 11.4)" fill="none" stroke="#9498ac"
+                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                                          stroke-width="2"/>
                                 </g>
                             </svg>
                         </div>
-                        <div class="txt__tile">Demandes</div>
+
+                        <div class="txt__tile">
+                            Accueil
+                        </div>
                     </a>
+
                 @else
                     <div class="item_link">
                         <a href="{{route('jobber.proposals')}}" class="btn btn_navLink">
@@ -516,35 +521,31 @@ $user = Auth::user();
             </div>
             <div class="item_link">
                 @if($user->role == 2)
-                    <a href="{{route('front.app')}}" class="btn btn_navLink">
-                        <div class="icon_current">
-                            <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle"
+                    <a href="{{route('applicant.jobrequests')}}" class="btn btn_navLink">
+                        <div class="icon_current ico  bg-opacity-10 stroke-red" >
+                            <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document"
                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <g id="More_Circle" data-name="More Circle" transform="translate(2 2)">
-                                    <path id="Stroke_4" data-name="Stroke 4"
-                                          d="M0,9.25C0,2.313,2.313,0,9.25,0S18.5,2.313,18.5,9.25,16.187,18.5,9.25,18.5,0,16.187,0,9.25Z"
-                                          transform="translate(0.75 0.75)" fill="none" stroke="#9498ac"
+                                <g id="Document" transform="translate(3.61 2.75)">
+                                    <path id="Stroke_1" data-name="Stroke 1" d="M7.22.5H0"
+                                          transform="translate(4.766 12.446)" fill="none" stroke="#9498ac"
                                           stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
                                           stroke-width="1.5"/>
-                                    <path id="Stroke_11" data-name="Stroke 11" d="M.5.5H.5"
-                                          transform="translate(12.709 11.4)" fill="none" stroke="#9498ac"
+                                    <path id="Stroke_2" data-name="Stroke 2" d="M7.22.5H0"
+                                          transform="translate(4.766 8.686)" fill="none" stroke="#9498ac"
                                           stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="2"/>
-                                    <path id="Stroke_13" data-name="Stroke 13" d="M.5.5H.5"
-                                          transform="translate(9.709 7.4)" fill="none" stroke="#9498ac"
+                                          stroke-width="1.5"/>
+                                    <path id="Stroke_3" data-name="Stroke 3" d="M2.755.5H0"
+                                          transform="translate(4.766 4.927)" fill="none" stroke="#9498ac"
                                           stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="2"/>
-                                    <path id="Stroke_15" data-name="Stroke 15" d="M.5.5H.5"
-                                          transform="translate(6.7 11.4)" fill="none" stroke="#9498ac"
-                                          stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
-                                          stroke-width="2"/>
+                                          stroke-width="1.5"/>
+                                    <path id="Stroke_4" data-name="Stroke 4"
+                                          d="M0,9.25c0,6.937,2.1,9.25,8.391,9.25s8.391-2.313,8.391-9.25S14.685,0,8.391,0,0,2.313,0,9.25Z"
+                                          transform="translate(0)" fill="none" stroke="#9498ac" stroke-linecap="round"
+                                          stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
                                 </g>
                             </svg>
                         </div>
-
-                        <div class="txt__tile">
-                            Accueil
-                        </div>
+                        <div class="txt__tile">Demandes</div>
                     </a>
                 @else
                     <a href="{{route('jobber.contract')}}" class="btn btn_navLink">
@@ -608,7 +609,7 @@ $user = Auth::user();
             </div>
             <div class="item_link">
                 <a href="{{route('chatify')}}" class="btn btn_navLink">
-                    <div class="icon_current">
+                    <div class="icon_current ico  bg-opacity-10 stroke-green">
                         <svg id="Iconly_Two-tone_Chat" data-name="Iconly/Two-tone/Chat"
                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <g id="Chat" transform="translate(2 2)">
@@ -652,7 +653,7 @@ $user = Auth::user();
             </div>
             <div class="item_link">
                 <a href="{{route('app.settings')}}" class="btn btn_navLink">
-                    <div class="icon_current">
+                    <div class="icon_current ico  bg-opacity-10 strok-orange">
                         <svg id="Iconly_Curved_Setting" data-name="Iconly/Curved/Setting"
                              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <g id="Setting" transform="translate(3.5 2.5)">

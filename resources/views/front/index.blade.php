@@ -68,10 +68,10 @@
                 <!-- em_title_swiper -->
                 <div class="em_title_swiper">
                     <div class="txt">
-                        <h6>Populaires en ce moment</h6>
+                        <h6>{{strtoupper("Populaires en ce moment")}}</h6>
                     </div>
                     <div class="item_link">
-                        <a data-toggle="modal" data-target="#mdllFilterJobs">Que cherche tu ?</a>
+                        <a data-toggle="modal" data-target="#mdllFilterJobs">{{strtoupper("Que cherche tu ?")}}</a>
                     </div>
                 </div>
                 <div class="em_bodyCarousel padding-t-20">
@@ -345,8 +345,8 @@
                 <!-- em_title_swiper -->
                 <div class="em_title_swiper">
                     <div class="txt">
-                        <h5>Decouvrez d'autres Services</h5>
-                        <strong>Trouver un prof</strong>
+                        <h5>{{strtoupper("Decouvrez d'autres Services")}}</h5>
+                        <strong>{{strtoupper("Trouver un prof")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -389,7 +389,7 @@
                 <!-- em_title_swiper -->
                 <div class="em_title_swiper">
                     <div class="txt">
-                        <strong>Reparer</strong>
+                        <strong>{{strtoupper("Reparer")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -432,7 +432,7 @@
                 <!-- em_title_swiper -->
                 <div class="em_title_swiper">
                     <div class="txt">
-                        <strong>Amenager</strong>
+                        <strong>{{strtoupper("Amenager")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -475,7 +475,7 @@
                 <!-- em_title_swiper -->
                 <div class="em_title_swiper">
                     <div class="txt">
-                        <strong>Renover</strong>
+                        <strong>{{strtoupper("Renover")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -519,7 +519,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Entretenir le jardin</strong>
+                        <strong>{{strtoupper("Entretenir le jardin")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -563,7 +563,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Déménagement</strong>
+                        <strong>{{strtoupper("Déménagement")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -607,7 +607,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Enfants</strong>
+                        <strong>{{strtoupper("Enfants")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -651,7 +651,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Animaux</strong>
+                        <strong>{{strtoupper("Animaux")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -695,7 +695,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Aide a domicile</strong>
+                        <strong>{{strtoupper("Aide a domicile")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -739,7 +739,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Évenementiel</strong>
+                        <strong>{{strtoupper("Évenementiel")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -784,7 +784,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Tâche administratives</strong>
+                        <strong>{{strtoupper("Tâche administratives")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}
@@ -830,7 +830,7 @@
                 <div class="em_title_swiper">
                     <div class="txt">
 
-                        <strong>Réparation</strong>
+                        <strong>{{strtoupper("Réparation")}}</strong>
 
                     </div>
                     {{--                        <div class="item_link">--}}

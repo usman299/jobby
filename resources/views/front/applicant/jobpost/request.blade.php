@@ -1003,7 +1003,7 @@
         setInterval(function(){
             var durationplus = $(".durationplus").val();
             var rateperhour = $(".rateperhour").val();
-            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$childcatgory->price}};
+            var budget = (parseFloat(durationplus) * parseFloat(rateperhour));
             var percentage = budget * (10/100);
             $(".estimate_budget").html(budget + "€");
             $(".total").html(budget + parseFloat(percentage.toFixed(2)) + "€");

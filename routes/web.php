@@ -141,6 +141,12 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::get('/app/settings', 'Front\SettingsController@settings')->name('app.settings');
     Route::get('/app/settings/profile', 'Front\SettingsController@profile')->name('settings.profile');
     Route::get('/app/logout', 'Front\SettingsController@appLogout')->name('app.logout');
+//Balmce
+    Route::get('/app/balance', 'Front\SettingsController@appBalanceIndex')->name('app.balance');
+    Route::get('/app/balance/details', 'Front\SettingsController@appBalanceDetails')->name('app.balance.details');
+    Route::post('/app/add/balance', 'Front\SettingsController@payment')->name('app.add.balance');
+    Route::post('/app/add/walet', 'Front\SettingsController@addWalet')->name('app.add.walet');
+    Route::post('/app/add/check', 'Front\SettingsController@addCheck')->name('app.add.check');
 
     Route::get('/app/notifications', 'Front\SettingsController@notifications')->name('app.notifications');
     Route::get('/app/about', 'Front\SettingsController@about')->name('app.about');
@@ -224,6 +230,10 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
 
 //Admin routes
 Route::group(['middleware' => ['auth', 'web', 'role']], function () {
+
+    Route::get('admin/checks/index', 'Admin\UsersController@indexChecks')->name('checks.index');
+    Route::get('admin/pass/checks/index', 'Admin\UsersController@passIndexChecks')->name('pass.checks.index');
+    Route::post('admin/add/balance', 'Admin\UsersController@addBalnce')->name('admin.add.balance');
 
     Route::get('admin/cards/index', 'Admin\UsersController@indexCards')->name('cards.index');
     Route::get('admin/cards/delete/{id}', 'Admin\UsersController@deleteCards')->name('card.delete');

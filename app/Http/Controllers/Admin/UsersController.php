@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Card;
+use App\Check;
 use App\Contract;
 use App\Countory;
 use App\Diploma;
@@ -11,6 +12,7 @@ use App\JobberProfile;
 use App\JobRequest;
 use App\Proposal;
 use App\User;
+use App\Walet;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -257,5 +259,32 @@ class UsersController extends Controller
         }
     }
 
+    public  function indexChecks()
+    { $check = Check::where('status','=',0)->latest()->get();
+      return view('admin.check.index',compact('check'));
+    }
+    public  function passIndexChecks()
+    {   $check = Check::where('status','=',1)->latest()->get();
+        return view('admin.check.index',compact('check'));
+    }
+    public  function addBalnce(Request $request)
+    {   $check = Check::find($request->id);
+        $check->status = 1;
+        $check->update();
 
-}
+        $walet = new Walet();
+        $walet->balance = $request->balance;
+        $walet->user_id = $request->user_id;
+        $walet->paymant_status = 'admin';
+        $walet->save();
+
+        $user= User::find($request->user_id);
+        $user->walet = $request->balance;
+        $user->update();
+        toastr()->success('Paymant Add SuccessFully');
+        return back();
+
+    }
+
+
+    }

@@ -1965,7 +1965,7 @@
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)"  class="btn bg-green rounded-10 btn__default mr-3">
                         <span class="color-white">Retourner</span>
                     </button>
-                    <button type="button" id="nextBtn" style="color: white" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default">
+                    <button type="button" id="nextBtn" style="color: white;margin-bottom: 30px;" onclick="nextPrev(1)" class="btn bg-blue rounded-10 btn__default">
                         <span class="color-white">Suivante</span>
                     </button>
                 </div>
@@ -1979,7 +1979,7 @@
         setInterval(function(){
             var durationplus = $(".durationplus").val();
             var rateperhour = $(".rateperhour").val();
-            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$subcategory->price}};
+            var budget = (parseFloat(durationplus) * parseFloat(rateperhour));
             var percentage = budget * (10/100);
             $(".estimate_budget").html(budget + "€");
             $(".total").html(budget + parseFloat(percentage.toFixed(2)) + "€");

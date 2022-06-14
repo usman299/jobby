@@ -45,6 +45,17 @@
 {{--                            <span class="nav-text">Compétences</span>--}}
 {{--                        </a>--}}
 {{--                    </li>--}}
+                    <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text"><!-- Users --> Vérifier</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{{route('checks.index')}}"><!-- applicant -->Chèque reçu</a></li>
+                            <li><a href="{{route('pass.checks.index')}}"><!--  jobber --> Vérification complète</a></li>
+
+
+                        </ul></li>
+
                     <li><a href="{{route('setting.create')}}" class="ai-icon" aria-expanded="false">
                             <i class="flaticon-381-notepad"></i>
                             <!-- APP SETTING -->

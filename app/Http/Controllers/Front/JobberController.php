@@ -272,7 +272,7 @@ class JobberController extends Controller
                 );
 
             }
-            return redirect()->back()->with($notification);
+            return redirect()->route('front.app')->with($notification);
 
         }
 
