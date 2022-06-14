@@ -467,7 +467,7 @@ class SettingsController extends Controller
          $walet->user_id = $user->id;
          $walet->save();
 
-         $user->walet = $request->balance;
+         $user->walet = $user->walet + $request->balance;
          $user->update();
          return view('front.balance.success');
 

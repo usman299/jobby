@@ -279,7 +279,7 @@ class UsersController extends Controller
         $walet->save();
 
         $user= User::find($request->user_id);
-        $user->walet = $request->balance;
+        $user->walet = $user->walet + $request->balance;
         $user->update();
         toastr()->success('Paymant Add SuccessFully');
         return back();
