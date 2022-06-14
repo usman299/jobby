@@ -495,7 +495,7 @@ $user = Auth::user();
                 @else
                     <div class="item_link">
                         <a href="{{route('jobber.proposals')}}" class="btn btn_navLink">
-                            <div class="icon_current">
+                            <div class="icon_current ico  bg-opacity-10 stroke-yellow">
                                 <svg id="Iconly_Curved_Home" data-name="Iconly/Curved/Home"
                                      xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                      viewBox="0 0 20 20">
@@ -549,7 +549,7 @@ $user = Auth::user();
                     </a>
                 @else
                     <a href="{{route('jobber.contract')}}" class="btn btn_navLink">
-                        <div class="icon_current">
+                        <div class="icon_current ico  bg-opacity-10 stroke-red">
                             <svg id="Iconly_Curved_More_Circle" data-name="Iconly/Curved/More Circle"
                                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <g id="More_Circle" data-name="More Circle" transform="translate(2 2)">
