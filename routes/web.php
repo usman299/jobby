@@ -80,7 +80,7 @@ Route::get('/admin/login', 'Admin\JobbyAppController@adminLogin')->name('admin.l
 Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
 
-Route::get('/guest/user/{type}', 'FrontendController@guest')->name('guest.user');
+Route::get('/guest/user/{role}', 'FrontendController@guest')->name('guest.user');
 
 Route::get('/', 'FrontendController@index');
 Route::get('/privacy-policy', 'FrontendController@privacy')->name('front.privacy');

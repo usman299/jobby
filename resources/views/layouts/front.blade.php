@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-<?php
-$user = Auth::user();
-?>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -705,14 +703,25 @@ $user = Auth::user();
                                 </span>
                             @endif
                             <!-- You can use an image -->
+                                    @if(Auth::user())
                                 <img class="_imgUser" loading="lazy" src="{{asset($user->image)}}" alt="">
+                                    @else
+                                        <img class="_imgUser" loading="lazy" src="{{asset('/main/avatar.png')}}" alt="">
+                                    @endif
 
                             </a>
                             <div class="media-body" style="margin-left: 10px">
+                                @if(Auth::user())
                                 <div class="txt">
                                     <h3>{{$user->firstName}} {{$user->lastName}}</h3>
                                     <p>{{$user->email}} <br> {{$user->countory->name}}</p>
                                 </div>
+                                @else
+                                    <div class="txt">
+                                        <h3>Guest</h3>
+                                        <p>guest@gmail.com <br> Guadeloupe</p>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -960,7 +969,7 @@ Accueil
                                 </div>
                             </a>
                         </li>
-
+                         @if(Auth::user())
                         <li class="nav-item">
                             <a class="nav-link logoutbutton rolecss" href="{{route('app.logout')}}" >
                                 <div class="">
@@ -991,6 +1000,7 @@ Accueil
                             </a>
 
                         </li>
+                            @endif
                     </ul>
                 </div>
                 <div class="modal-footer">

@@ -22,10 +22,10 @@
             </header>
             <!-- End.main_haeder -->
 
-            <section class="em__signTypeOne margin-t-40">
+            <section class="em__signTypeOne margin-t-40" style="background-color: #eaf9fe!important;">
                 <div class="em_titleSign">
                     <div class="brand">
-                        <img style=" width: 100%;" src="{{asset('images/jobbby.jpeg')}}"  loading="lazy"  alt="">
+                        <img style=" width: 100%;" src="{{asset('images/jobyyyyy.jpeg')}}"  loading="lazy"  alt="">
                     </div>
                 </div>
                 <form method="POST" class="loginformsubmit" action="{{ route('login') }}" >
@@ -110,14 +110,14 @@
                         <a href="{{route('front.register', ['id' => $id])}}"> <button type="submit"  style="background-color: #039a67; background-image: linear-gradient(#039a67, #00afbe); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">Créer un compte</button></a>
 
                     </div>
-{{--                    <div style="margin-top: 10px;">--}}
-{{--                        <a href="{{route('guest.user', ['type' => 'jobber'])}}"> <button type="submit"  style="background-color: #039a67; background-image: linear-gradient(#039a67, #00afbe); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">Naviguer sans connexion</button></a>--}}
-
-{{--                    </div>--}}
                     <div style="margin-top: 10px;">
-                        <img style=" width: 100%;" src="{{asset('images/icone10.jpeg')}}"  loading="lazy"  alt="">
+                        <a href="{{route('guest.user', ['role' => $id])}}"> <button type="submit"  style="background-color: #039a67; background-image: linear-gradient(#039a67, #00afbe); border-radius: 12px;width: 90%;"  class="btn bg-primary color-white justify-content-center">Naviguer sans connexion</button></a>
 
                     </div>
+{{--                    <div style="margin-top: 10px;">--}}
+{{--                        <img style=" width: 100%;" src="{{asset('images/icone10.jpeg')}}"  loading="lazy"  alt="">--}}
+
+{{--                    </div>--}}
 
                     <div class="logSocial" style="margin-top: 50px;">
 
