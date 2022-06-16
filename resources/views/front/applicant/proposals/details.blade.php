@@ -109,18 +109,18 @@
                     </div>
                 </div>
             </div>
-            <div class="title">
-                <div class="item__auther emBlock__border">
-                    <div class="item_person">
-                        <h2>Frais de service</h2>
-                    </div>
-                    <div class="sideRight">
-                        <div class="time">
-                            <span>{{$proposal->service_price}}€</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="title">--}}
+{{--                <div class="item__auther emBlock__border">--}}
+{{--                    <div class="item_person">--}}
+{{--                        <h2>Frais de service</h2>--}}
+{{--                    </div>--}}
+{{--                    <div class="sideRight">--}}
+{{--                        <div class="time">--}}
+{{--                            <span>{{$proposal->service_price}}€</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">

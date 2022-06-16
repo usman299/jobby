@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Front;
-
+use Carbon\Carbon;
 use App\Category;
 use App\ChildCategory;
 use App\ChMessage;
@@ -237,7 +237,7 @@ class ApplicantController extends Controller
     public function jobrequests(){
        $user = Auth::user();
         $title = 'Demandes demploi';
-        $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 1)->get();
+        $jobrequests = JobRequest::latest()->where('service_date' , '>=' , Carbon::now()->toDateTimeString())->where('applicant_id', $user->id)->where('status', 1)->get();
         $jobrequestsClose = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 2)->get();
         $draft = JobStatus::where('user_id', $user->id)->get();
         return view('front.applicant.jobrequests.jobrequests', compact('jobrequests','title', 'jobrequestsClose','draft'));
@@ -259,6 +259,18 @@ class ApplicantController extends Controller
     public function jobrequestsStatus($id){
         $jobrequest = JobRequest::find($id);
         $jobrequest->status = 2;
+        $jobrequest->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('applicant.jobrequests')->with($notification);
+    }
+    public function jobrequestsRepost(Request $request){
+
+        $jobrequest = JobRequest::find($request->id);
+        $jobrequest->status = 1;
+        $jobrequest->service_date = $request->service_date;
         $jobrequest->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',

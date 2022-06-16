@@ -58,6 +58,7 @@ class FrontendController extends Controller
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory','skills','user'));
     }
     public function guest($role){
+
         $title = 'Accueil';
         $sliderGalery = SliderGalery::where('userRole','=',1)->where('countory_id', '=',1)->get();
         $subcategory = SubCategory::all();

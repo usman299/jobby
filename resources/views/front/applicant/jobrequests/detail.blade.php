@@ -1707,12 +1707,19 @@
         </section>
 
         <section class="components_page padding-b-30">
-
+            @if($jobrequest->status==1)
             <div class="bg-white padding-20 d-flex emBlock__border">
                 <a href="{{route('applicant.jobrequest.status', ['id' => $jobrequest->id])}}" class="btn justify-content-center bg-danger rounded-10 btn__default full-width">
                     <span class="color-white">Annuler</span>
                 </a>
             </div>
+            @else
+                <div class="bg-white padding-20 d-flex emBlock__border">
+                    <a href="" data-toggle="modal" data-target="#check"  class="btn justify-content-center bg-success rounded-10 btn__default full-width">
+                        <span class="color-white">Republier</span>
+                    </a>
+                </div>
+            @endif
 
 
 
@@ -1848,6 +1855,7 @@
                             <h6>Total </h6>
                         </div>
                         <div class="col-4">
+
                             <p style="text-align: right"><strong class="estimatebudget">{{$jobrequest->estimate_budget}}€</strong></p>
                         </div>
                         <div class="col-8">
@@ -1873,7 +1881,7 @@
                         <input type="hidden" name="hours" class="hours" value="{{$jobrequest->hours}}">
                         <input type="hidden" name="total_hours" class="totalperhours" value="{{$jobrequest->duration}}*{{$jobrequest->hours}}">
                         <input type="hidden" name="duration" class="" value="{{$jobrequest->duration}}">
-                        <input type="hidden" name="service_price" class="" value="{{$jobrequest->subcategory->price}}">
+{{--                        <input type="hidden" name="service_price" class="" value="{{$jobrequest->subcategory->price}}">--}}
                         <input type="hidden" name="tax" class="tax1" value="{{($jobrequest->estimate_budget/100)*10}}">
 
 
@@ -1891,6 +1899,47 @@
             </div>
         </div>
     </div>
+
+    <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade show" id="check" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
+                    <div class="itemProduct_sm">
+                        <h1 class="size-18 weight-600 color-secondary m-0">Republier</h1>
+                    </div><br>
+
+                    <div class="absolute right-0 padding-r-20">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="tio-clear"></i>
+                        </button>
+                    </div>
+                </div>
+                <form action="{{route('applicant.jobrequest.repost')}}" class="formsubmit" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
+                        <div class="itemProduct_sm">
+                            <div class="itemCountr_manual1 horizontal itemButtons -lg border-0 min-w-145">
+
+                                <input type="date" name="service_date" value="" required>
+                                <input type="hidden" name="id" value="{{$jobrequest->id}}"  >
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button type="submit"
+                                class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
+                            Soumettre
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 @section('script')
 
     <script>
@@ -1898,10 +1947,10 @@
             var durationplus = $(".durationplus").val();
 
             var rateperhour = {{$jobrequest->duration}}
-
-            var budget = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}} ;
-            var budget3 = (parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}} + (((parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}})/100)*10;
-            var tax = (((parseFloat(durationplus) * parseFloat(rateperhour)) + {{$jobrequest->subcategory->price}})/100)*10;
+                {{--+ {{$jobrequest->subcategory->price}}--}}
+            var budget = (parseFloat(durationplus) * parseFloat(rateperhour))  ;
+            var budget3 = (parseFloat(durationplus) * parseFloat(rateperhour))  + (((parseFloat(durationplus) * parseFloat(rateperhour)) )/100)*10;
+            var tax = (((parseFloat(durationplus) * parseFloat(rateperhour)) )/100)*10;
             var budget1 = (parseFloat(durationplus) * parseFloat(rateperhour)) ;
             var budget2 = (parseFloat(durationplus));
             $(".estimatebudget").html(budget + "€");

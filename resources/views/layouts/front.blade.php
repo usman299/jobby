@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
-
+<?php
+    if(Auth::user()){
+        $user = Auth::user();
+    }
+?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -775,9 +779,7 @@
                                                 </g>
                                             </svg>
                                         </div>
-                                        <span class="title_link">
-Accueil
-</span>
+                                        <span class="title_link">Accueil</span>
                                     </div>
                                 </a>
                             </li>
@@ -835,6 +837,32 @@ Accueil
                                     </div>
                                 </a>
                             </li>
+                                <li class="nav-item {{  request()->is('app.allcards') ? '-active-links':'' }}">
+                                    <a class="nav-link rolecss" href="{{route('app.allcards')}}">
+                                        <div class="">
+                                            <div class="icon_current">
+                                                <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message"
+                                                     xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                     viewBox="0 0 20 20">
+                                                    <g id="Message" transform="translate(2.043 2.377)">
+                                                        <path id="Stroke_1" data-name="Stroke 1"
+                                                              d="M9.292,0S6.617,3.211,4.661,3.211,0,0,0,0"
+                                                              transform="translate(3.285 5.139)" fill="none" stroke="#9498ac"
+                                                              stroke-linecap="round" stroke-linejoin="round"
+                                                              stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                        <path id="Stroke_3" data-name="Stroke 3"
+                                                              d="M0,7.6C0,1.9,1.984,0,7.937,0s7.937,1.9,7.937,7.6-1.984,7.6-7.937,7.6S0,13.295,0,7.6Z"
+                                                              transform="translate(0 0)" fill="none" stroke="#9498ac"
+                                                              stroke-linecap="round" stroke-linejoin="round"
+                                                              stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                    </g>
+                                                </svg>
+                                            </div>
+
+                                            <span class="title_link">Carte cadeaux</span>
+                                        </div>
+                                    </a>
+                                </li>
                         @endif
                         <?php
                         $notficatin_count = \App\Notfication::where('r_id', '=', $user->id)->where('status', 0)->get()->count();

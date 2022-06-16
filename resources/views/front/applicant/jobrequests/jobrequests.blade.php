@@ -8,7 +8,7 @@
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="pills-ex2-tab" data-toggle="pill" href="#pills-ex2" role="tab"
-                   aria-controls="pills-ex2" aria-selected="false">Fermée</a>
+                   aria-controls="pills-ex2" aria-selected="false">Expirer</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="pills-ex3-tab" data-toggle="pill" href="#pills-ex3" role="tab"

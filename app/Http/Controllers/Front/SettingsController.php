@@ -447,18 +447,37 @@ class SettingsController extends Controller
         return view('front.balance.detials',compact('walet'));
     }
     public function payment(Request $request){
+        $user = Auth::user();
+        $balancee = CardPaymant::where('paymentstatus','=',1)->where('card_number','=',$request->code)->first();
+        if($balancee){
 
-        $title = "Page de paiement";
-        $balance = $request->balance;
-        if(isset($balance)){
-            \Stripe\Stripe::setApiKey (env('STRIPE_SECRET_KEY'));
-            $payment_intent = \Stripe\PaymentIntent::create([
-                'amount' => ($balance) *100,
-                'currency' => 'EUR'
-            ]);
+            $balance = $balancee->price;
+
+            $walet = new Walet();
+            $walet->balance = $balance;
+            $walet->user_id = $user->id;
+
+            if($walet->save()) {
+                $balancee->paymentstatus = 2;
+                $balancee->update();
+            }
+
+            $user->walet = $user->walet + $balance;
+            $user->update();
+            $notification = array(
+                'messege' => 'Ajouter une carte-cadeau dans votre portefeuille',
+                'alert-type' => 'info'
+            );
+            return redirect()->back()->with($notification);
         }
-        $intent = $payment_intent->client_secret;
-        return view('front.balance.checkout', compact(  'intent', 'balance','title'));
+        else{
+            $notification = array(
+                'messege' => 'Invalider le code de votre carte cadeau',
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);
+        }
+
     }
     public function addWalet(Request $request){
           $user = Auth::user();

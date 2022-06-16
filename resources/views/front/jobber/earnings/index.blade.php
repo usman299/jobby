@@ -1,6 +1,24 @@
 @extends('layouts.front')
+<style>
+    .box__dashboard {
+        padding: 26px 6px 0 10px!important;
+    }
+</style>
 @section('content')
+
     <section class="box__dashboard">
+
+        <div class="group">
+            <a href="#" class="btn item_link">
+
+                <div class="txt" style="text-align: center!important;" >
+                    <span style="font-size: 90px; color: black;margin-left: 130px;" > {{$earnings->sum('jobber_get') ?? '0'}} €</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+        <section class="box__dashboard">
         <div class="group">
             <a href="#" class="btn item_link">
                 <div class="icon bg-primary">
@@ -13,7 +31,7 @@
                 </div>
                 <div class="txt">
                     <p>Total des gains</p>
-                    <span>{{$earnings->sum('jobber_get')}} €</span>
+                    <span>{{$earnings->sum('jobber_get') ?? '0'}} €</span>
                 </div>
             </a>
         </div>

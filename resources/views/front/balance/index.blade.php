@@ -1,4 +1,9 @@
 @extends('layouts.front')
+<style>
+    .form-control {
+        width: 221px!important;
+    }
+</style>
 @section('content')
     <!-- Start box__dashboard -->
     <section class="box__dashboard">
@@ -141,7 +146,7 @@
             <div class="modal-content">
                 <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
                     <div class="itemProduct_sm">
-                        <h1 class="size-18 weight-600 color-secondary m-0">Ajouter une carte-cadeau</h1>
+                        <h1 class="size-18 weight-600 color-secondary m-0">Code Cadeau</h1>
                     </div><br>
 
                     <div class="absolute right-0 padding-r-20">
@@ -155,13 +160,9 @@
                 <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
                     <div class="itemProduct_sm">
                         <div class="itemCountr_manual1 horizontal itemButtons -lg border-0 min-w-145">
-{{--                            <a href="#" data-dir="down" class="btn btn_counter1 rounded-circle border">--}}
-{{--                                <i class="tio-remove"></i>--}}
-{{--                            </a>--}}
-                            <input type="number" name="balance" min="30"  value="30" placeholder="Entrer le montant" max="100000" class="form-control " >
-{{--                            <a href="#" data-dir="up" class="btn btn_counter1 rounded-circle  bg-secondary">--}}
-{{--                                <i class="tio-add color-white"></i>--}}
-{{--                            </a>--}}
+
+                            <input type="number" name="code" placeholder="Entrez le code cadeau"  class="form-control " >
+
                         </div>
                     </div>
                 </div>

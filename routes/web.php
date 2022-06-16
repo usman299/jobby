@@ -76,6 +76,7 @@ Route::get('/stripe', function () {
 Route::get('/cron', 'CronController@draftjobs');
 Route::get('/notresponce/proposals', 'CronController@notResponceProposals')->name('notresponce.proposals');
 Route::get('/notjobber/proposals/send', 'CronController@notJobberSendProposals')->name('notjobber.proposals.send');
+Route::get('/expire/jobrequest', 'CronController@expireJobRequest')->name('expire.jobrequest');
 Route::get('/admin/login', 'Admin\JobbyAppController@adminLogin')->name('admin.login');
 Route::get('/fetch/data/{id}', 'Admin\AppSettingController@fetchdata');
 Route::get('/testnotification', 'HomeController@testnotification');
@@ -202,6 +203,7 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
 
 
     Route::get('/applicant/jobrequests/status/{id}', 'Front\ApplicantController@jobrequestsStatus')->name('applicant.jobrequest.status');
+    Route::post('/applicant/jobrequests/repost', 'Front\ApplicantController@jobrequestsRepost')->name('applicant.jobrequest.repost');
     Route::get('/applicant/proposals', 'Front\ApplicantController@proposals')->name('applicant.proposals');
     Route::get('/applicant/proposal/detail/{id}', 'Front\ApplicantController@proposalDetails')->name('applicant.proposal.detail');
     Route::post('/proposal/accept/{id}', 'Front\ApplicantController@proposalAccept')->name('proposal.accept');

@@ -108,35 +108,7 @@
 {{--                            </div>--}}
 {{--                        </a>--}}
 {{--                    </li>--}}
-                    <li>
-                        <a href="{{route('app.balance')}}" class="item-link">
-                            <div class="group">
-                                <div class="icon bg-warning">
-                                    <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile"
-                                         xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                         viewBox="0 0 19 19">
-                                        <g id="Profile" transform="translate(3.958 1.9)">
-                                            <path id="Stroke_1" data-name="Stroke 1"
-                                                  d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z"
-                                                  transform="translate(0 9.47)" fill="none" stroke="#fff"
-                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-miterlimit="10" stroke-width="1.5"/>
-                                            <path id="Stroke_3" data-name="Stroke 3"
-                                                  d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z"
-                                                  transform="translate(1.94)" fill="none" stroke="#fff"
-                                                  stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-miterlimit="10" stroke-width="1.5"/>
-                                        </g>
-                                    </svg>
-                                </div>
-                                <span class="path__name">Mon solde</span>
-                            </div>
-                            <div class="group">
-                                <span class="short__name"></span>
-                                <i class="tio-chevron_right -arrwo"></i>
-                            </div>
-                        </a>
-                    </li>
+
                     <li>
                         <a href="{{route('settings.profile')}}" class="item-link">
                             <div class="group">
@@ -166,6 +138,39 @@
                             </div>
                         </a>
                     </li>
+
+                    @if(Auth::user()->role==2)
+                    <li>
+                        <a href="{{route('app.balance')}}" class="item-link">
+                            <div class="group">
+                                <div class="icon bg-warning">
+                                    <svg id="Iconly_Curved_Profile" data-name="Iconly/Curved/Profile"
+                                         xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                         viewBox="0 0 19 19">
+                                        <g id="Profile" transform="translate(3.958 1.9)">
+                                            <path id="Stroke_1" data-name="Stroke 1"
+                                                  d="M5.419,5.779C2.5,5.779,0,5.324,0,3.5S2.48,0,5.419,0c2.923,0,5.419,1.665,5.419,3.487S8.357,5.779,5.419,5.779Z"
+                                                  transform="translate(0 9.47)" fill="none" stroke="#fff"
+                                                  stroke-linecap="round" stroke-linejoin="round"
+                                                  stroke-miterlimit="10" stroke-width="1.5"/>
+                                            <path id="Stroke_3" data-name="Stroke 3"
+                                                  d="M3.473,6.946a3.461,3.461,0,1,0-.024,0Z"
+                                                  transform="translate(1.94)" fill="none" stroke="#fff"
+                                                  stroke-linecap="round" stroke-linejoin="round"
+                                                  stroke-miterlimit="10" stroke-width="1.5"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <span class="path__name">Mon solde</span>
+                            </div>
+                            <div class="group">
+                                <span class="short__name"></span>
+                                <i class="tio-chevron_right -arrwo"></i>
+                            </div>
+                        </a>
+                    </li>
+                    @endif
+
 
                     @if($user->role == 1)
 
@@ -373,35 +378,35 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('applicant.transactions')}}" class="item-link">
-                                <div class="group">
-                                    <div class="icon bg-yellow">
-                                        <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message"
-                                             xmlns="http://www.w3.org/2000/svg" width="19" height="19"
-                                             viewBox="0 0 19 19">
-                                            <g id="Message" transform="translate(1.941 2.258)">
-                                                <path id="Stroke_1" data-name="Stroke 1"
-                                                      d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0"
-                                                      transform="translate(3.121 4.882)" fill="none" stroke="#fff"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                <path id="Stroke_3" data-name="Stroke 3"
-                                                      d="M0,7.217C0,1.8,1.885,0,7.54,0s7.54,1.8,7.54,7.217-1.885,7.217-7.54,7.217S0,12.63,0,7.217Z"
-                                                      transform="translate(0 0)" fill="none" stroke="#fff"
-                                                      stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-miterlimit="10" stroke-width="1.5"></path>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <span class="path__name">Mon solde</span>
-                                </div>
-                                <div class="group">
-                                    <span class="short__name"></span>
-                                    <i class="tio-chevron_right -arrwo"></i>
-                                </div>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{route('applicant.transactions')}}" class="item-link">--}}
+{{--                                <div class="group">--}}
+{{--                                    <div class="icon bg-yellow">--}}
+{{--                                        <svg id="Iconly_Curved_Message" data-name="Iconly/Curved/Message"--}}
+{{--                                             xmlns="http://www.w3.org/2000/svg" width="19" height="19"--}}
+{{--                                             viewBox="0 0 19 19">--}}
+{{--                                            <g id="Message" transform="translate(1.941 2.258)">--}}
+{{--                                                <path id="Stroke_1" data-name="Stroke 1"--}}
+{{--                                                      d="M8.828,0s-2.541,3.05-4.4,3.05S0,0,0,0"--}}
+{{--                                                      transform="translate(3.121 4.882)" fill="none" stroke="#fff"--}}
+{{--                                                      stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                      stroke-miterlimit="10" stroke-width="1.5"></path>--}}
+{{--                                                <path id="Stroke_3" data-name="Stroke 3"--}}
+{{--                                                      d="M0,7.217C0,1.8,1.885,0,7.54,0s7.54,1.8,7.54,7.217-1.885,7.217-7.54,7.217S0,12.63,0,7.217Z"--}}
+{{--                                                      transform="translate(0 0)" fill="none" stroke="#fff"--}}
+{{--                                                      stroke-linecap="round" stroke-linejoin="round"--}}
+{{--                                                      stroke-miterlimit="10" stroke-width="1.5"></path>--}}
+{{--                                            </g>--}}
+{{--                                        </svg>--}}
+{{--                                    </div>--}}
+{{--                                    <span class="path__name">Mon solde</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="group">--}}
+{{--                                    <span class="short__name"></span>--}}
+{{--                                    <i class="tio-chevron_right -arrwo"></i>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li>
                             <a href="{{route('jobber.reviews')}}" class="item-link">
                                 <div class="group">

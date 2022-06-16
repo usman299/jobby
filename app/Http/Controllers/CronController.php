@@ -80,4 +80,13 @@ class CronController extends Controller
 
     }
 
+    public function expireJobRequest(){
+        $jobrequests = JobRequest::where('service_date' , '<' , Carbon::now()->toDateTimeString())->where('status', 1)->get();
+        foreach ($jobrequests as $row){
+            $row->status = 2;
+            $row->update();
+        }
+        return 1;
+    }
+
 }
