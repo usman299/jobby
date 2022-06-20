@@ -1249,7 +1249,11 @@
                                 </div>
                                 <div class="sideRight">
                                     <div class="time">
-                                        <span>{{$jobrequest->question}} </span>
+                                        @if($jobrequest->child_question)
+                                        @foreach(json_decode($jobrequest->child_question) as $key => $item)
+                                        <span>{{$item}} ,</span>
+                                        @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -1259,7 +1263,13 @@
                                 </div>
                                 <div class="sideRight">
                                     <div class="time">
-                                        <span>{{$jobrequest->dob}} </span>
+                                        <span>
+                                            @if($jobrequest->child_dob)
+                                             @foreach(json_decode($jobrequest->child_dob) as $key => $item)
+                                                <span>{{$item}} ,</span>
+                                            @endforeach
+                                            @endif
+                                            </span>
                                     </div>
                                 </div>
                             </div>

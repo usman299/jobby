@@ -145,6 +145,7 @@ class ApplicantController extends Controller
         return redirect()->route('applicant.jobrequests')->with($notification);
     }
     public function jobSubcategorySubmit(Request $request, $id){
+
         $subCategory = SubCategory::find($id);
         $user = Auth::user();
         $jobrequest = new JobRequest();
@@ -181,6 +182,22 @@ class ApplicantController extends Controller
 
         $jobrequest->lat = $request->lat??$user->latitude;
         $jobrequest->long = $request->long??$user->longitude;
+        if($id==29){
+            if($request->child_question){
+                foreach($request->child_question as $ques)
+                {
+                    $data[] = $ques;
+                    $jobrequest->child_question = json_encode($data);
+                }
+            }
+            if($request->child_dob){
+                foreach($request->child_dob as $dateofbirth)
+                {
+                    $dataa[] = $dateofbirth;
+                    $jobrequest->child_dob = json_encode($dataa);
+                }
+            }
+        }
 
         if ($request->urgent){
             $jobrequest->urgent = 1;

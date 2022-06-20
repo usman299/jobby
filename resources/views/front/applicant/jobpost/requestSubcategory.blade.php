@@ -1015,53 +1015,105 @@
             @elseif($subcategory->id == 29)
                 <div class="tab">
                     <div class="form-group allign-left padding-20">
+
                         <div>
-                            <h4>Fille ou garçon</h4>
+                            <h5>Qui souhaitez-vous farie garder?</h5>
                         </div>
-                        <div class="form-group">
-                            <div class="input_group">
-                                <div class="bg-white ">
-                                    <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="54654" value="Fille" name="question" class="custom-control-input">
-                                        <label class="custom-control-label padding-l-10" for="54654">
-                                            Fille</label>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <a href="" data-toggle="modal"
+                               data-target="#addnew" style=" height: 40px!important;" class="btn justify-content-center bg-primary rounded-10 btn__default full-width">
+                                <span class="color-white">
+                            <i class="tio-add"></i>Ajouter un enfant
+                                </span>
+                            </a>
+                            <div class="modal transition-bottom screenFull defaultModal mdlladd__rate fade" id="addnew"
+                                 tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable height-full">
+                                    <div class="modal-content rounded-0">
+                                        <div class="modal-header padding-l-20 padding-r-20 justify-content-center">
+                                            <div class="itemProduct_sm">
+                                                <h1 class="size-18 weight-600 color-secondary m-0">Qui souhaitez-vous farie garder?</h1>
+                                            </div>
+                                            <div class="absolute right-0 padding-r-20">
+                                                <button type="button" class="close" data-dismiss="modal" onclick="counter()" aria-label="Close">
+                                                    <i class="tio-clear"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="padding-t-30">
+                                                <div class="em__pkLink bg-white border-t-0" id="addmorecolor">
+
+
+                                                     <div class="roww">
+                                                    <div class="" >
+                                                        <h4 style="display: inline-block;">Fille ou garçon</h4>
+                                                        <a style="float: right;" onclick="addmorecolor()" class="btn btn-primary btn-sm" ><i class="tio-add"></i></a> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+                                                        <a style="float: right;" onclick="removecolor()" class="btn btn-danger btn-sm" ><i class="tio-clear"></i></a>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <div class="bg-white ">
+                                                                <div class="custom-control custom-radio margin-b-10">
+                                                                    <select style="margin-top: 10px;" name="child_question[]" class="form-control custom-select">
+                                                                        <option value="">Select Fille ou garçon</option>
+                                                                        <option value="Fille">Fille</option>
+                                                                        <option value="Garçon">Garçon</option>
+
+                                                                    </select>
+                                                                </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <h4>Date de naissance</h4>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-group" style="text-align: left!important;">
+                                                            <label>Date de naissance </label>
+                                                            <input type="hidden" id="child2" name="count" value="">
+                                                            <div class="input_group">
+{{--                                                                id="datepicker"--}}
+                                                                <input  name="child_dob[]"  type="date" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                     </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="custom-control custom-radio margin-b-10">
-                                        <input type="radio" id="71654" value="Garçon" name="question" class="custom-control-input">
-                                        <label class="custom-control-label padding-l-10" for="71654">
-                                            Garçon
-                                        </label>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <h4>Date de naissance</h4>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-group" style="text-align: left!important;">
-                                <label>Date de naissance </label>
-                                <div class="input_group">
-                                    <input name="dob" id="datepicker" type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <h4>Nombre de enfant</h4>
-                        <div class="input_group">
+
+
+                        <div class="input_group " id="parent"style="display: none">
                             <div class="item-link hoverNone">
                                 <div class="group">
-                                    <div class="itemCountr_manual horizontal itemButtons -lg border-0 min-w-145">
-                                        <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">
-                                            <i class="tio-remove"></i>
-                                        </a>
-                                        <input type="text" name="count" class="form-control input_no color-secondary" value="1">
-                                        <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">
-                                            <i class="tio-add color-white"></i>
-                                        </a>
-                                    </div>
+                                    <h4 id="child">Nombre de enfant : 6</h4>
                                 </div>
                             </div>
                         </div>
+{{--                        <h4>Nombre de enfant</h4>--}}
+{{--                        <div class="input_group">--}}
+{{--                            <div class="item-link hoverNone">--}}
+{{--                                <div class="group">--}}
+{{--                                    <div class="itemCountr_manual horizontal itemButtons -lg border-0 min-w-145">--}}
+{{--                                        <a href="#" data-dir="down" class="btn btn_counter rounded-circle co_down border">--}}
+{{--                                            <i class="tio-remove"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <input type="text" name="count" class="form-control input_no color-secondary" value="1">--}}
+{{--                                        <a href="#" data-dir="up" class="btn btn_counter rounded-circle co_up bg-secondary">--}}
+{{--                                            <i class="tio-add color-white"></i>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <hr>
                         <div>
                             <h4>A quelle fréquence souhaitez-vous que ce job soit effectué?</h4>
@@ -1998,6 +2050,38 @@
             $(".long").val(position.coords.longitude);
         }
         showpopuploaction();
+    </script>
+
+    <script>
+
+        function addmorecolor(){
+            let v1 = Math.random() *400;
+            let v2 = Math.random() * 500;
+            let value1 = 'radio'+v1;
+            let value2 = 'radio'+v2;
+
+            $('#addmorecolor').append(' <div class="roww"><div >\n' +
+                '                                                <h4 style="display: inline-block;">Fille ou garçon</h4>\n' +
+                '                                                    <a style="float: right;" onclick="addmorecolor()" class="btn btn-primary btn-sm" ><i class="tio-add"></i></a>' +
+                ' <a style="float: right;" onclick="removecolor()" class="btn btn-danger btn-sm" ><i class="tio-clear"></i></a></div>\n' +
+                '                                                <div class="form-group"> <div class="bg-white "><div class="custom-control custom-radio margin-b-10"><select style="margin-top: 10px;" name="child_question[]" class="form-control custom-select"></div>\n' +
+                '                                              <option value="">Select Fille ou garçon</option>  <option value="Fille">Fille</option> <option value="Garçon">Garçon</option> \n' +
+                '                                                  </select>   \n' +
+                '                                                  </div></div></div><h4>Date de naissance</h4><div>\n' +
+                '                                             <div class="form-group"><div class="form-group" style="text-align: left!important;"> <label>Date de naissance </label><div class="input_group"><input name="child_dob[]"  type="date" class="form-control"></div></div></div></div>');
+        }
+        function removecolor(){
+            if($('#addmorecolor .roww').length>1) {//remove all except one
+                $('#addmorecolor .roww:last').remove();
+            }
+
+        }
+        function counter(){
+            var count = $('#addmorecolor .roww').length;
+            $('#parent').show();
+            $('#child').html('<h5>Nombre de enfant: ' +count + '</h5>');
+            $('#child2').val(count);
+        }
     </script>
 
 @endsection
