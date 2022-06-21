@@ -517,4 +517,24 @@ class SettingsController extends Controller
         $contract = Events::where('jober_id','=',Auth::user()->id)->get();
         return view('front.jobber.calander.index',compact('contract','title'));
     }
+    public function appEventStore(Request $request){
+        $event = new Events();
+        $event->title =  $request->title;
+        $event->jober_id =  Auth::user()->id;
+        $event->e_time = $request->e_time;
+        $event->price = $request->price;
+        $event->contract_id = 0;
+        $event->save();
+        $notification = array(
+            'messege' => 'Votre événement Ajouter',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function appEventView($id){
+        $contract = Events::find($id);
+        $title = $contract->title;
+        return view('front.jobber.calander.details',compact('contract','title'));
+
+    }
 }
