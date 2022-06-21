@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Front;
+use App\Events;
 use Carbon\Carbon;
 use App\Category;
 use App\ChildCategory;
@@ -447,7 +448,16 @@ class ApplicantController extends Controller
         $contract->price = $proposal->price;
         $contract->description = $request->description;
         $contract->contract_no = 'CN-'.rand(10000, 90000);
-        $contract->save();
+        if($contract->save()){
+            $event = new Events();
+            $event->title =  $jobrequest->title;
+            $event->jober_id =  $proposal->jobber_id;
+            $event->e_time = $request->e_time;
+            $event->price = $proposal->price;
+            $event->contract_id = $contract->id;
+            $event->save();
+        }
+
 
         $payment = new Payment();
         $payment->contract_id = $contract->id;

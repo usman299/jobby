@@ -13,18 +13,18 @@
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
+
+                    left: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
                 },
 
                 buttonText: {
-                    today: "today",
-                    year: 'year',
-                    month: 'month',
-                    week: 'week',
-                    day: 'day',
-                    list: 'list',
+                    today: "Aujourd'hui",
+                    year: 'Année',
+                    month: 'Mois',
+                    week: 'Semaine',
+                    day: 'Jour',
+                    list: 'Mon planning',
                 },
                 initialDate: "{{\Carbon\Carbon::now()}}",
                 locale: initialLocaleCode,
@@ -36,15 +36,15 @@
                 events: [
                         @foreach($contract as $job)
                     {
-                        title: "{{$job->applicant->name}}",
-                        start: "{{$job->created_at->format('Y-m-d')}}",
-                        @if($job->status == 0)
-                        backgroundColor: "red",
-                        @elseif($job->status == 1)
-                        backgroundColor: "blue",
-                        @elseif($job->status == 2)
-                        backgroundColor: "green",
-                        @endif
+                        title: "{{$job->title}}",
+                        start: "{{$job->e_date->format('Y-m-d')}}",
+{{--                        @if($job->status == 0)--}}
+{{--                        backgroundColor: "red",--}}
+{{--                        @elseif($job->status == 1)--}}
+{{--                        backgroundColor: "blue",--}}
+{{--                        @elseif($job->status == 2)--}}
+{{--                        backgroundColor: "green",--}}
+{{--                        @endif--}}
                         borderColor: 'black',
                         url: "{{url('applicant/contract/details/')}}/"+{{$job->id}}
 

@@ -8,6 +8,7 @@ use App\CardPaymant;
 use App\Category;
 use App\Check;
 use App\Condition;
+use App\Events;
 use App\Http\NotificationHelper;
 use App\JobRequest;
 use App\Mail\AllContact;
@@ -513,7 +514,7 @@ class SettingsController extends Controller
     }
     public function appCalander(){
         $title = 'Événement';
-        $contract = Contract::where('jober_id','=',Auth::user()->id)->get();
+        $contract = Events::where('jober_id','=',Auth::user()->id)->get();
         return view('front.jobber.calander.index',compact('contract','title'));
     }
 }
