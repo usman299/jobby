@@ -512,7 +512,8 @@ class SettingsController extends Controller
 
     }
     public function appCalander(){
+        $title = 'Événement';
         $contract = Contract::where('jober_id','=',Auth::user()->id)->get();
-        return view('front.jobber.calander.index',compact('contract'));
+        return view('front.jobber.calander.index',compact('contract','title'));
     }
 }
