@@ -692,20 +692,33 @@
                     <div class="em_profile_user">
                         <div class="media">
                             <a href="#">
-                                @if($user->is_company == 1)
+                                @if($user->is_company == 1 && $user->role==1)
                                     {{--                                <span class="notify-badge">PRO</span>--}}
                                     <span class="notify-badge">
-<!--                                    <svg id="Iconly_Bulk_Shield_Done" data-name="Iconly/Bulk/Shield Done" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                                    <g id="Shield_Done" data-name="Shield Done" transform="translate(2.917 1.667)">
-                                        <path id="Fill_1" data-name="Fill 1" d="M7.155,16.667a.652.652,0,0,1-.3-.072l-3-1.553a7.044,7.044,0,0,1-2.038-1.513A6.869,6.869,0,0,1,.035,8.967L0,3.437A1.511,1.511,0,0,1,1.024,2.01L6.534.089A1.569,1.569,0,0,1,7.559.083L13.09,1.939a1.508,1.508,0,0,1,1.041,1.413l.035,5.534a6.869,6.869,0,0,1-1.722,4.579A7.019,7.019,0,0,1,10.427,15L7.453,16.591a.637.637,0,0,1-.3.076" transform="translate(0 0)" fill="#ff4040" opacity="0.4"></path>
-                                        <path id="Fill_4" data-name="Fill 4" d="M2.23,4.429a.636.636,0,0,1-.446-.177L.187,2.716A.6.6,0,0,1,.182,1.85a.641.641,0,0,1,.89-.006l1.149,1.1L5.027.182a.641.641,0,0,1,.89-.006.6.6,0,0,1,.006.866l-3.249,3.2a.633.633,0,0,1-.444.182" transform="translate(4.286 5.838)" fill="#ff4040"></path>
-                                    </g>
-                                </svg>-->
+{{--                                   <svg id="Iconly_Bulk_Shield_Done" data-name="Iconly/Bulk/Shield Done" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">--}}
+{{--                                    <g id="Shield_Done" data-name="Shield Done" transform="translate(2.917 1.667)">--}}
+{{--                                        <path id="Fill_1" data-name="Fill 1" d="M7.155,16.667a.652.652,0,0,1-.3-.072l-3-1.553a7.044,7.044,0,0,1-2.038-1.513A6.869,6.869,0,0,1,.035,8.967L0,3.437A1.511,1.511,0,0,1,1.024,2.01L6.534.089A1.569,1.569,0,0,1,7.559.083L13.09,1.939a1.508,1.508,0,0,1,1.041,1.413l.035,5.534a6.869,6.869,0,0,1-1.722,4.579A7.019,7.019,0,0,1,10.427,15L7.453,16.591a.637.637,0,0,1-.3.076" transform="translate(0 0)" fill="#ff4040" opacity="0.4"></path>--}}
+{{--                                        <path id="Fill_4" data-name="Fill 4" d="M2.23,4.429a.636.636,0,0,1-.446-.177L.187,2.716A.6.6,0,0,1,.182,1.85a.641.641,0,0,1,.89-.006l1.149,1.1L5.027.182a.641.641,0,0,1,.89-.006.6.6,0,0,1,.006.866l-3.249,3.2a.633.633,0,0,1-.444.182" transform="translate(4.286 5.838)" fill="#ff4040"></path>--}}
+{{--                                    </g>--}}
+{{--                                </svg>--}}
                                     <img height="20px" loading="lazy"
-                                         src="https://media.gettyimages.com/vectors/shield-ok-vector-id1253267955?s=612x612"
+                                         src="{{asset('badg/1.PNG')}}"
                                          alt="">
                                 </span>
-                            @endif
+                                    @elseif($user->is_company == 2 && $user->role==1)
+                                    <span class="notify-badge">
+                                        <img height="20px" loading="lazy"
+                                             src="{{asset('badg/2.PNG')}}"
+                                             alt="">
+                                    </span>
+                                @elseif($user->is_company == 3 && $user->role==1)
+                                    <span class="notify-badge">
+                                        <img height="20px" loading="lazy"
+                                             src="{{asset('badg/3.PNG')}}"
+                                             alt="">
+                                    </span>
+
+                                 @endif
                             <!-- You can use an image -->
                                     @if(Auth::user())
                                 <img class="_imgUser" loading="lazy" src="{{asset($user->image)}}" alt="">
@@ -938,6 +951,25 @@
                                 </div>
                             </a>
                         </li>
+                            <li class="nav-item {{  request()->is('app/contract/calande') ? '-active-links':'' }}">
+                                <a class="nav-link rolecss" href="{{route('app.contract.calander')}}">
+                                    <div class="">
+                                        <div class="icon_current">
+                                            <svg id="Iconly_Curved_Document" data-name="Iconly/Curved/Document" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                <g id="Document" transform="translate(3.61 2.75)">
+                                                    <path id="Stroke_1" data-name="Stroke 1" d="M7.22.5H0" transform="translate(4.766 12.446)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                    <path id="Stroke_2" data-name="Stroke 2" d="M7.22.5H0" transform="translate(4.766 8.686)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                    <path id="Stroke_3" data-name="Stroke 3" d="M2.755.5H0" transform="translate(4.766 4.927)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                    <path id="Stroke_4" data-name="Stroke 4" d="M0,9.25c0,6.937,2.1,9.25,8.391,9.25s8.391-2.313,8.391-9.25S14.685,0,8.391,0,0,2.313,0,9.25Z" transform="translate(0)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                        <span class="title_link">Événement</span>
+                                    </div>
+                                </a>
+                            </li>
+
                         <li class="nav-item {{  request()->is('app/about') ? '-active-links':'' }}">
                             <a class="nav-link rolecss" href="{{route('app.about')}}">
                                 <div class="">

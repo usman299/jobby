@@ -1035,8 +1035,8 @@
                                                 <h1 class="size-18 weight-600 color-secondary m-0">Qui souhaitez-vous farie garder?</h1>
                                             </div>
                                             <div class="absolute right-0 padding-r-20">
-                                                <button type="button" class="close" data-dismiss="modal" onclick="counter()" aria-label="Close">
-                                                    <i class="tio-clear"></i>
+                                                <button type="button" style="border-radius: 6px;" class="btn btn-primary btn-sm " data-dismiss="modal" onclick="counter()" aria-label="Close">
+                                                    Fait
                                                 </button>
                                             </div>
                                         </div>

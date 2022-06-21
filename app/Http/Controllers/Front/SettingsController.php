@@ -511,4 +511,8 @@ class SettingsController extends Controller
         return redirect()->back()->with($notification);
 
     }
+    public function appCalander(){
+        $contract = Contract::where('jober_id','=',Auth::user()->id)->get();
+        return view('front.jobber.calander.index',compact('contract'));
+    }
 }

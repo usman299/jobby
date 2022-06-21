@@ -126,6 +126,8 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
     Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
+    Route::get('/app/contract/calander', 'Front\SettingsController@appCalander')->name('app.contract.calander');
+
     Route::get('/jobber/skills', 'Front\SettingsController@skills')->name('jobber.skills');
     Route::get('/app/allcards', 'Front\SettingsController@appAllcards')->name('app.allcards');
     Route::get('/app/singlecards/{id}', 'Front\SettingsController@appSingleCards')->name('app.singlecards');

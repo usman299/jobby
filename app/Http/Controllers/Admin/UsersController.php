@@ -227,6 +227,7 @@ class UsersController extends Controller
         $user->email = $request->email;
         $user->address = $request->address;
         $user->phone = $request->phone;
+        $user->is_company = $request->is_company;
         $user->country = $request->countory_id;
         if ($request->hasfile('image')) {
 

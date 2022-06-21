@@ -164,6 +164,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
+
                                         <div id="about-me" class="tab-pane fade">
                                             @foreach($contract as $row)
 
@@ -258,6 +259,7 @@
                                                                 </select>
                                                             </div>
                                                         </div>
+
                                                         <div class="form-row">
                                                             <div class="form-group col-md-6">
                                                                 <label>Adresse <strong style="font-size: 22px; color: red;">*</strong></label>
@@ -267,6 +269,18 @@
                                                             <div class="form-group col-md-6">
                                                                 <label>Téléphoner <strong style="font-size: 22px; color: red;">*</strong></label>
                                                                 <input type="text" class="form-control" name="phone" value="{{$jobber->phone}}" placeholder="Entrez le Téléphoner">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label>Badge </label>
+                                                                <select class="form-control default-select  select2"  name="is_company">
+                                                                    <option>Choisir Badge</option>
+                                                                    <option value="1" {{ $jobber->is_company == 1 ? 'selected' : '' }} >Jobber certifié</option>
+                                                                    <option value="2" {{ $jobber->is_company == 2 ? 'selected' : '' }} >Jobber pro</option>
+                                                                    <option value="3" {{ $jobber->is_company == 3 ? 'selected' : '' }} >Super jobber </option>
+
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-row">
