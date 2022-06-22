@@ -82,7 +82,7 @@
                 <!-- item -->
                 @elseif($row->id==2)
                 <div class="item" style="margin-top: 20px;">
-                    <a href="{{route('app.pay.subscription',['id'=>$row->id])}}" class="box__ele design-color" style="background-color: #00deee!important;">
+                    <a href="{{route('app.pay.subscription',['id'=>$row->id])}}" class="box__ele design-color" style="background-color: #009fde!important;">
                         <div class="icon">
                             <img src="{{asset('assets/img/icon/pantone.svg')}}" alt="">
                         </div>
@@ -93,8 +93,8 @@
                     </a>
                 </div>
                 @else
-                        <div class="item" style="margin-top: 10px;">
-                            <a href="{{route('app.pay.subscription',['id'=>$row->id])}}" class="box__ele business-color" style="background-color: #009fde!important;">
+                        <div class="item" style="margin-top: 20px;">
+                            <a href="{{route('app.pay.subscription',['id'=>$row->id])}}" class="box__ele business-color" style="background-color: #00deee!important;">
                                 <div class="icon">
                                     <img src="{{asset('assets/img/icon/working-hours.svg')}}" alt="">
                                 </div>

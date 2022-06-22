@@ -636,7 +636,7 @@ class SettingsController extends Controller
 
         if($sub->save())
         {
-            $user = User::firnd($sub->user_id);
+            $user = User::find($sub->user_id);
             $user->subscription = $sub->sub_id;
             $user()->update();
         }
