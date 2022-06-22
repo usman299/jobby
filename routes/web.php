@@ -126,9 +126,17 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::get('/categories', 'FrontendController@allCategories')->name('front.categories');
     Route::get('/subCategories/{id}', 'FrontendController@allSubCategories')->name('front.subcategories');
 
+
+//    Subscription
+
+    Route::get('/app/subscription', 'Front\SettingsController@appSubscription')->name('app.subscription');
+    Route::get('/app/pay/subscription/{id}', 'Front\SettingsController@appPaySubscription')->name('app.pay.subscription');
+    Route::post('/subscription/checkout/{id}', 'Front\SettingsController@appSubscriptionCheckout')->name('subscription.checkout');
+    //EVENTS
     Route::get('/app/contract/calander', 'Front\SettingsController@appCalander')->name('app.contract.calander');
     Route::post('/app/event/store', 'Front\SettingsController@appEventStore')->name('app.event.store');
     Route::get('/app/event/view/{id}', 'Front\SettingsController@appEventView')->name('app.event.view');
+
     Route::get('/jobber/skills', 'Front\SettingsController@skills')->name('jobber.skills');
     Route::get('/app/allcards', 'Front\SettingsController@appAllcards')->name('app.allcards');
     Route::get('/app/singlecards/{id}', 'Front\SettingsController@appSingleCards')->name('app.singlecards');

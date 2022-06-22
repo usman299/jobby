@@ -58,6 +58,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Portfolio::class, 'jobber_id');
     }
+    public function subscriptions()
+    {
+        return $this->belongsTo(Subscription::class, 'subscription');
+    }
 
 }
 

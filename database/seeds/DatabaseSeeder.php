@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(SkilsSeeder::class);
 //        $this->call(JobberRequestSeeder::class);
         $this->call(SliderGalerySeeder::class);
+        $this->call(SubscriptionSeeder::class);
     }
 }
