@@ -29,5 +29,6 @@ class SubscriptionSeeder extends Seeder
             'price' => '29.99',
             'offers' => 'unlimited'
         ]);
+
     }
 }
