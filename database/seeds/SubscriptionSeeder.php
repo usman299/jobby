@@ -17,18 +17,21 @@ class SubscriptionSeeder extends Seeder
             'price' => '0',
             'offers' => '15'
         ]);
+
         \App\Subscription::create([
             'name' => 'Intermediate',
             'fee' => '10',
             'price' => '9.99',
             'offers' => 'unlimited'
         ]);
+
         \App\Subscription::create([
             'name' => 'Pro',
             'fee' => '5',
             'price' => '29.99',
             'offers' => 'unlimited'
         ]);
+
 
     }
 }
