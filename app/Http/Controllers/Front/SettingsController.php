@@ -638,7 +638,7 @@ class SettingsController extends Controller
         {
             $user = User::find($sub->user_id);
             $user->subscription = $sub->sub_id;
-            $user()->update();
+            $user->update();
         }
 
         $notification = array(
