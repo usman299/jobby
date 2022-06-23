@@ -970,23 +970,23 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="nav-item {{  request()->is('app/subscription') ? '-active-links':'' }}">
-                                <a class="nav-link rolecss" href="{{route('app.subscription')}}">
-                                    <div class="">
-                                        <div class="icon_current">
-                                            <svg id="Iconly_Curved_Info_Square" data-name="Iconly/Curved/Info Square" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                                                <g id="Info_Square" data-name="Info Square" transform="translate(2.292 2.292)">
-                                                    <path id="Stroke_1" data-name="Stroke 1" d="M0,7.708C0,1.927,1.927,0,7.708,0s7.708,1.927,7.708,7.708-1.927,7.708-7.708,7.708S0,13.489,0,7.708Z" transform="translate(15.417 15.417) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                    <path id="Stroke_3" data-name="Stroke 3" d="M0,0V3.246" transform="translate(7.708 10.954) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                    <path id="Stroke_15" data-name="Stroke 15" d="M0,0H.007" transform="translate(7.712 4.792) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>
-                                                </g>
-                                            </svg>
-                                        </div>
+{{--                            <li class="nav-item {{  request()->is('app/subscription') ? '-active-links':'' }}">--}}
+{{--                                <a class="nav-link rolecss" href="{{route('app.subscription')}}">--}}
+{{--                                    <div class="">--}}
+{{--                                        <div class="icon_current">--}}
+{{--                                            <svg id="Iconly_Curved_Info_Square" data-name="Iconly/Curved/Info Square" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">--}}
+{{--                                                <g id="Info_Square" data-name="Info Square" transform="translate(2.292 2.292)">--}}
+{{--                                                    <path id="Stroke_1" data-name="Stroke 1" d="M0,7.708C0,1.927,1.927,0,7.708,0s7.708,1.927,7.708,7.708-1.927,7.708-7.708,7.708S0,13.489,0,7.708Z" transform="translate(15.417 15.417) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>--}}
+{{--                                                    <path id="Stroke_3" data-name="Stroke 3" d="M0,0V3.246" transform="translate(7.708 10.954) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>--}}
+{{--                                                    <path id="Stroke_15" data-name="Stroke 15" d="M0,0H.007" transform="translate(7.712 4.792) rotate(180)" fill="none" stroke="#9498ac" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"></path>--}}
+{{--                                                </g>--}}
+{{--                                            </svg>--}}
+{{--                                        </div>--}}
 
-                                        <span class="title_link">Subscription</span>
-                                    </div>
-                                </a>
-                            </li>
+{{--                                        <span class="title_link">Subscription</span>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
 
                             <li class="nav-item {{  request()->is('app/about') ? '-active-links':'' }}">
