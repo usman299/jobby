@@ -1897,10 +1897,18 @@
 
                     </div>
                     <div class="modal-footer">
+                        <?php
+                        $user = Auth::user();
+                        $offers= \App\User::where('subscription','=',1)->where('offers','=',0)->where('id','=',$user->id)->first();
+                        ?>
+                        @if($offers)
+                            <a href="{{route('app.subscription')}}" class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">Poster</a>
+                        @else
                         <button type="submit"
                                 class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
                             Poster
                         </button>
+                        @endif
                     </div>
                     <div class="modal-footer">
                         <p> En signant, vous vous engagez a etre disponible le <b>Samedi {{$jobrequest->service_date->format('d-m-y')}} {{$jobrequest->start_time}}</b></p>

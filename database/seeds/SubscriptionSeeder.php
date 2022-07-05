@@ -11,21 +11,21 @@ class SubscriptionSeeder extends Seeder
      */
     public function run()
     {
-        \App\Subscription::create([
+        \App\Subscribe::create([
             'name' => 'Novice',
             'fee' => '10',
             'price' => '0',
             'offers' => '15'
         ]);
 
-        \App\Subscription::create([
+        \App\Subscribe::create([
             'name' => 'Intermediate',
             'fee' => '10',
             'price' => '9.99',
             'offers' => 'unlimited'
         ]);
 
-        \App\Subscription::create([
+        \App\Subscribe::create([
             'name' => 'Pro',
             'fee' => '5',
             'price' => '29.99',

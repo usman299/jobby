@@ -8,6 +8,6 @@ class Subpaymant extends Model
 {
     public function subscription()
     {
-        return $this->belongsTo(Subscription::class, 'sub_id');
+        return $this->belongsTo(Subscribe::class, 'sub_id');
     }
 }

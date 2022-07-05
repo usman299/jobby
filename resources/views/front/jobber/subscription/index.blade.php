@@ -9,7 +9,7 @@
         </div>
         <!-- End. title -->
 
-        <div class="emPage__myCards padding-10 py-0">
+        <a href="{{route('app.subscription.details')}}"><div class="emPage__myCards padding-10 py-0">
             <div class="emBK__cards">
                 <!-- ele__card -->
                 <div class="ele__card margin-b-20">
@@ -56,7 +56,7 @@
                 </div>
                 <!-- .ele__card -->
             </div>
-        </div>
+        </div></a>
 
         <!-- Start title -->
         <div class="emTitle_co padding-20">

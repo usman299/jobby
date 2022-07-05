@@ -26,6 +26,7 @@ use App\Proposal;
 use App\QuestionAnswer;
 use App\SubCategory;
 use App\Subpaymant;
+use App\Subscribe;
 use App\Subscription;
 use App\User;
 use App\Walet;
@@ -605,39 +606,52 @@ class SettingsController extends Controller
     public function appSubscription()
     {
         $title = 'Subscription';
-        $subscription = Subscription::all();
+        $subscription = Subscribe::all();
+//        $user->newSubscription('default', $request->plan)->create($request->paymentMethodId);
         return view('front.jobber.subscription.index', compact('title', 'subscription'));
     }
 
     public function appPaySubscription($id)
     {
 
-        $sub = Subscription::find($id);
+        $sub = Subscribe::find($id);
         $title = $sub->name;
         $total = $sub->price;
-        if (isset($total)) {
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-            $payment_intent = \Stripe\PaymentIntent::create([
-                'amount' => ($total) * 100,
-                'currency' => 'EUR'
-            ]);
-        }
-        $intent = $payment_intent->client_secret;
+        $user= Auth::user();
+        $intent = $user->createSetupIntent();
+
+//        if (isset($total)) {
+//            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+//            $payment_intent = \Stripe\PaymentIntent::create([
+//                'amount' => ($total) * 100,
+//                'currency' => 'EUR'
+//            ]);
+//        }
+//        $intent = $payment_intent->client_secret;
         return view('front.jobber.subscription.paymant', compact('intent', 'sub', 'title','total'));
 
     }
 
     public function appSubscriptionCheckout(Request $request,$id)
     {
+        $subscription = Subscribe::where('price','=',$request->total)->first();
+
         $sub = new Subpaymant();
-        $sub->sub_id = $id;
+        $sub->sub_id = $subscription->id;
         $sub->user_id = Auth::user()->id;
         $sub->price = $request->total;
+        $sub->key_id = $request->plan;
+        $sub->card_holder_name = $request->card_holder_name;
+        $sub->paymentMethodId = $request->paymentMethodId;
+        $sub->message = $request->message;
 
         if($sub->save())
-        {
+        {   $user = Auth::user();
             $user = User::find($sub->user_id);
-            $user->subscription = $sub->sub_id;
+            $user->subscription = $subscription->id;
+            $user->paymant_id = $sub->id;
+            $user->sub_date = $sub->created_at;
+            $user->offers = 0;
             $user->update();
         }
 
@@ -648,4 +662,11 @@ class SettingsController extends Controller
         return redirect()->route('app.subscription')->with($notification);
 
     }
+    public function appSubscriptionDetails()
+    {   $title ="Détails de l'abonnement";
+        $paymant = Subpaymant::where('user_id','=',Auth::user()->id)->latest()->get();
+
+        return view('front.jobber.subscription.details', compact('paymant',  'title'));
+    }
 }
+

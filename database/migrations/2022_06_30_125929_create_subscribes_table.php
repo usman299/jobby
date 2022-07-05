@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWaletsTable extends Migration
+class CreateSubscribesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateWaletsTable extends Migration
      */
     public function up()
     {
-        Schema::create('walets', function (Blueprint $table) {
+        Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id')->nullable();
-            $table->string('balance')->nullable();
-            $table->string('paymant_status')->default('user');
-            $table->string('status')->nullable();
+            $table->string('name')->nullable();
+            $table->string('offers')->nullable();
+            $table->string('fee')->nullable();
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateWaletsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('walets');
+        Schema::dropIfExists('subscribes');
     }
 }

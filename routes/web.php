@@ -132,6 +132,7 @@ Route::group(['middleware' => ['auth', 'web', 'app']], function () {
     Route::get('/app/subscription', 'Front\SettingsController@appSubscription')->name('app.subscription');
     Route::get('/app/pay/subscription/{id}', 'Front\SettingsController@appPaySubscription')->name('app.pay.subscription');
     Route::post('/subscription/checkout/{id}', 'Front\SettingsController@appSubscriptionCheckout')->name('subscription.checkout');
+    Route::get('/app/subscription/details', 'Front\SettingsController@appSubscriptionDetails')->name('app.subscription.details');
     //EVENTS
     Route::get('/app/contract/calander', 'Front\SettingsController@appCalander')->name('app.contract.calander');
     Route::post('/app/event/store', 'Front\SettingsController@appEventStore')->name('app.event.store');

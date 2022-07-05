@@ -143,7 +143,15 @@ class JobberController extends Controller
             $proposal->service_price = $request->service_price;
             $proposal->tax = $request->tax;
             $proposal->jobber_id = $user->id;
-            $proposal->save();
+           $proposal->save();
+
+            if($user->subscription==1){
+
+               $user->offers =  $user->offers - 1;
+                $user->update();
+            }
+
+
 
             $activity = "Nouvelle proposition";
             $msg = "Vous avez une nouvelle proposition sur votre demande d'emploi";

@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Laravel\Cashier\Billable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
-{
+{   use Billable;
     use HasApiTokens, Notifiable;
 
     /**
@@ -60,7 +61,7 @@ class User extends Authenticatable
     }
     public function subscriptions()
     {
-        return $this->belongsTo(Subscription::class, 'subscription');
+        return $this->belongsTo(Subscribe::class, 'subscription');
     }
 
 }
