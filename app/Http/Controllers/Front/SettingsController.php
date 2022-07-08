@@ -657,6 +657,7 @@ class SettingsController extends Controller
             $user->update();
         }
 
+
         $notification = array(
             'messege' => 'Abonnement actif!',
             'alert-type' => 'success'
