@@ -63,6 +63,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Subscribe::class, 'subscription');
     }
+    public function hasSubscription(){
+        $user = Auth::user();
 
+        if ($user->subscribed('main')){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 

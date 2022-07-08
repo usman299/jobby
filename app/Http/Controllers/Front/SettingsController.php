@@ -11,6 +11,7 @@ use App\Condition;
 use App\Events;
 use App\Http\NotificationHelper;
 use App\JobRequest;
+
 use App\Mail\AllContact;
 use App\Mail\BonCadeau;
 use App\Contact;
@@ -35,6 +36,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+
 use function Sodium\compare;
 
 class SettingsController extends Controller
@@ -635,7 +637,7 @@ class SettingsController extends Controller
     public function appSubscriptionCheckout(Request $request,$id)
     {
         $subscription = Subscribe::where('price','=',$request->total)->first();
-
+        $user = Auth::user();
         $sub = new Subpaymant();
         $sub->sub_id = $subscription->id;
         $sub->user_id = Auth::user()->id;
@@ -646,7 +648,7 @@ class SettingsController extends Controller
         $sub->message = $request->message;
 
         if($sub->save())
-        {   $user = Auth::user();
+        {
             $user = User::find($sub->user_id);
             $user->subscription = $subscription->id;
             $user->paymant_id = $sub->id;
@@ -659,7 +661,9 @@ class SettingsController extends Controller
             'messege' => 'Abonnement actif!',
             'alert-type' => 'success'
         );
-        return redirect()->route('app.subscription')->with($notification);
+        $title = 'Subscription';
+        $subscription = Subscribe::all();
+        return redirect()->back()->with($notification);
 
     }
     public function appSubscriptionDetails()

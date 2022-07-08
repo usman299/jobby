@@ -24,7 +24,6 @@ class CreateSubscriptionsTable extends Migration
             $table->timestamp('trial_ends_at')->nullable();
             $table->timestamp('ends_at')->nullable();
             $table->timestamps();
-
             $table->index(['user_id', 'stripe_status']);
         });
     }

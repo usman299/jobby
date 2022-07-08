@@ -1903,11 +1903,16 @@
                         ?>
                         @if($offers)
                             <a href="{{route('app.subscription')}}" class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">Poster</a>
-                        @else
+                            @else
+
+                                @if(Auth::user()->hasSubscription())
                         <button type="submit"
                                 class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
                             Poster
                         </button>
+                                @else
+                                    <a href="{{route('app.subscription')}}"><h6 style="color: #df314d">Abonnez-vous pour voir</h6></a>
+                                @endif
                         @endif
                     </div>
                     <div class="modal-footer">
