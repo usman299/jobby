@@ -663,6 +663,7 @@ class SettingsController extends Controller
         );
         return redirect()->route('app.subscription')->with($notification);
 
+
     }
     public function appSubscriptionDetails()
     {   $title ="Détails de l'abonnement";
