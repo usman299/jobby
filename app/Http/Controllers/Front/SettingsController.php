@@ -661,9 +661,7 @@ class SettingsController extends Controller
             'messege' => 'Abonnement actif!',
             'alert-type' => 'success'
         );
-        $title = 'Subscription';
-        $subscription = Subscribe::all();
-        return redirect()->back()->with($notification);
+        return redirect()->route('app.subscription')->with($notification);
 
     }
     public function appSubscriptionDetails()
