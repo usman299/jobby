@@ -1901,17 +1901,18 @@
                         $user = Auth::user();
                         $offers= \App\User::where('subscription','=',1)->where('offers','=',0)->where('id','=',$user->id)->first();
                         ?>
-                        @if($offers)
+                        @if($offers>0)
                             <a href="{{route('app.subscription')}}" class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">Poster</a>
                             @else
 
-                                @if(Auth::user()->hasSubscription())
+                        @if(Auth::user()->hasSubscription())
                         <button type="submit"
                                 class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">
                             Poster
                         </button>
                                 @else
-                                    <a href="{{route('app.subscription')}}"><h6 style="color: #df314d">Abonnez-vous pour voir</h6></a>
+                                    <a href="{{route('app.subscription')}}" class="btn w-100 bg-primary m-0 color-white h-52 d-flex align-items-center rounded-10 justify-content-center">Abonnez-vous pour voir</a>
+
                                 @endif
                         @endif
                     </div>
