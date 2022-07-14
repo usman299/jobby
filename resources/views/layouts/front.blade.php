@@ -952,6 +952,7 @@
                                 </div>
                             </a>
                         </li>
+                            @if($user->role == 1)
                             <li class="nav-item {{  request()->is('app/contract/calande') ? '-active-links':'' }}">
                                 <a class="nav-link rolecss" href="{{route('app.contract.calander')}}">
                                     <div class="">
@@ -970,6 +971,7 @@
                                     </div>
                                 </a>
                             </li>
+
                             <li class="nav-item {{  request()->is('app/subscription') ? '-active-links':'' }}">
                                 <a class="nav-link rolecss" href="{{route('app.subscription')}}">
                                     <div class="">
@@ -987,6 +989,7 @@
                                     </div>
                                 </a>
                             </li>
+                            @endif
 
 
                             <li class="nav-item {{  request()->is('app/about') ? '-active-links':'' }}">

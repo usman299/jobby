@@ -501,6 +501,7 @@ class SettingsController extends Controller
     public function appBalanceDetails()
     {
         $walet = Walet::where('user_id', '=', Auth::user()->id)->latest()->get();
+
         return view('front.balance.detials', compact('walet'));
     }
 
