@@ -15,19 +15,18 @@ class UserCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'firstName' => $this->firstName,
-            'lastName'=> $this->lastName,
-            'phone'=> $this->phone,
-            'address'=> $this->address,
-            'country'=> $this->country,
-            'postalCode'=> $this->postalCode,
-            'image'=> $this->image,
-            'category_id'=> $this->category_id,
-            'subcategory_id'=> $this->subcategory_id,
-            
-           
+            'user_id' => $this->id,
+            'firstName' => $this->firstName??"",
+            'lastName'=> $this->lastName??"",
+            'phone'=> $this->phone??"",
+            'email'=> $this->email??"",
+            'address'=> $this->address??"",
+            'country'=> $this->country??"",
+            'postalCode'=> $this->postalCode??"",
+            'image'=> $this->image??"",
+            'category_id'=> $this->category_id??"",
+            'subcategory_id'=> $this->subcategory_id??"",
+            'role'=> $this->role,
         ];
-
-       
     }
 }

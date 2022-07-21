@@ -18,18 +18,12 @@ public $successStatus = 200;
     public function login(){
         if(Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])){
             $user = Auth::user();
-            $success['id'] =  $user->id;
             $success['token'] =  $user->createToken('MyApp')-> accessToken;
-            $success['success'] = true;
-
-            
-            return response()->json($success, $this->successStatus);
-
+            $success['user'] =  new UserCollection($user);
+            return response()->json(['success' => $success], $this-> successStatus);
         }
         else{
-            $success['message'] = 'SOme thing Wrong';
-            $success['success'] = false;
-            return response()->json( $success, 200);
+            return response()->json(['error'=>'Unauthorised'], 401);
         }
     }
 /**
@@ -52,7 +46,7 @@ public $successStatus = 200;
                     }
                     $input = $request->all();
                     $input['password'] = bcrypt($input['password']);
-                     
+
                     $email = User::where('email','=',$input['email'])->first();
                     if($email != null){
                         $success['message'] = 'Your Email Exit Already';
@@ -82,20 +76,20 @@ public $successStatus = 200;
     public function details()
     {
         $user = Auth::guard('api')->user()->id();
-        
-        $data =   UserCollection::collection($user);              
+
+        $data =   UserCollection::collection($user);
         $success['data'] = $data;
         $success['success'] = true;
-        
+
     return response()->json($success,$this->successStatus);
-        
+
     }
     public function getProfile()
     {
         $user = Auth::guard('api')->user();
-        
-        
-        $data =   UserCollection::collection($user);            
+
+
+        $data =   UserCollection::collection($user);
         $success['data'] = $data;
         $success['success'] = true;
         return response()->json($success,$this->successStatus);
@@ -114,12 +108,12 @@ public $successStatus = 200;
         $user->category_id = $request->category_id;
         $user->subcategory_id = $request->subcategory_id;
         $user->update();
-        
+
         $success['message'] = 'Your Data Updated';
         $success['success'] = true;
 
         return response()->json($success, $this->successStatus);
-       
+
     }
 }
 
