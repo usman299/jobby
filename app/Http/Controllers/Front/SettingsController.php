@@ -657,7 +657,7 @@ class SettingsController extends Controller
             $user->offers = 0;
             $user->update();
         }
-
+        $user->newSubscription('main', $request->plan)->create($request->paymentMethodId);
 
         $notification = array(
             'messege' => 'Abonnement actif!',

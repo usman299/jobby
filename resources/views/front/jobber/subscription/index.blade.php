@@ -21,12 +21,12 @@
                                     <div class="icon">
                                         <img style="width: 50px;height: 50px;" src="{{asset('assets/img/icon/icons8-subscription-64.png')}}" alt="">
                                     </div>
-                                    <p class="ex_date">{{$user->subscriptions->fee}}% de Frais</p>
+                                    <p class="ex_date">{{$user->sub->fee}}% de Frais</p>
                                 </div>
                             </div>
                             <div class="body">
                                 <div class="card_encr">
-                                    <span>{{$user->subscriptions->name}}</span>
+                                    <span>{{$user->sub->name}}</span>
                                 </div>
                             </div>
                             <div class="footer">
@@ -37,7 +37,7 @@
                                         @if($user->subscription==1)
                                         <p class="no_card">0€</p>
                                         @else
-                                            <p class="no_card">{{$user->subscriptions->price}}€/mois</p>
+                                            <p class="no_card">{{$user->sub->price}}€/mois</p>
                                         @endif
                                     </div>
                                     <div class="dropdown dropleft default none-arrow">
@@ -48,6 +48,9 @@
                                                 <span class="name">Illimitée</span>
                                             @endif
                                         </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
