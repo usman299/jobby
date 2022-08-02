@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\API;
+use App\Http\Resources\Users\UserResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -87,9 +88,7 @@ public $successStatus = 200;
     public function getProfile()
     {
         $user = Auth::guard('api')->user();
-
-
-        $data =   UserCollection::collection($user);
+        $data =   new UserResource($user);
         $success['data'] = $data;
         $success['success'] = true;
         return response()->json($success,$this->successStatus);
