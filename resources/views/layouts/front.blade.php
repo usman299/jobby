@@ -985,7 +985,7 @@
                                             </svg>
                                         </div>
 
-                                        <span class="title_link">Subscription</span>
+                                        <span class="title_link">Abonnement</span>
                                     </div>
                                 </a>
                             </li>

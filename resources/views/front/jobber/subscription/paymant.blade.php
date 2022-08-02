@@ -12,7 +12,7 @@
                     <input type="hidden" name="total" value="{{$total}}">
 
                     <div class="input_group">
-                        <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>Subscription</strong> <strong style="color: red;">*</strong></label>
+                        <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>Abonnement</strong> <strong style="color: red;">*</strong></label>
                         <div class="bg-white ">
                             <div class="custom-control custom-radio margin-b-10">
                                 <input type="radio" {{ $total == 9.99 ? 'checked' : 'disabled' }} id="nationality1" value="price_1LFAdxD7gIuku9edjs6ddJwp" name="plan" class="custom-control-input">

@@ -4,7 +4,7 @@
 <?php $user = Auth::user();?>
         <!-- Start title -->
         <div class="emTitle_co padding-10">
-            <h2 class="size-16 weight-500 color-secondary mb-1">Subscription</h2>
+            <h2 class="size-16 weight-500 color-secondary mb-1">Abonnement</h2>
 
         </div>
         <!-- End. title -->
@@ -63,7 +63,7 @@
 
         <!-- Start title -->
         <div class="emTitle_co padding-20">
-            <h2 class="size-16 weight-500 color-secondary mb-1"> Nouvelle Subscription</h2>
+            <h2 class="size-16 weight-500 color-secondary mb-1"> Nouvelle Abonnement</h2>
             <p class="size-12 color-text m-0">Mettre à niveau l'abonnement</p>
         </div>
         <div class="emCategories__learning emPage__cgLearning bg-white py-2">
@@ -71,17 +71,17 @@
                 <!-- item -->
                 @foreach($subscription as $row )
                 @if($row->id==1)
-                <div class="item" style="margin-top: 10px;">
-                    <a href="#" class="box__ele business-color" style="background-color: #ffa44a!important;">
-                        <div class="icon">
-                            <img src="{{asset('assets/img/icon/working-hours.svg')}}" alt="">
-                        </div>
-                        <div class="txt">
-                            <h2 style="font-size: 17px;">{{$row->name}}</h2>
-                            <p style="color: white;font-size: 15px;">{{$row->price}}€/ 15 Offres</p>
-                        </div>
-                    </a>
-                </div>
+{{--                <div class="item" style="margin-top: 10px;">--}}
+{{--                    <a href="#" class="box__ele business-color" style="background-color: #ffa44a!important;">--}}
+{{--                        <div class="icon">--}}
+{{--                            <img src="{{asset('assets/img/icon/working-hours.svg')}}" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="txt">--}}
+{{--                            <h2 style="font-size: 17px;">{{$row->name}}</h2>--}}
+{{--                            <p style="color: white;font-size: 15px;">{{$row->price}}€/ 15 Offres</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
                 <!-- item -->
                 @elseif($row->id==2)
                 <div class="item" style="margin-top: 20px;">

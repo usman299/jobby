@@ -608,7 +608,7 @@ class SettingsController extends Controller
 
     public function appSubscription()
     {
-        $title = 'Subscription';
+        $title = 'Abonnement';
         $subscription = Subscribe::all();
 //        $user->newSubscription('default', $request->plan)->create($request->paymentMethodId);
         return view('front.jobber.subscription.index', compact('title', 'subscription'));
