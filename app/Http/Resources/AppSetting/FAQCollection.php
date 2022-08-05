@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\AppSetting;
 
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class BookingCollection extends ResourceCollection
+class FAQCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +15,9 @@ class BookingCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'question'=> $this->question,
+            'answer'=> $this->answer,
+        ];
     }
 }

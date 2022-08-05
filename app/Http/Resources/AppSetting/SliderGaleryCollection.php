@@ -15,10 +15,7 @@ class SliderGaleryCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            
             'sliderImage'=> $this->img,
-            
-            
         ];
     }
 }

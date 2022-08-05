@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Resources\JobRequest;
+namespace App\Http\Resources\AppSetting;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class PostJobRequestCollection extends JsonResource
+class NotficationCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,8 +15,9 @@ class PostJobRequestCollection extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
-
-        
+        return [
+            'activity'=> $this->activity,
+            'message'=> $this->message,
+        ];
     }
 }
