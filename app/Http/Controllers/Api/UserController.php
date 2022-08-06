@@ -73,9 +73,7 @@ class UserController extends Controller
     {
         $user = Auth::guard('api')->user()->id();
         $data = UserCollection::collection($user);
-        $success['data'] = $data;
-        $success['success'] = true;
-        return response()->json($success, $this->successStatus);
+        return response()->json($data);
 
     }
 
@@ -83,9 +81,7 @@ class UserController extends Controller
     {
         $user = Auth::guard('api')->user();
         $data = new UserResource($user);
-        $success['data'] = $data;
-        $success['success'] = true;
-        return response()->json($success, $this->successStatus);
+        return response()->json($data);
     }
 
     public function update(Request $request)
