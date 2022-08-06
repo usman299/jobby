@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\API;
+
 use App\Http\Resources\Users\UserResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -7,30 +9,32 @@ use App\User;
 use App\Http\Resources\Users\UserCollection;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+
 class UserController extends Controller
 {
-public $successStatus = 200;
+    public $successStatus = 200;
 
-/**
+    /**
      * login api
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function login(){
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])){
+    public function login()
+    {
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])) {
             $user = Auth::user();
-            $success['token'] =  $user->createToken('MyApp')-> accessToken;
-            $success['user'] =  new UserCollection($user);
-            return response()->json(['success' => $success], $this-> successStatus);
-        }
-        else{
-            return response()->json(['error'=>'Unauthorised'], 401);
+            $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['user'] = new UserCollection($user);
+            return response()->json(['success' => $success], $this->successStatus);
+        } else {
+            return response()->json(['error' => 'Unauthorised'], 401);
         }
     }
-/**
+
+    /**
      * Register api
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request)
     {
@@ -38,65 +42,54 @@ public $successStatus = 200;
             'firstName' => 'required',
             'lastName' => 'required',
             'email' => 'required|email',
-            'role'  => 'required',
+            'role' => 'required',
             'password' => 'required',
-            'confirmPassword' => 'required|same:password',
         ]);
-                     if ($validator->fails()) {
-                        return response()->json(['error'=>$validator->errors()], 401);
-                    }
-                    $input = $request->all();
-                    $input['password'] = bcrypt($input['password']);
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
 
-                    $email = User::where('email','=',$input['email'])->first();
-                    if($email != null){
-                        $success['message'] = 'Your Email Exit Already';
-                        $success['success'] = false;
-                        return response()->json( $success, 200);
-                    }
-                    else{
-                    $user = User::create($input);
-                    $success['id'] =  $user->id;
-                    $success['token'] =  $user->createToken('MyApp')-> accessToken;
-                    $success['success'] = true;
-
-                    // $success['fname'] =  $user->fname;
-                    // $success['lname'] =  $user->lname;
-                    // $success['email'] =  $user->email;
-                    // $success['role'] =  $user->role;
-
-
-
-                return response()->json($success, $this->successStatus); }
+        $email = User::where('email', '=', $input['email'])->first();
+        if (!$email) {
+            $user = User::create($input);
+            $success['id'] = $user->id;
+            $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['success'] = true;
+            return response()->json($success, $this->successStatus);
+        } else {
+           return response()->json(['error' => 'Email Already Exist'], 400);
+        }
     }
-/**
+
+    /**
      * details api
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function details()
     {
         $user = Auth::guard('api')->user()->id();
-
-        $data =   UserCollection::collection($user);
+        $data = UserCollection::collection($user);
         $success['data'] = $data;
         $success['success'] = true;
-
-    return response()->json($success,$this->successStatus);
+        return response()->json($success, $this->successStatus);
 
     }
+
     public function getProfile()
     {
         $user = Auth::guard('api')->user();
-        $data =   new UserResource($user);
+        $data = new UserResource($user);
         $success['data'] = $data;
         $success['success'] = true;
-        return response()->json($success,$this->successStatus);
+        return response()->json($success, $this->successStatus);
     }
+
     public function update(Request $request)
     {
         $user = Auth::user();
-
         $user->firstName = $request->firstName;
         $user->lastName = $request->lastName;
         $user->phone = $request->phone;

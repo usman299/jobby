@@ -26,6 +26,9 @@ class UserCollection extends JsonResource
             'image'=> $this->image??"",
             'category_id'=> $this->category_id??"",
             'subcategory_id'=> $this->subcategory_id??"",
+            'gender'=> $this->gender??"",
+            'description'=> $this->description??"",
+            'dob'=> $this->dob??"",
             'role'=> $this->role,
         ];
     }
