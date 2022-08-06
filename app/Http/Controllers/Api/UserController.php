@@ -58,7 +58,6 @@ class UserController extends Controller
             $success['id'] = $user->id;
             $success['user'] = new UserCollection($userR);
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['success'] = true;
             return response()->json($success, $this->successStatus);
         } else {
            return response()->json(['error' => 'Email Already Exist'], 400);
