@@ -54,7 +54,9 @@ class UserController extends Controller
         $email = User::where('email', '=', $input['email'])->first();
         if (!$email) {
             $user = User::create($input);
+            $userR = User::find($user->id);
             $success['id'] = $user->id;
+            $success['user'] = new UserCollection($userR);
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['success'] = true;
             return response()->json($success, $this->successStatus);
