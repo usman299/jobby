@@ -23,6 +23,7 @@ Route::get('/slider/galery/{role}', 'Api\AppSettingController@sliderGalery');
 
 Route::get('categories', 'Api\CategoryController@geCategory');
 Route::get('/subcategories/{category_id}', 'Api\CategoryController@geSubCategory');
+Route::get('/childCategories/{subcategory_id}', 'Api\CategoryController@getChildCategories');
 
 Route::get('/faq', 'Api\AppSettingController@support');
 Route::get('/about', 'Api\AppSettingController@about');

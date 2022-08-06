@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\ChildCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\Category\CategoryCollection;
@@ -21,6 +22,12 @@ class CategoryController extends Controller
     public function geSubCategory($category_id)
     {
         $subcategory = SubCategory::where('category_id', '=', $category_id)->get();
+        $data = SubCategoryCollection::collection($subcategory);
+        return response()->json($data);
+    }
+    public function getChildCategories($sub_category_id)
+    {
+        $subcategory = ChildCategory::where('subcategory_id', '=', $sub_category_id)->get();
         $data = SubCategoryCollection::collection($subcategory);
         return response()->json($data);
     }
