@@ -80,7 +80,7 @@ class UserController extends Controller
     public function getProfile()
     {
         $user = Auth::guard('api')->user();
-        $data = new UserResource($user);
+        $data = new UserCollection($user);
         return response()->json($data);
     }
 
