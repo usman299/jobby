@@ -19,8 +19,8 @@ class JobCollection extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title??"",
-            'childcategory_id' => (int)$this->childcategory->id,
-            'subcategory_id' => (int)$this->subcategory->id,
+            'childcategory_id' => (int)$this->childcategory->id??0,
+            'subcategory_id' => (int)$this->subcategory->id??0,
             'detail_description' => $this->detail_description??"",
             'description' => $this->description??"",
             'category_title' => $this->category->title??"",
