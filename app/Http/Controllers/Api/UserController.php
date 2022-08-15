@@ -55,10 +55,9 @@ class UserController extends Controller
         if (!$email) {
             $user = User::create($input);
             $userR = User::find($user->id);
-            $success['id'] = $user->id;
-            $success['user'] = new UserCollection($userR);
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            return response()->json($success, $this->successStatus);
+            $success['user'] = new UserCollection($userR);
+            return response()->json(['success' => $success], $this->successStatus);
         } else {
            return response()->json(['error' => 'Email Already Exist'], 400);
         }
