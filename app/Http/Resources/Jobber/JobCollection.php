@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Jobber;
 
+use App\Http\Resources\Users\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class JobCollection extends JsonResource
@@ -36,9 +37,6 @@ class JobCollection extends JsonResource
             'urgent' => (int)$this->urgent,
             'latitude' => $this->lat??"",
             'longitude' => $this->long??"",
-            'demander_image' => $this->applicant->image??"",
-            'demander_first_name' => $this->applicant->firstName??"",
-            'demander_last_name' => $this->applicant->lastName??"",
             'created_at' => $date->diffForHumans(),
             'country' => $this->country->name??"",
             'start_time' => $this->start_time??"",
@@ -63,6 +61,7 @@ class JobCollection extends JsonResource
             'pickup_address' => $this->pickup_address??"",
             'destination_address' => $this->destination_address??"",
             'dob' => $this->dob??"",
+            'demander' => new UserResource($this->applicant),
         ];
     }
 }
