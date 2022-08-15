@@ -61,5 +61,19 @@ class JobRequest extends Model
        $views = JobViews::where('job_id', $this->id)->get();
        return  $views->count();
     }
+    public function distance(){
+        $user = auth()->user();
+        $earthRadius = 3959;
+        $latFrom = deg2rad($user->latitude);
+        $lonFrom = deg2rad($user->longitude);
+        $latTo = deg2rad($this->lat);
+        $lonTo = deg2rad($this->long);
+        $latDelta = $latTo - $latFrom;
+        $lonDelta = $lonTo - $lonFrom;
+        $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+                cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+        $miles = ($angle * $earthRadius) * 1.6;
+        return round($miles,2);
+    }
 }
 
