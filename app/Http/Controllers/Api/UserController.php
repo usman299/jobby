@@ -68,18 +68,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
     public function details()
     {
-        $user = Auth::guard('api')->user()->id();
-        $data = UserCollection::collection($user);
-        return response()->json($data);
-
-    }
-
-    public function getProfile()
-    {
         $user = Auth::guard('api')->user();
-        $data = new UserCollection($user);
+        $data = new UserResource($user);
         return response()->json($data);
     }
 

@@ -22,7 +22,4 @@ class Category extends Model
     {
         return $this->hasMany(ChildCategory::class);
     }
-
-
-
 }

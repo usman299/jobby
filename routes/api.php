@@ -30,9 +30,9 @@ Route::get('/about', 'Api\AppSettingController@about');
 
 Route::group(['middleware' => 'auth:api'], function(){
 
-Route::get('/get/profile', 'Api\UserController@getProfile');
-Route::get('/notfication', 'Api\AppSettingController@notifications');
-Route::get('/jobs', 'Api\JobberController@jobs');
+    Route::get('/details', 'Api\UserController@details');
+    Route::get('/notfication', 'Api\AppSettingController@notifications');
+    Route::get('/jobs', 'Api\JobberController@jobs');
 
 
 });

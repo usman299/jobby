@@ -20,7 +20,6 @@ class SubCategory extends Model
     }
    public function childcategories()
     {
-        return $this->hasMany(ChildCategory::class , 'subcategory_id');
+        return $this->hasMany(ChildCategory::class , 'subcategory_id')->select('id', 'title', 'price', 'img');
     }
-
 }

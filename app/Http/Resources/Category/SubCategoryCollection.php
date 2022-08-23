@@ -17,10 +17,10 @@ class SubCategoryCollection extends JsonResource
         // return parent::toArray($request);
         return [
             'id' => $this->id,
-            'title'=> $this->title,
-            'subcategory_id'=> $this->subcategory_id,
-            'icon'=> $this->img,
-            'backGroudColor'=> $this->backColor,
+            'title'=> $this->title??"",
+            'image'=> $this->img??"",
+            'price'=> $this->price??0,
+            'child_categories' => $this->childcategories
         ];
     }
 }
