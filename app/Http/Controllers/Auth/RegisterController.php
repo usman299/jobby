@@ -104,6 +104,8 @@ class RegisterController extends Controller
             'dob' => $data['dob'],
             'skills' => $skills,
             'country' => $data['country'],
+            'latitude' => $data['latitude'],
+            'longitude' => $data['longitude'],
             'address' => $data['address'],
             'gender' => $data['gender'],
             'postalCode' => $data['postalCode'],

@@ -145,7 +145,33 @@
             <h4>Adresse*</h4>
         </div>
         <div class="form-group">
-            <input type="text" name="address" placeholder="Ajout de l’adresse" class="form-control">
+            <input name="address" placeholder="Ajout de l’adresse" required class="form-control" id="address">
+
+
+        </div>
+        <div class="form-row" style="display:none">
+            <div class="form-group col">
+                <label for="lat">{{ __('levels.latitude') }}</label>
+                <input type="text" name="lat" id="lat"
+                       class="form-control @error('lat') is-invalid @enderror"
+                       value="{{ old('lat') }}">
+                @error('lat')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group col" style="display:none">
+                <label for="long">{{ __('levels.longitude') }}</label>
+                <input type="text" id="long" name="long"
+                       class="form-control @error('long') is-invalid @enderror"
+                       value="{{ old('long') }}">
+                @error('long')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
         </div>
         <div>
             <h4>Ajoutez votre ville*</h4>
@@ -202,7 +228,28 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries=places" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/picker.js" integrity="sha512-PC6BMUJfhXSSRw6fOnyfn21Yjc/6oRUnAGUboA+uzAUkKX5K2wzUvTHPCEjfwmmfrjCuiSnf23iX8JYVlJTXmA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/picker.time.js" integrity="sha512-wsTBGzc0ra42jNgXre39rdHpXqAkkaSN+bRrXZ3hpOvqxOtLNZns3OseDZRfGCWSs00N9HuXyKHZEzKAWCl3SA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/translations/fr_FR.js" integrity="sha512-oppWtIxLpE9C9k/RJ/+z8pZXIh2PIuYDYsklCWMFsoTxK2bRMJ9Y86rvVZ20NkOBsjrywgEIi/tibOxJk7cXmg==" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+    $('.timepicker').pickatime({
+        format: 'HH:i',
+        formatSubmit: 'HH:i',
+        hiddenName: true,
+    });
+    google.maps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+        var input = document.getElementById('address');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            $('#lat').val(place.geometry['location'].lat());
+            $('#long').val(place.geometry['location'].lng());
+        });
+    }
+</script>
 <script>
     $(function(){
         var dtToday = new Date();

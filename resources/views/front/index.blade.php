@@ -1174,37 +1174,37 @@
         }
 
     </script>
-    <script>
+{{--    <script>--}}
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
-        }
+{{--        function getLocation() {--}}
+{{--            if (navigator.geolocation) {--}}
+{{--                navigator.geolocation.getCurrentPosition(showPosition);--}}
+{{--            }--}}
+{{--        }--}}
 
-        function showPosition(position) {
+{{--        function showPosition(position) {--}}
 
-            let latitude = position.coords.latitude;
-            let longitude = position.coords.longitude;
-            let id = {{$user->id}};
+{{--            let latitude = position.coords.latitude;--}}
+{{--            let longitude = position.coords.longitude;--}}
+{{--            let id = {{$user->id}};--}}
 
-            let _token = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                url: "{{route('addlocation')}}",
-                type: "POST",
-                data: {
-                    id: id,
-                    _token: _token,
-                    latitude: latitude,
-                    longitude: longitude
-                },
-                success: function (response) {
-                    console.log(response);
-                },
-            });
+{{--            let _token = $('meta[name="csrf-token"]').attr('content');--}}
+{{--            $.ajax({--}}
+{{--                url: "{{route('addlocation')}}",--}}
+{{--                type: "POST",--}}
+{{--                data: {--}}
+{{--                    id: id,--}}
+{{--                    _token: _token,--}}
+{{--                    latitude: latitude,--}}
+{{--                    longitude: longitude--}}
+{{--                },--}}
+{{--                success: function (response) {--}}
+{{--                    console.log(response);--}}
+{{--                },--}}
+{{--            });--}}
 
-        }
+{{--        }--}}
 
-    </script>
+{{--    </script>--}}
 
 @endsection

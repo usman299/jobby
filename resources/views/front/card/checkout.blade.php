@@ -51,15 +51,15 @@
 @endsection
 @section('script')
 
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        const stripeKey = "{{ env('STRIPE_PUBLISHABLE_KEY') }}";
-    </script>
-    <script src="{{asset('js/stripe.js')}}"  loading="lazy" ></script>
-    <script>
-        $(".paymentformsubmit").submit(function(){
-            $(this).find(':input[type=submit]').prop('disabled', true);
-            $(this).find(':input[type=submit]').val("Chargement..");
-        });
-    </script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+            const stripeKey = "{{ env('STRIPE_PUBLISHABLE_KEY') }}";
+        </script>
+        <script src="{{asset('js/stripe.js')}}"  loading="lazy" ></script>
+        <script>
+            $(".paymentformsubmit").submit(function(){
+                $(this).find(':input[type=submit]').prop('disabled', true);
+                $(this).find(':input[type=submit]').val("Chargement..");
+            });
+        </script>
 @endsection

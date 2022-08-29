@@ -1,25 +1,34 @@
 @extends('layouts.splash')
 <!-- End. em_loading -->
 @section('content')
+    <style>
+        *, ::after, ::before {
+             box-sizing: content-box!important;
+        }
+        #wrapper, #content {
+            width: 100%;
+            height: auto!important;
+        }
+    </style>
 
 
     <div id="wrapper">
         <div id="content">
             <!-- Start main_haeder -->
-            <header class="main_haeder header-sticky multi_item">
-                <div class="em_side_right">
-                    <a class="rounded-circle d-flex align-items-center text-decoration-none" onclick="history.back()">
-                        <i class="tio-chevron_left size-24 color-text"></i>
-                        <span class="color-text size-14">Retour</span>
-                    </a>
-                </div>
-                <div class="title_page">
-                    <span class="page_name">
-                        <!-- title -->
-                    </span>
-                </div>
+{{--            <header class="main_haeder header-sticky multi_item">--}}
+{{--                <div class="em_side_right">--}}
+{{--                    <a class="rounded-circle d-flex align-items-center text-decoration-none" onclick="history.back()">--}}
+{{--                        <i class="tio-chevron_left size-24 color-text"></i>--}}
+{{--                        <span class="color-text size-14">Retour</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="title_page">--}}
+{{--                    <span class="page_name">--}}
+{{--                        <!-- title -->--}}
+{{--                    </span>--}}
+{{--                </div>--}}
 
-            </header>
+{{--            </header>--}}
             <!-- End.main_haeder -->
 
             <section class="em__signTypeOne margin-t-40" style="background-color: #eaf9fe!important;">
