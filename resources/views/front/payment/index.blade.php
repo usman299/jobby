@@ -25,9 +25,11 @@
                         <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>La Description</strong> <strong style="color: red;">*</strong></label>
                     </div>
                     <input type="hidden" id="pay" value="complete">
+                    @if(Auth::user()->walet>=$total)
                     <div class="form-group input-lined">
                         <p>Avez-vous un code promo ou une carte-cadeau ? <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" >Cliquez ici</a></p>
                     </div>
+                    @endif
                     <div class="form-group input-lined">
                         <div class="form-group stripe-payment-method-div">
                             <div id="card-element"></div>

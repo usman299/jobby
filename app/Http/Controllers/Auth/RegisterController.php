@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\JobberProfile;
+use App\Jobs\UserRegisterJob;
 use App\Mail\UserRegister;
 use App\Mail\AllContact;
 use App\Providers\RouteServiceProvider;
@@ -123,13 +124,14 @@ class RegisterController extends Controller
         $dataa = array(
             'firstName' => $data['fname'],
             'lastName' => $data['lname'],
+            'email' => $data['email'],
             'title'    => $setting->title,
             'url'    => $setting->title,
             'description1'    => $setting->description1,
             'description2'    => $setting->description2,
         );
         JobberProfile::create($data);
-        Mail::to($data['email'])->send(new  UserRegister($dataa));
+        dispatch(new UserRegisterJob($dataa))->delay(\Carbon\Carbon::now()->addSeconds(5));
         return $user;
     }
 }

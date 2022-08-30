@@ -149,6 +149,8 @@ class SettingsController extends Controller
         $user->address = $request->address;
         $user->country = $request->country;
         $user->gender = $request->gender;
+        $user->latitude = $request->latitude;
+        $user->longitude = $request->longitude;
         $user->postalCode = $request->postalCode;
         $user->dob = $request->dob;
         $user->description = $request->description;
@@ -157,7 +159,6 @@ class SettingsController extends Controller
             $user->password = Hash::make($request->password);
             Auth::logout();
         }
-
 
         /*$user->category_id = $request->category_id;
         $user->subcategory_id = $request->subcategory_id;
@@ -379,7 +380,7 @@ class SettingsController extends Controller
     {
         $total = $request->price;
         if (isset($total)) {
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
             $payment_intent = \Stripe\PaymentIntent::create([
                 'amount' => ($total) * 100,
                 'currency' => 'EUR'
@@ -427,6 +428,9 @@ class SettingsController extends Controller
                 $cardspayment->update();
 
                 $applicant_id = Auth::user();
+
+                $applicant_id->walet = $applicant_id->walet -$request->total;
+                $applicant_id-->update();
 
                 $proposal = Proposal::find($request->p_id);
                 $proposal->status = 2;

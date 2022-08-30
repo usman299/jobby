@@ -72,7 +72,7 @@
 {{--                <div class="title mb-2"><i class="lni lni-user"></i><span>Message</span></div>--}}
 {{--                <textarea class="form-control mb-3" id="message" name="message"cols="8" rows="10" placeholder="Écris quelque chose..."></textarea>--}}
 {{--            </div>--}}
-            <button class="btn btn-primary w-100" type="submit">Ajouter au panier
+            <button class="btn btn-primary w-100" type="submit">Payer
             </button>
         </div>
     </section>

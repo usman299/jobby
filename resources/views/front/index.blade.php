@@ -999,7 +999,7 @@
                                         <h4 class="item_price" style="margin-bottom: 5px">{{$job->title}}</h4>
                                         <h3>{{$job->detail_description}}</h3>
                                         <span>{{$job->category->title}}</span>
-                                        /
+
                                         <span>{{$job->subcategory->title}}</span>
                                         <p class="item_price">{{$job->estimate_budget}} € <label
                                                 style="font-size: 15px;">
@@ -1111,9 +1111,9 @@
 
         var mymap = L.map('map', {
             gestureHandling: true,
-            dragging: true,
+            dragging: false,
             tap: true
-        }).setView([16.1922065, -61.272382499999], 10);
+        }).setView([{{Auth::user()->latitude}}, {{Auth::user()->longitude}}], 10);
 
         mymap.locate({setView: true, maxZoom: 16});
 
@@ -1129,7 +1129,7 @@
         }).addTo(mymap);
 
         function onLocationError(e) {
-            alert(e.message);
+            // alert(e.message);
             console.log(e);
         }
 

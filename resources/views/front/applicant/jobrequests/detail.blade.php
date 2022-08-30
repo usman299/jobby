@@ -13,6 +13,12 @@
         margin-bottom: 15px;
 
     }
+
+
+    .itemCountr_manual1.itemButtons.-lg .btn_counter1 {
+        width: 50px!important;
+        height: 33px!important;
+    }
     .form-control {
 
 
@@ -1996,7 +2002,7 @@
     <script>
 
 
-        var mymap = L.map('map', { gestureHandling: true,  dragging: true, tap: true }).setView([16.1922065, -61.272382499999], 10);
+        var mymap = L.map('map', { gestureHandling: true,  dragging: false, tap: true }).setView([{{$user->latitude}}, {{$user->longitude}}], 10);
 
         mymap.locate({setView: true, maxZoom: 16});
         function locateUser() {

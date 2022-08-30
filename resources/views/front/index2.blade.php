@@ -1130,7 +1130,7 @@
         }).addTo(mymap);
 
         function onLocationError(e) {
-            alert(e.message);
+            // alert(e.message);
             console.log(e);
         }
 

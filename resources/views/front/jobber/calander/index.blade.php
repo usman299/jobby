@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="bg-white ">
-                                            <div class="custom-control custom-radio margin-b-10">
+                                            <div class="input_group">
                                                 <input  name="title"  type="text" placeholder="Titre" class="form-control">
                                             </div>
 
@@ -142,7 +142,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="bg-white ">
-                                            <div class="custom-control custom-radio margin-b-10">
+                                            <div class="input_group">
                                                 <input  name="price"   type="number" placeholder="Le prix" class="form-control">
                                             </div>
 
@@ -167,7 +167,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="bg-white ">
-                                            <div class="custom-control custom-radio margin-b-10">
+                                            <div class="input_group">
                                                 <textarea name="description" placeholder="Description" class="form-control" id="" cols="30" rows="5"></textarea>
                                             </div>
 

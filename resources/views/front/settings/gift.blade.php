@@ -3,7 +3,7 @@
     <div id="wrapper">
         <div id="content">
 
-            <section class="padding-t-70 components_page padding-b-30">
+            <section class="padding-t-30 components_page padding-b-30">
 
                 <!-- Start title -->
                 <div class="emTitle_co padding-20">
@@ -12,14 +12,14 @@
                 </div>
 
                 <!-- End. title -->
-                <div class="emPage__billsWallet padding-20 py-0">
+                <div class="emPage__billsWallet padding-7 py-0">
                     <div class="emBk__bills">
                         @foreach($card as $row)
                             <a href="{{route('app.singlecards',['id'=>$row->id])}}">
-                        <div class="item" >
+                        <div class="item" style="padding: 45px 14px!important; border-radius: 29px!important;" >
                             <div class="emhead_w" >
                                 <div class="icon_img">
-                                    <img src="{{asset($row->photo)}}" style="height: 73px!important;width: 130px!important;margin-left: 272px;border-radius: 0px!important;" alt="">
+                                    <img src="{{asset($row->photo)}}" style="height: 113px!important;width: 130px!important;margin-left: 272px;border-radius: 0px!important;" alt="">
                                 </div>
 {{--                                <a href="#" class="btn btn_default bg-primary">Pay Now!</a>--}}
                             </div>

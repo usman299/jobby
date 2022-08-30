@@ -57,9 +57,11 @@
         }
         #wrapper, #content {
             width: 100% !important;
-            height: 100% !important;
+            height: 0% !important;
         }
-
+        .padding-b-30 {
+             padding-bottom: 0;
+        }
         .rounded-pill {
             display: inline-block !important;
             text-align: center;

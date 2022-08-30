@@ -4,6 +4,18 @@
     <!-- Start emPageAbout -->
     <section class="emPageAbout padding-t-10">
         <div class="em__signTypeOne padding-30 bg-white">
+            <label for="description" class="margin-t-20" style="font-size: 15px;"> <strong>Assistant functionality</strong></label>
+             <pre ><strong>
+Intelligent agenda with automatic addition of
+jobs and manu  al additions of jobs or off
+platform events
+
+Access to job details from the calendar Alerts
+/Notification for appointment reminders 24
+hours and 2 hours before Appointment reminders
+
+Send confirmation request to requester
+           </strong> </pre>
 
             <div class="em__body px-0">
                 <form method="POST" action="{{ route('subscription.checkout',['id'=>$sub->id]) }}" id="payment-form" data-secret="{{$intent->client_secret}}" class="paymentformsubmit" enctype="multipart/form-data">

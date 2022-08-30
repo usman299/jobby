@@ -131,7 +131,6 @@ class JobberController extends Controller
                 'messege' => 'Déjà appliqué',
                 'alert-type' => 'error'
             );
-            return redirect()->back()->with($notification);
         }else{
 
             $proposal = new Proposal();
@@ -172,8 +171,10 @@ class JobberController extends Controller
                 'messege' => 'Proposition envoyer !',
                 'alert-type' => 'success'
             );
-            return redirect()->back()->with($notification);
+
+
         }
+        return redirect()->route('jobber.proposals')->with($notification);
     }
     public function proposals(){
         $title = 'Propositions';

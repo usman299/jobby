@@ -106,8 +106,17 @@
             width: 100%;
             height: auto!important;
         }
+        .padding-t-50 {
+            padding-top: 0!important;
+        }
+        .padding-10 {
+             padding: 0!important;
+        }
+        #wrapper, #content {
+            height: 86%!important;
+        }
     </style>
-    </style>
+
 @endsection
 @section('content')
 
