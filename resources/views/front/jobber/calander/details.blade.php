@@ -1,24 +1,19 @@
 @extends('layouts.front')
 @section('content')
 
-
     <section class="emPage__detailsBlog bg-white">
 
         <div class="emheader_cover">
 
             @if($contract->status==1)
                 <div class="embody__content" style="padding: 0;">
-
                     <h4 style="text-align: center; margin-top: 10px;">Temps restant</h4>
                     <h1 class="head_art" id="demotime" style="color: green; text-align: center;"></h1>
-
                 </div>
             @elseif($contract->status==3)
-
                 <div class="embody__content" style="padding: 0;">
                     <h4 style="text-align: center; margin-top: 10px;">Contrat Complet</h4>
                     <h1 class="head_art" style="color: green; text-align: center;">0jrs 0h 00m 0s </h1>
-
                 </div>
             @else
                 <div class="embody__content" style="padding: 0;">
@@ -32,9 +27,10 @@
 
                     <div class="item_person">
 
-                        <?php $jobber = \App\User::where('id', '=', $contract->jober_id)->first(); ?>
+                        <?php use App\User;use Carbon\Carbon;$jobber = User::where('id', '=', $contract->jober_id)->first(); ?>
                         <img src="{{asset($jobber->image)}}" loading="lazy" alt="">
-                        <h2 data-toggle="modal" data-target="#mdllJobDetails1">{{$jobber->firstName}} {{$jobber->lastName}}</h2>
+                        <h2 data-toggle="modal"
+                            data-target="#mdllJobDetails1">{{$jobber->firstName}} {{$jobber->lastName}}</h2>
                     </div>
                     <div class="sideRight">
                         <div class="time">
@@ -54,26 +50,26 @@
                                 </svg>
                             </div>
                             <?php
-                            \Carbon\Carbon::setLocale('fr');
-                            $date = \Carbon\Carbon::parse($contract->created_at);
+                            Carbon::setLocale('fr');
+                            $date = Carbon::parse($contract->created_at);
                             ?>
                             <span>Créer {{$date->diffForHumans()}}</span>
                         </div>
                     </div>
                 </div>
             </div>
-                <div class="title">
-                    <div class="item__auther emBlock__border">
-                        <div class="item_person">
-                            <h2>Titre </h2>
-                        </div>
-                        <div class="sideRight">
-                            <div class="time">
-                                <span>{{$contract->title}} </span>
-                            </div>
+            <div class="title">
+                <div class="item__auther emBlock__border">
+                    <div class="item_person">
+                        <h2>Titre </h2>
+                    </div>
+                    <div class="sideRight">
+                        <div class="time">
+                            <span>{{$contract->title}} </span>
                         </div>
                     </div>
                 </div>
+            </div>
             <div class="title">
                 <div class="item__auther emBlock__border">
                     <div class="item_person">
@@ -122,7 +118,6 @@
             </div>
 
         </div>
-
 
 
     </section>
