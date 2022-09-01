@@ -35,7 +35,8 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/jobs', 'Api\JobberController@jobs');
 
 // VERSION 1
-    Route::post('/jobrequest/submit/{id}/{check?}', 'Api\v1\ApplicantController@jobRequestSubmit');
+    Route::post('/profile/update', 'Api\UserController@update');
+    Route::post('/jobrequest/submit', 'Api\v1\ApplicantController@jobRequestSubmit');
 
 });
 

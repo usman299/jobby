@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Resources\Users\UserResource;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
 use App\Http\Resources\Users\UserCollection;
+use App\Http\Resources\Users\UserResource;
+use App\User;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Validator;
 
 class UserController extends Controller
@@ -17,7 +19,7 @@ class UserController extends Controller
     /**
      * login api
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function login()
     {
@@ -34,7 +36,7 @@ class UserController extends Controller
     /**
      * Register api
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function register(Request $request)
     {
@@ -59,14 +61,14 @@ class UserController extends Controller
             $success['user'] = new UserCollection($userR);
             return response()->json(['success' => $success], $this->successStatus);
         } else {
-           return response()->json(['error' => 'Email Already Exist'], 400);
+            return response()->json(['error' => 'Email Already Exist'], 400);
         }
     }
 
     /**
      * details api
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
 
     public function details()
@@ -84,17 +86,19 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->address = $request->address;
         $user->country = $request->country;
-        $user->image = $request->image;
-        $user->postalCode = $request->postalCode;
-        $user->category_id = $request->category_id;
-        $user->subcategory_id = $request->subcategory_id;
+        $user->gender = $request->gender;
+        $user->dob = $request->dob;
+        if ($request->latitude) {
+            $user->latitude = $request->latitude;
+        }
+        if ($request->longitude) {
+            $user->longitude = $request->longitude;
+        }
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
         $user->update();
-
-        $success['message'] = 'Your Data Updated';
-        $success['success'] = true;
-
-        return response()->json($success, $this->successStatus);
-
+        return response()->json(['success' => 'Successfully Updated']);
     }
 }
 
