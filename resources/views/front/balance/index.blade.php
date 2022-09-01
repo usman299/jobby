@@ -12,7 +12,7 @@
             <a href="#" class="btn item_link">
 
                 <div class="txt" style="text-align: center!important;" >
-                    <span style="font-size: 90px; color: black;margin-left: 130px;" > {{Auth::user()->walet ?? '0'}}€</span>
+                    <span style="font-size: 90px; color: black;" > {{Auth::user()->walet ?? '0'}}€</span>
                 </div>
             </a>
 
@@ -159,9 +159,9 @@
                     @csrf
                 <div class="modal-header border-0 padding-l-20 padding-r-20 justify-content-center">
                     <div class="itemProduct_sm">
-                        <div class="itemCountr_manual1 horizontal itemButtons -lg border-0 min-w-145">
+                        <div class="form-group input-lined">
 
-                            <input type="number" name="code" placeholder="Entrez le code cadeau"  class="form-control " >
+                            <input type="number" name="code" placeholder="Entrez le code cadeau"  class="form-control" >
 
                         </div>
                     </div>

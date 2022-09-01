@@ -149,8 +149,13 @@ class SettingsController extends Controller
         $user->address = $request->address;
         $user->country = $request->country;
         $user->gender = $request->gender;
-        $user->latitude = $request->latitude;
-        $user->longitude = $request->longitude;
+
+       if($request->latitude) {
+           $user->latitude = $request->latitude;
+       }
+        if($request->longitude) {
+            $user->longitude = $request->longitude;
+        }
         $user->postalCode = $request->postalCode;
         $user->dob = $request->dob;
         $user->description = $request->description;
@@ -419,22 +424,24 @@ class SettingsController extends Controller
 
     public function redeeemVoucher(Request $request)
     {
-        $cardspayment = CardPaymant::where('card_number', '=', $request->code)->where('valid', '=', '0')->first();
+        $applicant_id = Auth::user();
 
-        if ($cardspayment) {
-            if ($cardspayment->price >= $request->total) {
-
-                $cardspayment->valid = '1';
-                $cardspayment->update();
-
-                $applicant_id = Auth::user();
+            if ($applicant_id->walet >= $request->total) {
 
                 $applicant_id->walet = $applicant_id->walet -$request->total;
-                $applicant_id-->update();
+                $applicant_id->update();
 
                 $proposal = Proposal::find($request->p_id);
                 $proposal->status = 2;
                 $proposal->update();
+
+                $walet = new Walet();
+                $walet->user_id = $applicant_id->id;
+                $walet->paymant_status = 'Order';
+                $walet->status = 1;
+                $walet->balance = $request->total;
+                $walet->save();
+
 
                 $jobrequest = JobRequest::find($proposal->jobRequest_id);
                 $jobrequest->status = 2;
@@ -481,13 +488,13 @@ class SettingsController extends Controller
                 return redirect()->back()->with($notification);
             }
 
-        } else {
+
             $notification = array(
                 'messege' => 'Le code promo nest plus valide',
                 'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);
-        }
+
     }
 
     public function appLogout()

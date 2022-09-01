@@ -114,7 +114,7 @@
                             <label for="lat">{{ __('levels.latitude') }}</label>
                             <input  type="text" name="latitude" id="lat"
                                    class="form-control @error('lat') is-invalid @enderror"
-                                    value="{{$user->latitude}}" >
+                                    value="" >
                             @error('lat')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -125,7 +125,7 @@
                             <label for="long">{{ __('levels.longitude') }}</label>
                             <input type="text" id="long" name="longitude"
                                    class="form-control @error('long') is-invalid @enderror"
-                                   value="{{$user->longitude}}" >
+                                   value="" >
                             @error('long')
                             <div class="invalid-feedback">
                                 {{ $message }}

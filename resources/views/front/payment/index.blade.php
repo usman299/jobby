@@ -59,8 +59,7 @@
                     <form action="{{route('redeem.voucher')}}" method="POST">
                         @csrf
                         <div class="form-group input-lined">
-                            <input required name="code" placeholder="Entrer le code du bon" class="form-control">
-                            <label for="e_time" class="margin-t-20" style="font-size: 15px;"><strong>Code</strong> <strong style="color: red;">*</strong> </label>
+                            <label for="e_time" class="margin-t-20" style="font-size: 15px;text-align: center"><strong>Available Ballance €{{Auth::user()->walet}}</strong>  </label>
                         </div>
 
                         <div class="form-group input-lined">

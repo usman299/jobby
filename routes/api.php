@@ -34,5 +34,9 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/notfication', 'Api\AppSettingController@notifications');
     Route::get('/jobs', 'Api\JobberController@jobs');
 
+// VERSION 1
+    Route::post('/jobrequest/submit/{id}/{check?}', 'Api\v1\ApplicantController@jobRequestSubmit');
 
 });
+
+
