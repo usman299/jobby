@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Users\UserCollection;
-use App\Http\Resources\Users\UserResource;
+use \App\Http\Resources\v1\Users\UserResource;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -26,7 +25,7 @@ class UserController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])) {
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = new UserCollection($user);
+            $success['user'] = new UserResource($user);
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -58,18 +57,12 @@ class UserController extends Controller
             $user = User::create($input);
             $userR = User::find($user->id);
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = new UserCollection($userR);
+            $success['user'] = new UserResource($userR);
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Email Already Exist'], 400);
         }
     }
-
-    /**
-     * details api
-     *
-     * @return JsonResponse
-     */
 
     public function details()
     {

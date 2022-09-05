@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\AppSetting;
+namespace App\Http\Resources\v1\AppSetting;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class FAQCollection extends JsonResource
+class NotficationCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -16,8 +16,8 @@ class FAQCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'question'=> $this->question,
-            'answer'=> $this->answer,
+            'activity'=> $this->activity,
+            'message'=> $this->message,
         ];
     }
 }

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Resources\v1;
+namespace App\Http\Resources\v1\Applicant;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-
-class JobRequestCollection extends JsonResource
+class JobRequestCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -15,8 +14,6 @@ class JobRequestCollection extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-
-        ];
+        return parent::toArray($request);
     }
 }

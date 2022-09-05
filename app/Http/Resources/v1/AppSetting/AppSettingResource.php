@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\AppSetting;
+namespace App\Http\Resources\v1\AppSetting;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -23,9 +23,9 @@ class AppSettingResource extends JsonResource
             'applicantIntroScreen1'=> $this->applicantIntroScreen1,
             'applicantIntroScreen2'=> $this->applicantIntroScreen2,
             'applicantIntroScreen3'=> $this->applicantIntroScreen3,
-            
+
         ];
 
-       
+
     }
 }

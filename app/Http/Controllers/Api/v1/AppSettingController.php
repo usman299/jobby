@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\v1;
 
 use App\About;
 use App\AppSetting;
+use App\Countory;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AppSetting\AboutResource;
-use App\Http\Resources\AppSetting\AppSettingResource;
-use App\Http\Resources\AppSetting\FAQCollection;
-use App\Http\Resources\AppSetting\NotficationCollection;
-use App\Http\Resources\AppSetting\SliderGaleryCollection;
+use App\Http\Resources\v1\AppSetting\AboutResource;
+use App\Http\Resources\v1\AppSetting\AppSettingResource;
+use App\Http\Resources\v1\AppSetting\CountryCollection;
+use App\Http\Resources\v1\AppSetting\FAQCollection;
+use App\Http\Resources\v1\AppSetting\NotficationCollection;
+use App\Http\Resources\v1\AppSetting\SliderGaleryCollection;
 use App\Notfication;
 use App\QuestionAnswer;
 use App\SliderGalery;
@@ -20,40 +22,15 @@ class AppSettingController extends Controller
     public function getAppSetting()
     {
         $appSetting = AppSetting::all();
-        if ($appSetting->isEmpty()) {
-
-            $success['message'] = 'AppSetting  Screens not Found';
-            $success['success'] = false;
-            return response()->json($success, 200);
-
-        } else {
-            $data = AppSettingResource::collection($appSetting);
-            $success['success'] = true;
-            $success['data'] = $data;
-            return response()->json($success, 200);
-
-        }
-
+        $success = AppSettingResource::collection($appSetting);
+        return response()->json($success, 200);
     }
 
     public function sliderGalery($role)
     {
         $appSliderGalery = SliderGalery::where('userRole', '=', $role)->get();
-        if ($appSliderGalery->isEmpty()) {
-
-            $success['message'] = 'appSliderGalery  not Found';
-            $success['success'] = false;
-
-            return response()->json($success, 200);
-
-        } else {
-            $data = SliderGaleryCollection::collection($appSliderGalery);
-            $success['success'] = true;
-            $success['data'] = $data;
-            return response()->json($success, 200);
-
-        }
-
+        $success = SliderGaleryCollection::collection($appSliderGalery);
+        return response()->json($success, 200);
     }
 
     public function notifications()
@@ -71,7 +48,6 @@ class AppSettingController extends Controller
         $data = QuestionAnswer::latest()->get();
         $success = FAQCollection::collection($data);
         return response()->json($success, 200);
-
     }
 
     public function about()
@@ -79,7 +55,13 @@ class AppSettingController extends Controller
         $about = About::first();
         $data = new AboutResource($about);
         return response()->json($data, 200);
+    }
 
+    public function country()
+    {
+        $country = Countory::all();
+        $data =  CountryCollection::collection($country);
+        return response()->json($data, 200);
     }
 
 

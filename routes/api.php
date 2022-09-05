@@ -15,27 +15,31 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('login', 'Api\UserController@login');
-Route::post('register', 'Api\UserController@register');
+Route::post('login', 'Api\v1\UserController@login');
+Route::post('register', 'Api\v1\UserController@register');
 
-Route::get('app/settings', 'Api\AppSettingController@getAppSetting');
-Route::get('/slider/galery/{role}', 'Api\AppSettingController@sliderGalery');
+Route::get('app/settings', 'Api\v1\AppSettingController@getAppSetting');
+Route::get('/slider/galery/{role}', 'Api\v1\AppSettingController@sliderGalery');
 
-Route::get('categories', 'Api\CategoryController@geCategory');
-Route::get('/subcategories/{category_id}', 'Api\CategoryController@geSubCategory');
-Route::get('/childCategories/{subcategory_id}', 'Api\CategoryController@getChildCategories');
+Route::get('categories', 'Api\v1\CategoryController@geCategory');
+Route::get('/subcategories/{category_id}', 'Api\v1\CategoryController@geSubCategory');
+Route::get('/childCategories/{subcategory_id}', 'Api\v1\CategoryController@getChildCategories');
 
-Route::get('/faq', 'Api\AppSettingController@support');
-Route::get('/about', 'Api\AppSettingController@about');
+Route::get('/faq', 'Api\v1\AppSettingController@support');
+Route::get('/about', 'Api\v1\AppSettingController@about');
+Route::get('/country', 'Api\v1\AppSettingController@country');
 
 Route::group(['middleware' => 'auth:api'], function(){
 
-    Route::get('/details', 'Api\UserController@details');
-    Route::get('/notfication', 'Api\AppSettingController@notifications');
-    Route::get('/jobs', 'Api\JobberController@jobs');
+    Route::get('/details', 'Api\v1\UserController@details');
+    Route::get('/notfication', 'Api\v1\AppSettingController@notifications');
+    Route::post('/profile/update', 'Api\v1\UserController@update');
+    Route::get('/get/profile', 'Api\v1\UserController@details');
 
-// VERSION 1
-    Route::post('/profile/update', 'Api\UserController@update');
+
+
+    Route::get('/jobs', 'Api\v1\JobberController@jobs');
+
     Route::post('/jobrequest/submit', 'Api\v1\ApplicantController@jobRequestSubmit');
 
 });

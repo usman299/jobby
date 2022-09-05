@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\AppSetting;
+namespace App\Http\Resources\v1\AppSetting;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -19,8 +19,6 @@ class AboutResource extends JsonResource
             'description' => $this->description,
             'condition' => $this->condition,
             'copyright' => $this->copyright,
-
-
         ];
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Jobber\JobCollection;
+use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Ignorjobrequest;
 use App\JobRequest;
 use Carbon\Carbon;

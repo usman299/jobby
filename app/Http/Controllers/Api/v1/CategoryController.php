@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\v1;
 
 use App\ChildCategory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\Category\CategoryCollection;
-use App\Http\Resources\Category\SubCategoryCollection;
+use App\Http\Resources\v1\Category\CategoryCollection;
+use App\Http\Resources\v1\Category\SubCategoryCollection;
 use App\Category;
 use App\SubCategory;
 

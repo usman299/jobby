@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Category;
+namespace App\Http\Resources\v1\AppSetting;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SubCategoryCollection extends JsonResource
+
+class CountryCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,13 +15,9 @@ class SubCategoryCollection extends JsonResource
      */
     public function toArray($request)
     {
-        // return parent::toArray($request);
         return [
             'id' => $this->id,
-            'title'=> $this->title??"",
-            'image'=> $this->img??"",
-            'price'=> $this->price??0,
-            'child_categories' => $this->childcategories
+            'name' => $this->name,
         ];
     }
 }

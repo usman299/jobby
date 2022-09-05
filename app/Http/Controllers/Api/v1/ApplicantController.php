@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
-use App\Http\Resources\v1\JobRequestCollection;
+use App\Http\Resources\v1\Applicant\JobRequestCollection;
 use App\JobRequest;
 use App\JobStatus;
 use App\User;
@@ -117,10 +117,8 @@ class ApplicantController extends Controller
         $user = Auth::user();
         $jobrequests = JobRequest::latest()->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('applicant_id', $user->id)->where('status', 1)->get();
         $jobrequestsClose = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 2)->get();
-        $draft = JobStatus::where('user_id', $user->id)->get();
         $success['jobrequests'] = JobRequestCollection::collection($jobrequests);
         $success['jobrequestsClose'] = JobRequestCollection::collection($jobrequestsClose);
-        $success['draft'] = JobRequestCollection::collection($draft);
         return response()->json($success, 200);
     }
 }
