@@ -54,6 +54,7 @@ class CreateJobRequestsTable extends Migration
             $table->string('pickup_address')->nullable();
             $table->string('destination_address')->nullable();
             $table->string('dob')->nullable();
+            $table->integer('jobbers')->nullable();
             $table->string('description')->nullable();
 
 

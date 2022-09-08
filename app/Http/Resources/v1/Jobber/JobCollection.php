@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\v1\Jobber;
 
-use App\Http\Resources\Users\UserResource;
+use App\Http\Resources\v1\Users\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class JobCollection extends JsonResource

@@ -28,6 +28,10 @@ class NewProposal extends Mailable
      */
     public function build()
     {
-        return $this->view('front.mail.applicant.newproposal')->with('dataa', $this->dataa);
+        return $this->from('contact@lepalaisdesfemmes.com', 'Mister jobby')
+            ->view('front.mail.applicant.newproposal')
+            ->subject('Soumettre la proposition')
+            ->with('dataa', $this->dataa);
+
     }
 }

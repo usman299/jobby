@@ -2,27 +2,24 @@
 
 namespace App\Jobs;
 
-use App\Mail\Facture;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Mail\UserRegister;
-use Mail;
 
-class UserRegisterJob implements ShouldQueue
+class ClientEmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    public $dataa;
+
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($dataa)
+    public function __construct()
     {
-        $this->dataa =$dataa;
+        //
     }
 
     /**
@@ -32,7 +29,6 @@ class UserRegisterJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->dataa['email'])->send(new UserRegister($this->dataa));
-
+        //
     }
 }

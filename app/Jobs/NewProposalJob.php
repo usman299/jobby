@@ -2,16 +2,15 @@
 
 namespace App\Jobs;
 
-use App\Mail\Facture;
+use App\Mail\NewProposal;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Mail\UserRegister;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
-class UserRegisterJob implements ShouldQueue
+class NewProposalJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public $dataa;
@@ -32,7 +31,6 @@ class UserRegisterJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->dataa['email'])->send(new UserRegister($this->dataa));
-
+        Mail::to($this->dataa['email'])->send(new  NewProposal($this->dataa));
     }
 }

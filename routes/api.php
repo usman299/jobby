@@ -39,8 +39,12 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 
     Route::get('/jobs', 'Api\v1\JobberController@jobs');
+    Route::post('/proposal/submit', 'Api\v1\JobberController@proposalSubmit');
+    Route::get('/proposals', 'Api\v1\JobberController@proposals');
 
     Route::post('/jobrequest/submit', 'Api\v1\ApplicantController@jobRequestSubmit');
+    Route::get('/job/request', 'Api\v1\ApplicantController@jobrequests');
+    Route::get('/proposals/details', 'Api\v1\ApplicantController@proposals');
 
 });
 

@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
 use App\Http\Resources\v1\Applicant\JobRequestCollection;
+use App\Http\Resources\v1\Jobber\JobCollection;
+use App\Http\Resources\v1\Jobber\ProposalCollection;
 use App\JobRequest;
 use App\JobStatus;
+use App\Proposal;
 use App\User;
 use Carbon\Carbon;
 use Exception;
@@ -24,7 +27,7 @@ class ApplicantController extends Controller
             $jobrequest->category_id = $request->category_id;
             $jobrequest->subcategory_id = $request->subcategory_id;
             $jobrequest->childcategory_id = $request->childcategory_id;
-            $jobrequest->country_id = $user->country;
+            $jobrequest->country_id = $request->country_id;
             $jobrequest->title = $request->title;
             $jobrequest->description = $request->description;
             $jobrequest->service_date = $request->service_date;
@@ -39,6 +42,9 @@ class ApplicantController extends Controller
             $jobrequest->large = $request->large;
             $jobrequest->verylarge = $request->verylarge;
             $jobrequest->question = $request->question;
+            $jobrequest->question1 = $request->question1;
+            $jobrequest->question2 = $request->question2;
+            $jobrequest->question3 = $request->question3;
             $jobrequest->surface = $request->surface;
             $jobrequest->count = $request->count;
             $jobrequest->input = $request->input;
@@ -47,6 +53,8 @@ class ApplicantController extends Controller
             $jobrequest->long = $request->long ?? $user->longitude;
             $jobrequest->pickup_address = $request->pickup_address;
             $jobrequest->destination_address = $request->destination_address;
+            $jobrequest->jobbers = $request->jobbers;
+            $jobrequest->urgent = $request->urgent;
             $jobrequest->dob = $request->dob;
             if ($request->childcategory_id == 29) {
                 if ($request->child_question) {
@@ -63,11 +71,6 @@ class ApplicantController extends Controller
                 }
             }
 
-            if ($request->urgent) {
-                $jobrequest->urgent = 1;
-            } else {
-                $jobrequest->urgent = 0;
-            }
             if ($request->hasFile('image1')) {
                 $image1 = $request->file('image1');
                 $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
@@ -117,8 +120,20 @@ class ApplicantController extends Controller
         $user = Auth::user();
         $jobrequests = JobRequest::latest()->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('applicant_id', $user->id)->where('status', 1)->get();
         $jobrequestsClose = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 2)->get();
-        $success['jobrequests'] = JobRequestCollection::collection($jobrequests);
-        $success['jobrequestsClose'] = JobRequestCollection::collection($jobrequestsClose);
+        $success['jobrequests'] = JobCollection::collection($jobrequests);
+        $success['jobrequestsClose'] = JobCollection::collection($jobrequestsClose);
+        return response()->json($success, 200);
+    }
+    public function proposals()
+    {
+        $user = Auth::user();
+        $jobs = JobRequest::where('applicant_id', $user->id)->pluck('id');
+        $activeProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 1)->get();
+        $acceptProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 2)->get();
+        $rejectProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 3)->get();
+        $success['activeProposal'] = ProposalCollection::collection($activeProposals);
+        $success['acceptProposal'] = ProposalCollection::collection($acceptProposals);
+        $success['rejectProposal'] = ProposalCollection::collection($rejectProposals);
         return response()->json($success, 200);
     }
 }
