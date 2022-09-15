@@ -123,16 +123,10 @@ class ApplicantController extends Controller
         $data = JobCollectionResource::collection($jobrequests);
         return response()->json($data);
     }
-    public function proposals()
+    public function proposals($id)
     {
-        $user = Auth::user();
-        $jobs = JobRequest::where('applicant_id', $user->id)->pluck('id');
-        $activeProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 1)->get();
-        $acceptProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 2)->get();
-        $rejectProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 3)->get();
-        $success['activeProposal'] = ProposalCollection::collection($activeProposals);
-        $success['acceptProposal'] = ProposalCollection::collection($acceptProposals);
-        $success['rejectProposal'] = ProposalCollection::collection($rejectProposals);
-        return response()->json($success, 200);
+        $jobs = Proposal::where('jobRequest_id', $id)->get();
+        $data = ProposalCollection::collection($jobs);
+        return response()->json($data);
     }
 }
