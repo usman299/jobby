@@ -30,6 +30,7 @@ class AdminSeeder extends Seeder
             'role' => '2',
             'country' => '1',
             'avatar' => '0',
+            'skills' => '[]',
             'password' => bcrypt('password'),
             'email_verified_at' => "2022-04-14 14:49:23",
 
