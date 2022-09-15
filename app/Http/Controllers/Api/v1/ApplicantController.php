@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\Http\Resources\v1\Applicant\JobCollectionResource;
 use App\Http\Resources\v1\Applicant\JobRequestCollection;
 use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
@@ -119,7 +120,7 @@ class ApplicantController extends Controller
     {
         $user = Auth::user();
         $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', $status)->get();
-        $data = JobCollection::collection($jobrequests);
+        $data = JobCollectionResource::collection($jobrequests);
         return response()->json($data);
     }
     public function proposals()
