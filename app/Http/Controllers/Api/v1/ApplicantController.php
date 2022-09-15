@@ -115,14 +115,12 @@ class ApplicantController extends Controller
         }
     }
 
-    public function jobrequests()
+    public function jobs($status)
     {
         $user = Auth::user();
-        $jobrequests = JobRequest::latest()->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('applicant_id', $user->id)->where('status', 1)->get();
-        $jobrequestsClose = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 2)->get();
-        $success['jobrequests'] = JobCollection::collection($jobrequests);
-        $success['jobrequestsClose'] = JobCollection::collection($jobrequestsClose);
-        return response()->json($success, 200);
+        $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', $status)->get();
+        $data = JobCollection::collection($jobrequests);
+        return response()->json($data);
     }
     public function proposals()
     {
