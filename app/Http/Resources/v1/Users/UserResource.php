@@ -22,7 +22,7 @@ class UserResource extends JsonResource
             'email'=> $this->email??"",
             'address'=> $this->address??"",
             'country'=> $this->countory->name??"",
-            'country_id'=> $this->country??"",
+            'country_id'=> (int)$this->country??0,
             'postalCode'=> $this->postalCode??"",
             'image'=> $this->image??"",
             'category_id'=> (int)$this->category_id ?? 0,
