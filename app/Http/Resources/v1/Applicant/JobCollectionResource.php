@@ -20,7 +20,7 @@ class JobCollectionResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title ?? "",
-            'category_id' => $this->category->img ??"",
+            'image' => $this->category->img ??"",
             'detail_description' => $this->detail_description ?? "",
             'description' => $this->description ?? "",
             'estimate_budget' => (string)$this->estimate_budget,
