@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\Http\Resources\v1\Applicant\JobCollectionResource;
 use App\Http\Resources\v1\Applicant\JobRequestCollection;
 use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
@@ -115,25 +116,17 @@ class ApplicantController extends Controller
         }
     }
 
-    public function jobrequests()
+    public function jobs($status)
     {
         $user = Auth::user();
-        $jobrequests = JobRequest::latest()->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('applicant_id', $user->id)->where('status', 1)->get();
-        $jobrequestsClose = JobRequest::latest()->where('applicant_id', $user->id)->where('status', 2)->get();
-        $success['jobrequests'] = JobCollection::collection($jobrequests);
-        $success['jobrequestsClose'] = JobCollection::collection($jobrequestsClose);
-        return response()->json($success, 200);
+        $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', $status)->get();
+        $data = JobCollectionResource::collection($jobrequests);
+        return response()->json($data);
     }
-    public function proposals()
+    public function proposals($id)
     {
-        $user = Auth::user();
-        $jobs = JobRequest::where('applicant_id', $user->id)->pluck('id');
-        $activeProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 1)->get();
-        $acceptProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 2)->get();
-        $rejectProposals = Proposal::latest()->whereIn('jobRequest_id', $jobs)->where('status', '=', 3)->get();
-        $success['activeProposal'] = ProposalCollection::collection($activeProposals);
-        $success['acceptProposal'] = ProposalCollection::collection($acceptProposals);
-        $success['rejectProposal'] = ProposalCollection::collection($rejectProposals);
-        return response()->json($success, 200);
+        $jobs = Proposal::where('jobRequest_id', $id)->get();
+        $data = ProposalCollection::collection($jobs);
+        return response()->json($data);
     }
 }
