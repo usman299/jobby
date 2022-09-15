@@ -52,6 +52,7 @@ class JobCollectionResource extends JsonResource
             'pickup_address' => $this->pickup_address ?? "",
             'destination_address' => $this->destination_address ?? "",
             'dob' => $this->dob ?? "",
+            'total_offers' => 4
         ];
     }
 }
