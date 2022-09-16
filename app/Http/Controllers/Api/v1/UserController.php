@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\Jobber\ProfileResource;
 use \App\Http\Resources\v1\Users\UserResource;
 use App\User;
 use Illuminate\Http\JsonResponse;
@@ -67,7 +68,7 @@ class UserController extends Controller
     public function details()
     {
         $user = Auth::guard('api')->user();
-        $data = new UserResource($user);
+        $data = new ProfileResource($user);
         return response()->json($data);
     }
 

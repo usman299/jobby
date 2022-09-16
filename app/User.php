@@ -2,15 +2,15 @@
 
 namespace App;
 
-use Laravel\Cashier\Billable;
-use Laravel\Passport\HasApiTokens;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Auth;
+use Laravel\Cashier\Billable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
-{   use Billable;
+{
+    use Billable;
     use HasApiTokens, Notifiable;
 
     /**
@@ -19,11 +19,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstName','lastName','role','phone','address','country','image','status', 'email','gender',
-        'password','postalCode','category_id','subcategory_id','skills', 'questions', 'answers','description','document1','document2', 'device_token', 'dob','latitude','longitude'
+        'firstName', 'lastName', 'role', 'phone', 'address', 'country', 'image', 'status', 'email', 'gender',
+        'password', 'postalCode', 'category_id', 'subcategory_id', 'skills', 'questions', 'answers', 'description', 'document1', 'document2', 'device_token', 'dob', 'latitude', 'longitude'
 
     ];
-
 
 
     /**
@@ -48,29 +47,69 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Countory::class, 'country');
     }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
     public function subcategory()
     {
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
     }
+
     public function portfolio()
     {
         return $this->hasMany(Portfolio::class, 'jobber_id');
     }
+
     public function sub()
     {
         return $this->belongsTo(Subscribe::class, 'subscription');
     }
-    public function hasSubscription(){
+
+    public function hasSubscription()
+    {
         $user = Auth::user();
         if ($user->subscribed('main')) {
             return true;
-        }else{
+        } else {
             return false;
         }
+    }
+
+    public function totalJobs($status)
+    {
+        if ($status == 1) {
+            $total = Contract::where('jober_id', '=', $this->id)->where('status', '!=', $status)->count();
+        } else {
+            $total = Contract::where('jober_id', '=', $this->id)->where('status', '=', $status)->count();
+        }
+        return $total;
+    }
+
+    public function totalReview()
+    {
+        $totalReviews = Reviews::where('reciver_id', '=', $this->id)->count();
+        return $totalReviews;
+    }
+
+    public function rating()
+    {
+        $query = Reviews::where('reciver_id', '=', $this->id);
+        $grandTotalCount = $query->count();
+        if ($grandTotalCount != 0) {
+            $totalReview = $query->sum('star');
+            $totalReviews = round($totalReview / $grandTotalCount);
+            return $totalReviews;
+        }
+        return 0;
+    }
+
+    public function reviews()
+    {
+        $reviews = Reviews::where('reciver_id', '=', $this->id)->latest()->get();
+        return $reviews;
     }
 }
 
