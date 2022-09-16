@@ -23,9 +23,6 @@ class AppSettingResource extends JsonResource
             'applicantIntroScreen1'=> $this->applicantIntroScreen1,
             'applicantIntroScreen2'=> $this->applicantIntroScreen2,
             'applicantIntroScreen3'=> $this->applicantIntroScreen3,
-
         ];
-
-
     }
 }

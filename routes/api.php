@@ -27,6 +27,7 @@ Route::get('/childCategories/{subcategory_id}', 'Api\v1\CategoryController@getCh
 
 Route::get('/faq', 'Api\v1\AppSettingController@support');
 Route::get('/about', 'Api\v1\AppSettingController@about');
+Route::get('/terms/and/privacy', 'Api\v1\AppSettingController@termsPrivacy');
 Route::get('/country', 'Api\v1\AppSettingController@country');
 
 Route::group(['middleware' => 'auth:api'], function(){
@@ -34,6 +35,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/details', 'Api\v1\UserController@details');
     Route::get('/notification', 'Api\v1\AppSettingController@notifications');
     Route::post('/profile/update', 'Api\v1\UserController@update');
+    Route::post('/profile/image/update', 'Api\v1\UserController@profileImage');
     Route::get('/get/profile', 'Api\v1\UserController@details');
 
     Route::get('/jobs', 'Api\v1\JobberController@jobs');

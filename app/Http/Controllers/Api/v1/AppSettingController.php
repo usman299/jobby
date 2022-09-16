@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\About;
 use App\AppSetting;
+use App\Condition;
 use App\Countory;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\v1\AppSetting\AboutResource;
@@ -40,7 +41,6 @@ class AppSettingController extends Controller
         Notfication::latest()->where('r_id', '=', $user->id)->update(['status' => 1]);
         $success = NotficationCollection::collection($data);
         return response()->json($success, 200);
-
     }
 
     public function support()
@@ -63,6 +63,12 @@ class AppSettingController extends Controller
         $data =  CountryCollection::collection($country);
         return response()->json($data, 200);
     }
-
-
+    public function termsPrivacy()
+    {
+        $condition = Condition::first();
+        return response([
+            'privacy' => $condition->description1,
+            'terms' => $condition->description2
+        ]);
+    }
 }

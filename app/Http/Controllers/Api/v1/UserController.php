@@ -93,6 +93,18 @@ class UserController extends Controller
         $user->update();
         return response()->json(['success' => 'Successfully Updated']);
     }
+    public function profileImage(Request  $request){
+        $user = Auth::user();
+        if ($request->hasfile('image')) {
+            $image1 = $request->file('image');
+            $name = time() . 'profileImage' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'profileImage/';
+            $image1->move($destinationPath, $name);
+            $user->image = 'profileImage/' . $name;
+        }
+        $user->update();
+        return response()->json(['success' => 'Successfully Updated']);
+    }
 }
 
 
