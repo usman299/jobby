@@ -75,5 +75,17 @@ class JobRequest extends Model
         $miles = ($angle * $earthRadius) * 1.6;
         return round($miles,2);
     }
+    public function totalOffers(){
+        $total = Proposal::where('jobRequest_id','=',$this->id)->count();
+        return $total;
+    }
+    public function totalComments(){
+        $total = Comments::where('job_id','=',$this->id)->count();
+        return $total;
+    }
+    public function allComments(){
+        $comments = Comments::where('job_id','=',$this->id)->latest()->get();
+        return $comments;
+    }
 }
 

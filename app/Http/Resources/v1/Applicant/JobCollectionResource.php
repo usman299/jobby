@@ -52,8 +52,9 @@ class JobCollectionResource extends JsonResource
             'pickup_address' => $this->pickup_address ?? "",
             'destination_address' => $this->destination_address ?? "",
             'dob' => $this->dob ?? "",
-            'total_offers' => 4,
-            'comments' => 4,
+            'total_offers' => $this->totalOffers(),
+            'total_comments' => $this->totalComments(),
+            'comments' => CommentsCollection::collection($this->allComments()),
             'jobber_required' => 4,
         ];
     }
