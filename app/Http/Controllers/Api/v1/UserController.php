@@ -71,6 +71,12 @@ class UserController extends Controller
         $data = new UserResource($user);
         return response()->json($data);
     }
+    public function jobberProfile($id)
+    {
+        $user = User::find($id);
+        $data = new ProfileResource($user);
+        return response()->json($data);
+    }
 
     public function update(Request $request)
     {

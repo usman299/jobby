@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('/profile/update', 'Api\v1\UserController@update');
     Route::post('/profile/image/update', 'Api\v1\UserController@profileImage');
     Route::get('/get/profile', 'Api\v1\UserController@details');
+    Route::get('/jobber/profile/{id}', 'Api\v1\UserController@jobberProfile');
 
     Route::get('/jobs', 'Api\v1\JobberController@jobs');
     Route::post('/proposal/submit', 'Api\v1\JobberController@proposalSubmit');
