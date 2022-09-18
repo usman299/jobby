@@ -68,7 +68,7 @@ class UserController extends Controller
     public function details()
     {
         $user = Auth::guard('api')->user();
-        $data = new ProfileResource($user);
+        $data = new UserResource($user);
         return response()->json($data);
     }
 
@@ -82,15 +82,6 @@ class UserController extends Controller
         $user->country = $request->country;
         $user->gender = $request->gender;
         $user->dob = $request->dob;
-        if ($request->latitude) {
-            $user->latitude = $request->latitude;
-        }
-        if ($request->longitude) {
-            $user->longitude = $request->longitude;
-        }
-        if ($request->password) {
-            $user->password = Hash::make($request->password);
-        }
         $user->update();
         return response()->json(['success' => 'Successfully Updated']);
     }
