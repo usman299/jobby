@@ -54,7 +54,6 @@ class JobCollectionResource extends JsonResource
             'dob' => $this->dob ?? "",
             'total_offers' => $this->totalOffers(),
             'total_comments' => $this->totalComments(),
-            'comments' => CommentsCollection::collection($this->allComments()),
             'jobber_required' => 4,
         ];
     }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Comments;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\Http\Resources\v1\Applicant\CommentsCollection;
 use App\Http\Resources\v1\Applicant\JobCollectionResource;
 use App\Http\Resources\v1\Applicant\JobRequestCollection;
 use App\Http\Resources\v1\Jobber\JobCollection;
@@ -128,5 +130,23 @@ class ApplicantController extends Controller
         $jobs = Proposal::where('jobRequest_id', $id)->get();
         $data = ProposalCollection::collection($jobs);
         return response()->json($data);
+    }
+
+    public function comments(Request $request)
+    {
+        $comments = new Comments();
+        $comments->job_id = $request->job_id;
+        $comments->comment = $request->comment;
+        $comments->user_id = Auth::user()->id;
+        $comments->save();
+        return response()->json(['success' => 'Comments Save Successfully'], 200);
+
+    }
+
+    public function getComments($id)
+    {
+        $comments = Comments::where('job_id', '=', $id)->latest()->get();
+        $success = CommentsCollection::collection($comments);
+        return response()->json($success, 200);
     }
 }

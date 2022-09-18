@@ -46,8 +46,8 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/job/proposals/{id}', 'Api\v1\ApplicantController@proposals');
     Route::get('/demandeur/jobs/{status}', 'Api\v1\ApplicantController@jobs');
 
-    Route::post('/comments', 'Api\v1\JobberController@comments');
-    Route::get('/getComments/{id}', 'Api\v1\JobberController@getComments');
+    Route::post('/comments', 'Api\v1\ApplicantController@comments');
+    Route::get('/getComments/{id}', 'Api\v1\ApplicantController@getComments');
 
 });
 
