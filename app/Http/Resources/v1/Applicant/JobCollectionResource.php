@@ -25,7 +25,7 @@ class JobCollectionResource extends JsonResource
             'description' => $this->description ?? "",
             'estimate_budget' => (string)$this->estimate_budget,
             'duration' => $this->duration ?? "",
-            'service_date' => $this->service_date->format('d-m-y'),
+            'service_date' => $this->service_date->format('d-M-Y'),
             'views' => $this->totalViews(),
             'latitude' => $this->lat ?? "",
             'longitude' => $this->long ?? "",
