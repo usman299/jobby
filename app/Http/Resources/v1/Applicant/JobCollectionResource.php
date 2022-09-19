@@ -53,7 +53,7 @@ class JobCollectionResource extends JsonResource
             'destination_address' => $this->destination_address ?? "",
             'dob' => $this->dob ?? "",
             'total_offers' => $this->totalOffers(),
-            'jobber_required' => $this->jobber ?? 0,
+            'jobber_required' => $this->jobber ?? 1,
             'total_comments' => $this->totalComments(),
 
         ];
