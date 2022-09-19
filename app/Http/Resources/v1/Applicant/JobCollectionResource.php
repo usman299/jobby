@@ -53,8 +53,9 @@ class JobCollectionResource extends JsonResource
             'destination_address' => $this->destination_address ?? "",
             'dob' => $this->dob ?? "",
             'total_offers' => $this->totalOffers(),
+            'jobber_required' => $this->jobber,
             'total_comments' => $this->totalComments(),
-            'jobber_required' => 4,
+
         ];
     }
 }
