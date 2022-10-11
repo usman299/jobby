@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\v1\Jobber\ProfileResource;
-use \App\Http\Resources\v1\Users\UserResource;
+use App\Http\Resources\v1\Users\UserResource;
+use App\Jobs\OtpMailJob;
+use App\Mail\OtpMail;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -102,6 +104,54 @@ class UserController extends Controller
         }
         $user->update();
         return response()->json(['success' => 'Successfully Updated']);
+    }
+    public function passwordUpdate(Request  $request)
+    {
+      $user = Auth::user();
+      $user->password  = Hash::make($request->password);
+      $user->update();
+      return response()->json(['success' => 'Successfully Updated']);
+    }
+    public function sendOtpEmail(Request $request)
+    {
+        $otp = rand(1000, 9999);
+        $user = User::where('email', '=', $request->email)->first();
+        if ($user) {
+            $user->otp = $otp;
+            $user->update();
+            $dataa = array(
+                'otp' => $otp,
+                'email' => $user->email,
+            );
+            dispatch(new OtpMailJob($dataa))->delay(\Carbon\Carbon::now()->addSeconds(5));
+            return response()->json(['success' => 'Otp send'], 200);
+        } else {
+            return response()->json(['error' => 'User not exist'], 404);
+        }
+
+    }
+
+    public function otpVerifyEmail(Request $request){
+        $user = User::where('email', $request->email)->where('otp', $request->otp)->first();
+        if ($user) {
+            $user->otp = null;
+            $user->email_verified_at = 1;
+            $user->update();
+            return response()->json(['success' => 'Otp Verify'], 200);
+        } else {
+            return response()->json(['success' => 'Otp Not match'], 200);
+
+        }
+    }
+    public function forgetPassword(Request $request)
+    {
+        $user = User::where('email', '=', $request->email)->first();
+        $user->password = Hash::make($request->password);;
+        $user->update();
+        auth()->login($user, true);
+        $success['token'] = $user->createToken('MyApp')->accessToken;
+        $success['user'] = new UserResource($user);
+        return response()->json(['success' => $success], 200);
     }
 }
 

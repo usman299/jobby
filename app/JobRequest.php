@@ -83,9 +83,16 @@ class JobRequest extends Model
         $total = Comments::where('job_id','=',$this->id)->count();
         return $total;
     }
-    public function allComments(){
-        $comments = Comments::where('job_id','=',$this->id)->latest()->get();
-        return $comments;
+    public function isHired(){
+        $proposal = Proposal::where('jobRequest_id','=',$this->id)->pluck('id');
+        $contract = Contract::whereIn('proposal_id',$proposal)->count();
+        return $contract;
     }
+    public function available(){
+        $proposal = Contract::where('jobber_id','=',$this->id)->pluck('id');
+        $contract = Contract::whereIn('proposal_id',$proposal)->count();
+        return $contract;
+    }
+
 }
 

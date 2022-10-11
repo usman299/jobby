@@ -111,5 +111,11 @@ class User extends Authenticatable
         $reviews = Reviews::where('reciver_id', '=', $this->id)->latest()->get();
         return $reviews;
     }
+    public function userSkils()
+    {
+       $user = User::find($this->id);
+
+        return $reviews;
+    }
 }
 

@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Comments;
+use App\Contract;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
 use App\Http\Resources\v1\Applicant\CommentsCollection;
+use App\Http\Resources\v1\Applicant\ContractCollection;
 use App\Http\Resources\v1\Applicant\JobCollectionResource;
 use App\Http\Resources\v1\Applicant\JobRequestCollection;
-use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
 use App\JobRequest;
 use App\JobStatus;
+use App\Payment;
 use App\Proposal;
 use App\User;
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Stripe\PaymentIntent;
+use Stripe\Stripe;
 
 class ApplicantController extends Controller
 {
@@ -118,6 +121,42 @@ class ApplicantController extends Controller
         }
     }
 
+    public function jobRequestUpdate(Request $request)
+    {
+
+
+        $jobrequest = JobRequest::find($request->job_id);
+
+        $jobrequest->service_date = $request->service_date;
+        $jobrequest->start_time = $request->start_time;
+        $jobrequest->detail_description = $request->detail_description;
+        if ($request->hasFile('image1')) {
+            $image1 = $request->file('image1');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $jobrequest->image1 = 'images/' . $name;
+
+        }
+        if ($request->hasFile('image2')) {
+            $image2 = $request->file('image2');
+            $name2 = time() . 'images' . '.' . $image2->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image2->move($destinationPath, $name2);
+            $jobrequest->image2 = 'images/' . $name2;
+        }
+        if ($request->hasFile('image3')) {
+            $image3 = $request->file('image3');
+            $name3 = time() . 'images' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image3->move($destinationPath, $name3);
+            $jobrequest->image3 = 'images/' . $name3;
+        }
+        $jobrequest->update();
+        return response()->json(['success' => 'JobRequest Updated Successfully'], 200);
+
+    }
+
     public function jobs($status)
     {
         $user = Auth::user();
@@ -125,6 +164,7 @@ class ApplicantController extends Controller
         $data = JobCollectionResource::collection($jobrequests);
         return response()->json($data);
     }
+
     public function proposals($id)
     {
         $jobs = Proposal::where('jobRequest_id', $id)->get();
@@ -148,5 +188,75 @@ class ApplicantController extends Controller
         $comments = Comments::where('job_id', '=', $id)->latest()->get();
         $success = CommentsCollection::collection($comments);
         return response()->json($success, 200);
+    }
+
+    public function contractIntent($proposal_id)
+    {
+        $proposal = Proposal::find($proposal_id);
+
+        if (isset($proposal->price)) {
+            Stripe::setApiKey('sk_test_bNs6F2GH5AWstJEQg7KT852l00SdVU7GF0');
+            $payment_intent = PaymentIntent::create([
+                'amount' => ($proposal->price) * 100,
+                'currency' => 'EUR'
+            ]);
+        }
+        $success = $payment_intent->client_secret;
+        return response()->json($success, 200);
+    }
+
+    public function proposalsContract(Request $request)
+    {
+
+        $applicant_id = Auth::user();
+
+        $proposal = Proposal::find($request->proposal_id);
+        $proposal->status = 2;
+        $proposal->update();
+
+        $jobrequest = JobRequest::find($proposal->jobRequest_id);
+        $jobrequest->status = 2;
+        $jobrequest->update();
+
+        $contract = new Contract();
+        $contract->proposal_id = $request->proposal_id;
+        $contract->jobRequest_id = $proposal->jobRequest_id;
+        $contract->applicant_id = $applicant_id->id;
+        $contract->jober_id = $proposal->jobber_id;
+        $contract->s_time = $jobrequest->start_time;
+        $contract->e_time = $request->e_time;
+        $contract->price = $proposal->price;
+        $contract->description = $request->description;
+        $contract->contract_no = 'CN-' . rand(10000, 90000);
+        $contract->save();
+
+        $payment = new Payment();
+        $payment->contract_id = $contract->id;
+        $payment->applicant_id = $applicant_id->id;
+        $payment->jobber_id = $proposal->jobber_id;
+
+        $payment->price = $request->price;
+        $payment->contract_price = $proposal->price;
+        $payment->percentage = $request->percentage;
+        $payment->jobber_get = $proposal->price - $request->percentage;
+
+        $payment->type = 'card';
+        $payment->invoice_no = 'IN-' . rand(10000, 90000);
+        $payment->save();
+
+        $activity = "Début du contrat";
+        $msg = "Votre contrat commence avec le demandeur";
+
+        NotificationHelper::pushNotification($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
+
+        return response()->json(['success' => 'Contract Save Successfully'], 200);
+    }
+    public function contract($job_id)
+    {
+        $contract = Contract::where('jobRequest_id','=',$job_id)->get();
+        $success = ContractCollection::collection($contract);
+        return response()->json($success, 200);
+
     }
 }
