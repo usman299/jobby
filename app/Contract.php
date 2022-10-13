@@ -30,4 +30,8 @@ class Contract extends Model
     {
         return $this->belongsTo(Proposal::class, 'proposal_id');
     }
+    public function jobRequest()
+    {
+        return $this->belongsTo(JobRequest::class, 'jobRequest_id');
+    }
 }

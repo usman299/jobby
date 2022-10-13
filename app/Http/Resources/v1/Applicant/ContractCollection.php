@@ -15,13 +15,14 @@ class ContractCollection extends JsonResource
      * @return array
      */
     public function toArray($request)
-    {     \Carbon\Carbon::setLocale('fr');
+    {    \Carbon\Carbon::setLocale('fr');
+        $date = \Carbon\Carbon::parse($this->created_at);
         return [
             'id'=> $this->id,
-            'job'=> 'job',
-            'jobberProfile' => new ProfileResource($this->jober_id),
+            'job'=> new JobCollectionResource($this->jobRequest),
+            'jobberProfile' => new ProfileResource($this->jobber),
             'status'=> $this->status ?? 0,
-            'date' => $this->created_at->diffForHumans(),
+            'date' => $date->diffForHumans(),
         ];
     }
 }

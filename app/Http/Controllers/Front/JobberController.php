@@ -207,6 +207,7 @@ class JobberController extends Controller
             $twoStar = (Reviews::where('star', '=', 2)->where('reciver_id','=',$contract->applicant->id)->count() / $total) * 100;
             $oneStar = (Reviews::where('star', '=', 1)->where('reciver_id','=',$contract->applicant->id)->count() / $total) * 100;
         }
+
         else{
             $reviews =null;
             $totalReviews=0;
