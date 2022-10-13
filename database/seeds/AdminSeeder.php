@@ -30,7 +30,6 @@ class AdminSeeder extends Seeder
             'role' => '2',
             'country' => '1',
             'avatar' => '0',
-            'skills' => '[]',
             'password' => bcrypt('password'),
             'email_verified_at' => "2022-04-14 14:49:23",
 
@@ -45,7 +44,6 @@ class AdminSeeder extends Seeder
             'check'=>'1',
             'category_id' => '1',
             'subcategory_id' => '1',
-            'skills' => '[]',
             'password' => bcrypt('password'),
             'email_verified_at' => "2022-04-14 14:49:23",
 
@@ -61,6 +59,21 @@ class AdminSeeder extends Seeder
             'equipement2' => 'test2',
             'eng1' => 'test1',
             'eng2' => 'test2',
+            'skills1'=>'["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"]',
+            'skills2'=>'["1","2","3","4","5","6","7","8","9","10","11","12","13"]',
+            ]);
+        \App\JobberProfile::create([
+            'jobber_id' => '2',
+            'jobber_category_id' => 'Électricité et domotique',
+            'diploma' => 'Non',
+            'experince' => 'J’ai plus de 5 ans',
+            'personal_description' => 'ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd ddssdsdsd',
+            'equipement1' => 'test1',
+            'equipement2' => 'test2',
+            'eng1' => 'test1',
+            'eng2' => 'test2',
+            'skills1'=>'["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30"]',
+            'skills2'=>'["1","2","3","4","5","6","7","8","9","10","11","12","13"]',
         ]);
 
         UserMail::create([

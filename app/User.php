@@ -111,11 +111,37 @@ class User extends Authenticatable
         $reviews = Reviews::where('reciver_id', '=', $this->id)->latest()->get();
         return $reviews;
     }
-    public function userSkils()
-    {
-       $user = User::find($this->id);
 
-        return $reviews;
+    public function jobberSkilsSubcategory()
+    {
+        $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
+        foreach (json_decode($jobber->skills1) as $row) {
+            $subcategory[] = SubCategory::where('id', '=', $row)->first();
+        }
+        return $subcategory;
+    }
+
+    public function jobberSkilsChildcategory()
+    {
+        $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
+        foreach (json_decode($jobber->skills2) as $row) {
+            $childcategory[] = ChildCategory::where('id', '=', $row)->first();
+        }
+        return $childcategory;
+    }
+
+    public function verified()
+    {
+        $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
+        if ($jobber->social_security_number != null && $jobber->social_security_certificate != null && $jobber->vital_card_number != null && $jobber->vital_card != null && $jobber->eu_id_residence_permit_back != null && $jobber->eu_id_residence_permit_front != null && $jobber->eu_id_passport_back != null && $jobber->eu_id_passport_front != null && $jobber->eu_id_driving_back != null && $jobber->eu_id_driving_front != null &&
+            $jobber->eu_id_card_back != null && $jobber->eu_id_card_front != null && $jobber->score != null && $jobber->rules4 != null && $jobber->rules3 != null && $jobber->rules2 != null && $jobber->rules1 != null && $jobber->answer1 != null && $jobber->answer2 != null && $jobber->answer3 != null &&
+            $jobber->answer4 != null && $jobber->insurance4 != null && $jobber->insurance3 != null && $jobber->insurance2 != null && $jobber->insurance1 != null && $jobber->skills1 != null && $jobber->skills2 != null && $jobber->monday != null && $jobber->tuesday != null && $jobber->wednesday != null &&
+            $jobber->thersday != null && $jobber->friday != null && $jobber->saturday != null && $jobber->sunday != null) {
+                return 1;
+        }
+        else{
+            return 0;
+        }
     }
 }
 

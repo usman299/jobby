@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Comments;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
-use App\Http\Resources\v1\Applicant\CommentsCollection;
 use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
 use App\Ignorjobrequest;
+use App\JobberProfile;
 use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Proposal;
@@ -73,5 +72,37 @@ class JobberController extends Controller
         $success['acceptProposal'] = ProposalCollection::collection($acceptProposals);
         $success['rejectProposal'] = ProposalCollection::collection($rejectProposals);
         return response()->json($success, 200);
+    }
+
+    public function skillsOne(Request $request)
+    {
+        $user = Auth::user();
+        $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
+
+        if ($request->subcategory_id) {
+
+            foreach ($request->subcategory_id as $skill) {
+                $data[] = $skill;
+                $jobberProfile->skills1 = json_encode($data);
+            }
+        }
+        $jobberProfile->update();
+        return response()->json(['success' => 'Skills Update Successfully'], 200);
+    }
+
+    public function skillsTwo(Request $request)
+    {
+        $user = Auth::user();
+        $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
+
+        if ($request->childcategory) {
+
+            foreach ($request->childcategory as $skill) {
+                $data[] = $skill;
+                $jobberProfile->skills2 = json_encode($data);
+            }
+        }
+        $jobberProfile->update();
+        return response()->json(['success' => 'Skills Update Successfully'], 200);
     }
 }

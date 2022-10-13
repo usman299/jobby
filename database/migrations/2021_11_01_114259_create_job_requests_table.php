@@ -31,6 +31,7 @@ class CreateJobRequestsTable extends Migration
 
             $table->string('service_date')->nullable();
             $table->string('start_time')->nullable();
+            $table->string('end_time')->nullable();
             $table->string('duration')->nullable();
             $table->string('hours')->nullable();
             $table->string('estimate_budget')->nullable();

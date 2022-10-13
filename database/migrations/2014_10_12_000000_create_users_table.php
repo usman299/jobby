@@ -28,9 +28,8 @@ CreateUsersTable extends Migration
             $table->string('image')->default('main/avatar.png');
             $table->integer('category_id')->nullable();
             $table->integer('subcategory_id')->nullable();
-
-            $table->longText('skills')->nullable();
             $table->string('gender')->nullable();
+            $table->longText('professional')->nullable();
             $table->string('dob')->nullable();
             $table->string('rate_per_hour')->nullable();
 
@@ -41,17 +40,8 @@ CreateUsersTable extends Migration
             $table->string('vat_type')->nullable();
             $table->string('siret')->nullable();
             $table->longText('description')->nullable();
-
             $table->longText('device_token')->nullable();
 
-            $table->longText('document1')->nullable();
-            $table->longText('document2')->nullable();
-
-//            identity proof
-            $table->string('euorpion')->nullable();
-            $table->string('identity_type')->nullable();
-            $table->string('identity_document')->nullable();
-            $table->string('security_no')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
