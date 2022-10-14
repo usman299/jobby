@@ -38,6 +38,7 @@ class ApplicantController extends Controller
             $jobrequest->description = $request->description;
             $jobrequest->service_date = $request->service_date;
             $jobrequest->start_time = $request->start_time;
+            $jobrequest->end_time = $request->end_time;
             $jobrequest->duration = $request->duration;
             $jobrequest->hours = $request->hours;
             $jobrequest->estimate_budget = $request->estimate_budget;
@@ -129,6 +130,7 @@ class ApplicantController extends Controller
 
         $jobrequest->service_date = $request->service_date;
         $jobrequest->start_time = $request->start_time;
+        $jobrequest->end_time = $request->end_time;
         $jobrequest->detail_description = $request->detail_description;
         if ($request->hasFile('image1')) {
             $image1 = $request->file('image1');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1\Jobber;
 
+use App\Http\Resources\v1\Applicant\DemProfileResource;
 use App\Http\Resources\v1\Users\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,6 +19,8 @@ class JobCollection extends JsonResource
         \Carbon\Carbon::setLocale('fr');
         $date = \Carbon\Carbon::parse($this->created_at);
         return [
+
+
             'id' => $this->id,
             'title' => $this->title??"",
             'childcategory_id' => (int)isset($this->childcategory->id) ? $this->childcategory->id : 0,
@@ -30,7 +33,7 @@ class JobCollection extends JsonResource
             'distance' => (string)$this->distance(),
             'estimate_budget' => (string)$this->estimate_budget,
             'time_difference' => \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInMinutes(\Carbon\Carbon::now()),
-            'duration' => $this->duration??"",
+            'duration' => $this->duration()??"",
             'service_date' => $this->service_date->format('d-m-y'),
             'views' => $this->totalViews(),
             'is_applied' => $this->isApplied(),
@@ -40,6 +43,7 @@ class JobCollection extends JsonResource
             'created_at' => $date->diffForHumans(),
             'country' => $this->country->name??"",
             'start_time' => $this->start_time??"",
+            'end_time' => $this->end_time??"",
             'hours' => $this->hours??"",
             'status' => (int)$this->status,
             'address' => $this->address??"",
@@ -61,7 +65,8 @@ class JobCollection extends JsonResource
             'pickup_address' => $this->pickup_address??"",
             'destination_address' => $this->destination_address??"",
             'dob' => $this->dob??"",
-            'demander' => new UserResource($this->applicant),
+            'demander' => new DemProfileResource($this->applicant),
+
         ];
     }
 }

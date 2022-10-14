@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'Api\v1\UserController@login');
 Route::post('register', 'Api\v1\UserController@register');
 
+Route::post('send/otp', 'Api\v1\UserController@sendOtpEmail');
+Route::post('/otp/verify', 'Api\v1\UserController@otpVerifyEmail');
+Route::post('/forget/password', 'Api\v1\UserController@forgetPassword');
+Route::get('/app/otp/verify', 'FrontendController@otpVerify')->name('otp.verify.app');
+
 Route::get('app/settings', 'Api\v1\AppSettingController@getAppSetting');
 Route::get('/slider/galery/{role}', 'Api\v1\AppSettingController@sliderGalery');
 
@@ -49,6 +54,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/skills/two', 'JobberController@skillsTwo');
 
         Route::get('/jobs', 'JobberController@jobs');
+        Route::get('/job/ignore/{job_id}', 'JobberController@jobrequestsIgnore');
         Route::post('/proposal/submit', 'JobberController@proposalSubmit');
         Route::get('/proposals', 'JobberController@proposals');
     });
@@ -64,23 +70,16 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('/rules', 'Api\v1\UserController@rules');
     Route::post('/score', 'Api\v1\UserController@score');
     Route::post('/update/radius', 'Api\v1\UserController@radius');
+    Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');
+    Route::get('/demandeur/profile/{demandeur_id}', 'Api\v1\UserController@demandeurGetProfile');
 
     Route::post('/document', 'Api\v1\UserController@document');
     Route::post('/security/document', 'Api\v1\UserController@securityDocument');
-
-
-    Route::get('/get/profile', 'Api\v1\UserController@details');
-    Route::get('/jobber/profile/{id}', 'Api\v1\UserController@jobberProfile');
-
-
     Route::post('/comments', 'Api\v1\ApplicantController@comments');
     Route::get('/getComments/{id}', 'Api\v1\ApplicantController@getComments');
 
 });
-Route::post('send/otp', 'Api\v1\UserController@sendOtpEmail');
-Route::post('/otp/verify', 'Api\v1\UserController@otpVerifyEmail');
-Route::post('/forget/password', 'Api\v1\UserController@forgetPassword');
-Route::get('/app/otp/verify', 'FrontendController@otpVerify')->name('otp.verify.app');
+
 
 
 

@@ -31,6 +31,7 @@ CreateUsersTable extends Migration
             $table->string('gender')->nullable();
             $table->longText('professional')->nullable();
             $table->string('dob')->nullable();
+            $table->string('radius')->nullable();
             $table->string('rate_per_hour')->nullable();
 
 //            company

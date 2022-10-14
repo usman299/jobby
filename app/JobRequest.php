@@ -63,7 +63,7 @@ class JobRequest extends Model
     }
     public function distance(){
         $user = auth()->user();
-        $earthRadius = 3959;
+        $earthRadius = 6378;
         $latFrom = deg2rad($user->latitude);
         $lonFrom = deg2rad($user->longitude);
         $latTo = deg2rad($this->lat);
@@ -72,8 +72,8 @@ class JobRequest extends Model
         $lonDelta = $lonTo - $lonFrom;
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
                 cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
-        $miles = ($angle * $earthRadius) * 1.6;
-        return round($miles,2);
+        $km = ($angle * $earthRadius) * 1.6;
+        return round($km,2);
     }
     public function totalOffers(){
         $total = Proposal::where('jobRequest_id','=',$this->id)->count();
@@ -92,6 +92,13 @@ class JobRequest extends Model
         $proposal = Contract::where('jobber_id','=',$this->id)->pluck('id');
         $contract = Contract::whereIn('proposal_id',$proposal)->count();
         return $contract;
+    }
+    public function duration(){
+        (int)$startTime =  date('H:i:s', strtotime($this->start_time));
+        (int)$finishTime = date('H:i:s', strtotime($this->end_time));
+        $totalDuration =   (float)$finishTime - (float)$startTime;
+//       $totalDuration = $finishTime->diffInSeconds($startTime);
+        return $totalDuration;
     }
 
 }

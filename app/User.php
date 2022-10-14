@@ -143,5 +143,15 @@ class User extends Authenticatable
             return 0;
         }
     }
+    public function totalHireJobber()
+    {
+        $total =  Contract::where('status','=',2)->count();
+        return $total;
+    }
+    public function activeJobs()
+    {
+        $total =  Contract::where('status','=',1)->count();
+        return $total;
+    }
 }
 

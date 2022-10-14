@@ -267,3 +267,4 @@
         $('#txtDate').attr('min', minDate);
     });
 </script>
+

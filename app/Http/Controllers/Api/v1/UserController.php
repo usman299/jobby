@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\Applicant\DemProfileResource;
 use App\Http\Resources\v1\Jobber\ProfileResource;
-use App\Http\Resources\v1\Users\UserResource;
+
 use App\JobberProfile;
 use App\Jobs\OtpMailJob;
 use App\User;
@@ -29,7 +30,6 @@ class UserController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])) {
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = new UserResource($user);
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -61,25 +61,10 @@ class UserController extends Controller
             $user = User::create($input);
             $userR = User::find($user->id);
             $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['user'] = new UserResource($userR);
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Email Already Exist'], 400);
         }
-    }
-
-    public function details()
-    {
-        $user = Auth::guard('api')->user();
-        $data = new UserResource($user);
-        return response()->json($data);
-    }
-
-    public function jobberProfile($id)
-    {
-        $user = User::find($id);
-        $data = new ProfileResource($user);
-        return response()->json($data);
     }
 
     public function update(Request $request)
@@ -313,6 +298,25 @@ class UserController extends Controller
     public function radius(Request $request)
     {
         $user = Auth::user();
+        $user->latitude = $request->latitude;
+        $user->longitude = $request->longitude;
+        $user->radius = $request->radius;
+        $user->save();
+        return response()->json(['success' => 'Update SuccessFully'], 200);
+
+    }
+    public function jobberGetProfile($jobber_id)
+    {
+        $user = User::where('id','=',$jobber_id)->where('role','=',1)->first();
+        $success = new ProfileResource($user);
+        return response()->json($success,200);
+
+    }
+    public function demandeurGetProfile($demandeur_id)
+    {
+        $user = User::where('id','=',$demandeur_id)->where('role','=',2)->first();
+        $success = new DemProfileResource($user);
+        return response()->json($success,200);
 
     }
 }

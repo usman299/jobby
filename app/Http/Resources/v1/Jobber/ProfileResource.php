@@ -18,8 +18,8 @@ class ProfileResource extends JsonResource
         $jobberprofile = JobberProfile::where('jobber_id','=',$this->id)->first();
         return [
             'jobber_id' => $this->id,
-            'firstName' => $this->firstName??"",
-            'lastName'=> $this->lastName??"",
+            'first_name' => $this->firstName??"",
+            'last_name'=> $this->lastName??"",
             'phone'=> $this->phone??"",
             'email'=> $this->email??"",
             'address'=> $this->address??"",
