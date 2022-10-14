@@ -21,15 +21,15 @@ class JobberController extends Controller
     {
         $user = auth()->user();
         $jobStatus = Ignorjobrequest::where('user_id', $user->id)->pluck('j_id');
-        $jobberProfile = JobberProfile::where('jobber_id','=',$user->id)->first();
+        $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
         $skills1 = json_decode($jobberProfile->skills1, true);
         $skills2 = json_decode($jobberProfile->skills2, true);
         $jobrequests1 = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id', $jobStatus)->whereIn('subcategory_id', $skills1)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
         $jobrequests2 = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id', $jobStatus)->whereIn('childcategory_id', $skills2)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
         $merged = $jobrequests1->merge($jobrequests2);
         $result = $merged->all();
-        $data=[];
-        foreach ($result as $row){
+        $data = [];
+        foreach ($result as $row) {
             $earthRadius = 6378;
             $latFrom = deg2rad($user->latitude);
             $lonFrom = deg2rad($user->longitude);
@@ -40,14 +40,12 @@ class JobberController extends Controller
             $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
                     cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
             $km = ($angle * $earthRadius) * 1.6;
-            if($km<=$user->radius){
-                $data[]=$row;
+            if ($km <= $user->radius) {
+                $data[] = $row;
             }
-
-
         }
         $success = JobCollection::collection($data);
-        return response()->json($success,200);
+        return response()->json($success, 200);
     }
 
     public function proposalSubmit(Request $request)
@@ -128,7 +126,9 @@ class JobberController extends Controller
         $jobberProfile->update();
         return response()->json(['success' => 'Skills Update Successfully'], 200);
     }
-    public function jobrequestsIgnore($job_id){
+
+    public function jobrequestsIgnore($job_id)
+    {
 
         $status = new Ignorjobrequest();
         $status->j_id = $job_id;
