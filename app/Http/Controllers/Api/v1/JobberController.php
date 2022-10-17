@@ -99,9 +99,7 @@ class JobberController extends Controller
     {
         $user = Auth::user();
         $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
-
         if ($request->subcategory_id) {
-
             foreach ($request->subcategory_id as $skill) {
                 $data[] = $skill;
                 $jobberProfile->skills1 = json_encode($data);
@@ -115,9 +113,7 @@ class JobberController extends Controller
     {
         $user = Auth::user();
         $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
-
         if ($request->childcategory) {
-
             foreach ($request->childcategory as $skill) {
                 $data[] = $skill;
                 $jobberProfile->skills2 = json_encode($data);
