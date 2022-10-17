@@ -70,7 +70,6 @@ Route::group(['middleware' => 'auth:api'], function(){
 
     Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');
     Route::get('/demandeur/profile/{demandeur_id}', 'Api\v1\UserController@demandeurGetProfile');
-    Route::get('/details', 'UserController@details');
     Route::get('/notification', 'Api\v1\AppSettingController@notifications');
     Route::post('/profile/update', 'Api\v1\UserController@update');
     Route::post('/password/update', 'Api\v1\UserController@passwordUpdate');

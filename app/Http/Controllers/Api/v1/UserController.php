@@ -30,6 +30,7 @@ class UserController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])) {
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['id'] = $user->id;
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
@@ -59,8 +60,8 @@ class UserController extends Controller
         $email = User::where('email', '=', $input['email'])->first();
         if (!$email) {
             $user = User::create($input);
-            $userR = User::find($user->id);
             $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['id'] = $user->id;
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Email Already Exist'], 400);
@@ -133,7 +134,6 @@ class UserController extends Controller
             return response()->json(['success' => 'Otp Verify'], 200);
         } else {
             return response()->json(['success' => 'Otp Not match'], 200);
-
         }
     }
 
