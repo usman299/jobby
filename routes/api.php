@@ -46,8 +46,8 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/proposals/contract', 'ApplicantController@proposalsContract');
         Route::get('/contract/{job_id}', 'ApplicantController@contract');
 
-        Route::post('/comments', 'Api\v1\ApplicantController@comments');
-        Route::get('/getComments/{id}', 'Api\v1\ApplicantController@getComments');
+        Route::post('/comments', 'ApplicantController@comments');
+        Route::get('/getComments/{id}', 'ApplicantController@getComments');
     });
     Route::group( ['prefix' => 'jobber','namespace'=>'Api\v1'], function () {
         //Profile
