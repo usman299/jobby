@@ -46,9 +46,10 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/proposals/contract', 'ApplicantController@proposalsContract');
         Route::get('/contract/{job_id}', 'ApplicantController@contract');
 
+        Route::post('/comments', 'Api\v1\ApplicantController@comments');
+        Route::get('/getComments/{id}', 'Api\v1\ApplicantController@getComments');
     });
     Route::group( ['prefix' => 'jobber','namespace'=>'Api\v1'], function () {
-
         //Profile
         Route::post('/skills/one', 'JobberController@skillsOne');
         Route::post('/skills/two', 'JobberController@skillsTwo');
@@ -56,29 +57,23 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/job/ignore/{job_id}', 'JobberController@jobrequestsIgnore');
         Route::post('/proposal/submit', 'JobberController@proposalSubmit');
         Route::get('/proposals', 'JobberController@proposals');
+
+        Route::post('/timing', 'JobberController@timming');
+        Route::post('/progress/service', 'JobberController@progressService');
+        Route::post('/insurance', 'JobberController@insurance');
+        Route::post('/rules', 'JobberController@rules');
+        Route::post('/score', 'JobberController@score');
+        Route::post('/update/radius', 'JobberController@radius');
+        Route::post('/document', 'JobberController@document');
+        Route::post('/security/document', 'JobberController@securityDocument');
     });
 
+    Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');
+    Route::get('/demandeur/profile/{demandeur_id}', 'Api\v1\UserController@demandeurGetProfile');
     Route::get('/details', 'UserController@details');
     Route::get('/notification', 'Api\v1\AppSettingController@notifications');
     Route::post('/profile/update', 'Api\v1\UserController@update');
     Route::post('/password/update', 'Api\v1\UserController@passwordUpdate');
     Route::post('/profile/image/update', 'Api\v1\UserController@profileImage');
-    Route::post('/timming', 'Api\v1\UserController@timming');
-    Route::post('/progress/service', 'Api\v1\UserController@progressService');
-    Route::post('/insurance', 'Api\v1\UserController@insurance');
-    Route::post('/rules', 'Api\v1\UserController@rules');
-    Route::post('/score', 'Api\v1\UserController@score');
-    Route::post('/update/radius', 'Api\v1\UserController@radius');
-    Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');
-    Route::get('/demandeur/profile/{demandeur_id}', 'Api\v1\UserController@demandeurGetProfile');
-
-    Route::post('/document', 'Api\v1\UserController@document');
-    Route::post('/security/document', 'Api\v1\UserController@securityDocument');
-    Route::post('/comments', 'Api\v1\ApplicantController@comments');
-    Route::get('/getComments/{id}', 'Api\v1\ApplicantController@getComments');
 
 });
-
-
-
-

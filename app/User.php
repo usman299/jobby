@@ -137,21 +137,21 @@ class User extends Authenticatable
             $jobber->eu_id_card_back != null && $jobber->eu_id_card_front != null && $jobber->score != null && $jobber->rules4 != null && $jobber->rules3 != null && $jobber->rules2 != null && $jobber->rules1 != null && $jobber->answer1 != null && $jobber->answer2 != null && $jobber->answer3 != null &&
             $jobber->answer4 != null && $jobber->insurance4 != null && $jobber->insurance3 != null && $jobber->insurance2 != null && $jobber->insurance1 != null && $jobber->skills1 != null && $jobber->skills2 != null && $jobber->monday != null && $jobber->tuesday != null && $jobber->wednesday != null &&
             $jobber->thersday != null && $jobber->friday != null && $jobber->saturday != null && $jobber->sunday != null) {
-                return 1;
-        }
-        else{
+            return 1;
+        } else {
             return 0;
         }
     }
+
     public function totalHireJobber()
     {
-        $total =  Contract::where('status','=',2)->count();
+        $total = Contract::where('status', '=', 2)->count();
         return $total;
     }
+
     public function activeJobs()
     {
-        $total =  Contract::where('status','=',1)->count();
+        $total = Contract::where('status', '=', 1)->count();
         return $total;
     }
 }
-
