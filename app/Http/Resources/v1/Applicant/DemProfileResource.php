@@ -25,6 +25,7 @@ class DemProfileResource extends JsonResource
             'email'=> $this->email??"",
             'address'=> $this->address??"",
             'country'=> $this->countory->name??"",
+            'country_id'=> $this->countory->id??0,
             'image'=> $this->image??"",
             'gender'=> $this->gender??"",
             'description'=> $this->description??"",
