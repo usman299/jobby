@@ -27,7 +27,7 @@ class DemProfileResource extends JsonResource
             'country'=> $this->countory->name??"",
             'country_id'=> $this->countory->id??0,
             'image'=> $this->image??"",
-            'gender'=> $this->gender??"",
+            'gender'=> $this->gender == 1 ? 'Male' : 'Female'??"",
             'description'=> $this->description??"",
             'member_since'=> $date->diffForHumans() ??"",
             'total_hire_jobber' => $this->totalHireJobber(),
