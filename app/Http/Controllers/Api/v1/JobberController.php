@@ -145,8 +145,11 @@ class JobberController extends Controller
         $jobberProfile->friday = $request->friday;
         $jobberProfile->saturday = $request->saturday;
         $jobberProfile->sunday = $request->sunday;
-        $jobberProfile->update();
-        return response()->json(['success' => 'Profile Update SuccessFully'], 200);
+        if ($jobberProfile->update()){
+            return response()->json(['success' => 'Timing Update SuccessFully'], 200);
+        }else{
+            return response()->json(['error' => 'Something is wrong'], 400);
+        }
     }
 
     public function progressService(Request $request)
