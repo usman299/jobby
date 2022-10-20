@@ -99,8 +99,11 @@ class UserController extends Controller
             $image1->move($destinationPath, $name);
             $user->image = 'profileImage/' . $name;
         }
-        $user->update();
-        return response()->json(['success' => 'Successfully Updated']);
+        if ($user->update()){
+            return response()->json(['success' => 'Successfully Updated']);
+        }else{
+            return response()->json(['error' => 'Something Happend Wrong'], 400);
+        }
     }
 
     public function passwordUpdate(Request $request)
