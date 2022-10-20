@@ -77,8 +77,8 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->country = $request->country;
         $user->gender = $request->gender;
-        $user->longitude = $request->longitude;
-        $user->longitude = $request->longitude;
+//        $user->longitude = $request->longitude;
+//        $user->longitude = $request->longitude;
         $user->dob = $request->dob;
         $user->professional = $request->professional;
         $user->update();
