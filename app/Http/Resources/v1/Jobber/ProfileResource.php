@@ -25,7 +25,7 @@ class ProfileResource extends JsonResource
             'address'=> $this->address??"",
             'country'=> $this->countory->name??"",
             'image'=> $this->image??"",
-            'gender'=> $this->gender ?? 0,
+            'gender'=> (int)$this->gender ?? 0,
             'description'=> $this->description??"",
             'hours'=> $this->hours??"",
             'total_hours'=> $this->total_hours??"",
