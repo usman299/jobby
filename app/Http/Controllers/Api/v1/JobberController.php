@@ -307,7 +307,6 @@ class JobberController extends Controller
             'monday',
             'insurance1',
             'rules1',
-            'phone',
             'eu_id_card_front',
             'eu_id_residence_permit_front',
             'vital_card_number',
