@@ -313,7 +313,8 @@ class JobberController extends Controller
             'eu_id_card_front',
             'eu_id_residence_permit_front',
             'vital_card_number',
-            'social_security_number'
+            'social_security_number',
+            'answer1'
         )->first();
         return $jobber;
     }
