@@ -291,4 +291,29 @@ class JobberController extends Controller
         $user->save();
         return response()->json(['success' => 'Update SuccessFully'], 200);
     }
+    public function checkProfileCompletion()
+    {
+        $user = Auth::user();
+        $jobber = JobberProfile::where('jobber_id', '=', $user->id)->select(
+            'skills1',
+            'skills2',
+            'monday',
+            'tuesday',
+            'wednesday',
+            'thersday',
+            'friday',
+            'saturday',
+            'sunday',
+            'monday',
+            'insurance1',
+            'rules1',
+            'image',
+            'phone',
+            'eu_id_card_front',
+            'eu_id_residence_permit_front',
+            'vital_card_number',
+            'social_security_number'
+        )->first();
+        return $jobber;
+    }
 }

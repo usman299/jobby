@@ -66,6 +66,8 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/update/radius', 'JobberController@radius');
         Route::post('/document', 'JobberController@document');
         Route::post('/security/document', 'JobberController@securityDocument');
+
+        Route::get('/check/profile/completion', 'JobberController@checkProfileCompletion');
     });
 
     Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');
