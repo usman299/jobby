@@ -296,7 +296,6 @@ class JobberController extends Controller
     }
     public function checkProfileCompletion()
     {
-        return response()->json(['error' => "error"], 400);
         $user = Auth::user();
         $jobber = JobberProfile::where('jobber_id', '=', $user->id)->select(
             'skills1',
