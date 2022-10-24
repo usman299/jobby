@@ -62,6 +62,12 @@ class UserController extends Controller
             $user = User::create($input);
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['id'] = $user->id;
+            if ($user->role == 1){
+                $jobberProfile = new JobberProfile();
+                $jobberProfile->jobber_id = $user->id;
+                $jobberProfile->jobber_category_id = 0;
+                $jobberProfile->save();
+            }
             return response()->json(['success' => $success], $this->successStatus);
         } else {
             return response()->json(['error' => 'Email Already Exist'], 400);
