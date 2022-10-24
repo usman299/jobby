@@ -115,8 +115,9 @@ class User extends Authenticatable
     public function jobberSkilsSubcategory()
     {
         $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
-        foreach (json_decode($jobber->skills1) as $row) {
-            $subcategory[] = SubCategory::where('id', '=', $row)->first();
+        $subcategory = [];
+        foreach (json_decode($jobber->skills1) as $key => $row) {
+            $subcategory[$key] = SubCategory::where('id', '=', $row)->first();
         }
         return $subcategory;
     }
@@ -124,8 +125,9 @@ class User extends Authenticatable
     public function jobberSkilsChildcategory()
     {
         $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
-        foreach (json_decode($jobber->skills2) as $row) {
-            $childcategory[] = ChildCategory::where('id', '=', $row)->first();
+        $childcategory = [];
+        foreach (json_decode($jobber->skills2) as $key => $row) {
+            $childcategory[$key] = ChildCategory::where('id', '=', $row)->first();
         }
         return $childcategory;
     }
