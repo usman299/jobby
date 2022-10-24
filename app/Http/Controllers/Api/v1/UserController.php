@@ -66,6 +66,8 @@ class UserController extends Controller
                 $jobberProfile = new JobberProfile();
                 $jobberProfile->jobber_id = $user->id;
                 $jobberProfile->jobber_category_id = 0;
+                $jobberProfile->skills1 = [];
+                $jobberProfile->skills2 = [];
                 $jobberProfile->save();
             }
             return response()->json(['success' => $success], $this->successStatus);
