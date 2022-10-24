@@ -145,7 +145,9 @@ class User extends Authenticatable
             $jobber->score != null &&
             $jobber->rules1 != null &&
             $jobber->answer1 != null &&
-            $jobber->insurance4 != null && $jobber->insurance3 != null && $jobber->insurance2 != null && $jobber->insurance1 != null && $jobber->skills1 != null && $jobber->skills2 != null && $jobber->monday != null && $jobber->tuesday != null && $jobber->wednesday != null &&
+            $jobber->insurance1 != null &&
+            $jobber->skills1 != null &&
+            $jobber->skills2 != null && $jobber->monday != null && $jobber->tuesday != null && $jobber->wednesday != null &&
             $jobber->thersday != null && $jobber->friday != null && $jobber->saturday != null && $jobber->sunday != null) {
             return 1;
         } else {
