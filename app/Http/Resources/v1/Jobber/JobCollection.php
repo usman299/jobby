@@ -35,7 +35,7 @@ class JobCollection extends JsonResource
             'service_date' => $this->service_date->format('d-m-y')??"",
             'views' => $this->totalViews(),
             'is_applied' => $this->isApplied(),
-            'urgent' => (int)$this->urgent,
+            'urgent' => $this->urgent ? true : false,
             'latitude' => $this->lat??"",
             'longitude' => $this->long??"",
             'created_at' => $date->diffForHumans(),
