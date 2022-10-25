@@ -56,8 +56,8 @@ class ApplicantController extends Controller
             $jobrequest->count = $request->count;
             $jobrequest->input = $request->input;
             $jobrequest->detail_description = $request->detail_description;
-            $jobrequest->lat = $request->lat ?? $user->latitude;
-            $jobrequest->long = $request->long ?? $user->longitude;
+            $jobrequest->lat = $request->latitude ?? $user->latitude;
+            $jobrequest->long = $request->longitude ?? $user->longitude;
             $jobrequest->pickup_address = $request->pickup_address;
             $jobrequest->destination_address = $request->destination_address;
             $jobrequest->jobbers = $request->jobbers;
@@ -124,10 +124,7 @@ class ApplicantController extends Controller
 
     public function jobRequestUpdate(Request $request)
     {
-
-
         $jobrequest = JobRequest::find($request->job_id);
-
         $jobrequest->service_date = $request->service_date;
         $jobrequest->start_time = $request->start_time;
         $jobrequest->end_time = $request->end_time;
@@ -138,7 +135,6 @@ class ApplicantController extends Controller
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
             $jobrequest->image1 = 'images/' . $name;
-
         }
         if ($request->hasFile('image2')) {
             $image2 = $request->file('image2');
@@ -156,7 +152,6 @@ class ApplicantController extends Controller
         }
         $jobrequest->update();
         return response()->json(['success' => 'JobRequest Updated Successfully'], 200);
-
     }
 
     public function jobs($status)
