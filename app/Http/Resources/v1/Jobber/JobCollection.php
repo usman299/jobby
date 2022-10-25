@@ -19,8 +19,6 @@ class JobCollection extends JsonResource
         \Carbon\Carbon::setLocale('fr');
         $date = \Carbon\Carbon::parse($this->created_at);
         return [
-
-
             'id' => $this->id,
             'title' => $this->title??"",
             'childcategory_id' => (int)isset($this->childcategory->id) ? $this->childcategory->id : 0,
@@ -30,11 +28,11 @@ class JobCollection extends JsonResource
             'description' => $this->description??"",
             'category_title' => $this->category->title??"",
             'subcategory_title' => $this->subcategory->title??"",
-            'distance' => (string)$this->distance(),
-            'estimate_budget' => (string)$this->estimate_budget,
+            'distance' => (string)$this->distance()??"",
+            'estimate_budget' => (string)$this->estimate_budget??"",
             'time_difference' => \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInMinutes(\Carbon\Carbon::now()),
             'duration' => $this->duration()??"",
-            'service_date' => $this->service_date->format('d-m-y'),
+            'service_date' => $this->service_date->format('d-m-y')??"",
             'views' => $this->totalViews(),
             'is_applied' => $this->isApplied(),
             'urgent' => (int)$this->urgent,
@@ -66,7 +64,6 @@ class JobCollection extends JsonResource
             'destination_address' => $this->destination_address??"",
             'dob' => $this->dob??"",
             'demander' => new DemProfileResource($this->applicant),
-
         ];
     }
 }
