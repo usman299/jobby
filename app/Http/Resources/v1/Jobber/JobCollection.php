@@ -43,7 +43,7 @@ class JobCollection extends JsonResource
             'country' => $this->country->name??"",
             'start_time' => $this->start_time??"00:00",
             'end_time' => $this->end_time??"00:00",
-            'jobbers' => (string)$this->jobbers??"1",
+            'jobbers' => (int)$this->jobbers??1,
             'hours' => $this->hours??"",
             'status' => (int)$this->status,
             'address' => $this->address??"",
