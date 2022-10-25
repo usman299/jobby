@@ -24,8 +24,8 @@ class JobberController extends Controller
         $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
         $skills1 = json_decode($jobberProfile->skills1, true);
         $skills2 = json_decode($jobberProfile->skills2, true);
-        $jobrequests1 = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id', $jobStatus)->whereIn('subcategory_id', $skills1)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
-        $jobrequests2 = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id', $jobStatus)->whereIn('childcategory_id', $skills2)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
+        $jobrequests1 = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereIn('subcategory_id', $skills1)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
+        $jobrequests2 = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereIn('childcategory_id', $skills2)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
         $merged = $jobrequests1->merge($jobrequests2);
         $result = $merged->all();
         $data = [];
