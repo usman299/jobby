@@ -33,7 +33,7 @@ class JobCollection extends JsonResource
             'estimate_budget' => (string)$this->estimate_budget??"",
             'time_difference' => \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInMinutes(\Carbon\Carbon::now()),
             'duration' => $this->duration()??"",
-            'service_date' => Str::ucfirst($this->service_date->translatedFormat('l d F'))??"",
+            'service_date' => Str::ucwords($this->service_date->translatedFormat('l d F'))??"",
             'views' => $this->totalViews(),
             'is_applied' => $this->isApplied(),
             'urgent' => $this->urgent == true ? 1 : 0,
