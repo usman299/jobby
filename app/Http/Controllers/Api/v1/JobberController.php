@@ -291,8 +291,12 @@ class JobberController extends Controller
         $user->latitude = $request->latitude;
         $user->longitude = $request->longitude;
         $user->radius = $request->radius;
-        $user->save();
-        return response()->json(['success' => 'Update SuccessFully'], 200);
+        $user->address = $request->address;
+        if ($user->save()){
+            return response()->json(['success' => 'Update Address SuccessFully'], 200);
+        }else{
+            return response()->json(['error' => 'Something is wrong'], 404);
+        }
     }
     public function checkProfileCompletion()
     {
