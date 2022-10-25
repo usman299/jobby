@@ -28,6 +28,7 @@ class JobberController extends Controller
         $jobrequests2 = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereIn('childcategory_id', $skills2)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
         $merged = $jobrequests1->merge($jobrequests2);
         $result = $merged->all();
+        return $result;
         $data = [];
         foreach ($result as $row) {
             $earthRadius = 6378;
