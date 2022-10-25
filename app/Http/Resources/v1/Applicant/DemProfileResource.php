@@ -34,7 +34,7 @@ class DemProfileResource extends JsonResource
             'active_jobs' => $this->activeJobs(),
             'total_review' => $this->totalReview(),
             'rating' => $this->rating(),
-            'reviews' => ReviewsCollection::collection($this->reviews()) ,
+//            'reviews' => ReviewsCollection::collection($this->reviews()) ,
         ];
     }
 }
