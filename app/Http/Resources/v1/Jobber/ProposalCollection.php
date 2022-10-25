@@ -17,10 +17,10 @@ class ProposalCollection extends JsonResource
     {
         \Carbon\Carbon::setLocale('fr');
         return [
-            'title' => $this->jobrequest->title,
-            'price' => $this->price,
+            'title' => $this->jobrequest->title??"",
+            'price' => $this->price??"",
             'created_at' => $this->created_at->diffForHumans(),
-            'duration' => $this->duration,
+            'duration' => $this->duration??"",
             'jobber' => new ProfileResource($this->jobber)
         ];
     }
