@@ -27,6 +27,7 @@ class JobCollectionResource extends JsonResource
             'subcategory_id' => (int)$this->subcategory_id ?? 0,
             'childcategory_id' => (int)$this->childcategory_id ?? 0,
             'image' => $this->category->img ?? "",
+            'description' => $this->description ?? "",
             'detail_description' => $this->detail_description ?? "",
             'estimate_budget' => (string)$this->estimate_budget,
             'duration' => $this->duration ?? "",
