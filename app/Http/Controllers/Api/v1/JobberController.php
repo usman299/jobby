@@ -303,6 +303,7 @@ class JobberController extends Controller
     {
         $user = Auth::user();
         $jobber = JobberProfile::where('jobber_id', '=', $user->id)->first();
-        return new CheckProfileCompletion($jobber);
+        $success = new CheckProfileCompletion($jobber);
+        return response()->json($success,200);
     }
 }
