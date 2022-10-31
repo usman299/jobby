@@ -3,6 +3,8 @@
 namespace App\Http\Resources\v1\Applicant;
 
 use App\Http\Resources\v1\Users\UserResource;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class JobCollectionResource extends JsonResource
@@ -10,17 +12,21 @@ class JobCollectionResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @return array
      */
     public function toArray($request)
     {
-        \Carbon\Carbon::setLocale('fr');
-        $date = \Carbon\Carbon::parse($this->created_at);
+        Carbon::setLocale('fr');
+        $date = Carbon::parse($this->created_at);
         return [
+
             'id' => $this->id,
             'title' => $this->title ?? "",
-            'image' => $this->category->img ??"",
+            'category_id' => (int)$this->category_id ?? 0,
+            'subcategory_id' => (int)$this->subcategory_id ?? 0,
+            'childcategory_id' => (int)$this->childcategory_id ?? 0,
+            'image' => $this->category->img ?? "",
             'detail_description' => $this->detail_description ?? "",
             'estimate_budget' => (string)$this->estimate_budget,
             'duration' => $this->duration ?? "",
