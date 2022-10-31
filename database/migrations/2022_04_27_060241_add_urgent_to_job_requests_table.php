@@ -14,7 +14,7 @@ class AddUrgentToJobRequestsTable extends Migration
     public function up()
     {
         Schema::table('job_requests', function (Blueprint $table) {
-            $table->boolean('urgent')->default(false)->after('status');
+            $table->string('urgent')->after('status')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddUrgentToJobRequestsTable extends Migration
     public function down()
     {
         Schema::table('job_requests', function (Blueprint $table) {
-            $table->boolean('urgent')->default(false)->after('status');
+            $table->string('urgent')->after('status')->nullable();
         });
     }
 }

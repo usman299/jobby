@@ -5,6 +5,7 @@ namespace App\Http\Resources\v1\Jobber;
 use App\Http\Resources\v1\Applicant\DemProfileResource;
 use App\Http\Resources\v1\Users\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Str;
 
 class JobCollection extends JsonResource
 {
@@ -19,8 +20,6 @@ class JobCollection extends JsonResource
         \Carbon\Carbon::setLocale('fr');
         $date = \Carbon\Carbon::parse($this->created_at);
         return [
-
-
             'id' => $this->id,
             'title' => $this->title??"",
             'childcategory_id' => (int)isset($this->childcategory->id) ? $this->childcategory->id : 0,
@@ -30,20 +29,21 @@ class JobCollection extends JsonResource
             'description' => $this->description??"",
             'category_title' => $this->category->title??"",
             'subcategory_title' => $this->subcategory->title??"",
-            'distance' => (string)$this->distance(),
-            'estimate_budget' => (string)$this->estimate_budget,
+            'distance' => (string)$this->distance()??"",
+            'estimate_budget' => (string)$this->estimate_budget??"",
             'time_difference' => \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInMinutes(\Carbon\Carbon::now()),
-            'duration' => $this->duration()??"",
-            'service_date' => $this->service_date->format('d-m-y'),
+            'duration' => $this->duration??"",
+            'service_date' => ucwords($this->service_date->translatedFormat('l d F'))??"",
             'views' => $this->totalViews(),
             'is_applied' => $this->isApplied(),
-            'urgent' => (int)$this->urgent,
+            'urgent' => $this->urgent == true ? 1 : 0,
             'latitude' => $this->lat??"",
             'longitude' => $this->long??"",
             'created_at' => $date->diffForHumans(),
             'country' => $this->country->name??"",
-            'start_time' => $this->start_time??"",
-            'end_time' => $this->end_time??"",
+            'start_time' => $this->start_time??"00:00",
+            'end_time' => $this->end_time??"00:00",
+            'jobbers' => (int)$this->jobbers??1,
             'hours' => $this->hours??"",
             'status' => (int)$this->status,
             'address' => $this->address??"",
@@ -66,7 +66,6 @@ class JobCollection extends JsonResource
             'destination_address' => $this->destination_address??"",
             'dob' => $this->dob??"",
             'demander' => new DemProfileResource($this->applicant),
-
         ];
     }
 }

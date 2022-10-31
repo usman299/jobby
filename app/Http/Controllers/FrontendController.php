@@ -52,7 +52,7 @@ class FrontendController extends Controller
         $childcatgory = ChildCategory::all();
         $services =JobberServicesOffers::where('status','=',1)->where('country_id','=',$user->country)->take(4)->orderBy('id', 'DESC')->get();
         $category = Category::all();
-        $skills = json_decode($user->skills,true);
+        $skills = json_decode("[]",true);
         $jobStatus = Ignorjobrequest::where('user_id',$user->id)->pluck('j_id');
         $jobrequests = JobRequest::latest()->where('country_id', '=', $user->country)->whereNotIn('id',$jobStatus)->whereIn('subcategory_id',$skills)->where('service_date' , '>=' , Carbon::now()->toDateTimeString())->where('status', '=', 1)->paginate(10);
         return view('front.index',compact('sliderGalery','category', 'title', 'jobrequests','services','category','subcategory','childcatgory','skills','user'));
