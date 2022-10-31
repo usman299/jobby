@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\Http\Resources\v1\Jobber\CheckProfileCompletion;
 use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
 use App\Ignorjobrequest;
@@ -301,26 +302,7 @@ class JobberController extends Controller
     public function checkProfileCompletion()
     {
         $user = Auth::user();
-        $jobber = JobberProfile::where('jobber_id', '=', $user->id)->select(
-            'skills1',
-            'skills2',
-            'monday',
-            'tuesday',
-            'wednesday',
-            'thersday',
-            'friday',
-            'saturday',
-            'sunday',
-            'monday',
-            'insurance1',
-            'rules1',
-            'eu_id_card_front',
-            'eu_id_residence_permit_front',
-            'vital_card_number',
-            'social_security_number',
-            'answer1',
-            'score'
-        )->first();
-        return $jobber;
+        $jobber = JobberProfile::where('jobber_id', '=', $user->id)->first();
+        return new CheckProfileCompletion($jobber);
     }
 }
