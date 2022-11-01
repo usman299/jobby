@@ -141,6 +141,7 @@ class ApplicantController extends Controller
         $jobrequest->start_time = $request->start_time;
         $jobrequest->end_time = $request->end_time;
         $jobrequest->detail_description = $request->detail_description;
+        $jobrequest->status = 1;
         if ($request->hasFile('image1')) {
             $image1 = $request->file('image1');
             $name1 = time() . 'image1' . '.' . $image1->getClientOriginalExtension();
