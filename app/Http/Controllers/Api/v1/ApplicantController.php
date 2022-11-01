@@ -186,6 +186,18 @@ class ApplicantController extends Controller
         return response()->json($data);
     }
 
+    public function closejob($id)
+    {
+        $user = Auth::user();
+        $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('id', $id)->first();
+        $jobrequests->status = 2;
+        if ($jobrequests->update()){
+            return response()->json(['success' => 'Job close successfully']);
+        }else{
+            return response()->json(['error' => 'Something is wrong'], 400);
+        }
+    }
+
     public function proposals($id)
     {
         $jobs = Proposal::where('jobRequest_id', $id)->get();

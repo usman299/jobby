@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/jobrequest/update', 'ApplicantController@jobRequestUpdate');
         Route::get('/job/proposals/{job_id}', 'ApplicantController@proposals');
         Route::get('/jobs/{status}', 'ApplicantController@jobs');
+        Route::get('/job/close/{job_id}', 'ApplicantController@closejob');
         Route::get('/contract/intent/{proposal_id}', 'ApplicantController@contractIntent');
         Route::post('/proposals/contract', 'ApplicantController@proposalsContract');
         Route::get('/contract/{job_id}', 'ApplicantController@contract');
