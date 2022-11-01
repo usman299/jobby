@@ -17,6 +17,7 @@ class ProposalCollection extends JsonResource
     {
         \Carbon\Carbon::setLocale('fr');
         return [
+            'id' => $this->id,
             'title' => $this->jobrequest->title??"",
             'price' => $this->price??"",
             'created_at' => $this->created_at->diffForHumans(),
