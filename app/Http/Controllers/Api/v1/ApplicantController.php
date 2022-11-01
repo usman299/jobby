@@ -19,6 +19,7 @@ use App\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 use Stripe\PaymentIntent;
 use Stripe\Stripe;
 
@@ -80,25 +81,36 @@ class ApplicantController extends Controller
 
             if ($request->hasFile('image1')) {
                 $image1 = $request->file('image1');
-                $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
-                $destinationPath = 'images/';
-                $image1->move($destinationPath, $name);
-                $jobrequest->image1 = 'images/' . $name;
-
+                $name1 = time() . 'image1' . '.' . $image1->getClientOriginalExtension();
+                $destinationPath = 'images';
+                ini_set('memory_limit', '256M');
+                $img = Image::make($image1);
+                $img->resize(250, 250, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . '/' . $name1);
+                $jobrequest->image1 = $destinationPath . '/' . $name1;
             }
             if ($request->hasFile('image2')) {
                 $image2 = $request->file('image2');
-                $name2 = time() . 'images' . '.' . $image2->getClientOriginalExtension();
-                $destinationPath = 'images/';
-                $image2->move($destinationPath, $name2);
-                $jobrequest->image2 = 'images/' . $name2;
+                $name2 = time() . 'image1' . '.' . $image2->getClientOriginalExtension();
+                $destinationPath = 'images';
+                ini_set('memory_limit', '256M');
+                $img2 = Image::make($image2);
+                $img2->resize(250, 250, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . '/' . $name2);
+                $jobrequest->image2 = $destinationPath . '/' . $name2;
             }
             if ($request->hasFile('image3')) {
                 $image3 = $request->file('image3');
-                $name3 = time() . 'images' . '.' . $image3->getClientOriginalExtension();
-                $destinationPath = 'images/';
-                $image3->move($destinationPath, $name3);
-                $jobrequest->image3 = 'images/' . $name3;
+                $name3 = time() . 'image1' . '.' . $image3->getClientOriginalExtension();
+                $destinationPath = 'images';
+                ini_set('memory_limit', '256M');
+                $img3 = Image::make($image3);
+                $img3->resize(250, 250, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath . '/' . $name3);
+                $jobrequest->image3 = $destinationPath . '/' . $name3;
             }
             $jobrequest->save();
             if ($request->status) {
