@@ -1,5 +1,12 @@
 @extends('web.layout.showcase')
 @section('content')
+    @php
+    $jobber = \App\JobberSkills::where('jobber_id', 3)->where('main_category', 5)->first();
+
+    @endphp
+    @foreach ($jobber->job_type as $abc)
+        <h1>{{$abc}}</h1>
+    @endforeach
     <!-- Welcome to JobsFactory-->
     <div class="jumbotron-creative-inner">
         <div class="container">
