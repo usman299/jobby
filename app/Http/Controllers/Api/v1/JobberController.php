@@ -9,6 +9,7 @@ use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
 use App\Ignorjobrequest;
 use App\JobberProfile;
+use App\JobberSkills;
 use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Proposal;
@@ -23,8 +24,8 @@ class JobberController extends Controller
         $user = auth()->user();
         $jobStatus = Ignorjobrequest::where('user_id', $user->id)->pluck('j_id');
         $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
-        $skills1 = json_decode($jobberProfile->skills1??"[]", true);
-        $skills2 = json_decode($jobberProfile->skills2??"[]", true);
+        $skills1 = json_decode($jobberProfile->skills1 ?? "[]", true);
+        $skills2 = json_decode($jobberProfile->skills2 ?? "[]", true);
         $jobrequests1 = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereIn('subcategory_id', $skills1)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
         $jobrequests2 = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereIn('childcategory_id', $skills2)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
         $merged = $jobrequests1->merge($jobrequests2);
@@ -96,32 +97,73 @@ class JobberController extends Controller
         return response()->json($success, 200);
     }
 
-    public function skillsOne(Request $request)
+    public function skills(Request $request)
     {
         $user = Auth::user();
-        $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
-        if ($request->subcategory_id) {
-            foreach ($request->subcategory_id as $skill) {
-                $data[] = $skill;
-                $jobberProfile->skills1 = json_encode($data);
+        $checkSkills = JobberSkills::where('jobber_id', $user->id)->where('main_category', $request->main_category)->orWhere('sub_category', $request->sub_category)->first();
+        if ($checkSkills) {
+            return response()->json(['error' => 'Skills against this user already update'], 400);
+        } else {
+            $jobberSkills = new JobberSkills();
+            $jobberSkills->jobber_id = $user->id;
+            $jobberSkills->main_category = $request->main_category;
+            $jobberSkills->sub_category = $request->sub_category;
+            $jobberSkills->description = $request->description;
+            $jobberSkills->diploma = $request->diploma;
+            $jobberSkills->diploma_name = $request->diploma_name;
+            $jobberSkills->experience = $request->experience;
+            if ($request->skills) {
+                foreach ($request->skills as $skill) {
+                    $data[] = $skill;
+                    $jobberSkills->skills = json_encode($data);
+                }
             }
+            if ($request->job_type) {
+                foreach ($request->job_type as $jobTypes) {
+                    $data1[] = $jobTypes;
+                    $jobberSkills->job_type = json_encode($data1);
+                }
+            }
+            if ($request->equipments) {
+                foreach ($request->equipments as $equipments) {
+                    $data2[] = $equipments;
+                    $jobberSkills->equipments = json_encode($data2);
+                }
+            }
+            if ($request->engagments) {
+                foreach ($request->engagments as $engagments) {
+                    $data3[] = $engagments;
+                    $jobberSkills->engagments = json_encode($data3);
+                }
+            }
+            $jobberSkills->save();
+            return response()->json(['success' => 'Skills Update Successfully'], 200);
         }
-        $jobberProfile->update();
-        return response()->json(['success' => 'Skills Update Successfully'], 200);
     }
 
-    public function skillsTwo(Request $request)
+    public function checkSkills()
     {
         $user = Auth::user();
-        $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
-        if ($request->childcategory) {
-            foreach ($request->childcategory as $skill) {
-                $data[] = $skill;
-                $jobberProfile->skills2 = json_encode($data);
-            }
-        }
-        $jobberProfile->update();
-        return response()->json(['success' => 'Skills Update Successfully'], 200);
+        $checkSkills = JobberSkills::where('jobber_id', $user->id)->get();
+        return response()->json([
+            '1' => $checkSkills->where('main_category', 1)->first() ? true : false,
+            '2' => $checkSkills->where('main_category', 2)->first() ? true : false,
+            '3' => $checkSkills->where('main_category', 3)->first() ? true : false,
+            '4' => $checkSkills->where('main_category', 4)->first() ? true : false,
+            '5' => $checkSkills->where('main_category', 5)->first() ? true : false,
+            '6' => $checkSkills->where('main_category', 6)->first() ? true : false,
+            '7' => $checkSkills->where('main_category', 7)->first() ? true : false,
+            '8' => $checkSkills->where('main_category', 8)->first() ? true : false,
+            '9' => $checkSkills->where('main_category', 9)->first() ? true : false,
+            '10' => $checkSkills->where('main_category', 10)->first() ? true : false,
+            '11' => $checkSkills->where('main_category', 11)->first() ? true : false,
+            '12' => $checkSkills->where('main_category', 12)->first() ? true : false,
+            '13' => $checkSkills->where('main_category', 13)->first() ? true : false,
+            '14' => $checkSkills->where('sub_category', 1)->first() ? true : false,
+            '15' => $checkSkills->where('sub_category', 2)->first() ? true : false,
+            '16' => $checkSkills->where('sub_category', 3)->first() ? true : false,
+            '17' => $checkSkills->where('sub_category', 4)->first() ? true : false,
+        ]);
     }
 
     public function jobrequestsIgnore($job_id)
@@ -146,9 +188,9 @@ class JobberController extends Controller
         $jobberProfile->friday = $request->friday;
         $jobberProfile->saturday = $request->saturday;
         $jobberProfile->sunday = $request->sunday;
-        if ($jobberProfile->update()){
+        if ($jobberProfile->update()) {
             return response()->json(['success' => 'Timing Update SuccessFully'], 200);
-        }else{
+        } else {
             return response()->json(['error' => 'Something is wrong'], 400);
         }
     }
@@ -293,17 +335,18 @@ class JobberController extends Controller
         $user->longitude = $request->longitude;
         $user->radius = $request->radius;
         $user->address = $request->address;
-        if ($user->save()){
+        if ($user->save()) {
             return response()->json(['success' => 'Update Address SuccessFully'], 200);
-        }else{
+        } else {
             return response()->json(['error' => 'Something is wrong'], 404);
         }
     }
+
     public function checkProfileCompletion()
     {
         $user = Auth::user();
         $jobber = JobberProfile::where('jobber_id', '=', $user->id)->first();
         $success = new CheckProfileCompletion($jobber);
-        return response()->json($success,200);
+        return response()->json($success, 200);
     }
 }

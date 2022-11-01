@@ -17,9 +17,4 @@ class Skils extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
-
-
-     
-    
 }
-

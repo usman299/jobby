@@ -56,8 +56,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/proposal/submit', 'JobberController@proposalSubmit');
         Route::get('/proposals', 'JobberController@proposals');
 
-        Route::post('/skills/one', 'JobberController@skillsOne');
-        Route::post('/skills/two', 'JobberController@skillsTwo');
+        Route::post('/skills', 'JobberController@skills');
         Route::post('/timing', 'JobberController@timming');
         Route::post('/progress/service', 'JobberController@progressService');
         Route::post('/insurance', 'JobberController@insurance');
@@ -68,6 +67,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/security/document', 'JobberController@securityDocument');
 
         Route::get('/check/profile/completion', 'JobberController@checkProfileCompletion');
+        Route::get('/check/skills', 'JobberController@checkSkills');
     });
 
     Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');
