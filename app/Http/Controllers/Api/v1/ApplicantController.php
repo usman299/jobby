@@ -241,17 +241,13 @@ class ApplicantController extends Controller
 
     public function proposalsContract(Request $request)
     {
-
         $applicant_id = Auth::user();
-
         $proposal = Proposal::find($request->proposal_id);
         $proposal->status = 2;
         $proposal->update();
-
         $jobrequest = JobRequest::find($proposal->jobRequest_id);
         $jobrequest->status = 2;
         $jobrequest->update();
-
         $contract = new Contract();
         $contract->proposal_id = $request->proposal_id;
         $contract->jobRequest_id = $proposal->jobRequest_id;
@@ -263,17 +259,14 @@ class ApplicantController extends Controller
         $contract->description = $request->description;
         $contract->contract_no = 'CN-' . rand(10000, 90000);
         $contract->save();
-
         $payment = new Payment();
         $payment->contract_id = $contract->id;
         $payment->applicant_id = $applicant_id->id;
         $payment->jobber_id = $proposal->jobber_id;
-
         $payment->price = $request->price;
         $payment->contract_price = $proposal->price;
         $payment->percentage = $request->percentage;
         $payment->jobber_get = (double)$proposal->price - (double)$request->percentage;
-
         $payment->type = 'card';
         $payment->invoice_no = 'IN-' . rand(10000, 90000);
         $payment->save();
