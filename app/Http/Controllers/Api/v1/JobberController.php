@@ -112,7 +112,7 @@ class JobberController extends Controller
             $jobberSkills->diploma = $request->diploma;
             $jobberSkills->diploma_name = $request->diploma_name;
             $jobberSkills->experience = $request->experience;
-            $jobberSkills->job_type = $request->job_type;
+            $jobberSkills->job_type = json_encode($request->job_type);
             if ($request->skills) {
                 foreach ($request->skills as $skill) {
                     $data[] = $skill;
