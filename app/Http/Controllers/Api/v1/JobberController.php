@@ -100,7 +100,7 @@ class JobberController extends Controller
     public function skills(Request $request)
     {
         $user = Auth::user();
-        $checkSkills = JobberSkills::where('jobber_id', $user->id)->where('main_category', $request->main_category)->orWhere('sub_category', $request->sub_category)->first();
+        $checkSkills = JobberSkills::where('jobber_id', $user->id)->where('main_category', $request->main_category)->first();
         if ($checkSkills) {
             return response()->json(['error' => 'Skills against this user already update'], 400);
         } else {
