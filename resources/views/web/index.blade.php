@@ -1,11 +1,11 @@
 @extends('web.layout.showcase')
 @section('content')
-    @php
-    $jobber = \App\JobberSkills::where('jobber_id', 3)->where('main_category', 5)->first()
-    @endphp
-    @foreach(explode(',', $jobber->job_type) as $subject)
-            <h1>{{ $subject }}</h1><br>
-    @endforeach
+{{--    @php--}}
+{{--    $jobber = \App\JobberSkills::where('jobber_id', 3)->where('main_category', 5)->first()--}}
+{{--    @endphp--}}
+{{--    @foreach(explode(',', $jobber->job_type) as $subject)--}}
+{{--            <h1>{{ $subject }}</h1><br>--}}
+{{--    @endforeach--}}
     <!-- Welcome to JobsFactory-->
     <div class="jumbotron-creative-inner">
         <div class="container">
