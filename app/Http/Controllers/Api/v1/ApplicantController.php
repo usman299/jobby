@@ -271,8 +271,8 @@ class ApplicantController extends Controller
 
         $payment->price = $request->price;
         $payment->contract_price = $proposal->price;
-        $payment->percentage = (double)$request->percentage;
-        $payment->jobber_get = $proposal->price - (double)$request->percentage;
+        $payment->percentage = $request->percentage;
+        $payment->jobber_get = $proposal->price - $request->percentage;
 
         $payment->type = 'card';
         $payment->invoice_no = 'IN-' . rand(10000, 90000);
