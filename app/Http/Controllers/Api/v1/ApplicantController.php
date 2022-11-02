@@ -284,6 +284,5 @@ class ApplicantController extends Controller
         $contract = Contract::where('jobRequest_id','=',$job_id)->get();
         $success = ContractCollection::collection($contract);
         return response()->json($success, 200);
-
     }
 }
