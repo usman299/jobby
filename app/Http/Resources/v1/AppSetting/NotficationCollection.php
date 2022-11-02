@@ -22,7 +22,7 @@ class NotficationCollection extends JsonResource
             'activity'=> $this->activity,
             'message'=> $this->message,
             'created_at' => $date->diffForHumans(),
-            'status' => $this->status
+            'status' => (string)$this->status
         ];
     }
 }
