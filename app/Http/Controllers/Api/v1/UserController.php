@@ -161,8 +161,8 @@ class UserController extends Controller
         $user->update();
         auth()->login($user, true);
         $success['token'] = $user->createToken('MyApp')->accessToken;
-        $success['user'] = new UserResource($user);
-        return response()->json(['success' => $success], 200);
+        $success['id'] = $user->id;
+        return response()->json(['success' => $success], $this->successStatus);
     }
 
     public function jobberGetProfile($jobber_id)
