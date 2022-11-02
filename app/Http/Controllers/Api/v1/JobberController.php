@@ -110,7 +110,7 @@ class JobberController extends Controller
             $jobberSkills->sub_category = $request->sub_category;
             $jobberSkills->description = $request->description;
             $jobberSkills->diploma = $request->diploma;
-            $jobberSkills->diploma_name = $request->diploma_name;
+            $jobberSkills->diploma_name = $request->diploma_name??"";
             $jobberSkills->experience = $request->experience;
             $jobberSkills->job_type = $request->job_type;
             $jobberSkills->skills = $request->skills;
