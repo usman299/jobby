@@ -113,30 +113,33 @@ class JobberController extends Controller
             $jobberSkills->diploma_name = $request->diploma_name;
             $jobberSkills->experience = $request->experience;
             $jobberSkills->job_type = $request->job_type;
-            if ($request->skills) {
-                foreach ($request->skills as $skill) {
-                    $data[] = $skill;
-                    $jobberSkills->skills = json_encode($data);
-                }
-            }
+            $jobberSkills->skills = $request->skills;
+            $jobberSkills->equipments = $request->equipments;
+            $jobberSkills->engagments = $request->engagments;
+//            if ($request->skills) {
+//                foreach ($request->skills as $skill) {
+//                    $data[] = $skill;
+//                    $jobberSkills->skills = json_encode($data);
+//                }
+//            }
 //            if ($request->job_type) {
 //                foreach ($request->job_type as $jobTypes) {
 //                    $data1[] = $jobTypes;
 //                    $jobberSkills->job_type = json_encode($data1);
 //                }
 //            }
-            if ($request->equipments) {
-                foreach ($request->equipments as $equipments) {
-                    $data2[] = $equipments;
-                    $jobberSkills->equipments = json_encode($data2);
-                }
-            }
-            if ($request->engagments) {
-                foreach ($request->engagments as $engagments) {
-                    $data3[] = $engagments;
-                    $jobberSkills->engagments = json_encode($data3);
-                }
-            }
+//            if ($request->equipments) {
+//                foreach ($request->equipments as $equipments) {
+//                    $data2[] = $equipments;
+//                    $jobberSkills->equipments = json_encode($data2);
+//                }
+//            }
+//            if ($request->engagments) {
+//                foreach ($request->engagments as $engagments) {
+//                    $data3[] = $engagments;
+//                    $jobberSkills->engagments = json_encode($data3);
+//                }
+//            }
             $jobberSkills->save();
             return response()->json(['success' => 'Skills Update Successfully'], 200);
         }
