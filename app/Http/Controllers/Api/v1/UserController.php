@@ -138,7 +138,6 @@ class UserController extends Controller
         } else {
             return response()->json(['error' => 'User not exist'], 404);
         }
-
     }
 
     public function otpVerifyEmail(Request $request)
@@ -150,7 +149,7 @@ class UserController extends Controller
             $user->update();
             return response()->json(['success' => 'Otp Verify'], 200);
         } else {
-            return response()->json(['success' => 'Otp Not match'], 200);
+            return response()->json(['success' => 'Otp Not match'], 404);
         }
     }
 
