@@ -584,7 +584,7 @@ class SubCategorySeeder extends Seeder
         ]);
         SubCategory::create([
             'title' => "Location de materiel",
-            'category_id' => "12",
+            'category_id' => "13",
             'countory_id' => "1",
             'price' => "50",
             'backColor' => "#53a7f9",
