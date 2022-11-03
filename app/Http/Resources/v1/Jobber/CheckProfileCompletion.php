@@ -3,6 +3,7 @@
 namespace App\Http\Resources\v1\Jobber;
 
 use App\JobberSkills;
+use App\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CheckProfileCompletion extends JsonResource
@@ -15,6 +16,7 @@ class CheckProfileCompletion extends JsonResource
      */
     public function toArray($request)
     {
+        $jobber = User::find($this->jobber_id);
         $jobberSkills = JobberSkills::where('jobber_id', $this->jobber_id)->first();
         return [
             'skills' => isset($jobberSkills) ? "yes" : "",
@@ -32,7 +34,8 @@ class CheckProfileCompletion extends JsonResource
             'vital_card_number'  => $this->vital_card_number??"",
             'social_security_number' => $this->social_security_number??"",
             'answer1' => $this->answer1??"",
-            'score'=> $this->score??""
+            'score'=> $this->score??"",
+            'phone' => $jobber->phone??""
         ];
     }
 }
