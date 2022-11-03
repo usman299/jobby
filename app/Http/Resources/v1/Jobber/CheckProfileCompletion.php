@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1\Jobber;
 
+use App\JobberSkills;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CheckProfileCompletion extends JsonResource
@@ -14,9 +15,9 @@ class CheckProfileCompletion extends JsonResource
      */
     public function toArray($request)
     {
+        $jobberSkills = JobberSkills::where('jobber_id', $this->jobber_id)->first();
         return [
-            'skills1' => $this->skills1??"",
-            'skills2' => $this->skills2??"",
+            'skills' => isset($jobberSkills) ? "yes" : "",
             'monday' => $this->monday??"",
             'tuesday' => $this->tuesday??"",
             'wednesday' => $this->wednesday??"",
