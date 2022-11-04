@@ -51,12 +51,12 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/getComments/{id}', 'ApplicantController@getComments');
     });
     Route::group( ['prefix' => 'jobber','namespace'=>'Api\v1'], function () {
-        //Profile
+
         Route::get('/jobs', 'JobberController@jobs');
         Route::get('/job/ignore/{job_id}', 'JobberController@jobrequestsIgnore');
         Route::post('/proposal/submit', 'JobberController@proposalSubmit');
         Route::get('/proposals', 'JobberController@proposals');
-
+        //Profile
         Route::post('/skills', 'JobberController@skills');
         Route::post('/timing', 'JobberController@timming');
         Route::post('/progress/service', 'JobberController@progressService');
@@ -69,6 +69,8 @@ Route::group(['middleware' => 'auth:api'], function(){
 
         Route::get('/check/profile/completion', 'JobberController@checkProfileCompletion');
         Route::get('/check/skills', 'JobberController@checkSkills');
+
+        Route::post('/get/pro/badge', 'JobberController@getBadgePro');
     });
 
     Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');

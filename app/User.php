@@ -135,6 +135,7 @@ class User extends Authenticatable
     public function verified()
     {
         $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
+        $jobberSkills = JobberSkills::where('jobber_id', $this->id)->first();
         if (
             $jobber->social_security_number != null &&
             $jobber->vital_card_number != null  &&
@@ -146,8 +147,9 @@ class User extends Authenticatable
             $jobber->rules1 != null &&
             $jobber->answer1 != null &&
             $jobber->insurance1 != null &&
-            $jobber->skills1 != null &&
-            $jobber->skills2 != null && $jobber->monday != null && $jobber->tuesday != null && $jobber->wednesday != null &&
+            $jobberSkills != null &&
+            $jobber->monday != null &&
+            $jobber->tuesday != null && $jobber->wednesday != null &&
             $jobber->thersday != null && $jobber->friday != null && $jobber->saturday != null && $jobber->sunday != null) {
             return 1;
         } else {
