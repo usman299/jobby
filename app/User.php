@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function jobberSkills()
     {
-        return $this->belongsTo(JobberSkills::class, 'jobber_id');
+        return $this->hasMany(JobberSkills::class, 'jobber_id');
     }
 
     public function category()
