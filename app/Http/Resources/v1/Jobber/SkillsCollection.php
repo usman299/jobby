@@ -16,23 +16,13 @@ class SkillsCollection extends JsonResource
      */
     public function toArray($request)
     {
-        $equipment_array = array();
-        foreach (explode(',', $this->equipments) as $equ){
-            $equipment_array[] = $equ;
-        }
-        $equipmentoutput = implode(",  ", $equipment_array);
-        $engagment_array = array();
-        foreach (explode(',', $this->engagments) as $eng){
-            $engagment_array[] = $eng;
-        }
-        $engagmentoutput = implode(",  ", $engagment_array);
         return [
             'id' => $this->id,
             'main_category' => (string)$this->main_category??"0",
             'sub_category' => (string)$this->sub_category??"0",
             'skills' => $this->skills()??"",
-            'equipments' => $equipmentoutput,
-            'engagments' => $engagmentoutput,
+            'equipments' => $this->equipments()??"",
+            'engagments' => $this->engagments()??"",
             'experience' => $this->experience,
             'diploma_name' => $this->diploma_name??"",
             'description' => $this->description??"",

@@ -15,4 +15,20 @@ class JobberSkills extends Model
         $skilloutput = implode(",  ", $skill_array);
         return $skilloutput;
     }
+    public function equipments(){
+        $equipment_array = array();
+        foreach (explode(',', $this->equipments) as $equ){
+            $equipment_array[] = $equ;
+        }
+        $equipmentoutput = implode(",  ", $equipment_array);
+        return $equipmentoutput;
+    }
+    public function engagments(){
+        $engagment_array = array();
+        foreach (explode(',', $this->engagments) as $eng){
+            $engagment_array[] = $eng;
+        }
+        $engagmentoutput = implode(",  ", $engagment_array);
+        return $engagmentoutput;
+    }
 }
