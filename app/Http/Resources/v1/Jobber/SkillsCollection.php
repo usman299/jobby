@@ -16,20 +16,29 @@ class SkillsCollection extends JsonResource
      */
     public function toArray($request)
     {
-        $response_array = array();
+        $skill_array = array();
         foreach (explode(',', $this->skills) as $skill){
             $subcat = SubCategory::where('id', $skill)->first();
-            $response_array[] = $subcat->title;
+            $skill_array[] = $subcat->title;
         }
-        $output = implode(" ", $response_array);
-
+        $skilloutput = implode(" ", $skill_array);
+        $equipment_array = array();
+        foreach (explode(',', $this->equipments) as $equ){
+            $equipment_array[] = $equ;
+        }
+        $equipmentoutput = implode(" ", $equipment_array);
+        $engagment_array = array();
+        foreach (explode(',', $this->engagments) as $eng){
+            $engagment_array[] = $eng;
+        }
+        $engagmentoutput = implode(" ", $engagment_array);
         return [
             'id' => $this->id,
             'main_category' => (string)$this->main_category??"0",
             'sub_category' => (string)$this->sub_category??"0",
-            'skills' => $output,
-            'equipments' => explode(',', $this->equipments),
-            'engagments' => explode(',', $this->engagments),
+            'skills' => $skilloutput,
+            'equipments' => $equipmentoutput,
+            'engagments' => $engagmentoutput,
             'experience' => $this->experience,
             'diploma_name' => $this->diploma_name??"",
             'description' => $this->description??"",
