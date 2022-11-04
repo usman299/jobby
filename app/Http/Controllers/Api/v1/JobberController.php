@@ -360,6 +360,7 @@ class JobberController extends Controller
         $user->vat_type = $request->vat_type;
         $user->company_address = $request->company_address;
         $user->siret = $request->siret;
+        $user->pro = 1;
         if ($user->update()) {
             return response()->json(['success' => 'Update Info SuccessFully']);
         } else {
