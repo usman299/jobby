@@ -43,7 +43,7 @@ class ProfileResource extends JsonResource
             'qualification' => $this->qualification ?? 'Sélectionner la qualification',
             'professional' => $this->professional ?? 'Sélectionnez Professionnel',
             'available_status' => false,
-            'pro' => $this->pro == 1 ? true : false,
+            'pro' => $this->pro== null ? 0 : (int)$this->pro,
             'verified' => $this->verified() == 1 ? true : false,
             'equipements' => isset($jobberSkills[0]) ? $jobberSkills[0]->equipments()  : "",
             'engagments' => isset($jobberSkills[0]) ? $jobberSkills[0]->engagments() : "",
