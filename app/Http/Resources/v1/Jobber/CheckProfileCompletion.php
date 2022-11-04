@@ -34,7 +34,7 @@ class CheckProfileCompletion extends JsonResource
             'vital_card_number'  => $this->vital_card_number??"",
             'social_security_number' => $this->social_security_number??"",
             'answer1' => $this->answer1??"",
-            'score'=> $this->score??"",
+            'score'=> (string)$this->score??"",
             'phone' => $jobber->phone??""
         ];
     }
