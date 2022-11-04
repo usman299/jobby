@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\v1\Jobber;
 
+use App\SubCategory;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 
@@ -17,7 +18,8 @@ class SkillsCollection extends JsonResource
     {
         $response_array = array();
         foreach (explode(',', $this->skills) as $skill){
-            $response_array[] = $skill;
+            $subcat = SubCategory::where('id', $skill)->first();
+            $response_array[] = $subcat->title;
         }
         $output = implode(" ", $response_array);
 
