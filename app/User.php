@@ -48,11 +48,6 @@ class User extends Authenticatable
         return $this->belongsTo(Countory::class, 'country');
     }
 
-    public function jobberSkills()
-    {
-        return $this->hasMany(JobberSkills::class, 'jobber_id');
-    }
-
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\v1\Jobber;
 
 use App\JobberProfile;
+use App\JobberSkills;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProfileResource extends JsonResource
@@ -16,6 +17,7 @@ class ProfileResource extends JsonResource
     public function toArray($request)
     {
         $jobberprofile = JobberProfile::where('jobber_id','=',$this->id)->first();
+        $jobberSkills = JobberSkills::where('jobber_id', $this->id)->get();
         return [
             'jobber_id' => $this->id,
             'first_name' => $this->firstName??"",
@@ -37,7 +39,7 @@ class ProfileResource extends JsonResource
             'total_jobs' => $this->totalJobs(1),
             'completed_jobs' => $this->totalJobs(2),
             'cancel_jobs' => $this->totalJobs(0),
-            'skills' => SkillsCollection::collection($this->jobberSkills()),
+            'skills' => SkillsCollection::collection($jobberSkills),
             'badge' => $this->badge ?? 0,
             'qualification' => $this->qualification ?? 'Sélectionner la qualification',
             'professional' => $this->professional ?? 'Sélectionnez Professionnel',
