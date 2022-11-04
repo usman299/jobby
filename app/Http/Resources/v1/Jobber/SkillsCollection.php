@@ -17,8 +17,14 @@ class SkillsCollection extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title??"",
-            'image' => $this->img??"",
+            'main_category' => $this->main_category??0,
+            'sub_category' => $this->sub_category??0,
+            'skills' => explode(',', $this->skills),
+            'equipments' => explode(',', $this->equipments),
+            'engagments' => explode(',', $this->engagments),
+            'experience' => $this->experience,
+            'diploma_name' => $this->diploma_name??"",
+            'description' => $this->description??"",
         ];
     }
 }

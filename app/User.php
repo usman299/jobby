@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->belongsTo(Countory::class, 'country');
     }
 
+    public function jobberSkills()
+    {
+        return $this->belongsTo(JobberSkills::class, 'jobber_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
@@ -110,26 +115,6 @@ class User extends Authenticatable
     {
         $reviews = Reviews::where('reciver_id', '=', $this->id)->latest()->get();
         return $reviews;
-    }
-
-    public function jobberSkilsSubcategory()
-    {
-        $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
-        $subcategory = [];
-        foreach (json_decode($jobber->skills1) as $key => $row) {
-            $subcategory[$key] = SubCategory::where('id', '=', $row)->first();
-        }
-        return $subcategory;
-    }
-
-    public function jobberSkilsChildcategory()
-    {
-        $jobber = JobberProfile::where('jobber_id', '=', $this->id)->first();
-        $childcategory = [];
-        foreach (json_decode($jobber->skills2) as $key => $row) {
-            $childcategory[$key] = ChildCategory::where('id', '=', $row)->first();
-        }
-        return $childcategory;
     }
 
     public function verified()
