@@ -16,7 +16,6 @@ class ProfileResource extends JsonResource
      */
     public function toArray($request)
     {
-        $jobberprofile = JobberProfile::where('jobber_id','=',$this->id)->first();
         $jobberSkills = JobberSkills::where('jobber_id', $this->id)->get();
         return [
             'jobber_id' => $this->id,
@@ -48,7 +47,7 @@ class ProfileResource extends JsonResource
             'verified' => $this->verified() == 1 ? true : false,
             'equipements' => $jobberSkills[0]->equipments()??"",
             'engagments' => $jobberSkills[0]->engagments()??"",
-            'personal_description' => $jobberprofile->personal_description??"",
+            'personal_description' => "Description Here",
             'total_review' => $this->totalReview(),
             'rating' => $this->rating(),
             'reviews' => ReviewsCollection::collection($this->reviews()) ,
