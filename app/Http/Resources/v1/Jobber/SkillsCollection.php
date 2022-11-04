@@ -21,17 +21,17 @@ class SkillsCollection extends JsonResource
             $subcat = SubCategory::where('id', $skill)->first();
             $skill_array[] = $subcat->title;
         }
-        $skilloutput = implode(" ", $skill_array);
+        $skilloutput = implode(",  ", $skill_array);
         $equipment_array = array();
         foreach (explode(',', $this->equipments) as $equ){
             $equipment_array[] = $equ;
         }
-        $equipmentoutput = implode(" ", $equipment_array);
+        $equipmentoutput = implode(",  ", $equipment_array);
         $engagment_array = array();
         foreach (explode(',', $this->engagments) as $eng){
             $engagment_array[] = $eng;
         }
-        $engagmentoutput = implode(" ", $engagment_array);
+        $engagmentoutput = implode(",  ", $engagment_array);
         return [
             'id' => $this->id,
             'main_category' => (string)$this->main_category??"0",
