@@ -22,6 +22,7 @@ class ProposalCollection extends JsonResource
             'price' => $this->price??"",
             'created_at' => $this->created_at->diffForHumans(),
             'duration' => $this->duration??"",
+            'status' => (int)$this->status??0,
             'jobber' => new ProfileResource($this->jobber)
         ];
     }
