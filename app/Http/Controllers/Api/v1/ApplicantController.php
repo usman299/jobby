@@ -246,7 +246,7 @@ class ApplicantController extends Controller
         $proposal->status = 2;
         $proposal->update();
         $jobrequest = JobRequest::find($proposal->jobRequest_id);
-        $jobrequest->status = 3;
+        $jobrequest->status = 1;
         $jobrequest->update();
         $contract = new Contract();
         $contract->proposal_id = $request->proposal_id;
