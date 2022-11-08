@@ -15,6 +15,7 @@ use App\JobRequest;
 use App\JobStatus;
 use App\Payment;
 use App\Proposal;
+use App\Reviews;
 use App\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -284,5 +285,29 @@ class ApplicantController extends Controller
         $contract = Contract::where('jobRequest_id','=',$job_id)->get();
         $success = ContractCollection::collection($contract);
         return response()->json($success, 200);
+    }
+    public function jobComplete($id){
+        $user = Auth::user();
+        $jobrequests = JobRequest::where('id', $id)->first();
+        $jobrequests->status = 2;
+        $jobrequests->update();
+
+        $contract = Contract::where('jobRequest_id', $id)->first();
+        $contract->status = 2;
+        $contract->update();
+
+        $review = new Reviews();
+        $review->sender_id = $user->id;
+        $review->reciver_id = $contract->jober_id;
+        $review->contract_id = $contract->id;
+        $review->message = $contract->message;
+        $review->start = $contract->start;
+        $review->save();
+
+        if ($review->save()){
+            return response()->json(['success' => 'Job complete successfully']);
+        }else{
+            return response()->json(['error' => 'Something is wrong'], 400);
+        }
     }
 }

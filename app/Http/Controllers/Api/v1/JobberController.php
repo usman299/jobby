@@ -174,13 +174,11 @@ class JobberController extends Controller
 
     public function jobrequestsIgnore($job_id)
     {
-
         $status = new Ignorjobrequest();
         $status->j_id = $job_id;
         $status->user_id = Auth::user()->id;
         $status->save();
         return response()->json(['success' => 'Job Ignore Successfully'], 200);
-
     }
 
     public function timming(Request $request)
