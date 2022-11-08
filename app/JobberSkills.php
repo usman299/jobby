@@ -31,4 +31,8 @@ class JobberSkills extends Model
         $engagmentoutput = implode(",  ", $engagment_array);
         return $engagmentoutput;
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'main_category');
+    }
 }
