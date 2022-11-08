@@ -71,6 +71,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/check/skills', 'JobberController@checkSkills');
 
         Route::post('/get/pro/badge', 'JobberController@getBadgePro');
+        Route::get('/subscriptions', 'JobberController@subscriptions');
     });
 
     Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');

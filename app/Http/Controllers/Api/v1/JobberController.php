@@ -13,6 +13,7 @@ use App\JobberSkills;
 use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Proposal;
+use App\Subscription;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -110,7 +111,7 @@ class JobberController extends Controller
             $jobberSkills->sub_category = $request->sub_category;
             $jobberSkills->description = $request->description;
             $jobberSkills->diploma = $request->diploma;
-            $jobberSkills->diploma_name = $request->diploma_name??"";
+            $jobberSkills->diploma_name = $request->diploma_name ?? "";
             $jobberSkills->experience = $request->experience;
             $jobberSkills->job_type = $request->job_type;
             $jobberSkills->skills = $request->skills;
@@ -353,7 +354,9 @@ class JobberController extends Controller
         $success = new CheckProfileCompletion($jobber);
         return response()->json($success, 200);
     }
-    public function getBadgePro(Request $request){
+
+    public function getBadgePro(Request $request)
+    {
         $user = Auth::user();
         $user->is_company = "Yes";
         $user->company_name = $request->company_name;
@@ -366,5 +369,9 @@ class JobberController extends Controller
         } else {
             return response()->json(['error' => 'Something is wrong'], 404);
         }
+    }
+    public function subscriptions(){
+        $subscription = Subscription::whereIn('id', [1,2,3])->get();
+        return $subscription;
     }
 }
