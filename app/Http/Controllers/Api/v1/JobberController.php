@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Contract;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
 use App\Http\Resources\v1\Jobber\CheckProfileCompletion;
@@ -49,6 +50,13 @@ class JobberController extends Controller
             }
         }
         $success = JobCollection::collection($data);
+        return response()->json($success, 200);
+    }
+
+    public function scheduleJobs(){
+        $jobs = Contract::where('jober_id', Auth::user()->id)->latest()->pluck('jobRequest_id');
+        $jobrequests = JobRequest::latest()->whereNotIn('id', $jobs)->get();
+        $success = JobCollection::collection($jobrequests);
         return response()->json($success, 200);
     }
 
