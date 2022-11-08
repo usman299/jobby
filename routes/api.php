@@ -53,7 +53,7 @@ Route::group(['middleware' => 'auth:api'], function(){
     });
     Route::group( ['prefix' => 'jobber','namespace'=>'Api\v1'], function () {
 
-        Route::get('/schedule/jobs', 'JobberController@scheduleJobs');
+        Route::get('/schedule /jobs', 'JobberController@scheduleJobs');
         Route::get('/jobs', 'JobberController@jobs');
         Route::get('/job/ignore/{job_id}', 'JobberController@jobrequestsIgnore');
         Route::post('/proposal/submit', 'JobberController@proposalSubmit');
