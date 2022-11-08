@@ -22,7 +22,7 @@ class ReviewsCollection extends JsonResource
             'name' => $this->applicant->firstName.' '.$this->applicant->lastName??" ",
             'image'=> $this->applicant->image?? "",
             'message'=> $this->message?? "",
-            'star' => $this->star,
+            'star' => (double)$this->star,
             'date' => $this->created_at->diffForHumans(),
         ];
     }
