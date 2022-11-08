@@ -35,4 +35,8 @@ class JobberSkills extends Model
     {
         return $this->belongsTo(Category::class, 'main_category');
     }
+    public function subcategory()
+    {
+        return $this->belongsTo(SubCategory::class, 'sub_category');
+    }
 }

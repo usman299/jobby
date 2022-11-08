@@ -19,7 +19,7 @@ class SkillsCollection extends JsonResource
         return [
             'id' => $this->id,
             'main_category' => (string)$this->category->title??"0",
-            'sub_category' => (string)$this->sub_category??"0",
+            'sub_category' => (string)$this->subcategory->title??"0",
             'skills' => $this->skills()??"",
             'equipments' => $this->equipments()??"",
             'engagments' => $this->engagments()??"",
