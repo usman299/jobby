@@ -301,7 +301,7 @@ class ApplicantController extends Controller
         $review->reciver_id = $contract->jober_id;
         $review->contract_id = $contract->id;
         $review->message = $contract->message;
-        $review->start = $contract->start;
+        $review->star = $contract->star;
         $review->save();
 
         if ($review->save()){
