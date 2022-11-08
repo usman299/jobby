@@ -286,7 +286,7 @@ class ApplicantController extends Controller
         $success = ContractCollection::collection($contract);
         return response()->json($success, 200);
     }
-    public function jobComplete($id){
+    public function jobComplete(Request $request, $id){
         $user = Auth::user();
         $jobrequests = JobRequest::where('id', $id)->first();
         $jobrequests->status = 2;
@@ -300,8 +300,8 @@ class ApplicantController extends Controller
         $review->sender_id = $user->id;
         $review->reciver_id = $contract->jober_id;
         $review->contract_id = $contract->id;
-        $review->message = $contract->message;
-        $review->star = $contract->star;
+        $review->message = $request->message;
+        $review->star = $request->star;
         $review->save();
 
         if ($review->save()){
