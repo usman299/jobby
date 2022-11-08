@@ -13,6 +13,7 @@ use App\JobberSkills;
 use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Proposal;
+use App\Subscribe;
 use App\Subscription;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -371,7 +372,7 @@ class JobberController extends Controller
         }
     }
     public function subscriptions(){
-        $subscription = Subscription::whereIn('id', [1,2,3])->get();
+        $subscription = Subscribe::whereIn('id', [1,2,3])->get();
         return $subscription;
     }
 }
