@@ -26,7 +26,7 @@ class JobberController extends Controller
     {
         $user = auth()->user();
         $jobStatus = Ignorjobrequest::where('user_id', $user->id)->pluck('j_id');
-        $jobrequests = JobRequest::latest()->whereNotIn('id', $jobStatus)->where('service_date', '>=', Carbon::now())->where('status', '=', 1)->get();
+        $jobrequests = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereDate('service_date', '>=', Carbon::now())->where('status', '=', 1)->get();
         $data = [];
         foreach ($jobrequests as $row) {
             $earthRadius = 6378;
