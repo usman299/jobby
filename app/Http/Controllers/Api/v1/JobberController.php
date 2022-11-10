@@ -15,7 +15,6 @@ use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Proposal;
 use App\Subscribe;
-use App\Subscription;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
