@@ -26,15 +26,9 @@ class JobberController extends Controller
     {
         $user = auth()->user();
         $jobStatus = Ignorjobrequest::where('user_id', $user->id)->pluck('j_id');
-        $jobberProfile = JobberProfile::where('jobber_id', '=', $user->id)->first();
-        $skills1 = json_decode($jobberProfile->skills1 ?? "[]", true);
-        $skills2 = json_decode($jobberProfile->skills2 ?? "[]", true);
-        $jobrequests1 = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereIn('subcategory_id', $skills1)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
-        $jobrequests2 = JobRequest::latest()->whereNotIn('id', $jobStatus)->whereIn('childcategory_id', $skills2)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
-        $merged = $jobrequests1->merge($jobrequests2);
-        $result = $merged->all();
+        $jobrequests = JobRequest::latest()->whereNotIn('id', $jobStatus)->where('service_date', '>=', Carbon::now()->toDateTimeString())->where('status', '=', 1)->get();
         $data = [];
-        foreach ($result as $row) {
+        foreach ($jobrequests as $row) {
             $earthRadius = 6378;
             $latFrom = deg2rad($user->latitude);
             $lonFrom = deg2rad($user->longitude);
@@ -97,18 +91,6 @@ class JobberController extends Controller
             dispatch(new NewProposalJob($dataa))->delay(Carbon::now()->addSeconds(5));
         }
         return response()->json(['success' => 'Proposal Submit Successfully'], 200);
-    }
-
-    public function proposals()
-    {
-        $user = Auth::user();
-        $activeProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 1)->get();
-        $acceptProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 2)->get();
-        $rejectProposals = Proposal::latest()->where('jobber_id', '=', $user->id)->where('status', '=', 3)->get();
-        $success['activeProposal'] = ProposalCollection::collection($activeProposals);
-        $success['acceptProposal'] = ProposalCollection::collection($acceptProposals);
-        $success['rejectProposal'] = ProposalCollection::collection($rejectProposals);
-        return response()->json($success, 200);
     }
 
     public function skills(Request $request)

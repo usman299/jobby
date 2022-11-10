@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/jobs', 'JobberController@jobs');
         Route::get('/job/ignore/{job_id}', 'JobberController@jobrequestsIgnore');
         Route::post('/proposal/submit', 'JobberController@proposalSubmit');
-        Route::get('/proposals', 'JobberController@proposals');
+
         //Profile
         Route::post('/skills', 'JobberController@skills');
         Route::post('/timing', 'JobberController@timming');
