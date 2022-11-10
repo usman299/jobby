@@ -52,7 +52,7 @@ class JobberController extends Controller
         $jobrequests = JobRequest::latest()->whereIn('id', $jobs)->get()->unique('service_date');
         $data = [];
         foreach ($jobrequests as $job){
-            $jobDetail = JobRequest::where('service_date', $job->service_date)->get();
+            $jobDetail = JobRequest::whereDate('service_date', $job->service_date)->get();
             $data[$job->service_date->format('Y-m-d')] = JobCollection::collection($jobDetail);
         }
         return json_encode($data);
