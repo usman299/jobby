@@ -378,4 +378,9 @@ class JobberController extends Controller
         $data = MyOffersCollection::collection($offers);
         return response()->json($data);
     }
+    public function singleJob($id){
+        $job = JobRequest::find($id);
+        $success = new JobCollection($job);
+        return response()->json($success, 200);
+    }
 }
