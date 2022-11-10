@@ -54,7 +54,11 @@ class JobberController extends Controller
             $jobDetail = JobRequest::whereDate('service_date', $job->service_date)->get();
             $data[$job->service_date->format('Y-m-d')] = JobCollection::collection($jobDetail);
         }
-        return json_encode($data);
+        if ($data == []){
+            return response()->json();
+        }else{
+            return json_encode($data);
+        }
     }
 
     public function proposalSubmit(Request $request)
