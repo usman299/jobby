@@ -55,7 +55,7 @@ class JobberController extends Controller
             $data[$job->service_date->format('Y-m-d')] = JobCollection::collection($jobDetail);
         }
         if ($data == []){
-            return response()->json();
+            return response()->json(null);
         }else{
             return json_encode($data);
         }
