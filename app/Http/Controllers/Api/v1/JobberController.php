@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
 use App\Http\Resources\v1\Jobber\CheckProfileCompletion;
 use App\Http\Resources\v1\Jobber\JobCollection;
+use App\Http\Resources\v1\jobber\MyOffersCollection;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
 use App\Ignorjobrequest;
 use App\JobberProfile;
@@ -363,8 +364,16 @@ class JobberController extends Controller
             return response()->json(['error' => 'Something is wrong'], 404);
         }
     }
-    public function subscriptions(){
+    public function subscriptions()
+    {
         $subscription = Subscribe::whereIn('id', [1,2,3])->get();
         return $subscription;
+    }
+    public function myOffers()
+    {
+        $user = Auth::user();
+        $offers = Proposal::where('jobber_id', $user->id)->get();
+        $data = MyOffersCollection::collection($offers);
+        return response()->json($data);
     }
 }
