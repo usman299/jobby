@@ -20,7 +20,6 @@ class JobCollectionResource extends JsonResource
         Carbon::setLocale('fr');
         $date = Carbon::parse($this->created_at);
         return [
-
             'id' => $this->id,
             'title' => $this->title ?? "",
             'category_id' => (int)$this->category_id ?? 0,
@@ -31,7 +30,7 @@ class JobCollectionResource extends JsonResource
             'detail_description' => $this->detail_description ?? "",
             'estimate_budget' => (string)$this->estimate_budget,
             'duration' => $this->duration ?? "",
-            'service_date' => $this->service_date->format('d-M-Y'),
+            'service_date' => ucwords($this->service_date->translatedFormat('l d F'))??"",
             'views' => $this->totalViews(),
             'latitude' => $this->lat ?? "",
             'longitude' => $this->long ?? "",
@@ -62,7 +61,6 @@ class JobCollectionResource extends JsonResource
             'total_offers' => $this->totalOffers(),
             'jobber_required' => $this->jobber ?? 1,
             'total_comments' => $this->totalComments(),
-
         ];
     }
 }

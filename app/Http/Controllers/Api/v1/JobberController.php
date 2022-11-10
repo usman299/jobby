@@ -55,9 +55,13 @@ class JobberController extends Controller
 
     public function scheduleJobs(){
         $jobs = Contract::where('jober_id', Auth::user()->id)->latest()->pluck('jobRequest_id');
-        $jobrequests = JobRequest::latest()->whereNotIn('id', $jobs)->get();
-        $success = JobCollection::collection($jobrequests);
-        return response()->json($success, 200);
+        $jobrequests = JobRequest::latest()->whereIn('id', $jobs)->get()->unique('service_date');
+        $data = [];
+        foreach ($jobrequests as $job){
+            $jobDetail = JobRequest::where('service_date', $job->service_date)->get();
+            $data[$job->service_date->format('Y-m-d')] = JobCollection::collection($jobDetail);
+        }
+        return json_encode($data);
     }
 
     public function proposalSubmit(Request $request)
