@@ -143,7 +143,9 @@ class ApplicantController extends Controller
         $jobrequest = JobRequest::find($request->job_id);
         $jobrequest->service_date = $request->service_date;
         $jobrequest->start_time = $request->start_time;
-        $jobrequest->end_time = $request->end_time;
+        $endtime = Carbon::parse($request->start_time);
+        $endTime = $endtime->addMinutes($jobrequest->duration*60);
+        $jobrequest->end_time = $endTime->format('H:i');
         $jobrequest->detail_description = $request->detail_description;
         $jobrequest->status = 1;
         if ($request->hasFile('image1')) {
