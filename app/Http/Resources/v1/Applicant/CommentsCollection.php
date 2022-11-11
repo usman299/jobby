@@ -18,6 +18,7 @@ class CommentsCollection extends JsonResource
         \Carbon\Carbon::setLocale('fr');
         return [
             'id'=> $this->id,
+            'job_id'=> $this->job_id,
             'user_id'=> $this->user->id,
             'name' => $this->user->firstName.' '.$this->user->lastName??" ",
             'image'=> $this->user->image?? "",

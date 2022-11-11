@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\Http\Resources\v1\Applicant\CommentsCollection;
 use App\Http\Resources\v1\Jobber\CheckProfileCompletion;
 use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\MyOffersCollection;
@@ -381,6 +383,11 @@ class JobberController extends Controller
     public function singleJob($id){
         $job = JobRequest::find($id);
         $success = new JobCollection($job);
+        return response()->json($success, 200);
+    }
+    public function myComments(){
+        $comments = Comments::where('user_id', Auth::user()->id)->get();
+        $success = CommentsCollection::collection($comments);
         return response()->json($success, 200);
     }
 }
