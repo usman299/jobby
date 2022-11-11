@@ -119,10 +119,6 @@ class User extends Authenticatable
         if (
             $jobber->social_security_number != null &&
             $jobber->vital_card_number != null  &&
-            $jobber->eu_id_residence_permit_front != null &&
-            $jobber->eu_id_passport_front != null &&
-            $jobber->eu_id_driving_front != null &&
-            $jobber->eu_id_card_front != null &&
             $jobber->score != null &&
             $jobber->rules1 != null &&
             $jobber->answer1 != null &&
@@ -130,7 +126,8 @@ class User extends Authenticatable
             $jobberSkills != null &&
             $jobber->monday != null &&
             $jobber->tuesday != null && $jobber->wednesday != null &&
-            $jobber->thersday != null && $jobber->friday != null && $jobber->saturday != null && $jobber->sunday != null) {
+            $jobber->thersday != null && $jobber->friday != null && $jobber->saturday != null && $jobber->sunday != null)
+        {
             return 1;
         } else {
             return 0;
