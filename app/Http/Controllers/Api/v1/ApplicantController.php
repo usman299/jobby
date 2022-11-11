@@ -17,6 +17,7 @@ use App\Payment;
 use App\Proposal;
 use App\Reviews;
 use App\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,9 @@ class ApplicantController extends Controller
             $jobrequest->description = $request->description;
             $jobrequest->service_date = $request->service_date;
             $jobrequest->start_time = $request->start_time;
-            $jobrequest->end_time = $request->end_time;
+            $endtime = Carbon::parse($request->start_time);
+            $endTime = $endtime->addMinutes($request->duration*60);
+            $jobrequest->end_time = $endTime->format('H:i');
             $jobrequest->duration = $request->duration;
             $jobrequest->hours = $request->hours;
             $jobrequest->estimate_budget = $request->estimate_budget;
