@@ -16,6 +16,7 @@ class ProfileResource extends JsonResource
      */
     public function toArray($request)
     {
+        \Carbon\Carbon::setLocale('fr');
         $jobberSkills = JobberSkills::where('jobber_id', $this->id)->get();
         return [
             'jobber_id' => $this->id,
@@ -33,7 +34,7 @@ class ProfileResource extends JsonResource
             'latitude'=> $this->latitude??"16.297131",
             'longitude'=> $this->longitude??"-61.523423",
             'radius'=> $this->radius??"",
-            'member_since'=> \Carbon\Carbon::parse($this->created_at)??"",
+            'member_since'=> $this->created_at->diffForHumans()??"",
             'experince'=> $this->experince??"",
             'total_jobs' => $this->totalJobs(1),
             'completed_jobs' => $this->totalJobs(2),
