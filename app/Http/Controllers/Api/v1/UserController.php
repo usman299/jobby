@@ -14,6 +14,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
 use Validator;
 
 class UserController extends Controller
@@ -100,12 +101,16 @@ class UserController extends Controller
     public function profileImage(Request $request)
     {
         $user = Auth::user();
-        if ($request->hasfile('image')) {
+        if ($request->hasFile('image')) {
             $image1 = $request->file('image');
-            $name = time() . 'profileImage' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'profileImage/';
-            $image1->move($destinationPath, $name);
-            $user->image = 'profileImage/' . $name;
+            $name1 = time() . 'image1' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images';
+            ini_set('memory_limit', '256M');
+            $img = Image::make($image1);
+            $img->resize(250, 250, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $name1);
+            $user->image = $destinationPath . '/' . $name1;
         }
         if ($user->update()){
             return response()->json(['success' => 'Successfully Updated']);
