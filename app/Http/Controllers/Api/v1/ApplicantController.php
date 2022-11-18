@@ -363,7 +363,7 @@ class ApplicantController extends Controller
             $walet = new Wallet();
             $walet->amount = '100';
             $walet->user_id = $user->id;
-            $walet->paymant_type = 'GIFT CARD';
+            $walet->payment_type = 'GIFT CARD';
             $walet->transaction_type = 'ingoing';
             $walet->save();
 
