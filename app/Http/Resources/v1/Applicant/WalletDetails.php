@@ -19,6 +19,7 @@ class WalletDetails extends JsonResource
             'amount' => (string)$this->amount,
             'payment_type' => (string)$this->paymant_type,
             'transaction_type' => (string)$this->transaction_type,
+            'created_at' => $this->created_at->format('d, M Y')
         ];
     }
 }
