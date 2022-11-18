@@ -18,7 +18,7 @@ class CesuCollection extends JsonResource
             'id' => $this->id,
             'number' => (string)$this->number,
             'status' => (int)$this->status,
-            'created_at' => $this->created_at
+            'created_at' => $this->created_at->format('d, M Y')
         ];
     }
 }
