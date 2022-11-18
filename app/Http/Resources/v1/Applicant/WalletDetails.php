@@ -17,7 +17,7 @@ class WalletDetails extends JsonResource
         return [
             'wallet_id' => $this->id,
             'amount' => (string)$this->amount,
-            'payment_type' => (string)$this->payment_type,
+            'payment_type' => (string)$this->paymant_type,
             'transaction_type' => (string)$this->transaction_type,
         ];
     }
