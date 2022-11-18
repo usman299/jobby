@@ -396,7 +396,7 @@ class JobberController extends Controller
         $user = Auth::user();
         $payments = Payment::where('jobber_id', $user->id)->where('status', 1)->latest()->get();
         return response()->json([
-            'wallet' => $user->wallet,
+            'wallet' => (string)$user->wallet??"",
             'transactions' => Trancations::collection($payments)
         ]);
     }

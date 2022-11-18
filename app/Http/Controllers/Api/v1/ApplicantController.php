@@ -347,7 +347,7 @@ class ApplicantController extends Controller
         return response()->json($success, 200);
     }
     public function walletDetails(){
-        $user = Auth::user()->id;
+        $user = Auth::user();
         $wallet = Wallet::where('user_id', $user->id)->get();
         return response()->json([
             'wallet' => (string)$user->wallet??"0",
