@@ -21,7 +21,11 @@ class CreateProposalsTable extends Migration
             $table->longtext('description')->nullable();
             $table->string('time_limit')->nullable();
             $table->string('price')->nullable();
-            
+            $table->string('hours')->nullable();
+            $table->string('duration')->nullable();
+            $table->string('total_hours')->nullable();
+            $table->string('service_price')->nullable();
+            $table->string('tax')->nullable();
             $table->timestamps();
         });
     }

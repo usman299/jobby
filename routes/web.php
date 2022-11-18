@@ -83,16 +83,23 @@ Route::get('/testnotification', 'HomeController@testnotification');
 
 Route::get('/guest/user/{role}', 'FrontendController@guest')->name('guest.user');
 
-Route::get('/', 'FrontendController@index');
+//Route::get('/', 'FrontendController@index');
 Route::get('/privacy-policy', 'FrontendController@privacy')->name('front.privacy');
 Route::get('/terms-and-conditions', 'FrontendController@terms')->name('front.terms');
-Route::get('/intro', 'FrontendController@intro')->name('front.intro')->middleware('guest');
-Route::get('/intro/jobber', 'FrontendController@introjobber')->name('intro.jobber');
-Route::get('/intro/applicant', 'FrontendController@introapplicant')->name('intro.applicant');
+//Route::get('/intro', 'FrontendController@intro')->name('front.intro')->middleware('guest');
+Route::get('/intro',  function (){
+    abort(404);
+})->name('front.intro')->middleware('guest');
+Route::get('/intro/jobber',  function (){
+    abort(404);
+})->name('intro.jobber');
+Route::get('/intro/applicant',  function (){
+    abort(404);
+})->name('intro.applicant');
 Route::get('/splash', 'FrontendController@splash')->name('front.splash');
 
 //website routes
-Route::get('/web', 'FrontendController@website')->name('web.index');
+Route::get('/', 'FrontendController@website')->name('web.index');
 Route::get('/about/us', 'FrontendController@about')->name('about.us');
 Route::get('/conditions', 'FrontendController@conditions')->name('conditions');
 Route::get('/suport/faq', 'FrontendController@suport')->name('suport.faq');
@@ -101,8 +108,12 @@ Route::get('/suport/terms', 'FrontendController@suportTerms')->name('suport.term
 Route::get('/inscription', 'FrontendController@mainRegister')->name('inscription');
 Route::get('/devenez/jobber', 'FrontendController@devenezJobber')->name('devenez.jobber');
 Route::get('/main/category', 'FrontendController@mainCategory')->name('main.category');
-Route::post('iframe', 'FrontendController@iframe')->name('iframe');
-Route::get('/iframe/request/{id}', 'FrontendController@iframe2')->name('iframe.category');
+Route::post('iframe', function (){
+    abort(404);
+})->name('iframe');
+Route::get('/iframe/request/{id}', function (){
+    abort(404);
+})->name('iframe.category');
 Route::post('/subcategory/search', 'FrontendController@search')->name('subcategory.search');
 Route::get('/subcategory/view/{id}', 'FrontendController@subcategoryIndex')->name('subcategory.view');
 
@@ -247,6 +258,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function () {
 
     Route::get('admin/checks/index', 'Admin\UsersController@indexChecks')->name('checks.index');
     Route::get('admin/pass/checks/index', 'Admin\UsersController@passIndexChecks')->name('pass.checks.index');
+    Route::get('admin/check/status/{id}/{status}', 'Admin\UsersController@checkStatus')->name('check-status');
     Route::post('admin/add/balance', 'Admin\UsersController@addBalnce')->name('admin.add.balance');
 
     Route::get('admin/cards/index', 'Admin\UsersController@indexCards')->name('cards.index');
@@ -397,6 +409,3 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function () {
 
 
 });
-
-
-

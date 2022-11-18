@@ -21,6 +21,7 @@ class CreateSubCategoriesTable extends Migration
             $table->string('backColor');
             $table->foreignId('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

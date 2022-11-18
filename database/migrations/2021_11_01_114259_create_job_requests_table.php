@@ -57,7 +57,10 @@ class CreateJobRequestsTable extends Migration
             $table->string('dob')->nullable();
             $table->integer('jobbers')->nullable();
             $table->string('description')->nullable();
+            $table->string('urgent')->nullable();
 
+            $table->longText('child_dob')->nullable();
+            $table->longText('child_question')->nullable();
 
             $table->string('status')->default(1);//Active=1,close=2,
             $table->timestamps();

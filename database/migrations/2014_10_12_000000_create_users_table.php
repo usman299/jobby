@@ -43,6 +43,20 @@ CreateUsersTable extends Migration
             $table->longText('description')->nullable();
             $table->longText('device_token')->nullable();
 
+            $table->longText('qualification')->nullable();
+            $table->integer('badge')->default(1);
+            $table->integer('verified')->default(0);
+            $table->integer('pro')->default(0);
+
+            $table->string('sub_date')->nullable();
+            $table->string('paymant_id')->default(0);
+            $table->string('offers')->default(0);
+            $table->string('subscription')->default(1);
+            $table->string('wallet')->nullable();
+
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('otp')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

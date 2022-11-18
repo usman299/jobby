@@ -16,8 +16,8 @@ class CreateChecksTable extends Migration
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->string('img')->nullable();
-            $table->string('status')->default(0);
+            $table->string('number')->nullable();
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

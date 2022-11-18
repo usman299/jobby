@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\Card;
+use App\Check;
 use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
+use App\Http\Resources\v1\Applicant\CesuCollection;
 use App\Http\Resources\v1\Applicant\CommentsCollection;
 use App\Http\Resources\v1\Applicant\ContractCollection;
 use App\Http\Resources\v1\Applicant\JobCollectionResource;
 use App\Http\Resources\v1\Applicant\JobRequestCollection;
+use App\Http\Resources\v1\Applicant\WalletDetails;
+use App\Http\Resources\v1\Common\Trancations;
 use App\Http\Resources\v1\Jobber\ProposalCollection;
 use App\JobRequest;
 use App\JobStatus;
@@ -17,6 +22,7 @@ use App\Payment;
 use App\Proposal;
 use App\Reviews;
 use App\User;
+use App\Wallet;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -254,6 +260,7 @@ class ApplicantController extends Controller
         $jobrequest = JobRequest::find($proposal->jobRequest_id);
         $jobrequest->status = 1;
         $jobrequest->update();
+
         $contract = new Contract();
         $contract->proposal_id = $request->proposal_id;
         $contract->jobRequest_id = $proposal->jobRequest_id;
@@ -265,6 +272,7 @@ class ApplicantController extends Controller
         $contract->description = $request->description;
         $contract->contract_no = 'CN-' . rand(10000, 90000);
         $contract->save();
+
         $payment = new Payment();
         $payment->contract_id = $contract->id;
         $payment->applicant_id = $applicant_id->id;
@@ -273,7 +281,7 @@ class ApplicantController extends Controller
         $payment->contract_price = $proposal->price;
         $payment->percentage = $request->percentage;
         $payment->jobber_get = (double)$proposal->price - (double)$request->percentage;
-        $payment->type = 'card';
+        $payment->type = 'direct';
         $payment->invoice_no = 'IN-' . rand(10000, 90000);
         $payment->save();
 
@@ -301,6 +309,14 @@ class ApplicantController extends Controller
         $contract->status = 2;
         $contract->update();
 
+        $payment = Payment::where('contract_id', $contract->id)->first();
+        $payment->status = 1;
+        $payment->update();
+
+        $jobber = User::find($contract->jober_id);
+        $jobber->wallet = $jobber->wallet + $payment->jobber_get;
+        $jobber->update();
+
         $review = new Reviews();
         $review->sender_id = $user->id;
         $review->reciver_id = $contract->jober_id;
@@ -314,5 +330,53 @@ class ApplicantController extends Controller
         }else{
             return response()->json(['error' => 'Something is wrong'], 400);
         }
+    }
+    public function cesuSubmit(Request $request){
+        $cesu = new Check();
+        $cesu->user_id = Auth::user()->id;
+        $cesu->number = $request->number;
+        if ($cesu->save()){
+            return response()->json(['success' => 'Cesy Ticked add successfully']);
+        }else{
+            return response()->json(['error' => 'Something is wrong'], 400);
+        }
+    }
+    public function cesuTickets(){
+        $tickets = Check::where('user_id', Auth::user()->id)->get();
+        $success = CesuCollection::collection($tickets);
+        return response()->json($success, 200);
+    }
+    public function walletDetails(){
+        $user = Auth::user()->id;
+        $wallet = Wallet::where('user_id', $user->id)->get();
+        return response()->json([
+            'wallet' => (string)$user->wallet??"0",
+            'details' => WalletDetails::collection($wallet)
+        ]);
+    }
+    public function redeemGiftCard(Request $request){
+        $user = Auth::user();
+        $card = Card::where('sku', $request->number)->first();
+        if ($card){
+            $card->status = 1;
+            $card->update();
+            $walet = new Wallet();
+            $walet->amount = '100';
+            $walet->user_id = $user->id;
+            $walet->paymant_type = 'GIFT CARD';
+            $walet->transaction_type = 'ingoing';
+            $walet->save();
+
+            $user->wallet = $user->wallet + 100;
+            $user->update();
+            return response()->json(['success' => 'Gift Card Redeem successfully']);
+        }else{
+            return response()->json(['error' => 'Gift Card Number not exist'], 404);
+        }
+    }
+    public function transactions(){
+        $payments = Payment::where('applicant_id', Auth::user()->id)->latest()->get();
+        $success = Trancations::collection($payments);
+        return response()->json($success, 200);
     }
 }

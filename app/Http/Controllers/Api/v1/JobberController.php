@@ -7,6 +7,7 @@ use App\Contract;
 use App\Http\Controllers\Controller;
 use App\Http\NotificationHelper;
 use App\Http\Resources\v1\Applicant\CommentsCollection;
+use App\Http\Resources\v1\Common\Trancations;
 use App\Http\Resources\v1\Jobber\CheckProfileCompletion;
 use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\MyOffersCollection;
@@ -15,6 +16,7 @@ use App\JobberProfile;
 use App\JobberSkills;
 use App\JobRequest;
 use App\Jobs\NewProposalJob;
+use App\Payment;
 use App\Proposal;
 use App\Subscribe;
 use Carbon\Carbon;
@@ -389,5 +391,13 @@ class JobberController extends Controller
         $comments = Comments::where('user_id', Auth::user()->id)->get();
         $success = CommentsCollection::collection($comments);
         return response()->json($success, 200);
+    }
+    public function transactions(){
+        $user = Auth::user();
+        $payments = Payment::where('jobber_id', $user->id)->where('status', 1)->latest()->get();
+        return response()->json([
+            'wallet' => $user->wallet,
+            'transactions' => Trancations::collection($payments)
+        ]);
     }
 }

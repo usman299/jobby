@@ -22,6 +22,7 @@ class CreateChildCategoriesTable extends Migration
             $table->foreignId('subcategory_id');
             $table->foreign('subcategory_id')->references('id')->on('sub_categories');
             $table->string('category_id');
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }

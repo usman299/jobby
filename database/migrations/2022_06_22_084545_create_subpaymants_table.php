@@ -19,7 +19,10 @@ class CreateSubpaymantsTable extends Migration
             $table->string('sub_id')->nullable();
             $table->string('price')->nullable();
             $table->string('status')->nullable();
-
+            $table->string('key_id')->nullable();
+            $table->string('card_holder_name')->nullable();
+            $table->string('paymentMethodId')->nullable();
+            $table->longText('message')->nullable();
             $table->timestamps();
         });
     }

@@ -38,6 +38,7 @@ Route::get('/country', 'Api\v1\AppSettingController@country');
 Route::group(['middleware' => 'auth:api'], function(){
 
     Route::group( ['prefix' => 'demandeur','namespace'=>'Api\v1'], function () {
+
         Route::post('/jobrequest/submit', 'ApplicantController@jobRequestSubmit');
         Route::post('/jobrequest/update', 'ApplicantController@jobRequestUpdate');
         Route::get('/job/proposals/{job_id}', 'ApplicantController@proposals');
@@ -50,6 +51,14 @@ Route::group(['middleware' => 'auth:api'], function(){
 
         Route::post('/comments', 'ApplicantController@comments');
         Route::get('/getComments/{id}', 'ApplicantController@getComments');
+
+        Route::post('/cesu/ticket/submit', 'ApplicantController@cesuSubmit');
+        Route::get('/my/cesu/tickets', 'ApplicantController@cesuTickets');
+        Route::get('/my/wallet/details', 'ApplicantController@walletDetails');
+        Route::post('/redeem/gift/card', 'ApplicantController@redeemGiftCard');
+
+        Route::get('/transactions', 'ApplicantController@transactions');
+
     });
     Route::group( ['prefix' => 'jobber','namespace'=>'Api\v1'], function () {
 
@@ -77,6 +86,8 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/subscriptions', 'JobberController@subscriptions');
         Route::get('/my/offers', 'JobberController@myOffers');
         Route::get('/my/comments', 'JobberController@myComments');
+        Route::get('/transactions', 'JobberController@transactions');
+
     });
 
     Route::get('/jobber/profile/{jobber_id}', 'Api\v1\UserController@jobberGetProfile');
