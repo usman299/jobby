@@ -23,6 +23,7 @@ class Trancations extends JsonResource
             'jobber_get' => (string)$this->jobber_get,
             'type' => (string)$this->type,
             'job_title' => (string)$this->contract->jobRequest->title??"",
+            'created_at' => $this->created_at->format('d, M Y'),
         ];
     }
 }
