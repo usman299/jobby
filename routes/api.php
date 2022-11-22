@@ -27,6 +27,7 @@ Route::get('app/settings', 'Api\v1\AppSettingController@getAppSetting');
 Route::get('/slider/galery/{role}', 'Api\v1\AppSettingController@sliderGalery');
 
 Route::get('categories', 'Api\v1\CategoryController@geCategory');
+Route::get('search/categories', 'Api\v1\CategoryController@searchCategory');
 Route::get('/subcategories/{category_id}', 'Api\v1\CategoryController@geSubCategory');
 Route::get('/childCategories/{subcategory_id}', 'Api\v1\CategoryController@getChildCategories');
 

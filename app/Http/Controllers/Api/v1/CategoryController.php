@@ -31,4 +31,12 @@ class CategoryController extends Controller
         $data = SubCategoryCollection::collection($subcategory);
         return response()->json($data);
     }
+    public function searchCategory(){
+        $subcategory = SubCategory::select('id', 'title', 'img')->get();
+        $childcategory = ChildCategory::select('id', 'title', 'img')->get();
+        $array1 = collect($subcategory);
+        $array2 = collect($childcategory);
+        $data = $array1->merge($array2);
+        return $data;
+    }
 }
