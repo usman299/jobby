@@ -7,7 +7,7 @@ use App\Notfication;
 class NotificationHelper{
 
     public static function pushNotification($msg, $fcm_token, $activity){
-        $SERVER_API_KEY = 'AAAAY_MYego:APA91bHuBjDm8fcxm2sPpl3hq_aFRWvd6wOzK8JkJgxorMR0n3WnjlNjGptPlURrSdmuWtxcskabFSgKRmqYXXe-GCT1ZVkfhc8NYBnpNY-flbAyOZo0roiOQZU5LXQEGoZNIn2uHpHk';
+        $SERVER_API_KEY = 'AAAAWznrMC0:APA91bGmwFHEF2awtLaUTbVbTlDDI4SxOLy5lVTr_HwF1BkWKjJ83Rp9OYO02VJh47LGRDzUolzAsE2jUoHWcShhjRJsq42VyH1N2ZTiKusu-Z63_8O8JRbgF0_9hAbfRcY6Rbz3Psin';
         $data = [
             "registration_ids" => $fcm_token,
             "notification" => [
