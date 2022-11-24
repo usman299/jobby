@@ -18,7 +18,9 @@ use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Payment;
 use App\Proposal;
+use App\Subpaymant;
 use App\Subscribe;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -404,5 +406,30 @@ class JobberController extends Controller
         $user= Auth::user();
         $intent = $user->createSetupIntent();
         return $intent->client_secret;
+    }
+    public function subscriptionSave(Request $request)
+    {
+        $subscription = Subscribe::where('id','=',$request->sub_id)->first();
+        $user = Auth::user();
+        $sub = new Subpaymant();
+        $sub->sub_id = $subscription->id;
+        $sub->user_id = Auth::user()->id;
+        $sub->price = $request->total;
+        $sub->key_id = $request->plan;
+        $sub->card_holder_name = $request->card_holder_name;
+        $sub->paymentMethodId = $request->paymentMethodId;
+        $sub->message = $request->message;
+
+        if($sub->save())
+        {
+            $user = User::find($sub->user_id);
+            $user->subscription = $subscription->id;
+            $user->paymant_id = $sub->id;
+            $user->sub_date = $sub->created_at;
+            $user->offers = 0;
+            $user->update();
+        }
+        $user->newSubscription('main', $request->plan)->create($request->paymentMethodId);
+        return response()->json(['success' => 'Subscription Created Successfully']);
     }
 }
