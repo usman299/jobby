@@ -448,6 +448,7 @@ class JobberController extends Controller
 
         \Stripe\Subscription::create([
             'customer' => $user->stripe_id,
+            'payment_method' => $request->paymentMethodId,
             'items' => [
                 ['price' => $request->plan],
             ],
