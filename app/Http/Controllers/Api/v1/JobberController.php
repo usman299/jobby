@@ -412,7 +412,7 @@ class JobberController extends Controller
         $user->stripe_id = $customer->id;
         $user->save();
         $payment_intent = \Stripe\PaymentIntent::create([
-            'amount' => 9.99 * 100,
+            'amount' => 6.99 * 100,
             'currency' => 'EUR',
             'customer' => $customer->id,
             'description' => "Description"
