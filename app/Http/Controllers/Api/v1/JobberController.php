@@ -435,7 +435,8 @@ class JobberController extends Controller
         $customer = $stripe->customers->create([
             'name' => 'bilawal',
             'email' => 'bilawal@gmail.com',
-            'phone' => '78877878'
+            'phone' => '78877878',
+            'payment_method' => 'card'
         ]);
         $stripe->subscriptions->create([
             'customer' => $customer->id,
