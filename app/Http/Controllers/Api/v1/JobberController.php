@@ -448,8 +448,9 @@ class JobberController extends Controller
 
         \Stripe\Subscription::create([
             'customer' => $user->stripe_id,
+            'default_payment_method' => $request->paymentMethodId,
             'items' => [
-                ['price' => $request->plan,  'payment_method' => $request->paymentMethodId,],
+                ['price' => $request->plan],
             ],
         ]);
         return response()->json(['success' => 'Subscription Created Successfully']);
