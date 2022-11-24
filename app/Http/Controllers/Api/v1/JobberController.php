@@ -414,13 +414,20 @@ class JobberController extends Controller
         ]);
         $user->stripe_id = $customer->id;
         $user->save();
-        $payment_intent = \Stripe\PaymentIntent::create([
-            'amount' => 6.99 * 100,
-            'currency' => 'EUR',
+
+        $intent = \Stripe\Subscription::create([
             'customer' => $customer->id,
-            'description' => "Description"
+            'items' => [
+                ['price' => 'price_1M7X4rD4LNNtfNaOitKMyx5y'],
+            ],
         ]);
-        return $payment_intent->client_secret;
+//        $payment_intent = \Stripe\PaymentIntent::create([
+//            'amount' => 6.99 * 100,
+//            'currency' => 'EUR',
+//            'customer' => $customer->id,
+//            'description' => "Description"
+//        ]);
+        return $intent->client_secret;
     }
     public function subscriptionSave(Request $request)
     {
