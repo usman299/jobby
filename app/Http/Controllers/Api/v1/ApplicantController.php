@@ -136,7 +136,7 @@ class ApplicantController extends Controller
             foreach ($jobbers as $jobber) {
                 NotificationHelper::addtoNitification($user->id, $jobber->id, $msg, $jobrequest->id, $activity, $user->country);
             }
-            NotificationHelper::pushNotification($msg, $jobbers->pluck('device_token'), $activity);
+            NotificationHelper::pushNotificationJobber($msg, $jobbers->pluck('device_token'), $activity);
 
             return response()->json(['success' => 'JobRequest Submit Successfully'], 200);
         } catch (Exception $e) {
@@ -288,7 +288,7 @@ class ApplicantController extends Controller
         $activity = "Début du contrat";
         $msg = "Votre contrat commence avec le demandeur";
 
-        NotificationHelper::pushNotification($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->device_token, $activity);
         NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
 
         return response()->json(['success' => 'Contract Save Successfully'], 200);
