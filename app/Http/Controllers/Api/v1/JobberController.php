@@ -400,4 +400,9 @@ class JobberController extends Controller
             'transactions' => Trancations::collection($payments)
         ]);
     }
+    public function subscriptionIntent(){
+        $user= Auth::user();
+        $intent = $user->createSetupIntent();
+        return $intent->client_secret;
+    }
 }
