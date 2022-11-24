@@ -429,6 +429,7 @@ class JobberController extends Controller
             $user->offers = 0;
             $user->update();
         }
+        $user->createSetupIntent();
         $user->newSubscription('main', $request->plan)->create($request->paymentMethodId);
         return response()->json(['success' => 'Subscription Created Successfully']);
     }
