@@ -403,6 +403,9 @@ class JobberController extends Controller
         ]);
     }
     public function subscriptionIntent(){
+
+        \Stripe\Stripe::setApiKey( env('STRIPE_SECRET'));
+
         $user= Auth::user();
         $customer = \Stripe\Customer::create([
             'email' => Auth::user()->email,
