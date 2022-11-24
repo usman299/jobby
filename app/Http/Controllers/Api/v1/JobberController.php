@@ -444,11 +444,9 @@ class JobberController extends Controller
             $user->offers = 0;
             $user->update();
         }
-        $stripe = new \Stripe\StripeClient(
-            env('STRIPE_SECRET')
-        );
+        \Stripe\Stripe::setApiKey( env('STRIPE_SECRET'));
 
-        $stripe->subscriptions->create([
+        \Stripe\Subscription::create([
             'customer' => $user->stripe_id,
             'items' => [
                 ['price' => $request->plan],
