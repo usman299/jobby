@@ -410,7 +410,10 @@ class JobberController extends Controller
         $customer = \Stripe\Customer::create([
             'email' => Auth::user()->email,
             'name' => Auth::user()->firstName.' '.Auth::user()->lastName,
-            'description' => 'Test Customer'
+            'description' => 'Test Customer',
+            'payment_settings' => [
+                'payment_method_types' => ['card'],
+            ],
         ]);
         $user->stripe_id = $customer->id;
         $user->save();
@@ -419,6 +422,9 @@ class JobberController extends Controller
             'customer' => $customer->id,
             'items' => [
                 ['price' => 'price_1M7X4rD4LNNtfNaOitKMyx5y'],
+            ],
+            'payment_settings' => [
+                'payment_method_types' => ['card'],
             ],
         ]);
 //        $payment_intent = \Stripe\PaymentIntent::create([
