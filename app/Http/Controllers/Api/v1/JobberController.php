@@ -411,9 +411,7 @@ class JobberController extends Controller
             'email' => Auth::user()->email,
             'name' => Auth::user()->firstName.' '.Auth::user()->lastName,
             'description' => 'Test Customer',
-            'payment_method' => [
-              'card'
-            ],
+            'payment_method' => ['card'],
         ]);
         $user->stripe_id = $customer->id;
         $user->save();
