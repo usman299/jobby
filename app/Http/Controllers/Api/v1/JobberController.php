@@ -404,8 +404,20 @@ class JobberController extends Controller
     }
     public function subscriptionIntent(){
         $user= Auth::user();
-        $intent = $user->createSetupIntent();
-        return $intent->client_secret;
+        $customer = \Stripe\Customer::create([
+            'email' => Auth::user()->email,
+            'name' => Auth::user()->firstName.' '.Auth::user()->lastName,
+            'description' => 'Test Customer'
+        ]);
+        $user->stripe_id = $customer->id;
+        $user->save();
+        $payment_intent = \Stripe\PaymentIntent::create([
+            'amount' => 9.99 *100,
+            'currency' => 'EUR',
+            'customer' => $customer->id,
+            'description' => "Description"
+        ]);
+        return $payment_intent->client_secret;
     }
     public function subscriptionSave(Request $request)
     {
