@@ -429,7 +429,20 @@ class JobberController extends Controller
             $user->offers = 0;
             $user->update();
         }
-        $user->newSubscription('main', $request->plan)->create($request->paymentMethodId);
+        $stripe = new \Stripe\StripeClient(
+            env('STRIPE_SECRET')
+        );
+        $customer = $stripe->customers->create([
+            'name' => 'bilawal',
+            'email' => 'bilawal@gmail.com',
+            'phone' => '78877878'
+        ]);
+        $stripe->subscriptions->create([
+            'customer' => $customer->id,
+            'items' => [
+                ['price' => $request->plan],
+            ],
+        ]);
         return response()->json(['success' => 'Subscription Created Successfully']);
     }
 }

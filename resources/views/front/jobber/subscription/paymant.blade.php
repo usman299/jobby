@@ -32,7 +32,7 @@ Send confirmation request to requester
                                     9.99€ /mois</label>
                             </div>
                             <div class="custom-control custom-radio margin-b-10">
-                                <input {{ $total == 29.99 ? 'checked' : 'disabled' }} type="radio" id="nationality2" value="price_1LGdjeD7gIuku9edq0zBSd6Y"name="plan" class="custom-control-input">
+                                <input {{ $total == 29.99 ? 'checked' : 'disabled' }} type="radio" id="nationality2" value="price_1LGdjeD7gIuku9edq0zBSd6Y" name="plan" class="custom-control-input">
                                 <label class="custom-control-label padding-l-10" for="nationality2">
                                     29.99€ /mois
                                 </label>
