@@ -444,14 +444,9 @@ class JobberController extends Controller
         $stripe = new \Stripe\StripeClient(
             env('STRIPE_SECRET')
         );
-        $customer = $stripe->customers->create([
-            'name' => 'bilawal',
-            'email' => 'bilawal@gmail.com',
-            'phone' => '78877878',
-            'payment_method' => 'card'
-        ]);
+
         $stripe->subscriptions->create([
-            'customer' => $customer->id,
+            'customer' => $user->stripe_id,
             'items' => [
                 ['price' => $request->plan],
             ],
