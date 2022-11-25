@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\NotificationHelper;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -21,6 +22,12 @@ Auth::routes(['verify' => true]);
 Route::get('/save-token/{token}', function ($token) {
     Auth::user()->update(['device_token' => $token]);
     return redirect('app');
+});
+Route::get('/testnotification', function ($token) {
+    $activity = "Début du contrat";
+    $msg = "Votre contrat commence avec le demandeur";
+    $jobber = \App\User::find(3);
+    NotificationHelper::pushNotificationJobber($msg, $jobber->device_token, $activity);
 });
 Route::get('/test', function () {
     $draft = \App\JobStatus::find(1);
