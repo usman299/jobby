@@ -26,7 +26,7 @@ Route::get('/save-token/{token}', function ($token) {
 Route::get('/testmynot', function () {
     $activity = "Début du contrat";
     $msg = "Votre contrat commence avec le demandeur";
-    $jobber = \App\User::find(3);
+    $jobber = \App\User::where('id', 3)->first();
     NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
 });
 Route::get('/test', function () {
