@@ -267,9 +267,9 @@ class ApplicantController extends Controller
         $contract->applicant_id = $applicant_id->id;
         $contract->jober_id = $proposal->jobber_id;
         $contract->s_time = $jobrequest->start_time;
-        $contract->e_time = $request->e_time;
+        $contract->e_time = $jobrequest->e_time;
         $contract->price = $proposal->price;
-        $contract->description = $request->description;
+        $contract->description = $jobrequest->description;
         $contract->contract_no = 'CN-' . rand(10000, 90000);
         $contract->save();
 
@@ -284,6 +284,59 @@ class ApplicantController extends Controller
         $payment->type = 'direct';
         $payment->invoice_no = 'IN-' . rand(10000, 90000);
         $payment->save();
+
+        $activity = "Début du contrat";
+        $msg = "Votre contrat commence avec le demandeur";
+
+        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
+
+        return response()->json(['success' => 'Contract Save Successfully'], 200);
+    }
+
+    public function payViaWallet(Request $request)
+    {
+        $applicant_id = Auth::user();
+        $proposal = Proposal::find($request->proposal_id);
+        $proposal->status = 2;
+        $proposal->update();
+        $jobrequest = JobRequest::find($proposal->jobRequest_id);
+        $jobrequest->status = 1;
+        $jobrequest->update();
+
+        $contract = new Contract();
+        $contract->proposal_id = $request->proposal_id;
+        $contract->jobRequest_id = $proposal->jobRequest_id;
+        $contract->applicant_id = $applicant_id->id;
+        $contract->jober_id = $proposal->jobber_id;
+        $contract->s_time = $jobrequest->start_time;
+        $contract->e_time = $jobrequest->e_time;
+        $contract->price = $proposal->price;
+        $contract->description = $jobrequest->description;
+        $contract->contract_no = 'CN-' . rand(10000, 90000);
+        $contract->save();
+
+        $payment = new Payment();
+        $payment->contract_id = $contract->id;
+        $payment->applicant_id = $applicant_id->id;
+        $payment->jobber_id = $proposal->jobber_id;
+        $payment->price = $request->price;
+        $payment->contract_price = $proposal->price;
+        $payment->percentage = $request->percentage;
+        $payment->jobber_get = (double)$proposal->price - (double)$request->percentage;
+        $payment->type = 'wallet';
+        $payment->invoice_no = 'IN-' . rand(10000, 90000);
+        $payment->save();
+
+        $walet = new Wallet();
+        $walet->amount = $request->price;
+        $walet->user_id = $applicant_id->id;
+        $walet->paymant_type = 'PAY TO JOBBER';
+        $walet->transaction_type = 'outgoing';
+        $walet->save();
+
+        $applicant_id->wallet = $applicant_id->wallet - $request->price;
+        $applicant_id->update();
 
         $activity = "Début du contrat";
         $msg = "Votre contrat commence avec le demandeur";
