@@ -11,6 +11,7 @@ use App\Http\Resources\v1\Common\Trancations;
 use App\Http\Resources\v1\Jobber\CheckProfileCompletion;
 use App\Http\Resources\v1\Jobber\JobCollection;
 use App\Http\Resources\v1\Jobber\MyOffersCollection;
+use App\Http\Resources\v1\Jobber\ReviewsCollection;
 use App\Ignorjobrequest;
 use App\JobberProfile;
 use App\JobberSkills;
@@ -18,6 +19,7 @@ use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Payment;
 use App\Proposal;
+use App\Reviews;
 use App\Subpaymant;
 use App\Subscribe;
 use App\User;
@@ -400,6 +402,19 @@ class JobberController extends Controller
         return response()->json([
             'wallet' => (string)$user->wallet??"",
             'transactions' => Trancations::collection($payments)
+        ]);
+    }
+    public function reviews(){
+        $user = Auth::user();
+        return response()->json([
+            'total_reviews' => $user->reviews()->count(),
+            'rating' => $user->rating(),
+            'stars_5' => $user->reviews()->where('star', 5)->count(),
+            'stars_4' => $user->reviews()->where('star', 4)->count(),
+            'stars_3' => $user->reviews()->where('star', 3)->count(),
+            'stars_2' => $user->reviews()->where('star', 2)->count(),
+            'stars_1' => $user->reviews()->where('star', 1)->count(),
+            'reviews' => ReviewsCollection::collection($user->reviews()) ,
         ]);
     }
     public function subscriptionIntent(){

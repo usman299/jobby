@@ -89,6 +89,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/my/offers', 'JobberController@myOffers');
         Route::get('/my/comments', 'JobberController@myComments');
         Route::get('/transactions', 'JobberController@transactions');
+        Route::get('/reviews', 'JobberController@reviews');
 
         Route::get('/get/subscription/intent', 'JobberController@subscriptionIntent');
         Route::post('/subscription/save', 'JobberController@subscriptionSave');
