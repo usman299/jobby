@@ -55,7 +55,7 @@ class NotificationHelper{
         curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
 
         $response = curl_exec($ch);
-dd($response);
+
         return $response;
     }
     public static function addtoNitification($s_id, $r_id, $msg, $generate_id, $activity, $country_id)

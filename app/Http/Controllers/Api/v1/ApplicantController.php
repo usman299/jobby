@@ -288,7 +288,7 @@ class ApplicantController extends Controller
         $activity = "Début du contrat";
         $msg = "Votre contrat commence avec le demandeur";
 
-        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->pluck('device_token'), $activity);
         NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
 
         return response()->json(['success' => 'Contract Save Successfully'], 200);
@@ -341,7 +341,7 @@ class ApplicantController extends Controller
         $activity = "Début du contrat";
         $msg = "Votre contrat commence avec le demandeur";
 
-        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->device_token, $activity);
+        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->pluck('device_token'), $activity);
         NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
 
         return response()->json(['success' => 'Contract Save Successfully'], 200);
@@ -377,6 +377,12 @@ class ApplicantController extends Controller
         $review->message = $request->message;
         $review->star = $request->star;
         $review->save();
+
+        $activity = "Tâche terminée";
+        $msg = "Toutes nos félicitations! Votre travail est terminé";
+
+        NotificationHelper::pushNotificationJobber($msg, $contract->jobber->pluck('device_token'), $activity);
+        NotificationHelper::addtoNitification($user->id, $contract->jobber->id, $msg, $contract->id, $activity, $user->country);
 
         if ($review->save()){
             return response()->json(['success' => 'Job complete successfully']);
