@@ -33,7 +33,7 @@ class NotificationHelper{
         return $response;
     }
     public static function pushNotificationJobber($msg, $fcm_token, $activity){
-        $SERVER_API_KEY = 'AAAAK7CUlFY:APA91bGRW22N2uzxSUltDuowd18KsxlX3VdL9qNWBZkWkMrsI0g8wRkFhj5wRdO-9rKlqkSe33cyUbGdaVcftKG-Iqhy32W7BRq_i1UQDpt6qqL1m7RTS7xoLTg6zSNTc9yHCOLYlWGg';
+        $SERVER_API_KEY = 'AAAAK7CUlFY:APA91bHS5gbgDbTFFlkSnop4nXq3wJn3p8CGNpUr5GBRG7IHc2z8V8jrEm59_p41xYR5P81YCyHoYY1Nysxcd6wIMLXIyNfyGtruob69gETHqvVel7moY9yNSgyA9tr9eqQ8Ktff7gFr';
         $data = [
             "registration_ids" => $fcm_token,
             "notification" => [
