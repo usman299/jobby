@@ -23,7 +23,7 @@ Route::get('/save-token/{token}', function ($token) {
     Auth::user()->update(['device_token' => $token]);
     return redirect('app');
 });
-Route::get('/testnotification', function ($token) {
+Route::get('/testmynot', function ($token) {
     $activity = "Début du contrat";
     $msg = "Votre contrat commence avec le demandeur";
     $jobber = \App\User::find(3);
