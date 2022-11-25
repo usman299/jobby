@@ -179,6 +179,12 @@ class UserController extends Controller
         $user = User::where('id','=',$demandeur_id)->where('role','=',2)->first();
         $success = new DemProfileResource($user);
         return response()->json($success,200);
-
+    }
+    public function token($token)
+    {
+        $user = auth()->user();
+        $user->device_token = $token;
+        $user->update();
+        return response()->json(['success' => 'successfully updated']);
     }
 }
