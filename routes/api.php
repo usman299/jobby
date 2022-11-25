@@ -101,5 +101,5 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('/profile/update', 'Api\v1\UserController@update');
     Route::post('/password/update', 'Api\v1\UserController@passwordUpdate');
     Route::post('/profile/image/update', 'Api\v1\UserController@profileImage');
-    Route::get('/save-token/{token}', 'Api\v1\UserControlle@token');
+    Route::get('/save-token/{token}', 'Api\v1\UserController@token');
 });
