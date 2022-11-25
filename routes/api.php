@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/proposals/contract', 'ApplicantController@proposalsContract');
         Route::post('/pay/via/wallet', 'ApplicantController@payViaWallet');
         Route::get('/contract/{job_id}', 'ApplicantController@contract');
+        Route::get('/cancel/contract/{contract_id}', 'ApplicantController@cancelContract');
 
         Route::post('/comments', 'ApplicantController@comments');
         Route::get('/getComments/{id}', 'ApplicantController@getComments');

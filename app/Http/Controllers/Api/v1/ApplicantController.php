@@ -352,6 +352,16 @@ class ApplicantController extends Controller
         $success = ContractCollection::collection($contract);
         return response()->json($success, 200);
     }
+    public function cancelContract($contract_id)
+    {
+        $contract = Contract::find($contract_id);
+        $contract->status = 4;
+        if ($contract->update()){
+            return response()->json(['success' => 'Contract Status update Successfully']);
+        }else{
+            return response()->json(['error' => 'Something is wrong'], 400);
+        }
+    }
     public function jobComplete(Request $request, $id){
         $user = Auth::user();
         $jobrequests = JobRequest::where('id', $id)->first();
