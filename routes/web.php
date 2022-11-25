@@ -27,7 +27,6 @@ Route::get('/testmynot', function () {
     $activity = "Début du contrat";
     $msg = "Votre contrat commence avec le demandeur";
     $jobber = \App\User::where('id', 3)->first();
-    dd($jobber->pluck('device_token'));
     NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
 });
 Route::get('/test', function () {
