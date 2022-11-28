@@ -78,7 +78,7 @@
                 </a>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="ai-icon"></i>
+                    <i class="flaticon-381-save"></i>
                     <span class="nav-text">Contrat</span>
                 </a>
                 <ul aria-expanded="false">
