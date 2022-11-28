@@ -63,24 +63,30 @@
                             <div class="custom-tab-1">
                                 <ul class="nav nav-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#home1"><i class="la la-home mr-2"></i> Propositions actives</a>
+                                        <a class="nav-link active" data-toggle="tab" href="#home1"><i
+                                                class="la la-home mr-2"></i> Propositions actives</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#profile1"><i class="la la-user mr-2"></i> Contrats actifs</a>
+                                        <a class="nav-link" data-toggle="tab" href="#profile1"><i
+                                                class="la la-user mr-2"></i> Contrats actifs</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#contact1"><i class="la la-phone mr-2"></i>  Profil</a>
+                                        <a class="nav-link" data-toggle="tab" href="#contact1"><i
+                                                class="la la-phone mr-2"></i> Profil</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#message1"><i class="la la-envelope mr-2"></i> Le
+                                        <a class="nav-link" data-toggle="tab" href="#message1"><i
+                                                class="la la-envelope mr-2"></i> Le
                                             mot de passe</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#message2"><i class="la la-envelope mr-2"></i> Obtenez
+                                        <a class="nav-link" data-toggle="tab" href="#message2"><i
+                                                class="la la-envelope mr-2"></i> Obtenez
                                             le badge Pro</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#message3"><i class="la la-envelope mr-2"></i> Vérifications de documents</a>
+                                        <a class="nav-link" data-toggle="tab" href="#message3"><i
+                                                class="la la-envelope mr-2"></i> Vérifications de documents</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -257,111 +263,109 @@
                                     </div>
                                     <div class="tab-pane fade" id="contact1">
                                         <div class="pt-4">
-                                            <div class="settings-form">
-                                                <h2 class="text-primary" style="margin: 20px; text-align: center">
-                                                    Réglage du compte</h2>
-                                                <form method="POST"
-                                                      action="{{ route('admin.profile.update' ,['id'=>$jobber->id]) }}"
-                                                      enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                            <label>Prénom <strong
-                                                                    style="font-size: 22px; color: red;">*</strong></label>
-                                                            <input type="text" name="firstName"
-                                                                   value="{{$jobber->firstName}}"
-                                                                   placeholder="Entrez le prénom"
-                                                                   class="form-control">
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label>Nom de famille <strong
-                                                                    style="font-size: 22px; color: red;">*</strong></label>
-                                                            <input type="text" name="lastName"
-                                                                   value="{{$jobber->lastName}}"
-                                                                   placeholder="Entrez le nom de famille"
-                                                                   class="form-control">
-                                                        </div>
+                                            <h2 class="text-primary" style="margin: 20px; text-align: center">
+                                                Réglage du compte</h2>
+                                            <form method="POST"
+                                                  action="{{ route('admin.profile.update' ,['id'=>$jobber->id]) }}"
+                                                  enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label>Prénom <strong
+                                                                style="font-size: 22px; color: red;">*</strong></label>
+                                                        <input type="text" name="firstName"
+                                                               value="{{$jobber->firstName}}"
+                                                               placeholder="Entrez le prénom"
+                                                               class="form-control">
                                                     </div>
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                            <label>E-mail <strong
-                                                                    style="font-size: 22px; color: red;">*</strong></label>
-                                                            <input type="email" name="email"
-                                                                   value="{{$jobber->email}}"
-                                                                   placeholder="Entrez le E-mail"
-                                                                   class="form-control" readonly>
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label>Pays <strong
-                                                                    style="font-size: 22px; color: red;">*</strong></label>
-                                                            <select class="form-control default-select  select2"
-                                                                    name="countory_id">
-                                                                <option>Choisir une Pays</option>
-                                                                @foreach($country as $row)
-                                                                    <option
-                                                                        value="{{$row->id}}" {{ $jobber->country == $row->id ? 'selected' : '' }} >{{$row->name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label>Nom de famille <strong
+                                                                style="font-size: 22px; color: red;">*</strong></label>
+                                                        <input type="text" name="lastName"
+                                                               value="{{$jobber->lastName}}"
+                                                               placeholder="Entrez le nom de famille"
+                                                               class="form-control">
                                                     </div>
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                            <label>Adresse <strong
-                                                                    style="font-size: 22px; color: red;">*</strong></label>
-                                                            <input type="text" name="address"
-                                                                   placeholder="Entrez le Adresse"
-                                                                   value="{{$jobber->address ?? ''}}"
-                                                                   class="form-control">
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label>Téléphoner <strong
-                                                                    style="font-size: 22px; color: red;">*</strong></label>
-                                                            <input type="text" class="form-control" name="phone"
-                                                                   value="{{$jobber->phone}}"
-                                                                   placeholder="Entrez le Téléphoner">
-                                                        </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label>E-mail <strong
+                                                                style="font-size: 22px; color: red;">*</strong></label>
+                                                        <input type="email" name="email"
+                                                               value="{{$jobber->email}}"
+                                                               placeholder="Entrez le E-mail"
+                                                               class="form-control" readonly>
                                                     </div>
-                                                    {{--                                                        <div class="form-row">--}}
-                                                    {{--                                                            <div class="form-group col-md-6">--}}
-                                                    {{--                                                                <label>Badge </label>--}}
-                                                    {{--                                                                <select class="form-control default-select  select2"--}}
-                                                    {{--                                                                        name="is_company">--}}
-                                                    {{--                                                                    <option>Choisir Badge</option>--}}
-                                                    {{--                                                                    <option--}}
-                                                    {{--                                                                        value="1" {{ $jobber->is_company == 1 ? 'selected' : '' }} >--}}
-                                                    {{--                                                                        Jobber certifié--}}
-                                                    {{--                                                                    </option>--}}
-                                                    {{--                                                                    <option--}}
-                                                    {{--                                                                        value="2" {{ $jobber->is_company == 2 ? 'selected' : '' }} >--}}
-                                                    {{--                                                                        Jobber pro--}}
-                                                    {{--                                                                    </option>--}}
-                                                    {{--                                                                    <option--}}
-                                                    {{--                                                                        value="3" {{ $jobber->is_company == 3 ? 'selected' : '' }} >--}}
-                                                    {{--                                                                        Super jobber--}}
-                                                    {{--                                                                    </option>--}}
-                                                    {{--                                                                </select>--}}
-                                                    {{--                                                            </div>--}}
-                                                    {{--                                                        </div>--}}
-                                                    <div class="form-row">
-                                                        <div class="form-group col-md-6">
-                                                            <label>Image de profil <strong
-                                                                    style="font-size: 22px; color: red;">*</strong></label>
-                                                            <input type="file" class="form-control" name="image"
-                                                                   value="" id="imgInp1"
-                                                                   onchange="preview_image1(event)"
-                                                                   accept="image/png, image/gif, image/jpeg">
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <img id="output_image1"
-                                                                 src="{{asset($jobber->image)}}"/>
-                                                        </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label>Pays <strong
+                                                                style="font-size: 22px; color: red;">*</strong></label>
+                                                        <select class="form-control default-select  select2"
+                                                                name="countory_id">
+                                                            <option>Choisir une Pays</option>
+                                                            @foreach($country as $row)
+                                                                <option
+                                                                    value="{{$row->id}}" {{ $jobber->country == $row->id ? 'selected' : '' }} >{{$row->name}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label>Adresse <strong
+                                                                style="font-size: 22px; color: red;">*</strong></label>
+                                                        <input type="text" name="address"
+                                                               placeholder="Entrez le Adresse"
+                                                               value="{{$jobber->address ?? ''}}"
+                                                               class="form-control">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label>Téléphoner <strong
+                                                                style="font-size: 22px; color: red;">*</strong></label>
+                                                        <input type="text" class="form-control" name="phone"
+                                                               value="{{$jobber->phone}}"
+                                                               placeholder="Entrez le Téléphoner">
+                                                    </div>
+                                                </div>
+                                                {{--                                                        <div class="form-row">--}}
+                                                {{--                                                            <div class="form-group col-md-6">--}}
+                                                {{--                                                                <label>Badge </label>--}}
+                                                {{--                                                                <select class="form-control default-select  select2"--}}
+                                                {{--                                                                        name="is_company">--}}
+                                                {{--                                                                    <option>Choisir Badge</option>--}}
+                                                {{--                                                                    <option--}}
+                                                {{--                                                                        value="1" {{ $jobber->is_company == 1 ? 'selected' : '' }} >--}}
+                                                {{--                                                                        Jobber certifié--}}
+                                                {{--                                                                    </option>--}}
+                                                {{--                                                                    <option--}}
+                                                {{--                                                                        value="2" {{ $jobber->is_company == 2 ? 'selected' : '' }} >--}}
+                                                {{--                                                                        Jobber pro--}}
+                                                {{--                                                                    </option>--}}
+                                                {{--                                                                    <option--}}
+                                                {{--                                                                        value="3" {{ $jobber->is_company == 3 ? 'selected' : '' }} >--}}
+                                                {{--                                                                        Super jobber--}}
+                                                {{--                                                                    </option>--}}
+                                                {{--                                                                </select>--}}
+                                                {{--                                                            </div>--}}
+                                                {{--                                                        </div>--}}
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label>Image de profil <strong
+                                                                style="font-size: 22px; color: red;">*</strong></label>
+                                                        <input type="file" class="form-control" name="image"
+                                                               value="" id="imgInp1"
+                                                               onchange="preview_image1(event)"
+                                                               accept="image/png, image/gif, image/jpeg">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <img id="output_image1"
+                                                             src="{{asset($jobber->image)}}"/>
+                                                    </div>
+                                                </div>
 
 
-                                                    <button class="btn btn-primary" type="submit">Mettre à jour
-                                                    </button>
-                                                </form>
-                                            </div>
+                                                <button class="btn btn-primary" type="submit">Mettre à jour
+                                                </button>
+                                            </form>
                                             <hr>
                                             <div class="profile-uoloaded-post border-bottom-1 pb-5">
                                                 <img src="images/profile/8.jpg" alt="" class="img-fluid">
@@ -374,124 +378,123 @@
                                     </div>
                                     <div class="tab-pane fade" id="message1">
                                         <div class="pt-4">
-                                            <div class="settings-form">
-                                                <h2 class="text-primary" style="margin: 20px; text-align: center">
-                                                    Réinitialisation du mot de passe</h2>
-                                                <form method="POST"
-                                                      action="{{ route('admin.password.update',['id'=>$jobber->id]) }}"
-                                                      enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="form-group col-md-6">
-                                                        <label><strong>Ancien mot de passe </strong><strong
-                                                                style="font-size: 22px; color: red;">*</strong></label>
-                                                        <input type="password" name="oldPassword"
-                                                               placeholder="Ancien mot de passe"
-                                                               class="form-control">
-                                                    </div>
-                                                    <div class="form-group col-md-6">
-                                                        <label><strong>Nouveau mot de passe </strong><strong
-                                                                style="font-size: 22px; color: red;">*</strong></label>
-                                                        <input type="password" name="password"
-                                                               placeholder="Nouveau mot de passe"
-                                                               class="form-control">
-                                                    </div>
+                                            <h2 class="text-primary" style="margin: 20px; text-align: center">
+                                                Réinitialisation du mot de passe</h2>
+                                            <form method="POST"
+                                                  action="{{ route('admin.password.update',['id'=>$jobber->id]) }}"
+                                                  enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="form-group col-md-6">
+                                                    <label><strong>Ancien mot de passe </strong><strong
+                                                            style="font-size: 22px; color: red;">*</strong></label>
+                                                    <input type="password" name="oldPassword"
+                                                           placeholder="Ancien mot de passe"
+                                                           class="form-control">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label><strong>Nouveau mot de passe </strong><strong
+                                                            style="font-size: 22px; color: red;">*</strong></label>
+                                                    <input type="password" name="password"
+                                                           placeholder="Nouveau mot de passe"
+                                                           class="form-control">
+                                                </div>
 
 
-                                                    <div class="form-group col-md-6">
-                                                        <label><strong>Confirmez le mot de passe</strong><strong
-                                                                style="font-size: 22px; color: red;">*</strong></label>
-                                                        <input type="password" name="confirmPassword"
-                                                               placeholder="Confirmez le mot de passe"
-                                                               class="form-control">
-                                                    </div>
+                                                <div class="form-group col-md-6">
+                                                    <label><strong>Confirmez le mot de passe</strong><strong
+                                                            style="font-size: 22px; color: red;">*</strong></label>
+                                                    <input type="password" name="confirmPassword"
+                                                           placeholder="Confirmez le mot de passe"
+                                                           class="form-control">
+                                                </div>
 
 
-                                                    <button class="btn btn-primary" type="submit">Mettre à jour
-                                                    </button>
-                                                </form>
-                                            </div>
+                                                <button class="btn btn-primary" type="submit">Mettre à jour
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="message2">
                                         <div class="pt-4">
-                                            <div class="settings-form">
-                                                @if($jobber->is_company==1)
-                                                    <div class="profile-personal-info">
-                                                        <h4 class="text-primary mb-4">Plus d'information</h4>
-                                                        <div class="row mb-2">
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Nom de la compagnie: <span
-                                                                        class="pull-right">:</span>
-                                                                </h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7">
-                                                                <span>{{$jobber->company_name}}</span>
-                                                            </div>
+                                            @if($jobber->is_company==1)
+                                                <div class="profile-personal-info">
+                                                    <h4 class="text-primary mb-4">Plus d'information</h4>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Nom de la compagnie: <span
+                                                                    class="pull-right">:</span>
+                                                            </h5>
                                                         </div>
-                                                        <div class="row mb-2">
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Jobber Nom: <span
-                                                                        class="pull-right">:</span>
-                                                                </h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7">
-                                                                <span>{{$jobber->firstName}} {{$jobber->lastName}}</span>
-                                                            </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->company_name}}</span>
                                                         </div>
-                                                        <div class="row mb-2">
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Adresse de la société: <span
-                                                                        class="pull-right">:</span>
-                                                                </h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7">
-                                                                <span>{{$jobber->company_address}}</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-2">
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Taper: <span class="pull-right">:</span>
-                                                                </h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7">
-                                                                <span>{{$jobber->vat_type}}</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-2">
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Siret <span
-                                                                        class="pull-right">:</span></h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7">
-                                                                <span>{{$jobber->siret }} </span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row mb-2">
-                                                            <div class="col-sm-3 col-5">
-                                                                <h5 class="f-w-500">Créé à<span
-                                                                        class="pull-right">:</span></h5>
-                                                            </div>
-                                                            <div class="col-sm-9 col-7">
-                                                                <span>{{$jobber->created_at->diffForHumans()}}</span>
-                                                            </div>
-                                                        </div>
-                                                        <hr>
-                                                        @if($jobber->pro == 2)
-                                                            <h2>Badge pro déjà attribué</h2>
-                                                        @else
-                                                            <a href="{{route('jobber.mark.pro', ['id' => $jobber->id])}}"><button class="btn btn-primary">Marquer comme revendeur professionnel</button></a>
-                                                        @endif
-                                                        @else
-                                                            <div class="profile-skills mb-5"
-                                                                 style="text-align: center; margin-top: 20px;">
-                                                                <a href="#"
-                                                                   class="btn btn-warning dark btn-xs mb-1 "
-                                                                   style="font-size: 20px;">Pas de demande de pro</a>
-                                                            </div>
-                                                        @endif
                                                     </div>
-                                            </div>
-                                            <hr>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Jobber Nom: <span
+                                                                    class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->firstName}} {{$jobber->lastName}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Adresse de la société: <span
+                                                                    class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->company_address}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Taper: <span class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->vat_type}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Siret <span
+                                                                    class="pull-right">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->siret }} </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Créé à<span
+                                                                    class="pull-right">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->created_at->diffForHumans()}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    @if($jobber->pro == 2)
+                                                        <h2>Badge pro déjà attribué</h2>
+                                                    @else
+                                                        <a href="{{route('jobber.mark.pro', ['id' => $jobber->id])}}">
+                                                            <button class="btn btn-primary">Marquer comme revendeur
+                                                                professionnel
+                                                            </button>
+                                                        </a>
+                                                    @endif
+                                                    @else
+                                                        <div class="profile-skills mb-5"
+                                                             style="text-align: center; margin-top: 20px;">
+                                                            <a href="#"
+                                                               class="btn btn-warning dark btn-xs mb-1 "
+                                                               style="font-size: 20px;">Pas de demande de pro</a>
+                                                        </div>
+                                                    @endif
+                                                </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="message3">
@@ -519,20 +522,42 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <ul>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_card_front)}}">Afficher le document</a></h4></li>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_card_back)}}">Afficher le document</a></h4></li>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_driving_front)}}">Afficher le document</a></h4></li>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_driving_back)}}">Afficher le document</a></h4></li>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_passport_front)}}">Afficher le document</a></h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->eu_id_card_front)}}">Afficher
+                                                                    le document</a></h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->eu_id_card_back)}}">Afficher
+                                                                    le document</a></h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->eu_id_driving_front)}}">Afficher
+                                                                    le document</a></h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->eu_id_driving_back)}}">Afficher
+                                                                    le document</a></h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->eu_id_passport_front)}}">Afficher
+                                                                    le document</a></h4></li>
                                                         <hr>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_residence_permit_front)}}">Afficher le document</a></h4></li>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_residence_permit_back)}}">Afficher le document</a></h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->eu_id_residence_permit_front)}}">Afficher
+                                                                    le document</a></h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->eu_id_residence_permit_back)}}">Afficher
+                                                                    le document</a></h4></li>
                                                         <hr>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->vital_card)}}">Afficher le document</a></h4></li>
-                                                        <li><h4>{{$jobberprofile->vital_card_number??'Not Upload Yet'}}</h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->vital_card)}}">Afficher
+                                                                    le document</a></h4></li>
+                                                        <li>
+                                                            <h4>{{$jobberprofile->vital_card_number??'Not Upload Yet'}}</h4>
+                                                        </li>
                                                         <hr>
-                                                        <li><h4><a target="_blank" href="{{asset($jobberprofile->social_security_certificate)}}">Afficher le document</a></h4></li>
-                                                        <li><h4>{{$jobberprofile->social_security_numbe??"Not Upload Yet"}}</h4></li>
+                                                        <li><h4><a target="_blank"
+                                                                   href="{{asset($jobberprofile->social_security_certificate)}}">Afficher
+                                                                    le document</a></h4></li>
+                                                        <li>
+                                                            <h4>{{$jobberprofile->social_security_numbe??"Not Upload Yet"}}</h4>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
