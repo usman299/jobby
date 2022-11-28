@@ -7,6 +7,8 @@
     <title>Mister jobby</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="50x50" href="{{asset('admin/images/jobby-logo.jpg')}}">
+    <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
+
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
     <!-- Summernote -->
     <link href="{{asset('admin/vendor/summernote/summernote.css')}}" rel="stylesheet">
