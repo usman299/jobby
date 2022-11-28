@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\v1\Jobber;
 
-use App\JobberProfile;
 use App\JobberSkills;
 use Illuminate\Http\Resources\Json\JsonResource;
 

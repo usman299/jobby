@@ -362,7 +362,7 @@ class JobberController extends Controller
     public function getBadgePro(Request $request)
     {
         $user = Auth::user();
-        $user->is_company = "Yes";
+        $user->is_company = 1;
         $user->company_name = $request->company_name;
         $user->vat_type = $request->vat_type;
         $user->company_address = $request->company_address;
