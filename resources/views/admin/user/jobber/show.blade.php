@@ -66,15 +66,15 @@
                                         <a class="nav-link" data-toggle="tab" href="#profile1">Contrats actifs</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#message1">Le
+                                        <a class="nav-link" data-toggle="tab" href="#password">Le
                                             mot de passe</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#message2">Obtenez
+                                        <a class="nav-link" data-toggle="tab" href="#badge">Obtenez
                                             le badge Pro</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#message3">Vérifications de documents</a>
+                                        <a class="nav-link" data-toggle="tab" href="#document">Vérifications de documents</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
@@ -255,7 +255,7 @@
                                             @endforeach
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="message1">
+                                    <div class="tab-pane fade" id="password">
                                         <div class="pt-4">
                                             <h2 class="text-primary" style="margin: 20px; text-align: center">
                                                 Réinitialisation du mot de passe</h2>
@@ -293,7 +293,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="message2">
+                                    <div class="tab-pane fade" id="badge">
                                         <div class="pt-4">
                                             @if($jobber->is_company==1)
                                                 <div class="profile-personal-info">
@@ -376,7 +376,7 @@
                                                 </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="message3">
+                                    <div class="tab-pane fade" id="document">
                                         <div class="pt-4">
                                             <div class="row">
                                                 <div class="col-md-6">
