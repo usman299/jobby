@@ -89,7 +89,7 @@
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-television"></i>
+                    <i class="flaticon-381-settings"></i>
                     <span class="nav-text"><!-- Users --> Réglage</span>
                 </a>
                 <ul aria-expanded="false">
@@ -99,7 +99,7 @@
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-television"></i>
+                    <i class="flaticon-381-id-card"></i>
                     <span class="nav-text"><!-- Users --> Cartes cadeaux</span>
                 </a>
                 <ul aria-expanded="false">
@@ -108,7 +108,7 @@
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-television"></i>
+                    <i class="flaticon-381-add"></i>
                     <span class="nav-text"><!-- Users --> Paramétrer ShowCase</span>
                 </a>
                 <ul aria-expanded="false">
@@ -119,13 +119,13 @@
                 </ul>
             </li>
             <li><a href="{{route('admin.notfication')}}" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-television"></i>
+                    <i class="flaticon-381-ring"></i>
                     <!-- APP SETTING -->
                     <span class="nav-text">Notfication </span>
                 </a>
             </li>
             <li><a href="{{route('app.mail.register')}}" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-television"></i>
+                    <i class="flaticon-381-high-volume"></i>
                     <!-- APP SETTING -->
                     <span class="nav-text">Poster </span>
                 </a>

@@ -47,19 +47,21 @@
                                         ?>
                                         <td>{{$date->diffForHumans()}}</td>
                                         <td>
+                                            @if($row->status == 4)
                                             <a href="{{route('admin.contract.status', ['status'=> '3', 'id' => $row->id])}}"
                                                class="btn btn-success shadow btn-xs sharp"
                                                title="Accepter le contrat"><i
                                                     class="fa fa-user-plus"></i></a>
-                                            <a href="{{route('contract.show', ['id' => $row->id])}}"
-                                               id="edit"
-                                               class="btn btn-primary shadow btn-xs sharp mr-1"
-                                               title="edit"><i class="fa fa-eye"></i></a>
                                             <a href="{{route('admin.contract.status', ['status'=> '5', 'id' => $row->id])}}"
                                                class="btn btn-danger shadow btn-xs sharp"
                                                style="background-color: red;"
                                                title="Annuler le contrat"> <i
                                                     class="fa fa-user-times"></i></a>
+                                            @endif
+                                            <a href="{{route('contract.show', ['id' => $row->id])}}"
+                                               id="edit"
+                                               class="btn btn-primary shadow btn-xs sharp mr-1"
+                                               title="edit"><i class="fa fa-eye"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
