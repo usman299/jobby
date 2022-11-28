@@ -41,7 +41,6 @@ class LoginController extends Controller
     }
     public function showLoginForm()
     {
-        $id = 1;
-        return view('front.auth.login', compact('id'));
+        return view('auth.login');
     }
 }
