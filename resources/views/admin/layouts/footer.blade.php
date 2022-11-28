@@ -15,6 +15,7 @@ Scripts
 ***********************************-->
 <!-- Required vendors -->
 <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
+<script src="{{asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
 <!-- Summernote -->
 <script src="{{asset('admin/vendor/summernote/js/summernote.min.js')}}"></script>
 <!-- Summernote init -->
