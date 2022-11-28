@@ -63,9 +63,6 @@
                                         <a class="nav-link active" data-toggle="tab" href="#contact1"> Profil</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#profile1">Contrats actifs</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" data-toggle="tab" href="#message1">Le
                                             mot de passe</a>
                                     </li>
@@ -191,68 +188,6 @@
                                                 <p>{{$jobberprofile->personal_description ?? 'non'}}</p>
                                             </div>
                                             <hr>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="profile1">
-                                        <div class="pt-4">
-                                            @foreach($contract as $row)
-                                                @if($row->proposal)
-                                                    <a class="text-primary mb-2"
-                                                       style="margin-top: 10px;"><strong>Taper </strong></a>
-                                                    <a href="javascript:void()" class="btn btn-primary dark btn-xs mb-1"
-                                                       style="margin-top: 10px;">Proposition</a><br>
-                                                @else
-                                                    <a class="text-warning mb-2"><strong style="margin-top: 10px;">
-                                                            Taper </strong></a>
-                                                    <a href="javascript:void()" class="btn btn-warning dark btn-xs mb-1"
-                                                       style="margin-top: 10px;">Services</a>
-                                                @endif
-                                                <div class="profile-personal-info">
-                                                    <h4 class="text-primary mb-4" style="margin-top: 10px;">Informations
-                                                        sur le contrat</h4>
-                                                    <div class="row mb-2">
-                                                        <div class="col-sm-3 col-5">
-                                                            <h5 class="f-w-500">Nom du demandeur <span
-                                                                    class="pull-right">:</span>
-                                                            </h5>
-                                                        </div>
-                                                        <div class="col-sm-9 col-7">
-                                                            <span>{{$row->user->firstName}} {{$row->user->lastName}}</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-sm-3 col-5">
-                                                            <h5 class="f-w-500">Nom de l'ouvrier <span
-                                                                    class="pull-right">:</span>
-                                                            </h5>
-                                                        </div>
-                                                        <div class="col-sm-9 col-7">
-                                                            <span>{{$row->jobber->firstName}} {{$row->jobber->lastName}}</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-sm-3 col-5">
-                                                            <h5 class="f-w-500">Prix <span class="pull-right">:</span>
-                                                            </h5>
-                                                        </div>
-                                                        <div class="col-sm-9 col-7"><span>{{$row->price }}€</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-sm-3 col-5">
-                                                            <h5 class="f-w-500">Créé à<span class="pull-right">:</span>
-                                                            </h5>
-                                                        </div>
-                                                        <?php
-                                                        \Carbon\Carbon::setLocale('fr');
-                                                        $date = \Carbon\Carbon::parse($row->created_at);
-                                                        ?>
-                                                        <div class="col-sm-9 col-7">
-                                                            <span>{{$date->diffForHumans()}}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="message1">
