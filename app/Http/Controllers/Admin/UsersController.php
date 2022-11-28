@@ -107,8 +107,21 @@ class UsersController extends Controller
         $jobber = User::where('id', '=', $id)->first();
         $jobber->pro = 2;
         $jobber->update();
-        toastr()->success('This jobber is marked as pro successfully!');
-        return back();
+        $notification = array(
+            'messege' => 'Ajouté avec succès!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function jobberVerified($id){
+        $jobber = User::where('id', '=', $id)->first();
+        $jobber->verified = 2;
+        $jobber->update();
+        $notification = array(
+            'messege' => 'Ajouté avec succès!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
     /**
      * Show the form for creating a new resource.
