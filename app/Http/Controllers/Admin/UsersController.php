@@ -103,6 +103,13 @@ class UsersController extends Controller
         $contract = Contract::where('applicant_id', '=', $id)->where('status', '=', 3)->latest()->get();
         return view('admin.user.applicant.show', compact('applicant', 'jobRequest', 'contract', 'country'));
     }
+    public function jobberPro($id){
+        $jobber = User::where('id', '=', $id)->first();
+        $jobber->pro = 2;
+        $jobber->update();
+        toastr()->success('This jobber is marked as pro successfully!');
+        return back();
+    }
     /**
      * Show the form for creating a new resource.
      *

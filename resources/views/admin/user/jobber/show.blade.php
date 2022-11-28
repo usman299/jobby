@@ -73,6 +73,8 @@
                                         <li class="nav-item"><a href="#badge" data-toggle="tab" class="nav-link ">Obtenez
                                                 le badge Pro</a>
                                         </li>
+                                        <li class="nav-item"><a href="#documents" data-toggle="tab" class="nav-link ">Vérifications de documents</a>
+                                        </li>
                                     </ul>
                                     <div class="tab-content">
                                         <div id="my-posts" class="tab-pane fade active show">
@@ -464,6 +466,12 @@
                                                                     <span>{{$jobber->created_at->diffForHumans()}}</span>
                                                                 </div>
                                                             </div>
+                                                            <hr>
+                                                            @if($jobber->pro == 2)
+                                                                <h2>Badge pro déjà attribué</h2>
+                                                            @else
+                                                            <a href="{{route('jobber.mark.pro', ['id' => $jobber->id])}}"><button class="btn btn-primary">Marquer comme revendeur professionnel</button></a>
+                                                            @endif
                                                             @else
                                                                 <div class="profile-skills mb-5"
                                                                      style="text-align: center; margin-top: 20px;">
@@ -472,10 +480,53 @@
                                                                        style="font-size: 20px;">Pas de demande de pro</a>
                                                                 </div>
                                                             @endif
-                                                            <button class="btn btn-primary">Mark as Pro Jobber</button>
                                                         </div>
                                                 </div>
                                                 <hr>
+                                            </div>
+                                        </div>
+                                        <div id="documents" class="tab-pane fade ">
+                                            <div class="pt-3">
+                                                <h3>Vérifications de documents</h3>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <ul>
+                                                            <li><h4>Recto de la carte d'identité Eurpion</h4></li>
+                                                            <li><h4>Carte d'identité Eurpion Retour</h4></li>
+                                                            <li><h4>Recto du permis de conduire Eurpion</h4></li>
+                                                            <li><h4>Permis de conduire Eurpion Retour</h4></li>
+                                                            <li><h4>Passeport Eurpion</h4></li>
+                                                            <hr>
+                                                            <li><h4>Permis de travail non Eurpion Front</h4></li>
+                                                            <li><h4>Permis de travail hors Eurpion Retour</h4></li>
+                                                            <hr>
+                                                            <li><h4>Certificat de sécurité sociale</h4></li>
+                                                            <li><h4>Numéro de sécurité sociale</h4></li>
+                                                            <hr>
+                                                            <li><h4>Certificat de carte vitale</h4></li>
+                                                            <li><h4>Numéro de carte vitale</h4></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <ul>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_card_front)}}">Afficher le document</a></h4></li>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_card_back)}}">Afficher le document</a></h4></li>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_driving_front)}}">Afficher le document</a></h4></li>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_driving_back)}}">Afficher le document</a></h4></li>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_passport_front)}}">Afficher le document</a></h4></li>
+                                                            <hr>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_residence_permit_front)}}">Afficher le document</a></h4></li>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->eu_id_residence_permit_back)}}">Afficher le document</a></h4></li>
+                                                            <hr>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->vital_card)}}">Afficher le document</a></h4></li>
+                                                            <li><h4>{{$jobberprofile->vital_card_number??'Not Upload Yet'}}</h4></li>
+                                                            <hr>
+                                                            <li><h4><a target="_blank" href="{{asset($jobberprofile->social_security_certificate)}}">Afficher le document</a></h4></li>
+                                                            <li><h4>{{$jobberprofile->social_security_numbe??"Not Upload Yet"}}</h4></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

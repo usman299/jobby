@@ -333,6 +333,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function () {
     Route::get('/user/status/{status}/{id}', 'Admin\UsersController@status')->name('user.status');
     Route::get('/user/delete/{id}', 'Admin\UsersController@destroy')->name('user.delete');
     Route::get('/jobber/profile/{id}', 'Admin\UsersController@jobberShowProfile')->name('jobber.profile');
+    Route::get('/jobber/mark/pro/{id}', 'Admin\UsersController@jobberPro')->name('jobber.mark.pro');
 
 
     Route::get('/skils/index', 'Admin\SkilsController@index')->name('skils.index');
