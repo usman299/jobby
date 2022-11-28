@@ -71,12 +71,12 @@
                     <span class="nav-text">  Demande d'emploi</span>
                 </a>
             </li>
-            <li><a href="{{route('admin.proposal')}}" class="ai-icon" aria-expanded="false">
-                    <i class="flaticon-381-network"></i>
-                    <!-- APP SETTING -->
-                    <span class="nav-text">Proposition </span>
-                </a>
-            </li>
+{{--            <li><a href="{{route('admin.proposal')}}" class="ai-icon" aria-expanded="false">--}}
+{{--                    <i class="flaticon-381-network"></i>--}}
+{{--                    <!-- APP SETTING -->--}}
+{{--                    <span class="nav-text">Proposition </span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-save"></i>
                     <span class="nav-text">Contrat</span>
