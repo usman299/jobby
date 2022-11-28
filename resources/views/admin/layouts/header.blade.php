@@ -7,9 +7,6 @@
     <title>Mister jobby</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="50x50" href="{{asset('admin/images/jobby-logo.jpg')}}">
-    <link rel="stylesheet" href="{{asset('admin/vendor/chartist/css/chartist.min.css')}}">
-    <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
-    <link href="{{asset('admin/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
     <!-- Summernote -->
     <link href="{{asset('admin/vendor/summernote/summernote.css')}}" rel="stylesheet">
@@ -18,8 +15,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-    <!-- Toastr -->
-    <link rel="stylesheet" href="{{asset('admin/vendor/toastr/css/toastr.min.css')}}">
     <style>
         .bootstrap-select .btn {
             border: 1px solid #272baf !important;

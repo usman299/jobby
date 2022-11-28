@@ -49,14 +49,10 @@ class JobbyAppController extends Controller
         $proposal = Proposal::where('id','=',$id)->first();
         return view('admin.proposal.show',compact('proposal'));
     }
-    public function contractIndex()
+    public function contractIndex($status)
     {
-        $activContract = Contract::latest()->where('status','=',1)->get();
-        $deliverContract = Contract::latest()->where('status','=',5)->get();
-        $compelteContract = Contract::latest()->where('status','=',2)->get();
-        $pandingContract = Contract::latest()->where('status','=',4)->get();
-        $cancelContract= Contract::latest()->where('status','=',3)->get();
-        return view('admin.contract.index',compact('activContract','deliverContract','compelteContract','pandingContract','cancelContract'));
+        $contracts = Contract::latest()->where('status','=',$status)->get();
+        return view('admin.contract.index',compact('contracts'));
     }
     public function contractShow($id)
     {

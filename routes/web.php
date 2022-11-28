@@ -405,7 +405,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function () {
     Route::get('/job/request/show/{id}', 'Admin\JobbyAppController@jobRequestShow')->name('jobrequest.show');
     Route::get('/admin/proposal', 'Admin\JobbyAppController@proposalIndex')->name('admin.proposal');
     Route::get('/proposol/show/{id}', 'Admin\JobbyAppController@proposalShow')->name('proposol.show');
-    Route::get('/admin/contract', 'Admin\JobbyAppController@contractIndex')->name('admin.contract');
+    Route::get('/admin/contract/{status}', 'Admin\JobbyAppController@contractIndex')->name('admin.contract');
     Route::get('/contract/show/{id}', 'Admin\JobbyAppController@contractShow')->name('contract.show');
     Route::get('/admin/contract/status/{id}/{status}', 'Admin\JobbyAppController@adminContractStatus')->name('admin.contract.status');
 
