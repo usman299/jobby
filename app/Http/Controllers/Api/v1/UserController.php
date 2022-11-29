@@ -84,14 +84,9 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->country = $request->country;
         $user->gender = $request->gender;
-        if($request->longitude) {
-            $user->longitude = $request->longitude;
-        }
-        if($request->longitude) {
-            $user->longitude = $request->longitude;
-        }
         $user->dob = $request->dob;
         $user->professional = $request->professional;
+        $user->description = $request->description;
         $user->update();
         return response()->json(['success' => 'Successfully Updated']);
     }
