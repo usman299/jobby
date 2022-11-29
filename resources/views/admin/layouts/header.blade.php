@@ -8,7 +8,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="50x50" href="{{asset('admin/images/jobby-logo.jpg')}}">
     <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{asset('admin/vendor/select2/css/select2.min.css')}}">
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
     <!-- Summernote -->
     <link href="{{asset('admin/vendor/summernote/summernote.css')}}" rel="stylesheet">

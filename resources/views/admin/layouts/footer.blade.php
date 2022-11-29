@@ -28,7 +28,8 @@ Scripts
 <!-- Datatable -->
 <script src="{{asset('admin/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('admin/js/plugins-init/datatables.init.js')}}"></script>
-
+<script src="{{asset('admin/vendor/select2/js/select2.full.min.js')}}"></script>
+<script src="{{asset('admin/js/plugins-init/select2-init.js')}}"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 <script>
     $('#category_id').change(function () {
