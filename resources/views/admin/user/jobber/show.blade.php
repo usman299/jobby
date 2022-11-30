@@ -296,91 +296,90 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="badge">
-
-                                                                                <div class="pt-4">
-                                                                                    @if($jobber->is_company==1)
-                                                                                        <div class="profile-personal-info">
-                                                                                            <h4 class="text-primary mb-4">Plus d'information</h4>
-                                                                                            <div class="row mb-2">
-                                                                                                <div class="col-sm-3 col-5">
-                                                                                                    <h5 class="f-w-500">Nom de la compagnie: <span
-                                                                                                            class="pull-right">:</span>
-                                                                                                    </h5>
-                                                                                                </div>
-                                                                                                <div class="col-sm-9 col-7">
-                                                                                                    <span>{{$jobber->company_name}}</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="row mb-2">
-                                                                                                <div class="col-sm-3 col-5">
-                                                                                                    <h5 class="f-w-500">Jobber Nom: <span
-                                                                                                            class="pull-right">:</span>
-                                                                                                    </h5>
-                                                                                                </div>
-                                                                                                <div class="col-sm-9 col-7">
-                                                                                                    <span>{{$jobber->firstName}} {{$jobber->lastName}}</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="row mb-2">
-                                                                                                <div class="col-sm-3 col-5">
-                                                                                                    <h5 class="f-w-500">Adresse de la société: <span
-                                                                                                            class="pull-right">:</span>
-                                                                                                    </h5>
-                                                                                                </div>
-                                                                                                <div class="col-sm-9 col-7">
-                                                                                                    <span>{{$jobber->company_address}}</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="row mb-2">
-                                                                                                <div class="col-sm-3 col-5">
-                                                                                                    <h5 class="f-w-500">Taper: <span class="pull-right">:</span>
-                                                                                                    </h5>
-                                                                                                </div>
-                                                                                                <div class="col-sm-9 col-7">
-                                                                                                    <span>{{$jobber->vat_type}}</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="row mb-2">
-                                                                                                <div class="col-sm-3 col-5">
-                                                                                                    <h5 class="f-w-500">Siret <span
-                                                                                                            class="pull-right">:</span></h5>
-                                                                                                </div>
-                                                                                                <div class="col-sm-9 col-7">
-                                                                                                    <span>{{$jobber->siret }} </span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <div class="row mb-2">
-                                                                                                <div class="col-sm-3 col-5">
-                                                                                                    <h5 class="f-w-500">Créé à<span
-                                                                                                            class="pull-right">:</span></h5>
-                                                                                                </div>
-                                                                                                <div class="col-sm-9 col-7">
-                                                                                                    <span>{{$jobber->created_at->diffForHumans()}}</span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                            <hr>
-                                                                                            @if($jobber->pro == 2)
-                                                                                                <h2>Badge pro déjà attribué</h2>
-                                                                                            @else
-                                                                                                <a href="{{route('jobber.mark.pro', ['id' => $jobber->id])}}">
-                                                                                                    <button class="btn btn-primary">Marquer comme revendeur
-                                                                                                        professionnel
-                                                                                                    </button>
-                                                                                                </a>
-                                                                                            @endif
-                                                                                            @else
-                                                                                                <div class="profile-skills mb-5"
-                                                                                                     style="text-align: center; margin-top: 20px;">
-                                                                                                    <a href="#"
-                                                                                                       class="btn btn-warning dark btn-xs mb-1 "
-                                                                                                       style="font-size: 20px;">Pas de demande de pro</a>
-                                                                                                </div>
-                                                                                            @endif
-                                                                                        </div>
-                                                                                </div>
+                                        <div class="pt-4">
+                                            <div class="profile-personal-info">
+                                                @if($jobber->is_company==1)
+                                                    <h4 class="text-primary mb-4">Plus d'information</h4>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Nom de la compagnie: <span
+                                                                    class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->company_name}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Jobber Nom: <span
+                                                                    class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->firstName}} {{$jobber->lastName}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Adresse de la société: <span
+                                                                    class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->company_address}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Taper: <span class="pull-right">:</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->vat_type}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Siret <span
+                                                                    class="pull-right">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->siret }} </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-2">
+                                                        <div class="col-sm-3 col-5">
+                                                            <h5 class="f-w-500">Créé à<span
+                                                                    class="pull-right">:</span></h5>
+                                                        </div>
+                                                        <div class="col-sm-9 col-7">
+                                                            <span>{{$jobber->created_at->diffForHumans()}}</span>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    @if($jobber->pro == 2)
+                                                        <h2>Badge pro déjà attribué</h2>
+                                                    @else
+                                                        <a href="{{route('jobber.mark.pro', ['id' => $jobber->id])}}">
+                                                            <button class="btn btn-primary">Marquer comme revendeur
+                                                                professionnel
+                                                            </button>
+                                                        </a>
+                                                    @endif
+                                                @else
+                                                    <div class="profile-skills mb-5"
+                                                         style="text-align: center; margin-top: 20px;">
+                                                        <a href="#"
+                                                           class="btn btn-warning dark btn-xs mb-1 "
+                                                           style="font-size: 20px;">Pas de demande de pro</a>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade" id="document">
-                                        <div class="row">
+                                        <div class="row pt-4">
                                             <div class="col-md-6">
                                                 <h3>Vérifications de documents</h3>
                                             </div>
@@ -459,7 +458,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -467,5 +465,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
