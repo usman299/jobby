@@ -110,7 +110,7 @@ class UsersController extends Controller
         $jobber->update();
         $activity = "Pro Jobber Vérifié !";
         $msg = "Toutes nos félicitations ! Votre demande de badge pro est vérifiée vous êtes désormais un pro jobber";
-        NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
+        NotificationHelper::pushNotificationJobber($msg, [$jobber->device_token], $activity);
         NotificationHelper::addtoNitification(1, $jobber->id, $msg, $jobber->id, $activity, $jobber->country??1);
         toastr()->success('Envoyé avec succès.');
         return back();
