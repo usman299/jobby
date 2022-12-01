@@ -108,11 +108,12 @@ class UsersController extends Controller
         $jobber = User::where('id', '=', $id)->first();
         $jobber->pro = 2;
         $jobber->update();
-        $notification = array(
-            'messege' => 'Ajouté avec succès!',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+        $activity = "Pro Jobber Vérifié !";
+        $msg = "Toutes nos félicitations ! Votre demande de badge pro est vérifiée vous êtes désormais un pro jobber";
+        NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
+        NotificationHelper::addtoNitification(1, $jobber->id, $msg, $jobber->id, $activity, $jobber->country??1);
+        toastr()->success('Envoyé avec succès.');
+        return back();
     }
     public function jobberVerified($id){
         $jobber = User::where('id', '=', $id)->first();
@@ -122,11 +123,8 @@ class UsersController extends Controller
         $msg = "Toutes nos félicitations! votre profil est vérifié par l'administrateur et vous pouvez envoyer des offres d'emploi.";
         NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
         NotificationHelper::addtoNitification(1, $jobber->id, $msg, $jobber->id, $activity, $jobber->country??1);
-        $notification = array(
-            'messege' => 'Ajouté avec succès!',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+        toastr()->success('Envoyé avec succès.');
+        return back();
     }
     /**
      * Show the form for creating a new resource.

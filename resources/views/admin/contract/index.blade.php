@@ -48,7 +48,7 @@
                                         <td>{{$date->diffForHumans()}}</td>
                                         <td>
                                             @if($row->status == 4)
-                                            <a href="{{route('admin.contract.status', ['status'=> '1', 'id' => $row->id])}}"
+                                            <a href="{{route('admin.contract.status', ['status'=> '2', 'id' => $row->id])}}"
                                                class="btn btn-success shadow btn-xs sharp"
                                                title="Accepter le contrat"><i
                                                     class="fa fa-user-plus"></i></a>

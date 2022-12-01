@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\NotificationHelper;
 use App\JobStatus;
 use App\Mail\DraftJobs;
 use App\Contract;
@@ -10,6 +11,7 @@ use App\JobRequest;
 use App\Mail\NotResponce;
 use App\Mail\JobberNotResponse;
 use App\Proposal;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -81,12 +83,18 @@ class CronController extends Controller
     }
 
     public function expireJobRequest(){
-        $jobrequests = JobRequest::where('service_date' , '<' , Carbon::now()->toDateTimeString())->where('status', 1)->get();
+        $data = JobRequest::whereDate('service_date', '<=', Carbon::now())->where('status', 1);
+        $jobrequests = $data->get();
+        $activity = "Fermer l'emploi";
+        $msg = "Votre travail est fermé en raison d'une date de service passée, mettez à jour la date de votre travail afin que vous puissiez trouver un bon jobber";
         foreach ($jobrequests as $row){
+           NotificationHelper::addtoNitification(1, $row->applicant->id, $msg, $row->id, $activity, $row->applicant->country??1);
             $row->status = 2;
             $row->update();
         }
+        $userIds = $data->pluck('applicant_id');
+        $users = User::whereIn('id', $userIds)->pluck('device_token');
+        NotificationHelper::pushNotification($msg, $users, $activity);
         return 1;
     }
-
 }

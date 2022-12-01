@@ -1,5 +1,6 @@
 @extends('admin.layouts.include')
 @section('content')
+    @toastr_css
     <style>
         #output_image1 {
             border-style: ridge;
@@ -452,7 +453,7 @@
                                                                href="{{asset($jobberprofile->social_security_certificate)}}">Afficher
                                                                 le document</a></h4></li>
                                                     <li>
-                                                        <h4>{{$jobberprofile->social_security_numbe??"Not Upload Yet"}}</h4>
+                                                        <h4>{{$jobberprofile->social_security_number??"Not Upload Yet"}}</h4>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -466,5 +467,8 @@
             </div>
         </div>
     </div>
+    @jquery
+    @toastr_js
+    @toastr_render
     </div>
 @endsection
