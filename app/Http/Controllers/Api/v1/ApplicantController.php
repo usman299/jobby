@@ -225,8 +225,11 @@ class ApplicantController extends Controller
         $comments->comment = $request->comment;
         $comments->user_id = Auth::user()->id;
         $comments->save();
+        $activity = "Nouveau commentaire";
+        $msg = "Vous avez un nouveau commentaire sur votre travail ". $comments->job->title??"";
+        NotificationHelper::pushNotification($msg, $comments->job->applicant->pluck('device_token'), $activity);
+        NotificationHelper::addtoNitification(Auth::user()->id, $comments->job->applicant->id, $msg, $comments->job->id, $activity, $comments->job->applicant->country??1);
         return response()->json(['success' => 'Comments Save Successfully'], 200);
-
     }
 
     public function getComments($id)

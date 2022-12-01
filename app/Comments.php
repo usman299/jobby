@@ -10,4 +10,8 @@ class Comments extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function job()
+    {
+        return $this->belongsTo(JobRequest::class, 'job_id');
+    }
 }
