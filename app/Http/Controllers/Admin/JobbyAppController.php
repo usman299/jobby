@@ -79,13 +79,13 @@ class JobbyAppController extends Controller
 //            send notification to jobber on completeion
             $activity = "Tâche terminée";
             $msg = "Toutes nos félicitations! Votre travail est terminé";
-            NotificationHelper::pushNotificationJobber($msg, $contract->jobber->pluck('device_token'), $activity);
+            NotificationHelper::pushNotificationJobber($msg, [$contract->jobber->device_token], $activity);
             NotificationHelper::addtoNitification($contract->applicant->id, $contract->jobber->id, $msg, $contract->id, $activity, $contract->jobber->country);
 
 //            send notification to demandeur on completeion
             $activity1 = "Tâche terminée";
             $msg1 = "Votre travail est terminé par l'administrateur, si vous avez d'autres problèmes, contactez l'équipe d'assistance";
-            NotificationHelper::pushNotification($msg1, $contract->applicant->pluck('device_token'), $activity1);
+            NotificationHelper::pushNotification($msg1, [$contract->applicant->device_token], $activity1);
             NotificationHelper::addtoNitification($contract->jobber->id, $contract->applicant->id, $msg1, $contract->id, $activity1, $contract->applicant->country);
         }else if ($status == 3){
             $walet = new Wallet();
@@ -101,13 +101,13 @@ class JobbyAppController extends Controller
 //            send notification to demandeur on cancellation
             $activity = "Contrat annulé";
             $msg = "Votre contrat est annulé avec jobber, le montant est débité dans votre portefeuille avec succès";
-            NotificationHelper::pushNotification($msg, $contract->applicant->pluck('device_token'), $activity);
+            NotificationHelper::pushNotification($msg, [$contract->applicant->device_token], $activity);
             NotificationHelper::addtoNitification($contract->jobber->id, $contract->applicant->id, $msg, $contract->id, $activity, $contract->applicant->country);
 
 //            send notification to jobber on cancellation
             $activity2 = "Contrat annulé";
             $msg2 = "Votre travail est annulé par l'administrateur, si vous rencontrez d'autres problèmes, contactez l'équipe d'assistance";
-            NotificationHelper::pushNotificationJobber($msg2, $contract->jobber->pluck('device_token'), $activity2);
+            NotificationHelper::pushNotificationJobber($msg2, [$contract->jobber->device_token], $activity2);
             NotificationHelper::addtoNitification($contract->applicant->id, $contract->jobber->id, $msg2, $contract->id, $activity2, $contract->jobber->country);
         }
     }

@@ -92,7 +92,7 @@ class JobberController extends Controller
             }
             $activity = "Nouvelle proposition";
             $msg = "Vous avez une nouvelle proposition sur votre demande d'emploi";
-            NotificationHelper::pushNotification($msg, $proposal->jobrequest->applicant->pluck('device_token'), $activity);
+            NotificationHelper::pushNotification($msg, [$proposal->jobrequest->applicant->device_token], $activity);
             NotificationHelper::addtoNitification($user->id, $proposal->jobrequest->applicant->id, $msg, $proposal->id, $activity, $user->country);
             $dataa = array(
                 'firstName' => $proposal->jobrequest->applicant->firstName,

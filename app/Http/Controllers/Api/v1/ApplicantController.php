@@ -227,7 +227,7 @@ class ApplicantController extends Controller
         $comments->save();
         $activity = "Nouveau commentaire";
         $msg = "Vous avez un nouveau commentaire sur votre travail ". $comments->job->title??"";
-        NotificationHelper::pushNotification($msg, $comments->job->applicant->pluck('device_token'), $activity);
+        NotificationHelper::pushNotification($msg, [$comments->job->applicant->device_token], $activity);
         NotificationHelper::addtoNitification(Auth::user()->id, $comments->job->applicant->id, $msg, $comments->job->id, $activity, $comments->job->applicant->country??1);
         return response()->json(['success' => 'Comments Save Successfully'], 200);
     }
@@ -291,7 +291,7 @@ class ApplicantController extends Controller
         $activity = "Début du contrat";
         $msg = "Votre contrat commence avec le demandeur";
 
-        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->pluck('device_token'), $activity);
+        NotificationHelper::pushNotificationJobber($msg, [$proposal->jobber->device_token], $activity);
         NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
 
         return response()->json(['success' => 'Contract Save Successfully'], 200);
@@ -344,7 +344,7 @@ class ApplicantController extends Controller
         $activity = "Début du contrat";
         $msg = "Votre contrat commence avec le demandeur";
 
-        NotificationHelper::pushNotificationJobber($msg, $proposal->jobber->pluck('device_token'), $activity);
+        NotificationHelper::pushNotificationJobber($msg, [$proposal->jobber->device_token], $activity);
         NotificationHelper::addtoNitification($applicant_id->id, $proposal->jobber_id, $msg, $contract->id, $activity, $applicant_id->country);
 
         return response()->json(['success' => 'Contract Save Successfully'], 200);
@@ -394,7 +394,7 @@ class ApplicantController extends Controller
         $activity = "Tâche terminée";
         $msg = "Toutes nos félicitations! Votre travail est terminé";
 
-        NotificationHelper::pushNotificationJobber($msg, $contract->jobber->pluck('device_token'), $activity);
+        NotificationHelper::pushNotificationJobber($msg, [$contract->jobber->device_token], $activity);
         NotificationHelper::addtoNitification($user->id, $contract->jobber->id, $msg, $contract->id, $activity, $user->country);
 
         if ($review->save()){
