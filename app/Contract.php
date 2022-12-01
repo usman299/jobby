@@ -34,4 +34,8 @@ class Contract extends Model
     {
         return $this->belongsTo(JobRequest::class, 'jobRequest_id');
     }
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'contract_id');
+    }
 }

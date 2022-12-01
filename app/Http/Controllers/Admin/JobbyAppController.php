@@ -95,7 +95,7 @@ class JobbyAppController extends Controller
             $walet->transaction_type = 'ingoing';
             $walet->save();
             $user = User::find($contract->applicant->id);
-            $user->wallet = $user->wallet + $contract->price;
+            $user->wallet = $user->wallet + $contract->payment->price;
             $user->update();
 
 //            send notification to demandeur on cancellation
@@ -110,6 +110,8 @@ class JobbyAppController extends Controller
             NotificationHelper::pushNotificationJobber($msg2, [$contract->jobber->device_token], $activity2);
             NotificationHelper::addtoNitification($contract->applicant->id, $contract->jobber->id, $msg2, $contract->id, $activity2, $contract->jobber->country);
         }
+        toastr()->success('Update Successfuly!');
+        return redirect()->back();
     }
     public function paymantDetials()
     {

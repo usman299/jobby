@@ -225,10 +225,12 @@ class ApplicantController extends Controller
         $comments->comment = $request->comment;
         $comments->user_id = Auth::user()->id;
         $comments->save();
-        $activity = "Nouveau commentaire";
-        $msg = "Vous avez un nouveau commentaire sur votre travail ". $comments->job->title??"";
-        NotificationHelper::pushNotification($msg, [$comments->job->applicant->device_token], $activity);
-        NotificationHelper::addtoNitification(Auth::user()->id, $comments->job->applicant->id, $msg, $comments->job->id, $activity, $comments->job->applicant->country??1);
+        if (Auth::user()->id != $comments->job->applicant->id){
+            $activity = "Nouveau commentaire";
+            $msg = "Vous avez un nouveau commentaire sur votre travail ". $comments->job->title??"";
+            NotificationHelper::pushNotification($msg, [$comments->job->applicant->device_token], $activity);
+            NotificationHelper::addtoNitification(Auth::user()->id, $comments->job->applicant->id, $msg, $comments->job->id, $activity, $comments->job->applicant->country??1);
+        }
         return response()->json(['success' => 'Comments Save Successfully'], 200);
     }
 
@@ -414,13 +416,13 @@ class ApplicantController extends Controller
         }
     }
     public function cesuTickets(){
-        $tickets = Check::where('user_id', Auth::user()->id)->get();
+        $tickets = Check::where('user_id', Auth::user()->id)->latest()->get();
         $success = CesuCollection::collection($tickets);
         return response()->json($success, 200);
     }
     public function walletDetails(){
         $user = Auth::user();
-        $wallet = Wallet::where('user_id', $user->id)->get();
+        $wallet = Wallet::where('user_id', $user->id)->latest()->get();
         return response()->json([
             'wallet' => (string)$user->wallet??"0",
             'details' => WalletDetails::collection($wallet)
