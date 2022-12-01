@@ -6,6 +6,7 @@ use App\Contract;
 use App\Countory;
 use App\Diploma;
 use App\Http\Controllers\Controller;
+use App\Http\NotificationHelper;
 use App\JobberProfile;
 use App\JobRequest;
 use App\Proposal;
@@ -117,6 +118,10 @@ class UsersController extends Controller
         $jobber = User::where('id', '=', $id)->first();
         $jobber->verified = 2;
         $jobber->update();
+        $activity = "Profil vérifié !";
+        $msg = "Toutes nos félicitations! votre profil est vérifié par l'administrateur et vous pouvez envoyer des offres d'emploi.";
+        NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
+        NotificationHelper::addtoNitification(1, $jobber->id, $msg, $jobber->id, $activity, $jobber->country??1);
         $notification = array(
             'messege' => 'Ajouté avec succès!',
             'alert-type' => 'success'
