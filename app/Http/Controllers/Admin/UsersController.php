@@ -121,7 +121,7 @@ class UsersController extends Controller
         $jobber->update();
         $activity = "Profil vérifié !";
         $msg = "Toutes nos félicitations! votre profil est vérifié par l'administrateur et vous pouvez envoyer des offres d'emploi.";
-        NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
+        NotificationHelper::pushNotificationJobber($msg, $jobber->device_token, $activity);
         NotificationHelper::addtoNitification(1, $jobber->id, $msg, $jobber->id, $activity, $jobber->country??1);
         toastr()->success('Envoyé avec succès.');
         return back();
