@@ -43,6 +43,7 @@ class JobberController extends Controller
             ->whereIn('subcategory_id', $skills)
             ->orWhereIn('childcategory_id', $skills)
             ->whereDate('service_date', '>=', Carbon::now())
+            ->whereDate('service_date', '>=', Carbon::now())
             ->where('status', '=', 1)->get();
         $data = [];
         foreach ($jobrequests as $row) {
