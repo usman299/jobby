@@ -169,12 +169,14 @@ class UserController extends Controller
         return response()->json($success,200);
 
     }
+
     public function demandeurGetProfile($demandeur_id)
     {
         $user = User::where('id','=',$demandeur_id)->where('role','=',2)->first();
         $success = new DemProfileResource($user);
         return response()->json($success,200);
     }
+
     public function token($token)
     {
         $user = auth()->user();
