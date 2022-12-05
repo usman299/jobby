@@ -38,13 +38,15 @@ class JobberController extends Controller
         foreach ($skillSets as $skillSet){
             $skills = array_merge($skills, explode(',', $skillSet->skills));
         }
-        $jobrequests = JobRequest::latest()
-            ->whereNotIn('id', $jobStatus)
+        $jobrequests = JobRequest::
+             whereNotIn('id', $jobStatus)
             ->whereIn('subcategory_id', $skills)
-            ->whereIn('childcategory_id', $skills)
-//            ->orwhereIn('childcategory_id', $skills)
+//            ->whereIn('childcategory_id', $skills)
+            ->orWhereIn('childcategory_id', $skills)
             ->whereDate('service_date', '>=', Carbon::now())
-            ->where('status', '=', 1)->get();
+            ->where('status', '=', 1)
+            ->latest()
+            ->get();
         $data = [];
         foreach ($jobrequests as $row) {
             $earthRadius = 6378;
