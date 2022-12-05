@@ -42,6 +42,11 @@ class ApplicantController extends Controller
             $jobrequest->category_id = $request->category_id;
             $jobrequest->subcategory_id = $request->subcategory_id;
             $jobrequest->childcategory_id = $request->childcategory_id;
+            if ($request->childcategory_id == '0'){
+                $jobrequest->skills = $request->subcategory_id;
+            }else{
+                $jobrequest->skills = $request->childcategory_id;
+            }
             $jobrequest->country_id = $request->country_id;
             $jobrequest->title = $request->title;
             $jobrequest->description = $request->description;
