@@ -38,13 +38,15 @@ class CategoryController extends Controller
         $arr = [];
         $subcategory = SubCategory::all();
         foreach ($subcategory as $key => $subcate) {
-            $arr[$key] = [
-                "maincategory_id" => $subcate->category->id,
-                "subcategory_id" => $subcate->id,
-                "childcategory_id" => 0,
-                "title" => $subcate->title??"",
-                "image" => $subcate->img??"",
-            ];
+            if ($subcate->id != 1 && $subcate->id != 2 && $subcate->id != 3 && $subcate->id != 4 ){
+                $arr[$key] = [
+                    "maincategory_id" => $subcate->category->id,
+                    "subcategory_id" => $subcate->id,
+                    "childcategory_id" => 0,
+                    "title" => $subcate->title??"",
+                    "image" => $subcate->img??"",
+                ];
+            }
         }
         $arr2 = [];
         $childcategory = ChildCategory::all();
