@@ -41,6 +41,7 @@ class JobberController extends Controller
         $jobrequests = JobRequest::latest()
             ->whereNotIn('id', $jobStatus)
             ->whereIn('subcategory_id', $skills)
+            ->whereIn('childcategory_id', $skills)
 //            ->orwhereIn('childcategory_id', $skills)
             ->whereDate('service_date', '>=', Carbon::now())
             ->where('status', '=', 1)->get();
