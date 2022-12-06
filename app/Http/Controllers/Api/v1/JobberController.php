@@ -508,6 +508,7 @@ class JobberController extends Controller
                 'id' => $skill->id,
                 'main_category' => (string)$skill->category->title ?? "0",
                 'sub_category' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->title ?? "0",
+                'image' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->img ?? "0",
                 'skills' => $skill->skills ?? "",
                 'equipments' => $skill->equipments ?? "",
                 'engagments' => $skill->engagments ?? "",
