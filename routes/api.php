@@ -84,6 +84,8 @@ Route::group(['middleware' => 'auth:api'], function(){
 
         Route::get('/check/profile/completion', 'JobberController@checkProfileCompletion');
         Route::get('/check/skills', 'JobberController@checkSkills');
+        Route::get('/my/skills', 'JobberController@mySkills');
+        Route::post('/update/skills/{skill_id}', 'JobberController@updateSkills');
 
         Route::post('/get/pro/badge', 'JobberController@getBadgePro');
         Route::get('/subscriptions', 'JobberController@subscriptions');

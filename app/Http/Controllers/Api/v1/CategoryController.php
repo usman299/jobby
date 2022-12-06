@@ -45,6 +45,7 @@ class CategoryController extends Controller
                     "childcategory_id" => 0,
                     "title" => $subcate->title??"",
                     "image" => $subcate->img??"",
+                    "price" => $subcate->price??"",
                 ];
             }
         }
@@ -57,6 +58,7 @@ class CategoryController extends Controller
                 "childcategory_id" => $childcate->id,
                 "title" => $childcate->title??"",
                 "image" => $childcate->img??"",
+                "price" => $subcate->price??"",
             ];
         }
         $array1 = collect($arr);

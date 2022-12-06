@@ -46,7 +46,7 @@ class ProfileResource extends JsonResource
             'verified' => $this->verified(),
             'equipements' => isset($jobberSkills[0]) ? $jobberSkills[0]->equipments()  : "",
             'engagments' => isset($jobberSkills[0]) ? $jobberSkills[0]->engagments() : "",
-            'personal_description' => "Description Here",
+            'personal_description' => $this->description??"",
             'total_review' => $this->totalReview(),
             'rating' => $this->rating(),
             'reviews' => ReviewsCollection::collection($this->reviews()) ,

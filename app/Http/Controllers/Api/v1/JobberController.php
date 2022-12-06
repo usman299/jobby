@@ -19,7 +19,6 @@ use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Payment;
 use App\Proposal;
-use App\Reviews;
 use App\Subpaymant;
 use App\Subscribe;
 use App\User;
@@ -35,11 +34,11 @@ class JobberController extends Controller
         $jobStatus = Ignorjobrequest::where('user_id', $user->id)->pluck('j_id');
         $skillSets = JobberSkills::where('jobber_id', $user->id)->get();
         $skills = [];
-        foreach ($skillSets as $skillSet){
+        foreach ($skillSets as $skillSet) {
             $skills = array_merge($skills, explode(',', $skillSet->skills));
         }
         $jobrequests = JobRequest::
-             whereNotIn('id', $jobStatus)
+        whereNotIn('id', $jobStatus)
             ->whereDate('service_date', '>=', Carbon::now())
             ->whereIn('skils', $skills)
             ->where('status', '=', '1')
@@ -65,17 +64,18 @@ class JobberController extends Controller
         return response()->json($success, 200);
     }
 
-    public function scheduleJobs(){
+    public function scheduleJobs()
+    {
         $jobs = Contract::where('jober_id', Auth::user()->id)->latest()->pluck('jobRequest_id');
         $jobrequests = JobRequest::latest()->whereIn('id', $jobs)->get()->unique('service_date');
         $data = [];
-        foreach ($jobrequests as $job){
+        foreach ($jobrequests as $job) {
             $jobDetail = JobRequest::whereIn('id', $jobs)->whereDate('service_date', $job->service_date)->get();
             $data[$job->service_date->format('Y-m-d')] = JobCollection::collection($jobDetail);
         }
-        if ($data == []){
+        if ($data == []) {
             return response()->json(null);
-        }else{
+        } else {
             return json_encode($data);
         }
     }
@@ -115,6 +115,27 @@ class JobberController extends Controller
         return response()->json(['success' => 'Proposal Submit Successfully'], 200);
     }
 
+    public function updateSkills(Request $request, $id)
+    {
+        $user = Auth::user();
+        $jobberSkills = JobberSkills::where('jobber_id', $user->id)->where('id', $id)->first();
+        if (!$jobberSkills){
+            return response()->json(['error' => 'Something happened wrong'], 400);
+        }
+        $jobberSkills->description = $request->description??$jobberSkills->description;
+        $jobberSkills->diploma = $request->diploma??$jobberSkills->diploma;
+        $jobberSkills->diploma_name = $request->diploma_name??$jobberSkills->diploma_name;
+        $jobberSkills->experience = $request->experience??$jobberSkills->experience;
+        $jobberSkills->skills = $request->skills??$jobberSkills->skills;
+        $jobberSkills->equipments = $request->equipments??$jobberSkills->equipments;
+        $jobberSkills->engagments = $request->engagments??$jobberSkills->engagments;
+        if ($jobberSkills->update()) {
+            return response()->json(['success' => 'Skills Update Successfully']);
+        } else {
+            return response()->json(['error' => 'Something happened wrong'], 400);
+        }
+    }
+
     public function skills(Request $request)
     {
         $user = Auth::user();
@@ -134,30 +155,6 @@ class JobberController extends Controller
             $jobberSkills->skills = $request->skills;
             $jobberSkills->equipments = $request->equipments;
             $jobberSkills->engagments = $request->engagments;
-//            if ($request->skills) {
-//                foreach ($request->skills as $skill) {
-//                    $data[] = $skill;
-//                    $jobberSkills->skills = json_encode($data);
-//                }
-//            }
-//            if ($request->job_type) {
-//                foreach ($request->job_type as $jobTypes) {
-//                    $data1[] = $jobTypes;
-//                    $jobberSkills->job_type = json_encode($data1);
-//                }
-//            }
-//            if ($request->equipments) {
-//                foreach ($request->equipments as $equipments) {
-//                    $data2[] = $equipments;
-//                    $jobberSkills->equipments = json_encode($data2);
-//                }
-//            }
-//            if ($request->engagments) {
-//                foreach ($request->engagments as $engagments) {
-//                    $data3[] = $engagments;
-//                    $jobberSkills->engagments = json_encode($data3);
-//                }
-//            }
             $jobberSkills->save();
             return response()->json(['success' => 'Skills Update Successfully'], 200);
         }
@@ -385,11 +382,13 @@ class JobberController extends Controller
             return response()->json(['error' => 'Something is wrong'], 404);
         }
     }
+
     public function subscriptions()
     {
-        $subscription = Subscribe::whereIn('id', [1,2,3])->get();
+        $subscription = Subscribe::whereIn('id', [1, 2, 3])->get();
         return $subscription;
     }
+
     public function myOffers()
     {
         $user = Auth::user();
@@ -397,25 +396,33 @@ class JobberController extends Controller
         $data = MyOffersCollection::collection($offers);
         return response()->json($data);
     }
-    public function singleJob($id){
+
+    public function singleJob($id)
+    {
         $job = JobRequest::find($id);
         $success = new JobCollection($job);
         return response()->json($success, 200);
     }
-    public function myComments(){
+
+    public function myComments()
+    {
         $comments = Comments::where('user_id', Auth::user()->id)->get();
         $success = CommentsCollection::collection($comments);
         return response()->json($success, 200);
     }
-    public function transactions(){
+
+    public function transactions()
+    {
         $user = Auth::user();
         $payments = Payment::where('jobber_id', $user->id)->where('status', 1)->latest()->get();
         return response()->json([
-            'wallet' => (string)$user->wallet??"",
+            'wallet' => (string)$user->wallet ?? "",
             'transactions' => Trancations::collection($payments)
         ]);
     }
-    public function reviews(){
+
+    public function reviews()
+    {
         $user = Auth::user();
         return response()->json([
             'total_reviews' => $user->reviews()->count(),
@@ -425,17 +432,19 @@ class JobberController extends Controller
             'stars_3' => $user->reviews()->where('star', 3)->count(),
             'stars_2' => $user->reviews()->where('star', 2)->count(),
             'stars_1' => $user->reviews()->where('star', 1)->count(),
-            'reviews' => ReviewsCollection::collection($user->reviews()) ,
+            'reviews' => ReviewsCollection::collection($user->reviews()),
         ]);
     }
-    public function subscriptionIntent(){
 
-        \Stripe\Stripe::setApiKey( env('STRIPE_SECRET'));
+    public function subscriptionIntent()
+    {
 
-        $user= Auth::user();
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        $user = Auth::user();
         $customer = \Stripe\Customer::create([
             'email' => Auth::user()->email,
-            'name' => Auth::user()->firstName.' '.Auth::user()->lastName,
+            'name' => Auth::user()->firstName . ' ' . Auth::user()->lastName,
             'description' => 'Test Customer',
             'payment_method' => ['card'],
         ]);
@@ -456,9 +465,10 @@ class JobberController extends Controller
 //        ]);
         return $intent->client_secret;
     }
+
     public function subscriptionSave(Request $request)
     {
-        $subscription = Subscribe::where('id','=',$request->sub_id)->first();
+        $subscription = Subscribe::where('id', '=', $request->sub_id)->first();
         $user = Auth::user();
         $sub = new Subpaymant();
         $sub->sub_id = $subscription->id;
@@ -469,8 +479,7 @@ class JobberController extends Controller
         $sub->paymentMethodId = $request->paymentMethodId;
         $sub->message = $request->message;
 
-        if($sub->save())
-        {
+        if ($sub->save()) {
             $user = User::find($sub->user_id);
             $user->subscription = $subscription->id;
             $user->paymant_id = $sub->id;
@@ -478,7 +487,7 @@ class JobberController extends Controller
             $user->offers = 0;
             $user->update();
         }
-        \Stripe\Stripe::setApiKey( env('STRIPE_SECRET'));
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
         \Stripe\Subscription::create([
             'customer' => $user->stripe_id,
@@ -488,5 +497,25 @@ class JobberController extends Controller
             ],
         ]);
         return response()->json(['success' => 'Subscription Created Successfully']);
+    }
+
+    public function mySkills()
+    {
+        $skills = JobberSkills::where('jobber_id', Auth::user()->id)->get();
+        $data = [];
+        foreach ($skills as $key => $skill) {
+            $data[$key] = [
+                'id' => $skill->id,
+                'main_category' => (string)$skill->category->title ?? "0",
+                'sub_category' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->title ?? "0",
+                'skills' => $skill->skills ?? "",
+                'equipments' => $skill->equipments ?? "",
+                'engagments' => $skill->engagments ?? "",
+                'experience' => $skill->experience ?? "",
+                'diploma_name' => $skill->diploma_name ?? "",
+                'description' => $skill->description ?? "",
+            ];
+        }
+        return $data;
     }
 }
