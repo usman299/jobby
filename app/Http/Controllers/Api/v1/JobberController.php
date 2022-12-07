@@ -508,9 +508,10 @@ class JobberController extends Controller
         foreach ($skills as $key => $skill) {
             $data[$key] = [
                 'id' => $skill->id,
+                'main_category_id' => (int)$skill->main_category ?? 0,
                 'main_category' => (string)$skill->category->title ?? "0",
                 'sub_category' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->title ?? "0",
-                'image' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->img ?? "0",
+                'image' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->img ?? $skill->category->img,
                 'child_categories' => empty($skill->sub_category) ? [] : ChildCategory::where('subcategory_id', $skill->sub_category)->select('id', 'title')->get(),
                 'sub_categories' => SubCategory::where('category_id', '!=', '1')->where('category_id', $skill->main_category)->select('id', 'title')->get()??[],
                 'skills' => $skill->skills ?? "",
