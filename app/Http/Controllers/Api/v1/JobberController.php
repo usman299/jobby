@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1;
 
+use App\ChildCategory;
 use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
@@ -509,6 +510,7 @@ class JobberController extends Controller
                 'main_category' => (string)$skill->category->title ?? "0",
                 'sub_category' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->title ?? "0",
                 'image' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->img ?? "0",
+                'sub_categories' => empty($skill->sub_category) ? "" : ChildCategory::where('id', $skill->sub_category)->select('id', 'title')->get(),
                 'skills' => $skill->skills ?? "",
                 'equipments' => $skill->equipments ?? "",
                 'engagments' => $skill->engagments ?? "",
