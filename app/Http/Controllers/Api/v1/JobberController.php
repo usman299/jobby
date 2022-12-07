@@ -512,7 +512,7 @@ class JobberController extends Controller
                 'sub_category' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->title ?? "0",
                 'image' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->img ?? "0",
                 'child_categories' => empty($skill->sub_category) ? [] : ChildCategory::where('subcategory_id', $skill->sub_category)->select('id', 'title')->get(),
-                'sub_categories' => SubCategory::where('category_id', $skill->main_category)->select('id', 'title')->get()??[],
+                'sub_categories' => SubCategory::where('category_id', '!=', '1')->where('category_id', $skill->main_category)->select('id', 'title')->get()??[],
                 'skills' => $skill->skills ?? "",
                 'equipments' => $skill->equipments ?? "",
                 'engagments' => $skill->engagments ?? "",
