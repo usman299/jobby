@@ -118,16 +118,13 @@ class User extends Authenticatable
         $jobberSkills = JobberSkills::where('jobber_id', $this->id)->first();
         if ($this->verified == 0){
             if (
-                $jobber->social_security_number != null &&
-                $jobber->vital_card_number != null  &&
                 $jobber->score != null &&
                 $jobber->rules1 != null &&
                 $jobber->answer1 != null &&
                 $jobber->insurance1 != null &&
                 $jobberSkills != null &&
-                $jobber->monday != null &&
-                $jobber->tuesday != null && $jobber->wednesday != null &&
-                $jobber->thersday != null && $jobber->friday != null && $jobber->saturday != null && $jobber->sunday != null)
+                $jobber->monday != null
+                )
             {
                 return 1;
             } else {
