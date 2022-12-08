@@ -141,25 +141,20 @@ class JobberController extends Controller
     public function skills(Request $request)
     {
         $user = Auth::user();
-        $checkSkills = JobberSkills::where('jobber_id', $user->id)->where('main_category', $request->main_category)->first();
-        if ($checkSkills) {
-            return response()->json(['error' => 'Skills against this user already update'], 400);
-        } else {
-            $jobberSkills = new JobberSkills();
-            $jobberSkills->jobber_id = $user->id;
-            $jobberSkills->main_category = $request->main_category;
-            $jobberSkills->sub_category = $request->sub_category;
-            $jobberSkills->description = $request->description;
-            $jobberSkills->diploma = $request->diploma;
-            $jobberSkills->diploma_name = $request->diploma_name ?? "";
-            $jobberSkills->experience = $request->experience;
-            $jobberSkills->job_type = $request->job_type;
-            $jobberSkills->skills = $request->skills;
-            $jobberSkills->equipments = $request->equipments;
-            $jobberSkills->engagments = $request->engagments;
-            $jobberSkills->save();
-            return response()->json(['success' => 'Skills Update Successfully'], 200);
-        }
+        $jobberSkills = new JobberSkills();
+        $jobberSkills->jobber_id = $user->id;
+        $jobberSkills->main_category = $request->main_category;
+        $jobberSkills->sub_category = $request->sub_category;
+        $jobberSkills->description = $request->description;
+        $jobberSkills->diploma = $request->diploma;
+        $jobberSkills->diploma_name = $request->diploma_name ?? "";
+        $jobberSkills->experience = $request->experience;
+        $jobberSkills->job_type = $request->job_type;
+        $jobberSkills->skills = $request->skills;
+        $jobberSkills->equipments = $request->equipments;
+        $jobberSkills->engagments = $request->engagments;
+        $jobberSkills->save();
+        return response()->json(['success' => 'Skills Update Successfully'], 200);
     }
 
     public function checkSkills()
