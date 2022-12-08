@@ -30,6 +30,8 @@ class CheckProfileCompletion extends JsonResource
             'insurance1' => $this->insurance1??"",
             'rules1' => $this->rules1??"",
             'eu_id_card_front' => $this->eu_id_card_front??"",
+            'eu_id_driving_front' => $this->eu_id_driving_front??"",
+            'eu_id_passport_front' => $this->eu_id_passport_front??"",
             'eu_id_residence_permit_front' => $this->eu_id_residence_permit_front??"",
             'vital_card_number'  => $this->vital_card_number??"",
             'social_security_number' => $this->social_security_number??"",
