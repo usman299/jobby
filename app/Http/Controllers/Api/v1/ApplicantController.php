@@ -94,7 +94,7 @@ class ApplicantController extends Controller
                 }
             }
 
-            if ($request->hasFile('image1')) {
+            if ($request->hasfile('image1')) {
                 $image1 = $request->file('image1');
                 $name1 = time() . 'image1' . '.' . $image1->getClientOriginalExtension();
                 $destinationPath = 'images';
@@ -105,7 +105,7 @@ class ApplicantController extends Controller
                 })->save($destinationPath . '/' . $name1);
                 $jobrequest->image1 = $destinationPath . '/' . $name1;
             }
-            if ($request->hasFile('image2')) {
+            if ($request->hasfile('image2')) {
                 $image2 = $request->file('image2');
                 $name2 = time() . 'image1' . '.' . $image2->getClientOriginalExtension();
                 $destinationPath = 'images';
@@ -116,7 +116,7 @@ class ApplicantController extends Controller
                 })->save($destinationPath . '/' . $name2);
                 $jobrequest->image2 = $destinationPath . '/' . $name2;
             }
-            if ($request->hasFile('image3')) {
+            if ($request->hashile('image3')) {
                 $image3 = $request->file('image3');
                 $name3 = time() . 'image1' . '.' . $image3->getClientOriginalExtension();
                 $destinationPath = 'images';
