@@ -116,7 +116,7 @@ class ApplicantController extends Controller
                 })->save($destinationPath . '/' . $name2);
                 $jobrequest->image2 = $destinationPath . '/' . $name2;
             }
-            if ($request->hashile('image3')) {
+            if ($request->hasfile('image3')) {
                 $image3 = $request->file('image3');
                 $name3 = time() . 'image1' . '.' . $image3->getClientOriginalExtension();
                 $destinationPath = 'images';
