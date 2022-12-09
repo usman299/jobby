@@ -95,7 +95,7 @@ class JobbyAppController extends Controller
             $walet->transaction_type = 'ingoing';
             $walet->save();
             $user = User::find($contract->applicant->id);
-            $user->wallet = $user->wallet + $contract->payment->price;
+            $user->wallet = $user->wallet + $contract->price;
             $user->update();
 
 //            send notification to demandeur on cancellation
