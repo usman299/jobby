@@ -96,7 +96,7 @@ class ApplicantController extends Controller
 
             if ($request->hasfile('image1')) {
                 $image1 = $request->file('image1');
-                $name1 = time() . 'image1' . '.' . $image1->getClientOriginalExtension();
+                $name1 = rand(000,999) . 'image1' . '.' . $image1->getClientOriginalExtension();
                 $destinationPath = 'images';
                 ini_set('memory_limit', '256M');
                 $img = Image::make($image1);
@@ -107,7 +107,7 @@ class ApplicantController extends Controller
             }
             if ($request->hasfile('image2')) {
                 $image2 = $request->file('image2');
-                $name2 = time() . 'image1' . '.' . $image2->getClientOriginalExtension();
+                $name2 = rand(100,229) . 'image1' . '.' . $image2->getClientOriginalExtension();
                 $destinationPath = 'images';
                 ini_set('memory_limit', '256M');
                 $img2 = Image::make($image2);
@@ -118,7 +118,7 @@ class ApplicantController extends Controller
             }
             if ($request->hasfile('image3')) {
                 $image3 = $request->file('image3');
-                $name3 = time() . 'image1' . '.' . $image3->getClientOriginalExtension();
+                $name3 = rand(333,444) . 'image1' . '.' . $image3->getClientOriginalExtension();
                 $destinationPath = 'images';
                 ini_set('memory_limit', '256M');
                 $img3 = Image::make($image3);
