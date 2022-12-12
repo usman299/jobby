@@ -98,7 +98,7 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::post('/subscription/save', 'JobberController@subscriptionSave');
 
         Route::get('/subscription/payment/{plan_id}/{user_id}/{subscription_id}', 'JobberController@subscriptionPayment');
-        Route::get('/retrieve/subscription', 'Api\v1\JobberController@retriveSubscription');
+        Route::get('/retrieve/subscription', 'JobberController@retriveSubscription');
 
     });
 
