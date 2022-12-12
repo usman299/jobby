@@ -491,7 +491,6 @@ class JobberController extends Controller
             $user->subscription = $subscription->id;
             $user->paymant_id = $sub->id;
             $user->sub_date = $sub->created_at;
-            $user->offers = 0;
             $user->update();
         }
         return view('application.success');
@@ -506,17 +505,25 @@ class JobberController extends Controller
         $sub_payment = Subpaymant::find(Auth::user()->paymant_id);
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        $checkout_session = \Stripe\Checkout\Session::retrieve($sub_payment->key_id);
-        $sub = \Stripe\Subscription::retrieve($checkout_session->subscription, []);
-
-        $session = \Stripe\BillingPortal\Session::create([
-            'customer' => $checkout_session->customer,
-            'return_url' => route('web.index') . '/subscription/cancel',
-        ]);
-        return response()->json([
-            'active_subscription_id' => (string)Auth::user()->subscription??"",
-            'subscription_status' => $sub->status,
-            'subscription_portal' => $session->url
-        ]);
+        if (Auth::user()->subscription == 1){
+            return response()->json([
+                'active_subscription_id' => "1",
+                'subscription_status' => "active",
+                'subscription_portal' => "",
+                'remaining_offers' => Auth::user()->offers
+            ]);
+        }else{
+            $checkout_session = \Stripe\Checkout\Session::retrieve($sub_payment->key_id);
+            $sub = \Stripe\Subscription::retrieve($checkout_session->subscription, []);
+            $session = \Stripe\BillingPortal\Session::create([
+                'customer' => $checkout_session->customer,
+                'return_url' => route('web.index') . '/subscription/cancel',
+            ]);
+            return response()->json([
+                'active_subscription_id' => (string)Auth::user()->subscription??"",
+                'subscription_status' => $sub->status,
+                'subscription_portal' => $session->url
+            ]);
+        }
     }
 }
