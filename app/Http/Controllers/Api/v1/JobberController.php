@@ -491,7 +491,7 @@ class JobberController extends Controller
             $user->subscription = $subscription->id;
             $user->paymant_id = $sub->id;
             $user->sub_date = $sub->created_at;
-            $user->offers = "unlimited";
+            $user->offers = "Unlimited";
             $user->update();
         }
         return view('application.success');
