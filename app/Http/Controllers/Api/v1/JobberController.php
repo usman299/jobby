@@ -522,7 +522,8 @@ class JobberController extends Controller
             return response()->json([
                 'active_subscription_id' => (string)Auth::user()->subscription??"",
                 'subscription_status' => $sub->status,
-                'subscription_portal' => $session->url
+                'subscription_portal' => $session->url,
+                'remaining_offers' => Auth::user()->offers
             ]);
         }
     }
