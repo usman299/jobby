@@ -485,6 +485,7 @@ class JobberController extends Controller
         $sub->user_id = $user_id;
         $sub->price = $subscription->price;
         $sub->key_id = $session_id;
+        $sub->save();
         if ($sub->save()) {
             $user = User::find($user_id);
             $user->subscription = $subscription->id;
@@ -502,11 +503,19 @@ class JobberController extends Controller
 
     public function retriveSubscription()
     {
+        $sub_payment = Subpaymant::where('id', Auth::user()->paymant_id)->first();
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $checkout_session = \Stripe\Checkout\Session::retrieve('cs_test_a1anixxl3Ir9pWx61aagMnT8M3NhfAjAaGYGbEPGuwPTx7yp0wOeQUnIgc');
-        $sub = \Stripe\Subscription::retrieve($checkout_session->subscription, []);
-        if ($sub->status == 'active') {
 
-        }
+        $checkout_session = \Stripe\Checkout\Session::retrieve($sub_payment->key_id);
+        $sub = \Stripe\Subscription::retrieve($checkout_session->subscription, []);
+
+        $session = \Stripe\BillingPortal\Session::create([
+            'customer' => $checkout_session->customer,
+            'return_url' => route('web.index') . '/subscription/cancel',
+        ]);
+        return response()->json([
+            'subscription_status' => $sub->status,
+            'subscription_portal' => $session->url
+        ]);
     }
 }
