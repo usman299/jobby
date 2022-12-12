@@ -19,6 +19,7 @@ class CreateSubscribesTable extends Migration
             $table->string('offers')->nullable();
             $table->string('fee')->nullable();
             $table->string('price')->nullable();
+            $table->string('plan_id')->nullable();
             $table->timestamps();
         });
     }
