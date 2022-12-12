@@ -509,7 +509,7 @@ class JobberController extends Controller
         if (Auth::user()->subscription == 1){
             return response()->json([
                 'active_subscription_id' => "1",
-                'subscription_status' => "active",
+                'subscription_status' => "Active",
                 'subscription_portal' => "",
                 'remaining_offers' => (string)Auth::user()->offers
             ]);
