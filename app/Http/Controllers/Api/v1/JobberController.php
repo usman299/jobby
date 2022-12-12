@@ -511,7 +511,7 @@ class JobberController extends Controller
                 'active_subscription_id' => "1",
                 'subscription_status' => "active",
                 'subscription_portal' => "",
-                'remaining_offers' => Auth::user()->offers
+                'remaining_offers' => (string)Auth::user()->offers
             ]);
         }else{
             $checkout_session = \Stripe\Checkout\Session::retrieve($sub_payment->key_id);
@@ -524,7 +524,7 @@ class JobberController extends Controller
                 'active_subscription_id' => (string)Auth::user()->subscription??"",
                 'subscription_status' => $sub->status,
                 'subscription_portal' => $session->url,
-                'remaining_offers' => Auth::user()->offers
+                'remaining_offers' => (string)Auth::user()->offers
             ]);
         }
     }
