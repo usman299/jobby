@@ -470,7 +470,7 @@ class JobberController extends Controller
                 'success_url' => route('web.index') . '/subscription/success/' . $user_id . '/{CHECKOUT_SESSION_ID}/'.$subscription_id,
                 'cancel_url' => route('web.index') . '/subscription/cancel',
             ]);
-            return $checkout_session->url;
+            return response()->json(['url' => $checkout_session->url]);
         } catch (\Exception $e) {
             http_response_code(500);
             echo json_encode(['error' => $e->getMessage()]);
