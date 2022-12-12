@@ -503,7 +503,7 @@ class JobberController extends Controller
 
     public function retriveSubscription()
     {
-        $sub_payment = Subpaymant::where('id', Auth::user()->paymant_id)->first();
+        $sub_payment = Subpaymant::find(Auth::user()->paymant_id);
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
         $checkout_session = \Stripe\Checkout\Session::retrieve($sub_payment->key_id);
@@ -514,6 +514,7 @@ class JobberController extends Controller
             'return_url' => route('web.index') . '/subscription/cancel',
         ]);
         return response()->json([
+            'active_subscription_id' => (string)Auth::user()->subscription??"",
             'subscription_status' => $sub->status,
             'subscription_portal' => $session->url
         ]);
