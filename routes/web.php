@@ -38,6 +38,9 @@ Route::get('/ip', function () {
         $details = json_decode($json, true);
         return $details;
 });
+Route::get('/subscription/success/{user_id}/{session}/{subscription_id}', 'Api\v1\JobberController@subscriptionSuccess');
+Route::get('/subscription/cancel', 'Api\v1\JobberController@subscriptionCancel');
+
 
 Route::get('/stripe', function () {
   return view('stripe');

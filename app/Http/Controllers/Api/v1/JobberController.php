@@ -121,16 +121,16 @@ class JobberController extends Controller
     {
         $user = Auth::user();
         $jobberSkills = JobberSkills::where('jobber_id', $user->id)->where('id', $id)->first();
-        if (!$jobberSkills){
+        if (!$jobberSkills) {
             return response()->json(['error' => 'Something happened wrong'], 400);
         }
-        $jobberSkills->description = $request->description??$jobberSkills->description;
-        $jobberSkills->diploma = $request->diploma??$jobberSkills->diploma;
-        $jobberSkills->diploma_name = $request->diploma_name??$jobberSkills->diploma_name;
-        $jobberSkills->experience = $request->experience??$jobberSkills->experience;
-        $jobberSkills->skills = $request->skills??$jobberSkills->skills;
-        $jobberSkills->equipments = $request->equipments??$jobberSkills->equipments;
-        $jobberSkills->engagments = $request->engagments??$jobberSkills->engagments;
+        $jobberSkills->description = $request->description ?? $jobberSkills->description;
+        $jobberSkills->diploma = $request->diploma ?? $jobberSkills->diploma;
+        $jobberSkills->diploma_name = $request->diploma_name ?? $jobberSkills->diploma_name;
+        $jobberSkills->experience = $request->experience ?? $jobberSkills->experience;
+        $jobberSkills->skills = $request->skills ?? $jobberSkills->skills;
+        $jobberSkills->equipments = $request->equipments ?? $jobberSkills->equipments;
+        $jobberSkills->engagments = $request->engagments ?? $jobberSkills->engagments;
         if ($jobberSkills->update()) {
             return response()->json(['success' => 'Skills Update Successfully']);
         } else {
@@ -433,69 +433,6 @@ class JobberController extends Controller
         ]);
     }
 
-    public function subscriptionIntent()
-    {
-
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-        $user = Auth::user();
-        $customer = \Stripe\Customer::create([
-            'email' => Auth::user()->email,
-            'name' => Auth::user()->firstName . ' ' . Auth::user()->lastName,
-            'description' => 'Test Customer',
-            'payment_method' => ['card'],
-        ]);
-        $user->stripe_id = $customer->id;
-        $user->save();
-
-        $intent = \Stripe\Subscription::create([
-            'customer' => $customer->id,
-            'items' => [
-                ['price' => 'price_1M7X4rD4LNNtfNaOitKMyx5y'],
-            ],
-        ]);
-//        $payment_intent = \Stripe\PaymentIntent::create([
-//            'amount' => 6.99 * 100,
-//            'currency' => 'EUR',
-//            'customer' => $customer->id,
-//            'description' => "Description"
-//        ]);
-        return $intent->client_secret;
-    }
-
-    public function subscriptionSave(Request $request)
-    {
-        $subscription = Subscribe::where('id', '=', $request->sub_id)->first();
-        $user = Auth::user();
-        $sub = new Subpaymant();
-        $sub->sub_id = $subscription->id;
-        $sub->user_id = Auth::user()->id;
-        $sub->price = $request->total;
-        $sub->key_id = $request->plan;
-        $sub->card_holder_name = $request->card_holder_name;
-        $sub->paymentMethodId = $request->paymentMethodId;
-        $sub->message = $request->message;
-
-        if ($sub->save()) {
-            $user = User::find($sub->user_id);
-            $user->subscription = $subscription->id;
-            $user->paymant_id = $sub->id;
-            $user->sub_date = $sub->created_at;
-            $user->offers = 0;
-            $user->update();
-        }
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-        \Stripe\Subscription::create([
-            'customer' => $user->stripe_id,
-            'default_payment_method' => $request->paymentMethodId,
-            'items' => [
-                ['price' => $request->plan],
-            ],
-        ]);
-        return response()->json(['success' => 'Subscription Created Successfully']);
-    }
-
     public function mySkills()
     {
         $skills = JobberSkills::where('jobber_id', Auth::user()->id)->get();
@@ -506,9 +443,9 @@ class JobberController extends Controller
                 'main_category_id' => (int)$skill->main_category ?? 0,
                 'main_category' => (string)$skill->category->title ?? "0",
                 'sub_category' => empty($skill->subcategory) ? "" : (string)$skill->subcategory->title ?? "0",
-                'image' => isset($skill->subcategory) ? $skill->subcategory->img  : $skill->category->img,
+                'image' => isset($skill->subcategory) ? $skill->subcategory->img : $skill->category->img,
                 'child_categories' => empty($skill->sub_category) ? [] : ChildCategory::where('subcategory_id', $skill->sub_category)->select('id', 'title')->get(),
-                'sub_categories' => SubCategory::where('category_id', '!=', '1')->where('category_id', $skill->main_category)->select('id', 'title')->get()??[],
+                'sub_categories' => SubCategory::where('category_id', '!=', '1')->where('category_id', $skill->main_category)->select('id', 'title')->get() ?? [],
                 'skills' => $skill->skills ?? "",
                 'equipments' => $skill->equipments ?? "",
                 'engagments' => $skill->engagments ?? "",
@@ -518,5 +455,58 @@ class JobberController extends Controller
             ];
         }
         return $data;
+    }
+
+    public function subscriptionPayment($plan_id, $user_id, $subscription_id)
+    {
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        try {
+            $checkout_session = \Stripe\Checkout\Session::create([
+                'line_items' => [[
+                    'price' => $plan_id,
+                    'quantity' => 1,
+                ]],
+                'mode' => 'subscription',
+                'success_url' => route('web.index') . '/subscription/success/' . $user_id . '/{CHECKOUT_SESSION_ID}/'.$subscription_id,
+                'cancel_url' => route('web.index') . '/subscription/cancel',
+            ]);
+            return $checkout_session->url;
+        } catch (\Exception $e) {
+            http_response_code(500);
+            echo json_encode(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function subscriptionSuccess($user_id, $session_id, $subscription_id)
+    {
+        $subscription = Subscribe::where('id', '=', $subscription_id)->first();
+        $sub = new Subpaymant();
+        $sub->sub_id = $subscription->id;
+        $sub->user_id = $user_id;
+        $sub->price = $subscription->price;
+        $sub->key_id = $session_id;
+        if ($sub->save()) {
+            $user = User::find($user_id);
+            $user->subscription = $subscription->id;
+            $user->paymant_id = $sub->id;
+            $user->sub_date = $sub->created_at;
+            $user->offers = 0;
+            $user->update();
+        }
+        return view('application.success');
+    }
+
+    public function subscriptionCancel(){
+        return view('application.cancel');
+    }
+
+    public function retriveSubscription()
+    {
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        $checkout_session = \Stripe\Checkout\Session::retrieve('cs_test_a1anixxl3Ir9pWx61aagMnT8M3NhfAjAaGYGbEPGuwPTx7yp0wOeQUnIgc');
+        $sub = \Stripe\Subscription::retrieve($checkout_session->subscription, []);
+        if ($sub->status == 'active') {
+
+        }
     }
 }
