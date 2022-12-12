@@ -68,6 +68,8 @@ class UserController extends Controller
                 $jobberProfile->jobber_id = $user->id;
                 $jobberProfile->jobber_category_id = 0;
                 $jobberProfile->save();
+                $email->offers = "15";
+                $email->update();
             }
             return response()->json(['success' => $success], $this->successStatus);
         } else {
