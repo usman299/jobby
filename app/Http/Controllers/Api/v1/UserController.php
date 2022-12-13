@@ -30,6 +30,9 @@ class UserController extends Controller
     {
         if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])) {
             $user = Auth::user();
+            if ($user->status == 0){
+                return response()->json(['error' => 'Blocked from Admin'], 403);
+            }
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['id'] = $user->id;
             return response()->json(['success' => $success], $this->successStatus);
@@ -157,6 +160,9 @@ class UserController extends Controller
     public function forgetPassword(Request $request)
     {
         $user = User::where('email', '=', $request->email)->first();
+        if ($user->status == 0){
+            return response()->json(['error' => 'Blocked from Admin'], 403);
+        }
         $user->password = Hash::make($request->password);
         $user->update();
         auth()->login($user, true);
