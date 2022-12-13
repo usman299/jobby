@@ -23,6 +23,7 @@ class ContractCollection extends JsonResource
             'price' => $this->price??"",
             'contract_no' => $this->contract_no??"",
             'hourly_rate' => $this->proposal->hours??"",
+            'duration' => $this->proposal->duration??"",
             'admin_charges' => $this->percentage??"",
             'job'=> new JobCollectionResource($this->jobRequest),
             'jobberProfile' => new ProfileResource($this->jobber),
