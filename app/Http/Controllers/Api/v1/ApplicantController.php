@@ -79,21 +79,6 @@ class ApplicantController extends Controller
             $jobrequest->jobbers = $request->jobbers;
             $jobrequest->urgent = $request->urgent;
             $jobrequest->dob = $request->dob;
-            if ($request->childcategory_id == 29) {
-                if ($request->child_question) {
-                    foreach ($request->child_question as $ques) {
-                        $data[] = $ques;
-                        $jobrequest->child_question = json_encode($data);
-                    }
-                }
-                if ($request->child_dob) {
-                    foreach ($request->child_dob as $dateofbirth) {
-                        $dataa[] = $dateofbirth;
-                        $jobrequest->child_dob = json_encode($dataa);
-                    }
-                }
-            }
-
             if ($request->hasfile('image1')) {
                 $image1 = $request->file('image1');
                 $name1 = rand(000,999) . 'image1' . '.' . $image1->getClientOriginalExtension();
