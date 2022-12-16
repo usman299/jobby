@@ -20,11 +20,12 @@
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
-        "munafio/chatify": "^1.2",
         "paragonie/random_compat": "2.*",
         "paypal/paypal-checkout-sdk": "1.0.1",
         "stripe/stripe-php": "^7.108",
-        "yoeunes/toastr": "^1.2"
+        "yoeunes/toastr": "^1.2",
+        "beyondcode/laravel-websockets": "^1.12",
+        "pusher/pusher-php-server": "^4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

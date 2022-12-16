@@ -29,11 +29,8 @@ Route::get('/testmynot', function () {
     $jobber = \App\User::where('id', 3)->first();
     NotificationHelper::pushNotificationJobber($msg, $jobber->pluck('device_token'), $activity);
 });
-Route::get('/test', function () {
-    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-    $checkout_session = \Stripe\Checkout\Session::retrieve('cs_test_a1WyszaJAIXKcfQwae9XASc4hc4Xdo0M6TaQoOyV571vfh0HyUc9RNKOgH');
-    $sub = \Stripe\Subscription::retrieve($checkout_session->subscription, []);
-    dd($sub);
+Route::get('/broadcasting', function () {
+    broadcast(new \App\Events\SendMessage("Hi im Broadcasting Message"))->toOthers();
 });
 Route::get('/ip', function () {
         $json = file_get_contents("https://ipinfo.io/".request()->ip()."/geo");
