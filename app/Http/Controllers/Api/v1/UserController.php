@@ -210,6 +210,6 @@ class UserController extends Controller
         $senderUsers = User::whereIn('id', $senders)->get();
         $recieveUsers = User::whereIn('id', $recievers)->get();
         $final = collect($senderUsers)->merge(collect($recieveUsers));
-        return response()->json(DemProfileResource::collection($final));
+        return response()->json(DemProfileResource::collection($final->latest()));
     }
 }
