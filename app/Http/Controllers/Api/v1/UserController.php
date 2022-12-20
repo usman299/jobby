@@ -6,7 +6,6 @@ use App\Chat;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\v1\Applicant\DemProfileResource;
 use App\Http\Resources\v1\Jobber\ProfileResource;
-
 use App\JobberProfile;
 use App\Jobs\OtpMailJob;
 use App\User;
@@ -21,26 +20,6 @@ use Validator;
 class UserController extends Controller
 {
     public $successStatus = 200;
-
-    /**
-     * login api
-     *
-     * @return JsonResponse
-     */
-    public function login()
-    {
-        if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])) {
-            $user = Auth::user();
-            if ($user->status == 0){
-                return response()->json(['error' => 'Blocked from Admin'], 403);
-            }
-            $success['token'] = $user->createToken('MyApp')->accessToken;
-            $success['id'] = $user->id;
-            return response()->json(['success' => $success], $this->successStatus);
-        } else {
-            return response()->json(['error' => 'Unauthorised'], 401);
-        }
-    }
 
     /**
      * Register api
@@ -67,7 +46,7 @@ class UserController extends Controller
             $user = User::create($input);
             $success['token'] = $user->createToken('MyApp')->accessToken;
             $success['id'] = $user->id;
-            if ($user->role == 1){
+            if ($user->role == 1) {
                 $jobberProfile = new JobberProfile();
                 $jobberProfile->jobber_id = $user->id;
                 $jobberProfile->jobber_category_id = 0;
@@ -112,9 +91,9 @@ class UserController extends Controller
             })->save($destinationPath . '/' . $name1);
             $user->image = $destinationPath . '/' . $name1;
         }
-        if ($user->update()){
+        if ($user->update()) {
             return response()->json(['success' => 'Successfully Updated']);
-        }else{
+        } else {
             return response()->json(['error' => 'Something Happend Wrong'], 400);
         }
     }
@@ -161,7 +140,7 @@ class UserController extends Controller
     public function forgetPassword(Request $request)
     {
         $user = User::where('email', '=', $request->email)->first();
-        if ($user->status == 0){
+        if ($user->status == 0) {
             return response()->json(['error' => 'Blocked from Admin'], 403);
         }
         $user->password = Hash::make($request->password);
@@ -172,19 +151,39 @@ class UserController extends Controller
         return response()->json(['success' => $success], $this->successStatus);
     }
 
+    /**
+     * login api
+     *
+     * @return JsonResponse
+     */
+    public function login()
+    {
+        if (Auth::attempt(['email' => request('email'), 'password' => request('password'), 'role' => request('role')])) {
+            $user = Auth::user();
+            if ($user->status == 0) {
+                return response()->json(['error' => 'Blocked from Admin'], 403);
+            }
+            $success['token'] = $user->createToken('MyApp')->accessToken;
+            $success['id'] = $user->id;
+            return response()->json(['success' => $success], $this->successStatus);
+        } else {
+            return response()->json(['error' => 'Unauthorised'], 401);
+        }
+    }
+
     public function jobberGetProfile($jobber_id)
     {
-        $user = User::where('id','=',$jobber_id)->where('role','=',1)->first();
+        $user = User::where('id', '=', $jobber_id)->where('role', '=', 1)->first();
         $success = new ProfileResource($user);
-        return response()->json($success,200);
+        return response()->json($success, 200);
 
     }
 
     public function demandeurGetProfile($demandeur_id)
     {
-        $user = User::where('id','=',$demandeur_id)->where('role','=',2)->first();
+        $user = User::where('id', '=', $demandeur_id)->where('role', '=', 2)->first();
         $success = new DemProfileResource($user);
-        return response()->json($success,200);
+        return response()->json($success, 200);
     }
 
     public function token($token)
@@ -195,11 +194,18 @@ class UserController extends Controller
         return response()->json(['success' => 'successfully updated']);
     }
 
-    public function createChat(Request $request){
+    public function createChat(Request $request)
+    {
         $chat = new Chat();
         $chat->sender_id = Auth::user()->id;
         $chat->receiver_id = $request->id;
         $chat->save();
         return response()->json(['success' => 'chat created successfully']);
+    }
+
+    public function chats()
+    {
+        $chats = Chat::where('sender_id', Auth::user()->id)->select('receiver_id')->get();
+        return $chats->unique('receiver_id');
     }
 }

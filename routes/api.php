@@ -39,6 +39,7 @@ Route::get('/country', 'Api\v1\AppSettingController@country');
 Route::group(['middleware' => 'auth:api'], function(){
 
     Route::post('create/chat', 'Api\v1\UserController@createChat');
+    Route::get('chats', 'Api\v1\UserController@chats');
 
     Route::group( ['prefix' => 'demandeur','namespace'=>'Api\v1'], function () {
 
