@@ -207,6 +207,6 @@ class UserController extends Controller
     {
         $chats = Chat::where('sender_id', Auth::user()->id)->get();
         $users = User::whereIn('id', $chats->unique('receiver_id')->pluck('receiver_id'))->get();
-        return DemProfileResource::collection($users);
+        return response()->json(DemProfileResource::collection($users));
     }
 }
