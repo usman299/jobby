@@ -207,8 +207,8 @@ class UserController extends Controller
     {
         $senders = Chat::where('sender_id', Auth::user()->id)->pluck('receiver_id');
         $recievers = Chat::where('receiver_id', Auth::user()->id)->pluck('sender_id');
-        $senderUsers = User::whereIn('id', $senders)->get();
-        $recieveUsers = User::whereIn('id', $recievers)->get();
+        $senderUsers = User::whereIn('id', $senders)->latest()->get();
+        $recieveUsers = User::whereIn('id', $recievers)->latest()->get();
         $final = collect($senderUsers)->merge(collect($recieveUsers));
         return response()->json(DemProfileResource::collection($final));
     }
