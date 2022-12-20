@@ -38,6 +38,8 @@ Route::get('/country', 'Api\v1\AppSettingController@country');
 
 Route::group(['middleware' => 'auth:api'], function(){
 
+    Route::post('create/chat', 'Api\v1\UserController@createChat');
+
     Route::group( ['prefix' => 'demandeur','namespace'=>'Api\v1'], function () {
 
         Route::post('/jobrequest/submit', 'ApplicantController@jobRequestSubmit');

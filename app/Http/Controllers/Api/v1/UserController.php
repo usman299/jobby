@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\v1;
 
+use App\Chat;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\v1\Applicant\DemProfileResource;
 use App\Http\Resources\v1\Jobber\ProfileResource;
@@ -192,5 +193,13 @@ class UserController extends Controller
         $user->device_token = $token;
         $user->update();
         return response()->json(['success' => 'successfully updated']);
+    }
+
+    public function createChat(Request $request){
+        $chat = new Chat();
+        $chat->sender_id = Auth::user()->id;
+        $chat->receiver_id = $request->id;
+        $chat->save();
+        return response()->json(['success' => 'chat created successfully']);
     }
 }
