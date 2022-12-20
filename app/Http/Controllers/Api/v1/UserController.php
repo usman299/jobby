@@ -205,10 +205,11 @@ class UserController extends Controller
 
     public function chats()
     {
-        $senders = Chat::where('sender_id', Auth::user()->id)->get();
-        $recievers = Chat::where('receiver_id', Auth::user()->id)->get();
-        $final = collect($senders)->merge(collect($recievers));
-        $users = User::whereIn('id', $final)->get()->unique();
-        return response()->json(DemProfileResource::collection($users));
+        $senders = Chat::where('sender_id', Auth::user()->id)->pluck('receiver_id');
+        $recievers = Chat::where('receiver_id', Auth::user()->id)->pluck('sender_id');
+        $senderUsers = User::whereIn('id', $senders)->get();
+        $recieveUsers = User::whereIn('id', $recievers)->get();
+        $final = collect($senderUsers)->merge(collect($recieveUsers));
+        return response()->json(DemProfileResource::collection($final));
     }
 }
