@@ -25,7 +25,8 @@
         "stripe/stripe-php": "^7.108",
         "yoeunes/toastr": "^1.2",
         "beyondcode/laravel-websockets": "^1.12",
-        "pusher/pusher-php-server": "^4.0"
+        "pusher/pusher-php-server": "^4.0",
+        "ext-curl": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
