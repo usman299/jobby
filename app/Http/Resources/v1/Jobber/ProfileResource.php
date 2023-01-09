@@ -47,6 +47,7 @@ class ProfileResource extends JsonResource
             'equipements' => isset($jobberSkills[0]) ? $jobberSkills[0]->equipments()  : "",
             'engagments' => isset($jobberSkills[0]) ? $jobberSkills[0]->engagments() : "",
             'personal_description' => $this->description??"",
+            'device_token' => $this->device_token??"",
             'total_review' => $this->totalReview(),
             'rating' => $this->rating(),
             'reviews' => ReviewsCollection::collection($this->reviews()) ,

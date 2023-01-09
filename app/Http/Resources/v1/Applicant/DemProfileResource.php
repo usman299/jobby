@@ -29,6 +29,7 @@ class DemProfileResource extends JsonResource
             'image'=> $this->image??"",
             'gender'=> (int)$this->gender ?? 0,
             'description'=> $this->description??"",
+            'device_token' => $this->device_token??"",
             'member_since'=> $date->diffForHumans() ??"",
             'total_hire_jobber' => $this->totalHireJobber(),
             'active_jobs' => $this->activeJobs(),
