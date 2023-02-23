@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
 //        $schedule->call('App\Http\Controllers\CronController@draftjobs')->daily();
         $schedule->call('App\Http\Controllers\CronController@expireJobRequest')->everyMinute();
-        $schedule->call('App\Http\Controllers\CronController@completeJobs')->everyMinute();
+        $schedule->call('App\Http\Controllers\CronController@completeJobs')->daily();
 //        $schedule->call('App\Http\Controllers\CronController@notResponceProposals')->daily();
 //        $schedule->call('App\Http\Controllers\CronController@notJobberSendProposals')->daily();
     }
