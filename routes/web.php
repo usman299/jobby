@@ -415,6 +415,11 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function () {
     Route::get('/paymant/details', 'Admin\JobbyAppController@paymantDetials')->name('paymant.details');
 
     Route::get('/app/condition', 'Admin\JobbyAppController@condition')->name('app.condition');
+    Route::get('/app/insurance', 'Admin\JobbyAppController@insurance')->name('app.insurance');
+    Route::get('/app/tax_certificate', 'Admin\JobbyAppController@tax_certificate')->name('app.tax_certificate');
+    Route::get('/app/tax_credit', 'Admin\JobbyAppController@tax_credit')->name('app.tax_credit');
+    Route::get('/app/help', 'Admin\JobbyAppController@help')->name('app.help');
+    Route::post('/pages/store', 'Admin\JobbyAppController@pagesStore')->name('pages.store');
     Route::post('/app/condition/store', 'Admin\JobbyAppController@conditionStore')->name('app.condition.store');
     Route::get('/app/mail/register', 'Admin\JobbyAppController@mailRegisterCreate')->name('app.mail.register');
     Route::post('/app/mail/store', 'Admin\JobbyAppController@mailRegisterStore')->name('app.mail.store');

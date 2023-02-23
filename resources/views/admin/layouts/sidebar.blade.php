@@ -93,9 +93,13 @@
                     <span class="nav-text"><!-- Users --> Réglage</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{route('question.index')}}"><!-- question -->Question Réponse</a></li>
+                    <li><a href="{{route('question.index')}}"><!-- question -->Faq</a></li>
                     <li><a href="{{route('about.create')}}"><!--  about --> À propos de nous</a></li>
                     <li><a href="{{route('app.condition')}}"><!--  about --> Condition</a></li>
+                    <li><a href="{{route('app.help')}}"><!--  about --> Help</a></li>
+                    <li><a href="{{route('app.insurance')}}"><!--  about --> Assurance</a></li>
+                    <li><a href="{{route('app.tax_credit')}}"><!--  about --> Crédit d'impôt</a></li>
+                    <li><a href="{{route('app.tax_certificate')}}"><!--  about --> Attestation fiscale</a></li>
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

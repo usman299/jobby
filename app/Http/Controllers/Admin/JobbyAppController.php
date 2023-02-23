@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers\Admin;
+use App\AppSetting;
 use App\ChMessage;
 use App\Condition;
 use App\Contract;
@@ -125,6 +126,44 @@ class JobbyAppController extends Controller
     {
         $condition = Condition::first();
         return view('admin.setting.condtion.create', compact('condition'));
+    }
+    public function help()
+    {
+        $data = AppSetting::first();
+        return view('admin.setting.pages.help', compact('data'));
+    }
+    public function insurance()
+    {
+        $data = AppSetting::first();
+        return view('admin.setting.pages.insurance', compact('data'));
+    }
+    public function tax_certificate()
+    {
+        $data = AppSetting::first();
+        return view('admin.setting.pages.tax_certificate', compact('data'));
+    }
+    public function tax_credit()
+    {
+        $data = AppSetting::first();
+        return view('admin.setting.pages.tax_credit', compact('data'));
+    }
+    public function pagesStore(Request $request){
+        $data = AppSetting::first();
+        if ($request->help){
+            $data->help = $request->help;
+        }
+        if ($request->insurance){
+            $data->insurance = $request->insurance;
+        }
+        if ($request->tax_certificate){
+            $data->tax_certificate = $request->tax_certificate;
+        }
+        if ($request->tax_credit){
+            $data->tax_credit = $request->tax_credit;
+        }
+        $data->update();
+        toastr()->success('Update Successfuly!');
+        return redirect()->back();
     }
     public function conditionStore(Request $request)
     {
