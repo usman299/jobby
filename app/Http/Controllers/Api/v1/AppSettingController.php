@@ -71,4 +71,17 @@ class AppSettingController extends Controller
             'terms' => $condition->description2
         ]);
     }
+    public function pages(){
+        $appSetting = AppSetting::first();
+        return response()->json([
+            'insurance' => $appSetting->insurance??"",
+            'help' => $appSetting->help??"",
+            'tax_certificate' => $appSetting->tax_certificate??"",
+            'tax_credit' => $appSetting->tax_credit??"",
+            'facebook' => $appSetting->facebook??"",
+            'instagram' => $appSetting->instagram??"",
+            'twitter' => $appSetting->twitter??"",
+            'youtube' => $appSetting->youtube??"",
+        ]);
+    }
 }

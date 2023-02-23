@@ -32,6 +32,7 @@ Route::get('/subcategories/{category_id}', 'Api\v1\CategoryController@geSubCateg
 Route::get('/childCategories/{subcategory_id}', 'Api\v1\CategoryController@getChildCategories');
 
 Route::get('/faq', 'Api\v1\AppSettingController@support');
+Route::get('/pages', 'Api\v1\AppSettingController@pages');
 Route::get('/about', 'Api\v1\AppSettingController@about');
 Route::get('/terms/and/privacy', 'Api\v1\AppSettingController@termsPrivacy');
 Route::get('/country', 'Api\v1\AppSettingController@country');

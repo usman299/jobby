@@ -23,6 +23,14 @@ class CreateAppSettingsTable extends Migration
             $table->string('applicantIntroScreen1')->nullable();
             $table->string('applicantIntroScreen2')->nullable();
             $table->string('applicantIntroScreen3')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('youtube')->nullable();
+            $table->longText('help')->nullable();
+            $table->longText('insurance')->nullable();
+            $table->longText('tax_certificate')->nullable();
+            $table->longText('tax_credit')->nullable();
             $table->timestamps();
         });
     }
