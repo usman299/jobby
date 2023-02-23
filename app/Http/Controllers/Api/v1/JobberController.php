@@ -19,6 +19,7 @@ use App\JobberSkills;
 use App\JobRequest;
 use App\Jobs\NewProposalJob;
 use App\Payment;
+use App\Points;
 use App\Proposal;
 use App\SubCategory;
 use App\Subpaymant;
@@ -527,5 +528,13 @@ class JobberController extends Controller
                 'remaining_offers' => ucfirst(Auth::user()->offers)
             ]);
         }
+    }
+
+    public function points(){
+        $points = Points::latest()->where('user_id', Auth::user()->id);
+        return response()->json([
+            'points' => $points->get()->sum('points'),
+            'history' => $points->select('points', 'created_at', 'job_id')->get()
+        ]);
     }
 }

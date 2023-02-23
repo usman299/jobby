@@ -5,6 +5,7 @@ use App\Condition;
 use App\Contract;
 use App\Countory;
 use App\Http\Controllers\Controller;
+use App\Http\Helper;
 use App\Http\NotificationHelper;
 use App\JobRequest;
 use App\Payment;
@@ -87,6 +88,8 @@ class JobbyAppController extends Controller
             $msg1 = "Votre travail est terminé par l'administrateur, si vous avez d'autres problèmes, contactez l'équipe d'assistance";
             NotificationHelper::pushNotification($msg1, [$contract->applicant->device_token], $activity1);
             NotificationHelper::addtoNitification($contract->jobber->id, $contract->applicant->id, $msg1, $contract->id, $activity1, $contract->applicant->country);
+
+            Helper::pushPoints($contract->jobber->id, '100', $contract->id);
         }else if ($status == 3){
             $walet = new Wallet();
             $walet->amount = $contract->price;

@@ -7,6 +7,7 @@ use App\Check;
 use App\Comments;
 use App\Contract;
 use App\Http\Controllers\Controller;
+use App\Http\Helper;
 use App\Http\NotificationHelper;
 use App\Http\Resources\v1\Applicant\CesuCollection;
 use App\Http\Resources\v1\Applicant\CommentsCollection;
@@ -388,6 +389,7 @@ class ApplicantController extends Controller
 
         NotificationHelper::pushNotificationJobber($msg, [$contract->jobber->device_token], $activity);
         NotificationHelper::addtoNitification($user->id, $contract->jobber->id, $msg, $contract->id, $activity, $user->country);
+        Helper::pushPoints($contract->jobber->id, '100', $contract->id);
 
         if ($review->save()){
             return response()->json(['success' => 'Job complete successfully']);

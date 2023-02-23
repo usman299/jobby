@@ -39,6 +39,7 @@ Route::get('/ip', function () {
 });
 Route::get('/subscription/success/{user_id}/{session}/{subscription_id}', 'Api\v1\JobberController@subscriptionSuccess');
 Route::get('/subscription/cancel', 'Api\v1\JobberController@subscriptionCancel');
+Route::get('/testcrons', 'CronController@completeJobs');
 
 
 Route::get('/stripe', function () {

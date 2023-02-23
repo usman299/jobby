@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helper;
 use App\Http\NotificationHelper;
 use App\JobStatus;
 use App\Mail\DraftJobs;
@@ -10,7 +11,9 @@ use App\JobberProfile;
 use App\JobRequest;
 use App\Mail\NotResponce;
 use App\Mail\JobberNotResponse;
+use App\Payment;
 use App\Proposal;
+use App\Reviews;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -95,6 +98,34 @@ class CronController extends Controller
         $userIds = $data->pluck('applicant_id');
         $users = User::whereIn('id', $userIds)->pluck('device_token');
         NotificationHelper::pushNotification($msg, $users, $activity);
+        return 1;
+    }
+    public function completeJobs(){
+        $contracts = Contract::where('created_at', '<', Carbon::now()->subDay()->toDateTimeString())->get();
+        foreach ($contracts as $contract){
+            $jobrequests = JobRequest::where('id', $contract->jobRequest_id)->first();
+            $jobrequests->status = 2;
+            $jobrequests->update();
+
+            $contract = Contract::where('jobRequest_id', $contract->jobRequest_id)->first();
+            $contract->status = 2;
+            $contract->update();
+
+            $payment = Payment::where('contract_id', $contract->id)->first();
+            $payment->status = 1;
+            $payment->update();
+
+            $jobber = User::find($contract->jober_id);
+            $jobber->wallet = $jobber->wallet + $payment->jobber_get;
+            $jobber->update();
+
+            $activity = "Tâche terminée";
+            $msg = "Toutes nos félicitations! Votre travail est terminé";
+
+            NotificationHelper::pushNotificationJobber($msg, [$contract->jobber->device_token], $activity);
+            NotificationHelper::addtoNitification($contract->applicant->id, $contract->jobber->id, $msg, $contract->id, $activity, $contract->applicant->country);
+            Helper::pushPoints($contract->jobber->id, '100', $contract->id);
+        }
         return 1;
     }
 }
