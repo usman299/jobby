@@ -539,20 +539,22 @@ class JobberController extends Controller
     }
     public function paymentRecord(){
         $user = Auth::user();
-        $payments = Payment::where('jobber_id', $user->id)->where('status', 1)->latest()->get();
+        $payments = Payment::where('jobber_id', $user->id)->where('status', 1)
+            ->whereYear('created_at', '=', "2023")
+                ->latest()->get();
         return response()->json([
-           'jan' =>  $payments->sum('price'),
-           'feb' =>  $payments->sum('price'),
-           'mar' =>  $payments->sum('price'),
-           'apr' =>  $payments->sum('price'),
-           'may' =>  $payments->sum('price'),
-           'jun' =>  $payments->sum('price'),
-           'jul' =>  $payments->sum('price'),
-           'aug' =>  $payments->sum('price'),
-           'sep' =>  $payments->sum('price'),
-           'oct' =>  $payments->sum('price'),
-           'nov' =>  $payments->sum('price'),
-           'dec' =>  $payments->sum('price'),
+           'jan' =>  $payments->whereMonth('created_at', '=', "01")->sum('price'),
+           'feb' =>  $payments->whereMonth('created_at', '=', "02")->sum('price'),
+           'mar' =>  $payments->whereMonth('created_at', '=', "03")->sum('price'),
+           'apr' =>  $payments->whereMonth('created_at', '=', "04")->sum('price'),
+           'may' =>  $payments->whereMonth('created_at', '=', "05")->sum('price'),
+           'jun' =>  $payments->whereMonth('created_at', '=', "06")->sum('price'),
+           'jul' =>  $payments->whereMonth('created_at', '=', "07")->sum('price'),
+           'aug' =>  $payments->whereMonth('created_at', '=', "08")->sum('price'),
+           'sep' =>  $payments->whereMonth('created_at', '=', "09")->sum('price'),
+           'oct' =>  $payments->whereMonth('created_at', '=', "10")->sum('price'),
+           'nov' =>  $payments->whereMonth('created_at', '=', "11")->sum('price'),
+           'dec' =>  $payments->whereMonth('created_at', '=', "12")->sum('price'),
         ]);
     }
 }
