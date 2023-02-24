@@ -540,8 +540,7 @@ class JobberController extends Controller
     public function paymentRecord(){
         $user = Auth::user();
         $payments = Payment::where('jobber_id', $user->id)->where('status', 1)
-            ->whereYear('created_at', '=', "2023")
-                ->latest()->get();
+            ->whereYear('created_at', '=', "2023");
         return response()->json([
            'jan' =>  $payments->whereMonth('created_at', '=', "01")->sum('price'),
            'feb' =>  $payments->whereMonth('created_at', '=', "02")->sum('price'),
