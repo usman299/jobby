@@ -128,6 +128,5 @@ class CronController extends Controller
             NotificationHelper::addtoNitification($contract->applicant->id, $contract->jobber->id, $msg, $contract->id, $activity, $contract->applicant->country);
             Helper::pushPoints($contract->jobber->id, '100', $contract->id);
         }
-        return 1;
     }
 }
