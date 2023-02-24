@@ -101,7 +101,7 @@ class CronController extends Controller
         return 1;
     }
     public function completeJobs(){
-        $contracts = Contract::where('created_at', '<', Carbon::now()->subDay()->toDateTimeString())->where('status', 1)->get();
+        $contracts = Contract::where('status', 1)->where('created_at', '<', Carbon::now()->subDay()->toDateTimeString())->get();
         foreach ($contracts as $contract){
             $jobrequests = JobRequest::where('id', $contract->jobRequest_id)->first();
             $jobrequests->status = 2;
