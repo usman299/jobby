@@ -537,4 +537,22 @@ class JobberController extends Controller
             'history' => $points->select('points', 'created_at', 'job_id')->get()
         ]);
     }
+    public function paymentRecord(){
+        $user = Auth::user();
+        $payments = Payment::where('jobber_id', $user->id)->where('status', 1)->latest()->get();
+        return response()->json([
+           'jan' =>  $payments->sum('price'),
+           'feb' =>  $payments->sum('price'),
+           'mar' =>  $payments->sum('price'),
+           'apr' =>  $payments->sum('price'),
+           'may' =>  $payments->sum('price'),
+           'jun' =>  $payments->sum('price'),
+           'jul' =>  $payments->sum('price'),
+           'aug' =>  $payments->sum('price'),
+           'sep' =>  $payments->sum('price'),
+           'oct' =>  $payments->sum('price'),
+           'nov' =>  $payments->sum('price'),
+           'dec' =>  $payments->sum('price'),
+        ]);
+    }
 }

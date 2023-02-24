@@ -104,6 +104,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
         Route::get('/subscription/payment/{plan_id}/{user_id}/{subscription_id}', 'JobberController@subscriptionPayment');
         Route::get('/retrieve/subscription', 'JobberController@retriveSubscription');
+        Route::get('/payment/record', 'JobberController@paymentRecord');
 
     });
 
