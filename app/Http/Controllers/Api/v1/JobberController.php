@@ -542,18 +542,18 @@ class JobberController extends Controller
         $payments = Payment::where('jobber_id', $user->id)->where('status', 1)
             ->whereYear('created_at', '=', "2023");
         return response()->json([
-           'jan' =>  $payments->whereMonth('created_at', '=', "01")->sum('price'),
-           'feb' =>  $payments->whereMonth('created_at', '=', "02")->sum('price'),
-           'mar' =>  $payments->whereMonth('created_at', '=', "03")->sum('price'),
-           'apr' =>  $payments->whereMonth('created_at', '=', "04")->sum('price'),
-           'may' =>  $payments->whereMonth('created_at', '=', "05")->sum('price'),
-           'jun' =>  $payments->whereMonth('created_at', '=', "06")->sum('price'),
-           'jul' =>  $payments->whereMonth('created_at', '=', "07")->sum('price'),
-           'aug' =>  $payments->whereMonth('created_at', '=', "08")->sum('price'),
-           'sep' =>  $payments->whereMonth('created_at', '=', "09")->sum('price'),
-           'oct' =>  $payments->whereMonth('created_at', '=', "10")->sum('price'),
-           'nov' =>  $payments->whereMonth('created_at', '=', "11")->sum('price'),
-           'dec' =>  $payments->whereMonth('created_at', '=', "12")->sum('price'),
+           'jan' =>  (double)$payments->whereMonth('created_at', '=', "01")->sum('price'),
+           'feb' =>  (double)$payments->whereMonth('created_at', '=', "02")->sum('price'),
+           'mar' =>  (double)$payments->whereMonth('created_at', '=', "03")->sum('price'),
+           'apr' =>  (double)$payments->whereMonth('created_at', '=', "04")->sum('price'),
+           'may' =>  (double)$payments->whereMonth('created_at', '=', "05")->sum('price'),
+           'jun' =>  (double)$payments->whereMonth('created_at', '=', "06")->sum('price'),
+           'jul' =>  (double)$payments->whereMonth('created_at', '=', "07")->sum('price'),
+           'aug' =>  (double)$payments->whereMonth('created_at', '=', "08")->sum('price'),
+           'sep' =>  (double)$payments->whereMonth('created_at', '=', "09")->sum('price'),
+           'oct' =>  (double)$payments->whereMonth('created_at', '=', "10")->sum('price'),
+           'nov' =>  (double)$payments->whereMonth('created_at', '=', "11")->sum('price'),
+           'dec' =>  (double)$payments->whereMonth('created_at', '=', "12")->sum('price'),
         ]);
     }
 }
