@@ -122,10 +122,10 @@ class CronController extends Controller
             $activity = "Tâche terminée";
             $msg = "Toutes nos félicitations! Votre travail est terminé";
 
-            NotificationHelper::pushNotificationJobber($msg, [$contract->jobber->device_token], $activity);
-            NotificationHelper::pushNotificationJobber($msg, [$contract->applicant->device_token], $activity);
-            NotificationHelper::addtoNitification($contract->jobber->id, $contract->applicant->id, $msg, $contract->id, $activity, $contract->jobber->country);
-            NotificationHelper::addtoNitification($contract->applicant->id, $contract->jobber->id, $msg, $contract->id, $activity, $contract->applicant->country);
+//            NotificationHelper::pushNotificationJobber($msg, [$contract->jobber->device_token], $activity);
+//            NotificationHelper::pushNotificationJobber($msg, [$contract->applicant->device_token], $activity);
+//            NotificationHelper::addtoNitification($contract->jobber->id, $contract->applicant->id, $msg, $contract->id, $activity, $contract->jobber->country);
+//            NotificationHelper::addtoNitification($contract->applicant->id, $contract->jobber->id, $msg, $contract->id, $activity, $contract->applicant->country);
             Helper::pushPoints($contract->jobber->id, '100', $contract->id);
         }
         return 1;
