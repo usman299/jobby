@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/stripe/success/{id}', 'Api\v1\StripeConnectController@success')->name('success.connect');
 
 
 Route::post('login', 'Api\v1\UserController@login');
@@ -75,6 +76,12 @@ Route::group(['middleware' => 'auth:api'], function(){
         Route::get('/single/job/{job_id}', 'JobberController@singleJob');
         Route::get('/job/ignore/{job_id}', 'JobberController@jobrequestsIgnore');
         Route::post('/proposal/submit', 'JobberController@proposalSubmit');
+
+        //Stripe Connect
+        Route::get('/stripe/express/dashboard', 'StripeConnectController@expressDashboard');
+        Route::get('/stripe/connect', 'StripeConnectController@stripeConnect');
+        Route::get('/stripe/connect/status', 'StripeConnectController@isConnected');
+        Route::get('/get/payment/intent/{reciever_id}/{price}', 'StripeConnectController@getConnectedAccountIntent');
 
         //Profile
         Route::post('/skills', 'JobberController@skills');
