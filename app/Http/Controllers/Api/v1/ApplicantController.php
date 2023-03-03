@@ -389,7 +389,7 @@ class ApplicantController extends Controller
 
         NotificationHelper::pushNotificationJobber($msg, [$contract->jobber->device_token], $activity);
         NotificationHelper::addtoNitification($user->id, $contract->jobber->id, $msg, $contract->id, $activity, $user->country);
-        Helper::pushPoints($contract->jobber->id, '100', $contract->id);
+        Helper::pushPoints($contract->jobber->id, '10', $contract->id);
 
         if ($review->save()){
             return response()->json(['success' => 'Job complete successfully']);

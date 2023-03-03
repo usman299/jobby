@@ -90,7 +90,7 @@ class JobbyAppController extends Controller
             NotificationHelper::pushNotification($msg1, [$contract->applicant->device_token], $activity1);
             NotificationHelper::addtoNitification($contract->jobber->id, $contract->applicant->id, $msg1, $contract->id, $activity1, $contract->applicant->country);
 
-            Helper::pushPoints($contract->jobber->id, '100', $contract->id);
+            Helper::pushPoints($contract->jobber->id, '10', $contract->id);
         }else if ($status == 3){
             $walet = new Wallet();
             $walet->amount = $contract->price;
