@@ -69,7 +69,12 @@ class StripeConnectController extends Controller
         Stripe::setApiKey(env('STRIPE_SECRET'));
         $reciever = User::find($reciever_id);
         $sender = Auth::user();
-        $companycharges = $price * 0.20;
+        if ($price < 50){
+            $companycharges = $price * 0.10;
+        }else{
+            $companycharges = $price * 0.20;
+        }
+
         try {
             $paymentIntent = PaymentIntent::create([
                 'amount' => round($price * 100, 2),
