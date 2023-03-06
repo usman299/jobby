@@ -49,7 +49,7 @@ class JobCollection extends JsonResource
             'hours' => $this->hours??"",
             'status' => (int)$this->status,
             'address' => $this->address??"",
-            'phone' => $this->phone??"",
+            'phone' => $this->subcategory->img??"",
             'image1' => $this->image1??"",
             'image2' => $this->image2??"",
             'image3' => $this->image3??"",
