@@ -57,7 +57,7 @@ class ChildCategorySeeder extends Seeder
 
         ]);
         ChildCategory::create([
-            'title' => "Accrocher un TV au mur",
+            'title' => "Accrocher Un TV au mur",
             'category_id' => "1",
             'subcategory_id' => "1",
             'countory_id'=> "1",
