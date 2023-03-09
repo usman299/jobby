@@ -387,10 +387,10 @@ class JobberController extends Controller
         return $subscription;
     }
 
-    public function myOffers()
+    public function myOffers($id)
     {
         $user = Auth::user();
-        $offers = Proposal::where('jobber_id', $user->id)->get();
+        $offers = Proposal::where('jobber_id', $user->id)->where('status', $id)->latest()->get();
         $data = MyOffersCollection::collection($offers);
         return response()->json($data);
     }

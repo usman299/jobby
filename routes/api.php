@@ -101,7 +101,7 @@ Route::group(['middleware' => 'auth:api'], function(){
 
         Route::post('/get/pro/badge', 'JobberController@getBadgePro');
         Route::get('/subscriptions', 'JobberController@subscriptions');
-        Route::get('/my/offers', 'JobberController@myOffers');
+        Route::get('/my/offers/{id}', 'JobberController@myOffers');
         Route::get('/my/comments', 'JobberController@myComments');
         Route::get('/transactions', 'JobberController@transactions');
         Route::get('/reviews', 'JobberController@reviews');
