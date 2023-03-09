@@ -57,6 +57,8 @@ CreateUsersTable extends Migration
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->string('otp')->nullable();
+            $table->string('connect_id')->nullable();
+            $table->integer('connect_status')->nullable();
 
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
