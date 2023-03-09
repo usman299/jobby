@@ -11,8 +11,6 @@ class SliderGalerySeeder extends Seeder
      */
     public function run()
     {
-
-
         SliderGalery::create([
             'userRole' => "2",
             'countory_id'=> "1",
