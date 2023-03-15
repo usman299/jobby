@@ -87,7 +87,7 @@ class CronController extends Controller
 
     public function expireJobRequest(){
         $time = \Carbon\Carbon::now();
-        $data = JobRequest::whereDate('service_date', '<', Carbon::now())->whereTime('start_time', '<', $time->format('H:i'))->where('status', 1);
+        $data = JobRequest::whereDate('service_date', '<=', Carbon::now())->whereTime('start_time', '<=', $time->format('H:i'))->where('status', 1);
         $jobrequests = $data->get();
         $activity = "Fermer l'emploi";
         $msg = "Votre travail est fermé en raison d'une date de service passée, mettez à jour la date de votre travail afin que vous puissiez trouver un bon jobber";
