@@ -213,7 +213,7 @@ class ApplicantController extends Controller
             })->save($destinationPath . '/' . $name3);
             $jobrequest->image3 = $destinationPath . '/' . $name3;
         }
-        $jobrequest->update();
+        $jobrequest->save();
         return response()->json(['success' => 'JobRequest Updated Successfully'], 200);
     }
 
