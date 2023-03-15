@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\NotificationHelper;
+use App\JobRequest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -40,6 +42,11 @@ Route::get('/ip', function () {
 Route::get('/time', function () {
         $time = \Carbon\Carbon::now();
         return $time->format('H:i');
+});
+Route::get('/expirejobs', function () {
+    $time = \Carbon\Carbon::now();
+    $data = JobRequest::whereDate('service_date', '<', Carbon::now())->whereTime('start_time', '<', $time->format('H:i'))->where('status', 1);
+       dd($data);
 });
 Route::get('/subscription/success/{user_id}/{session}/{subscription_id}', 'Api\v1\JobberController@subscriptionSuccess');
 Route::get('/subscription/cancel', 'Api\v1\JobberController@subscriptionCancel');
