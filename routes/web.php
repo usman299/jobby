@@ -37,6 +37,10 @@ Route::get('/ip', function () {
         $details = json_decode($json, true);
         return $details;
 });
+Route::get('/time', function () {
+        $time = \Carbon\Carbon::now();
+        return $time;
+});
 Route::get('/subscription/success/{user_id}/{session}/{subscription_id}', 'Api\v1\JobberController@subscriptionSuccess');
 Route::get('/subscription/cancel', 'Api\v1\JobberController@subscriptionCancel');
 Route::get('/testcrons', 'CronController@completeJobs');
