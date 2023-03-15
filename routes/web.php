@@ -46,7 +46,7 @@ Route::get('/time', function () {
 Route::get('/expirejobs', function () {
     $time = \Carbon\Carbon::now();
     $data = JobRequest::whereDate('service_date', '<', Carbon::now())->whereTime('start_time', '<', $time->format('H:i'))->where('status', 1);
-       dd($data);
+       dd($data->get());
 });
 Route::get('/subscription/success/{user_id}/{session}/{subscription_id}', 'Api\v1\JobberController@subscriptionSuccess');
 Route::get('/subscription/cancel', 'Api\v1\JobberController@subscriptionCancel');
