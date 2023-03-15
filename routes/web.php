@@ -39,7 +39,7 @@ Route::get('/ip', function () {
 });
 Route::get('/time', function () {
         $time = \Carbon\Carbon::now();
-        return $time;
+        return $time->format('H:i');
 });
 Route::get('/subscription/success/{user_id}/{session}/{subscription_id}', 'Api\v1\JobberController@subscriptionSuccess');
 Route::get('/subscription/cancel', 'Api\v1\JobberController@subscriptionCancel');
