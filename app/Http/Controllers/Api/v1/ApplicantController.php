@@ -137,14 +137,49 @@ class ApplicantController extends Controller
 
     public function jobRequestUpdate(Request $request)
     {
-        $jobrequest = JobRequest::find($request->job_id);
+        $oldjob = JobRequest::find($request->job_id);
+
+
+        $jobrequest = new JobRequest();
+        $jobrequest->applicant_id = $oldjob->applicant_id;
+        $jobrequest->category_id = $oldjob->category_id;
+        $jobrequest->subcategory_id = $oldjob->subcategory_id;
+        $jobrequest->childcategory_id = $oldjob->childcategory_id;
+        $jobrequest->skils = $oldjob->skils;
+        $jobrequest->country_id = $oldjob->country_id;
+        $jobrequest->title = $oldjob->title;
+        $jobrequest->description = $oldjob->description;
+        $jobrequest->duration = $oldjob->duration;
+        $jobrequest->hours = $oldjob->hours;
+        $jobrequest->estimate_budget = $oldjob->estimate_budget;
+        $jobrequest->address = $oldjob->address . '-' . $oldjob->state . '-' . $oldjob->postal;
+        $jobrequest->phone = $oldjob->phone;
+        $jobrequest->small = $oldjob->small;
+        $jobrequest->medium = $oldjob->medium;
+        $jobrequest->large = $oldjob->large;
+        $jobrequest->verylarge = $oldjob->verylarge;
+        $jobrequest->question = $oldjob->question;
+        $jobrequest->question1 = $oldjob->question1;
+        $jobrequest->question2 = $oldjob->question2;
+        $jobrequest->question3 = $oldjob->question3;
+        $jobrequest->surface = $oldjob->surface;
+        $jobrequest->count = $oldjob->count;
+        $jobrequest->input = $oldjob->input;
+        $jobrequest->lat = $oldjob->latitude;
+        $jobrequest->long = $oldjob->longitude;
+        $jobrequest->pickup_address = $oldjob->pickup_address;
+        $jobrequest->destination_address = $oldjob->destination_address;
+        $jobrequest->jobbers = $oldjob->jobbers;
+        $jobrequest->urgent = $oldjob->urgent;
+        $jobrequest->dob = $oldjob->dob;
+
+
         $jobrequest->service_date = $request->service_date;
         $jobrequest->start_time = $request->start_time;
         $endtime = Carbon::parse($request->start_time);
         $endTime = $endtime->addMinutes($jobrequest->duration*60);
         $jobrequest->end_time = $endTime->format('H:i');
         $jobrequest->detail_description = $request->detail_description;
-        $jobrequest->status = 1;
         if ($request->hasFile('image1')) {
             $image1 = $request->file('image1');
             $name1 = time() . 'image1' . '.' . $image1->getClientOriginalExtension();
@@ -185,7 +220,11 @@ class ApplicantController extends Controller
     public function jobs($status)
     {
         $user = Auth::user();
-        $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', $status)->get();
+        if ($status == 1){
+            $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->whereIn('status', [1,3])->get();
+        }else{
+            $jobrequests = JobRequest::latest()->where('applicant_id', $user->id)->where('status', $status)->get();
+        }
         $data = JobCollectionResource::collection($jobrequests);
         return response()->json($data);
     }
@@ -253,8 +292,15 @@ class ApplicantController extends Controller
         $proposal = Proposal::find($request->proposal_id);
         $proposal->status = 2;
         $proposal->update();
+
+        $proposals = Proposal::where('id', '!=', $proposal->id)->where('jobRequest_id', $proposal->jobRequest_id)->get();
+        foreach ($proposals as $prop){
+            $prop->status = 3;
+            $prop->update();
+        }
+
         $jobrequest = JobRequest::find($proposal->jobRequest_id);
-        $jobrequest->status = 2;
+        $jobrequest->status = 3;
         $jobrequest->update();
 
         $contract = new Contract();
